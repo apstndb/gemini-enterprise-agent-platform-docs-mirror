@@ -1,8 +1,8 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/configure-cmek
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/configure-cmek
-title: Configure Customer-Managed Encryption Keys (CMEK) for sandboxes
-description: Learn how to configure Customer-Managed Encryption Keys (CMEK) to protect data at rest in Gemini Enterprise Agent Platform sandboxes.
+title: Configure Customer-managed encryption keys (CMEK) for sandboxes
+description: Learn how to configure Customer-managed encryption keys (CMEK) to protect data at rest in Gemini Enterprise Agent Platform sandboxes.
 data_source: docs.cloud.google.com
 ---
 
@@ -10,7 +10,7 @@ Encrypt a sandbox's data at rest with a Cloud Key Management Service key that yo
 
 ## Overview
 
-By default, Google Cloud encrypts your data at rest with Google-owned and Google-managed encryption keys. [Customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/kms/docs/cmek) let you create and manage a [Cloud Key Management Service](https://docs.cloud.google.com/kms/docs) encryption key so you can audit its use, rotate it, and disable or destroy it to make the protected data unreadable.
+By default, Google Cloud encrypts your data at rest with Google-owned and Google-managed encryption keys. [Customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/kms/docs/cmek) let you create and manage a [Cloud KMS](https://docs.cloud.google.com/kms/docs) encryption key so you can audit its use, rotate it, and disable or destroy it to make the protected data unreadable.
 
 The Gemini Enterprise Agent Platform sandbox runs your agent's code, browser, or custom container in an isolated environment. That environment writes customer content to disk and can be checkpointed to snapshots, which CMEK protects when you enable it on the sandbox's parent Gemini Enterprise Agent Platform instance.
 
@@ -35,7 +35,7 @@ To encrypt [custom container images](https://docs.cloud.google.com/gemini-enterp
 
 ## Before you begin
 
-- Have or create a Cloud Key Management Service [key ring and key](https://docs.cloud.google.com/kms/docs/resource-hierarchy) . As a best practice, keep keys in a separate project from your Gemini Enterprise Agent Platform workloads, managed by a different administrator.
+- Have or create a Cloud KMS [key ring and key](https://docs.cloud.google.com/kms/docs/resource-hierarchy) . As a best practice, keep keys in a separate project from your Gemini Enterprise Agent Platform workloads, managed by a different administrator.
 
 - Confirm you hold the roles to create and manage keys ( `roles/cloudkms.admin` ) and to create the Gemini Enterprise Agent Platform instance.
 
@@ -48,7 +48,7 @@ To encrypt [custom container images](https://docs.cloud.google.com/gemini-enterp
       --project=PROJECT_ID
   ```
 
-## Create a Cloud Key Management Service key
+## Create a Cloud KMS key
 
 Create a single-region key in the same region as your Gemini Enterprise Agent Platform instance:
 
@@ -70,7 +70,7 @@ Replace the following:
 
 ## Grant the Agent Platform service agent access to your key
 
-Grant the Agent Runtime service agent the Cloud Key Management Service CryptoKey Encrypter/Decrypter role ( `roles/cloudkms.cryptoKeyEncrypterDecrypter` ) on the key:
+Grant the Agent Runtime service agent the Cloud KMS CryptoKey Encrypter/Decrypter role ( `roles/cloudkms.cryptoKeyEncrypterDecrypter` ) on the key:
 
 ```
 # Grant Encrypter/Decrypter on the key
@@ -127,11 +127,11 @@ curl -X POST \
 
 1.  [Create your sandbox template and sandbox](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/custom-containers) under the CMEK-protected Gemini Enterprise Agent Platform instance.
 2.  Confirm the Gemini Enterprise Agent Platform instance reports your key in `encryption_spec.kms_key_name` by [getting the instance details](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents#get) .
-3.  Optionally, check [Cloud Key Management Service audit logs](https://docs.cloud.google.com/kms/docs/audit-logging) to confirm encrypt and decrypt operations occur as sandboxes start and snapshots are written.
+3.  Optionally, check [Cloud KMS audit logs](https://docs.cloud.google.com/kms/docs/audit-logging) to confirm encrypt and decrypt operations occur as sandboxes start and snapshots are written.
 
 ## What's next
 
-- Read [Customer-managed encryption keys for Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek) .
+- Read [CMEK for Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek) .
 - See [Deploy agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent) for enabling CMEK on the Agent Runtime.
-- Review [CMEK integrations](https://docs.cloud.google.com/kms/docs/cmek) and [key rotation](https://docs.cloud.google.com/kms/docs/key-rotation) in Cloud Key Management Service.
+- Review [CMEK integrations](https://docs.cloud.google.com/kms/docs/cmek) and [key rotation](https://docs.cloud.google.com/kms/docs/key-rotation) in Cloud KMS.
 - Read the [Sandbox overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox) and [Manage snapshots](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/manage-snapshots) .

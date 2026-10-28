@@ -107,6 +107,21 @@ Verification and enforcement rely on the **Agent Gateway** , which acts as a run
 3.  **Evaluation:** The policy engine evaluates the suggested tool call against user intent and any applicable constraints, and renders its verdict.
 4.  **Enforcement:** The verdict is added to the model response, removing the proposed tool call, before returning to the agent through the Agent Gateway.
 
+### Supported model providers
+
+The policy engine reads the request and response format of each supported model provider, so the same policies apply whichever model your agent uses. If a tool call is denied, the engine replaces it with a denial message in that provider's response format.
+
+The `when` condition of the authorization policy that you create in [Connect the policy engine to Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#connect-policy-engine) must match the request path of each API that your agents call:
+
+| API                                                                                                                                                                                                                                               | Request path        |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|
+| Gemini Developer API and Gemini models on Gemini Enterprise Agent Platform                                                                                                                                                                        | `:generateContent`  |
+| Anthropic Messages API                                                                                                                                                                                                                            | `/v1/messages`      |
+| Claude models on Gemini Enterprise Agent Platform                                                                                                                                                                                                 | `:rawPredict`       |
+| OpenAI Chat Completions API, Mistral AI API, the OpenAI-compatible endpoint on Gemini Enterprise Agent Platform (including Llama models in Gemini Enterprise Agent Platform Model Garden), and self-hosted OpenAI-compatible servers such as vLLM | `/chat/completions` |
+
+> **Note:** The policy engine doesn't support streamed model responses, such as `:streamGenerateContent` , `:streamRawPredict` , or requests that set `"stream": true` . A tool call in a streamed response might not be blocked. Configure your agent to call its model without streaming.
+
 ### Determining a verdict
 
 At runtime, the system considers the following inputs to reach a verdict:

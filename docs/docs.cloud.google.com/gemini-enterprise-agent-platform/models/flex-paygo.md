@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/flex-paygo
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/flex-paygo
 title: Flex PayGo
-description: Learn about Flex PayGo, a cost-effective option for accessing Gemini models in Gemini Enterprise Agent Platform for non-critical, latency-tolerant workloads.
+description: Learn about Flex pay-as-you-go, a cost-effective option for accessing Gemini models in Gemini Enterprise Agent Platform for non-critical, latency-tolerant workloads.
 data_source: docs.cloud.google.com
 ---
 
@@ -12,7 +12,6 @@ data_source: docs.cloud.google.com
 
 > **Notice:** Flex PayGo is supported only in select Gemini 3.8 Flash and earlier models. It is not supported in newer Gemini models such as Gemini 4 Argon. Existing [supported models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/flex-paygo#supported-models) remain available. Consider moving to one of the following options:
 >
-> - **[Off-Peak PayGo](https://docs.google.com/document/d/1CEJ6civRFQpmPW9GWwXWouPbxQfluKbtxlyxX2q8yeI/edit?resourcekey=0-hmuWYFTHZzmk3QcehkKtYQ)** : Best for real-time, synchronous traffic that needs off-peak pricing with minimal code changes ( `offpeak` API header)
 > - **[Batch API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference)** : Best for latency-tolerant, high-volume offline jobs
 > - **[Deferred Agentic API](https://docs.google.com/document/d/19WXEk8FPD-QbHzHLfJIV3-cpbep_ZPZjmkrdZNoeXUE/edit?resourcekey=0-oDk0z1zbdv_gAuiQA_zgjg)** : Best for asynchronous agentic and tool-calling workloads for third-party and custom agents
 

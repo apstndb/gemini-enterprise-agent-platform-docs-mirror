@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-text-embeddings
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-text-embeddings
 title: Get text embeddings
-description: Generate text embeddings with Gemini Enterprise Agent Platform Text Embeddings API. Use dense vectors for semantic search and Vector Search.
+description: Generate text embeddings with Gemini Enterprise Agent Platform Text Embeddings API. Use dense vectors for semantic search and Vector Search on Gemini Enterprise Agent Platform.
 data_source: docs.cloud.google.com
 ---
 

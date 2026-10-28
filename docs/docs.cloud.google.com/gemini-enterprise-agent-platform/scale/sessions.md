@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions
 title: Agent Platform Sessions overview
-description: Manage agent interaction history, conversation context, and long-term memory with Agent Platform Sessions via ADK or API.
+description: Manage agent interaction history, conversation context, and long-term memory with Agent Platform Sessions via Agent Development Kit (ADK) or API.
 data_source: docs.cloud.google.com
 ---
 
@@ -10,7 +10,7 @@ Agent Platform Sessions maintains the history of interactions between a user and
 
 You have several options to use Agent Platform Sessions:
 
-- [Agent Development Kit](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/manage-with-adk) : Once you deploy your Agent Development Kit (ADK) agent to Gemini Enterprise Agent Platform, session management is handled automatically.
+- [Agent Development Kit (ADK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/manage-with-adk) : Once you deploy your ADK agent to Gemini Enterprise Agent Platform, session management is handled automatically.
 
 - [API calls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/manage-with-api) : You can make direct API calls to Agent Platform Sessions if you don't want to manage sessions using an ADK agent.
 

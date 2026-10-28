@@ -1,2 +1,1 @@
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/query-search/search-data-stores
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/robotics-er-2
+

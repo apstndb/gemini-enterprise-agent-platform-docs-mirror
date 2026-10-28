@@ -6,7 +6,7 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-This page provides a list of templates you can use for model-based evaluation using the Gen AI Evaluation Service. For more information about model-based metrics, see [Define your own metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/determine-eval) .
+This page provides a list of templates you can use for model-based evaluation using the Gen AI evaluation service. For more information about model-based metrics, see [Define your own metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/determine-eval) .
 
 ## Overview
 

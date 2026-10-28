@@ -46,7 +46,7 @@ For more information, see [Manage feedback with Python SDK or REST API](https://
 
 To use the Feedback service, make sure you have the following:
 
-- An existing Agent Runtime instance. For more information, see [Develop an Agent Development Kit agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-adk-agent) .
+- An existing Agent Runtime instance. For more information, see [Develop an Agent Development Kit (ADK) agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-adk-agent) .
 - Optional: To view feedback entries next to trace events in the console, make sure your Agent Runtime instance has [tracing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/tracing) enabled.
 
 ### Get the required roles

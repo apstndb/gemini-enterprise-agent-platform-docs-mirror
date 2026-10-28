@@ -12,7 +12,7 @@ If you don't require the additional compliance controls, use [Ground with Google
 
 ## Overview
 
-Web Grounding for Enterprise uses a web index that is used to generate grounded responses. The service doesn't log customer data and supports VPC service controls. For more information, see [Security controls for generative AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) . Because no customer data is persisted, customer-managed encryption keys (CMEK) and Access Transparency (AxT) aren't applicable.
+Web Grounding for Enterprise uses a web index that is used to generate grounded responses. The service doesn't log customer data and supports VPC service controls. For more information, see [Security controls for generative AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) . Because no customer data is persisted, Customer-managed encryption keys (CMEK) and Access Transparency (AxT) aren't applicable.
 
 > **Important:** If you receive Search suggestions with a response, that response is a *grounded result* subject to the Grounding with Search terms in the [Service Terms section of the Service Specific Terms](https://cloud.google.com/terms/service-terms) . For more information about using Google Search suggestions, see [Use Search suggestions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/web-grounding-enterprise#use-google-search-suggestions) .
 
@@ -36,6 +36,7 @@ This section lists the models that support Web Grounding for Enterprise.
 
 #### Click to expand supported models
 
+- [Gemini Robotics ER 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/robotics-er-2) preview
 - [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1)
 - [Gemini 4 Argon Cyber Permissive](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber)
 - [Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon)

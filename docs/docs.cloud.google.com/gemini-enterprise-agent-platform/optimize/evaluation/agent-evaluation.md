@@ -61,7 +61,7 @@ Installation instructions follow each skill.
 
 ### Agents CLI eval skill
 
-A CLI-driven workflow to evaluate and optimize Agent Development Kit (ADK) agents using the `agents-cli eval` commands. This skill covers:
+A CLI-driven workflow to evaluate and optimize ADK agents using the `agents-cli eval` commands. This skill covers:
 
 - Preparing eval datasets and synthesizing multi-turn scenarios with user simulation
 - Running inference, grading traces, and analyzing failure clusters
@@ -73,9 +73,9 @@ To install, run the following command:
 npx skills add https://github.com/google/agents-cli --skill google-agents-cli-eval
 ```
 
-### Agent Platform GenAI Evaluation Service flywheel skill
+### Agent Platform Gen AI evaluation service flywheel skill
 
-An SDK-driven playbook to evaluate and improve models and agents through the Gemini Enterprise Agent Platform GenAI Evaluation Service, using the Agent Platform GenAI Evaluation SDK ( `client.evals.evaluate()` ). This skill covers:
+An SDK-driven playbook to evaluate and improve models and agents through the Gemini Enterprise Agent Platform Gen AI evaluation service, using the Agent Platform GenAI Evaluation SDK ( `client.evals.evaluate()` ). This skill covers:
 
 - Building eval datasets from session traces, DataFrames, or synthetic generation
 - Selecting, configuring, and writing custom metrics with LLM-as-judge scoring

@@ -114,7 +114,7 @@ Represented in `spec.class_methods` from the response to the curl request.
 
 The schema for each operation is a dictionary that documents the information of a method for the agent that you can call. The set of supported operations depends on the framework you used to develop your agent:
 
-- [Agent Development Kit](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-adk-agent#supported-operations)
+- [Agent Development Kit (ADK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-adk-agent#supported-operations)
 - [Agent2Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-a2a-agent#supported-operations)
 - [LangChain](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-a-langchain-agent#supported-operations)
 - [LangGraph](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-a-langgraph-agent#supported-operations)
@@ -169,13 +169,13 @@ For custom agents, you can use any of the following query or streaming operation
 
 Note that certain frameworks only support specific query or streaming operations:
 
-| Framework             | Supported query operations |
-|-----------------------|----------------------------|
-| Agent Development Kit | `async_stream_query`       |
-| LangChain             | `query` , `stream_query`   |
-| LangGraph             | `query` , `stream_query`   |
-| AG2                   | `query`                    |
-| LlamaIndex            | `query`                    |
+| Framework  | Supported query operations |
+|------------|----------------------------|
+| ADK        | `async_stream_query`       |
+| LangChain  | `query` , `stream_query`   |
+| LangGraph  | `query` , `stream_query`   |
+| AG2        | `query`                    |
+| LlamaIndex | `query`                    |
 
 ### Query the agent
 

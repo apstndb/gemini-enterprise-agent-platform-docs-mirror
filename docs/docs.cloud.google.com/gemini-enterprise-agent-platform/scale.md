@@ -189,7 +189,7 @@ Guide
 
 Learn how to view received end-user feedback next to trace events on the Traces tab of the .
 
-## Memory Bank
+## Agent Platform Memory Bank
 
 Store and retrieve information from sessions to personalize agent interactions
 

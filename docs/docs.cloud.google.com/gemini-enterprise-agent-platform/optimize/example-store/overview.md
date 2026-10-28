@@ -40,7 +40,7 @@ The following steps outline how you might use Example Store:
 
 3.  The uploaded examples become available immediately to the agent or LLM application associated with the Example Store instance.
 
-    - If an agent based on the [Agent Development Kit](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/adk) is linked to the Example Store instance, then the agent automatically retrieves the examples and include them in LLM request.
+    - If an agent based on the [Agent Development Kit (ADK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/adk) is linked to the Example Store instance, then the agent automatically retrieves the examples and include them in LLM request.
 
     - For all other LLM applications, you must search for and retrieve the examples, and then include them in your prompts.
 

@@ -101,7 +101,7 @@ Get started with Memory Bank using the following quickstarts:
 
 - [**Quickstart using REST API**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/api-quickstart) : Follow the REST API quickstart to make API calls directly to Sessions and Memory Bank.
 
-- [**Quickstart using Agent Development Kit (ADK)**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/adk-quickstart) : Follow the Agent Development Kit (ADK) quickstart if you want your ADK agent to orchestrate calls to Sessions and Memory Bank for you.
+- [**Quickstart using ADK**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/adk-quickstart) : Follow the ADK quickstart if you want your ADK agent to orchestrate calls to Sessions and Memory Bank for you.
 
 ## Memory Bank governance
 

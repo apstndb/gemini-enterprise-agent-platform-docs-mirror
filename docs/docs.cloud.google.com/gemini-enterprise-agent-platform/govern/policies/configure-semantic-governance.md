@@ -84,6 +84,10 @@ gcloud ai reasoning-engines describe REASONING_ENGINE_ID \
     && echo "Eligible" || echo "Not eligible"
 ```
 
+#### Supported model providers
+
+Your agent must call its model through one of the [supported model providers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview#supported-providers) , without streaming. Note the request path for each provider; the authorization policy that you create in [Connect the policy engine to Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#connect-policy-engine) must match it.
+
 ### Supported locations
 
 The Semantic governance policy engine and Semantic governance policies are supported in the following regional locations:
@@ -394,7 +398,7 @@ After the network is configured, you must create an authorization extension and 
 
     > **Important:** The `httpRules` must include a [CEL expression](https://cloud.google.com/service-extensions/docs/cel-matcher-language-reference) to exclude gRPC traffic. Without this exclusion, the policy engine intercepts gRPC calls (such as Cloud Resource Manager) and causes agent startup failures.
 
-    > **Important:** The `when` condition in the following command also matches only the model-inference paths— `:generateContent` and `:streamGenerateContent` —so that **only** agent-to-model (LLM) requests are sent to the policy engine. Keep this path match: if you broaden the filter, non-LLM traffic such as MCP tool calls is also routed to the engine, which then processes and rejects it, adding unnecessary latency and policy-engine cost.
+    > **Important:** The `when` condition sends only model-inference requests to the policy engine. The example matches every [supported model provider](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview#supported-providers) . You can remove the paths for providers that your agents don't use. Don't broaden the condition: other traffic, such as MCP tool calls, isn't evaluated but still adds latency. The condition uses `contains()` because `request.path` includes the query string, so a path match with `endsWith()` would miss requests that have query parameters. Streaming paths such as `:streamGenerateContent` and `:streamRawPredict` don't match the condition, so they aren't sent to the policy engine.
 
     ### gcloud
 
@@ -411,7 +415,7 @@ After the network is configured, you must create an authorization extension and 
         operations:
         - paths:
           - prefix: /
-      when: "!request.headers['content-type'].startsWith('application/grpc') && (request.path.endsWith(':generateContent') || request.path.endsWith(':streamGenerateContent'))"
+      when: "!request.headers['content-type'].startsWith('application/grpc') && (request.path.contains(':generateContent') || request.path.contains(':rawPredict') || request.path.contains('/v1/messages') || request.path.contains('/chat/completions'))"
     action: CUSTOM
     policyProfile: CONTENT_AUTHZ
     customProvider:
@@ -443,7 +447,7 @@ After the network is configured, you must create an authorization extension and 
             "to": {
               "operations": [{"paths": [{"prefix": "/"}]}]
             },
-            "when": "!request.headers['"'"'content-type'"'"'].startsWith('"'"'application/grpc'"'"') && (request.path.endsWith('"'"':generateContent'"'"') || request.path.endsWith('"'"':streamGenerateContent'"'"'))"
+            "when": "!request.headers['"'"'content-type'"'"'].startsWith('"'"'application/grpc'"'"') && (request.path.contains('"'"':generateContent'"'"') || request.path.contains('"'"':rawPredict'"'"') || request.path.contains('"'"'/v1/messages'"'"') || request.path.contains('"'"'/chat/completions'"'"'))"
           }],
           "action": "CUSTOM",
           "policyProfile": "CONTENT_AUTHZ",
@@ -832,11 +836,12 @@ gcloud services disable aiplatform.googleapis.com --project=PROJECT_ID
 
 ## Debug policy enforcement
 
-| Symptom                                    | Likely cause                                                     | What to check                                                                            |
-|--------------------------------------------|------------------------------------------------------------------|------------------------------------------------------------------------------------------|
-| Tool call **allowed** but expected a block | Policy didn't match scope and agent or constraint too permissive | In the evaluation log, confirm the policy matched and read the verdict; refine the NLC   |
-| Tool call **denied** but expected allow    | Constraint too strict or conflicting rules                       | Read the `rationale` in the log; tune the NLC; iterate in dry-run mode                   |
-| No verdict at all                          | Engine not active or gateway not bound                           | Verify engine `state` is `ACTIVE` and the authorization policy, extension, or both exist |
+| Symptom                                            | Likely cause                                                                                                        | What to check                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+|----------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Tool call **allowed** but expected a block         | Policy didn't match scope and agent or constraint too permissive                                                    | In the evaluation log, confirm the policy matched and read the verdict; refine the NLC                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| Tool call **denied** but expected allow            | Constraint too strict or conflicting rules                                                                          | Read the `rationale` in the log; tune the NLC; iterate in dry-run mode                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| No verdict at all                                  | Engine not active, gateway not bound, or the request path doesn't match the authorization policy's `when` condition | Verify that the engine `state` is `ACTIVE` and that the authorization extension and policy exist. In the [Agent Gateway request log](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/monitor-agent-gateway#logging) , check that `serviceExtensionInfo` lists your authorization extension. If it doesn't, add the provider's [request path](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview#supported-providers) to the `when` condition. |
+| Streamed model call returns no verdict or an error | The policy engine doesn't support streamed model responses                                                          | Configure the agent to call its model without streaming                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 
 To debug an unexpected verdict:
 

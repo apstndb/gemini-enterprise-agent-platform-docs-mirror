@@ -174,7 +174,7 @@ Libraries for reading, writing, and manipulating various file formats.
 #### General File I/O
 
 - **h5py** (3.16.0): Pythonic interface to the HDF5 binary data format.
-- **smart_open** (7.6.0): Utils for streaming large files (S3, HDFS, GCS, etc.).
+- **smart_open** (7.6.0): Utils for streaming large files (S3, HDFS, Cloud Storage, etc.).
 - **cloudpathlib** (0.23.0): Pathlib-style classes for cloud storage.
 
 ### Web & Networking

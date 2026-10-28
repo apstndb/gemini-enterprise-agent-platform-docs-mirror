@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-a2a-agent
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-a2a-agent
 title: Use an Agent2Agent (A2A) agent
-description: Operate Agent2Agent (A2A) agents on Agent Runtime. Send messages, manage tasks, and access agent capabilities via SDKs or HTTP.
+description: Operate Agent2Agent (A2A) agents on Agent Runtime on Gemini Enterprise Agent Platform. Send messages, manage tasks, and access agent capabilities via SDKs or HTTP.
 data_source: docs.cloud.google.com
 ---
 

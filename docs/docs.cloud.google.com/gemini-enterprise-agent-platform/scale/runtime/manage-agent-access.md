@@ -538,7 +538,7 @@ client.add_secret_version(request={
 
 ## Customer-managed encryption keys (CMEK)
 
-By default, Google Cloud automatically encrypts data when it is at rest using encryption keys managed by Google. If you have specific compliance or regulatory requirements related to the keys that protect your data, you can use [customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/kms/docs/cmek) for your deployed agents.
+By default, Google Cloud automatically encrypts data when it is at rest using encryption keys managed by Google. If you have specific compliance or regulatory requirements related to the keys that protect your data, you can use [Customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/kms/docs/cmek) for your deployed agents.
 
 Refer to the [CMEK for Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek) documentation for general requirements and guidance on using CMEK with Gemini Enterprise Agent Platform, including:
 
@@ -546,7 +546,7 @@ Refer to the [CMEK for Gemini Enterprise Agent Platform](https://docs.cloud.goog
 - Creation of key rings and keys
 - Required permission grants
 
-To enable CMEK for your agent, you need to specify the `encryption_spec` with your Cloud KMS key when creating an Agent Platform instance. Refer to [Configure customer-managed encryption keys](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#cmek) for code samples.
+To enable CMEK for your agent, you need to specify the `encryption_spec` with your Cloud Key Management Service key when creating an Agent Platform instance. Refer to [Configure Customer-managed encryption keys](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#cmek) for code samples.
 
 ### Limitations
 

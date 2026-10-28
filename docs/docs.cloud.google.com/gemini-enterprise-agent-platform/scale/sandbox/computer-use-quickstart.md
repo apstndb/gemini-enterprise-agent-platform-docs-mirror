@@ -58,7 +58,7 @@ Replace the following:
 - `PROJECT_ID` : Your Google Cloud project ID.
 - `LOCATION` : The region for your instance (such as `us-central1` ).
 
-To encrypt your sandbox data using customer-managed encryption keys (CMEK), you must configure CMEK when you create your Agent Platform instance. For more information, see [Configure customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/configure-cmek) .
+To encrypt your sandbox data using Customer-managed encryption keys (CMEK), you must configure CMEK when you create your Agent Platform instance. For more information, see [Configure Customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/configure-cmek) .
 
 ## Create a template for Computer Use
 
@@ -173,4 +173,4 @@ remote_agent.delete()
 
 - [Overview of Computer Use sandboxes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/computer-use)
 - [Configure VPC Service Controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/configure-vpc-sc)
-- [Configure customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/configure-cmek)
+- [Configure Customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/configure-cmek)

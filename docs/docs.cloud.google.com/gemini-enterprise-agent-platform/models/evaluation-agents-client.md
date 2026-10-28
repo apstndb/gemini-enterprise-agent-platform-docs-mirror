@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 >
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
-After you build and evaluate your generative AI model, you might use the model to build an agent such as a chatbot. The Gen AI evals lets you measure your agent's ability to complete tasks and goals for your use case.
+After you build and evaluate your generative AI model, you might use the model to build an agent such as a chatbot. The Gemini Enterprise Agent Platform Evals lets you measure your agent's ability to complete tasks and goals for your use case.
 
 This page shows you how to create and deploy a basic agent and use the Gen AI evals to evaluate the agent:
 
@@ -78,7 +78,7 @@ This page shows you how to create and deploy a basic agent and use the Gen AI ev
 
 ## Develop an agent
 
-Develop an Agent Development Kit (ADK) agent by defining the model, instruction, and set of tools. For more information on developing an agent, see [Develop an Agent Development Kit agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-adk-agent) .
+Develop an Agent Development Kit (ADK) agent by defining the model, instruction, and set of tools. For more information on developing an agent, see [Develop an ADK agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-adk-agent) .
 
 ```
 from google.adk import Agent

@@ -1,14 +1,14 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/manage-with-adk
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/manage-with-adk
-title: Manage sessions with Agent Development Kit
-description: Manage ADK sessions with Agent Platform Sessions
+title: Manage sessions with ADK
+description: Manage Agent Development Kit (ADK) sessions with Agent Platform Sessions
 data_source: docs.cloud.google.com
 ---
 
 This page describes how you can connect an Agent Development Kit (ADK) agent with Agent Platform Sessions and use managed sessions in the local and production environment.
 
-> **Note:** If you've already followed the instructions in [Develop an Agent Development Kit agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-adk-agent) , you don't need to follow this guide, since the `AdkApp` template is already connected to Agent Platform Sessions through `session_service` .
+> **Note:** If you've already followed the instructions in [Develop an ADK agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-adk-agent) , you don't need to follow this guide, since the `AdkApp` template is already connected to Agent Platform Sessions through `session_service` .
 
 > **Important:** ADK primarily uses [asynchronous functions](https://google.github.io/adk-docs/runtime/#async-is-primary-run_async) . If you're running code in a notebook like Colab, you can directly `await` async functions because an event loop is already running. If you're running this code as a standard Python script, you need to wrap your async function calls with `asyncio.run()` to create and manage an event loop to execute your async functions. Otherwise, you might get an error like `'await' outside function` .
 
@@ -80,7 +80,7 @@ Replace the following:
 
 > **Note:** Make sure you have installed ADK version **1.0.0** or later. This version is included in `google-cloud-agentplatform[adk,agent_engine]` .
 
-To create your ADK agent, follow the instructions in [Agent Development Kit](https://google.github.io/adk-docs/) , or use the following code to create an agent that greets a user with fixed greetings. Save this code in a file named `agent.py` .
+To create your ADK agent, follow the instructions in [ADK](https://google.github.io/adk-docs/) , or use the following code to create an agent that greets a user with fixed greetings. Save this code in a file named `agent.py` .
 
 ```
 # file: my_agent/agent.py

@@ -171,6 +171,15 @@ For information about features and their respective metadata keys, see the follo
 <li><code>false</code> : Enables JupyterLab 3.</li>
 </ul></td>
 </tr>
+<tr class="even">
+<td>Antigravity CLI</td>
+<td><p>Turns on the <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/antigravity-cli">Antigravity CLI</a> , with its launcher tile, notebook skills, plugin, and <code>%%agy</code> cell magic, on instances that use a Debian 12 ( <code>workbench-instances-2603</code> ) or later image. The instance applies the value when it starts.</p></td>
+<td><code>enable-antigravity</code></td>
+<td><ul>
+<li><code>true</code> (default for new instances): Turns on the Antigravity CLI.</li>
+<li><code>false</code> : Turns off the Antigravity CLI.</li>
+</ul></td>
+</tr>
 </tbody>
 </table>
 

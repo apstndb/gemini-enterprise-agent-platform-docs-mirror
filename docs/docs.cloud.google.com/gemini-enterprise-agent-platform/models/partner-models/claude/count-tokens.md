@@ -43,6 +43,8 @@ The following regions support count tokens:
 
 To count tokens, send a `rawPredict` request to the `count-tokens` endpoint. The body of the request must contain the model ID of the model you want to count tokens against.
 
+> **Note:** If your organization enforces the `constraints/vertexai.allowedModels` organization policy constraint with an allowlist, you must add `publishers/anthropic/models/count-tokens:predict` to your allowed values ( `allowedValues` ). Add this value in addition to the Claude model that you want to count tokens for (for example, `publishers/anthropic/models/claude-sonnet-5:predict` ). For more information, see [Control access to Model Garden models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/control-model-access) .
+
 ### REST
 
 Before using any of the request data, make the following replacements:

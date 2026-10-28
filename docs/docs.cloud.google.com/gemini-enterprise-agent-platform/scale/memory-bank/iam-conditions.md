@@ -80,7 +80,7 @@ To grant a single role to a principal, do the following:
 
 4.  Select a role to grant from the drop-down list. For best security practices, choose a role that includes only the permissions that your principal needs. You can choose one of the [specialized Memory Bank IAM roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/iam-conditions#memory-roles) .
 
-5.  Add a condition to the role, using `aiplatform.googleapis.com/memoryScope` as the API attribute. See the below [examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/iam-conditions#examples) for some possible condition statements.
+5.  Add a condition to the role, using `aiplatform.googleapis.com/memoryScope` as the API attribute. See the [examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/iam-conditions#examples) for some possible condition statements.
 
 6.  Click **Save** . The principal is granted the role on the resource.
 
@@ -159,12 +159,9 @@ resource "google_project_iam_member" "example" {
 Replace the following variables:
 
 - `PROJECT_ID` : Your Google Cloud project ID. Project IDs are alphanumeric, like `my-project` .
-
 - `ROLE` : The IAM role to grant, for example, `roles/aiplatform.memoryEditor` .
-
 - `MEMBER` : The principal to grant the role to, for example, `user:developerA@corp.com` . For a full list of the values that `MEMBER` can have, see [Principal identifiers](https://docs.cloud.google.com/iam/docs/principal-identifiers) .
-
-- `CONDITION` : Your IAM condition statement using `aiplatform.googleapis.com/memoryScope` as the API attribute. See the below [examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/iam-conditions#examples) for some possible condition statements.
+- `CONDITION` : Your IAM condition statement using `aiplatform.googleapis.com/memoryScope` as the API attribute. See the [examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/iam-conditions#examples) for some possible condition statements.
 
 ## Best practices for scope-level permissions
 

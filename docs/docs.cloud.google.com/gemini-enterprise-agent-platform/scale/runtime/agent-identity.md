@@ -160,9 +160,11 @@ Once you create an agent with agent identity, you can grant or deny the agent ac
 
 ### Grant access to an agent
 
-Grant IAM permissions to the agent identity. We recommend the following roles:
+Grant IAM permissions to the agent identity.
 
-- `roles/aiplatform.expressUser` : Grant access to running inference, sessions, and memory.
+> **Note:** By default, deployed agent identities are granted `roles/aiplatform.agentDefaultAccess` and `roles/aiplatform.agentContextEditor` roles, which provide all necessary permissions for core operation, including running inference ( `aiplatform.endpoints.predict` ), sessions, and memory. Don't grant project-level roles such as `roles/aiplatform.expressUser` or `roles/aiplatform.user` to agent identities, because doing so violates the principle of least privilege and allows agents to modify or delete other agents in the project.
+
+We recommend the following roles:
 
 - `roles/serviceusage.serviceUsageConsumer` : Grant the agent permission to use the project's quota and the Agent Platform SDK.
 
@@ -268,10 +270,6 @@ gcloud projects add-iam-policy-binding PROJECT_ID \
 
 gcloud projects add-iam-policy-binding PROJECT_ID \
 --member="principalSet://agents.global.org-ORGANIZATION_ID.system.id.goog/attribute.platformContainer/aiplatform/projects/PROJECT_NUMBER" \
---role=roles/aiplatform.expressUser
-
-gcloud projects add-iam-policy-binding PROJECT_ID \
---member="principalSet://agents.global.org-ORGANIZATION_ID.system.id.goog/attribute.platformContainer/aiplatform/projects/PROJECT_NUMBER" \
 --role=roles/cloudapiregistry.viewer
 
 gcloud projects add-iam-policy-binding PROJECT_ID \
@@ -291,6 +289,38 @@ gcloud RESOURCE_TYPE add-iam-policy-binding RESOURCE_ID \
 --member="principalSet://agents.global.org-ORGANIZATION_ID.system.id.goog/attribute.platform/aiplatform" \
 --role="ROLE_NAME"
 ```
+
+### Grant access for agent-to-agent (A2A) calls
+
+If an agent (Agent A) needs to invoke another agent (Agent B), do not grant project-wide permissions. Instead, grant a custom role containing only `aiplatform.reasoningEngines.query` and `aiplatform.reasoningEngines.get` , bound to Agent B's resource path.
+
+1.  Create a custom role `agentInvoker` with the required permissions:
+
+    ```
+    gcloud iam roles create agentInvoker --project=PROJECT_ID \
+      --permissions=aiplatform.reasoningEngines.query,aiplatform.reasoningEngines.get \
+      --stage=GA
+    ```
+
+2.  Bind the custom role to Agent B's resource to grant access to Agent A's identity:
+
+    ```
+    gcloud beta ai reasoning-engines add-iam-policy-binding AGENT_B_ID \
+      --region=LOCATION \
+      --member="principal://agents.global.org-ORGANIZATION_ID.system.id.goog/resources/aiplatform/projects/PROJECT_NUMBER/locations/LOCATION/reasoningEngines/AGENT_A_ID" \
+      --role="projects/PROJECT_ID/roles/agentInvoker"
+    ```
+
+3.  To prevent agent identities from performing sensitive management operations on other agents, create an IAM deny policy for `reasoningEngines.create` , `.delete` , and `.update` :
+
+    ```
+    deniedPrincipals:
+      - principalSet://agents.global.org-ORGANIZATION_ID.system.id.goog/*
+    deniedPermissions:
+      - aiplatform.googleapis.com/reasoningEngines.create
+      - aiplatform.googleapis.com/reasoningEngines.delete
+      - aiplatform.googleapis.com/reasoningEngines.update
+    ```
 
 ### Deny access to an agent
 

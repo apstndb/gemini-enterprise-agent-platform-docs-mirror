@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/priority-paygo
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/priority-paygo
 title: Priority PayGo
-description: Learn about Priority PayGo, a consumption option for accessing Gemini models in Gemini Enterprise Agent Platform for mission-critical workloads with fluctuating traffic patterns.
+description: Learn about Priority pay-as-you-go, a consumption option for accessing Gemini models in Gemini Enterprise Agent Platform for mission-critical workloads with fluctuating traffic patterns.
 data_source: docs.cloud.google.com
 ---
 

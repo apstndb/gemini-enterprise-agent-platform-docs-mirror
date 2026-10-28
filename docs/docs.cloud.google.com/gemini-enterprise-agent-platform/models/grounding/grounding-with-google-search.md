@@ -24,6 +24,7 @@ This section lists the models that support grounding with Search.
 
 #### Click to expand supported models
 
+- [Gemini Robotics ER 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/robotics-er-2) preview
 - [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1)
 - [Gemini 4 Argon Cyber Permissive](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber)
 - [Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon)
@@ -589,16 +590,40 @@ When using Google Image Search with Grounding with Google Search, you must compl
 
 For grounded responses using image search, the API provides clear attribution and metadata to link its output to verified sources. The `groundingMetadata` object includes the following fields:
 
-- **`imageSearchQueries`** : the specific query used by the model for visual context (also known as the "image search").
+- **`imageSearchQueries`** : the specific queries used by the model for visual context (also known as the "image search").
 
-- **`groundingChunks`** : contains the source information for retrieved results. For image sources, these are returned as redirect URLs using a new image chunk type. The chunk includes the following:
+- **`groundingChunks`** : contains the source information for retrieved results. For image sources, these are returned as redirect URLs using an `image` chunk type. Each chunk includes the following fields inside an `image` object:
 
-  - **`url`** : the web page URL for attribution (also known as the "landing page").
-  - **`image_url`** : the direct image URL.
+  - **`sourceUri`** : the webpage URL for attribution (also known as the "landing page").
+  - **`imageUri`** : the direct image URL.
+  - **`title`** : the title of the source webpage.
+  - **`domain`** : the domain of the source webpage.
 
 - **`groundingSupports`** : provides specific mappings that link the generated content to its relevant citation source in the chunks.
 
 - **`searchEntryPoint`** : includes the Google Search chip that contains compliant HTML and CSS to render Google Search Suggestions.
+
+The following example shows the `groundingMetadata` structure in a response:
+
+```
+{
+  "groundingMetadata": {
+    "groundingChunks": [
+      {
+        "image": {
+          "sourceUri": "EXAMPLE_SOURCE_URI",
+          "imageUri": "EXAMPLE_IMAGE_URI",
+          "title": "Example source title",
+          "domain": "example.com"
+        }
+      }
+    ],
+    "imageSearchQueries": [
+      "example search query"
+    ]
+  }
+}
+```
 
 ## Understand your response
 

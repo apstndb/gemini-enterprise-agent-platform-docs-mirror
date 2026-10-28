@@ -20,6 +20,12 @@ You can now turn user intent matching on or off for semantic governance policies
 
 For more information, see [Control user intent matching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#control-intent-matching) .
 
+Feature
+
+**Cloud Storage output support for Gemini image generation models**
+
+Direct Cloud Storage output persistence is [generally available (GA)](https://cloud.google.com/products#product-launch-stages) for [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1) ( `gemini-nano-banana-2.1` ), [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) ( `gemini-3.1-flash-image` ), [Gemini 3.1 Flash-Lite Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image) ( `gemini-3.1-flash-lite-image` ), and [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image) ( `gemini-3-pro-image` ). You can set `outputConfig.outputUriPrefix` and `generationConfig.responseFormat[].image.delivery` to `"URI"` in `generateContent` and `streamGenerateContent` requests to write generated and edited images directly to a Cloud Storage bucket and receive the object URI in `fileData.fileUri` instead of inline bytes. For more information, see [Save generated images to Cloud Storage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation#save-generated-images-cloud-storage) .
+
 ## October 21, 2026
 
 Fixed

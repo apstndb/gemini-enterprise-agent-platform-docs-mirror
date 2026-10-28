@@ -1,8 +1,8 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-adk-agent
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-adk-agent
-title: Use an Agent Development Kit agent
-description: Use an ADK agent. Stream query responses using Agent Platform SDK, Python requests, or REST.
+title: Use an ADK agent
+description: Use an Agent Development Kit (ADK) agent. Stream query responses using Agent Platform SDK, Python requests, or REST.
 data_source: docs.cloud.google.com
 ---
 
@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 
 This tutorial assumes that you have read and followed the instructions in:
 
-- [Create an Agent Development Kit agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-adk-agent) : to create `agent` as an instance of [`AdkApp`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.AdkApp) .
+- [Create an Agent Development Kit (ADK) agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-adk-agent) : to create `agent` as an instance of [`AdkApp`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.AdkApp) .
 - [User authentication](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#authentication) to authenticate as a user for querying the agent.
 - [Import and initialize the SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#sdk-import) to initialize the client for getting a deployed instance (if needed).
 

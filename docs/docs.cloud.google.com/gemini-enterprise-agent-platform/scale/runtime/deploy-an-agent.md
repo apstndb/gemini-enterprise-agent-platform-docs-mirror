@@ -575,7 +575,7 @@ where
 
 You can configure multiple agents to use either a single, shared network attachment or unique, dedicated network attachments. To use a shared network attachment, provide the same network attachment in the `psc_interface_config` for each agent you create.
 
-#### Configure customer-managed encryption keys
+#### Configure Customer-managed encryption keys
 
 You can use a custom key to encrypt your agent's data at rest. See Agent Engine [Customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-agent-access#cmek) for more details.
 
@@ -884,7 +884,7 @@ remote_agent.operation_schemas()
 
 The schema for each operation is a dictionary that documents the information of a method for the agent that you can call. The set of supported operations depends on the framework you used to develop your agent:
 
-- [Agent Development Kit](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-adk-agent#supported-operations)
+- [Agent Development Kit (ADK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-adk-agent#supported-operations)
 - [Agent2Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-a2a-agent#supported-operations)
 - [LangChain](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-a-langchain-agent#supported-operations)
 - [LangGraph](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-a-langgraph-agent#supported-operations)

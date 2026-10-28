@@ -26,7 +26,7 @@ Context caching supports the [global endpoint](https://docs.cloud.google.com/gem
 
 ### Encryption key support
 
-Context caching supports Customer-Managed Encryption Keys (CMEKs), allowing you to control the encryption of your cached data and protect your sensitive information with encryption keys that you manage and own. This provides an additional layer of security and compliance.
+Context caching supports Customer-managed encryption keys (CMEKs), allowing you to control the encryption of your cached data and protect your sensitive information with encryption keys that you manage and own. This provides an additional layer of security and compliance.
 
 Refer to [the example](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-create#context-cache-cmek) for more details.
 
@@ -503,7 +503,7 @@ https://${LOCATION}-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/location
 
 ## Create a context cache with CMEK
 
-To implement context caching with CMEKs, create a CMEK by following [the instructions](https://docs.cloud.google.com/kms/docs/create-key) and make sure the Gemini Enterprise Agent Platform per-product, per-project service account (P4SA) has the necessary Cloud Key Management Service CryptoKey Encrypter/Decrypter permissions on the key. This lets you securely create and manage cached content as well as make other calls like { `List` , `Update` , `Delete` , `Get` } `CachedContent` (s) without repeatedly specifying a KMS key.
+To implement context caching with CMEKs, create a CMEK by following [the instructions](https://docs.cloud.google.com/kms/docs/create-key) and make sure the Gemini Enterprise Agent Platform per-product, per-project service account (P4SA) has the necessary Cloud Key Management Service CryptoKey Encrypter/Decrypter permissions on the key. This lets you securely create and manage cached content as well as make other calls like { `List` , `Update` , `Delete` , `Get` } `CachedContent` (s) without repeatedly specifying a Cloud KMS key.
 
 ### REST
 

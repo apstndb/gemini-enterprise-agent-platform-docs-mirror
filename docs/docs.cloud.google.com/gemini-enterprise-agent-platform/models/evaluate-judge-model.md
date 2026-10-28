@@ -6,7 +6,7 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-For model-based metrics, the Gen AI evals evaluates your models with a foundational model, such as Gemini, that has been configured and prompted as a judge model. If you want to learn more about the judge model, the *Advanced judge model customization series* describes additional tools you can use to evaluate and configure the judge model.
+For model-based metrics, the Gemini Enterprise Agent Platform Evals evaluates your models with a foundational model, such as Gemini, that has been configured and prompted as a judge model. If you want to learn more about the judge model, the *Advanced judge model customization series* describes additional tools you can use to evaluate and configure the judge model.
 
 For the basic evaluation workflow, see the [Gen AI evals quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-quickstart) . The *Advanced judge model customization series* includes the following pages:
 

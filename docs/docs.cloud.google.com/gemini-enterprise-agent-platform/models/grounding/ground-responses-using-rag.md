@@ -2,13 +2,13 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/ground-responses-using-rag
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/ground-responses-using-rag
 title: Ground responses using RAG
-description: Learn how to ground generative AI model responses using Retrieval-Augmented Generation (RAG) techniques and services like Vertex AI RAG Engine.
+description: Learn how to ground generative AI model responses using Retrieval-Augmented Generation (RAG) techniques and services like Vertex AI RAG Engine on Gemini Enterprise Agent Platform.
 data_source: docs.cloud.google.com
 ---
 
 Grounding is a technique that you can use to help produce model responses that are more trustworthy, helpful, and factual. When you ground generative AI model responses, you connect them to verifiable sources of information. To implement grounding, you must retrieve relevant source data. The recommended best practice is to use the retrieval-augmented generation (RAG) technique. Retrieval is usually done using a search engine, which uses an index that's embedded with the semantic meanings of the source text.
 
-There are also services and component APIs that implement the RAG lifecycle, such as the Agent Search Builder API, which allows for mix-and-match building. With mix-and-match building, you can implement a RAG solution using any of the following services or APIs:
+There are also services and component APIs that implement the RAG lifecycle, such as the Agent Search on Gemini Enterprise Agent Platform Builder API, which allows for mix-and-match building. With mix-and-match building, you can implement a RAG solution using any of the following services or APIs:
 
 - **Grounding generation API** : You can use it to implement grounding, or link to a retrieval provider for the complete RAG lifecycle.
 - **Document layout parser** : This parser represents the best of Document AI and Gemini for document understanding. For more information about the layout parser, see [Use the layout parser](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/layout-parser-integration) .

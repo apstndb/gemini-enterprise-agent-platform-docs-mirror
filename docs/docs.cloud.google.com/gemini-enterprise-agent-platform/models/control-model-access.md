@@ -52,6 +52,8 @@ For example, to define a policy rule on predictions against the Gemini 3.5 Flash
 
 The fully qualified ID ( `publishers/ `` PUBLISHER `` /models/ `` MODEL_NAME` ) is also known as the *model ID* . To find the model ID for a model, go to its model card in Model Garden. For links to model cards, see the list of models in [Explore AI models in Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models) .
 
+> **Note:** Some endpoints use a dedicated publisher model ID that doesn't have a visible model card in Model Garden. For example, counting tokens for Anthropic Claude models uses a dedicated publisher model ID. If you configure an allowlist using the `vertexai.allowedModels` constraint, add `publishers/anthropic/models/count-tokens:predict` to your allowed values in addition to the target Claude model. For more information, see [Count tokens for Claude models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/count-tokens) .
+
 ### Model actions
 
 For each model, you can allow or deny the following actions:

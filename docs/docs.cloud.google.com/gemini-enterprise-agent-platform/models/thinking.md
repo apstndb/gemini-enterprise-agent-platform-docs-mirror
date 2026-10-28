@@ -20,6 +20,7 @@ Thinking is supported in the following models:
 
 #### Click to expand supported models
 
+- [Gemini Robotics ER 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/robotics-er-2) preview
 - [Gemini Omni Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview) preview
 - [Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash) preview
 - [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1)
@@ -105,6 +106,7 @@ The following table lists supported `thinking_level` values and default configur
 
 | Model                                                                                                                                                 | Supported `thinking_level` values     | Default   |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|-----------|
+| [Gemini Robotics ER 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/robotics-er-2) preview                            | `MINIMAL` , `LOW` , `MEDIUM` , `HIGH` | `HIGH`    |
 | [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1)                                | `MINIMAL` , `MEDIUM` , `HIGH`         | `MEDIUM`  |
 | [Gemini 4 Argon Cyber Permissive](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber)                         | `LOW` , `MEDIUM` , `HIGH`             | `HIGH`    |
 | [Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon)                                                | `LOW` , `MEDIUM` , `HIGH`             | `MEDIUM`  |

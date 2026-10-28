@@ -29,7 +29,7 @@ Learn how to view agent traces in Google Agent Platform.
 
 ## Evaluation
 
-Evaluate agent quality with the integrated Gen AI Evaluation service.
+Evaluate agent quality with the integrated Gen AI evaluation service.
 
 Overview
 

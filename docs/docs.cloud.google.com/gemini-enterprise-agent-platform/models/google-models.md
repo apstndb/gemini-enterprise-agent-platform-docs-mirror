@@ -80,6 +80,8 @@ audio_spark [Gemini 2.5 Flash with Gemini Live API](https://docs.cloud.google.co
 
 ## Preview Gemini models
 
+preview [Gemini Robotics ER 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/robotics-er-2) A vision-language model that brings advanced spatial and temporal reasoning, multi-step planning, and robot orchestration to physical environments.
+
 preview [Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts) Our flagship text-to-speech model for studio-grade voice fidelity, expressive acting, regional accents, and stable long-form multi-speaker audio.
 
 preview [Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts) Fast, cost-efficient text-to-speech for high-throughput production workloads and voice agents.

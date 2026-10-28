@@ -12,8 +12,6 @@ Unlike service accounts, agent identities are not shared by multiple workloads b
 
 Agent Identity works with [Agent Registry](https://docs.cloud.google.com/agent-registry/overview) and [Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) to help secure and govern AI agents. Agent Identity provisions cryptographic identities and manages credentials, Agent Registry catalogs the tools and destinations in your environment, and Agent Gateway enforces access policies and inspects network traffic when agents call those destinations.
 
-When Agent Identity is used with Agent Gateway and Gemini Enterprise, end-user credentials, such as those provisioned by Gemini Enterprise connectors, are encrypted by the auth manager and decrypted at the gateway, ensuring that the agent can never access the raw credential.
-
 The following services support Agent Identity:
 
 - [Gemini Enterprise Agent Platform Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) ( *Agent Runtime* )
@@ -32,6 +30,20 @@ To authenticate with various tools and services, Agent Identity supports several
 | OAuth 2.0 (2-legged)                  | External tools and services           | Recommended for machine-to-machine authentication with external services that support OAuth. You configure a 2-legged OAuth auth provider in Agent Identity auth manager to handle client credentials and access tokens. For more information, see [Authenticate using 2-legged OAuth with auth manager](https://docs.cloud.google.com/iam/docs/auth-with-2lo-v2) .       |                                                                                                                                                                                                                                                                                                                                                                                |
 | API key                               | External tools and services           | For external services that require a cryptographic key or password for authentication. You configure an API key auth provider in Agent Identity auth manager to help securely store and manage the keys. For more information, see [Authenticate using API key with auth manager](https://docs.cloud.google.com/iam/docs/auth-with-api-key-v2) .                          |                                                                                                                                                                                                                                                                                                                                                                                |
 | HTTP basic auth                       | External tools and services           | Uses plaintext passwords. This method is **not recommended** . You can store passwords similar to an API key. For more information, see [Authenticate using API key with auth manager](https://docs.cloud.google.com/iam/docs/auth-with-api-key-v2) .                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                                |
+
+## Identity delegation architecture
+
+To enforce trust boundaries across human users, autonomous workloads, and external tools without relying on service account impersonation, Agent Identity uses a three-identity delegation framework. This framework separates and coordinates three distinct identity contexts across your environment:
+
+- **User identity:** The initiating end user's identity, authenticated through standard OAuth 2.0 or OpenID Connect (OIDC) with Google Identity or a federated workforce identity provider (IdP).
+- **Agent identity:** The deployed agent's unique, cryptographically attested [SPIFFE identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview#spiffe-identity) and auto-provisioned X.509 certificate, representing the agent acting on its own authority.
+- **Delegated identity:** The combined authority context when the agent acts on behalf of the initiating human user using scoped 3-legged OAuth (3LO) credentials brokered by [Agent Identity auth manager](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview#agent-auth-manager) .
+
+The following diagram illustrates how the user identity, agent identity, and delegated identity interact across ingress, runtime, and egress trust boundaries:
+
+![Identity delegation architecture diagram mapping the user identity, agent identity, and delegated identity across ingress, runtime, and egress trust boundaries.](https://docs.cloud.google.com/static/iam/img/agent-identity-delegation-arch.svg)
+
+For more information about how the platform evaluates and propagates each identity layer across trust boundaries, see [Identity delegation architecture](https://docs.cloud.google.com/iam/docs/identity-delegation-architecture) .
 
 ## Core components
 
@@ -121,7 +133,7 @@ Agent Identity authenticates and authorizes agent actions through a workflow des
 Agent Identity improves security over standard service accounts.
 
 - **Strong isolation:** Unlike service accounts, agent identities are not shared by multiple workloads by default, can't be impersonated, and don't allow developers to generate long-lived service account keys.
-- **Credential security:** Default [Context-Aware Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview#security-governance) make bound tokens unreplayable, helping to protect against token theft and account takeover. When Agent Identity is used with Agent Gateway and Gemini Enterprise, end-user credentials, such as those provisioned by Gemini Enterprise connectors, are encrypted by the auth manager and decrypted at the gateway, ensuring that the agent can never access the raw credential.
+- **Credential security:** Default [Context-Aware Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview#security-governance) make bound tokens unreplayable, helping to protect against token theft and account takeover.
 - **Least-privilege approach:** Provides per-agent identities instead of shared service accounts to eliminate over-permissioned agents.
 - **Reduced friction:** Automates complex OAuth flows and manages API keys for simpler tool integration.
 - **Improved observability:** Provides clear audit logs. When an agent acts on a user's behalf, logs show both the agent's and user's identities.
@@ -132,5 +144,8 @@ Agent Identity improves security over standard service accounts.
 
 ## What's next
 
+- Learn more about the [identity delegation architecture](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/identity-delegation-architecture) .
+
 - Learn more about [using agent identity with Agent Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) .
+
 - Learn more about [managing agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents) .

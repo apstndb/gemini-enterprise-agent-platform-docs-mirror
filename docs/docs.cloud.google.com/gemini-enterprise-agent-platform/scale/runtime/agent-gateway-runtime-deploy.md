@@ -102,7 +102,7 @@ To route Agent Runtime traffic through Agent Gateway, perform the following step
 
       Specify the gateway resource while deploying your agent. For example, to deploy the agent on Agent Runtime, use `client.runtimes.create` to pass in the `local_agent` object along with any [optional configurations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#configure-agent) .
 
-      If you want to use gateway-mediated platform features such as [Model Armor](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/configure-model-armor) or [Semantic Governance Policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance) with this agent, set both `agent_gateway_config` and [`identity_type=AGENT_IDENTITY`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) in the create call, as shown in this example. The backend enforces `identity_type = "AGENT_IDENTITY"` at the API level whenever `agent_gateway_config` is specified, causing deployment validation to fail if the identity of the Runtime instance is omitted or misconfigured.
+      If you want to use gateway-mediated platform features such as [Model Armor](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/configure-model-armor) or [Semantic governance policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance) with this agent, set both `agent_gateway_config` and [`identity_type=AGENT_IDENTITY`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) in the create call, as shown in this example. The backend enforces `identity_type = "AGENT_IDENTITY"` at the API level whenever `agent_gateway_config` is specified, causing deployment validation to fail if the identity of the Runtime instance is omitted or misconfigured.
 
       ### Agent-to-Anywhere
 
@@ -251,7 +251,7 @@ To route Agent Runtime traffic through Agent Gateway, perform the following step
 
     - **For existing agents using the REST API**
 
-      > **Note:** Updating an existing reasoning engine to set `agentGatewayConfig` does *not* change its `identity_type` . If the engine was originally created without `identity_type=AGENT_IDENTITY` , you cannot retroactively make it eligible for [Semantic Governance Policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance) by patching it. You must redeploy a new reasoning engine with both `agent_gateway_config` and `identity_type=AGENT_IDENTITY` set at agent creation time.
+      > **Note:** Updating an existing reasoning engine to set `agentGatewayConfig` does *not* change its `identity_type` . If the engine was originally created without `identity_type=AGENT_IDENTITY` , you cannot retroactively make it eligible for [Semantic governance policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance) by patching it. You must redeploy a new reasoning engine with both `agent_gateway_config` and `identity_type=AGENT_IDENTITY` set at agent creation time.
 
       ### Agent-to-Anywhere
 
@@ -426,7 +426,7 @@ To route Agent Runtime traffic through Agent Gateway, perform the following step
 
     ### Feature-specific endpoints
 
-    Additionally, if your agents use features such as [Sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions) or [Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank) , you must ensure that the agents can communicate with the specific endpoints used by these services:
+    Additionally, if your agents use features such as [Sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions) or [Agent Platform Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank) , you must ensure that the agents can communicate with the specific endpoints used by these services:
 
     - **For Sessions** : `https:// `` REGION `` -aiplatform.googleapis.com/ `` API_VERSION `` /projects/ `` PROJECT_ID `` /locations/ `` REGION `` /reasoningEngines/ `` RESOURCE_ID `` /sessions`
     - **For Memory Bank** : `https:// `` REGION `` -aiplatform.googleapis.com/ `` API_VERSION `` /projects/ `` PROJECT_ID `` /locations/ `` REGION `` /reasoningEngines/ `` RESOURCE_ID `` /memories`

@@ -6,7 +6,9 @@ description: Audited methods and Cloud Audit Logs for the Anthropic managed Clau
 data_source: docs.cloud.google.com
 ---
 
-This document lists the audited methods for Anthropic managed Claude API. Google Cloud services generate audit logs that record administrative and access activities within your Google Cloud resources. For more information about Cloud Audit Logs, see the following:
+Cloud Audit Logs for Anthropic managed Claude API let you track administrative and data-access operations on your resources to help you monitor access and configuration changes. You can query these logs in the Logs Explorer and check which Anthropic managed Claude API API methods generate Cloud Audit Logs.
+
+For more information about Cloud Audit Logs, see the following documents:
 
 - [Types of audit logs](https://docs.cloud.google.com/logging/docs/audit#types)
 - [Audit log entry structure](https://docs.cloud.google.com/logging/docs/audit#audit_log_entry_structure)
@@ -32,11 +34,11 @@ Each IAM permission has a `type` property, whose value is an enum that can be on
 
 API methods in the following list that are marked with (LRO) are long-running operations (LROs). These methods usually generate two audit log entries: one when the operation starts and another when it ends. For more information see [Audit logs for long-running operations](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro) .
 
-| Permission type | Methods                                                                                                                                                                                                                                                          |
-|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `ADMIN_READ`    | `google.cloud.ai.claude.v1.ClaudeGatewayService.InvokeClaudeOrganization` `google.cloud.ai.claude.v1.ClaudeManagementService.GetClaudeOrganization` `google.longrunning.Operations.GetOperation` `google.longrunning.Operations.ListOperations`                  |
-| `ADMIN_WRITE`   | `google.cloud.ai.claude.v1.ClaudeManagementService.ActivateClaudeOrganization` (LRO) `google.cloud.ai.claude.v1.ClaudeManagementService.GenerateConsoleAdminUrl` `google.longrunning.Operations.CancelOperation` `google.longrunning.Operations.DeleteOperation` |
-| `DATA_WRITE`    | `google.cloud.ai.claude.v1.ClaudeGatewayService.InvokeWorkspace`                                                                                                                                                                                                 |
+| Permission type | Methods                                                                                                                                                                                                                                                                                                                                    |
+|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `ADMIN_READ`    | `google.cloud.ai.claude.v1.ClaudeManagementService.GetClaudeOrganization` `google.longrunning.Operations.GetOperation` `google.longrunning.Operations.ListOperations`                                                                                                                                                                      |
+| `ADMIN_WRITE`   | `google.cloud.ai.claude.v1.ClaudeGatewayService.InvokeClaudeOrganization` `google.cloud.ai.claude.v1.ClaudeManagementService.ActivateClaudeOrganization` (LRO) `google.cloud.ai.claude.v1.ClaudeManagementService.GenerateConsoleAdminUrl` `google.longrunning.Operations.CancelOperation` `google.longrunning.Operations.DeleteOperation` |
+| `DATA_WRITE`    | `google.cloud.ai.claude.v1.ClaudeGatewayService.InvokeWorkspace`                                                                                                                                                                                                                                                                           |
 
 ## API interface audit logs
 
@@ -59,6 +61,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 - **Method** : `google.cloud.ai.claude.v1.ClaudeGatewayService.InvokeWorkspace`  
 - **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
 - **Permissions** :
+  - `claude.googleapis.com/messageBatches.get - DATA_READ`
   - `claude.googleapis.com/messages.create - DATA_WRITE`
 - **Method is a long-running or streaming operation** : [**Streaming RPC**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#streaming)  
 - **Filter for this method** : `protoPayload.methodName="google.cloud.ai.claude.v1.ClaudeGatewayService.InvokeWorkspace"`  

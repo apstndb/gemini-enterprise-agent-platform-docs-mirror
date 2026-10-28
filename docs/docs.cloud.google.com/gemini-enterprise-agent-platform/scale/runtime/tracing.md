@@ -85,7 +85,7 @@ Note the following:
 
 - To use trace ingestion, you need to [enable the Telemetry API](https://console.cloud.google.com/flows/enableapi?apiid=telemetry.googleapis.com) . For more information, see [Telemetry (OTLP) API overview](https://docs.cloud.google.com/stackdriver/docs/reference/telemetry/overview) .
 
-- To use log ingestion, you need to [enable the Logging API](https://console.cloud.google.com/flows/enableapi?apiid=logging.googleapis.com) . For more information, see [Cloud Logging API overview](https://docs.cloud.google.com/logging/docs/reference/api-overview) .
+- To use log ingestion, you need to [enable the Cloud Logging API](https://console.cloud.google.com/flows/enableapi?apiid=logging.googleapis.com) . For more information, see [Cloud Logging API overview](https://docs.cloud.google.com/logging/docs/reference/api-overview) .
 
 > **Note:** If you were previously setting the `enable_tracing` flag, we recommend you use the environment variables instead. For example, set `GOOGLE_CLOUD_AGENT_ENGINE_ENABLE_TELEMETRY=true` instead of `enable_tracing=true` , and set `GOOGLE_CLOUD_AGENT_ENGINE_ENABLE_TELEMETRY=false` instead of `enable_tracing=false` .
 

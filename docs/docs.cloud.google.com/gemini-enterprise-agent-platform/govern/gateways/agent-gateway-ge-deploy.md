@@ -138,17 +138,18 @@ To route Gemini Enterprise traffic through Agent Gateway, perform the following 
             }
           }
         }' \
-        "https://discoveryengine.googleapis.com/v1/projects/PROJECT_NUMBER/locations/GE_APP_LOCATION/collections/default_collection/engines/GE_APP_ID?updateMask=agentGatewaySetting.defaultEgressAgentGateway.name"
+        "https://ENDPOINT_LOCATION-discoveryengine.googleapis.com/v1/projects/PROJECT_NUMBER/locations/GE_APP_LOCATION/collections/default_collection/engines/GE_APP_ID?updateMask=agentGatewaySetting.defaultEgressAgentGateway.name"
         ```
 
         Replace the following:
 
-        - `PROJECT_ID` : The project ID.
-        - `AGENT_GATEWAY_REGION` : The region of the Agent Gateway.
-        - `AGENT_GATEWAY_NAME` : The name of the Agent Gateway.
-        - `PROJECT_NUMBER` : The project number.
-        - `GE_APP_LOCATION` : The location of the Gemini Enterprise app (for example, `us` or `global` ).
-        - `GE_APP_ID` : The ID of the Gemini Enterprise app.
+        - `PROJECT_ID` : the project ID.
+        - `AGENT_GATEWAY_REGION` : the region of the Agent Gateway.
+        - `AGENT_GATEWAY_NAME` : the name of the Agent Gateway.
+        - `ENDPOINT_LOCATION` : the multi-region prefix for the API endpoint that matches `GE_APP_LOCATION` . Specify `global` , `us` , or `eu` . For example, `eu` apps use `eu-discoveryengine.googleapis.com` . For `global` apps, `discoveryengine.googleapis.com` without a prefix is also supported.
+        - `PROJECT_NUMBER` : the project number.
+        - `GE_APP_LOCATION` : the location of the Gemini Enterprise app. Specify `global` , `us` , or `eu` .
+        - `GE_APP_ID` : the ID of the Gemini Enterprise app.
 
     2.  To verify the app configuration, use the following command to retrieve your configuration and inspect the settings:
 
@@ -157,15 +158,23 @@ To route Gemini Enterprise traffic through Agent Gateway, perform the following 
         -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
         -H "X-Goog-User-Project: PROJECT_ID" \
         -H "Content-Type: application/json" \
-        "https://discoveryengine.googleapis.com/v1/projects/PROJECT_NUMBER/locations/GE_LOCATION/collections/default_collection/engines/GE_APP_ID" \
+        "https://ENDPOINT_LOCATION-discoveryengine.googleapis.com/v1/projects/PROJECT_NUMBER/locations/GE_APP_LOCATION/collections/default_collection/engines/GE_APP_ID" \
         | jq '{name: .name, displayName: .displayName, agentGatewaySetting: .agentGatewaySetting}'
         ```
+
+        Replace the following:
+
+        - `PROJECT_ID` : the project ID.
+        - `ENDPOINT_LOCATION` : the multi-region prefix for the API endpoint that matches `GE_APP_LOCATION` . Specify `global` , `us` , or `eu` .
+        - `PROJECT_NUMBER` : the project number.
+        - `GE_APP_LOCATION` : the location of the Gemini Enterprise app. Specify `global` , `us` , or `eu` .
+        - `GE_APP_ID` : the ID of the Gemini Enterprise app.
 
         Here is an example output for a properly configured app:
 
         ```
         {
-        "name": "projects/PROJECT_NUMBER/locations/GE_LOCATION/collections/default_collection/engines/GE_APP_ID",
+        "name": "projects/PROJECT_NUMBER/locations/GE_APP_LOCATION/collections/default_collection/engines/GE_APP_ID",
         "displayName": "GE_APP_ID",
         "agentGatewaySetting": {
           "defaultEgressAgentGateway": {

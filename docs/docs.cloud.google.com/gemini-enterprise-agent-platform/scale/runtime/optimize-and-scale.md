@@ -31,7 +31,7 @@ Try the following methods to mitigate the cold start problem:
 
 - Set a `min_instances` value that is high enough to handle your baseline traffic. For example, setting `min_instances=10` to the example agent can reduce the average latency for a cold start to approximately 1.4 seconds. For applications with spiky or high traffic, set `min_instances` to a value that can handle your typical load without needing to scale from 1. For the range of accepted values, see the [`ReasoningEngineSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ReasoningEngineSpec#DeploymentSpec) REST resource reference.
 
-- Send a stable, continuous, predictable load to Agent Runtime using a queue. For example, running a sustained load test of 1,500 queries per minute (25 queries per second) for 60 seconds on an Agent Development Kit (ADK)-based agent with `min_instances=10` and the default `concurrency` (9) can yield the following result:
+- Send a stable, continuous, predictable load to Agent Runtime using a queue. For example, running a sustained load test of 1,500 queries per minute (25 queries per second) for 60 seconds on an Agent Development Kit (ADK) (ADK)-based agent with `min_instances=10` and the default `concurrency` (9) can yield the following result:
 
   - The average latency is consistently low at approximately 1.6 seconds.
 
@@ -39,7 +39,7 @@ A stable, continuous load keeps the service *warm* and results in optimal perfor
 
 ## Underutilized asynchronous workers
 
-By default, `container_concurrency` is configured for synchronous code, where each Agent Platform instance handles only one request at a time. Asynchronous agents, such as those based on the [Agent Development Kit (ADK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/adk) , can handle multiple I/O-bound requests (like LLM or tool calls) simultaneously.
+By default, `container_concurrency` is configured for synchronous code, where each Agent Platform instance handles only one request at a time. Asynchronous agents, such as those based on the [ADK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/adk) , can handle multiple I/O-bound requests (like LLM or tool calls) simultaneously.
 
 For example, sending 300 concurrent requests to an ADK-based agent with `min_instances=10` and the default `container_concurrency=9` can yield the following result:
 

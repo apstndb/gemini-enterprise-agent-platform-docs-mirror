@@ -6,10 +6,6 @@ description: Explore the Grok 4.7 model.
 data_source: docs.cloud.google.com
 ---
 
-> **Preview**
->
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-
 A high-capability model from xAI, built for coding and knowledge work. It works longer on difficult tasks and checks its own work.
 
 [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/xai/model-garden/grok-4.7)
@@ -26,7 +22,7 @@ A high-capability model from xAI, built for coding and knowledge work. It works 
 </tr>
 <tr class="even">
 <th>Launch stage</th>
-<td>Preview</td>
+<td>GA</td>
 </tr>
 <tr class="odd">
 <th>Supported inputs &amp; outputs</th>
@@ -41,9 +37,9 @@ Text</li>
 <th>Capabilities</th>
 <td>Supported
 <ul>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/function-calling">Function calling</a> preview Preview feature</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/structured-output">Structured output</a> preview Preview feature</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/reasoning">Reasoning</a> preview Preview feature</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/function-calling">Function calling</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/structured-output">Structured output</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/reasoning">Reasoning</a></li>
 </ul>
 Not supported
 <ul>
@@ -54,7 +50,7 @@ Not supported
 <th>Usage types</th>
 <td>Supported
 <ul>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok#quota">Fixed quota</a> preview Preview feature</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok#quota">Fixed quota</a></li>
 </ul>
 Not supported
 <ul>
@@ -67,7 +63,7 @@ Not supported
 <td><ul>
 <li><code>grok-4.7</code>
 <ul>
-<li><strong>Launch stage:</strong> Preview</li>
+<li><strong>Launch stage:</strong> GA</li>
 <li><strong>Release date:</strong> September 30, 2026</li>
 </ul></li>
 </ul></td>

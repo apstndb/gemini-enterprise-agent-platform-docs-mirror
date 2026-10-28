@@ -22,6 +22,8 @@ For each token selection step, the top-K tokens with the highest probabilities a
 
 Specify a lower value for less random responses and a higher value for more random responses.
 
+For Gemini 3.5 Flash, `topK` is fixed at 64 and can't be modified.
+
 For more information, see [`topK`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference#top-k) .
 
 ### Top-P
