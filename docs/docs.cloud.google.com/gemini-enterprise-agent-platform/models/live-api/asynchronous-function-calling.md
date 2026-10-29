@@ -47,25 +47,43 @@ This section provides a series of examples using the Python version of the Agent
 
 ### Define your tools
 
-Asynchronous function calling is enabled at the model level, so you can specify what tools you want to use in the request configuration like you would for any standard Gemini API call. This allows the model to continue conversing while your tool executes:
+You control how each tool executes by setting the `behavior` field of its `FunctionDeclaration` :
+
+- `NON_BLOCKING` (default when `behavior` is unset): the model continues conversing while your tool executes. Use this setting for read-only lookups or background tasks whose results can be delivered later.
+- `BLOCKING` : the model pauses and waits for your `FunctionResponse` before generating further output. Use this setting for state-changing or irreversible operations (such as payments, bookings, or account updates) where the model must not confirm an outcome before knowing the result. If new user input arrives while a blocking call is running, the server cancels the call, requiring backend idempotency.
+
+If you use a framework on top of Gemini Live API, verify that the framework transmits `behavior` in the session setup message; if omitted, tools run as `NON_BLOCKING` by default.
+
+The following Python sample shows how to declare both non-blocking and blocking tools:
 
 ```
 from google import genai
 from google.genai import types
 
-# 1. A tool that takes a long time to execute
-search_live_flights = {
-    "name": "search_live_flights",
-    "description": "Searches airlines for current flight prices. Can take up to 10 seconds."
-}
+client = genai.Client()
 
-# 2. A tool that executes instantly
-get_current_weather = {
-    "name": "get_current_weather",
-    "description": "Gets the current weather for a given city."
-}
+# 1. A read-only lookup: safe to run in the background
+search_live_flights = types.FunctionDeclaration(
+    name="search_live_flights",
+    description="Searches airlines for current flight prices. Can take up to 10 seconds.",
+    behavior=types.Behavior.NON_BLOCKING,
+)
 
-tools = [{"function_declarations": [search_live_flights, get_current_weather]}]
+# 2. A state-changing operation: the model waits for the result before continuing
+book_flight = types.FunctionDeclaration(
+    name="book_flight",
+    description="Books a flight ticket. Irreversible.",
+    behavior=types.Behavior.BLOCKING,
+    parameters=types.Schema(
+        type=types.Type.OBJECT,
+        properties={
+            "flight_id": types.Schema(type=types.Type.STRING),
+        },
+        required=["flight_id"],
+    ),
+)
+
+tools = [types.Tool(function_declarations=[search_live_flights, book_flight])]
 ```
 
 ### Handle function calls from the message stream
@@ -162,7 +180,12 @@ To specify a policy, include the `scheduling` field in your `function_response` 
 }
 ```
 
-If you omit the `scheduling` field, Gemini Live API uses its original method for handling function responses for backward compatibility.
+Model support for `FunctionResponse.scheduling` varies by model:
+
+- `Gemini 3.8 Live` : supports `scheduling` ( `SILENT` , `WHEN_IDLE` , and `INTERRUPT` ).
+- `gemini-3.8-live-extended-thinking-preview` : does not support explicit scheduling configurations. Sending `scheduling` causes the session to close with WebSocket error 1007. For this model, omit the `scheduling` field.
+
+When `scheduling` is omitted on supported models, Gemini Live API defaults to `WHEN_IDLE` . Each incoming function response triggers a new model turn after the user finishes speaking.
 
 The following Python example shows how to format and send a `function_response` with `scheduling="WHEN_IDLE"` to wait for a natural pause in conversation before announcing results:
 
@@ -247,10 +270,18 @@ Function_response: {name: "book_ticket", scheduling: "INTERRUPT", response: {boo
 Model: Your flight has been booked. Expect a confirmation text on your phone within 5 minutes.
 ```
 
+### Aggregate multiple non-blocking responses
+
+When the model calls multiple non-blocking tools concurrently (such as parallel data lookups), sending each result individually with `WHEN_IDLE` causes the model to generate multiple separate spoken turns. To deliver a single consolidated response, apply one of the following patterns:
+
+- **Use SILENT for intermediate results** : Send all intermediate tool responses with `scheduling="SILENT"` . Send the final response with `scheduling="WHEN_IDLE"` so the model summarizes all collected data in one turn.
+- **Batch responses** : Wait for all concurrent tool tasks to complete and deliver them together in a single `send_tool_response` call with `function_responses=[...]` .
+
 ## Best practices
 
+- **Declare tool behavior explicitly** : Set state-changing or irreversible tools to `BLOCKING` , and set read-only or background lookups to `NON_BLOCKING` .
 - **Design for concurrency** : Always offload slow tools (like querying external APIs or running RAG pipelines) to background tasks in your backend. Let the model keep handling the active audio stream.
-- **Avoid INTERRUPT unless necessary** : Use `INTERRUPT` for critical alerts. For background tasks, `SILENT` or `WHEN_IDLE` provides a much smoother, polite user experience.
+- **Schedule non-blocking responses deliberately** : Use `SILENT` for intermediate responses, `WHEN_IDLE` for the final result that should trigger spoken output, and `INTERRUPT` only for critical alerts. Leaving `scheduling` unset defaults to `WHEN_IDLE` and initiates a model turn for each response.
 - **Independent chat turns** : In Gemini Live API, tool execution is completely independent of chat turns. The conversation can branch, continue, and flow naturally while your tool processes in the background.
 - **The "Silent" caveat** : The model might still occasionally try to verbally narrate a tool's execution even if scheduled as `SILENT` . To enforce true silence, add explicit guardrails to your System Instructions (for example, "When using \[Tool Name\], perform a SILENT EXECUTION and say nothing"), or use a "fire-and-forget" backend pattern where you don't send a `FunctionResponse` back to the model at all.
 

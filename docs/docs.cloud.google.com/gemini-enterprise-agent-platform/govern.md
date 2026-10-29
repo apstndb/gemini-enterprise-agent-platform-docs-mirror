@@ -26,7 +26,7 @@ The following Agent Platform components work together to provide a unified agent
 
   - **[IAM Unified Access Policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap)** : Access rules that link an agent's identity to approved tools and endpoints in Agent Registry. By default, all connections are blocked unless an explicit IAM policy grants access.
   - **[Model Armor](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/configure-model-armor)** : Content security filters attached to gateways. Model Armor scans user prompts and tool responses in real time to block prompt injection attacks, sensitive data leaks, and harmful content.
-  - **[Semantic Governance Policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview)** : Rules written in plain language that control how agents use tools. They enforce business rules at runtime to prevent agents from taking unintended actions, such as running unsafe combinations of tools.
+  - **[Semantic governance policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview)** : Rules written in plain language that control how agents use tools. They enforce business rules at runtime to prevent agents from taking unintended actions, such as running unsafe combinations of tools.
   - **[Token management policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/token-management-overview)** : Policies that monitor and attribute large language model (LLM) token usage, and enforce shared token budgets across your agents and applications to prevent runaway token consumption and unexpected cost spikes.
   - **[Custom authorization engines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization)** : Custom authorization extensions that let you delegate authorization decisions to third-party systems by using Service Extensions.
 
@@ -54,7 +54,7 @@ To ensure a smooth deployment process, we recommend that you follow this sequenc
 
     > **Tip:** For testing in audit mode, set `enforcement_type: "INSPECT_ONLY"` in the authorization policy metadata block to log findings without blocking requests. Set `enforcement_type: "INSPECT_AND_BLOCK"` to start active enforcement.
 
-5.  **Configure Semantic Governance policies** : Define natural language constraints that regulate tool usage and prevent unsafe tool combinations at runtime. For instructions, see [Configure Semantic Governance policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance) .
+5.  **Configure Semantic governance policies** : Define natural language constraints that regulate tool usage and prevent unsafe tool combinations at runtime. For instructions, see [Configure Semantic governance policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance) .
 
     > **Tip:** For testing in audit mode, you can set `sgpEnforcementMode: "DRY_RUN"` in the authorization policy metadata block to evaluate constraints in log-only mode. Remove the `sgpEnforcementMode` parameter to enforce natural language rules at runtime.
 
@@ -98,7 +98,7 @@ Guide
 
 ### [Configure semantic governance policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance)
 
-Semantic Governance policies add an additional security layer to ensure agent actions match user intent and organizational constraints.
+Semantic governance policies add an additional security layer to ensure agent actions match user intent and organizational constraints.
 
 Overview
 

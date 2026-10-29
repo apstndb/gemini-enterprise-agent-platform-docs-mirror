@@ -14,7 +14,7 @@ data_source: docs.cloud.google.com
 >
 > Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
-> **Note:** Semantic Governance Policy is a Generative AI Service that uses an LLM to implement natural language policies. LLMs are probabilistic and can make mistakes. Verdicts may not be accurate.
+> **Note:** Semantic governance policy is a Generative AI Service that uses an LLM to implement natural language policies. LLMs are probabilistic and can make mistakes. Verdicts may not be accurate.
 
 ## Configure Semantic governance policies and the policy engine
 
@@ -852,7 +852,7 @@ To debug an unexpected verdict:
 
 ## Error catalog
 
-The following table lists errors that you might encounter when managing Semantic Governance Policies, along with steps to resolve them:
+The following table lists errors that you might encounter when managing Semantic governance policies, along with steps to resolve them:
 
 | Error name                                                            | Description                                                                               | Suggested action                                                                                                                                                                                                                 |
 |-----------------------------------------------------------------------|-------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

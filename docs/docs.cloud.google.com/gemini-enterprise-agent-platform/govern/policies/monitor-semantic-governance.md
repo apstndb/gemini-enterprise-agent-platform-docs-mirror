@@ -63,7 +63,7 @@ You can view the built-in policy engine metrics in the Google Cloud console usin
 
 4.  Click **Select a metric** to open a search bar.
 
-5.  Enter **Semantic Governance Policy Engine** in the search bar and click the resource.
+5.  Enter **Semantic governance policy engine** in the search bar and click the resource.
 
 6.  Click the **semantic_governance** metric category, then click a metric, such as **Evaluation Count** .
 

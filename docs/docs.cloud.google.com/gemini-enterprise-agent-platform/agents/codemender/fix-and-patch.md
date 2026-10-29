@@ -37,24 +37,30 @@ By default, CodeMender prompts you to confirm each file modification before writ
   cm fix FINDING_ID -c "Use the safe parameterized database helper in src/db/query.go"
   ```
 
-- **Auto-approve writes ( `-y` / `--yes` )** : Auto-approve all file writes and prompts during the fix process:
+- **Auto-approve prompts ( `-y` / `--yes` )** : Auto-approve all file writes and command confirmation prompts during the fix process:
 
   ```
   cm fix FINDING_ID -y
   ```
 
-  **Note:** You can also disable interactive write prompts globally by setting `confirm_writes: false` in your `config.yaml` .
+  **Note:** You can also disable interactive confirmation prompts in your `config.yaml` by setting `tools.confirm_writes: false` and `tools.confirm_commands: false` .
 
-- **Control sandboxing ( `--sandbox` )** : Explicitly enable or disable the sandbox for this run (for example, `--sandbox=false` to disable):
+- **Control sandboxing ( `--sandbox` )** : Explicitly enable or disable the OS-level sandbox for this run (for example, `--sandbox=false` to disable):
 
   ```
   cm fix FINDING_ID --sandbox=false
   ```
 
-- **Bypass sandboxing ( `--unrestricted` )** : Temporarily bypass all sandbox protections for this run, disabling file system boundaries and OS-level container isolation:
+- **Bypass path boundaries ( `--allow-all-paths` )** : Disable the workspace path boundary check for this run so agent tools can access paths outside the project root and configured `project_paths` (combine with `--sandbox=false` to access host paths that aren't mounted inside the sandbox):
 
   ```
-  cm fix FINDING_ID --unrestricted
+  cm fix FINDING_ID --allow-all-paths
+  ```
+
+- **Bypass command policy ( `--allow-all-commands` )** : Disable `command_policy.yaml` blocklist enforcement for this run:
+
+  ```
+  cm fix FINDING_ID --allow-all-commands
   ```
 
 - **Bypass cache ( `--no-cache` )** : Force CodeMender to generate a fresh patch:

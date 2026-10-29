@@ -18,13 +18,13 @@ data_source: docs.cloud.google.com
 
 ## Overview
 
-**Semantic Governance** functions as a security check layer on agents operating across your enterprise. It evaluates each proposed tool call, allowing only tool calls that don't violate specified policies or deviate from user intent. All other calls are denied.
+**Semantic governance** functions as a security check layer on agents operating across your enterprise. It evaluates each proposed tool call, allowing only tool calls that don't violate specified policies or deviate from user intent. All other calls are denied.
 
 ### How it works
 
 This capability relies on two components:
 
-- **Semantic Governance Policy** : The natural language rules (constraints) that you write to govern agents' tool calls. You configure these policies to govern an agent or a tool called by an agent.
+- **Semantic governance policy** : The natural language rules (constraints) that you write to govern agents' tool calls. You configure these policies to govern an agent or a tool called by an agent.
 
 - **Semantic governance policy engine** (or **policy engine** ): The underlying, managed infrastructure that you provision and enable within your VPC network. The engine hosts the runtime environment that processes and enforces your Semantic governance policies.
 

@@ -10,6 +10,53 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## October 28, 2026
+
+Change
+
+**Use a single regional Agent Registry instance for Gemini Enterprise apps**
+
+For Gemini Enterprise apps, we recommend associating each Agent Gateway with a single regional Agent Registry instance in the same project and region as the gateway. Use the `us-central1` registry for `global` and `us` apps, and the `europe-west1` registry for `eu` apps.
+
+This note updates the [September 9, 2026](https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes#September_09_2026) entry. For more information, see [Register your agents and destination resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#agent-registry) .
+
+Fixed
+
+**CodeMender updates (v0.17.0)**
+
+This release introduces updates to CodeMender:
+
+- **Support bundle diagnostics** : Introduce `cm support-bundle` to collect environment metadata, configuration policies, health reports, and session logs into a compressed archive for streamlined troubleshooting.
+- **Plain output mode** : Add the persistent `--plain` flag (configurable via the `CM_PLAIN` environment variable or `output.plain` in `config.yaml` ) to suppress decorative emojis, ANSI escape sequences, and Unicode borders for compatibility with screen readers and CI/CD log pipelines.
+- **Dedicated exit codes for setup failures** : Assign distinct exit codes (such as code 10 for credential issues) to configuration and authentication failures, preventing CI/CD pipelines from confusing environment setup issues with security findings.
+- **Tailored CI/CD credential guidance** : Provide environment-specific authentication guidance when running inside automated CI/CD systems such as GitHub Actions, GitLab CI, Buildkite, and Jenkins instead of interactive login prompts.
+- **Single-line JSONL statistics** : Add the `--jsonl` flag to `cm stats` to output single-line JSON records with model and team attribution for seamless integration with Cloud Logging and log aggregation pipelines.
+- **Granular sandbox and policy flags** : Replace the overloaded `--unrestricted` flag with orthogonal flags ( `--sandbox=false` ) and configurable command policies to decouple container sandboxing from execution safety controls.
+- **Sandbox configuration protections** : Mount `.git/hooks` , `.git/config` , and `.codemender` read-only within writable execution sandboxes during `cm fix` and `cm verify` to prevent modifications to repository security policies.
+- **Bug fixes** :
+  - Added a security warning when commands are executed with both sandbox isolation disabled and interactive approval skipped.
+  - Enforced `allowedRoots` path boundaries across host discovery and remediation file operations to prevent traversal via dangling symlinks.
+  - Supplied exact finding line ranges to remediation agents during `cm fix` to eliminate manual file scanning overhead.
+  - Updated `cm report import` to properly treat findings without location data as file-level findings rather than defaulting to the first line.
+  - Ensured `cm session cancel` routes requests to the session's original region regardless of local environment overrides.
+  - Fixed finding status tracking in `cm verify` so unexploitable verdicts update the local state database rather than leaving findings open.
+
+For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender) .
+
+## October 27, 2026
+
+Feature
+
+**Gemini Robotics ER 2 (Preview)**
+
+[Gemini Robotics ER 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er) ( [`gemini-robotics-er-2-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/robotics-er-2) ) is available in [Preview](https://cloud.google.com/products#product-launch-stages) . Gemini Robotics ER 2 is an embodied reasoning vision-language model built on Gemini 3.5 Flash for robotics applications, including [spatial reasoning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er/spatial) , [agentic code execution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er/agentic) , [task orchestration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er/orchestration) , and [video understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er/video-understanding) .
+
+Feature
+
+**xAI's Grok 4.7 is generally available**
+
+[Grok 4.7](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-7) is now [generally available (GA)](https://cloud.google.com/products#product-launch-stages) for production use on the global endpoint and the US multi-region endpoint.
+
 ## October 26, 2026
 
 Feature
@@ -25,6 +72,24 @@ Feature
 **Cloud Storage output support for Gemini image generation models**
 
 Direct Cloud Storage output persistence is [generally available (GA)](https://cloud.google.com/products#product-launch-stages) for [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1) ( `gemini-nano-banana-2.1` ), [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) ( `gemini-3.1-flash-image` ), [Gemini 3.1 Flash-Lite Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image) ( `gemini-3.1-flash-lite-image` ), and [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image) ( `gemini-3-pro-image` ). You can set `outputConfig.outputUriPrefix` and `generationConfig.responseFormat[].image.delivery` to `"URI"` in `generateContent` and `streamGenerateContent` requests to write generated and edited images directly to a Cloud Storage bucket and receive the object URI in `fileData.fileUri` instead of inline bytes. For more information, see [Save generated images to Cloud Storage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation#save-generated-images-cloud-storage) .
+
+Feature
+
+**Gemini 3.8 Flash TTS and Gemini 3.8 Flash-Lite TTS are Generally Available (GA)**
+
+[Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts) and [Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts) are available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages) in the `global` location and the `us` and `eu` multi-regions. The models support structured speaker and style metadata, inline vocal tags, multi-speaker dialogue, and streaming. [Voice design](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-design) and [voice replication](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-replication) capabilities remain available in Preview.
+
+For more information, see [Generate speech with Gemini TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview) .
+
+Feature
+
+**Semantic governance policies support more model providers**
+
+Semantic governance policies now evaluate tool calls from agents that use models from providers other than Gemini. The policy engine reads each provider's request and response format, so the same policies apply whichever model your agent uses. Supported APIs include the Gemini Developer API and Gemini models on Gemini Enterprise Agent Platform, the Anthropic Messages API, Claude models on Gemini Enterprise Agent Platform, the OpenAI Chat Completions API, the Mistral AI API, the OpenAI-compatible endpoint on Gemini Enterprise Agent Platform (including Llama models), and self-hosted OpenAI-compatible servers such as vLLM. Streamed model responses aren't supported.
+
+To govern these providers, update the `when` condition of your authorization policy to match each provider's request path. The updated condition also matches requests that include a query string.
+
+For more information, see [Supported model providers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview#supported-providers) and [Connect the policy engine to Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#connect-policy-engine) .
 
 ## October 21, 2026
 
@@ -489,12 +554,6 @@ For more information, see [Priority PayGo](https://docs.cloud.google.com/gemini-
 
 Feature
 
-**Agent Gateway supports multiple Agent Registry instances**
-
-Agent Gateway now lets you associate up to two Agent Registry instances (one global registry and one regional or multi-region registry) with a single Agent Gateway instance. For more information, see [Register your agents and destination resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#agent-registry) .
-
-Feature
-
 **Agent Gateway supports VPC Service Controls**
 
 Agent Gateway now enforces VPC Service Controls perimeter rules for agent communications. When you [configure Agent Gateway with VPC connectivity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity) , agent traffic is routed through your private VPC network, ensuring that your organization's VPC-SC perimeter rules are applied to all agent traffic as well.
@@ -502,6 +561,14 @@ Agent Gateway now enforces VPC Service Controls perimeter rules for agent commun
 Note that setting up VPC connectivity is required to enable VPC Service Controls perimeter enforcement for Agent Gateway deployments. The connectivity template must be configured in `ALL_TRAFFIC` egress mode.
 
 > **Important:** VPC Service Controls is only supported for Agent Gateway deployments created after September 8, 2026 that use the [agent connectivity template](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity) to configure VPC connectivity.
+
+Feature
+
+**Agent Gateway supports multiple Agent Registry instances**
+
+Agent Gateway now lets you associate up to two Agent Registry instances (one global registry and one regional or multi-region registry) with a single Agent Gateway instance. For more information, see [Register your agents and destination resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#agent-registry) .
+
+> **Important:** There has been an update to this feature. For the corrected note, see the entry for [October 28, 2026](https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes#October_28_2026) .
 
 ## September 08, 2026
 

@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview
 title: Agent Gateway overview
-description: Secure and govern AI agent connectivity with Agent Gateway. Centralize access policies, mTLS, and Model Context Protocol (MCP) security for agent-to-agent and agent-to-tool interactions across Agent Runtime, Gemini Enterprise, Google Kubernetes Engine, Cloud Run, and cross-cloud environments.
+description: Secure and govern AI agent connectivity with Agent Gateway. Centralize access policies, mTLS, and Model Context Protocol (MCP) security for agent-to-agent and agent-to-tool interactions across Agent Runtime on Gemini Enterprise Agent Platform, Gemini Enterprise, Google Kubernetes Engine, Cloud Run, and cross-cloud environments.
 data_source: docs.cloud.google.com
 ---
 
@@ -26,7 +26,7 @@ The following Agent Platform components work together to provide a unified agent
 
   - **[IAM Unified Access Policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap)** : Access rules that link an agent's identity to approved tools and endpoints in Agent Registry. By default, all connections are blocked unless an explicit IAM policy grants access.
   - **[Model Armor](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/configure-model-armor)** : Content security filters attached to gateways. Model Armor scans user prompts and tool responses in real time to block prompt injection attacks, sensitive data leaks, and harmful content.
-  - **[Semantic Governance Policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview)** : Rules written in plain language that control how agents use tools. They enforce business rules at runtime to prevent agents from taking unintended actions, such as running unsafe combinations of tools.
+  - **[Semantic governance policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview)** : Rules written in plain language that control how agents use tools. They enforce business rules at runtime to prevent agents from taking unintended actions, such as running unsafe combinations of tools.
   - **[Token management policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/token-management-overview)** : Policies that monitor and attribute large language model (LLM) token usage, and enforce shared token budgets across your agents and applications to prevent runaway token consumption and unexpected cost spikes.
   - **[Custom authorization engines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization)** : Custom authorization extensions that let you delegate authorization decisions to third-party systems by using Service Extensions.
 
@@ -94,7 +94,7 @@ Agent Gateway on Google Cloud governs agents and MCP servers that run on Google 
 Agent Gateway provides fully Google-managed, zero-maintenance gateway infrastructure hosted directly within Google Cloud. It is optimized specifically for agents running on Agent Runtime and Gemini Enterprise.
 
 - **Architecture & infrastructure:** Google fully manages both the gateway management services and proxy infrastructure. Organizations require no proxy setup, container management, or manual maintenance overhead.
-- **Key capabilities:** Provides built-in zero-maintenance mTLS termination, IAP access policies, Model Armor prompt scanning and DLP, and Semantic Governance policies.
+- **Key capabilities:** Provides built-in zero-maintenance mTLS termination, IAP access policies, Model Armor prompt scanning and DLP, and Semantic governance policies.
 - **Primary use case:** Ideal for enterprise teams building serverless AI agents on Google Cloud who want comprehensive governance without managing network infrastructure.
 
 For setup details, see [Agent Gateway on Agent Platform overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-managed-overview) .

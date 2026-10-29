@@ -47,6 +47,11 @@ Input and output</th>
 <td></td>
 </tr>
 <tr class="odd">
+<th>Maximum concurrent sessions</th>
+<th><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live#concurrent-session-quotas">Concurrent session quotas</a> apply to Gemini Live API sessions and Live Avatar sessions.</th>
+<td></td>
+</tr>
+<tr class="even">
 <th>Capabilities</th>
 <th><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking">Thinking</a><br />
@@ -66,7 +71,7 @@ Not supported</li>
 </ul></th>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>Tools</th>
 <th><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/overview">Grounding</a><br />
@@ -83,7 +88,7 @@ Not supported</li>
 </ul></th>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th>APIs</th>
 <th><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference">GenerateContent API</a><br />
@@ -99,7 +104,7 @@ Not supported</li>
 </ul></th>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>Consumption options</th>
 <th><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput">Provisioned Throughput</a><br />
@@ -114,7 +119,7 @@ Not supported</li>
 </ul></th>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th>Technical specifications</th>
 <th><strong>Text</strong> description</th>
 <td><ul>
@@ -122,7 +127,7 @@ Not supported</li>
 <code>text/plain</code></li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th><strong>Image</strong> photo</th>
 <th><ul>
 <li>Standard input resolution: 768 x 768</li>
@@ -132,7 +137,7 @@ Not supported</li>
 </ul></th>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th><strong>Audio</strong> mic</th>
 <th><ul>
 <li>Maximum number of audio files per prompt: 1-stream</li>
@@ -143,7 +148,7 @@ Not supported</li>
 </ul></th>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th><strong>Video</strong> videocam</th>
 <th><ul>
 <li>Standard input resolution: 768 x 768 (1 FPS)</li>
@@ -153,7 +158,7 @@ Not supported</li>
 </ul></th>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th>Supported regions</th>
 <th><p><strong><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations">Model availability</a></strong></p></th>
 <td><ul>
@@ -161,14 +166,14 @@ Not supported</li>
 <li>United States: <code>us-central1</code></li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th><p><strong><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency">ML processing</a></strong></p></th>
 <th><ul>
 <li>Multi-region: <code>us</code> , <code>eu</code></li>
 </ul></th>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th><p><strong><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/supported-models">Provisioned Throughput</a></strong></p></th>
 <th><ul>
 <li>Multi-region: <code>us</code> , <code>eu</code></li>
@@ -176,7 +181,7 @@ Not supported</li>
 </ul></th>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th><p><strong><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo">Standard PayGo</a></strong></p></th>
 <th><ul>
 <li>Multi-region: <code>us</code> , <code>eu</code></li>
@@ -184,12 +189,12 @@ Not supported</li>
 </ul></th>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th>Knowledge cutoff date</th>
 <th>January 2025</th>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>Versions</th>
 <th><ul>
 <li><code>gemini-3.8-live</code>
@@ -201,7 +206,7 @@ Not supported</li>
 </ul></th>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th>Security controls</th>
 <th><strong>Online prediction</strong></th>
 <td><ul>
@@ -211,7 +216,7 @@ Not supported</li>
 <li>AXT</li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>See <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls">Security controls</a> for more information.</th>
 <th></th>
 <td></td>
@@ -220,3 +225,13 @@ Not supported</li>
 </table>
 
 <sup>†</sup> Listed retirement dates refer to retirement of support in Gemini Enterprise Agent Platform. Models may remain accessible through the Gemini API after these dates have passed. The Gemini API is not a Google Cloud offering and is subject to its own terms of service. For details, see the [Gemini API documentation](https://ai.google.dev/) .
+
+## Concurrent session quotas
+
+When you use Gemini 3.8 Live ( `gemini-3.8-live` ), concurrent session quotas apply to both Gemini Live API sessions and Live Avatar sessions. Concurrent session quotas are checked when a session starts, so these limits apply whether you use [Standard pay-as-you-go (Standard PayGo)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo) or [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput) .
+
+To view the specific concurrent session limits for your project, do the following:
+
+1.  In the Google Cloud console, go to the **Quotas and System Limits** page.
+
+2.  In the **Filter** field, enter `gemini-3.8-live` and press <span class="kbd"> Enter </span> to view the concurrent session limits for your project.

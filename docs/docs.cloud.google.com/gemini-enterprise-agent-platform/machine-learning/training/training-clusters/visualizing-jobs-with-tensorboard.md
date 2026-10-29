@@ -2,19 +2,19 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/visualizing-jobs-with-tensorboard
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/visualizing-jobs-with-tensorboard
 title: Visualizing jobs with Vertex AI TensorBoard
-description: Visualize Managed Training logs in real-time. Configure your workload to stream logs from Cloud Storage to Agent Platform TensorBoard for analysis.
+description: Visualize Managed Training Clusters logs in real-time. Configure your workload to stream logs from Cloud Storage to Agent Platform TensorBoard for analysis.
 data_source: docs.cloud.google.com
 ---
 
-If you're interested in Gemini Enterprise Agent Platform Managed Training, contact your sales representative for access.
+If you're interested in Managed Training Clusters on Gemini Enterprise Agent Platform, contact your sales representative for access.
 
-With Managed Training, you can visualize your training logs in near real-time using Vertex AI TensorBoard. Simply configure your workload to save logs to a Cloud Storage bucket, and they will be automatically streamed to the TensorBoard interface for analysis.
+With Managed Training Clusters on Gemini Enterprise Agent Platform, you can visualize your training logs in near real-time using Vertex AI TensorBoard. Simply configure your workload to save logs to a Cloud Storage bucket, and they will be automatically streamed to the TensorBoard interface for analysis.
 
 ### Prerequisites
 
 Before you begin, ensure you have the following:
 
-- A running Managed Training cluster.
+- A running Managed Training Clusters cluster.
 - A Cloud Storage bucket to store your TensorBoard logs. This bucket must be in the same region as your TensorBoard instance. For setup instructions, see [Create a Cloud Storage bucket](https://docs.cloud.google.com/storage/docs/creating-buckets) .
 - A Vertex AI TensorBoard instance. For creation instructions, see Create a [Vertex AI TensorBoard](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-setup#create-tensorboard-instance) instance.
 - The correct IAM permissions. To allow Cloud Storage FUSE to read from and write to the storage bucket, the service account used by your cluster's VMs requires the Storage Object User ( `roles/storage.objectUser` ) role.
@@ -94,7 +94,7 @@ To visualize metrics from a running job, you must periodically close and recreat
 
 ### Viewing Vertex AI TensorBoard
 
-Once your job is submitted, you can monitor its progress by going to the to the [Vertex AI Experiments](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-view#console_name) page in the Google Cloud console.
+Once your job is submitted, you can monitor its progress by going to the [Experiments on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-view#console_name) page in the Google Cloud console.
 
 ## What's next
 

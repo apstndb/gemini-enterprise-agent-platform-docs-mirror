@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/govern/share-agent
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/share-agent
 title: Share an agent
-description: Learn how to share a single agent in your project using IAM permissions.
+description: Learn how to share a single agent in your project using Identity and Access Management permissions.
 data_source: docs.cloud.google.com
 ---
 
@@ -141,7 +141,7 @@ Replace the following:
 Granting access to the agent provides direct access to send messages to the agent's endpoint. The security controls are determined by the code of the receiving agent.
 
 - **Trusted frontend** : Most default Agent Development Kit (ADK) agents operate from a trusted frontend. The agent trusts the frontend commands, which gives the frontend full control of sessions and users. In these cases, don't grant direct access to the agent to untrusted entities.
-- **A2A agents** : Other agents, like Agent2Agent (A2A) agents, can be exposed to untrusted entities if they implement their own authentication and authorization. Agent Runtime only provides coarse access control to the agent interface.
+- **A2A agents** : Other agents, like Agent2Agent (A2A) agents, can be exposed to untrusted entities if they implement their own authentication and authorization. Agent Runtime on Gemini Enterprise Agent Platform only provides coarse access control to the agent interface.
 
 ## What's next
 

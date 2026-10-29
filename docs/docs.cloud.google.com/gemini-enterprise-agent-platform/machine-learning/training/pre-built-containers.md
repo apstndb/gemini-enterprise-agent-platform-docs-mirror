@@ -16,7 +16,9 @@ Gemini Enterprise Agent Platform supports each framework version based on a sche
 
 Each of the following container images is available in several [Artifact Registry repositories](https://docs.cloud.google.com/artifact-registry/docs/repositories) , which [store data in various locations](https://docs.cloud.google.com/artifact-registry/docs/repo-locations) . You can use any of the URIs for an image when you perform serverless training; each provides the same container image. When using Google Cloud console to perform serverless training, the Google Cloud console selects the URI that best matches the [location where you're using Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) . This reduces latency.
 
-> **Note:** Using image names without the `latest` tag isn't supported. You must use an image with the `latest` tag.
+Using image names without the `latest` tag isn't supported. You must use an image with the `latest` tag.
+
+> **Note:** No newer prebuilt training images are planned for scikit-learn or XGBoost. Existing images have reached their end-of-availability (EOA) date and won't receive maintenance or runtime updates. If your workload requires newer framework versions or modern Python versions, use a [custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-container) ( `container_spec` ) instead of a prebuilt image with `python_package_spec` . For migration instructions, see [Migrate from python_package_spec to container_spec](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-python-pre-built-container#migrate-to-custom-container) .
 
 ### TensorFlow
 

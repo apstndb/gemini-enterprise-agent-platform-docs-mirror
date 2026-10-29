@@ -6,10 +6,6 @@ description: Learn about Gemini 3.8 Flash TTS, our text-to-speech model for stud
 data_source: docs.cloud.google.com
 ---
 
-> **Preview**
->
-> This product or feature is a Generative AI Preview offering, subject to the "Pre-GA Offerings Terms" of the [Google Cloud Service Specific Terms](https://cloud.google.com/terms/service-terms) . For this Generative AI Preview offering, Customers may elect to use it for production or commercial purposes, or disclose Generated Output to third-parties, and may process personal data as outlined in the [Cloud Data Processing Addendum](https://cloud.google.com/terms/data-processing-addendum) , subject to the obligations and restrictions described in the agreement under which you access Google Cloud.
-
 Gemini 3.8 Flash TTS ( `gemini-3.8-flash-tts` ) is Google's flagship text-to-speech model, available through Gemini Enterprise. It's built for studio-grade voice fidelity, expressive acting, authentic regional accents, and stable long-form, multi-turn audio.
 
 ## Capabilities
@@ -80,9 +76,9 @@ Supported</li>
 Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview#streaming">Streaming</a><br />
 Supported</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-design">Voice design</a><br />
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-design">Voice design</a> preview Preview feature<br />
 Supported</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-replication">Voice replication</a><br />
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-replication">Voice replication</a> preview Preview feature<br />
 Supported</li>
 </ul></th>
 <td></td>
@@ -116,20 +112,43 @@ Supported</li>
 <th><p><strong><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations">Model availability</a></strong></p></th>
 <td><ul>
 <li>Global: <code>global</code></li>
+<li>Multi-region: <code>us</code> , <code>eu</code></li>
 </ul></td>
 </tr>
 <tr class="odd">
+<th><p><strong><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency">ML processing</a></strong></p></th>
+<th><ul>
+<li>Multi-region: <code>us</code> , <code>eu</code></li>
+</ul></th>
+<td></td>
+</tr>
+<tr class="even">
+<th><p><strong><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo">Standard PayGo</a></strong></p></th>
+<th><ul>
+<li>Global: <code>global</code></li>
+<li>Multi-region: <code>us</code> , <code>eu</code></li>
+</ul></th>
+<td></td>
+</tr>
+<tr class="odd">
+<th><p><strong>Voices API (Preview)</strong></p></th>
+<th><ul>
+<li>Global: <code>global</code></li>
+</ul></th>
+<td></td>
+</tr>
+<tr class="even">
 <th>Versions</th>
 <th><ul>
 <li><code>gemini-3.8-flash-tts</code>
 <ul>
-<li>Launch stage: Preview</li>
+<li>Launch stage: GA</li>
 <li>Release date: September 28, 2026</li>
 </ul></li>
 </ul></th>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>Supported languages</th>
 <th>130 languages. See <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview#languages">Supported languages</a> .</th>
 <td></td>

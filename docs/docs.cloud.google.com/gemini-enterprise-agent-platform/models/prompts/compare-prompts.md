@@ -41,7 +41,7 @@ To create a prompt, follow these steps:
 6.  If Customer-managed encryption keys (CMEK) apply, do the following:
 
     1.  Select the **Customer-managed encryption key (CMEK)** checkbox.
-    2.  Select a key from the **Select a Cloud KMS key** field.
+    2.  Select a key from the **Select a Cloud Key Management Service key** field.
 
 7.  Click **Save** , which saves your prompt in the list of prompts to use on the **Compare saved prompt** page.
 

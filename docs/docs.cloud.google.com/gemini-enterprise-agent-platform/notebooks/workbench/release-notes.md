@@ -12,6 +12,21 @@ You can see the latest product updates for all of Google Cloud on the [Google Cl
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators) , or add the [feed URL](https://docs.cloud.google.com/feeds/aiplatformnotebooks-release-notes.xml) directly.
 
+## November 30, 2026
+
+v2
+
+Feature
+
+[Preview](https://cloud.google.com/products#product-launch-stages) : The Antigravity CLI is available in Agent Platform Workbench instances that use a Debian 12 ( `workbench-instances-2603` ) or later image. The Antigravity CLI is the terminal surface of Google Antigravity, an AI agent that works in a terminal. New instances have it turned on by default. You can use the Antigravity CLI to do tasks like the following:
+
+- Create, explain, edit, check, and run notebooks.
+- Create a Jupyter kernel with the packages that you need.
+- Run shell commands and Google Cloud commands, such as `gcloud` and `bq` .
+- Write the code for a notebook cell from a description, with the `%%agy` cell magic.
+
+The Antigravity CLI asks for your approval before it edits a file or runs a command. To turn it off for an instance, set the `enable-antigravity` metadata key to `false` . To get started, see [Use the Antigravity CLI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/antigravity-cli) .
+
 ## October 26, 2026
 
 v2

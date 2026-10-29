@@ -147,7 +147,7 @@ Use the following instructions to copy a models to a different project.
 2.  Choose the model version you want to copy.
 3.  Choose the destination project you want to copy to.
 4.  Choose the destination region, for example, `us-central1` .
-5.  **Advanced options** : Optional to choose the encryption method, using a Google-owned and Google-managed encryption key or a Cloud KMS key.
+5.  **Advanced options** : Optional to choose the encryption method, using a Google-owned and Google-managed encryption key or a Cloud Key Management Service key.
 
 ## Copy models between locations
 

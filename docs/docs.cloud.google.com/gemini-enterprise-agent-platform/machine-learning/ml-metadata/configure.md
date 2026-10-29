@@ -24,7 +24,7 @@ Use the following instructions to create a CMEK and set up a Vertex ML Metadata 
 
     - ` LOCATION_ID ` : Your region.
     - ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
-    - ` KEY_RING ` : The name of the Cloud Key Management Service key ring that your encryption key is on.
+    - ` KEY_RING ` : The name of the Cloud KMS key ring that your encryption key is on.
     - ` KEY_NAME ` : The name of the encryption key that you want to use for this metadata store.
 
     HTTP method and URL:

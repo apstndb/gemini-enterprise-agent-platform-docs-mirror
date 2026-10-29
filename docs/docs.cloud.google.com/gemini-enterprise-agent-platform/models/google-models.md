@@ -50,6 +50,10 @@ audio_spark [Gemini 3.8 Live](https://docs.cloud.google.com/gemini-enterprise-ag
 
 spark [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash) Our most intelligent workhorse model yet, built for long-horizon coding and autonomous agents.
 
+audio_spark [Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts) Our flagship text-to-speech model for studio-grade voice fidelity, expressive acting, regional accents, and stable long-form multi-speaker audio.
+
+audio_spark [Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts) Fast, cost-efficient text-to-speech for high-throughput production workloads and voice agents.
+
 spark [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash) Our intelligent everyday driver for developers, delivering a step forward in software engineering and feeling distinctly better to build with.
 
 spark [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash) Optimized for complex, multi-step workflows, improved code generation, and improved multimodal reasoning—all while using fewer tokens.
@@ -81,10 +85,6 @@ audio_spark [Gemini 2.5 Flash with Gemini Live API](https://docs.cloud.google.co
 ## Preview Gemini models
 
 preview [Gemini Robotics ER 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/robotics-er-2) A vision-language model that brings advanced spatial and temporal reasoning, multi-step planning, and robot orchestration to physical environments.
-
-preview [Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts) Our flagship text-to-speech model for studio-grade voice fidelity, expressive acting, regional accents, and stable long-form multi-speaker audio.
-
-preview [Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts) Fast, cost-efficient text-to-speech for high-throughput production workloads and voice agents.
 
 preview [Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash) Generate video from text or reference assets, or edit existing videos.
 

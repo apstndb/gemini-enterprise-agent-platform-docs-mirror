@@ -40,7 +40,7 @@ Use these tools and services to design, prototype, and develop your AI agents.
 - [**Agent Garden:**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/agent-garden) A library of prebuilt agents and templates to accelerate development.
 - [**CodeMender:**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender) An autonomous AI code security agent that finds, verifies, and fixes vulnerabilities in your codebase.
 - [**Model Garden:**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models) Access to Google's frontier models (like Gemini models), third-party, and open-source models.
-- [**RAG Engine:**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) Securely connects private enterprise data to LLMs to improve answer accuracy and reduce hallucinations.
+- [**RAG Engine on Gemini Enterprise Agent Platform:**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) Securely connects private enterprise data to LLMs to improve answer accuracy and reduce hallucinations.
 - [**Vector Search:**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview) AI-native search engine for storing, searching, and managing data for AI applications.
 - [**Managed Agents API on Agent Platform:**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents) A config-driven, REST-first API for building autonomous agents inside a fully managed sandbox. Create and manage agent configurations and sandbox environments with mounted sources, such as skills and artifacts, by using the **Agents API** , and interact directly with your deployed agents at runtime by using the **Interactions API** .
 
@@ -60,7 +60,7 @@ Secure, catalog, and govern your agents with enterprise-grade controls and polic
 - [**Agent Registry:**](https://docs.cloud.google.com/agent-registry/overview) A centralized catalog for discovering, tracking, and managing all agents, tools, and MCP servers across the organization.
 - [**Agent Identity:**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) Provides a fully managed, unique identity for each agent, enabling secure access control and auditing.
 - [**Agent Gateway:**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) A central policy enforcement point to govern all agent tool calls, manage authentication, and apply security policies.
-- [**Governance Policies:**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/overview) Including Content Protection and Semantic Governance to mitigate risks like data leakage and ensure compliance.
+- [**Governance Policies:**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/overview) Including Content Protection and Semantic governance to mitigate risks like data leakage and ensure compliance.
 - [**AI threat and vulnerability scanning:**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/view-security-findings) Real-time threat detection and vulnerability scanning specific to agentic systems.
 - [**AI Content Detection API:**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/ai-content-detection) Provides a method to identify AI-generated content to support responsible media governance.
 

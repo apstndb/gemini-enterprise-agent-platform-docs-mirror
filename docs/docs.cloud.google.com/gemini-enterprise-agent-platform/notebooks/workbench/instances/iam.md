@@ -107,6 +107,8 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code>compute. commitments. listTagBindings</code></p>
 <p><code>compute.crossSiteNetworks.get</code></p>
 <p><code>compute.crossSiteNetworks.list</code></p>
+<p><code>compute.dhcpOptionsConfigs.get</code></p>
+<p><code>compute. dhcpOptionsConfigs. list</code></p>
 <p><code>compute.diskSettings.get</code></p>
 <p><code>compute.diskTypes.*</code></p>
 <ul>
@@ -675,6 +677,8 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code>compute. commitments. listTagBindings</code></p>
 <p><code>compute.crossSiteNetworks.get</code></p>
 <p><code>compute.crossSiteNetworks.list</code></p>
+<p><code>compute.dhcpOptionsConfigs.get</code></p>
+<p><code>compute. dhcpOptionsConfigs. list</code></p>
 <p><code>compute.diskSettings.get</code></p>
 <p><code>compute.diskTypes.*</code></p>
 <ul>
@@ -1243,6 +1247,8 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code>compute. commitments. listTagBindings</code></p>
 <p><code>compute.crossSiteNetworks.get</code></p>
 <p><code>compute.crossSiteNetworks.list</code></p>
+<p><code>compute.dhcpOptionsConfigs.get</code></p>
+<p><code>compute. dhcpOptionsConfigs. list</code></p>
 <p><code>compute.diskSettings.get</code></p>
 <p><code>compute.diskTypes.*</code></p>
 <ul>
@@ -1838,6 +1844,12 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <li><code>compute.crossSiteNetworks.get</code></li>
 <li><code>compute.crossSiteNetworks.list</code></li>
 <li><code>compute. crossSiteNetworks. update</code></li>
+<li><code>compute. dhcpOptionsConfigs. create</code></li>
+<li><code>compute. dhcpOptionsConfigs. delete</code></li>
+<li><code>compute.dhcpOptionsConfigs.get</code></li>
+<li><code>compute. dhcpOptionsConfigs. list</code></li>
+<li><code>compute. dhcpOptionsConfigs. update</code></li>
+<li><code>compute.dhcpOptionsConfigs.use</code></li>
 <li><code>compute.diskSettings.get</code></li>
 <li><code>compute.diskSettings.update</code></li>
 <li><code>compute.diskTypes.get</code></li>
@@ -2983,6 +2995,8 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code>compute. commitments. listTagBindings</code></p>
 <p><code>compute.crossSiteNetworks.get</code></p>
 <p><code>compute.crossSiteNetworks.list</code></p>
+<p><code>compute.dhcpOptionsConfigs.get</code></p>
+<p><code>compute. dhcpOptionsConfigs. list</code></p>
 <p><code>compute.diskSettings.get</code></p>
 <p><code>compute.diskTypes.*</code></p>
 <ul>
@@ -3526,6 +3540,8 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code>compute. commitments. listTagBindings</code></p>
 <p><code>compute.crossSiteNetworks.get</code></p>
 <p><code>compute.crossSiteNetworks.list</code></p>
+<p><code>compute.dhcpOptionsConfigs.get</code></p>
+<p><code>compute. dhcpOptionsConfigs. list</code></p>
 <p><code>compute.diskSettings.get</code></p>
 <p><code>compute.diskTypes.*</code></p>
 <ul>
@@ -4131,6 +4147,8 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <p><code>compute. commitments. listTagBindings</code></p>
 <p><code>compute.crossSiteNetworks.get</code></p>
 <p><code>compute.crossSiteNetworks.list</code></p>
+<p><code>compute.dhcpOptionsConfigs.get</code></p>
+<p><code>compute. dhcpOptionsConfigs. list</code></p>
 <p><code>compute.diskSettings.get</code></p>
 <p><code>compute.diskTypes.*</code></p>
 <ul>

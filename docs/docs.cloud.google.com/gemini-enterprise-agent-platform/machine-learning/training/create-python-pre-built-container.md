@@ -172,6 +172,33 @@ Replace ` CLOUD_STORAGE_DIRECTORY ` with the URI (beginning with `gs://` and end
 
 To learn about other ways to upload your source distribution to Cloud Storage, read [Uploading objects](https://docs.cloud.google.com/storage/docs/uploading-objects) in the Cloud Storage documentation.
 
+## Migrate from python_package_spec to container_spec
+
+The [`PythonPackageSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#PythonPackageSpec) configuration ( `executorImageUri` ) only accepts officially supported [prebuilt training containers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/pre-built-containers) . If your framework or runtime has reached end-of-availability (EOA), such as scikit-learn or XGBoost, or if you require newer Python versions (such as Python 3.11+) and external system libraries, migrate your training workload to use [`ContainerSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#ContainerSpec) .
+
+Unlike `python_package_spec` , `ContainerSpec` has no `package_uris` or `python_module` fields.
+
+To migrate your workload to `container_spec` , choose one of the following approaches:
+
+- **Keep packages on Cloud Storage** : Pass the package URI through `args` or `env` to an entrypoint script in your container that downloads the package, installs it with `pip` , and runs `python -m <module>` .
+
+  For example, in your container's entrypoint script:
+
+  ```
+  #!/usr/bin/env bash
+  set -e
+
+  PACKAGE_URI="$1"
+  MODULE_NAME="$2"
+  shift 2
+
+  gcloud storage cp "${PACKAGE_URI}" ./package.tar.gz
+  pip install --no-cache-dir ./package.tar.gz
+  python -m "${MODULE_NAME}" "$@"
+  ```
+
+- **Build the code into the image** : Alternatively, copy your training application files and dependencies directly into the Docker image at build time (for example, with `COPY` and `pip install` in your `Dockerfile` ) and set the entrypoint directly in the image.
+
 ## What's next
 
 - Learn about additional [training code requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/code-requirements) for serverless training.

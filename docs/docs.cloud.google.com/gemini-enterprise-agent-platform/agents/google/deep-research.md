@@ -56,7 +56,7 @@ Text , Images</li>
 <td>Supported
 <ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-search">Grounding with Google Search</a></li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/web-grounding-enterprise">Grounding with Enterprise Web Search</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/web-grounding-enterprise">Web Grounding for Enterprise</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-vertex-ai-search">Grounding with Agent Search</a></li>
 <li><a href="https://ai.google.dev/gemini-api/docs/interactions/deep-research#mcp-servers">Grounding on remote MCP servers</a> preview Preview feature</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking">Thought summaries</a></li>

@@ -115,10 +115,6 @@ response_format [ResponseFormat](https://docs.cloud.google.com/gemini-enterprise
 
 Enforces that the generated response is a JSON object that complies with the JSON schema specified in this field.
 
-response_mime_type string (optional)
-
-The mime type of the response. This is required if response_format is set.
-
 stream boolean (optional)
 
 Input only. Whether the interaction will be streamed.
@@ -959,10 +955,6 @@ Possible values:
 - `audio`
 - `video`
 - `document`
-
-response_mime_type string (optional)
-
-The mime type of the response. This is required if response_format is set.
 
 previous_interaction_id string (optional)
 

@@ -162,7 +162,7 @@ To view cumulative billed token usage and cost trends across your Google Cloud p
 
 Set up the CLI tool and initialize your workspace to start scanning.
 
-> **Warning:** CodeMender executes commands and may modify files directly on your host system. By default, these commands run inside a local process-level sandbox. If you disable the sandbox (in `config.yaml` or using the `--sandbox=false` flag) or bypass it (using the `--unrestricted` flag), run the CLI in an isolated VM or container to protect your host system.
+> **Warning:** CodeMender executes commands and may modify files directly on your host system. By default, these commands run inside a local process-level sandbox and are restricted to your workspace directory and command policy. If you disable the sandbox (in `config.yaml` or using the `--sandbox=false` flag) or bypass path or command boundaries (using the `--allow-all-paths` or `--allow-all-commands` flags), run the CLI in an isolated VM or container to protect your host system.
 
 ### Prerequisites
 
@@ -229,7 +229,7 @@ CodeMender uses a "Zero-Data-Access" approach regarding human visibility:
 - **No human access:** No human groups or Google engineers have access to read customer data in the production environment.
 - **No operator visibility:** Even for production debugging and error tracking, Google operators are restricted and do not have visibility into customer source code context or transient session states.
 - **Strict isolation:** We logically isolate and access-control all data by organization and customer billing-project to protect tenant privacy within our shared infrastructure.
-- **VPC Service Controls (VPC-SC):** To further protect your environment, CodeMender's architecture fully supports VPC Service Controls (VPC-SC). This lets you define a secure security perimeter around your Google Cloud resources, helping to mitigate any data exfiltration risks when your localized data is sent to the cloud reasoning engine.
+- **VPC Service Controls (VPC-SC):** To further protect your environment, CodeMender's architecture fully supports VPC-SC. This lets you define a secure security perimeter around your Google Cloud resources, helping to mitigate any data exfiltration risks when your localized data is sent to the cloud reasoning engine.
 
 ## What's next
 

@@ -56,7 +56,7 @@ For more information about default deep scans, scanning pull requests with `--di
 
 ## Verify vulnerabilities
 
-> **Warning:** CodeMender executes commands and may modify files directly on your host system. By default, these commands run inside a local process-level sandbox. If you disable the sandbox (in `config.yaml` or using the `--sandbox=false` flag) or bypass it (using the `--unrestricted` flag), run the CLI in an isolated VM or container to protect your host system.
+> **Warning:** CodeMender executes commands and may modify files directly on your host system. By default, these commands run inside a local process-level sandbox and are restricted to your workspace directory and command policy. If you disable the sandbox (in `config.yaml` or using the `--sandbox=false` flag) or bypass path or command boundaries (using the `--allow-all-paths` or `--allow-all-commands` flags), run the CLI in an isolated VM or container to protect your host system.
 
 Once CodeMender identifies potential vulnerabilities, ask it to verify exploitability. During verification, CodeMender generates and executes a proof-of-concept (PoC) exploit (inside the default [sandbox](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment#execution-sandboxing) ) to confirm whether the issue is genuinely exploitable.
 
@@ -70,10 +70,12 @@ cm verify FINDING_ID
 
 The following flags configure `cm verify` :
 
-| Flag                          | Default | Description                                                                                                                                                                                     |
-|-------------------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `-c, --context `` TEXT`       | `""`    | Pass steering instructions or application domain context to guide the agent (for example, `cm verify `` FINDING_ID `` -c "Focus analysis on the multi-tenant session validation path"` ).       |
-| `--skip-exploit-verification` | `false` | Mark high-confidence findings as verified without rerunning the PoC exploit script after the verification agent finishes. The agent still generates and runs a PoC exploit during verification. |
-| `--sandbox`                   | `true`  | Explicitly enable or disable the sandbox for this run (for example, `--sandbox=false` to disable).                                                                                              |
-| `--unrestricted`              | `false` | Temporarily bypass all sandbox protections for this run, disabling file system boundaries and OS-level container isolation.                                                                     |
-| `-y, --yes`                   | `false` | Skip interactive confirmation prompts ( `[y/N]` ) for tool actions and PoC exploit execution. Commands remain contained within the OS-level sandbox container ( `exebox` ).                     |
+| Flag                          | Default | Description                                                                                                                                                                                                                     |
+|-------------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `-c, --context `` TEXT`       | `""`    | Pass steering instructions or application domain context to guide the agent (for example, `cm verify `` FINDING_ID `` -c "Focus analysis on the multi-tenant session validation path"` ).                                       |
+| `--skip-exploit-verification` | `false` | Mark high-confidence findings as verified without rerunning the PoC exploit script after the verification agent finishes. The agent still generates and runs a PoC exploit during verification.                                 |
+| `--sandbox`                   | `true`  | Explicitly enable or disable the OS-level sandbox for this run (for example, `--sandbox=false` to disable).                                                                                                                     |
+| `--allow-all-paths`           | `false` | Disable the workspace path boundary check so agent tools can access paths outside the project root and configured `project_paths` (combine with `--sandbox=false` to access host paths that aren't mounted inside the sandbox). |
+| `--allow-all-commands`        | `false` | Disable `command_policy.yaml` blocklist enforcement for this run.                                                                                                                                                               |
+| `-y, --yes`                   | `false` | Skip interactive confirmation prompts ( `[Y/n]` ) for tool actions and PoC exploit execution. Commands remain contained within the OS-level sandbox container ( `exebox` ) unless you also pass `--sandbox=false` .             |
+| `--bypass-warning`            | `false` | Skip the warning prompt shown when running commands on the host without the OS-level sandbox or interactive confirmation prompts.                                                                                               |

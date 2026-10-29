@@ -430,5 +430,20 @@ Not supported</li>
 </ul></td>
 <td></td>
 </tr>
+<tr class="even">
+<th>Security controls</th>
+<td><strong>Online prediction</strong></td>
+<td><ul>
+<li>Data residency</li>
+<li>CMEK</li>
+<li>VPC-SC</li>
+<li>AXT</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>See <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls">Security controls</a> for more information.</th>
+<td></td>
+<td></td>
+</tr>
 </tbody>
 </table>

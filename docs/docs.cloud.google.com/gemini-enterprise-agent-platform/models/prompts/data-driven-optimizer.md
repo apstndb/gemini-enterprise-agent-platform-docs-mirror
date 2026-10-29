@@ -123,7 +123,6 @@ To ensure that the [Compute Engine default service account](https://docs.cloud.g
 - If using custom metrics:
   - [Cloud Run Developer](https://docs.cloud.google.com/iam/docs/roles-permissions/run#run.developer) ( `roles/run.developer` )
   - [Cloud Run Invoker](https://docs.cloud.google.com/iam/docs/roles-permissions/run#run.invoker) ( `roles/run.invoker` )
-  - [Agent Platform Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.serviceAgent) ( `roles/aiplatform.serviceAgent` )
 
 For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 

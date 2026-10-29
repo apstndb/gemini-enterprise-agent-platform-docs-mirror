@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-managed-overview
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-managed-overview
 title: Agent Gateway for Runtime and Gemini Enterprise
-description: Overview of Agent Gateway for Google-managed runtimes, including Agent Runtime and Gemini Enterprise. Learn how Agent Gateway enforces ingress and egress access policies, mTLS, and Model Armor security.
+description: Overview of Agent Gateway for Google-managed runtimes, including Agent Runtime on Gemini Enterprise Agent Platform and Gemini Enterprise. Learn how Agent Gateway enforces ingress and egress access policies, mTLS, and Model Armor security.
 data_source: docs.cloud.google.com
 ---
 
@@ -45,7 +45,7 @@ In Client-to-Agent mode (supported only for agents deployed in Agent Runtime), a
 1.  **Client request** : A client (such as a CLI, web application, or developer tool) sends a request to the agent. The request is intercepted by an Agent Gateway operating in Client-to-Agent mode which acts as the agent's frontend.
 2.  **Request inspection** : Agent Gateway evaluates the request using the authorization policy attached to the gateway.
     - **Model Armor** : Scans the inbound user prompt in real time to block prompt injection attacks, jailbreaks, and harmful content.
-    - **Semantic Governance policy** (if configured instead of Model Armor): Evaluates natural language constraints against the inbound request.
+    - **Semantic governance policy** (if configured instead of Model Armor): Evaluates natural language constraints against the inbound request.
 3.  **Request forwarding** : If all checks pass, Agent Gateway forwards the request to the target destination in Agent Runtime.
 
 ### Agent-to-Anywhere enforcement
@@ -61,7 +61,7 @@ When an agent running in Agent Runtime or Gemini Enterprise sends an outbound ca
 4.  **Request inspection** : If the previous checks pass, Agent Gateway evaluates the request against any of these other safety guardrails you might have configured:
 
     - **Model Armor** : Inspects tool payloads and agent responses for prompt injection and sensitive data leakage.
-    - **Semantic Governance policies** : Evaluate natural language constraints (NLC) against tool invocations and agent actions.
+    - **Semantic governance policies** : Evaluate natural language constraints (NLC) against tool invocations and agent actions.
     - **Delegate authorization to a custom authorization engine** : You can delegate authorization decisions to a custom authorization engine by using Service Extensions. Depending on the configured authorization policy, one or more of these authorization engines may allow or deny the request.
 
 5.  **Request forwarding** : If all checks pass, Agent Gateway forwards the request to the target destination.
@@ -74,7 +74,7 @@ To deploy and configure Agent Gateway for Google-managed runtimes, follow the ge
 
 - **[Set up Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway) :** Learn how to create `agentGateways` resources, assign agent identities, register destination tools in Agent Registry, and attach access policies.
 - **[Set up Agent Gateway with VPC connectivity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity) :** Learn how to configure private VPC connectivity so that Agent Gateway can send outbound traffic to resources in your VPC network.
-- **[Delegate authorization](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization) :** Learn how to configure authorization policies and extensions to delegate traffic decisions to IAP, Model Armor, Semantic Governance policies, or custom Service Extensions engines.
+- **[Delegate authorization](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization) :** Learn how to configure authorization policies and extensions to delegate traffic decisions to IAP, Model Armor, Semantic governance policies, or custom Service Extensions engines.
 
 ### Runtime-specific traffic routing
 

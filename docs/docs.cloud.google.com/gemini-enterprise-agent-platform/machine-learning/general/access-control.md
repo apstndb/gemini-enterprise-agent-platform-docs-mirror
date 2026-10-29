@@ -4158,12 +4158,7 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <p><code>bigquery.tables.updateData</code></p>
 <p><code>cloudtrace.traces.list</code></p>
 <p><code>iam.serviceAccounts.get</code></p>
-<p><code>iam. serviceAccounts. getAccessToken</code></p>
-<p><code>iam. serviceAccounts. getOpenIdToken</code></p>
-<p><code>iam. serviceAccounts. implicitDelegation</code></p>
 <p><code>iam.serviceAccounts.list</code></p>
-<p><code>iam.serviceAccounts.signBlob</code></p>
-<p><code>iam.serviceAccounts.signJwt</code></p>
 <p><code>logging.logEntries.create</code></p>
 <p><code>logging.logEntries.route</code></p>
 <p><code>logging.views.access</code></p>
@@ -4535,6 +4530,9 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 </blockquote></td>
 <td><p><code>agentregistry.agents.get</code></p>
 <p><code>agentregistry.agents.list</code></p>
+<p><code>agentregistry. bindings. fetchAvailable</code></p>
+<p><code>agentregistry.bindings.get</code></p>
+<p><code>agentregistry.bindings.list</code></p>
 <p><code>agentregistry.endpoints.*</code></p>
 <ul>
 <li><code>agentregistry.endpoints.get</code></li>
@@ -4551,6 +4549,8 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 </ul>
 <p><code>agentregistry.skills.create</code></p>
 <p><code>agentregistry.skills.delete</code></p>
+<p><code>agentregistry.skills.get</code></p>
+<p><code>agentregistry.skills.list</code></p>
 <p><code>aiplatform. agentAnomalyDetectionScopes.*</code></p>
 <ul>
 <li><code>aiplatform. agentAnomalyDetectionScopes. create</code></li>
@@ -5304,23 +5304,17 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <p><code>compute.subnetworks.use</code></p>
 <p><code>compute. subnetworks. useExternalIp</code></p>
 <p><code>compute.zoneOperations.get</code></p>
-<p><code>dataflow.jobs.*</code></p>
-<ul>
-<li><code>dataflow.jobs.cancel</code></li>
-<li><code>dataflow.jobs.create</code></li>
-<li><code>dataflow.jobs.get</code></li>
-<li><code>dataflow.jobs.list</code></li>
-<li><code>dataflow.jobs.snapshot</code></li>
-<li><code>dataflow.jobs.updateContents</code></li>
-</ul>
+<p><code>dataflow.jobs.cancel</code></p>
+<p><code>dataflow.jobs.create</code></p>
+<p><code>dataflow.jobs.get</code></p>
+<p><code>dataflow.jobs.list</code></p>
+<p><code>dataflow.jobs.snapshot</code></p>
+<p><code>dataflow.jobs.updateContents</code></p>
 <p><code>dataflow.messages.list</code></p>
 <p><code>dataflow.metrics.get</code></p>
-<p><code>dataflow.snapshots.*</code></p>
-<ul>
-<li><code>dataflow.snapshots.delete</code></li>
-<li><code>dataflow.snapshots.get</code></li>
-<li><code>dataflow.snapshots.list</code></li>
-</ul>
+<p><code>dataflow.snapshots.delete</code></p>
+<p><code>dataflow.snapshots.get</code></p>
+<p><code>dataflow.snapshots.list</code></p>
 <p><code>datalabeling. annotateddatasets. get</code></p>
 <p><code>datalabeling.datasets.export</code></p>
 <p><code>datalabeling.datasets.get</code></p>
@@ -5668,6 +5662,12 @@ Gives Vertex AI the permissions it needs to function.
 
 `agentregistry.agents.list`
 
+`agentregistry. bindings. fetchAvailable`
+
+`agentregistry.bindings.get`
+
+`agentregistry.bindings.list`
+
 `agentregistry.endpoints.*`
 
 - `agentregistry.endpoints.get`
@@ -5687,6 +5687,10 @@ Gives Vertex AI the permissions it needs to function.
 `agentregistry.skills.create`
 
 `agentregistry.skills.delete`
+
+`agentregistry.skills.get`
+
+`agentregistry.skills.list`
 
 `aiplatform. agentAnomalyDetectionScopes.*`
 
@@ -6613,24 +6617,27 @@ Gives Vertex AI the permissions it needs to function.
 
 `compute.zoneOperations.get`
 
-`dataflow.jobs.*`
+`dataflow.jobs.cancel`
 
-- `dataflow.jobs.cancel`
-- `dataflow.jobs.create`
-- `dataflow.jobs.get`
-- `dataflow.jobs.list`
-- `dataflow.jobs.snapshot`
-- `dataflow.jobs.updateContents`
+`dataflow.jobs.create`
+
+`dataflow.jobs.get`
+
+`dataflow.jobs.list`
+
+`dataflow.jobs.snapshot`
+
+`dataflow.jobs.updateContents`
 
 `dataflow.messages.list`
 
 `dataflow.metrics.get`
 
-`dataflow.snapshots.*`
+`dataflow.snapshots.delete`
 
-- `dataflow.snapshots.delete`
-- `dataflow.snapshots.get`
-- `dataflow.snapshots.list`
+`dataflow.snapshots.get`
+
+`dataflow.snapshots.list`
 
 `datalabeling. annotateddatasets. get`
 
@@ -7760,17 +7767,7 @@ Gives Vertex AI Custom Code the proper permissions. The aiplatform.customJobs.cr
 
 `iam.serviceAccounts.get`
 
-`iam. serviceAccounts. getAccessToken`
-
-`iam. serviceAccounts. getOpenIdToken`
-
-`iam. serviceAccounts. implicitDelegation`
-
 `iam.serviceAccounts.list`
-
-`iam.serviceAccounts.signBlob`
-
-`iam.serviceAccounts.signJwt`
 
 `logging.logEntries.create`
 
@@ -7992,6 +7989,10 @@ Provide access for notebooks service agent to manage notebook instances in user 
 `compute.crossSiteNetworks.get`
 
 `compute.crossSiteNetworks.list`
+
+`compute.dhcpOptionsConfigs.get`
+
+`compute. dhcpOptionsConfigs. list`
 
 `compute.diskSettings.get`
 

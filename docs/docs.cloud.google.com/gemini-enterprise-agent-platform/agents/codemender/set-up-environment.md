@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment
 title: Install and configure the CLI
-description: Learn how to download the CodeMender CLI, configure Google Cloud credentials and project, and initialize your workspace.
+description: Learn how to download the CodeMender CLI, configure {{dynamic_data.site_values.cloud_name}} credentials and project, and initialize your workspace.
 data_source: docs.cloud.google.com
 ---
 
@@ -328,31 +328,35 @@ Since the hosted AI agent executes local commands (like building code, running t
 
 Here is what the core default parameters mean:
 
-- **`human_confirmation: true` (or `require_confirmation: true` )**
+- **`tools.confirm_commands: true`**
 
-  - **What it means:** By default, CodeMender **cannot** modify any file on your disk or execute shell commands without explicitly prompting you for a `[Y/n]` confirmation in the terminal.
-  - **Why this is the default:** CodeMender may generate speculative patches or attempt to run exploit scripts to verify a vulnerability. Forcing human confirmation helps prevent accidental system changes or unauthorized code execution in your local environment.
-  - **Bypass:** For non-interactive CI/CD pipelines, this can be set to `false` .
+  - **What it means:** By default, CodeMender prompts you for a `[Y/n]` confirmation in the terminal before executing shell commands ( `run_command` ). When `cm find` runs with the OS-level sandbox enabled ( `sandbox.enabled: true` ) and default network isolation ( `permissive-closed` ), the workspace is mounted read-only and command confirmation prompts are skipped automatically.
+  - **Why this is the default:** CodeMender may run build commands, test suites, or exploit scripts during verification and patching. Requiring confirmation when the workspace is writable or unsandboxed helps prevent unintended command execution in your local environment.
+  - **Bypass:** Pass `-y` (or `--yes` ) for a single run, or set `tools.confirm_commands: false` in `config.yaml` for non-interactive CI/CD pipelines.
 
-- **`confirm_writes: false`**
+- **`tools.confirm_writes: true`**
 
-  - **What it means:** Disables interactive prompts for file modifications, allowing the CodeMender agent to write security patches and modify source files directly to your local disk without waiting for human approval.
-  - **Why this is the default:** By default, CodeMender sets this safety guardrail to `true` to enforce a "Human-in-the-Loop" workflow. Because CodeMender acts on your local codebase, requiring manual confirmation (for example, `Write? [Y/n]` ) prevents the agent from making speculative, incorrect, or destructive modifications to your source files. You should only switch this to `false` when running in isolated, disposable sandboxes or automated, headless CI/CD pipelines.
+  - **What it means:** Prompts you for a `[Y/n]` confirmation in the terminal before the CodeMender agent writes or modifies files on disk ( `write_to_file` and `search_and_replace` ).
+  - **Why this is the default:** Requiring manual confirmation prevents the agent from making speculative or unintended modifications to your source files during `cm fix` or `cm verify` . Only set this to `false` (or pass `-y` / `--yes` ) when running in isolated, disposable environments or automated CI/CD pipelines.
 
-- **`include: [".py", ".java", ".go", ".js", ".jsx", ".mjs", ".cjs", ".ts", ".tsx", ".c", ".cc", ".cpp", ".cxx", ".h", ".hpp", ".cs", ".rs", ".kt", ".kts", ".rb", ".php"]`**
+- **`execution.interactive_mode: true`**
+
+  - **What it means:** Enables interactive terminal prompts during tool execution. Set this to `false` (or pass `-y` / `--yes` ) in headless CI/CD environments where no terminal is attached.
+
+- **`scan.extensions.include: [".py", ".java", ".go", ".js", ".jsx", ".mjs", ".cjs", ".ts", ".tsx", ".c", ".cc", ".cpp", ".cxx", ".h", ".hh", ".hpp", ".hxx", ".inl", ".ipp", ".cs", ".rs", ".kt", ".kts", ".rb", ".php", ".sol", ".tf", ".hcl"]`**
 
   - **What it means:** Defines the explicit list of file extensions that you authorize CodeMender to ingest and analyze when scanning your workspace. CodeMender automatically skips any file in your repository with an extension not specified in this list.
   - **Why this is the default:** This list defaults to major programming languages to maximize scanning efficiency and prevent the agent from wasting time and tokens on irrelevant text files, build artifacts, or binary files. However, because modern applications often embed vulnerabilities in deployment configs or automation tools, you can manually expand this default list in `config.yaml` to include configuration files, script formats, and IaC files (for example, shell scripts, XML, YAML, properties, and JSON files) so CodeMender doesn't silently ignore them.
 
-- **`exclude_dirs: ["node_modules", "vendor", "dist", "bin", "target", "obj", "build", ".gradle"]`**
+- **`scan.exclude_dirs: ["node_modules", "vendor", "dist", "/target", "/obj", "/build", ".gradle"]`**
 
-  - **What it means:** CodeMender will completely skip these directories during workspace scanning and code analysis.
+  - **What it means:** CodeMender skips these directories during workspace scanning and code analysis. Entries with a leading `/` (such as `/target` , `/obj` , and `/build` ) match only at the scan root so nested source packages with those names aren't skipped.
   - **Why this is the default:** Large dependency or build folders trigger a massive latency and token penalty. Keeping these excluded by default ensures high performance and rapid response times. You can customize this list in `config.yaml` to include or exclude specific directories according to your project structure.
 
 - **`project_paths: []`**
 
   - **What it means:** A list of directory paths that CodeMender can access (read/write) during tool execution.
-  - **Why this is the default:** By default, it is empty, which restricts the agent to the scan target directory. If your build or test process requires accessing files outside the scan target directory, you must add those paths here.
+  - **Why this is the default:** By default, it is empty, which restricts the agent to the enclosing project root (or scan target directory). If your build or test process requires accessing files outside the project root, add those paths here or pass `--allow-all-paths` for a single run. Writes to `.git` , `.hg` , and `.codemender` are always blocked.
   - **Artifacts directory:** The agent can also write to a per-session artifacts directory ( `~/.codemender/artifacts/<session_id>/` , or the equivalent under `$CM_HOME` ).
   - **Temporary files:** When the sandbox is enabled, the host `/tmp` directory is always blocked, even if you add `/tmp` to `project_paths` . Tools that respect `TMPDIR` use a temporary directory inside the artifacts directory instead.
 
@@ -360,7 +364,7 @@ Here is what the core default parameters mean:
 
   - **What it means:** Configuration block for the process-level sandbox environment.
   - **Sub-parameters:**
-    - **`enabled: true`** : (Boolean) Enables or disables the sandbox. If you set this to `true` (default), the agent runs tools inside the local sandbox. If you set it to `false` , the agent runs tools directly on the host system without isolation.
+    - **`enabled: true`** : (Boolean) Enables or disables the sandbox. If you set this to `true` (default), the agent runs tools inside the local sandbox. If you set it to `false` (or pass `--sandbox=false` ), the agent runs tools directly on the host system without OS-level isolation.
     - **`mounts`** : (Object)
       - **`target_dir: "."`** : (String) The directory to mount as the active workspace inside the sandbox. The CLI resolves relative paths against the workspace root.
     - **`network`** : (Object)
@@ -372,7 +376,7 @@ Here is what the core default parameters mean:
 
   - **What it means:** Configuration block for security policies.
   - **Sub-parameters:**
-    - **`protected_files: []`** : (List of Strings) Files or directories on the host system that you want to mount **read-only** inside the sandbox to protect them from modification (for example, `["~/.ssh/*"]` ). Supports path expansion ( `~` ) and wildcards ( `*` ).
+    - **`protected_files: []`** : (List of Strings) Additional files or directories on the host system that you want to mount **read-only** inside the sandbox to protect them from modification. Supports path expansion ( `~` ) and wildcards ( `*` ). Even when `protected_files` is empty, the sandbox always protects `.git/hooks` , `.git/config` , `.hg/hgrc` , and `.codemender` as read-only and excludes common credential directories ( `~/.ssh` , `~/.gnupg` , `~/.aws` , `~/.config/gcloud` , `~/.config/gh` , `~/.kube` , `~/.docker` ).
 
 - **`model: "gemini-3.8-flash"`**
 
@@ -389,7 +393,29 @@ Here is what the core default parameters mean:
   - **What it means:** Defines the exact shell command that CodeMender executes to compile and build your project, as well as run your unit and regression tests.
   - **Why this is the default:** Setting a build and test command is critical for the verification workflow. It allows CodeMender to compile your project and run your existing test suite in the isolated sandbox environment to prove that the generated security patch successfully mitigates the vulnerability without breaking existing application logic.
 
-> **Summary:** Treat `config.yaml` as your agent policy document. In local development, keep the built-in sandbox enabled ( `sandbox.enabled: true` or the `--sandbox` flag) and keep `human_confirmation: true` to safeguard your environment. Only disable these protections when running inside isolated, disposable sandbox virtual machines or CI/CD pipelines.
+### Command policy ( `command_policy.yaml` )
+
+In addition to the OS-level sandbox, you can define a command denylist in `~/.codemender/command_policy.yaml` (global) and `<project>/.codemender/command_policy.yaml` (project-specific). When both files are present, CodeMender merges their rules.
+
+On first run, CodeMender creates a commented-out template at `~/.codemender/command_policy.yaml` . You can uncomment or add rules under two keys:
+
+- **`block`** : A list of binary names to block across all shell pipelines, subshells, and command substitutions (for example, `curl` , `wget` , `ssh` , `sudo` , `rm` ).
+- **`block_patterns`** : A list of regular expressions matched against each command segment (for example, `'\bgit\s+(push|commit|rebase|reset\s+--hard|clean)\b'` ).
+
+To bypass `command_policy.yaml` enforcement for a single command invocation, pass the `--allow-all-commands` flag.
+
+### Command policy ( `command_policy.yaml` )
+
+In addition to the OS-level sandbox, you can define a command denylist in `~/.codemender/command_policy.yaml` (global) and `<project>/.codemender/command_policy.yaml` (project-specific). When both files are present, CodeMender merges their rules.
+
+On first run, CodeMender creates a commented-out template at `~/.codemender/command_policy.yaml` . You can uncomment or add rules under two keys:
+
+- **`block`** : A list of binary names to block across all shell pipelines, subshells, and command substitutions (for example, `curl` , `wget` , `ssh` , `sudo` , `rm` ).
+- **`block_patterns`** : A list of regular expressions matched against each command segment (for example, `'\bgit\s+(push|commit|rebase|reset\s+--hard|clean)\b'` ).
+
+To bypass `command_policy.yaml` enforcement for a single command invocation, pass the `--allow-all-commands` flag.
+
+> **Summary:** Treat `config.yaml` and `command_policy.yaml` as your agent policy documents. In local development, keep the built-in sandbox enabled ( `sandbox.enabled: true` or the `--sandbox` flag) and keep `tools.confirm_commands: true` and `tools.confirm_writes: true` to safeguard your environment. Only disable these protections when running inside isolated, disposable virtual machines or CI/CD pipelines.
 
 ## Execution sandboxing
 
@@ -405,8 +431,9 @@ Although this sandboxing offers an initial layer of defense on your workstation,
 
 When the sandbox is active:
 
-1.  **File system Isolation** : The agent can only read and write files within allowed directories. The sandbox redirects any writes outside these directories to a temporary in-memory file system (tmpfs) without affecting your host system.
-2.  **Network Isolation** : The sandbox blocks outbound network access by default. This prevents the agent (or the build tools it invokes) from making unexpected external connections or transmitting data outside the workspace.
+1.  **File system isolation** : The agent can only access files within allowed directories. During `cm find` , the workspace and allowed roots are mounted **read-only** , so commands can only write to the per-session artifacts directory. Across all commands (including `cm verify` and `cm fix` ), `.git/hooks` , `.git/config` , `.hg/hgrc` , and `.codemender` are mounted read-only so sandboxed commands can't install Git or Mercurial hooks or modify CodeMender configuration.
+2.  **Network isolation** : The sandbox blocks outbound network access by default ( `sandbox.network.profile: "permissive-closed"` ). This prevents the agent (or the build tools it invokes) from making unexpected external connections or transmitting data outside the workspace.
+3.  **Credential and secret isolation** : The sandbox excludes common host credential directories ( `~/.ssh` , `~/.gnupg` , `~/.aws` , `~/.config/gcloud` , `~/.config/gh` , `~/.kube` , `~/.docker` , and others) and strips environment variables matching secret patterns ( `*_TOKEN` , `*_SECRET` , `*_KEY` , `*_PASSWORD` , `*_CREDENTIALS` , and similar suffixes) before executing commands.
 
 ### Network access during build and validation
 
@@ -430,15 +457,16 @@ If your project requires network access for builds or tests, you have the follow
 
   > **Note:** Granular allow-listing of specific domains or URL patterns (such as only allow-listing `npmjs.org` ) is not yet supported; `permissive-open` grants full outbound access to the sandbox.
 
-- **Bypass the sandbox** : Run the command with the `--unrestricted` flag to disable the sandbox and file system boundaries entirely for that execution.
+- **Disable the sandbox for a run** : Run the command with the `--sandbox=false` flag to disable the OS-level sandbox (including network isolation) for that execution.
 
 ### Sandbox configuration
 
-You can configure and control the sandbox using the following options:
+You can configure and control the sandbox and security boundaries using the following options:
 
-- **Persistent Configuration ( `config.yaml` )** : You can customize sandbox behavior, file system mounts, network access, and security policies by adding `sandbox` , `execution` , and `security` blocks to your `config.yaml` file. See [Configuration parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment#configuration-file) for details.
-- **Control the sandbox using the CLI ( `--sandbox` )** : You can explicitly enable or disable the sandbox for a single run by passing `--sandbox=true` or `--sandbox=false` to `cm find` , `cm verify` , or `cm fix` .
-- **Bypass isolation using the CLI ( `--unrestricted` )** : You can temporarily bypass all sandbox protections for a single run by passing the `--unrestricted` flag. This disables the file system path boundaries (allowing the agent to access any path on your host) and disables the OS-level container isolation entirely (including network isolation).
+- **Persistent configuration ( `config.yaml` and `command_policy.yaml` )** : Customize sandbox behavior, file system mounts, network access, and command denylists in `config.yaml` and `command_policy.yaml` . See [Configuration parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment#configuration-file) and [Command policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment#command-policy) for details.
+- **Control the OS-level sandbox ( `--sandbox` )** : Explicitly enable or disable the OS-level sandbox for a single run by passing `--sandbox=true` or `--sandbox=false` to `cm find` , `cm verify` , `cm fix` , or `cm session resume` .
+- **Bypass path boundaries ( `--allow-all-paths` )** : Disable the workspace path boundary check for a single run so agent tools can access paths outside the project root and configured `project_paths` (combine with `--sandbox=false` to access host paths that aren't mounted inside the sandbox).
+- **Bypass command policy ( `--allow-all-commands` )** : Disable `command_policy.yaml` blocklist enforcement for a single run.
 
 ### Choosing an isolation level
 

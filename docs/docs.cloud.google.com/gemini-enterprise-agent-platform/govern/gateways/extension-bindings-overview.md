@@ -56,7 +56,7 @@ For custom governance logic, policy extensibility enables a flexible two-sided i
 
 - **Producer:** Internal platform engineering teams (2P) or third-party ISV security vendors (3P) act as producers. The producer builds a gRPC service compatible with Envoy's `ext_proc` protocol, hosts it in a dedicated producer project (such as a Cloud Run service behind an Application Load Balancer), exposes it using a Private Service Connect (PSC) Service Attachment, and publishes a `ProducerExtension` resource.
 
-- **Consumer:** Application developers and security administrators across consumer projects act as consumers. Once granted access [by using PSC](https://docs.cloud.google.com/vpc/docs/private-service-connect-security#connection-preference) by the producer, consumers create an `ExtensionBinding` in their project referencing the specific `ProducerExtension` resource URI to enforce custom controls (such as Semantic Governance Policies or third-party firewall rules) on their workloads.
+- **Consumer:** Application developers and security administrators across consumer projects act as consumers. Once granted access [by using PSC](https://docs.cloud.google.com/vpc/docs/private-service-connect-security#connection-preference) by the producer, consumers create an `ExtensionBinding` in their project referencing the specific `ProducerExtension` resource URI to enforce custom controls (such as Semantic governance policies or third-party firewall rules) on their workloads.
 
 ## Deployment patterns
 

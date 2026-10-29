@@ -205,12 +205,12 @@ curl -X GET \
 
 Deep Research supports multiple built-in and external tools. By default (when no tools parameter is provided), the agent has access to Google Search and URL Context. You can explicitly specify tools to restrict or extend the agent's capabilities. Supported tools include the following:
 
-| Tool                  | Key                     | Note                                                    |
-|-----------------------|-------------------------|---------------------------------------------------------|
-| Google Search         | `google_search`         | Search the public web. Enabled by default.              |
-| MCP servers           | `mcp_server`            | Connect to remote MCP servers for external tool access. |
-| Enterprise Web Search | `enterprise_web_search` | Web search with additional compliance controls.         |
-| Agent Search          | `vertex_ai_search`      | Search your website data or your sets of documents.     |
+| Tool                                             | Key                     | Note                                                    |
+|--------------------------------------------------|-------------------------|---------------------------------------------------------|
+| Google Search                                    | `google_search`         | Search the public web. Enabled by default.              |
+| MCP servers                                      | `mcp_server`            | Connect to remote MCP servers for external tool access. |
+| Web Grounding for Enterprise                     | `enterprise_web_search` | Web search with additional compliance controls.         |
+| Agent Search on Gemini Enterprise Agent Platform | `vertex_ai_search`      | Search your website data or your sets of documents.     |
 
 ### Google Search
 
@@ -259,9 +259,9 @@ interaction = client.interactions.create(
 )
 ```
 
-### Enterprise Web Search
+### Web Grounding for Enterprise
 
-Enterprise Web Search lets organizations ground generative AI responses in secure, compliant, up-to-date web data. It enables developers and businesses to connect AI models to the internet without compromising data privacy or regulatory compliance.
+Web Grounding for Enterprise lets organizations ground generative AI responses in secure, compliant, up-to-date web data. It enables developers and businesses to connect AI models to the internet without compromising data privacy or regulatory compliance.
 
 See the following example:
 
@@ -431,11 +431,11 @@ Consider the following limitations as you plan your project:
 
 - **Single-turn only** : Only single-turn queries are supported. Usage of the API's `previous_interaction_id` field isn't supported.
 
-- **Enterprise security** : During Preview, customer-managed encryption keys (CMEK) and VPC Service Controls aren't supported. Multi-region data residency constraints are under evaluation.
+- **Enterprise security** : During Preview, Customer-managed encryption keys (CMEK) and VPC Service Controls aren't supported. Multi-region data residency constraints are under evaluation.
 
 - **Caching** : Implicit caching is enabled by default for this service. It cannot be turned off.
 
-- **Data retention** : Prompts and generated output are stored for seven days for standard processing. When using Grounding with Google Search, Google stores prompts, contextual information, and generated output for three days for debugging and testing. If you use Grounding with Google Search, you can't turn off the storage of this information. If you require zero data retention, it is recommended to use Grounding with Enterprise Web Search.
+- **Data retention** : Prompts and generated output are stored for seven days for standard processing. When using Grounding with Google Search, Google stores prompts, contextual information, and generated output for three days for debugging and testing. If you use Grounding with Google Search, you can't turn off the storage of this information. If you require zero data retention, it is recommended to use Web Grounding for Enterprise.
 
 ## Pricing
 
@@ -498,7 +498,7 @@ As outlined in Section 19 "Generative AI Services: Grounding with Google Search"
 The following security controls aren't supported during Preview:
 
 - Customer-managed encryption keys (CMEK)
-- VPC-Service Controls (VPC-SC)
+- VPC Service Controls (VPC-SC)
 - Access Transparency (AXT)
 - Data residency
 - Multi-region data residency

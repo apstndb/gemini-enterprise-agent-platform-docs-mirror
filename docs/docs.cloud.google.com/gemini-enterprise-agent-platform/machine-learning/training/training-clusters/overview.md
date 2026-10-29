@@ -1,38 +1,38 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/overview
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/overview
-title: Gemini Enterprise Agent Platform training clusters overview
-description: Provides an overview of Gemini Enterprise Agent Platform training clusters.
+title: Managed Training Clusters on Gemini Enterprise Agent Platform overview
+description: Provides an overview of Managed Training Clusters on Gemini Enterprise Agent Platform.
 data_source: docs.cloud.google.com
 ---
 
-If you're interested in Gemini Enterprise Agent Platform training clusters, contact your sales representative for access.
+If you're interested in Managed Training Clusters on Gemini Enterprise Agent Platform, contact your sales representative for access.
 
-Gemini Enterprise Agent Platform training clusters is a service from Google Cloud designed to simplify and accelerate the largest and most complex AI/ML workloads. It's specifically built to address challenges in large-scale training, such as complex cluster configuration, framework optimization, handling hardware failures, and integrating disparate toolsets.
+Managed Training Clusters on Gemini Enterprise Agent Platform is a service from Google Cloud designed to simplify and accelerate the largest and most complex AI/ML workloads. It's specifically built to address challenges in large-scale training, such as complex cluster configuration, framework optimization, handling hardware failures, and integrating disparate toolsets.
 
 ## Key value proposition and features
 
-Gemini Enterprise Agent Platform training clusters offers several core benefits:
+Managed Training Clusters offers several core benefits:
 
-- **Open-source Slurm UX and cluster transparency** : Gemini Enterprise Agent Platform training clusters provides familiar, flexible tools to launch and manage jobs through an open-source Slurm user experience. Slurm is an industry standard known for optimized GPU scheduling, automated fault tolerance, and simplified parallel job launch.
+- **Open-source Slurm UX and cluster transparency** : Managed Training Clusters provides familiar, flexible tools to launch and manage jobs through an open-source Slurm user experience. Slurm is an industry standard known for optimized GPU scheduling, automated fault tolerance, and simplified parallel job launch.
 
-- **Automated cluster setup and configuration** : Gemini Enterprise Agent Platform training clusters automates the setup and configuration of clusters, aiming to transition from reservation to production training in hours. Users can create clusters using the Google Cloud console (using reference architectures or step-by-step configuration) or through API calls with JSON files.
+- **Automated cluster setup and configuration** : Managed Training Clusters automates the setup and configuration of clusters, aiming to transition from reservation to production training in hours. Users can create clusters using the Google Cloud console (using reference architectures or step-by-step configuration) or through API calls with JSON files.
 
-- **Preconfigured data science recipes and workflows** : Gemini Enterprise Agent Platform training clusters includes purpose-built tooling and optimized training recipes to jumpstart training for popular use cases like Llama and Gemma models, covering pre-training, SFT (Supervised Fine-Tuning), and Reinforcement Learning (RL). These recipes are preconfigured for state-of-the-art (SOTA) performance on Google Cloud Infrastructure, demonstrating significant performance gains.
+- **Preconfigured data science recipes and workflows** : Managed Training Clusters includes purpose-built tooling and optimized training recipes to jumpstart training for popular use cases like Llama and Gemma models, covering pre-training, SFT (Supervised Fine-Tuning), and Reinforcement Learning (RL). These recipes are preconfigured for high performance on Google Cloud Infrastructure, demonstrating significant performance gains.
 
-- **Hardware resiliency and high uptime** : Gemini Enterprise Agent Platform training clusters is designed with hardware resiliency to boost cluster uptime. It automatically resolves hardware issues, detects and triages various failure modes (for example, correctness checks, speed checks, Error-Correcting Code (ECC) errors, NVIDIA Data Center GPU Manager (DCGM) checks, disk space capacity), and triggers remediation actions such as restarting, reimaging, or replacing faulty nodes, and resuming from checkpoints. This helps mitigate the significant cost increase and delays caused by job interruptions and hardware failures in large-scale training.
+- **Hardware resiliency and high uptime** : Managed Training Clusters is designed with hardware resiliency to boost cluster uptime. It automatically resolves hardware issues, detects and triages various failure modes (for example, correctness checks, speed checks, Error-Correcting Code (ECC) errors, NVIDIA Data Center GPU Manager (DCGM) checks, disk space capacity), and triggers remediation actions such as restarting, reimaging, or replacing faulty nodes, and resuming from checkpoints. This helps mitigate the significant cost increase and delays caused by job interruptions and hardware failures in large-scale training.
 
-- **Architecture and components** : Gemini Enterprise Agent Platform training clusters runs on [Compute Engine infrastructure](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/try/admin-user-gce-vms) supporting GPUs and CPUs. It leverages a managed Slurm orchestrator for deploying and managing compute nodes, including login and worker nodes. The service integrates with other Google Cloud services such as networking and storage.
+- **Architecture and components** : Managed Training Clusters runs on [Compute Engine infrastructure](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/try/admin-user-gce-vms) supporting GPUs and CPUs. It leverages a managed Slurm orchestrator for deploying and managing compute nodes, including login and worker nodes. The service integrates with other Google Cloud services such as networking and storage.
 
-- **MLOps and Observability** : Integrates with Vertex ML Ops tools like Gemini Enterprise Agent Platform Model Registry for automatic registration, tracking, and versioning of trained workflows, and Vertex AI Inference for deployment with autoscaling and automated metrics. Training clusters also features automatic observability integration with Vertex AI TensorBoard to visualize training processes, track metrics, and identify issues early.
+- **MLOps and Observability** : Integrates with Agent Platform MLOps tools like Gemini Enterprise Agent Platform Model Registry for automatic registration, tracking, and versioning of trained workflows, and Gemini Enterprise Agent Platform Inference for deployment with autoscaling and automated metrics. Managed Training Clusters also features automatic observability integration with Vertex AI TensorBoard to visualize training processes, track metrics, and identify issues early.
 
 Training clusters can be created, retrieved, listed, updated and deleted using the Gemini Enterprise Agent Platform training clusters API. You can also [view your clusters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/view-clusters) in the Google Cloud console, which adds Cloud Monitoring dashboards for the cluster. After cluster creation, users can validate its functionality by logging into nodes, running basic Slurm commands (for example, `sinfo` , `sbatch` ), and executing GPU-related workloads (for example, `nvidia-smi` ). The [Slurm Job API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/manage-clusters-slurm) lets you manage Slurm jobs directly through the Agent Platform API.
 
-Gemini Enterprise Agent Platform training clusters provides an API for launching **prebuilt LLM jobs** using optimized recipes for models like Llama and Gemma, supporting pre-training and continuous pre-training from checkpoints. Job monitoring is possible by logging into the login node and examining output files and Slurm commands like `squeue` .
+Managed Training Clusters provides an API for launching **prebuilt LLM jobs** using optimized recipes for models like Llama and Gemma, supporting pre-training and continuous pre-training from checkpoints. Job monitoring is possible by logging into the login node and examining output files and Slurm commands like `squeue` .
 
 ## Terminology
 
-This section provides definitions for key terms and concepts essential to understanding and effectively utilizing Gemini Enterprise Agent Platform training clusters. These terms span core service components, architectural considerations, integrated storage technologies, and fundamental machine learning (ML) and MLOps concepts that underpin your training environment.
+This section provides definitions for key terms and concepts essential to understanding and effectively utilizing Managed Training Clusters. These terms span core service components, architectural considerations, integrated storage technologies, and fundamental machine learning (ML) and MLOps concepts that underpin your training environment.
 
 ### Core service concepts
 

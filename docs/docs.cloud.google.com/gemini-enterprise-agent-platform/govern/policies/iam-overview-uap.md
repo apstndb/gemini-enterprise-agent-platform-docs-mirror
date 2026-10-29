@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap
 title: IAM Unified Access Policies overview
-description: Learn about IAM policies to securely govern agentic communication in Agent Platform.
+description: Learn about Identity and Access Management policies to securely govern agentic communication in Agent Platform.
 data_source: docs.cloud.google.com
 ---
 

@@ -153,7 +153,7 @@ You should receive a JSON response similar to the following:
 
 ### Get logging configuration
 
-Get the request-response logging configuration for the foundation model by using the REST API.
+Get the request-response logging configuration for the foundation model by using the REST API. Request-response logging is disabled by default until you configure a `PublisherModelConfig` resource using `setPublisherModelConfig` .
 
 ### REST API
 
@@ -218,6 +218,8 @@ You should receive a JSON response similar to the following:
   }
 }
 ```
+
+If request-response logging hasn't been configured for the model in the specified location, the request returns a `404 NOT_FOUND` error. This error indicates that no `PublisherModelConfig` resource exists and that request-response logging is in its default disabled state. If request-response logging was previously configured and then disabled, the response returns `"enabled": false` in the `loggingConfig` field.
 
 ### Disable logging
 

@@ -27,7 +27,7 @@ Use clear descriptions of MCP tools, and clear descriptions of parameters requir
 
 ## Be mindful of limits for descriptions
 
-The Semantic Governance system enforces these length limits for descriptions:
+The Semantic governance system enforces these length limits for descriptions:
 
 | Description Item | Applies to                                                                           | Length limit    |
 |------------------|--------------------------------------------------------------------------------------|-----------------|
@@ -35,7 +35,7 @@ The Semantic Governance system enforces these length limits for descriptions:
 | **Action**       | An individual tool within the MCP server, or a function call available to your agent | 750 characters  |
 | **Parameter**    | A parameter used within a tool or function call                                      | 300 characters  |
 
-If the Semantic Governance runtime receives a description that exceeds any of these limits, it truncates the description to the stated limit, and logs a message.
+If the Semantic governance runtime receives a description that exceeds any of these limits, it truncates the description to the stated limit, and logs a message.
 
 ## When Semantic governance policy intervenes
 
