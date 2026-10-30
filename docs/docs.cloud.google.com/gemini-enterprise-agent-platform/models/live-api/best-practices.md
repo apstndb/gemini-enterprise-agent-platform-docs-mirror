@@ -462,3 +462,4 @@ For more information on using Gemini Live API, see:
 - [Start and manage live sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session)
 - [Configure language and voice](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice)
 - [Configure Gemini capabilities](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities)
+- [Gemini Live API Service Skill](https://github.com/google/skills/blob/main/skills/cloud/gemini-live-api/SKILL.md)

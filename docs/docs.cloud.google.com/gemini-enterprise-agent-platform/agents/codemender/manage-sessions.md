@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/manage-sessions
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/manage-sessions
 title: Manage sessions and export reports
-description: Learn how to list, resume, and cancel CodeMender sessions, export HTML and Markdown reports, and collect diagnostic data for support.
+description: Learn how to list, resume, and cancel CodeMender sessions, track token usage, export HTML and Markdown reports, and collect diagnostic data for support.
 data_source: docs.cloud.google.com
 ---
 
@@ -145,6 +145,35 @@ CodeMender categorizes findings into the following severity levels:
 - **`LOW`**
   - **What it means:** The finding represents a minor security risk or a general lack of defense-in-depth hygiene that does not present an immediate threat on its own.
   - **Why it's categorized as Low:** It features extremely low exploitability or minimal impact. The finding is typically used by attackers for reconnaissance or configuration fingerprinting rather than direct compromise, and it cannot be used to execute arbitrary code or exfiltrate sensitive application data.
+
+## Track token usage
+
+CodeMender writes per-invocation session logs locally under `~/.codemender/logs/sessions/` . Use `cm stats` to inspect offline token usage, cache hit rates, poll counts, and execution durations across commands or for an individual session without making backend calls.
+
+- **Summarize recent activity ( `--since` )** : View token usage grouped by command type over a recent window (default `168h` , or 7 days). `bash cm stats cm stats --since 24h`
+
+- **Inspect a specific session ( `--session` )** : View per-turn token usage for a session ID or unique session ID prefix, including multi-worker `cm find --deep` and `cm find --diff` runs.
+
+  ```
+  cm stats --session SESSION_ID_PREFIX
+  ```
+
+- **Export JSON ( `--json` and `--jsonl` )** : Emit indented JSON with `--json` , or emit single-line JSON with `--jsonl` for structured log ingestion. JSON output includes `model` (or `models` when multiple models appear) and `team_id` (or `team_ids` when multiple teams are aggregated).
+
+  ```
+  cm stats --json
+  cm stats --jsonl
+  cm stats --session SESSION_ID_PREFIX --jsonl
+  ```
+
+- **Attribute usage by team ( `--team-id` or `CM_TEAM_ID` )** : Set a team identifier (1 to 63 characters matching `[A-Za-z0-9._-]` ) when running scans or fixes with the `--team-id` flag, the `CM_TEAM_ID` environment variable, or `team_id` in `~/.codemender/config.yaml` . Sessions that ran without a configured team remain unattributed in `cm stats` JSON output; when the queried window has no session records, `--team-id` , `CM_TEAM_ID` , or `config.yaml` supplies the top-level `team_id` label.
+
+  ```
+  CM_TEAM_ID=TEAM_ID cm find .
+  cm stats --jsonl
+  ```
+
+For Cloud Run jobs and Cloud Build steps where local log files don't persist, see [Export token telemetry to Cloud Logging](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/integrate-with-cicd#export-telemetry) .
 
 ## Collect diagnostic data for support
 

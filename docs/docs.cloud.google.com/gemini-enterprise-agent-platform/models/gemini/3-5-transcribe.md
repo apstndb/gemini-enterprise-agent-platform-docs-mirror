@@ -89,7 +89,7 @@ Setting `word_timestamp=True` returns word-level timing. The response's `audio_t
 from google import genai
 from google.genai import types
 
-# Initialize the client for Vertex AI / Agent Platform
+# Initialize the client
 client = genai.Client(enterprise=True, project=PROJECT_ID, location=LOCATION)
 
 with open("input.wav", "rb") as f:

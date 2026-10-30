@@ -6,7 +6,7 @@ description: Learn how to use the scheduler API to schedule recurring pipeline r
 data_source: docs.cloud.google.com
 ---
 
-You can schedule one-time or recurring pipeline runs in Vertex AI using the scheduler API. This lets you implement continuous training in your project.
+You can schedule one-time or recurring pipeline runs in Gemini Enterprise Agent Platform using the scheduler API. This lets you implement continuous training in your project.
 
 After you create a schedule, it can have one of the following states:
 

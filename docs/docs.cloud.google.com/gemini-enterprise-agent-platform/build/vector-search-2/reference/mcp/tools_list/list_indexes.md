@@ -33,7 +33,7 @@ curl --location 'https://vectorsearch.googleapis.com/mcp' \
 
 ## Input Schema
 
-Message for requesting list of Indexes
+Request for `list_indexes` .
 
 ### ListIndexesRequest
 
@@ -41,7 +41,9 @@ Message for requesting list of Indexes
 
 ```
 {
-  "parent": string,
+  "projectId": string,
+  "location": string,
+  "collectionId": string,
   "pageSize": integer,
   "pageToken": string,
   "filter": string,
@@ -49,13 +51,15 @@ Message for requesting list of Indexes
 }
 ```
 
-| Fields      |                                                                                                                                                 |
-|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| `parent`    | `string` Required. Parent value for ListIndexesRequest                                                                                          |
-| `pageSize`  | `integer` Optional. Requested page size. Server may return fewer items than requested. If unspecified, server will pick an appropriate default. |
-| `pageToken` | `string` Optional. A token identifying a page of results the server should return.                                                              |
-| `filter`    | `string` Optional. Filtering results                                                                                                            |
-| `orderBy`   | `string` Optional. Hint for how to order the results                                                                                            |
+| Fields         |                                                                                                                                                 |
+|----------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| `projectId`    | `string` Required. The project ID or number.                                                                                                    |
+| `location`     | `string` Required. The region of the Collection, e.g. `us-central1` .                                                                           |
+| `collectionId` | `string` Required. The ID of the Collection to list Indexes from.                                                                               |
+| `pageSize`     | `integer` Optional. Requested page size. Server may return fewer items than requested. If unspecified, server will pick an appropriate default. |
+| `pageToken`    | `string` Optional. A token identifying a page of results the server should return.                                                              |
+| `filter`       | `string` Optional. Filtering results.                                                                                                           |
+| `orderBy`      | `string` Optional. Hint for how to order the results.                                                                                           |
 
 ## Output Schema
 

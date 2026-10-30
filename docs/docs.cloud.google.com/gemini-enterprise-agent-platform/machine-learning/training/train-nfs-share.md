@@ -22,7 +22,7 @@ This guide shows how to mount a Network File System share when running a serverl
 
 When you create a serverless training job that mounts an NFS share, you must specify the following:
 
-- The name of the network for Vertex AI to access. The way that you specify the network name differs depending on the type of serverless training job. For details, see [Perform serverless training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-private-ip#perform-serverless-training) .
+- The name of the network for Gemini Enterprise Agent Platform to access. The way that you specify the network name differs depending on the type of serverless training job. For details, see [Perform serverless training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-private-ip#perform-serverless-training) .
 
 - Your NFS configuration in the [WorkerPoolSpec field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#workerpoolspec) . Include the following fields:
 
@@ -36,7 +36,7 @@ When you create a serverless training job that mounts an NFS share, you must spe
 
 ## Example: create a custom job using the gcloud CLI
 
-1.  Follow the steps in [Create a Python training application for a prebuilt container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-python-pre-built-container) to build a training application to run on Vertex AI.
+1.  Follow the steps in [Create a Python training application for a prebuilt container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-python-pre-built-container) to build a training application to run on Gemini Enterprise Agent Platform.
 
 2.  Create a file named `config.yaml` that describes the PSA or Private Service Connect interface config mount settings for your training job. Use one of the following formats:
 
@@ -72,7 +72,7 @@ When you create a serverless training job that mounts an NFS share, you must spe
 
     - ` MACHINE_TYPE ` : The identifier of your virtual machine type.
 
-    - ` PYTHON_PACKAGE_EXECUTOR_IMAGE_URI ` or ` PRE_BUILT_CONTAINER_IMAGE_URI ` : The URI of a container image in Artifact Registry that will run the provided Python package. Vertex AI provides a [wide range of executor images with pre-installed packages](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/pre-built-containers) to meet users' various use cases.
+    - ` PYTHON_PACKAGE_EXECUTOR_IMAGE_URI ` or ` PRE_BUILT_CONTAINER_IMAGE_URI ` : The URI of a container image in Artifact Registry that will run the provided Python package. Gemini Enterprise Agent Platform provides a [wide range of executor images with pre-installed packages](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/pre-built-containers) to meet users' various use cases.
 
     - ` PYTHON_PACKAGE_URIS ` : A comma-separated list of Cloud Storage URIs that specify the Python package files that make up the training program and its dependent packages. The maximum number of package URIs is 100.
 
@@ -131,7 +131,7 @@ When you create a serverless training job that mounts an NFS share, you must spe
 
     - ` MACHINE_TYPE ` : The identifier of your virtual machine type.
 
-    - ` PYTHON_PACKAGE_EXECUTOR_IMAGE_URI or PRE_BUILT_CONTAINER_IMAGE_URI ` : The URI of a container image in Artifact Registry that will run the provided Python package. Vertex AI provides a [wide range of executor images with pre-installed packages](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/pre-built-containers) to meet users' various use cases.
+    - ` PYTHON_PACKAGE_EXECUTOR_IMAGE_URI or PRE_BUILT_CONTAINER_IMAGE_URI ` : The URI of a container image in Artifact Registry that will run the provided Python package. Gemini Enterprise Agent Platform provides a [wide range of executor images with pre-installed packages](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/pre-built-containers) to meet users' various use cases.
 
     - ` PYTHON_PACKAGE_URIS ` : A comma-separated list of Cloud Storage URIs that specify the Python package files that make up the training program and its dependent packages. The maximum number of package URIs is 100.
 

@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 >
 > [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_gemma_fine_tuning_batch_deployment_on_rov.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fcommunity%2Fmodel_garden%2Fmodel_garden_gemma_fine_tuning_batch_deployment_on_rov.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fcommunity%2Fmodel_garden%2Fmodel_garden_gemma_fine_tuning_batch_deployment_on_rov.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_gemma_fine_tuning_batch_deployment_on_rov.ipynb)
 
-This document provides instructions for setting up a Ray cluster on Gemini Enterprise Agent Platform to meet various needs. For example, to build your image, see [Custom image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#custom-image) . Some enterprises can use private networking. This document covers [Private Service Connect interface for Ray on Vertex AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#use-psc-i-egress) . Another use case involves accessing remote files as if they were local (see [Ray on Agent Platform Network File System](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#rov-on-nfs) ).
+This document provides instructions for setting up a Ray cluster on Gemini Enterprise Agent Platform to meet various needs. For example, to build your image, see [Custom image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#custom-image) . Some enterprises can use private networking. This document covers [Private Service Connect interface for Ray on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#use-psc-i-egress) . Another use case involves accessing remote files as if they were local (see [Ray on Agent Platform Network File System](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#rov-on-nfs) ).
 
 ## Overview
 
@@ -52,7 +52,7 @@ In accordance with the [OSS Ray best practice](https://docs.ray.io/en/latest/clu
         - Specify a [custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account) .
         - Disable metrics collection, if you don't need to monitor the resource stats of your workload during training.
 
-    3.  (Optional) To deploy a private endpoint for your cluster, the recommended method is to use Private Service Connect. For further details, see [Private Service Connect interface for Ray on Vertex AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#use-psc-i-egress) .
+    3.  (Optional) To deploy a private endpoint for your cluster, the recommended method is to use Private Service Connect. For further details, see [Private Service Connect interface for Ray on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#use-psc-i-egress) .
 
 4.  Click **Create** .
 
@@ -346,9 +346,9 @@ To use the Network File System, specify either a **network** or a **network atta
 
 ## Shared Responsibility
 
-Securing your workloads on Gemini Enterprise Agent Platform is a shared responsibility. While Gemini Enterprise Agent Platform regularly upgrades infrastructure configurations to address security vulnerabilities, Gemini Enterprise Agent Platform doesn't automatically upgrade your existing Ray on Vertex AI clusters and persistent resources to avoid preempting running workloads. Therefore, you're responsible for tasks such as the following:
+Securing your workloads on Gemini Enterprise Agent Platform is a shared responsibility. While Gemini Enterprise Agent Platform regularly upgrades infrastructure configurations to address security vulnerabilities, Gemini Enterprise Agent Platform doesn't automatically upgrade your existing Ray on Gemini Enterprise Agent Platform clusters and persistent resources to avoid preempting running workloads. Therefore, you're responsible for tasks such as the following:
 
-1.  Periodically delete and recreate your Ray on Vertex AI clusters and persistent resources to use the latest infrastructure versions. Gemini Enterprise Agent Platform recommends recreating your clusters and persistent resources at least once every 30 days.
+1.  Periodically delete and recreate your Ray on Gemini Enterprise Agent Platform clusters and persistent resources to use the latest infrastructure versions. Gemini Enterprise Agent Platform recommends recreating your clusters and persistent resources at least once every 30 days.
 2.  Properly configure any custom images you use.
 
 For more information, see [Shared responsibility](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/shared-responsibility) .

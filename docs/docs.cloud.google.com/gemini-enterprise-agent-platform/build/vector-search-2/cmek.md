@@ -26,7 +26,7 @@ The following prerequisites and constraints must be met in order to use CMEK wit
 
 ## Creating a CMEK-protected Collection
 
-After you meet all pre-requistites, you can use the gcloud CLI, REST API, or Python SDK to create a new Collection with CMEK enabled.
+After you meet all prerequisites, you can use the gcloud CLI, REST API, or Python SDK to create a new Collection with CMEK enabled.
 
 ### Using the gcloud CLI
 
@@ -98,7 +98,7 @@ Collections aren't automatically re-enabled if the key is restored.
 
 ## CMEK-supported resources
 
-The current Vertex AI resources covered by CMEK are as follows. CMEK support for Preview features is in Preview status as well.
+The Gemini Enterprise Agent Platform resources covered by CMEK are as follows. CMEK support for Preview features is in Preview status as well.
 
 | Resource                                                                                                                      | Material encrypted                                                                                                                                                                                                                                                      | Documentation links                                                                                                                                                                                                                                                                                            |
 |-------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

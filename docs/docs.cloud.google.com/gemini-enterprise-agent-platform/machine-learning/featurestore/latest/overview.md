@@ -136,7 +136,7 @@ To learn how to set up online serving in Agent Platform Feature Store after you 
 
 ## Offline serving for batch predictions or model training
 
-Because you don't need to copy or import your feature data from BigQuery to a separate offline store in Vertex AI, you can use the data management and export capabilities of BigQuery to do the following:
+Because you don't need to copy or import your feature data from BigQuery to a separate offline store in Gemini Enterprise Agent Platform, you can use the data management and export capabilities of BigQuery to do the following:
 
 - Query feature data, including [historical data at a point in time](https://docs.cloud.google.com/bigquery/docs/access-historical-data#query_data_at_a_point_in_time) .
 

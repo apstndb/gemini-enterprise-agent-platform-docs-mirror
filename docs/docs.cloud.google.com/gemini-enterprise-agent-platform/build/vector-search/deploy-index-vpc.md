@@ -25,7 +25,7 @@ The following example uses the [`gcloud ai index-endpoints create`](https://docs
 Before using any of the command data below, make the following replacements:
 
 - ` INDEX_ENDPOINT_NAME ` : Display name of the index endpoint.
-- ` VPC_NETWORK_NAME ` : The Google Compute Engine network name to which the index endpoint should be peered.
+- ` VPC_NETWORK_NAME ` : The Compute Engine network name to which the index endpoint should be peered.
 - ` LOCATION ` : The region where you are using Agent Platform.
 - ` PROJECT_ID ` : Your Google Cloud [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects) .
 
@@ -78,7 +78,7 @@ The Google Cloud CLI tool might take a few minutes to create the IndexEndpoint.
 Before using any of the request data, make the following replacements:
 
 - ` INDEX_ENDPOINT_NAME ` : Display name of the index endpoint.
-- ` VPC_NETWORK_NAME ` : The Google Compute Engine network name to which the index endpoint should be peered.
+- ` VPC_NETWORK_NAME ` : The Compute Engine network name to which the index endpoint should be peered.
 - ` LOCATION ` : The region where you are using Agent Platform.
 - ` PROJECT_ID ` : Your Google Cloud [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects) .
 - ` PROJECT_NUMBER ` : Your project's automatically generated [project number](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .

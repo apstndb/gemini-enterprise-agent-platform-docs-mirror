@@ -33,7 +33,7 @@ curl --location 'https://vectorsearch.googleapis.com/mcp' \
 
 ## Input Schema
 
-Message for requesting list of Collections
+Request for `list_collections` .
 
 ### ListCollectionsRequest
 
@@ -41,7 +41,8 @@ Message for requesting list of Collections
 
 ```
 {
-  "parent": string,
+  "projectId": string,
+  "location": string,
   "pageSize": integer,
   "pageToken": string,
   "filter": string,
@@ -51,11 +52,12 @@ Message for requesting list of Collections
 
 | Fields      |                                                                                                                                                 |
 |-------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| `parent`    | `string` Required. Parent value for ListCollectionsRequest                                                                                      |
+| `projectId` | `string` Required. The project ID or number.                                                                                                    |
+| `location`  | `string` Required. The region to list Collections in, e.g. `us-central1` .                                                                      |
 | `pageSize`  | `integer` Optional. Requested page size. Server may return fewer items than requested. If unspecified, server will pick an appropriate default. |
 | `pageToken` | `string` Optional. A token identifying a page of results the server should return.                                                              |
-| `filter`    | `string` Optional. Filtering results                                                                                                            |
-| `orderBy`   | `string` Optional. Hint for how to order the results                                                                                            |
+| `filter`    | `string` Optional. Filtering results.                                                                                                           |
+| `orderBy`   | `string` Optional. Hint for how to order the results.                                                                                           |
 
 ## Output Schema
 

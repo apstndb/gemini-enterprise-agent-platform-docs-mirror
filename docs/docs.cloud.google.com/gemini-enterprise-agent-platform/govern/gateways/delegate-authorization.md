@@ -145,7 +145,9 @@ The following steps show you how to configure an authorization extension with an
 
 ### Delegate authorization to Model Armor
 
-You can configure an authorization extension to delegate content security decisions for authorization policies to Model Armor.
+You can configure an authorization extension to delegate content security decisions for authorization policies to Model Armor. Your Model Armor templates can reside in the same project as the Agent Gateway and agent or in a separate project, such as a central security or governance project.
+
+> **Note:** If your Model Armor templates are in a different project from the project that contains the agent or Agent Gateway and you use VPC Service Controls, both projects must be in the same [VPC Service Controls service perimeter](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#vpc-sc-compliance) .
 
 The following example shows how to configure such an authorization extension with an authorization policy for Agent Gateway.
 
@@ -302,6 +304,141 @@ To use the Google Cloud console to enable Model Armor for Agent Gateway, perform
           --source=ma-content-authz-policy.yaml \
           --location=LOCATION
         ```
+
+### Terraform
+
+To configure Model Armor authorization extensions and `CONTENT_AUTHZ` policies declaratively using the `google` provider, define the required service agent IAM bindings, authorization extension, and authorization policy. This configuration applies whether your Model Armor templates are in the same project as the Agent Gateway and agent or in a separate project. If your Model Armor templates are in a different project from the project that contains the agent or Agent Gateway and you use VPC Service Controls, both projects must be in the same [VPC Service Controls service perimeter](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#vpc-sc-compliance) .
+
+1.  Grant the Service Extensions service agent the required roles in the project that contains the Agent Gateway and in the project that contains your Model Armor templates. You must complete this step even if both the gateway and the templates are in the same project:
+
+    ```
+    resource "google_project_iam_member" "dep_ma_callout_user" {
+      project = "PROJECT_ID"
+      role    = "roles/modelarmor.calloutUser"
+      member  = "serviceAccount:service-PROJECT_NUMBER@gcp-sa-dep.iam.gserviceaccount.com"
+    }
+
+    resource "google_project_iam_member" "dep_service_usage_consumer" {
+      project = "PROJECT_ID"
+      role    = "roles/serviceusage.serviceUsageConsumer"
+      member  = "serviceAccount:service-PROJECT_NUMBER@gcp-sa-dep.iam.gserviceaccount.com"
+    }
+
+    resource "google_project_iam_member" "dep_ma_template_user" {
+      project = "MODEL_ARMOR_PROJECT_ID"
+      role    = "roles/modelarmor.user"
+      member  = "serviceAccount:service-PROJECT_NUMBER@gcp-sa-dep.iam.gserviceaccount.com"
+    }
+    ```
+
+    If you're using the gateway for Agent Runtime, the Agent Runtime service agent also requires permissions as documented in [Route Agent Runtime traffic through Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy#route-traffic) .
+
+2.  Define the `google_network_services_authz_extension` resource pointing to Model Armor:
+
+    ```
+    resource "google_network_services_authz_extension" "ma_content_authz_ext" {
+      project   = "PROJECT_ID"
+      location  = "LOCATION"
+      name      = "my-ma-content-authz-ext"
+      service   = "modelarmor.LOCATION.rep.googleapis.com"
+      timeout   = "1s"
+      fail_open = false
+
+      metadata = {
+        model_armor_settings = jsonencode([
+          {
+            response_template_id = "projects/MODEL_ARMOR_PROJECT_ID/locations/LOCATION/templates/TEMPLATE_ID"
+            request_template_id  = "projects/MODEL_ARMOR_PROJECT_ID/locations/LOCATION/templates/TEMPLATE_ID"
+          }
+        ])
+      }
+
+      depends_on = [
+        google_project_iam_member.dep_ma_callout_user,
+        google_project_iam_member.dep_service_usage_consumer,
+        google_project_iam_member.dep_ma_template_user,
+      ]
+    }
+    ```
+
+3.  Attach the extension to your Agent Gateway with a `google_network_security_authz_policy` resource:
+
+    ### Agent-to-Anywhere
+
+    ```
+    resource "google_network_security_authz_policy" "ma_content_authz_policy" {
+      project        = "PROJECT_ID"
+      location       = "LOCATION"
+      name           = "my-ma-content-authz-policy"
+      policy_profile = "CONTENT_AUTHZ"
+      action         = "CUSTOM"
+
+      target {
+        resources = [
+          "projects/PROJECT_ID/locations/LOCATION/agentGateways/AGENT_GATEWAY_NAME"
+        ]
+      }
+
+      custom_provider {
+        authz_extension {
+          resources = [
+            google_network_services_authz_extension.ma_content_authz_ext.id
+          ]
+        }
+      }
+
+      http_rules {
+        to {
+          operations {
+            paths {
+              prefix = "/"
+            }
+          }
+        }
+        when = "request.headers['content-type'] == 'application/json' || request.headers['content-type'].startsWith('text/')"
+      }
+    }
+    ```
+
+    ### Client-to-Agent
+
+    ```
+    resource "google_network_security_authz_policy" "ma_content_authz_policy" {
+      project        = "PROJECT_ID"
+      location       = "LOCATION"
+      name           = "my-ma-content-authz-policy"
+      policy_profile = "CONTENT_AUTHZ"
+      action         = "CUSTOM"
+
+      target {
+        resources = [
+          "projects/PROJECT_ID/locations/LOCATION/agentGateways/AGENT_GATEWAY_NAME"
+        ]
+      }
+
+      custom_provider {
+        authz_extension {
+          resources = [
+            google_network_services_authz_extension.ma_content_authz_ext.id
+          ]
+        }
+      }
+    }
+    ```
+
+Replace the following:
+
+- `PROJECT_ID` : the project ID of the project where you created the Agent Gateway.
+
+- `PROJECT_NUMBER` : the project number of the project where you created the Agent Gateway.
+
+- `MODEL_ARMOR_PROJECT_ID` : the project ID of the project that contains the Model Armor template. This can be the same project as `PROJECT_ID` or a separate project. If the template is in a different project from the agent or Agent Gateway project and you use VPC Service Controls, both projects must be in the same service perimeter.
+
+- `LOCATION` : the region where your Agent Gateway and Model Armor template are located.
+
+- `TEMPLATE_ID` : the ID of the Model Armor template.
+
+- `AGENT_GATEWAY_NAME` : the name of the Agent Gateway resource.
 
 ### Delegate authorization to custom authorization extensions
 

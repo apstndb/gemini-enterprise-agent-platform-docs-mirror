@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/ground-responses-using-rag
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/ground-responses-using-rag
 title: Ground responses using RAG
-description: Learn how to ground generative AI model responses using Retrieval-Augmented Generation (RAG) techniques and services like Vertex AI RAG Engine on Gemini Enterprise Agent Platform.
+description: Learn how to ground generative AI model responses using Retrieval-Augmented Generation (RAG) techniques and services.
 data_source: docs.cloud.google.com
 ---
 

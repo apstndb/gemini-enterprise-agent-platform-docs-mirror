@@ -33,7 +33,7 @@ curl --location 'https://vectorsearch.googleapis.com/mcp' \
 
 ## Input Schema
 
-Request message for `DataObjectService.GetDataObject` .
+Request for `get_data_object` .
 
 ### GetDataObjectRequest
 
@@ -41,13 +41,19 @@ Request message for `DataObjectService.GetDataObject` .
 
 ```
 {
-  "name": string
+  "projectId": string,
+  "location": string,
+  "collectionId": string,
+  "dataObjectId": string
 }
 ```
 
-| Fields |                                                                                                                                                             |
-|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `name` | `string` Required. The name of the DataObject resource. Format: `projects/{project}/locations/{location}/collections/{collection}/dataObjects/{dataObject}` |
+| Fields         |                                                                        |
+|----------------|------------------------------------------------------------------------|
+| `projectId`    | `string` Required. The project ID or number.                           |
+| `location`     | `string` Required. The region of the Collection, e.g. `us-central1` .  |
+| `collectionId` | `string` Required. The ID of the Collection that holds the DataObject. |
+| `dataObjectId` | `string` Required. The DataObject ID.                                  |
 
 ## Output Schema
 

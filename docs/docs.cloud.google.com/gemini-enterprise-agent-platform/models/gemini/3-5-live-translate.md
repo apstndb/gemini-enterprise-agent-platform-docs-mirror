@@ -19,7 +19,7 @@ import asyncio
 from google import genai
 from google.genai import types
 
-# Initialize the client for Vertex AI / Agent Platform
+# Initialize the client
 client = genai.Client(enterprise=True, project=PROJECT_ID, location=LOCATION)
 
 model = "gemini-3.5-live-translate-preview"

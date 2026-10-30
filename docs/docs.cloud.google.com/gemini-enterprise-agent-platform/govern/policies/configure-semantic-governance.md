@@ -39,9 +39,9 @@ gcloud services enable \
     --project=PROJECT_ID
 ```
 
-#### Grant IAM permissions to the Vertex AI service account (Google-managed binding only)
+#### Grant IAM permissions to the Gemini Enterprise Agent Platform service account (Google-managed binding only)
 
-If you use the [Google-managed binding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#google-managed) option during provisioning, grant the Vertex AI service account (P4SA) the roles it needs to create the Private Service Connect (PSC) endpoint ( `roles/compute.networkAdmin` ) and DNS record set ( `roles/dns.admin` ) in your project. If you use the [Self-managed binding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#self-managed) option, you can skip this step because you create those network resources yourself.
+If you use the [Google-managed binding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#google-managed) option during provisioning, grant the Gemini Enterprise Agent Platform service account (P4SA) the roles it needs to create the Private Service Connect (PSC) endpoint ( `roles/compute.networkAdmin` ) and DNS record set ( `roles/dns.admin` ) in your project. If you use the [Self-managed binding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#self-managed) option, you can skip this step because you create those network resources yourself.
 
 Create the service identity (idempotent) and grant the roles:
 
@@ -690,7 +690,7 @@ Key fields:
 
 ### Enable request tracing
 
-The policy engine exports a trace for each request it evaluates to Cloud Trace in your project, so you can inspect per-request latency and policy enforcement. To receive these traces, enable the Cloud Trace API and grant the Vertex AI service account (P4SA) permission to write traces.
+The policy engine exports a trace for each request it evaluates to Cloud Trace in your project, so you can inspect per-request latency and policy enforcement. To receive these traces, enable the Cloud Trace API and grant the Gemini Enterprise Agent Platform service account (P4SA) permission to write traces.
 
 1.  Enable the Cloud Trace API:
 
@@ -699,7 +699,7 @@ The policy engine exports a trace for each request it evaluates to Cloud Trace i
         --project=PROJECT_ID
     ```
 
-2.  Grant the Cloud Trace Agent role ( `roles/cloudtrace.agent` ) to the Vertex AI service account. This role grants only the trace-write permission ( `cloudtrace.traces.patch` ):
+2.  Grant the Cloud Trace Agent role ( `roles/cloudtrace.agent` ) to the Gemini Enterprise Agent Platform service account. This role grants only the trace-write permission ( `cloudtrace.traces.patch` ):
 
     ```
     export PROJECT_NUM=$(gcloud projects describe PROJECT_ID --format="value(projectNumber)")
@@ -804,7 +804,7 @@ gcloud compute networks delete NETWORK_NAME \
 
 ##### (Optional) Remove the IAM bindings
 
-If you granted permissions to the Vertex AI service account (P4SA), you can remove them:
+If you granted permissions to the Gemini Enterprise Agent Platform service account (P4SA), you can remove them:
 
 ```
 export PROJECT_NUM=$(gcloud projects describe PROJECT_ID --format="value(projectNumber)")
@@ -873,5 +873,5 @@ The following table lists errors that you might encounter when managing Semantic
 
 ## What's next
 
-- Learn more about [Vertex AI gcloud CLI commands](https://docs.cloud.google.com/sdk/gcloud/reference/beta/ai) .
+- Learn more about [Gemini Enterprise Agent Platform gcloud CLI commands](https://docs.cloud.google.com/sdk/gcloud/reference/beta/ai) .
 - Monitor policy verdicts in [Log Explorer](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#view-logs) .

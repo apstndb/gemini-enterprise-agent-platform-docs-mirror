@@ -90,7 +90,9 @@ In a standalone project where the gateway, network attachment, and VPC network r
 
 ### Shared VPC or cross-project deployments
 
-If you are using a [Shared VPC](https://docs.cloud.google.com/vpc/docs/shared-vpc) or cross-project setup where the target VPC network, network attachment, or private DNS zones reside in a central host project ( ` TARGET_VPC_PROJECT_ID ` ), the following roles are required in addition to [standard Agent Gateway permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#required-roles) :
+In a [Shared VPC](https://docs.cloud.google.com/vpc/docs/shared-vpc) deployment, you can provision the Agent Gateway in either a service project or the host project. If you provision the gateway in the host project (where the Shared VPC network, subnet, and network attachment also reside), [standalone project permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#standalone-project-permissions) apply.
+
+If you provision the Agent Gateway in a service project while the target VPC network, network attachment, or private DNS zones reside in the host project ( `TARGET_VPC_PROJECT_ID` ), identities in the service project don't automatically have permissions to validate, attach to, or peer with networking and DNS resources in the host project. Grant the following roles on the host project in addition to [standard Agent Gateway permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#required-roles) :
 
 <table>
 <caption><strong>Table:</strong> Permissions needed for Shared VPC and cross-project deployments</caption>
@@ -172,179 +174,192 @@ If you are using a [Shared VPC](https://docs.cloud.google.com/vpc/docs/shared-vp
 
 <sup>1</sup> For the provisioning identity, basic project-level roles such as Viewer ( `roles/viewer` ) or Editor ( `roles/editor` ) on the host project are also sufficient.
 
-<sup>2</sup> The Agent Gateway Service Agent is formatted as: `service- `` AGENT_GATEWAY_PROJECT_NUMBER `` @gcp-sa-agentgateway.iam.gserviceaccount.com` .
+<sup>2</sup> The Agent Gateway Service Agent is formatted as: `service- `` AGENT_GATEWAY_PROJECT_NUMBER `` @gcp-sa-agentgateway.iam.gserviceaccount.com` , where `AGENT_GATEWAY_PROJECT_NUMBER` is the project number of the project where you provision the Agent Gateway. For Shared VPC deployments, this project can be either a service project or the host project.
+
+If you connect multiple Agent Runtime service projects to an Agent Gateway host project, you must also grant cross-project access on the gateway project to each Agent Runtime service agent. For large-scale deployments, see [Scale Agent Runtime service projects with a Google group](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#scale-runtime-service-projects) .
 
 ## Configure VPC connectivity
 
 > **Important:** If you have an existing Agent Gateway that was created without an Agent Gateway connectivity template, you must delete the gateway and recreate it with a new connectivity template.
 
-To deploy an Agent Gateway with a connectivity template, perform the following steps:
+To deploy an Agent Gateway with a connectivity template, complete the steps in the following sections.
 
-1.  **Create a Private Service Connect network attachment** in your target VPC network.
+### Create a Private Service Connect network attachment
 
-    Ensure that your network attachment meets the following requirements:
+Create a Private Service Connect network attachment in your target VPC network.
 
-    - **Connection preference** : Configure the network attachment to [automatically accept connections](https://docs.cloud.google.com/vpc/docs/about-network-attachments#connection-policies) ( `--connection-preference=ACCEPT_AUTOMATIC` ) .
-    - **Same VPC network requirement** : The network attachment subnet and the target network configured for DNS peering ( `targetNetwork` ) *must be in the exact same VPC network* . If the network attachment's subnet belongs to a different network than the DNS peering target network, configuration validation fails.
-    - **Subnet requirements** : Note the following requirements for the network attachment subnet:
-      - **Subnet range** : The network attachment subnet supports all [valid ranges](https://docs.cloud.google.com/vpc/docs/subnets#valid-ranges) .
-      - **Subnet size** : Agent Gateway requires a minimum `/28` subnet for the network attachment. A `/28` subnet provides 12 usable IP addresses, which is sufficient for a single Agent Gateway instance. If you plan to connect multiple gateways to the same network attachment or subnet, use a larger subnet (such as `/26` or `/24` ) to avoid IP address exhaustion.
-      - **Private Google Access requirement** : You must enable [Private Google Access](https://docs.cloud.google.com/vpc/docs/configure-private-google-access) ( `private_ip_google_access = true` ) on the subnet hosting the network attachment.
-    - **Shared VPC deployments** : For Shared VPC deployments, see [Shared VPC deployment topologies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#shared-vpc-topologies) .
+Ensure that your network attachment meets the following requirements:
 
-    Note the URI of the network attachment. You'll need it when you update the ` PSC_NETWORK_ATTACHMENT_URI ` attribute of the connectivity template resource in a later step.
+- **Connection preference** : Configure the network attachment to [automatically accept connections](https://docs.cloud.google.com/vpc/docs/about-network-attachments#connection-policies) ( `--connection-preference=ACCEPT_AUTOMATIC` ) .
+- **Same VPC network requirement** : The network attachment subnet and the target network configured for DNS peering ( `targetNetwork` ) *must be in the exact same VPC network* . If the network attachment's subnet belongs to a different network than the DNS peering target network, configuration validation fails.
+- **Subnet requirements** : Note the following requirements for the network attachment subnet:
+  - **Subnet range** : The network attachment subnet supports all [valid ranges](https://docs.cloud.google.com/vpc/docs/subnets#valid-ranges) .
+  - **Subnet size** : Agent Gateway requires a minimum `/28` subnet for the network attachment. A `/28` subnet provides 12 usable IP addresses, which is sufficient for a single Agent Gateway instance. If you plan to connect multiple gateways to the same network attachment or subnet, use a larger subnet (such as `/26` or `/24` ) to avoid IP address exhaustion.
+  - **Private Google Access requirement** : You must enable [Private Google Access](https://docs.cloud.google.com/vpc/docs/configure-private-google-access) ( `private_ip_google_access = true` ) on the subnet hosting the network attachment.
+- **Shared VPC deployments** : For Shared VPC deployments, see [Shared VPC deployment topologies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#shared-vpc-topologies) .
 
-2.  **Set up DNS peering (Optional)** : DNS peering lets Agent Gateway resolve DNS names using records from a Cloud DNS private managed zone in your VPC network. DNS peering is required only when your agents need to resolve private internal domain names (such as `corp.internal.` ) or enforce VPC Service Controls for Google APIs ( `googleapis.com.` ). It is not required for public internet domains or standard Google APIs without VPC Service Controls.
+Note the complete resource URI of the network attachment (for example, `projects/ `` NETWORK_ATTACHMENT_PROJECT_NUMBER `` /regions/ `` NETWORK_ATTACHMENT_REGION `` /networkAttachments/ `` NETWORK_ATTACHMENT_NAME` ). You'll need it when you create the connectivity template resource in a later step.
 
-    Agent Gateway supports [transitive DNS peering](https://docs.cloud.google.com/dns/docs/zones/zones-overview#dns_peering_limitations_and_key_points) only up to a single transitive hop, which means a maximum of three VPC networks. For example, `vpc-net-a` (the Agent Gateway tenant network) can peer to `vpc-net-b` (attached network), which in turn peers to `vpc-net-c` (remote network) to resolve DNS queries across the chain.
+### Optional: Set up DNS peering
 
-    To set up DNS peering, perform the following steps:
+DNS peering lets Agent Gateway resolve DNS names using records from a Cloud DNS private managed zone in your VPC network. DNS peering is required only when your agents need to resolve private internal domain names (such as `corp.internal.` ) or enforce VPC Service Controls for Google APIs ( `googleapis.com.` ). It is not required for public internet domains or standard Google APIs without VPC Service Controls.
 
-    1.  [Set up your private DNS zone](https://docs.cloud.google.com/dns/docs/zones/zones-overview) in your target VPC network. To add DNS records to your private DNS zone, see [Add a resource record set](https://docs.cloud.google.com/dns/docs/records#add-rrset) .
+Agent Gateway supports [transitive DNS peering](https://docs.cloud.google.com/dns/docs/zones/zones-overview#dns_peering_limitations_and_key_points) only up to a single transitive hop, which means a maximum of three VPC networks. For example, `vpc-net-a` (the Agent Gateway tenant network) can peer to `vpc-net-b` (attached network), which in turn peers to `vpc-net-c` (remote network) to resolve DNS queries across the chain.
 
-    2.  Gather the following information to configure the connectivity template to enable peering:
+To set up DNS peering, perform the following steps:
 
-        - **Target network URI ( `targetNetwork` )** : The full resource URI of the target VPC network. This **must be the same VPC network** that contains the network attachment.
+1.  [Set up your private DNS zone](https://docs.cloud.google.com/dns/docs/zones/zones-overview) in your target VPC network. To add DNS records to your private DNS zone, see [Add a resource record set](https://docs.cloud.google.com/dns/docs/records#add-rrset) .
 
-        - **Domain names** : One or more domain suffixes for DNS peering. Each domain must end with a trailing dot ( `.` ) (for example, `corp.internal.` or `googleapis.com.` ).
+2.  Gather the following information to configure the connectivity template to enable peering:
 
-          For additional guidance on how to configure the `domains` field, see [DNS peering domain patterns](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#dns-peering-domain-patterns) . For cross-project deployments such as Shared VPC, see [Cross-project DNS zone and peering requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#dns-zone-type) .
+    - **Target network URI ( `targetNetwork` )** : Note the full resource URI of the target VPC network in the following format: `projects/ `` TARGET_VPC_PROJECT_ID `` /global/networks/ `` TARGET_VPC_NETWORK_NAME` . The target network is always the VPC network that *contains the subnet referenced by the network attachment* . If the target network is a Shared VPC network, then make sure to use the corresponding Shared VPC host project ID.
 
-3.  **Set up TLS trust configuration (only for destinations with private CAs and self-signed certificates)** :
+    - **Domain names** : One or more domain suffixes for DNS peering. Each domain must end with a trailing dot ( `.` ) (for example, `corp.internal.` or `googleapis.com.` ).
 
-    If your target destination uses a private CA or self-signed certificate, you need to create a `TrustConfig` resource in Certificate Manager. The `TrustConfig` resource defines the trust anchors and certificates that Agent Gateway uses to validate TLS connections.
+      For additional guidance on how to configure the `domains` field, see [DNS peering domain patterns](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#dns-peering-domain-patterns) . For cross-project deployments such as Shared VPC, see [Cross-project DNS zone and peering requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#dns-zone-type) .
 
-    1.  Prepare your certificate files in PEM format:
+### Optional: Set up TLS trust configuration
 
-        - **Trust store** : Root or intermediate CA certificates in PEM format. Agent Gateway trusts any server certificate whose chain of trust leads to one of these CA certificates. *The trust store must contain at least one root or intermediate CA certificate.*
-        - **Allowlisted certificates (Optional)** : Server certificates in PEM format that you want to explicitly trust, such as a self-signed certificate.
+If your target destination uses a private CA or self-signed certificate, you need to create a `TrustConfig` resource in Certificate Manager. The `TrustConfig` resource defines the trust anchors and certificates that Agent Gateway uses to validate TLS connections.
 
-    2.  Run the following command to create the `TrustConfig` resource. The `TrustConfig` must be created in the same project and region as the Agent Gateway and the connectivity template.
+1.  Prepare your certificate files in PEM format:
 
-        ```
-        gcloud certificate-manager trust-configs create TRUST_CONFIG_NAME \
-          --location=LOCATION \
-          --trust-store="trust-anchors=ROOT_CERT_FILE" \
-          --allowlisted-certificates=ALLOWLISTED_CERT_FILE
-        ```
+    - **Trust store** : Root or intermediate CA certificates in PEM format. Agent Gateway trusts any server certificate whose chain of trust leads to one of these CA certificates. *The trust store must contain at least one root or intermediate CA certificate.*
+    - **Allowlisted certificates (Optional)** : Server certificates in PEM format that you want to explicitly trust, such as a self-signed certificate.
 
-        Replace the following:
+2.  Run the following command to create the `TrustConfig` resource. The `TrustConfig` must be created in the same project and region as the Agent Gateway and the connectivity template.
 
-        - `TRUST_CONFIG_NAME` : A name for the `TrustConfig` resource.
-        - `LOCATION` : The region for the trust config (for example, `europe-west1` ). This must be the same region as the Agent Gateway and the connectivity template.
-        - `ROOT_CERT_FILE` : The path to your PEM-encoded root or intermediate CA certificate.
-        - `ALLOWLISTED_CERT_FILE` : (Optional) The path to a PEM-encoded certificate that you want to explicitly trust. If you aren't using allowlisted certificates, omit this flag.
+    ```
+    gcloud certificate-manager trust-configs create TRUST_CONFIG_NAME \
+        --location=LOCATION \
+        --trust-store="trust-anchors=ROOT_CERT_FILE" \
+        --allowlisted-certificates=ALLOWLISTED_CERT_FILE
+    ```
 
-        For more information on managing trust configs, see [Create and manage trust configs](https://docs.cloud.google.com/certificate-manager/docs/trust-configs) .
+    Replace the following:
 
-4.  **Deploy the Agent Gateway**
+    - `TRUST_CONFIG_NAME` : A name for the `TrustConfig` resource.
+    - `LOCATION` : The region for the trust config (for example, `europe-west1` ). This must be the same region as the Agent Gateway and the connectivity template.
+    - `ROOT_CERT_FILE` : The path to your PEM-encoded root or intermediate CA certificate.
+    - `ALLOWLISTED_CERT_FILE` : (Optional) The path to a PEM-encoded certificate that you want to explicitly trust. If you aren't using allowlisted certificates, omit this flag.
 
-    1.  **Create the connectivity template configuration file** :
+    For more information on managing trust configs, see [Create and manage trust configs](https://docs.cloud.google.com/certificate-manager/docs/trust-configs) .
 
-        Create a YAML file named `agw-connectivity-template.yaml` :
+### Deploy the Agent Gateway
 
-        ```
-        name: projects/AGENT_GATEWAY_PROJECT_NUMBER/locations/LOCATION/agentConnectivityTemplates/CONNECTIVITY_TEMPLATE_NAME
-        accessPath: AGENT_TO_ANYWHERE
-        deploymentModel: CENTRALIZED
-        egressNetworkConfig:
-          networkAttachment: PSC_NETWORK_ATTACHMENT_URI
-          dnsPeeringConfig:
-            domains:
-              - DOMAIN_NAME
-            targetNetwork: TARGET_VPC_NETWORK_URI
-          vpcEgress: VPC_EGRESS_MODE
-          tlsConfig:
-            trustConfig: projects/AGENT_GATEWAY_PROJECT_NUMBER/locations/LOCATION/trustConfigs/TRUST_CONFIG_NAME
-            additionalRoots: ADDITIONAL_ROOTS_OPTION
-        ```
+1.  **Create the connectivity template configuration file** :
 
-        Replace the following:
+    Create a YAML file named `agw-connectivity-template.yaml` :
 
-        - `AGENT_GATEWAY_PROJECT_NUMBER` : The numeric project number of the Google Cloud project where the gateway is deployed. To retrieve your project number, run: `gcloud projects describe `` PROJECT_ID `` --format="value(projectNumber)"` .
+    ```
+    name: projects/AGENT_GATEWAY_PROJECT_NUMBER/locations/LOCATION/agentConnectivityTemplates/CONNECTIVITY_TEMPLATE_NAME
+    accessPath: AGENT_TO_ANYWHERE
+    deploymentModel: CENTRALIZED
+    egressNetworkConfig:
+      networkAttachment: projects/NETWORK_ATTACHMENT_PROJECT_NUMBER/regions/NETWORK_ATTACHMENT_REGION/networkAttachments/NETWORK_ATTACHMENT_NAME
+      dnsPeeringConfig:
+        domains:
+          - DOMAIN_NAME
+        targetNetwork: projects/TARGET_VPC_PROJECT_ID/global/networks/TARGET_VPC_NETWORK_NAME
+      vpcEgress: VPC_EGRESS_MODE
+      tlsConfig:
+        trustConfig: projects/AGENT_GATEWAY_PROJECT_NUMBER/locations/LOCATION/trustConfigs/TRUST_CONFIG_NAME
+        additionalRoots: ADDITIONAL_ROOTS_OPTION
+    ```
 
-        - `LOCATION` : The region for the connectivity template (for example, `europe-west1` ).
+    Replace the following:
 
-        - `CONNECTIVITY_TEMPLATE_NAME` : The name of the connectivity template resource.
+    - `AGENT_GATEWAY_PROJECT_NUMBER` : The project number of the Google Cloud project where you provision the Agent Gateway. To retrieve your project number, run: `gcloud projects describe `` PROJECT_ID `` --format="value(projectNumber)"` .
 
-        - `accessPath` : The [governed access path](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#choose-mode) for the connectivity template. Set to `AGENT_TO_ANYWHERE` (connectivity templates are supported only for egress gateways).
+    - `LOCATION` : The region for the connectivity template (for example, `europe-west1` ).
 
-        - `deploymentModel` : The deployment model for the gateway. Set to `CENTRALIZED` .
+    - `CONNECTIVITY_TEMPLATE_NAME` : The name of the connectivity template resource.
 
-        - `PSC_NETWORK_ATTACHMENT_URI` : The PSC interface network attachment for connectivity to VPCs. If the network attachment is created in a project different from where you deployed the gateway (such as the Shared VPC host project), pass the full path of your network attachment: `projects/ `` TARGET_VPC_PROJECT_ID `` /regions/ `` REGION `` /networkAttachments/ `` ATTACHMENT_NAME` .
+    - `accessPath` : The [governed access path](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#choose-mode) for the connectivity template. Set to `AGENT_TO_ANYWHERE` (connectivity templates are supported only for egress gateways).
 
-          > **Note:** This field is immutable once configured on both the connectivity template and the Agent Gateway. You can't change the network attachment of an existing gateway by switching to a different connectivity template.
+    - `deploymentModel` : The deployment model for the gateway. Set to `CENTRALIZED` .
 
-        - `DOMAIN_NAME` : (Optional) One or more domain suffixes for DNS peering (for example, `corp.internal.` , `googleapis.com.` , or `.` ). Add a list item under `domains` for each domain suffix that you want to peer. Each value must end with a trailing dot ( `.` ) and have a corresponding private Cloud DNS managed zone authorized for the target network.
+    - `networkAttachment` : The full resource URI of the Private Service Connect network attachment:
 
-          For additional guidance on how to configure the `domains` field, see [DNS peering domain patterns](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#dns-peering-domain-patterns) .
+      - `NETWORK_ATTACHMENT_PROJECT_NUMBER` : The project number of the project where you created the network attachment. This project might be the same as the Agent Gateway project, or a different project if you provision the Agent Gateway in a Shared VPC service project and create the network attachment in the Shared VPC host project.
+      - `NETWORK_ATTACHMENT_REGION` : The region that contains the network attachment.
+      - `NETWORK_ATTACHMENT_NAME` : The network attachment name.
 
-        - `TARGET_VPC_NETWORK_URI` : The target VPC network where you created the network attachment. This must be of the form: `projects/ `` TARGET_VPC_PROJECT_ID `` /global/networks/ `` TARGET_VPC_NETWORK_NAME` . Always specify `targetNetwork` using the project ID ( `TARGET_VPC_PROJECT_ID` ) rather than the project number.
+      > **Note:** The `networkAttachment` field is immutable once configured on both the connectivity template and the Agent Gateway. You can't change the network attachment of an existing gateway by switching to a different connectivity template.
 
-        - `VPC_EGRESS_MODE` : Set the [egress routing mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#how-it-works) . Set to either `PRIVATE_RANGES_ONLY` or `ALL_TRAFFIC` .
+    - `DOMAIN_NAME` : (Optional) One or more domain suffixes for DNS peering (for example, `corp.internal.` , `googleapis.com.` , or `.` ). Add a list item under `domains` for each domain suffix that you want to peer. Each value must end with a trailing dot ( `.` ) and have a corresponding private Cloud DNS managed zone authorized for the target network.
 
-        - `tlsConfig` : (Optional) The TLS configuration for server certificate validation when connecting to private endpoints over HTTPS:
+      For additional guidance on how to configure the `domains` field, see [DNS peering domain patterns](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#dns-peering-domain-patterns) .
 
-          - `TRUST_CONFIG_NAME` : The name of the Certificate Manager `TrustConfig` resource containing your private CA certificates or trust anchors.
-          - `ADDITIONAL_ROOTS_OPTION` : Specifies whether to trust publicly trusted CA roots in addition to your custom trust config:
-          - Set to `PUBLICLY_TRUSTED_ROOTS` (default) to trust both certificates validated by the `trustConfig` parameter and all publicly trusted CAs. You must set `additionalRoots` to `PUBLICLY_TRUSTED_ROOTS` if your agents also connect to Google Cloud APIs ( `*.googleapis.com` ) or other public HTTPS endpoints; without this setting, Agent Gateway won't trust Google-signed certificates for `googleapis.com` .
-          - Set to `NO_ADDITIONAL_ROOTS` to trust only the certificates validated by the `trustConfig` parameter.
+    - `targetNetwork` : (Optional) The full resource URI of the target VPC network for DNS peering. The target network is always the VPC network that contains the subnet referenced by the network attachment:
 
-          > **Note:** The `trustConfig` field is immutable once configured on a connectivity template, and Agent Gateway doesn't automatically pick up in-place changes to `tlsConfig` (such as updating `additionalRoots` ) while the connectivity template is attached to a gateway. To update TLS settings, see [Updating VPC egress settings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#updating-egress-settings) .
+      - `TARGET_VPC_PROJECT_ID` : The project ID of the project that owns the target VPC network. If the network that contains the subnet referenced by the network attachment is a Shared VPC network, then `TARGET_VPC_PROJECT_ID` is the Shared VPC host project ID. Always specify `targetNetwork` using the project ID rather than the project number.
+      - `TARGET_VPC_NETWORK_NAME` : The name of the target VPC network.
 
-    2.  **Create the connectivity template** :
+    - `VPC_EGRESS_MODE` : Set the [egress routing mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#how-it-works) . Set to either `PRIVATE_RANGES_ONLY` or `ALL_TRAFFIC` .
 
-        Run the following command to create the connectivity template:
+    - `tlsConfig` : (Optional) The TLS configuration for server certificate validation when connecting to private endpoints over HTTPS:
 
-        ```
-        gcloud network-services agent-connectivity-templates import CONNECTIVITY_TEMPLATE_NAME \
-            --source="agw-connectivity-template.yaml" \
-            --location=LOCATION
-        ```
+      - `TRUST_CONFIG_NAME` : The name of the Certificate Manager `TrustConfig` resource containing your private CA certificates or trust anchors.
+      - `ADDITIONAL_ROOTS_OPTION` : Specifies whether to trust publicly trusted CA roots in addition to your custom trust config:
+      - Set to `PUBLICLY_TRUSTED_ROOTS` (default) to trust both certificates validated by the `trustConfig` parameter and all publicly trusted CAs. You must set `additionalRoots` to `PUBLICLY_TRUSTED_ROOTS` if your agents also connect to Google Cloud APIs ( `*.googleapis.com` ) or other public HTTPS endpoints; without this setting, Agent Gateway won't trust Google-signed certificates for `googleapis.com` .
+      - Set to `NO_ADDITIONAL_ROOTS` to trust only the certificates validated by the `trustConfig` parameter.
 
-        Replace the following:
+      > **Note:** The `trustConfig` field is immutable once configured on a connectivity template, and Agent Gateway doesn't automatically pick up in-place changes to `tlsConfig` (such as updating `additionalRoots` ) while the connectivity template is attached to a gateway. To update TLS settings, see [Updating VPC egress settings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#updating-egress-settings) .
 
-        - `CONNECTIVITY_TEMPLATE_NAME` : The name of the connectivity template resource.
-        - `LOCATION` : The location where you want to create the connectivity template resource. For example, `europe-west1` .
+2.  **Create the connectivity template** :
 
-    3.  **Define the Agent Gateway resource** :
+    Run the following command to create the connectivity template:
 
-        Define a new Agent Gateway resource in `AGENT_TO_ANYWHERE` mode by creating a gateway YAML configuration file (for example, `my-agent-gateway-vpc-egress.yaml` ) that references the connectivity template:
+    ```
+    gcloud network-services agent-connectivity-templates import CONNECTIVITY_TEMPLATE_NAME \
+        --source="agw-connectivity-template.yaml" \
+        --location=LOCATION
+    ```
 
-        ```
-        name: AGENT_GATEWAY_NAME
-        protocols:
-          - MCP
-        googleManaged:
-          governedAccessPath: AGENT_TO_ANYWHERE
-        agentConnectivityTemplate: projects/AGENT_GATEWAY_PROJECT_NUMBER/locations/LOCATION/agentConnectivityTemplates/CONNECTIVITY_TEMPLATE_NAME
-        registries:
-          - AGENT_REGISTRY_PATH
-        ```
+    Replace the following:
 
-        Replace the following:
+    - `CONNECTIVITY_TEMPLATE_NAME` : The name of the connectivity template resource.
+    - `LOCATION` : The location where you want to create the connectivity template resource. For example, `europe-west1` .
 
-        - `AGENT_GATEWAY_NAME` : The name of the Agent Gateway resource.
+3.  **Define the Agent Gateway resource** :
 
-        - `AGENT_GATEWAY_PROJECT_NUMBER` : The numeric project number of the Google Cloud project where you created the gateway and connectivity template. To retrieve your project number, run: `gcloud projects describe `` PROJECT_ID `` --format="value(projectNumber)"` .
+    Define a new Agent Gateway resource in `AGENT_TO_ANYWHERE` mode by creating a gateway YAML configuration file (for example, `my-agent-gateway-vpc-egress.yaml` ) that references the connectivity template:
 
-        - `LOCATION` : The location of the connectivity template (for example, `europe-west1` ).
+    ```
+    name: AGENT_GATEWAY_NAME
+    protocols:
+      - MCP
+    googleManaged:
+      governedAccessPath: AGENT_TO_ANYWHERE
+    agentConnectivityTemplate: projects/AGENT_GATEWAY_PROJECT_NUMBER/locations/LOCATION/agentConnectivityTemplates/CONNECTIVITY_TEMPLATE_NAME
+    registries:
+      - AGENT_REGISTRY_PATH
+    ```
 
-        - `CONNECTIVITY_TEMPLATE_NAME` : The name of the connectivity template resource.
+    Replace the following:
 
-        - `AGENT_REGISTRY_PATH` : The path to the regional Agent Registry instance in the same project and region as the gateway, formatted as `//agentregistry.googleapis.com/projects/ `` PROJECT_ID `` /locations/ `` LOCATION` . For guidance, see [Plan your Agent Gateway deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#plan-agw) .
+    - `AGENT_GATEWAY_NAME` : The name of the Agent Gateway resource.
 
-    4.  **Import and deploy Agent Gateway** :
+    - `AGENT_GATEWAY_PROJECT_NUMBER` : The project number of the Google Cloud project where you provision the Agent Gateway and connectivity template. For Shared VPC deployments, this project can be either a service project or the host project. To retrieve your project number, run: `gcloud projects describe `` PROJECT_ID `` --format="value(projectNumber)"` .
 
-        Run the following command to create the Agent Gateway resource based on the YAML specification:
+    - `LOCATION` : The location of the connectivity template (for example, `europe-west1` ).
 
-        ```
-        gcloud network-services agent-gateways import AGENT_GATEWAY_NAME \
-            --source="my-agent-gateway-vpc-egress.yaml" \
-            --location=LOCATION
-        ```
+    - `CONNECTIVITY_TEMPLATE_NAME` : The name of the connectivity template resource.
 
-        Replace `LOCATION` with the location where you want to create the Agent Gateway resource. For example, `europe-west1` .
+      - `AGENT_REGISTRY_PATH` : The path to the regional Agent Registry instance in the same project and region as the gateway, formatted as `//agentregistry.googleapis.com/projects/ `` PROJECT_ID `` /locations/ `` LOCATION` . For guidance, see [Plan your Agent Gateway deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#plan-agw) .
+
+4.  **Import and deploy Agent Gateway** :
+
+    Run the following command to create the Agent Gateway resource based on the YAML specification:
+
+    ```
+    gcloud network-services agent-gateways import AGENT_GATEWAY_NAME \
+        --source="my-agent-gateway-vpc-egress.yaml" \
+        --location=LOCATION
+    ```
+
+    Replace `LOCATION` with the location where you want to create the Agent Gateway resource. For example, `europe-west1` .
 
 ## Architecture and networking considerations
 
@@ -360,7 +375,7 @@ A connectivity template can't be modified in place while it is referenced by an 
 
 ### Shared VPC deployment topologies
 
-In a [Shared VPC](https://docs.cloud.google.com/vpc/docs/shared-vpc) architecture, you can create the network attachment in either the service project (recommended) or the host project:
+In a [Shared VPC](https://docs.cloud.google.com/vpc/docs/shared-vpc) architecture, you can provision the Agent Gateway in either a service project or the host project. When you provision the Agent Gateway in a service project, you can create the network attachment in either the service project (recommended) or the host project:
 
 - **Recommended: Network attachment in service project** :
   1.  [Create the subnet](https://docs.cloud.google.com/vpc/docs/create-modify-vpc-networks#add-subnets) in the host project.
@@ -407,13 +422,46 @@ This section describes domain resolution patterns and options for configuring th
 
 ### Cross-project DNS zone and peering requirements
 
-The connectivity template's `dnsPeeringConfig` setting doesn't support direct cross-project Cloud DNS peering. When you import the connectivity template, validation fails if the `targetNetwork` is in a different project than the `networkAttachment` , or if you rely on cross-project DNS zone binding from a service or external project.
+The connectivity template's `dnsPeeringConfig` setting doesn't support direct cross-project Cloud DNS peering. When you import the connectivity template, validation fails if the subnet referenced by the `networkAttachment` belongs to a different VPC network than `targetNetwork` , or if you rely on cross-project DNS zone binding from a service or external project.
 
 The managed zone for the domain must be created in the *host project* that owns `targetNetwork` . The managed zone can be any of the following zone types:
 
 - **Authoritative private zone**
 - **Forwarding zone**
 - **Cloud DNS peering zone** : Must be associated with the host project VPC network and target a destination VPC network. The destination VPC must resolve the query directly using an authoritative private zone. Forwarding the query to another DNS peering zone (chaining) is unsupported and results in an `NXDOMAIN` error.
+
+### Scale Agent Runtime service projects with a Google group
+
+If you connect multiple Agent Runtime service projects to an Agent Gateway host project and grant cross-project access to each service agent individually, you must update the host project's IAM policy every time you add a project. In large-scale deployments, you might also reach [IAM policy limits](https://docs.cloud.google.com/iam/quotas#limits) as you add role bindings.
+
+To avoid updating the host project's IAM policy for every new service project, you can instead manage access through a single Google security group:
+
+1.  **Create a security group** : [Create a security group](https://docs.cloud.google.com/identity/docs/how-to/update-group-to-security-group) either [in the Google Admin console](https://knowledge.workspace.google.com/admin/groups/control-access-to-sensitive-data-with-security-groups) or by running the [`gcloud identity groups create`](https://docs.cloud.google.com/sdk/gcloud/reference/identity/groups/create) command.
+
+    > **Note:** To add [service agents](https://docs.cloud.google.com/iam/docs/service-account-types#service-agents) to a Google group, you must turn on the [external members](https://support.google.com/a/answer/167097#zippy=%2Ccan-external-users-participate-in-groups) option for the group.
+
+2.  **Grant the group access to the Agent Gateway host project** : Bind the group to the Network Services Viewer role ( `roles/networkservices.viewer` ) on `AGENT_GATEWAY_PROJECT_ID` :
+
+    ```
+    gcloud projects add-iam-policy-binding AGENT_GATEWAY_PROJECT_ID \
+        --member="group:GROUP_EMAIL" \
+        --role="roles/networkservices.viewer"
+    ```
+
+    Replace the following:
+
+    - `AGENT_GATEWAY_PROJECT_ID` : The project ID of the Agent Gateway host project.
+    - `GROUP_EMAIL` : The email address of your security group (for example, `agw-cross-project-runtime@example.com` ).
+
+3.  **Add each service project's Agent Runtime service agent to the group** : For each Agent Runtime service project, add its service agent to the security group by running the [`gcloud identity groups memberships add`](https://docs.cloud.google.com/sdk/gcloud/reference/identity/groups/memberships/add) command as follows:
+
+    ```
+    gcloud identity groups memberships add \
+        --group-email="GROUP_EMAIL" \
+        --member-email="service-AGENT_RUNTIME_PROJECT_NUMBER@gcp-sa-aiplatform.iam.gserviceaccount.com"
+    ```
+
+    Replace `AGENT_RUNTIME_PROJECT_NUMBER` with the project number of the Agent Runtime service project.
 
 ## What's next
 

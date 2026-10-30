@@ -33,7 +33,7 @@ curl --location 'https://vectorsearch.googleapis.com/mcp' \
 
 ## Input Schema
 
-Message for getting an Index
+Request for `get_index` .
 
 ### GetIndexRequest
 
@@ -41,13 +41,19 @@ Message for getting an Index
 
 ```
 {
-  "name": string
+  "projectId": string,
+  "location": string,
+  "collectionId": string,
+  "indexId": string
 }
 ```
 
-| Fields |                                         |
-|--------|-----------------------------------------|
-| `name` | `string` Required. Name of the resource |
+| Fields         |                                                                       |
+|----------------|-----------------------------------------------------------------------|
+| `projectId`    | `string` Required. The project ID or number.                          |
+| `location`     | `string` Required. The region of the Collection, e.g. `us-central1` . |
+| `collectionId` | `string` Required. The ID of the Collection that holds the Index.     |
+| `indexId`      | `string` Required. The Index ID.                                      |
 
 ## Output Schema
 

@@ -113,7 +113,7 @@ In your AI application, look for a way to add or connect to a remote MCP server.
 The Agent Retrieval MCP server dispatches every `tools/call` at the network edge based on two HTTP headers:
 
 - `Mcp-Name` — must equal the tool name in the request body ( `params.name` ).
-- `Mcp-Param-Region` — must equal the `location` component of the resource path in the request body (for example, `us-central1` for a Collection at `projects/PROJECT_ID/locations/us-central1/collections/COLLECTION_ID` ).
+- `Mcp-Param-Region` — must equal the `location` argument in the request body ( `params.arguments.location` , for example, `us-central1` ).
 
 If either header is missing or does not match the body, the request is rejected with `HTTP 400 Bad Request` .
 

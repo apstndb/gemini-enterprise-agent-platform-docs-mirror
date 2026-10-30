@@ -33,7 +33,7 @@ curl --location 'https://vectorsearch.googleapis.com/mcp' \
 
 ## Input Schema
 
-Message for getting a Collection
+Request for `get_collection` .
 
 ### GetCollectionRequest
 
@@ -41,13 +41,17 @@ Message for getting a Collection
 
 ```
 {
-  "name": string
+  "projectId": string,
+  "location": string,
+  "collectionId": string
 }
 ```
 
-| Fields |                                         |
-|--------|-----------------------------------------|
-| `name` | `string` Required. Name of the resource |
+| Fields         |                                                                       |
+|----------------|-----------------------------------------------------------------------|
+| `projectId`    | `string` Required. The project ID or number.                          |
+| `location`     | `string` Required. The region of the Collection, e.g. `us-central1` . |
+| `collectionId` | `string` Required. The Collection ID.                                 |
 
 ## Output Schema
 

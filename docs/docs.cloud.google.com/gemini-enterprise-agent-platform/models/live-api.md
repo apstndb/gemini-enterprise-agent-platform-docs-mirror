@@ -124,6 +124,8 @@ The following models support Gemini Live API. Select the appropriate model based
 
 Select the guide that matches your development environment:
 
+> **Tip:** If you use an AI coding assistant, you can install the Gemini Live API agent skill ( `gemini-live-api` ) from the [`google/skills` GitHub repository](https://github.com/google/skills/blob/main/skills/cloud/gemini-live-api/SKILL.md) by running `npx skills add google/skills --skill gemini-live-api` .
+
 Recommended for ease of use
 
 ### [Gen AI SDK tutorial](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/get-started-sdk)

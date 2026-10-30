@@ -393,6 +393,18 @@ Here is what the core default parameters mean:
   - **What it means:** Defines the exact shell command that CodeMender executes to compile and build your project, as well as run your unit and regression tests.
   - **Why this is the default:** Setting a build and test command is critical for the verification workflow. It allows CodeMender to compile your project and run your existing test suite in the isolated sandbox environment to prove that the generated security patch successfully mitigates the vulnerability without breaking existing application logic.
 
+### Confirmation prompts
+
+CodeMender asks for confirmation before it runs a shell command ( `tools.confirm_commands` ) and before it writes a file ( `tools.confirm_writes` ). The two settings are independent, and both default to `true` . The following settings turn off these prompts, in order of precedence:
+
+1.  **`-y` or `--yes`** : Approves all command and file-write prompts for one run, whatever `config.yaml` says.
+2.  **`execution.interactive_mode: false`** in `config.yaml` : Turns off both command and file-write prompts for every run.
+3.  **`tools.confirm_commands: false`** or **`tools.confirm_writes: false`** in `config.yaml` : Turns off command prompts or file-write prompts for every run, independently of each other.
+
+If none of these settings applies and no one can answer the prompt, for example in a CI/CD job without a terminal, CodeMender doesn't run the command or write the file.
+
+Separately from these prompts, the CLI warns you that the agent can modify files and run commands on your system, and asks you to acknowledge the warning. `-y` doesn't skip this warning. To skip it, pass `--bypass-warning` . In a non-interactive environment without `--bypass-warning` , `cm` fails with `warning not acknowledged` . `cm find` skips the warning when the sandbox is enabled with the default `permissive-closed` network profile.
+
 ### Command policy ( `command_policy.yaml` )
 
 In addition to the OS-level sandbox, you can define a command denylist in `~/.codemender/command_policy.yaml` (global) and `<project>/.codemender/command_policy.yaml` (project-specific). When both files are present, CodeMender merges their rules.
@@ -404,16 +416,9 @@ On first run, CodeMender creates a commented-out template at `~/.codemender/comm
 
 To bypass `command_policy.yaml` enforcement for a single command invocation, pass the `--allow-all-commands` flag.
 
-### Command policy ( `command_policy.yaml` )
-
-In addition to the OS-level sandbox, you can define a command denylist in `~/.codemender/command_policy.yaml` (global) and `<project>/.codemender/command_policy.yaml` (project-specific). When both files are present, CodeMender merges their rules.
-
-On first run, CodeMender creates a commented-out template at `~/.codemender/command_policy.yaml` . You can uncomment or add rules under two keys:
-
-- **`block`** : A list of binary names to block across all shell pipelines, subshells, and command substitutions (for example, `curl` , `wget` , `ssh` , `sudo` , `rm` ).
-- **`block_patterns`** : A list of regular expressions matched against each command segment (for example, `'\bgit\s+(push|commit|rebase|reset\s+--hard|clean)\b'` ).
-
-To bypass `command_policy.yaml` enforcement for a single command invocation, pass the `--allow-all-commands` flag.
+- **`output: { plain: false }`**
+  - **What it means:** Controls whether the CodeMender CLI replaces emoji, Unicode symbols, and terminal colors with ASCII text across CLI output and formatted reports.
+  - **Why this is the default:** Rich terminal styling and status icons make interactive scans and exported reports easier to scan. Set `plain` to `true` for CI/CD logs, screen readers, or minimal terminals. For precedence rules and flag overrides, see [Configure plain text output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment#plain-text-output) .
 
 > **Summary:** Treat `config.yaml` and `command_policy.yaml` as your agent policy documents. In local development, keep the built-in sandbox enabled ( `sandbox.enabled: true` or the `--sandbox` flag) and keep `tools.confirm_commands: true` and `tools.confirm_writes: true` to safeguard your environment. Only disable these protections when running inside isolated, disposable virtual machines or CI/CD pipelines.
 
@@ -477,6 +482,35 @@ Depending on your security requirements and development environment, you can cho
 | **Built-in sandbox** (OS-level) | Enabled by default; you can disable it in the `config.yaml` file or bypass it using CLI flags. Uses built-in OS features (namespaces/seccomp, `sandbox-exec` , `AppContainer` (Experimental)) to isolate execution. | **Lightweight** ; zero startup overhead; direct access to local workspace tools with fine-grained control. Recommended for everyday local development. | Security relies on OS kernel features; less isolated than a full VM; Windows support is experimental and may require administrative privileges or be incompatible with some configurations. |
 | **Containers**                  | Running the agent in a container (for example, Docker).                                                                                                                                                             | Good isolation; standardized environment.                                                                                                              | Requires container runtime; can be heavy; disallows direct interaction with tools on the local machine.                                                                                     |
 | **Full VMs**                    | Running the agent in a dedicated VM.                                                                                                                                                                                | Maximum security; complete isolation.                                                                                                                  | High resource overhead; slow startup; disallows direct interaction with tools on the local machine.                                                                                         |
+
+## Configure plain text output
+
+By default, the CodeMender CLI uses emoji, Unicode symbols, and terminal colors in interactive output and formatted reports. To use ASCII-only output in CI/CD logs, screen readers, or minimal terminals, enable plain text mode. The CodeMender CLI checks these settings from highest to lowest precedence:
+
+1.  Pass the `--plain` flag to any `cm` command for a single run, or pass `--plain=false` to override environment and configuration settings:
+
+    ```
+    cm --plain find .
+    ```
+
+2.  Set the `CM_PLAIN` environment variable to `true` or `1` to enable plain text output across commands, or to `false` or `0` to turn it off:
+
+    ```
+    export CM_PLAIN=true
+    ```
+
+3.  Set `output.plain` to `true` in your `~/.codemender/config.yaml` file:
+
+    ```
+    output:
+      plain: true
+    ```
+
+4.  Run an interactive session in a terminal where `TERM=dumb` , which enables plain text output automatically.
+
+Plain text mode replaces status emoji with ASCII tags such as `[OK]` , `[INFO]` , `[WARN]` , `[ERROR]` , `[PASS]` , and `[FAIL]` . CodeMender also turns off animated spinners and in-place line rewrites, and renders ASCII table borders. In `cm report` , plain text mode removes UI emoji from `table` , `md` , and `html` formats without changing `json` or `sarif` output or code diffs.
+
+Redirected files and non-interactive CI/CD streams keep `plain` set to `false` by default so that exported Markdown and HTML reports preserve status icons. To remove emoji and Unicode symbols in CI/CD logs, set `CM_PLAIN=true` , pass `--plain` , or set `output.plain: true` . Terminal color escapes are omitted automatically on non-interactive streams and when you set the `NO_COLOR` environment variable.
 
 ## Telemetry
 
