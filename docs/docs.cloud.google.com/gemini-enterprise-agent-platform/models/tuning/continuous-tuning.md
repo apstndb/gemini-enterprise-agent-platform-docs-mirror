@@ -8,6 +8,8 @@ data_source: docs.cloud.google.com
 
 Continuous tuning lets you continue tuning an already tuned model or [model checkpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/checkpoints) by adding more epochs or training examples. Using an already tuned model or checkpoint as a base model allows for more efficient tuning experimentation.
 
+> **Note:** This page describes continuous tuning with supervised fine-tuning ( `SFT -> SFT` ). To apply reinforcement learning fine-tuning on top of a supervised fine-tuned checkpoint ( `SFT -> RLFT` ) or a previous reinforcement learning checkpoint ( `RLFT -> RLFT` ), see [Continuous tuning with reinforcement learning fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/continuous-tuning) .
+
 You can use continuous tuning for the following purposes:
 
 - To tune with more data if an existing tuned model is [underfitting](https://developers.google.com/machine-learning/glossary#underfitting) .
@@ -26,7 +28,7 @@ The following Gemini models support continuous tuning:
 
 For detailed information about Gemini model versions, see [Google models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models) and [Model versions and lifecycle](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions) .
 
-### Configure continuous tuning
+## Configure continuous tuning
 
 When creating a continuous tuning job, note the following:
 
@@ -50,7 +52,7 @@ When creating a continuous tuning job, note the following:
   1.  Go to the Model Registry page.
   2.  Click the **Model Name** for the model.
   3.  Click **View all versions** .
-  4.  Click the desired version to view a list of checkpoints. The default checkpoint is indicated by the word `default` next to the checkpoint ID.
+  4.  Click the target version to view a list of checkpoints. The default checkpoint is indicated by the word `default` next to the checkpoint ID.
 
 - By default, a new model version is created under the same parent model as the pre-tuned model. If you supply a new tuned model display name, a new model is created.
 
@@ -62,7 +64,7 @@ When creating a continuous tuning job, note the following:
 
 To configure continuous tuning for a pre-tuned model by using the Google Cloud console, perform the following steps:
 
-1.  In the Gemini Enterprise Agent Platform section of the Google Cloud console, go to the **Tuning** page.
+1.  In the Agent Platform section of the Google Cloud console, go to the **Tuning** page.
 
 2.  Click **Create tuned model** .
 
@@ -70,13 +72,13 @@ To configure continuous tuning for a pre-tuned model by using the Google Cloud c
 
     1.  Choose **Tune a pre-tuned model** .
     2.  In the **Pre-tuned model** field, choose the name of your pre-tuned model.
-    3.  If the model has at least one checkpoint, the **Checkpoint** drop-down field appears. Choose the desired checkpoint.
+    3.  If the model has at least one checkpoint, the **Checkpoint** drop-down field appears. Choose the target checkpoint.
 
 4.  Click **Continue** .
 
 ### REST
 
-To to configure continuous tuning, send a POST request by using the [`tuningJobs.create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/create) method. Some of the parameters are not supported by all of the models. Ensure that you include only the applicable parameters for the model that you're tuning.
+To configure continuous tuning, send a POST request by using the [`tuningJobs.create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/create) method. Some of the parameters are not supported by all of the models. Ensure that you include only the applicable parameters for the model that you're tuning.
 
 Before using any of the request data, make the following replacements:
 

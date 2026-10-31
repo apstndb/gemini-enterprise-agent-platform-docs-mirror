@@ -6,10 +6,6 @@ description: Learn how to direct style, pacing, emphasis, vocal sounds, and mult
 data_source: docs.cloud.google.com
 ---
 
-> **Preview**
->
-> This product or feature is a Generative AI Preview offering, subject to the "Pre-GA Offerings Terms" of the [Google Cloud Service Specific Terms](https://cloud.google.com/terms/service-terms) . For this Generative AI Preview offering, Customers may elect to use it for production or commercial purposes, or disclose Generated Output to third-parties, and may process personal data as outlined in the [Cloud Data Processing Addendum](https://cloud.google.com/terms/data-processing-addendum) , subject to the obligations and restrictions described in the agreement under which you access Google Cloud.
-
 This page describes best practices for writing prompts when using [Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts) and [Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts) .
 
 For request syntax and code samples, see the [Gemini TTS overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview) .
@@ -102,7 +98,7 @@ Follow these guidelines to keep vocal identity stable across turns:
 
 1.  **Build the character once** : Create your character in [Voice design](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-design) or select a regional voice from the [Extended Voice Library](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview#voice-library) that matches your target language and persona.
 2.  **Write natural spoken transcripts with disfluencies** : For maximum naturalness, write the `text` as a real spoken transcript, including natural conversational disfluencies and hesitations (for example, `"Oh uh yeah I think... hm, so that's interesting"` ).
-3.  **Test plain TTS first** : Synthesize your transcript with an empty `style` field first. Most requests need no `style` instruction at all.
+3.  **Test plain TTS first** : Synthesize your transcript (for example, in [Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-3.8-flash-tts) ) with an empty `style` field first. Most requests need no `style` instruction at all.
 4.  **Add short `style` prompts only for tweaks** : Add a concise `style` string (such as `"casual, friendly"` or `"muttering, then reassuring"` ) only for turns that need a specific delivery adjustment, and reuse that exact short string across turns when you want a consistent baseline.
 
 ## Multi-turn dialogue and voice agents

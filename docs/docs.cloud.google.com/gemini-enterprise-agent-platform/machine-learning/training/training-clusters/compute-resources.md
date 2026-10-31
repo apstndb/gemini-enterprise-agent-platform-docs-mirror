@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/compute-resources
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/compute-resources
 title: Compute resources
-description: Optimize AI/ML workloads. Select Vertex Model Development Service compute resources and configure cluster node pools with a4, a3, g4, h4d, and n2 machine types.
+description: Optimize AI/ML workloads. Select Vertex Model Development Service compute resources and configure cluster node pools with a4, a3, g4, h4d, n2, and c4a machine types.
 data_source: docs.cloud.google.com
 ---
 
@@ -28,10 +28,19 @@ Gemini Enterprise Agent Platform training clusters supports a variety of machine
 
 ## CPU and HPC machine types
 
-| Machine type                                                 | Description                                                                                                                                                                    |
-|--------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| N2 family: `n2-standard-*` , `n2-highmem-*` , `n2-highcpu-*` | General-purpose nodes for data preprocessing, job orchestration, and other work that doesn't require an accelerator. N2 is also the machine family used for Slurm login nodes. |
-| H4D family: `h4d-standard-*` , `h4d-highmem-*`               | HPC-optimized nodes with RDMA networking, for tightly coupled simulation and preprocessing workloads.                                                                          |
+| Machine type                                                     | Description                                                                                                                                                                          |
+|------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| N2 family: `n2-standard-*` , `n2-highmem-*` , `n2-highcpu-*`     | General-purpose nodes for data preprocessing, job orchestration, and other work that doesn't require an accelerator. N2 is also supported for Slurm login nodes.                     |
+| C4A family: `c4a-standard-*` , `c4a-highmem-*` , `c4a-highcpu-*` | Arm-based (Axion) nodes, supported for Slurm login nodes only, and only in clusters whose compute node pools are also Arm-based. The `-lssd` and `-metal` variants aren't supported. |
+| H4D family: `h4d-standard-*` , `h4d-highmem-*`                   | HPC-optimized nodes with RDMA networking, for tightly coupled simulation and preprocessing workloads.                                                                                |
+
+### C4A login nodes
+
+C4A login nodes are Arm-based and are supported only in clusters where every compute node pool is also Arm-based, such as [A4X](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/compute-resources#a4x-machine-type) . A cluster that pairs a C4A login node with an x86 compute node pool, such as N2 or A3, is rejected when you create it.
+
+Because the login node and the compute nodes share the same architecture, binaries and container images you build on the login node run on the compute nodes you submit them to.
+
+C4A only supports a `hyperdisk-balanced` boot disk, which is the default.
 
 ## A4X machine type
 

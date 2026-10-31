@@ -22,6 +22,8 @@ The following models are available from Anthropic to use in Gemini Enterprise Ag
 
 Anthropic's Claude models support Agent Platform request-response logging. Enable 30-day request-response logging of your prompt and completion activity to track any model misuse by your users. For more information, see [Log requests and responses](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/request-response-logging) .
 
+To log token counts, latency and errors for every Claude request without storing prompts or responses, see [Log inference request metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/inference-metadata-logging) . For Claude field names, see [Token counts for Claude models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/inference-metadata-logging#claude-models) .
+
 ## Claude Fable models
 
 cognition [Anthropic's Claude Fable 5.1 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/fable-5-1) Optimized for autonomous knowledge work and coding, handling long-running, complex, and asynchronous tasks.

@@ -29,7 +29,7 @@ Model tuning is an effective way to customize large models to your tasks. It's a
   - You have labeled data: A sizable dataset to train on (think 100 examples or more), which allows the model to deeply learn your task's specifics.
   - Complex or unique tasks: For scenarios where advanced prompting strategies are not sufficient, and a model tailored to your data is essential.
 
-We recommend starting with prompting to find the optimal prompt. Then, move on to fine-tuning (if required) to further boost performances or fix recurrent errors. While adding more examples might be beneficial, it is important to evaluate where the model makes mistakes before adding more data. High-quality, well-labeled data is crucial for good performance and better than quantity. Also, the data you use for fine-tuning should reflect the prompt distribution, format and context the model will encounter in production.
+Start with prompting to find the optimal prompt. Then, move on to fine-tuning (if required) to further boost performance or fix recurring errors. Although adding more examples can be beneficial, it is important to evaluate where the model makes mistakes before adding more data. High-quality, well-labeled data is crucial for good performance and better than quantity. Also, the data you use for fine-tuning should reflect the prompt distribution, format, and context that the model encounters in production.
 
 Tuning provides the following benefits over prompt design:
 
@@ -59,15 +59,23 @@ Parameter-efficient tuning is more resource efficient and cost effective compare
 
 ## Supported tuning methods
 
-Agent Platform supports supervised fine-tuning to customize foundational models.
+Agent Platform supports supervised fine-tuning, preference tuning, and reinforcement learning fine-tuning to customize foundation models. You can also use tuning checkpoints and continuous tuning across training runs.
+
+The following table compares the primary tuning methods:
+
+| Tuning method                                 | How it works                                                                                                                                          | Typical dataset size                                       | Best suited for                                                                                                                                                    |
+|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Supervised fine-tuning (SFT)**              | Trains on labeled input-output demonstrations                                                                                                         | Hundreds to thousands of labeled examples                  | Strict output formatting, classification, sentiment analysis, entity extraction, and domain-specific style or tone.                                                |
+| **Preference tuning**                         | Optimizes pairwise preferences (chosen vs. rejected responses)                                                                                        | Hundreds to thousands of preference pairs                  | Aligning model behavior with subjective human preferences, helpfulness, or conversational tone.                                                                    |
+| **Reinforcement learning fine-tuning (RLFT)** | Generates candidate reasoning traces and responses ( `MINIMAL` or `HIGH` thinking level) and maximizes scores from up to 16 weighted reward functions | Dozens to a few hundred prompts with `references` metadata | Multi-step reasoning, complex domain rules, verifiable tasks (such as code or SQL generation), and optimizing thinking models without degrading reasoning quality. |
 
 ### Supervised fine-tuning
 
-Supervised fine-tuning improves the performance of the model by teaching it a new skill. Data that contains hundreds of labeled examples is used to teach the model to mimic a desired behavior or task. Each labeled example demonstrates what you want the model to output during inference.
+Supervised fine-tuning improves the performance of the model by teaching it a new skill. Data that contains hundreds of labeled examples is used to teach the model to mimic a target behavior or task. Each labeled example demonstrates what you want the model to output during inference.
 
-When you run a supervised fine-tuning job, the model learns additional parameters that help it encode the necessary information to perform the desired task or learn the desired behavior. These parameters are used during inference. The output of the tuning job is a new model that combines the newly learned parameters with the original model.
+When you run a supervised fine-tuning job, the model learns additional parameters that help it encode the necessary information to perform the target task or learn the expected behavior. These parameters are used during inference. The output of the tuning job is a new model that combines the newly learned parameters with the original model.
 
-Supervised fine-tuning of a text model is a good option when the output of your model isn't complex and is relatively easy to define. Supervised fine-tuning is recommended for classification, sentiment analysis, entity extraction, summarization of content that's not complex, and writing domain-specific queries. For code models, supervised tuning is the only option.
+Supervised fine-tuning of a text model is a good option when the output of your model isn't complex and is relatively easy to define. Supervised fine-tuning is recommended for classification, sentiment analysis, entity extraction, summarization of content that's not complex, and writing domain-specific queries.
 
 #### Models that support supervised fine-tuning
 
@@ -82,11 +90,11 @@ The following Gemini models support supervised tuning:
 - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
 - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
 
-For more information on using supervised fine-tuning with each respective model, see the following pages: Tune [text](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune_gemini/text_tune) , [image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune_gemini/image_tune) , [audio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune_gemini/audio_tune) , and [document](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune_gemini/doc_tune) data types.
+For more information about using supervised fine-tuning with each data type, see the following pages: Tune [text](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/text) , [image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/image) , [audio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/audio) , [video](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/video) , and [document](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/document) data types.
 
 ### Preference tuning
 
-Gemini Enterprise Agent Platform preference tuning builds on supervised fine-tuning by letting you tune your Gemini models with human feedback data.
+Agent Platform preference tuning builds on supervised fine-tuning by letting you tune your Gemini models with human feedback data.
 
 Preference tuning enables the model to learn from subjective user preferences that are hard to define by using specific labels and supervised fine-tuning alone.
 
@@ -99,11 +107,33 @@ The following Gemini models support preference tuning:
 - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
 - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
 
-For more information on preference tuning, see [About preference tuning for Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/preference-tuning) .
+For more information about preference tuning, see [About preference tuning for Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/preference-tuning) .
+
+### Reinforcement learning fine-tuning
+
+Reinforcement learning fine-tuning (RLFT) adapts Gemini models through trial-and-error exploration guided by programmatic or model-based reward functions. During training, the model samples multiple candidate responses and reasoning traces ( `MINIMAL` or `HIGH` thinking level) for each prompt, evaluates them using your reward configuration on a `[-1, 1]` scale, and updates a parameter-efficient LoRA adapter to maximize the reward.
+
+Unlike supervised fine-tuning, which omits intermediate thinking tokens during training, reinforcement learning fine-tuning directly optimizes multi-step reasoning and generalizes well with smaller datasets (often dozens to a few hundred prompts). You can evaluate outputs using a single reward function or a weighted composite of up to 16 reward functions across four scorer types:
+
+- **String match** : Compares model outputs against ground-truth fields in the dataset's `references` dictionary (exact string or JSON match, with optional regular expression extraction).
+- **Gemini-based autorater** : Uses an LLM-as-a-judge rubric to return a numeric score or structured verdict.
+- **Code execution** : Runs a custom Python `evaluate(example, response)` function in a managed sandbox environment.
+- **Cloud Run** : Sends candidate responses to a custom HTTP endpoint hosted on Cloud Run for domain-specific verification.
+
+#### Models that support reinforcement learning fine-tuning
+
+The following Gemini models support reinforcement learning fine-tuning:
+
+#### Click to expand supported models
+
+- [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
+- [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
+
+For more information about reinforcement learning fine-tuning, see [About reinforcement learning fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning) .
 
 ### Tuning checkpoints
 
-Tuning checkpoints let you save tuning progress, compare checkpoint performance, and choose the best performing checkpoint.
+Tuning checkpoints let you save tuning progress, compare checkpoint performance, and choose the best-performing checkpoint, either by epoch for supervised fine-tuning or by step interval ( `checkpointInterval` ) for reinforcement learning fine-tuning.
 
 #### Models that support tuning checkpoints
 
@@ -117,11 +147,11 @@ The following Gemini models support tuning checkpoints:
 - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
 - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
 
-For more information on tuning checkpoints, see [Use checkpoints in Gemini tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/checkpoints) .
+For more information about tuning checkpoints, see [Use checkpoints in Gemini tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/checkpoints) and [Job status, metrics, and monitoring for reinforcement learning fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/job-status-metrics-monitoring) .
 
 ### Continuous tuning
 
-Continuous tuning lets you continue tuning an already tuned model or model checkpoint by adding more epochs or training examples.
+Continuous tuning lets you continue tuning an already tuned model or model checkpoint. You can run additional supervised fine-tuning epochs on a tuned model ( `SFT -> SFT` ), apply reinforcement learning fine-tuning on top of a supervised fine-tuned checkpoint to combine strict formatting with enhanced reasoning ( `SFT -> RLFT` ), or continue training from a previous reinforcement learning checkpoint ( `RLFT -> RLFT` ).
 
 #### Models that support continuous tuning
 
@@ -135,12 +165,13 @@ The following Gemini models support continuous tuning:
 - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
 - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
 
-For more information on continuous tuning, see [About continuous tuning for Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/continuous-tuning) .
+For more information about continuous tuning, see [About continuous tuning for Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/continuous-tuning) and [Continuous tuning with reinforcement learning fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/continuous-tuning) .
 
 ## What's next
 
 - Learn about [supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning) .
 - Learn about [preference tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/preference-tuning) .
-- To start tuning, see [Tune Gemini models by using supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use)
+- Learn about [reinforcement learning fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning) .
+- To start tuning, see [Tune Gemini models by using supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use) or [Create a reinforcement learning fine-tuning job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start) .
 - To learn how supervised fine-tuning can be used in a solution that builds a generative AI knowledge base, see [Jump Start Solution: Generative AI knowledge base](https://docs.cloud.google.com/architecture/ai-ml/generative-ai-knowledge-base) .
 - To learn about tuning costs, see [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#model-tuning) .

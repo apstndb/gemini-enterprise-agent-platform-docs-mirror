@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/checkpoints
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/checkpoints
 title: Use checkpoints in Gemini model tuning
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Export, compare, test, and select intermediate checkpoints during Gemini model tuning.
 data_source: docs.cloud.google.com
 ---
 
@@ -13,6 +13,8 @@ A *checkpoint* is a snapshot of a model's state at a specific point in the fine-
 - Select the best performing checkpoint before overfitting to be the default checkpoint.
 
 For tuning jobs with less than 10 epochs, one checkpoint is saved approximately after each epoch. For tuning jobs with more than 10 epochs, around 10 checkpoints are saved at even distribution, with the exception of the final checkpoint, which is saved immediately after all epochs are trained.
+
+> **Note:** This page describes epoch-based checkpoints for supervised fine-tuning. For step-based checkpoints ( `checkpointInterval` ) in reinforcement learning fine-tuning, see [Job status, metrics, and monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/job-status-metrics-monitoring) .
 
 Intermediate checkpoints are [deployed to new endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment) sequentially as tuning progresses. The tuned model endpoint represents the endpoint of the default checkpoint, and the tuned model checkpoints include all checkpoints and their corresponding endpoints.
 
@@ -254,7 +256,7 @@ You can view a list of checkpoints in the Gemini Enterprise Agent Platform Model
 
 2.  In the **Tuning** tab, find your model and click **Monitor** .
 
-3.  In the checkpoint table in the **Monitor** pane, next to the desired checkpoint, click the **Test** link.
+3.  In the checkpoint table in the **Monitor** pane, next to the selected checkpoint, click the **Test** link.
 
 ### Google Gen AI SDK
 
@@ -306,7 +308,7 @@ When deploying a model with checkpoints, the default checkpoint is deployed.
 
 When copying a model with checkpoints, the destination model would have the same default checkpoint ID as the source model. All checkpoints are copied, so you can select a new default checkpoint for the destination model.
 
-The tuning job endpoint will be updated if you update a default checkpoint, and you can use the new endpoint for inference.
+The tuning job endpoint is updated if you update a default checkpoint, and you can use the new endpoint for inference.
 
 ### Console
 
@@ -314,7 +316,7 @@ The tuning job endpoint will be updated if you update a default checkpoint, and 
 
 2.  In the **Tuning** tab, find your model and click **Monitor** .
 
-3.  In the checkpoint table in the **Monitor** pane, next to the desired checkpoint, click more_vert **Actions** and select **Set as default** .
+3.  In the checkpoint table in the **Monitor** pane, next to the target checkpoint, click more_vert **Actions** and select **Set as default** .
 
 4.  Click **Confirm** .
 
@@ -357,3 +359,4 @@ print(f"Tuned model endpoint: {tuning_job.tuned_model.endpoint}")
 
 - Learn more about [supervised fine-tuning for Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning) .
 - Learn more about [preference tuning for Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/preference-tuning) .
+- Learn more about [reinforcement learning fine-tuning for Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning) .

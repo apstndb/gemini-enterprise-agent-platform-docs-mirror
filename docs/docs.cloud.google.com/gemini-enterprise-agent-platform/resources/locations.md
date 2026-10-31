@@ -591,6 +591,7 @@ Partner model endpoints for Agent Platform are available in the following region
 | Codestral 2                                             |                 |
 | Codestral (24.05)                                       |                 |
 | Grok models                                             |                 |
+| Grok 4.7                                                |                 |
 | Grok 4.6                                                |                 |
 | Grok 4.20 (Reasoning)                                   |                 |
 | Grok 4.20 (Non-reasoning)                               |                 |
@@ -625,6 +626,7 @@ Partner model endpoints for Agent Platform are available in the following region
 | Codestral 2                                             |                                 |                                  |
 | Codestral (24.05)                                       |                                 |                                  |
 | Grok models                                             |                                 |                                  |
+| Grok 4.7                                                |                                 |                                  |
 | Grok 4.6                                                |                                 |                                  |
 | Grok 4.20 (Reasoning)                                   |                                 |                                  |
 | Grok 4.20 (Non-reasoning)                               |                                 |                                  |
@@ -659,6 +661,7 @@ Partner model endpoints for Agent Platform are available in the following region
 | Codestral 2                                             |                   |                      |                    |                           |                        |                     |                    |
 | Codestral (24.05)                                       |                   |                      |                    |                           |                        |                     |                    |
 | Grok models                                             |                   |                      |                    |                           |                        |                     |                    |
+| Grok 4.7                                                |                   |                      |                    |                           |                        |                     |                    |
 | Grok 4.6                                                |                   |                      |                    |                           |                        |                     |                    |
 | Grok 4.20 (Reasoning)                                   |                   |                      |                    |                           |                        |                     |                    |
 | Grok 4.20 (Non-reasoning)                               |                   |                      |                    |                           |                        |                     |                    |
@@ -693,6 +696,7 @@ Partner model endpoints for Agent Platform are available in the following region
 | Codestral 2                                             |                                    |                                |
 | Codestral (24.05)                                       |                                    |                                |
 | Grok models                                             |                                    |                                |
+| Grok 4.7                                                |                                    |                                |
 | Grok 4.6                                                |                                    |                                |
 | Grok 4.20 (Reasoning)                                   |                                    |                                |
 | Grok 4.20 (Non-reasoning)                               |                                    |                                |
@@ -727,6 +731,7 @@ Partner model endpoints for Agent Platform are available in the following region
 | Codestral 2                                             |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
 | Codestral (24.05)                                       |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
 | Grok models                                             |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+| Grok 4.7                                                |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
 | Grok 4.6                                                |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
 | Grok 4.20 (Reasoning)                                   |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
 | Grok 4.20 (Non-reasoning)                               |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
@@ -761,6 +766,7 @@ Partner model endpoints for Agent Platform are available in the following region
 | Codestral 2                                             |                      |                             |                        |                     |                         |                               |                         |
 | Codestral (24.05)                                       |                      |                             |                        |                     |                         |                               |                         |
 | Grok models                                             |                      |                             |                        |                     |                         |                               |                         |
+| Grok 4.7                                                |                      |                             |                        |                     |                         |                               |                         |
 | Grok 4.6                                                |                      |                             |                        |                     |                         |                               |                         |
 | Grok 4.20 (Reasoning)                                   |                      |                             |                        |                     |                         |                               |                         |
 | Grok 4.20 (Non-reasoning)                               |                      |                             |                        |                     |                         |                               |                         |
@@ -795,6 +801,7 @@ Partner model endpoints for Agent Platform are available in the following region
 | Codestral 2                                             |                     |                    |                      |
 | Codestral (24.05)                                       |                     |                    |                      |
 | Grok models                                             |                     |                    |                      |
+| Grok 4.7                                                |                     |                    |                      |
 | Grok 4.6                                                |                     |                    |                      |
 | Grok 4.20 (Reasoning)                                   |                     |                    |                      |
 | Grok 4.20 (Non-reasoning)                               |                     |                    |                      |

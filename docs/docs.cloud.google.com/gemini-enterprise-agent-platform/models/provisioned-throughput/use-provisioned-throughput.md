@@ -453,9 +453,23 @@ Default monitoring dashboards for Provisioned Throughput provide [metrics](https
 
 3.  Select a model from the **Provisioned Throughput utilization by model** table to see more metrics specific to the selected model.
 
+### Detailed metrics
+
+Detailed metrics compute the Provisioned Throughput dashboards from per-request inference logs instead of one-minute aggregate metrics. They show traffic at second-level resolution, so you can see bursts that a one-minute average hides and the individual seconds where traffic spilled over.
+
+Detailed metrics add the following charts beside the standard ones: throughput, cache hit rate and cached token use.
+
+To turn on detailed metrics, see [Enable in the console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/inference-metadata-logging#enable-console) . After the log bucket upgrade finishes, open an order or a model from the **Utilization summary** tab to see the detailed charts. To query the same data with SQL, for example burndown by project, spillover by minute or cache hit rate, see [Query with Observability Analytics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/inference-metadata-logging#observability-analytics) .
+
+> **Note:** Turning on detailed metrics turns on inference request metadata logging for the whole project: every Gemini and Claude model, on Provisioned Throughput and every pay-as-you-go option that the logs support.
+
+![Detailed metrics selected on a Provisioned Throughput details page, over the last day. Provisioned Throughput Utilization shows throughput per second as dedicated and spillover against the limit (tokens per second). Request Rate shows requests per second as dedicated and spillover.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/models/provisioned-throughput/images/pt_detailed_metrics.png)
+
+![The Cached Token Hit Rate chart with detailed metrics selected, over seven days. It shows the percentage of input tokens served from cache, labeled cached token use.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/models/provisioned-throughput/images/pt_cached_token_hit_rate.png)
+
 ### How to interpret monitoring dashboards
 
-Provisioned Throughput [checks available quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput#pt-quota-checking) in real time at the millisecond level for requests as they are made, but compares this data against a rolling [quota enforcement period](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput#pt-quota-enforcement-period) , based on the Agent Platform internal clock time. This comparison is independent of the time when the requests are made. The monitoring dashboards report usage metrics after quota reconciliation takes place. However, these metrics are aggregated to provide averages for dashboard alignment periods, based on the selected time range. The lowest possible granularity that the monitoring dashboards support is at the minute level. Moreover, the clock time for the monitoring dashboards is different from that of Agent Platform.
+Provisioned Throughput [checks available quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput#pt-quota-checking) in real time at the millisecond level for requests as they are made, but compares this data against a rolling [quota enforcement period](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput#pt-quota-enforcement-period) , based on the Agent Platform internal clock time. This comparison is independent of the time when the requests are made. The monitoring dashboards report usage metrics after quota reconciliation takes place. However, these metrics are aggregated to provide averages for dashboard alignment periods, based on the selected time range. The lowest possible granularity that the monitoring dashboards support is at the minute level. To see second-level traffic, turn on [detailed metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput#detailed-metrics) . Moreover, the clock time for the monitoring dashboards is different from that of Agent Platform.
 
 These differences in timings might occasionally result in discrepancies between the data in the monitoring dashboards and real-time performance. These can result from any of the following reasons:
 

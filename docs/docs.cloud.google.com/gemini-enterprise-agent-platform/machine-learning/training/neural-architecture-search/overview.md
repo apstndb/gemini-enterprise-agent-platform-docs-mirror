@@ -27,7 +27,7 @@ You should also read the following section on expected cost, result gains, and G
 
 ### Expected cost, result gains, and GPU quota requirements
 
-![NAS search.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/nas_search.png)
+![NAS search.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/nas_search.png)
 
 The figure shows a typical Agent Platform Neural Architecture Search Neural Architecture Search curve. The `Y-axis` shows the trial rewards, and the `X-axis` shows the number of trials launched. As the number of trials increase, the controller starts finding better models. Therefore, the reward starts increasing, and later, the reward variance and the reward growth start decreasing and show the convergence. At the point of convergence, the number of trials can vary based on the search-space size, but it is of the order of approximately 2000 trials. Each trial is designed to be a smaller version of full training called *proxy-task* which runs for approximately one to two hours on two Nvidia V100 GPUs. The customer can stop the search manually at any point and might find higher reward models compared to their baseline before the point of convergence occurs. It might be better to wait until the point of convergence occurs to choose the better results. After the search, the next stage is to pick top 10 trials (models) and run a full training on them.
 
@@ -35,7 +35,7 @@ The figure shows a typical Agent Platform Neural Architecture Search Neural Arch
 
 In this mode, observe the search curve or a few trials, approximately 25, and do a test drive with a prebuilt MNasNet search space and trainer.
 
-![MnasNet toy run.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/mnasnet_toy_run.png)
+![MnasNet toy run.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/mnasnet_toy_run.png)
 
 In the figure, the best stage-1 reward starts to climb up from \~0.30 at trial-1 to \~0.37 at trial-17. Your exact run may look slightly different due to sampling randomness but you should see some small increase in the best reward. **Note that this is still a toy run and doesn't represent any proof-of-concept or a public benchmark validation.**
 
@@ -138,7 +138,7 @@ The following table summarizes some data points with different use cases and ass
 
 > **Note:** Some of the data points shown here are for very large models with full training approaching 10 days with multiple GPUs. The cost and performance vary based on your data and model size. Refer to [Using your search space and trainers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/overview#custom_run) to determine the average cost.
 
-![Summary.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/performance_summary.png)
+![Summary.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/performance_summary.png)
 
 ## Use cases and features
 
@@ -191,7 +191,7 @@ These resulting models are leading the way in all 3 key classes of computer visi
 
 With Agent Platform Neural Architecture Search Neural Architecture Search, engineers can optimize models for *accuracy* , *latency* , and *memory* in the same trial, reducing the time needed to deploy models. Agent Platform Neural Architecture Search Neural Architecture Search explores many different types of models: the *controller* proposes ML models, then trains and evaluates models and iterates 1k+ times to find the best solutions *with latency and/or memory constraint on targeting devices* . The following figure shows the key components of the architecture search framework:
 
-![Components of an Agent Platform Neural Architecture Search Neural Architecture Search framework.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/nas_components.png)
+![Components of an Agent Platform Neural Architecture Search Neural Architecture Search framework.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/nas_components.png)
 
 - *Model* : A neural architecture with operations and connections.
 - *Search space* : The space of possible models (operations and connections) that can be designed and optimized.
@@ -214,13 +214,13 @@ However, most users need to use their custom trainer, custom search spaces, cust
 
 The following diagram illustrates this:
 
-![Agent Platform Neural Architecture Search Neural Architecture Search setup in user environment.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/nas_user_setup.png)
+![Agent Platform Neural Architecture Search Neural Architecture Search setup in user environment.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/nas_user_setup.png)
 
 ## Agent Platform Neural Architecture Search Neural Architecture Search service in operation
 
 After you set up the training container to use, the Agent Platform Neural Architecture Search Neural Architecture Search service then launches multiple training-containers in parallel on multiple GPU devices. You can control how many trials to use in parallel for training and how many total trials to launch. Each training-container is provided a suggested architecture from the search space. The training-container builds the suggested model, does train/eval, and then reports rewards back to the Agent Platform Neural Architecture Search Neural Architecture Search service. As this process progresses, the Agent Platform Neural Architecture Search Neural Architecture Search service uses the reward feedback to find better and better model-architectures. After the search, you have access to the reported metrics for further analysis.
 
-![The Agent Platform Neural Architecture Search Neural Architecture Search service in operation.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/nas_service_in_operation.png)
+![The Agent Platform Neural Architecture Search Neural Architecture Search service in operation.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/nas_service_in_operation.png)
 
 ## Overview of user journey for Agent Platform Neural Architecture Search Neural Architecture Search
 

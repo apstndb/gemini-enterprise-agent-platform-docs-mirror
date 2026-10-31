@@ -1,8 +1,8 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start
-title: 'Quick start: Reinforcement learning fine-tuning using the API'
-description: Quick start guide for creating, monitoring, and running inference on a reinforcement learning fine-tuned Gemini model by using the Agent Platform API.
+title: 'Quickstart: Reinforcement learning fine-tuning using the API'
+description: Quickstart guide for creating, monitoring, and running inference on a reinforcement learning fine-tuned Gemini model by using the Agent Platform API.
 data_source: docs.cloud.google.com
 ---
 
@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 >
 > These Pre-GA products are in various stages of internal testing and review. As such, **do not use proprietary, sensitive, or other confidential data with these products** . These products are made available to Customers solely for limited testing and evaluation, and may not be used for commercial or production purposes.
 
-This page walks you through the end-to-end workflow for reinforcement learning fine-tuning of Gemini models by using the Agent Platform API: creating a tuning job, checking its status, retrieving the tuned-model endpoint, and running inference against it. To complete these tasks in the Google Cloud console, see the [Google Cloud console quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console) .
+This page walks you through the end-to-end workflow for reinforcement learning fine-tuning of Gemini models by using the Agent Platform API: creating a tuning job, checking its status, retrieving the tuned-model endpoint, and running inference against it. To complete these tasks in the Google Cloud console, see the [Google Cloud console quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console) .
 
 Before you begin, see [About reinforcement learning fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning) for an overview of the feature, supported models, and supported regions.
 
@@ -56,7 +56,7 @@ curl -X POST \
 
 Replace the following:
 
-- ` PROJECT_ID ` : Your Google Cloud project ID.
+- `<var>PROJECT_ID</var>` : Your Google Cloud project ID.
 
 > **Note:** Only the `v1beta1` API version is supported for reinforcement learning fine-tuning.
 
@@ -69,7 +69,7 @@ You can monitor the progress, performance, and quality of a running reinforcemen
 Training time is affected by the following factors:
 
 - **Training and validation dataset size.** For details, see the [Tuning dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/tuning-dataset) page.
-- **Hyperparameters** — including `samplesPerPrompt` , batch size, epoch count, and learning rate multiplier. For details, see the [Hyperparameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/hyperparameters) page.
+- **Hyperparameters** , including `samplesPerPrompt` , batch size, epoch count, and learning rate multiplier. For details, see the [Hyperparameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/hyperparameters) page.
 
 Depending on your setup, a Gemini reinforcement learning fine-tuning job can run for hours to days.
 
@@ -85,8 +85,8 @@ curl -X GET \
 
 Replace the following:
 
-- ` PROJECT_ID ` : Your Google Cloud project ID.
-- ` TUNING_JOB_ID ` : The ID of the tuning job.
+- `<var>PROJECT_ID</var>` : Your Google Cloud project ID.
+- `<var>TUNING_JOB_ID</var>` : The ID of the tuning job.
 
 Example response (abbreviated):
 
@@ -129,8 +129,8 @@ curl -X POST \
 
 Replace the following:
 
-- ` PROJECT_ID ` : Your Google Cloud project ID.
-- ` ENDPOINT_ID ` : The endpoint ID returned in the `tunedModel.endpoint` field of the `GetTuningJob` response.
+- `<var>PROJECT_ID</var>` : Your Google Cloud project ID.
+- `<var>ENDPOINT_ID</var>` : The endpoint ID returned in the `tunedModel.endpoint` field of the `GetTuningJob` response.
 
 ## What's next
 
@@ -138,4 +138,4 @@ Replace the following:
 - Explore supported [reward functions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/reward-functions) .
 - Configure [hyperparameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/hyperparameters) for reinforcement learning.
 - Learn how to track [metrics and monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/job-status-metrics-monitoring) .
-- Try the [Google Cloud console quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console) to create tuning jobs by using the Google Cloud console.
+- Try the [Google Cloud console quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console) to create tuning jobs by using the Google Cloud console.

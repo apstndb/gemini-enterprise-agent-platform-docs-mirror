@@ -21,6 +21,8 @@ The TTS models are tailored for exact text recitation with fine-grained control 
 
 If you use an earlier Gemini TTS model, such as `gemini-3.1-flash-tts-preview` , see the [migration guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/migration-guide) .
 
+To try single-speaker speech generation without writing code, open Gemini 3.8 Flash TTS in Agent Studio:
+
 ## Supported models
 
 | Model                                                                                                                                                        | Single speaker | Multi-speaker | Streaming | [Voice design](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-design) (Preview) | [Voice replication](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-replication) (Preview) |
@@ -126,6 +128,14 @@ curl -X POST \
 To convert text to single-speaker audio, pass the verbatim transcript in `parts[].text` , add optional turn-level styling in `parts[].speech_metadata` , and set the voice in `speechConfig.voiceConfig.voice` . The `voice` field accepts a [prebuilt voice](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview#prebuilt-voices) name, an [Extended Voice Library](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview#voice-library) voice ID, or the ID ( `voice_...` ) of a [designed](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-design) or [replicated](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-replication) voice (or an optional stateless `voicekey_...` key).
 
 By default, unary requests return a complete WAV file (16-bit PCM, 24 kHz, mono), so you can write the audio bytes directly to a `.wav` file. Streaming requests return raw PCM chunks instead. For details and other encodings, see [Audio output formats](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview#audio-output-formats) .
+
+### Console
+
+1.  Open [Gemini 3.8 Flash TTS](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-3.8-flash-tts) or [Gemini 3.8 Flash-Lite TTS](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-3.8-flash-lite-tts) in Agent Studio.
+2.  In the settings panel, choose a prebuilt **Voice** , a **Language** (or keep **Auto-detect** ), and an optional **Style** description (for example, `cheerful and friendly` ).
+3.  Enter the transcript to speak in the prompt box and submit it to generate, play, or download the WAV audio. Click **Get code** to export the request as Python, JavaScript, or curl.
+
+> **Note:** Multi-speaker dialogue, streaming audio chunks, and custom voices ( `voice_...` and `voicekey_...` ) are configured through the API or SDK.
 
 ### Python
 

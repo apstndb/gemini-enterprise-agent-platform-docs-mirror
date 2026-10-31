@@ -18,9 +18,9 @@ For the API definition of these parameters, see the [`ReinforcementTuningHyperPa
 
 ### `epochCount`
 
-The number of times the dataset is iterated over. This is different from the number of training *steps* — each epoch can produce a varying number of training steps.
+The number of times the dataset is iterated over. This is different from the number of training *steps* ; each epoch can produce a varying number of training steps.
 
-- **Default:** `min(110 * promptsPerBatch / promptsInDataset, 10)` if left empty. The default is computed dynamically so that the model sees each prompt multiple times, capped at 10 epochs to prevent overfitting on smaller datasets.
+- **Default:** `min(110 * promptsPerBatch / promptsInDataset, 10)` if left empty. The default is computed dynamically so that the training job processes each prompt multiple times, capped at 10 epochs to prevent overfitting on smaller datasets.
 - **Maximum:** The total training run is capped at 500 *steps* for stable tuning.
 
 ### `learningRateMultiplier`
@@ -41,9 +41,9 @@ Controls the length and depth of the internal chain-of-thought processing used d
 
 These two hyperparameters control how prompts are batched and how many responses the model generates per prompt during each training step.
 
-- **`batchSize`** — The number of prompts per batch (also called `promptsPerBatch` ). A larger batch size slows down tuning but can produce more stable updates for each step.
+- **`batchSize`** : The number of prompts per batch (also called `promptsPerBatch` ). A larger batch size slows down tuning but can produce more stable updates for each step.
   - **Default:** `32`
-- **`samplesPerPrompt`** — The number of different responses the model generates for each prompt during a single training step. A larger `samplesPerPrompt` slows down tuning but can increase the diversity of responses the model explores.
+- **`samplesPerPrompt`** : The number of different responses the model generates for each prompt during a single training step. A larger `samplesPerPrompt` slows down tuning but can increase the diversity of responses the model explores.
   - **Default:** `16`
 
 The product `batchSize * samplesPerPrompt` is subject to modality-specific restrictions:
@@ -80,4 +80,4 @@ The LoRA adapter size. Larger adapter sizes provide greater learning capacity fo
 - [Prepare a tuning dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/tuning-dataset) .
 - [Define reward functions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/reward-functions) for your tuning job.
 - [Monitor job status and metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/job-status-metrics-monitoring) .
-- Follow the [Google Cloud console quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console) or [API quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start) to create your first reinforcement learning fine-tuning job.
+- Follow the [Google Cloud console quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console) or [API quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start) to create your first reinforcement learning fine-tuning job.

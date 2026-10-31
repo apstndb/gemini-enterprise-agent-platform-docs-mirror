@@ -43,7 +43,7 @@ To configure a continuous tuning job in the Google Cloud console:
 
 5.  Click **Select model** , choose your previously tuned model, and select a version or checkpoint to continue tuning from.
 
-6.  Proceed through the remaining steps to configure your reward functions, training dataset, and hyperparameters. For more information, see the [Google Cloud console quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console) .
+6.  Proceed through the remaining steps to configure your reward functions, training dataset, and hyperparameters. For more information, see the [Google Cloud console quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console) .
 
 ### REST
 
@@ -77,7 +77,7 @@ Replace the following:
 - `PROJECT_ID` : your Google Cloud project ID.
 - `LOCATION_ID` : the location ID.
 - `PRETUNED_MODEL_ID` : the model ID of the previously tuned model to continue from.
-- `CHECKPOINT_ID` : the ID of a specific checkpoint of the previously tuned model. Optional — if omitted, the latest checkpoint of the pretuned model is used.
+- `CHECKPOINT_ID` : the ID of a specific checkpoint of the previously tuned model. Optional; if omitted, the latest checkpoint of the pretuned model is used.
 
 ## What's next
 

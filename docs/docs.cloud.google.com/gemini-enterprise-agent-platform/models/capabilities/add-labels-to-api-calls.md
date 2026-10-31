@@ -10,7 +10,110 @@ You can add custom metadata to API calls like `generateContent` and `rawPredict`
 
 ## What are labels?
 
-A label is a key-value pair that you can assign to API calls like `generateContent` and `rawPredict` . They help you organize these calls and manage your costs at scale, with the granularity you need. You can attach a label to each call, then filter the calls based on their labels. Information about labels is forwarded to the billing system that lets you break down your billed charges by label. With built-in [billing reports](https://docs.cloud.google.com/billing/docs/how-to/reports) , you can filter and group costs by labels. You can also use labels to query [billing data exports](https://docs.cloud.google.com/billing/docs/how-to/bq-examples) . For information on how to use labels after creation, see [an example from the labels overview](https://docs.cloud.google.com/resource-manager/docs/labels-overview#example) .
+A label is a key-value pair that you can assign to API calls like `generateContent` and `rawPredict` . They help you organize these calls and manage your usage and costs at scale, with the granularity you need. You can attach a label to each call, then filter the calls based on their labels. Information about labels is forwarded to the logging and billing system that lets you break down your usage and billed charges by label. With built-in [billing reports](https://docs.cloud.google.com/billing/docs/how-to/reports) , you can filter and group costs by labels. You can also use labels to query [billing data exports](https://docs.cloud.google.com/billing/docs/how-to/bq-examples) . For information on how to use labels after creation, see [an example from the labels overview](https://docs.cloud.google.com/resource-manager/docs/labels-overview#example) .
+
+Agent Platform supports two kinds of labels: request body labels, which reach Cloud Billing, and header labels, which appear in inference request metadata logs. The next section compares them.
+
+## Choose a label based on your use case
+
+Agent Platform offers two label mechanisms. You set them differently, they reach different destinations, and they appear in different fields of the inference request metadata log. You can use either, or both on the same request when supported.
+
+Request body labels work as follows:
+
+- You set them in the `labels` field of the request body.
+- They reach Cloud Billing and inference request metadata logs.
+- They appear in the log entry's `labels` field.
+- Supported on pay-as-you-go traffic.
+- For partner models such as Claude, request labels are sent in the `X-Vertex-AI-Labels` header instead of the request body. They reach Cloud Billing but aren't written to the inference request metadata log.
+
+Header labels work as follows:
+
+- You set them in the `x-goog-agent-platform-observability-label-KEY` request header.
+- They reach inference request metadata logs only.
+- They appear in the log entry's `jsonPayload.httpHeaders` field.
+- Supported API methods: `generateContent` and `streamGenerateContent` for Gemini models, and `rawPredict` and `streamRawPredict` for Claude models. Supported consumption options: Provisioned Throughput and every pay-as-you-go option that the model offers.
+
+> **Note:** Header labels never reach Cloud Billing. If you need to break down billed charges, use request body labels.
+
+## Find each label in the log entry
+
+A single request can carry both. The following request sets one of each:
+
+```
+POST https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-2.5-pro:generateContent
+x-goog-agent-platform-observability-label-team: payments
+
+{
+  "labels": {"cost_center": "cc-1234"},
+  "contents": [{"role": "user", "parts": [{"text": "..."}]}]
+}
+```
+
+The two labels land in different fields of the same log entry:
+
+```
+{
+  "labels": {
+    "gen_ai.operation.name": "generate_content",
+    "cost_center": "cc-1234"
+  },
+  "jsonPayload": {
+    "httpHeaders": {
+      "x-goog-agent-platform-observability-label-team": {
+        "values": ["payments"]
+      }
+    }
+  }
+}
+```
+
+The two label types occupy different fields, so you query them differently. In Logs Explorer:
+
+```
+labels.cost_center="cc-1234"
+jsonPayload.httpHeaders."x-goog-agent-platform-observability-label-team".values="payments"
+```
+
+In Observability Analytics:
+
+```
+JSON_VALUE(labels.cost_center) AS cost_center,
+JSON_VALUE(json_payload.httpHeaders
+  ["x-goog-agent-platform-observability-label-team"].values[0]) AS team
+```
+
+## How header labels work
+
+Header labels are part of inference request metadata logging. To capture them, [turn on inference request metadata logs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/inference-metadata-logging#enable) for the project.
+
+Send one header per label, using the reserved prefix. The prefix is case-insensitive:
+
+```
+x-goog-agent-platform-observability-label-KEY: VALUE
+```
+
+For example:
+
+```
+x-goog-agent-platform-observability-label-team: payments
+x-goog-agent-platform-observability-label-application: invoice-ocr
+```
+
+Each header appears in the log entry under `jsonPayload.httpHeaders` , keyed by the lowercased header name, with the value in a `values` array, as shown in [Find each label in the log entry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/add-labels-to-api-calls#where-in-log) .
+
+Agent Platform also captures a small set of its own headers: `x-vertex-ai-llm-request-type` and `x-vertex-ai-llm-shared-request-type` . No other headers are captured.
+
+Header labels work the same way for Gemini and Claude, and they are how you label Claude requests in the inference request metadata log.
+
+### Limits for header labels
+
+- A single request writes at most 32 headers. When more are eligible, Agent Platform keeps them in ascending alphabetical order and drops the rest. The drop is silent.
+- A header value longer than 1,024 bytes is truncated, and the truncation is marked in the stored value.
+- Repeated headers of the same name are combined into a single entry with multiple values.
+
+> **Caution:** The 32-header cap counts every captured header, not only your header labels. If your application already sends many headers, count them before you rely on header label attribution.
+
+To query header labels, see [Usage by custom header label](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/inference-metadata-logging#query-labels) .
 
 ## Requirements for labels
 
@@ -40,9 +143,9 @@ Here are some common use cases for labels:
 
 We recommend against creating large numbers of unique labels, such as for timestamps or individual values for every API call. The problem with this approach is that the keys clutter the catalog, increase load times significantly during queries, and make it difficult to effectively filter and report on API calls.
 
-## Supported models
+## Supported models for request labels
 
-The ability to add labels to a request is supported for Google models and a subset of parter models. If you add labels to a request for an unsupported model, the request results in an error.
+Request labels and header labels are supported on different models. The ability to add request labels to a request is supported for Google models and a subset of partner models. If you add request labels to a request for an unsupported model, the request results in an error. Google models take request labels in the `labels` field of the request body. Partner models take them in the `X-Vertex-AI-Labels` header.
 
 ### Google models
 
@@ -65,7 +168,17 @@ The following partner models support labels.
 
 Labels are only forwarded to Cloud Billing when the request uses the [PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options) consumption option. Requests using the [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/overview) consumption option will silently ignore labels sent in the request.
 
-## Add a label to a Google model API call
+## Supported models for header labels
+
+Header labels are written only to the inference request metadata log, so they work on the models and methods that the log records.
+
+- Gemini models: `generateContent` and `streamGenerateContent` .
+- Claude models: `rawPredict` and `streamRawPredict` .
+- Consumption options: Provisioned Throughput and every pay-as-you-go option that the model offers.
+- Other partner models, including Mistral AI, aren't supported. A request to them with header labels still succeeds, but no log entry is written, so the labels aren't recorded anywhere.
+- Header labels never reach Cloud Billing. To break down billed charges, use request labels.
+
+## Add a request label to a Google model API call
 
 To add a label to a `generateContent` or `streamGenerateContent` API call, do the following:
 
@@ -260,7 +373,9 @@ def generate_content() -> genai.types.GenerateContentResponse:
 
 Google Cloud products report usage and cost data to Cloud Billing processes at varying intervals. As a result, you might see a delay between your use of Google Cloud services, and the usage and costs being available to view in Cloud Billing. Typically, your costs are available within a day, but can sometimes take more than 24 hours.
 
-## Add a label to a partner model API call
+## Add a request label to a partner model API call
+
+> **Note:** The `X-Vertex-AI-Labels` header isn't written to the inference request log. To label Claude requests in the log, send [header labels](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/add-labels-to-api-calls#add-header-labels) , which appear in `jsonPayload.httpHeaders` .
 
 To add a label to a `rawPredict` or `streamRawPredict` API call, do the following:
 
@@ -359,3 +474,74 @@ responses = client.stream_raw_predict(
 for response in responses:
   print(response.data.decode("utf-8"))
 ```
+
+## Add header labels to API calls
+
+Header labels need no request body changes. Add one `x-goog-agent-platform-observability-label-KEY` header per label to any supported request. The following examples show the request and the resulting fields of the inference request metadata log entry, from test requests on 2026-10-14.
+
+### Add header labels to a Gemini model API call
+
+Send header labels with `generateContent` or `streamGenerateContent` . Replace `PROJECT_ID` with your project ID.
+
+```
+curl -X POST \
+  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  -H "Content-Type: application/json" \
+  -H "x-goog-agent-platform-observability-label-team: payments" \
+  -H "x-goog-agent-platform-observability-label-application: invoice-ocr" \
+  "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-2.5-flash:generateContent" \
+  -d '{"contents": [{"role": "user", "parts": [{"text": "What is Generative AI?"}]}]}'
+```
+
+The log entry records each label under `jsonPayload.httpHeaders` . Header labels are recorded on Provisioned Throughput traffic too, which request labels don't support:
+
+```
+{
+  "method": "GENERATE_CONTENT",
+  "trafficType": "PROVISIONED_THROUGHPUT",
+  "httpHeaders": {
+    "x-goog-agent-platform-observability-label-application": {"values": ["invoice-ocr"]},
+    "x-goog-agent-platform-observability-label-team": {"values": ["payments"]}
+  },
+  "generateContentDetails": {"usageMetadata": {"promptTokenCount": 6, "candidatesTokenCount": 1, "totalTokenCount": 7}},
+  "provisionedThroughput": {"accountingResource": "projects/PROJECT_NUMBER", "ptChargedInputTokenCount": "6", "ptChargedOutputTokenCount": "9"}
+}
+```
+
+### Add header labels to a Claude model API call
+
+Send header labels with `rawPredict` or `streamRawPredict` . Replace `PROJECT_ID` and `MODEL_ID` , for example `claude-opus-4-6` .
+
+```
+curl -X POST \
+  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  -H "Content-Type: application/json" \
+  -H "x-goog-agent-platform-observability-label-team: payments" \
+  "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/anthropic/models/MODEL_ID:rawPredict" \
+  -d '{"anthropic_version": "vertex-2023-10-16", "messages": [{"role": "user", "content": "What is Generative AI?"}], "max_tokens": 256}'
+```
+
+The log entry records the label under `jsonPayload.httpHeaders` , next to Claude's token counts:
+
+```
+{
+  "method": "RAW_PREDICT",
+  "trafficType": "ON_DEMAND",
+  "httpHeaders": {
+    "x-goog-agent-platform-observability-label-team": {"values": ["payments"]}
+  },
+  "rawPredictDetails": {"usageMetadata": {"input_tokens": 17, "output_tokens": 16, "cache_read_input_tokens": 0, "cache_creation_input_tokens": 0}}
+}
+```
+
+A Claude request can also carry request labels in the `X-Vertex-AI-Labels` header, as shown in [Add a request label to a partner model API call](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/add-labels-to-api-calls#add_a_label_to_a_partner_model_api_call) . Those reach Cloud Billing but aren't written to the log entry.
+
+### Query header labels
+
+In Logs Explorer, filter on one header label value:
+
+```
+jsonPayload.httpHeaders."x-goog-agent-platform-observability-label-team".values="payments"
+```
+
+In Observability Analytics, group by a header label with the [Usage by custom header label](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/inference-metadata-logging#query-labels) query on the [Log inference request metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/inference-metadata-logging) page.

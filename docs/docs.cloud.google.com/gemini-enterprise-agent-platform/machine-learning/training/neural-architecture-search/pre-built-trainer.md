@@ -181,13 +181,13 @@ For information about how to customize the latency calculation function, see [`t
 
 In the Google Cloud console, on the job page, the **chart** shows the `reward vs. trial number` while the **table** shows the rewards for each trial. You can find the top trials with the highest reward.
 
-![Job details page showing trial reward chart and metrics table in the Google Cloud console.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/nas_cloud_console.png)
+![Job details page showing trial reward chart and metrics table in the Google Cloud console.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/nas_cloud_console.png)
 
 ## Plot a stage-2 training curve
 
 After stage-2 training, you use either Cloud Shell or Google Cloud `TensorBoard` to plot the training curve by pointing it to the job directory:
 
-![Training curve metrics over steps visualized in TensorBoard.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/tensorboard.png)
+![Training curve metrics over steps visualized in TensorBoard.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/tensorboard.png)
 
 ## Deploy a selected model
 

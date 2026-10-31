@@ -454,7 +454,7 @@ response = client.chat.completions.create(
 print(response.choices[0].message.content)
 ```
 
-Replace `MODEL` with the model name you want to use, for example `xai/grok-4.1-fast-reasoning` .
+Replace `MODEL` with the model name you want to use, for example `xai/grok-4.6` .
 
 #### Example output
 
@@ -476,7 +476,7 @@ Before using any of the request data, make the following replacements:
 
 - ` PROJECT_ID ` : Your Google Cloud project ID.
 - ` LOCATION ` : A region that supports Grok models.
-- ` MODEL ` : The model name you want to use, for example `xai/grok-4.1-fast-reasoning` .
+- ` MODEL ` : The model name you want to use, for example `xai/grok-4.6` .
 
 HTTP method and URL:
 
@@ -554,7 +554,7 @@ You should receive a JSON response similar to the following.
   ],
   "created": 1721860000,
   "id": "123456789",
-  "model": "xai/grok-4.1-fast-reasoning",
+  "model": "xai/grok-4.6",
   "object": "chat.completion",
   "system_fingerprint": "12345",
   "usage": {

@@ -19,18 +19,18 @@ This page describes each supported reward type, recommended practices for design
 - [Code execution reward](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/reward-functions#code-execution-reward)
 - [Fully customizable reward through Cloud Run](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/reward-functions#cloud-run-reward)
 
-You can also combine any of these four with per-scorer weights using a **composite reward** .
+You can also combine up to 16 of these reward functions with per-scorer weights using a **composite reward** .
 
 ## Known restrictions
 
 The following timeouts apply per reward type:
 
-| Reward type            | Timeout                                                   |
-|------------------------|-----------------------------------------------------------|
-| String matching        | No strict timeout                                         |
-| Code execution         | 100 seconds for every `evaluate` method call              |
-| Gemini-based autorater | 1 minute timeout while waiting for an LLM rating response |
-| Cloud Run              | 5 minute timeout for every trigger                        |
+| Reward type            | Timeout                                                  |
+|------------------------|----------------------------------------------------------|
+| String matching        | No strict timeout                                        |
+| Code execution         | 100 seconds for every `evaluate` method call             |
+| Gemini-based autorater | 1-minute timeout when waiting for an LLM rating response |
+| Cloud Run              | 5-minute timeout for every trigger                       |
 
 ## Configure rewards in the Google Cloud console
 
@@ -99,7 +99,7 @@ def evaluate(example: dict[str, Any], response: dict[str, Any]) -> float:
   ...
 ```
 
-The function receives:
+The function receives the following parameters:
 
 - `example` : A [`ReinforcementTuningExample`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs#ReinforcementTuningExample) in ProtoJSON format (that is, the same format as one line in the training or validation dataset, except that the keys must be in camel case). System instructions ( `example.get("systemInstruction")` ) and references ( `example.get("references")` ) are also included in `example` , provided that they are set in the training or validation dataset.
 - `response` : A [`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Content) in ProtoJSON format (that is, keys must be in camel case), which is the same as the online prediction response for Gemini models.
@@ -136,9 +136,9 @@ In addition to the Python Standard Library, the following Python libraries are a
 
 Each `evaluate` call has a 100-second timeout. Timed-out calls are retried several times. If the call continues to time out after several retries, the sample is dropped from reward calculation.
 
-We strongly recommend testing your code with the `ValidateReinforcementTuningReward` API (see [Validate a reward configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/reward-functions#validate-a-reward-configuration) ) and aim for code execution to finish well under 100 seconds for best performance.
+Test your code with the `ValidateReinforcementTuningReward` API (see [Validate a reward configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/reward-functions#validate-a-reward-configuration) ) and aim for code execution to finish well under 100 seconds for best performance.
 
-The code execution environment provides 1 CPU and 1GB of memory per invocation.
+The code execution environment provides 1 CPU and 1 GB of memory per invocation.
 
 ## Fully customizable reward through Cloud Run
 
@@ -209,10 +209,12 @@ The Cloud Run reward configuration lets you implement fully customizable scoring
 }
 ```
 
-### Set up IAM permissions
+### Set up Identity and Access Management permissions
+
+To allow the tuning job to invoke your Cloud Run service, configure the following IAM permissions:
 
 - You need the `roles/run.admin` permission on your Cloud Run service in order to grant additional IAM permissions to it.
-- The Gemini Enterprise Agent Platform Secure Fine Tuning Service Agent ( `service-PROJECT_NUMBER@gcp-sa-vertex-tune.iam.gserviceaccount.com` ) must be granted permission (for example, by granting `roles/run.invoker` in IAM) to invoke your Cloud Run service.
+- The Gemini Enterprise Agent Platform Secure Fine Tuning Service Agent ( `service-<var>PROJECT_NUMBER</var>@gcp-sa-vertex-tune.iam.gserviceaccount.com` ) must be granted permission (for example, by granting `roles/run.invoker` in IAM) to invoke your Cloud Run service.
 
 ### Timeouts and retries
 
@@ -226,21 +228,23 @@ The following sections describe best practices for designing reward functions th
 
 Every single reward must be on the scale of `[-1, 1]` . Reward values outside this range are clipped.
 
-### What makes a good reward
+### Characteristics of an effective reward
 
-- **Aligned with the desired outcome** and well-calibrated with human preference.
-- **Clear and consistent.** For example, it is difficult for the model to learn effectively from a high-variance autorater reward.
-- **Robust to invalid outputs.** For example, the reward should be able to return a low value rather than crash and return `NaN` when invalid outputs are generated by the model, so the tuning job knows those are bad generations to optimize away from. If more than 80% of your reward invocations are errored (RPC error, returning `NaN` ), the tuning job is stopped automatically.
+Design your reward functions with the following characteristics:
+
+- **Aligned with the target outcome** and well-calibrated with human preference.
+- **Clear and consistent.** For example, it is difficult for the model to converge effectively from a high-variance autorater reward.
+- **Robust to invalid outputs.** For example, the reward should be able to return a low value rather than crash and return `NaN` when invalid outputs are generated by the model, so the tuning job penalizes those generations. If more than 80% of your reward invocations are errored (RPC error, returning `NaN` ), the tuning job is stopped automatically.
 - **Designed to prevent reward hacking.** Avoid configurations where the model can exploit loopholes to achieve a high reward without genuinely good performance.
 
 ## Validate a reward configuration
 
 API spec: [`ValidateReinforcementTuningReward`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs/validateReinforcementTuningReward)
 
-Tuning jobs can be expensive, and rewards are crucial to making your tuning job effective. We recommend validating your reward configuration before launching a tuning job:
+Tuning jobs can be expensive, and rewards are crucial to making your tuning job effective. Validate your reward configuration before launching a tuning job:
 
-- Test the validity and robustness of your reward in the Google Cloud console or by calling the `ValidateReinforcementTuningReward` API. Small errors — such as parsing errors, unhandled edge cases, or invalid code snippets — can invalidate your reward and your tuning.
-- Perform an evaluation with the customized reward on a sample of your dataset. Reinforcement learning can't learn well when the reward is either too hard (rewards are almost always `0` ) or too straightforward (rewards are almost always `1` ) for the dataset.
+- Test the validity and robustness of your reward in the Google Cloud console or by calling the `ValidateReinforcementTuningReward` API. Small errors, such as parsing errors, unhandled edge cases, or invalid code snippets, can invalidate your reward and your tuning.
+- Perform an evaluation with the customized reward on a sample of your dataset. Reinforcement learning is less effective when the reward is either too hard (rewards are almost always `0` ) or too straightforward (rewards are almost always `1` ) for the dataset.
 
 ### Validate in the Google Cloud console
 
@@ -249,7 +253,7 @@ In the **Test reward (Optional)** step of the **Create a tuned model** wizard:
 1.  In the **Training Example** editor, enter a sample JSON dataset line containing `systemInstruction` , `contents` , and `references` .
 2.  In the **Sample model response** field, enter a sample response or click **Generate from Training Example** to have the base model generate a sample response.
 3.  Click **Test** to evaluate your reward configuration against the sample.
-4.  Review the resulting status banner and overall score. Click **See individual reward information** (or **See individual scores and debug info** for composite rewards) to open the side drawer and inspect per-reward scores, error messages, and debug logs.
+4.  Review the resulting status banner ( **Success** , **Partial success** if an individual subtask in a composite reward fails, or **Error: Subtask** ) and overall score. Click **See individual reward information** (or **See debug info** when a subtask reports an error) to open the side drawer and inspect per-reward scores, error messages, and debug logs.
 
 ### Validate by using the REST API
 
@@ -263,11 +267,11 @@ curl -i -X POST \
   -d @validate_reward_request.json
 ```
 
-Replace ` PROJECT_ID ` with your Google Cloud project ID.
+Replace `<var>PROJECT_ID</var>` with your Google Cloud project ID.
 
 ## What's next
 
 - [Prepare a tuning dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/tuning-dataset) and populate the `references` field for your reward function.
 - [Configure hyperparameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/hyperparameters) .
 - [Monitor job status and metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/job-status-metrics-monitoring) , including per-reward metrics for composite rewards.
-- Follow the [Google Cloud console quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console) or [API quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start) to create your first reinforcement learning fine-tuning job.
+- Follow the [Google Cloud console quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console) or [API quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start) to create your first reinforcement learning fine-tuning job.

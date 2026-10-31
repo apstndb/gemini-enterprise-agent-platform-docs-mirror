@@ -527,12 +527,12 @@ Learn how to secure your agentic applications in the Securing Cross-Cloud Agenti
 
 Overview
 
-### [Agent Gateway overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview)
+### [Agent Gateway overview](https://docs.cloud.google.com/iap/govern/gateways/agent-gateway-overview)
 
 Get an overview of Agent Gateway.
 
 Guide
 
-### [Security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls)
+### [Security controls](https://docs.cloud.google.com/iap/models/security-controls)
 
 Learn about security controls for Google Agent Platform.

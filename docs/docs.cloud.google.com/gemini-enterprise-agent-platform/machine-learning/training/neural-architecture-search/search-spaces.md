@@ -57,19 +57,19 @@ Most of the time, these default search spaces are sufficient. However, if needed
 
 The MNasNet and EfficientV2 search spaces define different `backbone` building options such as `ConvOps` , `KernelSize` , and `ChannelSize` . The `backbone` can be used for different tasks like classification and detection.
 
-![The structure of EfficientNet.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/backbone.png)
+![The structure of EfficientNet.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/backbone.png)
 
 ## NAS-FPN search space
 
 The NAS-FPN search space defines the search space in the FPN layers that connect different levels of features for object detection as shown in the following figure.
 
-![The structure of NAS-FPN.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/nas_fpn.png)
+![The structure of NAS-FPN.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/nas_fpn.png)
 
 ## SpineNet search space
 
 The SpineNet search space enables searching for a backbone with scale-permuted intermediate features and cross-scale connections, achieving state-of-the-art performance of one-stage object detection on COCO with 60% less computation, and outperforms ResNet-FPN counterparts by 6% AP. The following are connections of backbone layers in the searched SpineNet-49 architecture.
 
-![The structure of SpineNet.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/spine_net.png)
+![The structure of SpineNet.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/spine_net.png)
 
 ## Data augmentation search space
 
@@ -81,7 +81,7 @@ Agent Platform Neural Architecture Search provides RandAugment and AutoAugment a
 
 The RandAugment search space is configured by two parameters: (a) `N` which is the number of successive augmentation operations to be applied to an image and (b) `M` which is the magnitude of ALL of those operations. For example, the following image shows an example where N=2 operations (Shear and Contrast) with different M=magnitude are applied to an image.
 
-![RandAugment applied to an image.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/image_magnitudes.png)
+![RandAugment applied to an image.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/image_magnitudes.png)
 
 For a given value of N, the list of operations are picked at random from the operation bank. The augmentation search finds the best value of `N` and `M` for the training job at hand. The search doesn't use a proxy task and therefore runs the training jobs to the end.
 

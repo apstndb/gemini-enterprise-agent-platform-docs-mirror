@@ -27,7 +27,7 @@ Both Gemini 3.8 TTS models share the same request schema and prompting format. C
 | **Best use cases**      | Audiobooks, studio narration, complex multi-speaker dialogue, frequent vocal-burst tags, difficult pronunciation, regional dialects | High-volume production, real-time voice agent cascades, read-aloud features, voice replication, everyday single-speaker speech                               |
 | **Supported languages** | 130 languages                                                                                                                       | 101 languages                                                                                                                                                |
 
-[Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-3.8-flash-tts) [Developer guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 <table>
 <colgroup>
@@ -143,7 +143,7 @@ Supported</li>
 <li><code>gemini-3.8-flash-tts</code>
 <ul>
 <li>Launch stage: GA</li>
-<li>Release date: September 28, 2026</li>
+<li>Release date: October 28, 2026</li>
 </ul></li>
 </ul></th>
 <td></td>
@@ -159,6 +159,12 @@ Supported</li>
 ## Get started
 
 The following example generates single-speaker speech and saves it as a WAV file:
+
+### Console
+
+1.  Open [Gemini 3.8 Flash TTS in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-3.8-flash-tts) .
+2.  In the settings panel, choose a **Voice** , a **Language** (or keep **Auto-detect** ), and an optional **Style** description (for example, `cheerful and friendly` ).
+3.  Enter the transcript to speak in the prompt box and submit it to generate, play, or download the WAV audio. Click **Get code** to export the request as Python, JavaScript, or curl.
 
 ### Python
 

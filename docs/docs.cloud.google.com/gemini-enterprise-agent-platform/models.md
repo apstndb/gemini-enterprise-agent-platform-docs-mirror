@@ -100,19 +100,23 @@ Detect objects and return coordinates.
 
 Tailor models to your specific needs:
 
-### [Tune Models Overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models)
+### [Tune Models Overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning)
 
 An introduction to model tuning on Agent Platform.
 
-### [Gemini Supervised Tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning)
+### [Gemini Supervised Tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning)
 
 Fine-tune Gemini models using supervised training.
 
-### [Gemini Preference Tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-preference-tuning)
+### [Gemini Preference Tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning)
 
 Align model behavior using human feedback or preference data.
 
-### [Tune Embeddings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-embeddings)
+### [Gemini Reinforcement Learning Fine-Tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning)
+
+Optimize multi-step reasoning and domain performance using reward functions.
+
+### [Tune Embeddings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning)
 
 Customize text or multimodal embeddings.
 

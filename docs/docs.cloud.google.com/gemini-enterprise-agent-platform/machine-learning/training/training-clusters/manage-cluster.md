@@ -183,7 +183,7 @@ Because `node_pools` is replaced in full, a node pool in your update payload tha
 
 > **Caution:** Moving a node pool to a different image recreates its nodes. Compute nodes in the pool are drained and replaced, and the login nodes are recreated, which ends active SSH sessions and discards data stored on the login node's boot disk. Because the image is resolved on every `USER_AND_SERVICE` update, an unrelated change such as editing a label is enough to trigger this once a newer default image is available. To apply your changes without moving any node pool off its current image, use `updateMode=USER_ONLY` .
 
-To keep a node pool on a specific image across updates, set `node_image` to that image. If you read the current value from `Get` in order to send it back, note that a cluster that has never been updated reports an empty `node_image` .
+To keep a node pool on a specific image across updates, set `node_image` to that image (for example, `projects/ `` IMAGE_PROJECT `` /global/images/ `` IMAGE` ). If you read the current value from `Get` in order to send it back, note that a cluster that has never been updated reports an empty `node_image` unless `node_image` was set when the cluster was created.
 
 **Post-update behavior and cluster status**
 

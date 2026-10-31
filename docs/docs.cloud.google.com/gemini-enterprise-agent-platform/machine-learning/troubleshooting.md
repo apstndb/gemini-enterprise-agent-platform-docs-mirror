@@ -701,7 +701,7 @@ To resolve this, try one of the following:
 
   Accessing the `Web Preview` tool:
 
-  ![A feature attribution chart for one predicted bike ride duration.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/web_preview.png)
+  ![A feature attribution chart for one predicted bike ride duration.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/web_preview.png)
 
 - If you see error messages like the following in the trainer logs:
 

@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 >
 > These Pre-GA products are in various stages of internal testing and review. As such, **do not use proprietary, sensitive, or other confidential data with these products** . These products are made available to Customers solely for limited testing and evaluation, and may not be used for commercial or production purposes.
 
-A reinforcement learning fine-tuning job is driven by a training dataset and an optional validation dataset. Each dataset is a JSON file stored in Cloud Storage, where every line is a single tuning example.
+A reinforcement learning fine-tuning job is driven by a training dataset and an optional validation dataset. Each dataset is a JSONL file stored in Cloud Storage, where every line is a single tuning example.
 
 This page describes the dataset schema, how to use the `references` field for reward computation, and the per-modality dataset limits enforced by the service.
 
@@ -76,7 +76,7 @@ For example, a string-matching reward that compares the model's answer to a know
 }
 ```
 
-Your reward function may read `references["ground_truth_answer"]` and compares it to the value the model produces. For details on how each reward type consumes `references` , see the [Reward functions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/reward-functions) page.
+Your reward function can read `references["ground_truth_answer"]` and compare it to the value the model produces. For details on how each reward type consumes `references` , see the [Reward functions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/reward-functions) page.
 
 ## Dataset limits
 
@@ -104,12 +104,12 @@ The following per-modality limits apply when your dataset includes image, audio,
 
 ### Video
 
-| Specification                                             | Value     |
-|-----------------------------------------------------------|-----------|
-| Supported only for Gemini 3.5 Flash.                      |           |
-| Maximum number of video files per prompt                  | 10        |
-| Maximum total video length per example (across all files) | 5 minutes |
-| Maximum video file size                                   | 20 MB     |
+| Specification                                             | Value                 |
+|-----------------------------------------------------------|-----------------------|
+| Supported models                                          | Gemini 3.5 Flash only |
+| Maximum number of video files per prompt                  | 10                    |
+| Maximum total video length per example (across all files) | 5 minutes             |
+| Maximum video file size                                   | 20 MB                 |
 
 ### Image
 
@@ -123,4 +123,4 @@ The following per-modality limits apply when your dataset includes image, audio,
 - [Configure hyperparameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/hyperparameters) for your tuning job.
 - [Define reward functions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/reward-functions) .
 - [Monitor job status and metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/job-status-metrics-monitoring) .
-- Follow the [Google Cloud console quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console) or the [API quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start) to create your first reinforcement learning fine-tuning job.
+- Follow the [Google Cloud console quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console) or the [API quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start) to create your first reinforcement learning fine-tuning job.

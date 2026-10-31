@@ -48,7 +48,7 @@ RAG Engine lets you switch your project's deployment mode as long as there are n
 
 As a helpful tool, you can imagine that your project behaves as if it has two completely separate backends. The resources you create (corpora, imported and uploaded files, and parsed embeddings) are permanently tied to the deployment mode that was active during their creation. Any retrieval requests either directly or through Gemini will also be limited to the corpora and files that are present under your current deployment mode. Switching between the two modes does not move your data over or delete data from the other mode.
 
-![/gemini-enterprise-agent-platform/images/rag-engine-deployment-modes.png](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/images/rag-engine-deployment-modes.png)
+![A flowchart showing how RAG Engine handles deployment modes. A unified API routes requests to either an active Serverless mode backend containing RagCorpus A and B, or an inactive Spanner mode backend containing RagCorpus C. It demonstrates that data is strictly isolated and hidden when its respective mode is inactive.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/images/rag-engine-deployment-modes.png)
 
 As illustrated in the diagram:
 

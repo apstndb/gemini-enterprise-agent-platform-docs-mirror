@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/tuning
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/tuning
 title: Tuning API
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: API reference and request parameters for tuning Gemini models using supervised, preference, or reinforcement learning fine-tuning.
 data_source: docs.cloud.google.com
 ---
 
@@ -11,6 +11,8 @@ Model tuning is a crucial process in adapting Gemini to perform specific tasks w
 Use the Gemini tuning API for the following use cases:
 
 - [Supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning)
+- [Preference tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/preference-tuning)
+- [Reinforcement learning fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning) (uses [`reinforcementTuningSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job) on the `v1beta1` endpoint)
 
 #### Supported models
 
@@ -26,6 +28,13 @@ You can use supervised fine-tuning on the following Gemini models:
 - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
 
 Translation LLM V2 ( `translation-llm-002` ) is also supported.
+
+You can use reinforcement learning fine-tuning on the following Gemini models:
+
+#### Click to expand supported models
+
+- [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
+- [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
 
 ## Example syntax
 
@@ -107,6 +116,8 @@ Adapter size for tuning job.
 | `ADAPTER_SIZE_SIXTEEN`     | Adapter size 16.          |
 
 ## Examples
+
+The following examples show how to create and list model tuning jobs.
 
 ### Create a supervised tuning job
 
@@ -703,7 +714,7 @@ for response in responses:
 
 ### REST
 
-To list model tuning jobs, send a GET request by using the [`tuningJobs.list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/list) method.
+To view a list of model tuning jobs, send a GET request by using the [`tuningJobs.list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/list) method.
 
 Before using any of the request data, make the following replacements:
 
@@ -760,7 +771,7 @@ You should receive a JSON response similar to the following.
 
 ### REST
 
-To list model tuning jobs, send a GET request by using the [`tuningJobs.list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/list) method.
+To view a list of model tuning jobs, send a GET request by using the [`tuningJobs.list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/list) method.
 
 Before using any of the request data, make the following replacements:
 
@@ -842,7 +853,7 @@ print(tuning_job.experiment)
 
 ### REST
 
-To view details of a model tuning job, send a GET request by using the [`tuningJobs.get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/get) method and specify the `TUNING_JOB_ID` .
+To get details of a model tuning job, send a GET request by using the [`tuningJobs.get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/get) method and specify the `TUNING_JOB_ID` .
 
 Before using any of the request data, make the following replacements:
 
@@ -922,7 +933,7 @@ You should receive a JSON response similar to the following.
 
 ### REST
 
-To view details of a model tuning job, send a GET request by using the [`tuningJobs.get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/get) method and specify the `TUNING_JOB_ID` .
+To get details of a model tuning job, send a GET request by using the [`tuningJobs.get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/get) method and specify the `TUNING_JOB_ID` .
 
 Before using any of the request data, make the following replacements:
 
@@ -1136,4 +1147,5 @@ You should receive a JSON response similar to the following.
 For detailed documentation, see the following:
 
 - [Create a supervised fine-tuning job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use#create_a_text_model_supervised_tuning_job)
+- [Reinforcement learning fine-tuning job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job)
 - [Generate content with the Gemini API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference)

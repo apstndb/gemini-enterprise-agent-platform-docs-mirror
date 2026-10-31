@@ -36,7 +36,7 @@ The following Gemini models support supervised fine-tuning:
 - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
 - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
 
-> **Important:** For models that support [thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking) , set the thinking budget to `0` (for Gemini 2.5 models and lower) or the thinking level to `MINIMAL` (for Gemini 3 and higher). This can improve performance and reduce costs for tuned tasks. During supervised fine-tuning, the model learns from the training data and omits the thinking process. As a result, the tuned model can perform tuned tasks effectively with little to no thinking budget.
+> **Important:** For models that support [thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking) , set the thinking budget to `0` (for Gemini 2.5 models and lower) or the thinking level to `MINIMAL` (for Gemini 3 and higher). This can improve performance and reduce costs for tuned tasks. During supervised fine-tuning, the model learns from the training data and omits the thinking process. As a result, the tuned model can perform tuned tasks effectively with little to no thinking budget. To tune multi-step reasoning capabilities with `HIGH` thinking level, use [reinforcement learning fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning) .
 
 ## Limitations
 
@@ -199,9 +199,10 @@ Pricing for Gemini supervised fine-tuning can be found here: [Gemini Enterprise 
 
 The number of training tokens is calculated by multiplying the number of tokens in your training dataset by the number of epochs. After tuning, inference (prediction request) costs for the tuned model still apply. Inference pricing is the same for each stable version of Gemini. For more information, see [Available Gemini stable model versions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions#stable-versions-available) .
 
-If you configure the Gen AI evaluation service to run automatically during tuning, evaluations are charged as batch prediction jobs. For more information, see [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
+If you configure the Gen AI evaluation service to run automatically during tuning, evaluations are charged as batch prediction jobs. For more information, see [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#prediction-prices) .
 
 ## What's next
 
 - Learn how to [tune a Gemini model by using supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use) .
+- Learn about [reinforcement learning fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning) .
 - Learn about [deploying a tuned Gemini model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/overview#deploy_a_tuned_model) .

@@ -334,7 +334,7 @@ response = client.chat.completions.create(
 )
 ```
 
-- ` MODEL ` : The model name you want to use, for example `xai/grok-4.1-fast-reasoning` .
+- ` MODEL ` : The model name you want to use, for example `xai/grok-4.6` .
 - ` CONTENT ` : The user prompt to send to the model.
 - ` FUNCTION_NAME ` : The name of the function to call.
 - ` FUNCTION_DESCRIPTION ` : A description of the function.
@@ -432,7 +432,7 @@ from openai import OpenAI
 client = OpenAI()
 
 response = client.chat.completions.create(
-  model="xai/grok-4.1-fast-reasoning",
+  model="xai/grok-4.6",
   messages=[
     {
       "role": "user",
@@ -489,7 +489,7 @@ curl -X POST \
 -H "Content-Type: application/json" \
 https://us-central1-aiplatform.googleapis.com/v1/projects/sample-project/locations/us-central1/endpoints/openapi/chat/completions -d \
 '{
-  "model": "xai/grok-4.1-fast-reasoning",
+  "model": "xai/grok-4.6",
   "messages": [
     {
       "role": "user",
@@ -558,7 +558,7 @@ After receiving the information retrieved through the calling the external \`get
  ],
  "created": 1750450289,
  "id": "2025-06-20|13:11:29.240295-07|6.230.75.101|-987540014",
- "model": "xai/grok-4.1-fast-reasoning",
+ "model": "xai/grok-4.6",
  "object": "chat.completion",
  "system_fingerprint": "",
  "usage": {

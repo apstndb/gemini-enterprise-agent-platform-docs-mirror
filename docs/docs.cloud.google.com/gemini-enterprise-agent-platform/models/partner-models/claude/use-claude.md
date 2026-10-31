@@ -60,6 +60,8 @@ Make sure you have the required permissions to enable and use partner models. Fo
 
 Anthropic recommends that you enable 30-day logging of your prompt and completion activity to record any model misuse. To enable logging, see [Log requests and responses](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/request-response-logging) .
 
+To log token counts, latency and errors for every Claude request without storing prompts or responses, see [Log inference request metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/inference-metadata-logging) . To turn it on from the console, see [Enable in the console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/inference-metadata-logging#enable-console) .
+
 ### Use the Anthropic SDK
 
 You can make API requests to the Anthropic Claude models using the [Anthropic Claude SDK](https://pypi.org/project/anthropic/) . To learn more, see the following:

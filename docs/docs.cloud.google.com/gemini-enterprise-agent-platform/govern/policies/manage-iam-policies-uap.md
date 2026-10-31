@@ -452,18 +452,18 @@ curl -X DELETE \
 
 Overview
 
-### [Agent Gateway overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview)
+### [Agent Gateway overview](https://docs.cloud.google.com/iap/govern/gateways/agent-gateway-overview)
 
 Get an overview of Agent Gateway.
 
 Guide
 
-### [Configure content and business policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance)
+### [Configure content and business policies](https://docs.cloud.google.com/iap/govern/policies/configure-semantic-governance)
 
 Learn how to configure content and business policies.
 
 Guide
 
-### [Test policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/test-policies)
+### [Test policies](https://docs.cloud.google.com/iap/govern/policies/test-policies)
 
 Learn how to test policies.
