@@ -371,7 +371,7 @@ You control how your training data is split between the training, validation, an
 
 ```
 "predefinedSplit": {
-  "key": DATA_SPLIT_COLUMN
+  "key";: DATA_SPLIT_COLUMN
 },
 ```
 
@@ -385,7 +385,7 @@ Provide a `windowConfig` object to configure a rolling window strategy for forec
 
   ````
     "windowConfig": {
-      "maxCount": MAX_COUNT_VALUE
+      &quot;maxCount&quot;: MAX_COUNT_VALUE
     },
     ```
   ````
@@ -403,7 +403,7 @@ Provide a `windowConfig` object to configure a rolling window strategy for forec
 
   ````
     "windowConfig": {
-      "column": "COLUMN_NAME"
+      &quot;column": ";COLUMN_NAME"
     },
     ```
   ````

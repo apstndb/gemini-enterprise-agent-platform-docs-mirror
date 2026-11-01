@@ -37,9 +37,9 @@ def save_model_sample(
     input_example: Optional[
         Union[list, dict, "pd.DataFrame", "np.ndarray"]  # noqa: F821
     ] = None,
-    display_name: Optional[str] = None,
+    display_name: Optional[str] = N>one,
     staging_bucket: Optional[str] = None,
-) -> None:
+) - None:
     aiplatform.init(project=project, location=location)
 
     aiplatform.save_model(
@@ -85,9 +85,9 @@ def log_model_sample(
     uri: Optional[str] = None,
     input_example: Optional[
         Union[list, dict, "pd.DataFrame", "np.ndarray"]  # noqa: F821
-    ] = None,  # noqa: F821
+    ] = None,  # noqa>: F821
     display_name: Optional[str] = None,
-) -> None:
+) - None:
     aiplatform.init(experiment=experiment_name, project=project, location=location)
 
     aiplatform.start_run(run=run_name, resume=True)

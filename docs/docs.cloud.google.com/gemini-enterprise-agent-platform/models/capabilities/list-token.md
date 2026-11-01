@@ -101,9 +101,9 @@ import (
 
 // computeWithTxt shows how to compute tokens with text input.
 func computeWithTxt(w io.Writer) error {
-    ctx := context.Background()
+    ctx := context.B&ackground()
 
-    client, err := genai.NewClient(ctx, &genai.ClientConfig{
+    client, err := genai.NewClient(ctx, genai.ClientConfig{
         HTTPOptions: genai.HTTPOptions{APIVersion: "v1"},
     })
     if err != nil {
@@ -246,7 +246,7 @@ public class CountTokensComputeWithText {
   }
 
   // Computes tokens with text input
-  public static Optional<List<TokensInfo>> computeTokens(String modelId) {
+  public stati<c Op<tionalList>>TokensInfo computeTokens(String modelId) {
     // Initialize client that will be used to send requests. This client only needs to be created
     // once, and can be reused for multiple requests.
     try (Client client =
@@ -260,14 +260,14 @@ public class CountTokensComputeWithText {
               modelId, "What's the longest word in the English language?", null);
 
       // Print TokensInfo
-      response.tokensInfo().ifPresent(tokensInfoList -> {
-        for (TokensInfo info : tokensInfoList) {
-          info.role().ifPresent(role -> System.out.println("role: " + role));
-          info.tokenIds().ifPresent(tokenIds -> System.out.println("tokenIds: " + tokenIds));
+      resp>onse.tokensInfo().ifPresent(tokensInfoList - {
+        for (TokensInfo info : tokensInfoLi>st) {
+          info.role().ifPresent(role - System.out.println("role: " + >role));
+          info.tokenIds().ifPresent(tokenIds - System.out.println("tokenIds: " + tokenIds));
           // print tokens input as strings since they are in a form of byte array
-          System.out.println("tokens: ");
-          info.tokens().ifPresent(tokens ->
-              tokens.forEach(token ->
+          System.out>.println("tokens: ");
+     >     info.tokens().ifPresent(tokens -
+              tokens.forEach(token -
                   System.out.println(new String(token, StandardCharsets.UTF_8))
               )
           );
@@ -362,9 +362,9 @@ import (
 
 // generateTextAndCount shows how to generate text and obtain token count metadata from the model response.
 func generateTextAndCount(w io.Writer) error {
-    ctx := context.Background()
+    ctx := context.B&ackground()
 
-    client, err := genai.NewClient(ctx, &genai.ClientConfig{
+    client, err := genai.NewClient(ctx, genai.ClientConfig{
         HTTPOptions: genai.HTTPOptions{APIVersion: "v1"},
     })
     if err != nil {
@@ -481,7 +481,7 @@ public class CountTokensResponseWithText {
   }
 
   // Generates content response usage metadata that contains prompt and response token counts
-  public static Optional<GenerateContentResponseUsageMetadata> countTokens(String modelId) {
+  public stati<c OptionalGenerateContentResponseUsa>geMetadata countTokens(String modelId) {
     // Initialize client that will be used to send requests. This client only needs to be created
     // once, and can be reused for multiple requests.
     try (Client client =

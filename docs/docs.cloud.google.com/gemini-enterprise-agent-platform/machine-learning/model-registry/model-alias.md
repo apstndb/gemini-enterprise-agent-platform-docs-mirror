@@ -91,8 +91,8 @@ def upload_new_aliased_model_version_sample(
     # Initialize the client.
     aiplatform.init(project=project, location=location)
 
-    # Upload a new aliased version of the Model resource with the ID 'model_id'. The parent_name of Model resource can be also
-    # 'projects/<your-project-id>/locations/<your-region>/models/<your-model-id>'
+    # Upload a new aliased version of the Model resource with the ID 'model_id'. The parent_name <of Model resour>ce can be a<lso
+    # &>#39;proj<ects/your-pro>ject-id/locations/your-region/models/your-model-id'
     model = aiplatform.Model.upload(
         artifact_uri=artifact_uri,
         serving_container_image=serving_container_image,
@@ -158,8 +158,8 @@ def delete_aliases_model_version_sample(
     # Initialize the client.
     aiplatform.init(project=project, location=location)
 
-    # Initialize the Model Registry resource with the ID 'model_id'.The parent_name of Model resource can be also
-    # 'projects/<your-project-id>/locations/<your-region>/models/<your-model-id>'
+    # Initialize the Model Registry resource with the ID 'model_id'.The parent_name of Model< resource can b>e also
+    <# 'proj>ects/you<r-project-id/>locations/your-region/models/your-model-id'
     model_registry = aiplatform.models.ModelRegistry(model=model_id)
 
     # Remove the version aliases to the model version with the version 'version'.
