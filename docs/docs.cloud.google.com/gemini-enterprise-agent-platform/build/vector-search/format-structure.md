@@ -38,7 +38,7 @@ The following are examples of dense, sparse, and hybrid embeddings:
 
   ```
   {"id": "1", "embedding": [1,1,1]}
-  {&quot;id": "2", "embedding": [2,2,2]}
+  {"id": "2", "embedding": [2,2,2]}
   ```
 
 - Sparse embeddings:
@@ -52,7 +52,7 @@ The following are examples of dense, sparse, and hybrid embeddings:
 
   ```
   {"id": "5", "embedding": [5, 5, -5], "sparse_embedding": {"values": [0.1], "dimensions": [500]}}
-  {"id": "6", "embedding&quot;: [6, 7, -8.1], "sparse_embedding": {"values": [0.1, -0.2], "dimensions": [40, 901]}}
+  {"id": "6", "embedding": [6, 7, -8.1], "sparse_embedding": {"values": [0.1, -0.2], "dimensions": [40, 901]}}
   ```
 
 The following is an example of a valid input data file organization:
@@ -286,7 +286,7 @@ The `feature_file_1.csv` and `feature_file_2.csv` files contain records in CSV f
   ```
   {
     "namespace": "ratio"
-    &quot;value_float": 0.1
+    "value_float": 0.1
   }
   ```
 
@@ -295,7 +295,7 @@ The `feature_file_1.csv` and `feature_file_2.csv` files contain records in CSV f
   ```
   {
     "namespace": "weight"
-    &quot;value_double": 0.3
+    "value_double": 0.3
   }
   ```
 
