@@ -40,7 +40,7 @@ The recommended strategy for agentic workflows uses a tiered approach to optimiz
 
 Gemini 3.5 Flash brings the following changes and improvements to the Gemini model lineup:
 
-- **Sustained frontier performance** : Our most intelligent Flash model, optimized for agentic and coding tasks at scale.
+- **Sustained frontier performance** : Our most intelligent Gemini Flash model, optimized for agentic and coding tasks at scale.
 - **Agentic execution** : Sub-agent deployment, problem solving, and rapid agentic loops at scale.
 - **Improved coding** : Iterative coding cycles, rapid exploration, and prototyping to test alternate paths and dynamically explore solutions.
 - **Long horizon** : Multi-step workflows and tool use at scale.

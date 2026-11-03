@@ -2,11 +2,11 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/iam-conditions
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/iam-conditions
 title: Control access to Sessions with IAM Conditions
-description: Learn how to use IAM Conditions to control access to Vertex AI Agent Engine Sessions resources based on user ID.
+description: Learn how to use IAM Conditions to control access to Agent Platform Sessions resources based on user ID.
 data_source: docs.cloud.google.com
 ---
 
-By default, sessions Identity and Access Management permissions are at the project-level. This document describes how to use IAM Conditions to control more granular access to Vertex AI Agent Engine Sessions resources.
+By default, sessions Identity and Access Management permissions are at the project-level. This document describes how to use IAM Conditions to control more granular access to Agent Platform Sessions resources.
 
 ## Overview
 

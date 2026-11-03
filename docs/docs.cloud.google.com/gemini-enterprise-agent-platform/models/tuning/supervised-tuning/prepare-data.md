@@ -173,4 +173,3 @@ Once you have your training dataset and you've trained the model, it's time to d
 ## What's next
 
 - Choose a region to [tune a model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) .
-- To learn how supervised fine-tuning can be used in a solution that builds a generative AI knowledge base, see [Jump Start Solution: Generative AI knowledge base](https://docs.cloud.google.com/architecture/ai-ml/generative-ai-knowledge-base) .

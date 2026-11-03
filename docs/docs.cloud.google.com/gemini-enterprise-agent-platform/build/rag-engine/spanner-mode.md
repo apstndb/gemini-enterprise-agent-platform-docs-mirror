@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 >
 > Some of the RAG features are Preview offerings, subject to the "Pre-GA Offerings Terms" of the [Google Cloud Service Specific Terms](https://cloud.google.com/terms/service-terms) . Pre-GA products and features are available "as-is" and may have limited support, and changes to Pre-GA products and features may not be compatible with other Pre-GA versions. For more information, see the [launch stage descriptions](https://cloud.google.com/products#product-launch-stages) . By using the Gemini API on Gemini Enterprise Agent Platform, you agree to the Generative AI Preview [terms and conditions](https://cloud.google.com/trustedtester/aitos) (Preview Terms).
 
-> The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by Agent Platform RAG Engine. Data residency and AXT security controls aren't supported.
+> The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by RAG Engine on Gemini Enterprise Agent Platform. Data residency and AXT security controls aren't supported.
 
 In Spanner deployment mode, RAG Engine uses `RagManagedDb` , which is an enterprise-ready, fully managed Google Cloud Spanner instance that's used for resource storage by RAG Engine on Gemini Enterprise Agent Platform. Optionally use it as the vector database of choice for your RAG corpora.
 

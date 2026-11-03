@@ -36,11 +36,13 @@ The following Gemini models support supervised fine-tuning:
 - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
 - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
 
-> **Important:** For models that support [thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking) , set the thinking budget to `0` (for Gemini 2.5 models and lower) or the thinking level to `MINIMAL` (for Gemini 3 and higher). This can improve performance and reduce costs for tuned tasks. During supervised fine-tuning, the model learns from the training data and omits the thinking process. As a result, the tuned model can perform tuned tasks effectively with little to no thinking budget. To tune multi-step reasoning capabilities with `HIGH` thinking level, use [reinforcement learning fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning) .
+> **Important:** For models that support [thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking) , set the thinking budget to `0` (for Gemini 2.5 and earlier models) or the thinking level to `MINIMAL` (for Gemini 3 and later models). This can improve performance and reduce costs for tuned tasks. During supervised fine-tuning, the model learns from the training data and omits the thinking process. As a result, the tuned model can perform tuned tasks effectively with little to no thinking budget. To tune multi-step reasoning capabilities with `HIGH` thinking level, use [reinforcement learning fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning) .
 
 ## Limitations
 
 Supervised fine-tuning is not a Covered Service and is excluded from the SLO of any Service Level Agreement.
+
+> **Note:** The global region does not support Customer-Managed Encryption Keys (CMEK) and does not support Data Residency Zones (DRZ). Tuned model artifacts (adapters) for global models are stored in the US region because Cloud Storage does not offer a global bucket location.
 
 The following table shows the limitations on supervised fine-tuning datasets:
 
@@ -55,7 +57,7 @@ The following table shows the limitations on supervised fine-tuning datasets:
 | Maximum training dataset size                        | 10M text-only examples or 300K multimodal examples                                                      |
 | Adapter size                                         | Supported values are 1, 2, 4, 8, and 16                                                                 |
 | Supported endpoint for model tuning                  | `us` and `eu` multi-region endpoints only                                                               |
-| Supported endpoint for tuned model serving           | `us` and `eu` multi-region endpoints only                                                               |
+| Supported endpoint for tuned model serving           | `us` and `eu` multi-region endpoints, and `global`                                                      |
 | UI support                                           |                                                                                                         |
 
 ### Gemini 3.1 Flash-Lite
@@ -69,7 +71,7 @@ The following table shows the limitations on supervised fine-tuning datasets:
 | Maximum training dataset size                        | 10M text-only examples or 300K multimodal examples                                                      |
 | Adapter size                                         | Supported values are 1, 2, 4, 8, and 16                                                                 |
 | Supported endpoint for model tuning                  | `us` and `eu` multi-region endpoints only                                                               |
-| Supported endpoint for tuned model serving           | `us` and `eu` multi-region endpoints only                                                               |
+| Supported endpoint for tuned model serving           | `us` and `eu` multi-region endpoints, and `global`                                                      |
 | UI support                                           |                                                                                                         |
 
 ### Gemini 2.5 Flash Gemini 2.5 Flash-Lite

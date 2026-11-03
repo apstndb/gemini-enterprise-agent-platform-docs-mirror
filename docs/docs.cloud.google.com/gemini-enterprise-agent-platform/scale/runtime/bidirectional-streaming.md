@@ -22,7 +22,7 @@ Bidirectional streaming provides a persistent, two-way communication channel bet
 
 Bidirectional streaming with Agent Runtime supports interactive, real-time agent use cases and data exchange for multimodal live APIs. Bidirectional streaming is supported for all frameworks, and custom bidirectional streaming methods are available through [registering custom methods](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/bidirectional-streaming#register-methods) . You can use bidirectional streaming to interact with [Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api) directly or using Agent Development Kit (ADK) on Agent Platform.
 
-Deploying a remote agent with bidirectional query methods is well supported by the [Google GenAI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/sdks/overview) . To deploy a bidirectional-capable agent, set `EXPERIMENTAL` agent server mode when using the SDK or calling the Agent Platform API.
+Deploying a remote agent with bidirectional query methods is well supported by the [Google Gen AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/sdks/overview) . To deploy a bidirectional-capable agent, set `EXPERIMENTAL` agent server mode when using the SDK or calling the Agent Platform API.
 
 ## Develop an agent
 
@@ -232,7 +232,7 @@ Enter your next question: exit
 
 ### Use an Agent Development Kit agent
 
-If you developed your agent using Agent Development Kit (ADK), you can use bidirectional streaming to interact with the [Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api) .
+If you developed your agent using Agent Development Kit (ADK), you can use bidirectional streaming to interact with [Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api) .
 
 The following example creates a conversation agent that takes user text questions and receives Gemini Live API response audio data:
 

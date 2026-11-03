@@ -57,7 +57,7 @@ Gemini Enterprise Agent Platform labels:
 - `endpoint_display_name` : the display name of a model endpoint.
 - `product` : the name of the feature under Gemini Enterprise Agent Platform. This is always `Online Inference` .
 
-| PromQL metric name Cloud Monitoring metric name                                                                                     |                                                                                          |
+| PromQL metric name Monitoring metric name                                                                                           |                                                                                          |
 |-------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
 | Kind, Type, Unit Monitored resources                                                                                                | *Description*                                                                            |
 | `vertex_dcgm_fi_dev_fb_free` `vertex_dcgm_fi_dev_fb_free/gauge`                                                                     |                                                                                          |

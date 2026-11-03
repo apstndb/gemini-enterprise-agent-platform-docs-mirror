@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 >
 > Some of the RAG features are Experimental offerings, subject to the "Pre-GA Offerings Terms" of the [Google Cloud Service Specific Terms](https://cloud.google.com/terms/service-terms) . Pre-GA products and features are available "as-is" and may have limited support, and changes to Pre-GA products and features may not be compatible with other Pre-GA versions. For more information, see the [launch stage descriptions](https://cloud.google.com/products#product-launch-stages) .
 
-> The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by Agent Platform RAG Engine. Data residency and AXT security controls aren't supported.
+> The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by RAG Engine on Gemini Enterprise Agent Platform. Data residency and AXT security controls aren't supported.
 
 Retrieval-augmented generation (RAG) is a technique that's used to retrieve and provide relevant information to LLMs to generate verifiable responses. The information can include fresh information, a topic and context, or ground truth.
 
@@ -28,7 +28,7 @@ The following prerequisites must be completed before you can use RAG Engine with
 
 ## Set up
 
-You can use RAG Engine with the Live API by specifying RAG Engine as a tool. The following code sample demonstrates how to specify RAG Engine as a tool:
+You can use RAG Engine with Gemini Live API by specifying RAG Engine as a tool. The following code sample demonstrates how to specify RAG Engine as a tool:
 
 Replace the following variables:
 
@@ -169,7 +169,7 @@ async with client.aio.live.connect(
 
 ## Use RAG Engine as the context store
 
-You can use RAG Engine as the context store for Gemini Live API to store session context to form and retrieve past contexts that are related to your conversation and enrich the current context for model generation. You can also take advantage of this feature to share contexts across your different Live API sessions.
+You can use RAG Engine as the context store for Gemini Live API to store session context to form and retrieve past contexts that are related to your conversation and enrich the current context for model generation. You can also take advantage of this feature to share contexts across your different Gemini Live API sessions.
 
 RAG Engine supports storing and indexing the following forms of data from session contexts:
 
@@ -178,7 +178,7 @@ RAG Engine supports storing and indexing the following forms of data from sessio
 
 ### Create a MemoryCorpus type corpus
 
-To store and index conversation texts from the session context, you must create a RAG corpus of the `MemoryCorpus` type. You must also specify an LLM parser in your memory corpus configuration that's used to parse session contexts stored from the Live API to build memory for indexing.
+To store and index conversation texts from the session context, you must create a RAG corpus of the `MemoryCorpus` type. You must also specify an LLM parser in your memory corpus configuration that's used to parse session contexts stored from Gemini Live API to build memory for indexing.
 
 This code sample demonstrates how to create a corpus. However, first replace the variables with values.
 
@@ -209,7 +209,7 @@ memory_corpus = rag.create_corpus(
 
 ### Specify your memory corpus to store contexts
 
-When using your memory corpus with the Live API, you must specify the memory corpus as a retrieval tool and then set `store_context` to `true` to allow the Live API to store the session contexts.
+When using your memory corpus with Gemini Live API, you must specify the memory corpus as a retrieval tool and then set `store_context` to `true` to allow Gemini Live API to store the session contexts.
 
 This code sample demonstrates how to specify your memory corpus to store contexts. However, first replace the variables with values.
 

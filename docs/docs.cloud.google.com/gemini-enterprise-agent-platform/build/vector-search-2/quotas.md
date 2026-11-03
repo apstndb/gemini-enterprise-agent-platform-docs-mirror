@@ -81,14 +81,20 @@ The following quotas apply to Data Objects, query, and search traffic for a give
 
 **Limits** : requests per minute, per Collection
 
-| Metric                  | Counts                                                                                                                                   |
-|-------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| `data_object_writes`    | `dataObjects.create` `dataObjects.update` `dataObjects.delete` \\ Each Data Object included in `batchCreate` `batchUpdate` `batchDelete` |
-| `data_object_reads`     | `dataObjects.get`                                                                                                                        |
-| `query_requests`        | `dataObjects.query` (metadata-only filter queries)                                                                                       |
-| `search_requests`       | `dataObjects.search` when running a dense or sparse ANN.                                                                                 |
-| `knn_search_requests`   | `dataObjects.search` when running an exhaustive KNN search.                                                                              |
-| `batch_search_requests` | `dataObjects.batchSearch` (one request regardless of sub-searches)                                                                       |
+| Metric                     | Counts                                                                                                                                                                                |
+|----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `data_object_writes`       | `dataObjects.create` `dataObjects.update` `dataObjects.delete` Each Data Object included in `batchCreate` `batchUpdate` `batchDelete`                                                 |
+| `data_object_writes_us`    | Same as `data_object_writes` but for the [`us` multi-region.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/multi-region-high-availability)    |
+| `data_object_reads`        | `dataObjects.get`                                                                                                                                                                     |
+| `data_object_reads_us`     | Same as `data_object_reads` but for the [`us` multi-region.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/multi-region-high-availability)     |
+| `query_requests`           | `dataObjects.query` (metadata-only filter queries)                                                                                                                                    |
+| `query_requests_us`        | Same as `query_requests` but for the [`us` multi-region.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/multi-region-high-availability)        |
+| `search_requests`          | `dataObjects.search` when running a dense or sparse ANN.                                                                                                                              |
+| `search_requests_us`       | Same as `search_requests` but for the [`us` multi-region.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/multi-region-high-availability)       |
+| `knn_search_requests`      | `dataObjects.search` when running an exhaustive KNN search.                                                                                                                           |
+| `batch_search_requests_us` | Same as `batch_search_requests` but for the [`us` multi-region.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/multi-region-high-availability) |
+| `batch_search_requests`    | `dataObjects.batchSearch` (one request regardless of sub-searches)                                                                                                                    |
+| `batch_search_requests_us` | Same as `batch_search_requests` but for the [`us` multi-region.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/multi-region-high-availability) |
 
 ### Data-plane throughput quotas
 
@@ -100,9 +106,10 @@ The following quotas apply to bytes written per minute for a given project, regi
 
 **Limits** : requests per minute, per Collection
 
-| Metric                    | Counts                                                                                                                                                                                          |
-|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `data_object_write_bytes` | The sum of serialized data and vector bytes written by all `create` , `update` , `delete` , `batchCreate` , `batchUpdate` , and `batchDelete` calls for Collections, Data Objects, and indexes. |
+| Metric                       | Counts                                                                                                                                                                                          |
+|------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `data_object_write_bytes`    | The sum of serialized data and vector bytes written by all `create` , `update` , `delete` , `batchCreate` , `batchUpdate` , and `batchDelete` calls for Collections, Data Objects, and indexes. |
+| `data_object_write_bytes_us` | Same as `data_object_write_bytes` but for the [`us` multi-region.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/multi-region-high-availability) .       |
 
 ### Batch operations
 
@@ -134,14 +141,20 @@ The following quotas apply to the number of resources or in-flight operations a 
 
 **Limits** : absolute counts (precise quotas)
 
-| Metric                             | Counts                                                                       |
-|------------------------------------|------------------------------------------------------------------------------|
-| `collections`                      | The number of Collections that exist in the project/region.                  |
-| `indexes`                          | The number of indexes (summed across all Collections) in the project/region. |
-| `concurrent_index_operations`      | The in-flight index LROs (Create/Update/Delete).                             |
-| `concurrent_collection_operations` | The in-flight Collection LROs (Create/Update/Delete).                        |
-| `concurrent_data_object_imports`   | The in-flight `dataObjects.import` LROs.                                     |
-| `concurrent_data_object_exports`   | The in-flight `dataObjects.export` LROs.                                     |
+| Metric                                | Counts                                                                                                                                                                                           |
+|---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `collections`                         | The number of Collections that exist in the project/region.                                                                                                                                      |
+| `collections_us`                      | Same as `collections` but for the [`us` multi-region.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/multi-region-high-availability)                      |
+| `indexes`                             | The number of indexes (summed across all Collections) in the project/region.                                                                                                                     |
+| `indexes_us`                          | Same as `indexes` but for the [`us` multi-region.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/multi-region-high-availability)                          |
+| `concurrent_index_operations`         | The in-flight index LROs (Create/Update/Delete).                                                                                                                                                 |
+| `concurrent_index_operations_us`      | Same as `concurrent_index_operations` but for the [`us` multi-region.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/multi-region-high-availability)      |
+| `concurrent_collection_operations`    | The in-flight Collection LROs (Create/Update/Delete).                                                                                                                                            |
+| `concurrent_collection_operations_us` | Same as `concurrent_collection_operations` but for the [`us` multi-region.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/multi-region-high-availability) |
+| `concurrent_data_object_imports`      | The in-flight `dataObjects.import` LROs.                                                                                                                                                         |
+| `concurrent_data_object_imports_us`   | Same as `concurrent_data_object_imports` but for the [`us` multi-region.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/multi-region-high-availability)   |
+| `concurrent_data_object_exports`      | The in-flight `dataObjects.export` LROs.                                                                                                                                                         |
+| `concurrent_data_object_exports_us`   | Same as `concurrent_data_object_exports` but for the [`us` multi-region.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/multi-region-high-availability)   |
 
 ## Auto-embedding
 

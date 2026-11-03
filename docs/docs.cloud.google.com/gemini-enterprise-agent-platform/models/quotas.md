@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas
 title: Generative AI on Agent Platform quotas and system limits
-description: Understand quotas and system limits for generative AI on Gemini Enterprise Agent Platform. Configure PayGo and provisioned throughput.
+description: Understand quotas and system limits for generative AI on Gemini Enterprise Agent Platform. Configure pay-as-you-go and provisioned throughput.
 data_source: docs.cloud.google.com
 ---
 
@@ -162,7 +162,7 @@ To view and edit the quotas in the Google Cloud console, do the following:
 
 ## RAG Engine on Gemini Enterprise Agent Platform
 
-> The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by Agent Platform RAG Engine. Data residency and AXT security controls aren't supported.
+> The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by RAG Engine on Gemini Enterprise Agent Platform. Data residency and AXT security controls aren't supported.
 
 For each service to perform retrieval-augmented generation (RAG) using RAG Engine, the following quotas apply, with the quota measured as requests per minute (RPM).
 

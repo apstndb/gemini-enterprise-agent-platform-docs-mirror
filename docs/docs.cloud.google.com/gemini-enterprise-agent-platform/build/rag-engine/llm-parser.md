@@ -6,7 +6,7 @@ description: Learn how to use the RAG Engine on Gemini Enterprise Agent Platform
 data_source: docs.cloud.google.com
 ---
 
-> The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by Agent Platform RAG Engine. Data residency and AXT security controls aren't supported.
+> The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by RAG Engine on Gemini Enterprise Agent Platform. Data residency and AXT security controls aren't supported.
 
 This page explains how to use the RAG Engine on Gemini Enterprise Agent Platform LLM parser.
 

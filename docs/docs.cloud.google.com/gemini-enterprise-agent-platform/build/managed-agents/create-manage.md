@@ -38,7 +38,7 @@ When creating an agent, only one value is supported for `base_agent` : `antigrav
 
 ### Create a basic agent
 
-To create a basic agent with default tools and a Google Cloud Storage mount target, send a `POST` request:
+To create a basic agent with default tools and a Cloud Storage mount target, send a `POST` request:
 
 ### REST
 
@@ -62,7 +62,7 @@ Before calling the API, make the following replacements:
 
 - ` INSTRUCTIONS ` : System instructions or persona to set on the agent.
 
-- ` GCS_BUCKET ` : The folder path segment of your mounted Google Cloud Storage bucket (for example, `gs://cymbal-bucket-name` ). Note: To mount a bucket from a different project, grant the project's service account `read` and `write` access to the bucket.
+- ` GCS_BUCKET ` : The folder path segment of your mounted Cloud Storage bucket (for example, `gs://cymbal-bucket-name` ). Note: To mount a bucket from a different project, grant the project's service account `read` and `write` access to the bucket.
 
 - ` network ` : For security reasons, network access in the environment is turned off. You must specify an `allowlist` to enable access. Using `*` as a domain in the `allowlist` allows connections to all domains, providing unrestricted network access.
 
@@ -512,7 +512,7 @@ You can attach skills using either of the following methods:
 
 - **Skill Registry:** Attach a skill registered within your project in [Skill Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry) .
 
-- **Google Cloud Storage:** Attach custom skills directly from a Cloud Storage bucket.
+- **Cloud Storage:** Attach custom skills directly from a Cloud Storage bucket.
 
   As a best practice, we recommend mounting skills under the `/.agent/skills` folder in the environment to make them more discoverable to the agent.
 
@@ -661,9 +661,9 @@ const agent = await client.agents.create({
 });
 ```
 
-#### Attach a skill from Google Cloud Storage
+#### Attach a skill from Cloud Storage
 
-Alternatively, you can attach custom skills directly from a Google Cloud Storage bucket when creating the agent.
+Alternatively, you can attach custom skills directly from a Cloud Storage bucket when creating the agent.
 
 Note the following requirements when mounting skills from Cloud Storage:
 
@@ -672,7 +672,7 @@ Note the following requirements when mounting skills from Cloud Storage:
 - **Size limits:** All the attached files are subject to the sandbox environment memory limits (up to 4 GiB of RAM in total).
 - **Best practices:** For optimal skill quality, structure and prepare the files in your skill folder following the conventions described on [agentskills.io/home](https://agentskills.io/home) .
 
-To attach a skill from Google Cloud Storage when creating the agent:
+To attach a skill from Cloud Storage when creating the agent:
 
 ### REST
 
@@ -686,7 +686,7 @@ Before calling the API, make the following replacements:
   - Must be 1 to 63 characters long.
   - Must contain only lowercase letters, numbers, and hyphens.
   - Must start with a letter and end with a letter or number.
-- `GCS_SOURCE_PATH` : The Google Cloud Storage bucket path containing your skill folder (for example, `gs://cymbal-bucket-name/my-skill-folder` ).
+- `GCS_SOURCE_PATH` : The Cloud Storage bucket path containing your skill folder (for example, `gs://cymbal-bucket-name/my-skill-folder` ).
 
 ##### Request JSON body
 
@@ -1168,7 +1168,7 @@ You can attach skills using either of the following methods:
 
 - **Skill Registry:** Attach a skill registered within your project in [Skill Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry) .
 
-- **Google Cloud Storage:** Attach custom skills directly from a Cloud Storage bucket.
+- **Cloud Storage:** Attach custom skills directly from a Cloud Storage bucket.
 
 #### Attach a skill from the Skill Registry
 
@@ -1247,9 +1247,9 @@ curl -X PATCH "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/loc
 
 > **Note:** The `update` method is not yet available in the JavaScript SDK. Use the REST API to update agent skills.
 
-#### Attach a skill from Google Cloud Storage
+#### Attach a skill from Cloud Storage
 
-Alternatively, you can attach custom skills directly from a Google Cloud Storage bucket when creating the agent.
+Alternatively, you can attach custom skills directly from a Cloud Storage bucket when creating the agent.
 
 Note the following requirements when mounting skills from Cloud Storage:
 
@@ -1258,7 +1258,7 @@ Note the following requirements when mounting skills from Cloud Storage:
 - **Size limits:** All the attached files are subject to the sandbox environment memory limits (up to 4 GiB of RAM in total).
 - **Best practices:** For optimal skill quality, structure and prepare the files in your skill folder following the conventions described on [agentskills.io/home](https://agentskills.io/home) .
 
-To attach a skill from Google Cloud Storage:
+To attach a skill from Cloud Storage:
 
 ### REST
 
@@ -1269,7 +1269,7 @@ Before calling the API, make the following replacements:
 - `PROJECT_ID` : Your Google Cloud project ID.
 - `LOCATION` : The regional location of the agent. Only the `global` region is supported.
 - `AGENT_ID` : Target agent ID.
-- `NEW_GCS_SOURCE_PATH` : The Google Cloud Storage bucket path containing your skill folder (for example, `gs://cymbal-bucket-name/my-skill-folder` ).
+- `NEW_GCS_SOURCE_PATH` : The Cloud Storage bucket path containing your skill folder (for example, `gs://cymbal-bucket-name/my-skill-folder` ).
 
 ##### Request JSON body
 

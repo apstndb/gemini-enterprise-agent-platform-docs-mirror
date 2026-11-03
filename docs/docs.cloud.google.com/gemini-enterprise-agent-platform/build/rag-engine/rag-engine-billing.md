@@ -6,7 +6,7 @@ description: Understand RAG Engine on Gemini Enterprise Agent Platform billing. 
 data_source: docs.cloud.google.com
 ---
 
-> The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by Agent Platform RAG Engine. Data residency and AXT security controls aren't supported.
+> The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by RAG Engine on Gemini Enterprise Agent Platform. Data residency and AXT security controls aren't supported.
 
 This page describes the RAG Engine on Gemini Enterprise Agent Platform pricing and billing based on the RAG Engine on Gemini Enterprise Agent Platform components you use, such as models, reranking, and vector storage.
 

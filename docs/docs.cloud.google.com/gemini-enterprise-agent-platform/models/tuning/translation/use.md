@@ -634,7 +634,3 @@ You can configure a model tuning job to collect the following validation metrics
 - `/eval_num_predictions` : Number of predicted tokens at a validation step.
 
 The metrics visualizations are available after the tuning job starts running. It will be updated in real time as tuning progresses. If you don't specify a validation dataset when you create the tuning job, only the visualizations for the tuning metrics are available.
-
-## What's next
-
-- To learn how supervised fine-tuning can be used in a solution that builds a generative AI knowledge base, see [Jump Start Solution: Generative AI knowledge base](https://docs.cloud.google.com/architecture/ai-ml/generative-ai-knowledge-base) .

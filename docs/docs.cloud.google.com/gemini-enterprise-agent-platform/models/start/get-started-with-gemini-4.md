@@ -14,7 +14,7 @@ This guide shows you how to make your first Gemini 4 request, describes what's n
 
 Before you begin, you must authenticate to Gemini Enterprise Agent Platform using an API key or application default credentials (ADC). See [authentication methods](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start?usertype=adc#choose_your_authentication_method) for more information.
 
-### Install the Google Google Gen AI SDK
+### Install the Google Gen AI SDK
 
 Upgrade to the latest `google-genai` SDK ( `>= 2.30.1` for Python, `@google/genai >= 2.29.1` for JavaScript):
 

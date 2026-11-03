@@ -20,21 +20,21 @@ You can [enable Access Transparency](https://docs.cloud.google.com/assured-workl
 
 Access Transparency supports the following Gemini Enterprise Agent Platform services:
 
-- [Colab Enterprise](https://docs.cloud.google.com/colab/docs/introduction)
+- [Gemini Enterprise Agent Platform Colab Enterprise](https://docs.cloud.google.com/colab/docs/introduction)
 - [Generative AI on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models)
-- [Gemini Enterprise Agent Platform AutoML training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/automl-training-overview)
+- [AutoML training on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/automl-training-overview)
 - [Gemini Enterprise Agent Platform custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/overview)
 - [Agent Platform Feature Store](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore)
-- [Gemini Enterprise Agent Platform Model Monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/overview)
+- [Model Monitoring on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/overview)
 - [Gemini Enterprise Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/introduction)
-- [Vertex AI Inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions)
-- [Vector Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview)
+- [Gemini Enterprise Agent Platform Inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions)
+- [Vector Search on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview)
 - [Vertex AI TensorBoard](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-introduction)
 - [Gemini Enterprise Agent Platform Workbench instances](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/introduction)
 - [Vertex Explainable AI](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai)
-- [Vertex ML Metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/introduction)
+- [Gemini Enterprise Agent Platform ML Metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/introduction)
 - [Agent Platform Vizier](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/vizier/overview)
-- [Gemini Enterprise Agent Platform Agent Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime)
+- [Agent Runtime on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime)
 - [Gemini Enterprise Agent Platform model tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning)
 
 ## Limitations of Access Transparency in Agent Platform
@@ -47,8 +47,8 @@ All access to your data in Gemini Enterprise Agent Platform by Google personnel 
 - Using AutoML forecasting-related resources such as forecasting datasets and forecasting models.
 - Using the following components:
   - [Agent Platform Vizier](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/vizier/overview)
-  - [Gemini Enterprise Agent Platform RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview)
-  - [Gemini Enterprise Agent Platform Vector Search 2.0](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/overview)
+  - [RAG Engine on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview)
+  - [Agent Retrieval on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/overview)
 
 ## What's next
 

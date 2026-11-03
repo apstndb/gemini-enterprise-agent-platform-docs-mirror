@@ -27,7 +27,7 @@ Standard deterministic controls are often insufficient for probabilistic AI work
 
 Agent Gateway lets you attach *extension bindings* to delegate authorization decisions to specialized policy engines, such as identity providers, content safety filters, or custom third-party security platforms.
 
-![Policy extensibility framework in Gemini Enterprise.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/images/policies-in-geap.png)
+![Policy extensibility framework in Gemini Enterprise (click to enlarge).](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/images/policies-in-geap.png)
 
 The policy extensibility framework operates on a separation between roles and resources:
 
@@ -43,7 +43,7 @@ The policy extensibility framework operates on a separation between roles and re
 
 First-party (1P) Google services, such as IAP and Model Armor, offer pre-packaged extension capabilities with a streamlined operational model.
 
-![Extension Bindings for Google Services (click to enlarge).](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/images/1pdeployment.svg)
+![Extension Bindings for Google Services.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/images/1pdeployment.svg)
 
 - **Consumer:** Application developers and security operators act as consumers. To enable zero-trust authentication or prompt-injection protection, you create an `ExtensionBinding` resource targeting Google's predefined service endpoint URIs directly from your consumer project.
 - **Producer:** Google acts as the producer. Google builds, hosts, and manages the underlying service infrastructure and extension endpoints globally (such as `iap.googleapis.com` or `modelarmor.us.rep.googleapis.com` ). You don't need to create or manage a `ProducerExtension` resource.
@@ -52,7 +52,7 @@ First-party (1P) Google services, such as IAP and Model Armor, offer pre-package
 
 For custom governance logic, policy extensibility enables a flexible two-sided integration model across enterprise teams and security partners.
 
-![Extension Bindings for 2P/3P Services (click to enlarge).](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/images/2p3pdeployment.svg)
+![Extension Bindings for 2P/3P Services .](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/images/2p3pdeployment.svg)
 
 - **Producer:** Internal platform engineering teams (2P) or third-party ISV security vendors (3P) act as producers. The producer builds a gRPC service compatible with Envoy's `ext_proc` protocol, hosts it in a dedicated producer project (such as a Cloud Run service behind an Application Load Balancer), exposes it using a Private Service Connect (PSC) Service Attachment, and publishes a `ProducerExtension` resource.
 
@@ -76,7 +76,7 @@ You can apply Extension Bindings to intercept traffic across the following commu
 
 ### Client-to-Agent
 
-![Client-to-Agent traffic flow with Extension Bindings (click to enlarge).](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/images/client-to-agent.svg)
+![Client-to-Agent traffic flow with Extension Bindings .](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/images/client-to-agent.svg)
 
 ### Agent-to-Anywhere
 
@@ -328,7 +328,7 @@ For producers who want to run their custom `ext_proc` gRPC service without manag
 
 To publish your serverless extension as a `ProducerExtension` , expose it using Private Service Connect (PSC). Because `ProducerExtension` resources require a PSC Service Attachment URI, and Service Attachments target load balancer forwarding rules rather than Cloud Run services directly, place an Application Load Balancer (using a Serverless NEG backend) in front of your Cloud Run service.
 
-![Extension Bindings for 2P Services on Cloud Run (click to enlarge).](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/images/2prundeployment.svg)
+![Extension Bindings for 2P Services on Cloud Run .](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/images/2prundeployment.svg)
 
 Here is the high-level deployment workflow for hosting your extension on Cloud Run:
 

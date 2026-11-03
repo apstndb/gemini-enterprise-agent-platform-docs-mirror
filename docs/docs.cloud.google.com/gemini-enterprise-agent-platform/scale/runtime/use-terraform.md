@@ -51,7 +51,7 @@ Before using Terraform to deploy an agent, ensure that you have completed the fo
 
       #### Click to see required permissions
 
-      - **Vertex AI User** ( `roles/aiplatform.user` ) or **Vertex AI Administrator** ( `roles/aiplatform.admin` ): Authorizes the deployer to execute Agent Runtime Control Plane RPC operations ( `CreateReasoningEngine` , `UpdateReasoningEngine` , `DeleteReasoningEngine` ).
+      - **Agent Platform User** ( `roles/aiplatform.user` ) or **Agent Platform Administrator** ( `roles/aiplatform.admin` ): Authorizes the deployer to execute Agent Runtime Control Plane RPC operations ( `CreateReasoningEngine` , `UpdateReasoningEngine` , `DeleteReasoningEngine` ).
       - **Service Account User** ( `roles/iam.serviceAccountUser` ): Granted on the custom runtime service account ( `google_service_account.agent_runtime_sa` ) attached to the agent. Authorizes the deployer to attach that service account identity to the provisioned `google_vertex_ai_reasoning_engine` resource.
       - **Storage Object Admin** ( `roles/storage.objectAdmin` ) or **Storage Object Viewer** ( `roles/storage.objectViewer` ): Required when using Python package staging ( `package_spec` ) to upload or read serialized agent pickles ( `agent.pkl` ) and dependency manifests in Cloud Storage.
       - **Artifact Registry Writer** ( `roles/artifactregistry.writer` ): Required when prebuilding and pushing custom container images ( `docker push` ) to Artifact Registry repositories.

@@ -97,7 +97,7 @@ local_endpoint.print_container_logs(show_all=True)
 
 ### Upload to Gemini Enterprise Agent Platform Model Registry
 
-Your model will need to access your model artifacts (the files from training), so make sure you've uploaded them to Google Cloud Storage.
+Your model will need to access your model artifacts (the files from training), so make sure you've uploaded them to Cloud Storage.
 
 Push the image to the [Artifact Registry](https://docs.cloud.google.com/artifact-registry/docs) .
 

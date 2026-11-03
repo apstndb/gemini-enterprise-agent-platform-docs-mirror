@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/computer-use
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/computer-use
 title: Computer Use
-description: Guide on how to use Computer Use sandboxes in Gemini Enterprise Agent Platform.
+description: Guide on how to use Agent Platform Computer Use sandboxes in Gemini Enterprise Agent Platform.
 data_source: docs.cloud.google.com
 ---
 

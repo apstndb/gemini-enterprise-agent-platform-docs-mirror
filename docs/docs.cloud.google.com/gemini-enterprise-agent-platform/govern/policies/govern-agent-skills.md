@@ -22,7 +22,7 @@ To optimize performance, you can use **[Agent Skills](https://agentskills.io/)**
 
 ## Governing the skill lifecycle
 
-Because loading and managing skills uses tool calls, Semantic governance policy can govern the entire skill lifecycle. If your agent is built using the Google Agent Development Kit (ADK), it employs the following core tools to manage skills:
+Because loading and managing skills uses tool calls, Semantic governance policy can govern the entire skill lifecycle. If your agent is built using the Agent Development Kit (ADK), it employs the following core tools to manage skills:
 
 | ADK Skill Tool        | Description                                                                             |
 |-----------------------|-----------------------------------------------------------------------------------------|

@@ -26,7 +26,7 @@ This page covers the following topics:
 Key benefits of using Claude models on Google Cloud (Anthropic managed) include:
 
 - **Access to latest innovation** : Gain immediate access to Anthropic's latest models, features, research previews, and betas as soon as they are released.
-- **Google Cloud billing and Identity integration** : Leverage your existing Google Cloud investment. The service integrates with Cloud Billing and Identity and Access Management and draws down on your Google Cloud commitment subject to the [Google Google Cloud Marketplace Commitment Drawdown Policy](https://cloud.google.com/terms/marketplace/commit-policy) .
+- **Google Cloud billing and Identity integration** : Leverage your existing Google Cloud investment. The service integrates with Cloud Billing and Identity and Access Management and draws down on your Google Cloud commitment subject to the [Google Cloud Marketplace Commitment Drawdown Policy](https://cloud.google.com/terms/marketplace/commit-policy) .
 - **Unified support** : Receive frontline support from Google Cloud Support on Agent Platform-related issues, with specialized backline support provided by Anthropic on the managed service.
 - **Anthropic's built-in experience** : Access the Claude Console for managing resources and exploring new features.
 

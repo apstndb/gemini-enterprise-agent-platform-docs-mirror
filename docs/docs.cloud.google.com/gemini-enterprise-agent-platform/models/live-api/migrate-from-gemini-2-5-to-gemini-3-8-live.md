@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/migrate-from-gemini-2-5-to-gemini-3-8-live
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/migrate-from-gemini-2-5-to-gemini-3-8-live
 title: Migrate from Gemini 2.5 Flash Live API Native Audio to Gemini 3.8 Live
-description: Learn how to migrate from Gemini 2.5 Flash with Live API to Gemini 3.8 Live.
+description: Learn how to migrate from Gemini 2.5 Flash with Gemini Live API to Gemini 3.8 Live.
 data_source: docs.cloud.google.com
 ---
 
@@ -12,7 +12,7 @@ This document describes changes required when migrating from Gemini 2.5 Flash Li
 
 The Gemini 2.5 Flash Live API Native Audio server allows asynchronous tool calls. By contrast, Gemini 3.8 Live supports asynchronous function calling with the following behavior changes:
 
-- Gemini 3.8 Live supports blocking function calls when the function declaration declares `behavior=BLOCKING` in the setup. If a new input is received during the blocking function call's execution, then the Live API server cancels the current function call.
+- Gemini 3.8 Live supports blocking function calls when the function declaration declares `behavior=BLOCKING` in the setup. If a new input is received during the blocking function call's execution, then the Gemini Live API server cancels the current function call.
 
 - The `scheduling=interrupt` option to `FunctionResponse` changed behavior:
 

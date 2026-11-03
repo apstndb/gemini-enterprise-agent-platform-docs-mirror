@@ -12,7 +12,7 @@ This document covers what's new with 3.7 Flash, how it fits within the Gemini mo
 
 ## How does it fit in the Gemini family?
 
-Gemini 3.7 Flash is the primary agentic workhorse in the Gemini 3 family, bridging the gap between deep-reasoning Pro models and high-throughput Gemini Flash-Lite models while delivering high token efficiency and multi-step multimodal processing.
+Gemini 3.7 Flash is the primary agentic workhorse in the Gemini 3 family, bridging the gap between deep-reasoning Gemini Pro models and high-throughput Gemini Flash-Lite models while delivering high token efficiency and multi-step multimodal processing.
 
 ### Model specifications and comparisons
 

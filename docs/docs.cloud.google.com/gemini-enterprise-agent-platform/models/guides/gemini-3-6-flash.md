@@ -12,7 +12,7 @@ This document covers what's new with 3.6 Flash, how it fits within the Gemini mo
 
 ## How does it fit in the Gemini family?
 
-Gemini 3.6 Flash is the primary agentic workhorse in the Gemini 3 family. It bridges the gap between deep-reasoning Pro models and high-throughput Flash-Lite models. Compared to Gemini 3.5 Flash, 3.6 Flash delivers significantly higher quality on multi-step tool orchestration, full-stack code refactoring, and visual reasoning while using fewer tokens and reasoning turns. It offers near-Pro level capabilities at Flash speed and pricing.
+Gemini 3.6 Flash is the primary agentic workhorse in the Gemini 3 family. It bridges the gap between deep-reasoning Gemini Pro models and high-throughput Gemini Flash-Lite models. Compared to Gemini 3.5 Flash, 3.6 Flash delivers significantly higher quality on multi-step tool orchestration, full-stack code refactoring, and visual reasoning while using fewer tokens and reasoning turns. It offers near-Pro level capabilities at Flash speed and pricing.
 
 ### Model specifications and comparisons
 

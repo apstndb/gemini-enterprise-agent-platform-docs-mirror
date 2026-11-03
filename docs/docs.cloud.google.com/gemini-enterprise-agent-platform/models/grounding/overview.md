@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/overview
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/overview
 title: Grounding overview
-description: Implement generative AI grounding. Connect model output to verifiable data sources, reducing hallucinations with RAG, Google Search, or Maps.
+description: Implement generative AI grounding. Connect model output to verifiable data sources, reducing hallucinations with RAG, Google Search, or Google Maps.
 data_source: docs.cloud.google.com
 ---
 

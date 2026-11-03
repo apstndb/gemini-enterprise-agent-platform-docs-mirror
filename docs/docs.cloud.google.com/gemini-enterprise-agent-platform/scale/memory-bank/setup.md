@@ -74,7 +74,7 @@ Memory Bank supports multi-regional and global endpoints:
 - For global instances, set your location to `global` .
 - For multi-regional instances, set your location to `us` or `eu` .
 
-> **Note:** CMEK cannot be used if your Memory Bank is configured to use the global endpoint. Cloud Key Management Service requires encryption keys to reside within a geographic data residency boundary. Because the global region lacks a physical geographic boundary, it is barred from encrypting localized regional or multi-regional resources.
+> **Note:** You can't use CMEK if your Memory Bank or Sessions instance is configured to use the `global` endpoint ( `location="global"` ), because Cloud Key Management Service (Cloud KMS) requires encryption keys to reside within a geographic data residency boundary. Standalone parent instances without a deployed runtime can use CMEK in regional or multi-regional locations ( `us` with a `us` key, or `eu` with a `europe` key), whereas instances with a deployed agent on Agent Runtime support CMEK only in single-region locations. For more information, see [CMEK for Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank#cmek) and [VPC Service Controls for Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank#vpc-sc) .
 
 ## Create or update a Memory Bank instance
 
@@ -180,7 +180,7 @@ If you're using the [default service agent](https://docs.cloud.google.com/gemini
 
 ### Use in all other runtimes
 
-> To see an example of using Memory Bank with Cloud Run, run the "Get started with Sessions and Memory Bank for ADK agents in Cloud Run" notebook in one of the following environments:
+> To see an example of using Memory Bank with Cloud Run, run the "Get started with Agent Platform Sessions and Memory Bank for ADK agents in Cloud Run" notebook in one of the following environments:
 >
 > [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/agents/cloud_run/agents_with_memory/get_started_with_memory_for_adk_in_cloud_run.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fagents%2Fcloud_run%2Fagents_with_memory%2Fget_started_with_memory_for_adk_in_cloud_run.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fagents%2Fcloud_run%2Fagents_with_memory%2Fget_started_with_memory_for_adk_in_cloud_run.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/agents/cloud_run/agents_with_memory/get_started_with_memory_for_adk_in_cloud_run.ipynb)
 

@@ -92,7 +92,7 @@ There are two ways you can view the Ray on Agent Platform metrics in GCM.
 
 To use the direct view under **Metrics Explorer** , follow these steps:
 
-1.  Go to the Google Cloud Monitoring console.
+1.  Go to the Cloud Monitoring console.
 
 2.  Under [**Explore**](https://console.cloud.google.com/monitoring/metrics-explorer) select **Metrics explorer** .
 

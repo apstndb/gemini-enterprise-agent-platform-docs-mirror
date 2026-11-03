@@ -46,7 +46,7 @@ Customer prompts and model responses are not shared with third parties when usin
 >
 > This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
-Context caching helps reduce the cost and latency of requests to Open Models that contain repeated content. This is enabled while using pay-as-you-go traffic only, and doesn't support other traffic types, such as Provisioned Throughput and Batch.
+Context caching helps reduce the cost and latency of requests to Open Models that contain repeated content. This is enabled while using pay-as-you-go traffic only, and doesn't support other traffic types, such as Provisioned Throughput and batch inference.
 
 The supported type of caching is implicit caching, which is automatic caching that's enabled in all Google Cloud projects by default and provides a 90% discount on cached tokens compared to standard input tokens when cache hits occur. With this type of caching, you don't define and call the caches explicitly. Instead, our backend pulls from these caches once repeated context is detected.
 

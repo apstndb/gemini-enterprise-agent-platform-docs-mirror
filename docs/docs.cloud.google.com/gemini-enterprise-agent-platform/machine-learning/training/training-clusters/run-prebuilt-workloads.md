@@ -246,7 +246,7 @@ Before you begin, create a cluster by following the instructions on the [Create 
 
 ### Connect to the cluster login node
 
-To connect to the cluster's login node, find the correct Google Cloud CLI command by navigating to the [Google Compute Engine Virtual Machine](https://console.cloud.google.com/compute/instances) page in the Google Google Cloud console and clicking SSH \> View Google Cloud CLI command. It will look similar to this:
+To connect to the cluster's login node, find the correct Google Cloud CLI command by navigating to the [Compute Engine Virtual Machine](https://console.cloud.google.com/compute/instances) page in the Google Cloud console and clicking SSH \> View Google Cloud CLI command. It will look similar to this:
 
 ```
 ssh $USER_NAME@machine-addr

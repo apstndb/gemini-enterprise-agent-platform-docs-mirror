@@ -6,7 +6,7 @@ description: Learn about reranking and types of rankers in RAG Engine on Gemini 
 data_source: docs.cloud.google.com
 ---
 
-> The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by Agent Platform RAG Engine. Data residency and AXT security controls aren't supported.
+> The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by RAG Engine on Gemini Enterprise Agent Platform. Data residency and AXT security controls aren't supported.
 
 The page explains reranking and types of rankers. The page also demonstrates how to use the Gemini Enterprise Agent Platform ranking API to rerank your retrieved responses.
 

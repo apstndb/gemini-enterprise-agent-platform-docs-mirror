@@ -147,6 +147,19 @@ To prevent cross-border contamination and maintain regulatory compliance, you ca
 
 For more information on implementing conditional access policies, see [Control access to Agent Platform Memory Bank with IAM Conditions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/iam-conditions) .
 
+### Customer-managed encryption keys (CMEK)
+
+By default, Google Cloud encrypts memories and memory revisions at rest using Google-owned and Google-managed encryption keys. To protect your Memory Bank data using encryption keys that you manage in Cloud Key Management Service (Cloud KMS), specify the `encryption_spec` ( `kms_key_name` ) when you create the parent Agent Runtime instance. For project and key setup requirements, see [CMEK for Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek) .
+
+The following limitations apply when using CMEK with Memory Bank:
+
+- **Global endpoint and deployed runtime restrictions** : You can't use CMEK when Memory Bank (or Sessions) is configured to use the `global` endpoint ( `location="global"` ), because Cloud Key Management Service requires encryption keys to reside within a geographic data residency boundary. To use CMEK, create a standalone parent instance (without deploying agent runtime code) in a [supported regional or multi-regional location](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) with a matching Cloud KMS key (for multi-regional instances, use a `us` key for `us` or a `europe` key for `eu` ). If the parent instance also deploys an agent on Agent Runtime, you must use a single-region location, because deployed runtimes don't support CMEK on multi-regional endpoints ( `us` or `eu` ).
+- **Encryption key can't be updated** : Once an instance is created with a Cloud KMS key, you can't change the encryption key for that instance. To use a different key, create a new instance.
+
+### VPC Service Controls (VPC Service Controls)
+
+Memory Bank supports [VPC Service Controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls) to protect your stored memories against data exfiltration. Add the Agent Platform API ( `aiplatform.googleapis.com` ) to your VPC Service Controls service perimeter and add your project to the perimeter before creating your Memory Bank instance. If your deployed agent routes outbound traffic through Agent Gateway inside a service perimeter, see [VPC Service Controls compliance for Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#vpc-sc-compliance) and [VPC Service Controls for Sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions#vpc-sc) .
+
 ## What's next
 
 Quickstart

@@ -74,7 +74,7 @@ Completing an evaluation typically requires going through the following steps:
 
 - **Define evaluation metrics** : Choose the [metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-overview#metrics) you want to use to measure model performance.
 
-- **Generate model responses** : Select one or more models to generate responses for your dataset. The **Agent Platform SDK** supports any model callable through `LiteLLM` , while the console supports Google Gemini models.
+- **Generate model responses** : Select one or more models to generate responses for your dataset. The **Agent Platform SDK** supports any model callable through `LiteLLM` , while the console supports Gemini models.
 
 - **Run the evaluation** : Run the evaluation job, which assesses each model's responses against your selected metrics.
 

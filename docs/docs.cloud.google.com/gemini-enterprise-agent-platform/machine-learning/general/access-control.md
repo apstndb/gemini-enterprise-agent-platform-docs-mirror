@@ -9162,7 +9162,7 @@ The term *home project* refers to the project where the Agent Platform dataset o
 | [External BigQuery data source backed by Cloud Storage](https://docs.cloud.google.com/bigquery/external-data-cloud-storage) | Home project      | Different project   | `Storage Object Viewer` for different project. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#different-project) .                                                                                                                                                                         |
 | [External BigQuery data source backed by Cloud Storage](https://docs.cloud.google.com/bigquery/external-data-cloud-storage) | Different project | Different project   | `Storage Object Viewer` and `BigQuery Data Viewer` for different project. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#different-project) .                                                                                                                                              |
 | [External BigQuery data source backed by Google Sheets](https://docs.cloud.google.com/bigquery/external-data-drive)         | Home project      | N/A                 | Share your Sheets file with the Agent Platform service account. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#share-sheets) .                                                                                                                                                             |
-| [External BigQuery data source backed by Google Sheets](https://docs.cloud.google.com/bigquery/external-data-drive)         | Different project | N/A                 | [`BigQuery Reader` for different project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#different-project) and [share your Sheets file with the Agent Platform service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#share-sheets) . |
+| [External BigQuery data source backed by Sheets](https://docs.cloud.google.com/bigquery/external-data-drive)                | Different project | N/A                 | [`BigQuery Reader` for different project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#different-project) and [share your Sheets file with the Agent Platform service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#share-sheets) . |
 
 ### Role addition requirements for Cloud Storage
 
@@ -9204,9 +9204,9 @@ To add permissions to Agent Platform in a different project:
 
 6.  Add all required roles and click **Save** .
 
-### Provide access to Google Sheets
+### Provide access to Sheets
 
-If you use an external BigQuery data source backed by Google Sheets, you must share your sheet with the Agent Platform service account. The Agent Platform service account is created after you start the first asynchronous job (for example, creating an endpoint). You can also explicitly create the Agent Platform service account by using gcloud CLI by following [this instruction](https://cloud.google.com/sdk/gcloud/reference/beta/services/identity/create) .
+If you use an external BigQuery data source backed by Sheets, you must share your sheet with the Agent Platform service account. The Agent Platform service account is created after you start the first asynchronous job (for example, creating an endpoint). You can also explicitly create the Agent Platform service account by using gcloud CLI by following [this instruction](https://cloud.google.com/sdk/gcloud/reference/beta/services/identity/create) .
 
 To authorize Agent Platform to access your Sheets file:
 

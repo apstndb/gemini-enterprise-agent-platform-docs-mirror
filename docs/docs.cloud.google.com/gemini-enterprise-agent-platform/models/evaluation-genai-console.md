@@ -6,7 +6,7 @@ description: Evaluate generative AI models using the console. Define evaluation 
 data_source: docs.cloud.google.com
 ---
 
-Learn how to get started with Gen AI evaluation service using the Google Google Cloud console.
+Learn how to get started with Gen AI evaluation service using the Google Cloud console.
 
 ## Before you begin
 

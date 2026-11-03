@@ -36,7 +36,7 @@ The customer's security responsibilities include the following:
 
 - **Monitor for security incidents** : You are responsible for monitoring your own applications for security incidents, and reporting any incidents to Google as necessary.
 
-  - Learn more about [Monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/monitoring-metrics) and [Audit logging](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/audit-logging) .
+  - Learn more about [Cloud Monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/monitoring-metrics) and [Audit logging](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/audit-logging) .
 
 - **Comply with applicable laws and regulations for your use cases** : You're the expert in the security and regulatory requirements for your business and how they apply to your use of Gemini Enterprise Agent Platform.
 

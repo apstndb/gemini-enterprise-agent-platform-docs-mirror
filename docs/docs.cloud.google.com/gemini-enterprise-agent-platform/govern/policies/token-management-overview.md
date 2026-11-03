@@ -85,7 +85,7 @@ Token management policies support the following agent runtimes, Agent Gateway de
 <td><strong>Models</strong></td>
 <td><p>Gemini, Anthropic, and OpenAI API compatible models across any model provider:</p>
 <ul>
-<li><strong>Google Gemini</strong> : Gemini models hosted on Agent Platform or Gemini endpoints, such as <code>aiplatform.googleapis.com</code> .</li>
+<li><strong>Gemini</strong> : Gemini models hosted on Agent Platform or Gemini endpoints, such as <code>aiplatform.googleapis.com</code> .</li>
 <li><strong>Anthropic</strong> : Claude models hosted on Agent Platform or external Anthropic endpoints.</li>
 <li><strong>OpenAI API compatible models</strong> : OpenAI API compatible models on Agent Platform or external providers, for example, Amazon Bedrock and Azure AI Foundry.</li>
 </ul></td>

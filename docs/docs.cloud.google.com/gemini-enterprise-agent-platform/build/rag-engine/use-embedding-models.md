@@ -6,7 +6,7 @@ description: Review supported text and multimodal embedding models and learn how
 data_source: docs.cloud.google.com
 ---
 
-> The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by Agent Platform RAG Engine. Data residency and AXT security controls aren't supported.
+> The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by RAG Engine on Gemini Enterprise Agent Platform. Data residency and AXT security controls aren't supported.
 
 This page describes the choices of embedding models and shows you how to use your embedding model to create a RAG corpus. The association between your embedding model and the RAG corpus remains fixed for the lifetime of your RAG corpus.
 

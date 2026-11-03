@@ -48,7 +48,7 @@ This problem occurs because Agent Platform does not run your code directly in yo
 
 If you don't want to hardcode a project ID in your training code, you can reference the `CLOUD_ML_PROJECT_ID` environment variable: Agent Platform sets this environment variable in every serverless training container to contain the [project number](https://docs.cloud.google.com/docs/overview#projects) of the project where you initiated serverless training. Many Google Cloud tools can accept a project number wherever they take a project ID.
 
-For example, if you want to use the [Python Client for Google BigQuery](https://github.com/googleapis/python-bigquery) to access a BigQuery table in the same project, then don't try to infer the project in your training code:
+For example, if you want to use the [Python Client for BigQuery](https://github.com/googleapis/python-bigquery) to access a BigQuery table in the same project, then don't try to infer the project in your training code:
 
 Implicit project selection
 

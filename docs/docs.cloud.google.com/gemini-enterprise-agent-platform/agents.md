@@ -48,7 +48,7 @@ The Scale pillar provides managed runtimes, serverless efficiency, and long-term
 
 #### Sessions
 
-[Sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions) are used to maintain the history of interactions between a user and an agent over the course of a single conversation. A session provides the context for an ongoing interaction and is a source for generating long-term memory.
+[Agent Platform Sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions) are used to maintain the history of interactions between a user and an agent over the course of a single conversation. A session provides the context for an ongoing interaction and is a source for generating long-term memory.
 
 #### Agent Platform Memory Bank
 

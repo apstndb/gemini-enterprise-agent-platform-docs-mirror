@@ -142,9 +142,9 @@ response = client.models.generate_content(
 )
 ```
 
-### Flex Pay-as-you-go
+### Flex PayGo
 
-For Flex Pay-as-you-go, the default timeout is 10 minutes due to slower processing and transparent retry. Users can increase this to 30 minutes for a better success rate.
+For Flex PayGo, the default timeout is 10 minutes due to slower processing and transparent retry. Users can increase this to 30 minutes for a better success rate.
 
 ### Python
 

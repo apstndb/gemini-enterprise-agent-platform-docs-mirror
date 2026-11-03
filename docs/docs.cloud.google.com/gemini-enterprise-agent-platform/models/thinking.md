@@ -896,7 +896,7 @@ Your application must handle empty or missing thought summary fields gracefully 
 
 To preserve the reasoning context across multi-turn interactions, pass the thought signatures returned in earlier responses back into subsequent requests, regardless of the thinking level configured.
 
-If you use the official Google Google Gen AI SDK (Python, Node.js, Go, or Java), thought signatures are managed automatically when using standard chat sessions or when appending complete response objects to your message history.
+If you use the official Google Gen AI SDK (Python, Node.js, Go, or Java), thought signatures are managed automatically when using standard chat sessions or when appending complete response objects to your message history.
 
 For implementation patterns, requirements, and examples, see [Thought signatures](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking/thought-signatures) .
 

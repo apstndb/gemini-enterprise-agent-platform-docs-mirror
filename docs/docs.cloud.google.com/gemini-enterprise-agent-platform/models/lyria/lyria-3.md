@@ -228,4 +228,4 @@ Supported</li>
 </tbody>
 </table>
 
-For Lyria pricing information, see the [Lyria](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#lyria) section of the [Cost of building and deploying AI models in Vertex AI](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#lyria-models) page.
+For Lyria pricing information, see the [Lyria](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#lyria) section of the [Cost of building and deploying AI models in Gemini Enterprise Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#lyria-models) page.

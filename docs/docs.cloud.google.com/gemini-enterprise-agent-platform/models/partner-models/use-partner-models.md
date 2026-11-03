@@ -57,7 +57,7 @@ For more information, see [Perform evaluation using the console](https://docs.cl
 
 ## Gemini Enterprise Agent Platform partner model pricing with capacity assurance
 
-Google offers provisioned throughput for some partner models that reserves throughput capacity for your models for a fixed fee. You decide on the throughput capacity and in which regions to reserve that capacity. Because provisioned throughput requests are prioritized over the standard pay-as-you-go requests, provisioned throughput provides increased availability. When the system is overloaded, your requests can still be completed as long as the throughput remains under your reserved throughput capacity. For more information or to subscribe to the service, [contact sales](https://cloud.google.com/contact/) .
+Google offers provisioned throughput for some partner models that reserves throughput capacity for your models for a fixed fee. You decide on the throughput capacity and in which regions to reserve that capacity. Because provisioned throughput requests are prioritized over the Standard pay-as-you-go requests, provisioned throughput provides increased availability. When the system is overloaded, your requests can still be completed as long as the throughput remains under your reserved throughput capacity. For more information or to subscribe to the service, [contact sales](https://cloud.google.com/contact/) .
 
 ## Regional, global, and multi-region endpoints
 

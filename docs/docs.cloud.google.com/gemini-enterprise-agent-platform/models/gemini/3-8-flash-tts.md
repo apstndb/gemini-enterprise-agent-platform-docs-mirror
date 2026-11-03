@@ -27,7 +27,7 @@ Both Gemini 3.8 TTS models share the same request schema and prompting format. C
 | **Best use cases**      | Audiobooks, studio narration, complex multi-speaker dialogue, frequent vocal-burst tags, difficult pronunciation, regional dialects | High-volume production, real-time voice agent cascades, read-aloud features, voice replication, everyday single-speaker speech                               |
 | **Supported languages** | 130 languages                                                                                                                       | 101 languages                                                                                                                                                |
 
-[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-3.8-flash-tts) [Developer guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-3.8-flash-tts) [View in Model Garden](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemini-3.8-flash-tts) [Developer guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 <table>
 <colgroup>

@@ -12,7 +12,7 @@ This document describes how to send audio and video streams to Gemini Live API f
 
 Implementing real-time audio requires strict adherence to sample rate specifications and careful buffer management to ensure low latency and natural interruptibility.
 
-The Live API supports the following audio formats:
+Gemini Live API supports the following audio formats:
 
 - **Input audio** : Raw 16-bit PCM audio at 16 kHz, little-endian
 - **Output audio** : Raw 16-bit PCM audio at 24 kHz, little-endian
@@ -64,7 +64,7 @@ async for msg in session.receive():
 
 ## Send video streams
 
-Video streaming provides visual context. The Live API expects a sequence of discrete image frames and supports video frames input at 1 FPS. For best results, use 768x768 resolution at 1 FPS.
+Video streaming provides visual context. Gemini Live API expects a sequence of discrete image frames and supports video frames input at 1 FPS. For best results, use 768x768 resolution at 1 FPS.
 
 The following code sample shows you how to send streaming video data:
 
@@ -126,4 +126,4 @@ config = {
 
 - [Start and manage live sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session)
 - [Configure Gemini capabilities](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities)
-- [Best practices with the Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/best-practices)
+- [Best practices with Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/best-practices)

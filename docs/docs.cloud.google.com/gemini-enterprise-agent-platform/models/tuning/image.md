@@ -80,7 +80,7 @@ The following is an example of an image dataset:
 
 ### `mediaResolution` for Gemini versions 3 and higher
 
-For Gemini 3 models and higher, you can also [set the media resolution per individual media `Part`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/get-started-with-gemini-3#media-resolution-by-part) . This lets you mix resolutions in your dataset (for example, by setting `MEDIA_RESOLUTION_HIGH` for one item and `MEDIA_RESOLUTION_LOW` for another). For more information about part-level resolution and their corresponding token counts, see [Media resolution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/get-started-with-gemini-3#media-resolution) .
+For Gemini 3 and later models, you can also [set the media resolution per individual media `Part`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/get-started-with-gemini-3#media-resolution-by-part) . This lets you mix resolutions in your dataset (for example, by setting `MEDIA_RESOLUTION_HIGH` for one item and `MEDIA_RESOLUTION_LOW` for another). For more information about part-level resolution and their corresponding token counts, see [Media resolution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/get-started-with-gemini-3#media-resolution) .
 
 `Part` -level media resolution settings take precedence over global settings.
 
@@ -148,4 +148,3 @@ To use the sample validation dataset, specify its location as follows:
 - To learn more about the image understanding capability of Gemini, see our [Image understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-understanding) documentation.
 - To learn about generating and editing images, see [Generate images with Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation) and [Edit images with Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/gemini-edit-images) .
 - To start tuning, see [Tune Gemini models by using supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning)
-- To learn how supervised fine-tuning can be used in a solution that builds a generative AI knowledge base, see [Jump Start Solution: Generative AI knowledge base](https://docs.cloud.google.com/architecture/ai-ml/generative-ai-knowledge-base) .

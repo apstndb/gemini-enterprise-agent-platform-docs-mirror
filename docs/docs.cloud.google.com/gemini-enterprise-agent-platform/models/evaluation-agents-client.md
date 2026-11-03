@@ -16,7 +16,7 @@ This page shows you how to create and deploy a basic agent and use the Gen AI ev
 
 - [Develop an agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-agents-client#develop-agent) : Define an agent with basic tool functions.
 
-- [Deploy an agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-agents-client#deploy-agent) : Deploy the agent to Agent Platform Runtime.
+- [Deploy an agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-agents-client#deploy-agent) : Deploy the agent to Agent Runtime.
 
 - [Run agent inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-agents-client#generate-responses) : Define an evaluation dataset and run agent inference to generate responses.
 
@@ -114,7 +114,7 @@ my_agent = Agent(
 
 ## Deploy agent
 
-[Deploy your agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent) to Agent Platform Runtime. This can take up to 10 minutes. Retrieve the resource name from the deployed agent.
+[Deploy your agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent) to Runtime. This can take up to 10 minutes. Retrieve the resource name from the deployed agent.
 
 ```
 def deploy_adk_agent(root_agent):

@@ -48,7 +48,7 @@ To start fresh work, click **New** in the left navigation and choose a playgroun
 | Video      | Video generation. For more information, see [Video generation overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/overview) .                                                                                                                                    |
 | Music      | Music generation. For more information, see [Music generation overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/overview) .                                                                                                                                    |
 | Speech     | Speech generation and transcription. For more information, see [Text-to-speech](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview) and [Speech-to-Text](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/speech/speech-to-text) . |
-| Live API   | Low-latency, bidirectional voice and video interaction. For more information, see [Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api) .                                                                                                                     |
+| Live API   | Low-latency, bidirectional voice and video interaction. For more information, see [Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api) .                                                                                                              |
 
 The Image, Video, Music, and Speech playgrounds are collectively known as Agent Media Studio.
 

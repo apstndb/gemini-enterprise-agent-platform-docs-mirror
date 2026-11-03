@@ -6,7 +6,7 @@ description: RAG Cross Corpus Retrieval.
 data_source: docs.cloud.google.com
 ---
 
-> The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by Agent Platform RAG Engine. Data residency and AXT security controls aren't supported.
+> The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by RAG Engine on Gemini Enterprise Agent Platform. Data residency and AXT security controls aren't supported.
 
 **Important** : Set the corpus `description` when creating a RAG corpus. The `description` is not editable after creation. **High-quality descriptions are crucial for effective cross-corpus retrieval** , as the system relies on them to select the appropriate corpora for your query.
 
@@ -16,7 +16,7 @@ AsyncRetrieveContexts API: This is an asynchronous API that allows users to retr
 
 AskContexts API: This is a synchronous API that directly generates the answer to the query by searching across multiple RAG-managed corpora.
 
-**Important** : To use this feature, you must grant the **Vertex AI User** role in your project to the RAG Engine on Gemini Enterprise Agent Platform service account: `service-[Your project's automatically generated `[`project number`](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers)` ]@gcp-sa-vertex-rag.iam.gserviceaccount.com` .
+**Important** : To use this feature, you must grant the **Agent Platform User** role in your project to the RAG Engine on Gemini Enterprise Agent Platform service account: `service-[Your project's automatically generated `[`project number`](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers)` ]@gcp-sa-vertex-rag.iam.gserviceaccount.com` .
 
 **Important** : This feature is only available in `us-central1` .
 

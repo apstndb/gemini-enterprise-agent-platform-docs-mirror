@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 Gemini 3.1 Flash-Lite is our most cost-efficient Gemini model, optimized for low latency use cases for high-volume, cost-sensitive LLM traffic. It provides a significant quality increase over Gemini 2.5 Flash-Lite, matching Gemini 2.5 Flash performance across key capability areas:
 
-- **Improved response quality:** Aims to match 2.5 Flash performance.
+- **Improved response quality:** Aims to match Gemini 2.5 Flash performance.
 - **Improved instruction following:** Targeted improvements to serve as a reliable migration path for complex chatbot and instruction-heavy workflows.
 - **Improved audio input:** Improved audio-input quality for tasks like Automated Speech Recognition (ASR).
 - **Expanded thinking support:** You can control how much reasoning the model performs by choosing from minimal, low, medium, or high [thinking levels](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking) . This feature lets you balance response quality and speed for your specific use case.

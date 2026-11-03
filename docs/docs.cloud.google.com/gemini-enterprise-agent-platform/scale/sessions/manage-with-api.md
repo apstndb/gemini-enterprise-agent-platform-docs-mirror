@@ -36,6 +36,13 @@ Replace the following:
 - ` PROJECT_ID ` : Your project ID.
 - ` LOCATION ` : Your region. See the [supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) for Sessions.
 
+### Multi-regional, global, and enterprise security options
+
+Sessions supports regional, multi-regional ( `us` and `eu` ), and global ( `global` ) endpoints. Keep the following security and encryption requirements in mind when choosing a location and creating your instance:
+
+- **Customer-managed encryption keys (CMEK)** : You can't use CMEK if your Sessions instance is configured to use the `global` endpoint ( `location="global"` ), because Cloud Key Management Service (Cloud KMS) requires encryption keys to reside within a geographic data residency boundary. To encrypt session data with a Cloud KMS key, create a standalone parent instance (without deploying agent runtime code) in a supported regional or multi-regional location ( `us` with a `us` key, or `eu` with a `europe` key) and pass `encryption_spec` when creating the parent instance. Instances that also deploy an agent on Agent Runtime support CMEK only in single-region locations. For details, see [CMEK for Sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions#cmek) .
+- **VPC Service Controls (VPC Service Controls)** : To protect your Sessions resources inside a service perimeter or route session traffic through Agent Gateway, see [VPC Service Controls for Sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions#vpc-sc) .
+
 ## List sessions
 
 List sessions associated with your Agent Runtime instance.

@@ -239,4 +239,4 @@ You can pair prebuilt avatars with any of the prebuilt HD voices in Gemini Live 
 - [Configure language and voice](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice)
 - [Start and manage live sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session)
 - [Send audio and video streams](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/send-audio-video-streams)
-- [Best practices with Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/best-practices)
+- [Best practices with Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/best-practices)

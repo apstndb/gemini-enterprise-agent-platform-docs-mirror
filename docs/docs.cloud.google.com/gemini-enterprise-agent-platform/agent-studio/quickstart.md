@@ -93,7 +93,7 @@ Each time you submit a message in the chat prompt workspace, a background evalua
 
 Each background intent detection evaluation is charged to your Google Cloud account:
 
-- Model used: Intent detection is powered by Gemini 3.5 Flash Lite, an optimized lightweight model.
+- Model used: Intent detection is powered by Gemini 3.5 Flash-Lite, an optimized lightweight model.
 
 - Cost: Because the model is lightweight, the charge per detection is minimal. Approximately \$0.002 per message evaluation.
 

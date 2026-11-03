@@ -552,7 +552,7 @@ To enable CMEK for your agent, you need to specify the `encryption_spec` with yo
 
 The following limitations apply when using CMEK with Agent Runtime:
 
-- **Multi-region keys are not allowed:** Only single-region keys are supported. The region of the key ring and the key has to be the same as your Agent Platform instance.
+- **Multi-regional and global endpoint restrictions:** Deployed agents on Agent Runtime support only single-region keys in Cloud Key Management Service, where the key ring and key region match the region of your Agent Platform instance. Deploying an agent runtime with CMEK isn't supported on multi-regional endpoints ( `us` or `eu` ). However, if you create a standalone parent Agent Platform instance without deploying agent runtime code (to store [Agent Platform Sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions#cmek) or [Agent Platform Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank#cmek) data), you can configure CMEK in both regional and multi-regional locations ( `us` with a `us` key, or `eu` with a `europe` key). The `global` endpoint doesn't support CMEK for any resource.
 
 - **Encryption key cannot be updated for CMEK instances:** Once an agent is deployed with a CMEK key, the encryption key cannot be changed for that deployment. To use a new key, you must deploy a new Agent Platform instance.
 
@@ -580,8 +580,16 @@ Available deployment options are listed in [Deploy an agent](https://docs.cloud.
 - For source-based deployments, git-based deployments, and bring your own Dockerfile (BYOD) deployments, ingress to the `artifactregistry.googleapis.com` service is required.
 - For bring your own container (BYOC) deployments, no additional ingress rule is required.
 
-### Limitations
+### Use VPC Service Controls with Agent Gateway
 
-VPC Service Controls isn't supported with Agent Gateway.
+VPC Service Controls is supported with Agent Gateway for Agent-to-Anywhere (egress) deployments created after September 8, 2026. To run Agent Runtime with Agent Gateway inside a VPC Service Controls service perimeter, your deployment must meet the following requirements:
 
-However, you can use custom organization policy constraints to restrict which gateways can be associated with your agents. For more information, see [Route traffic through Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy) .
+- The gateway must use an agent connectivity template ( `AgentConnectivityTemplate` ) with `vpcEgress` set to `ALL_TRAFFIC` so that all outbound agent traffic routes through your VPC network.
+- Your VPC network must configure private Cloud DNS zones and DNS peering for `googleapis.com.` that resolve Google API traffic to `restricted.googleapis.com` ( `199.36.153.4/30` ) or internal Private Service Connect endpoints.
+- If your agent is bound to an enforcing gateway, you must allowlist the required regional and mTLS `Agent Platform API` endpoints in Agent Registry.
+
+For step-by-step configuration instructions, see the following resources:
+
+- [VPC Service Controls compliance for Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#vpc-sc-compliance)
+- [Route Agent Runtime traffic through Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy)
+- [VPC Service Controls for Sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions#vpc-sc)

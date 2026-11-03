@@ -12,7 +12,7 @@ The Slurm Job API lets you manage your Gemini Enterprise Agent Platform training
 
 Before you use the Slurm Job API to manage your cluster, make sure that you meet the following requirements:
 
-- You have access to the training clusters, typically through the **Vertex AI User** role `roles/aiplatform.user` on the cluster's project, or any role that includes the `aiplatform.googleapis.com/modelDevelopmentClusters.run` permission.
+- You have access to the training clusters, typically through the **Agent Platform User** role `roles/aiplatform.user` on the cluster's project, or any role that includes the `aiplatform.googleapis.com/modelDevelopmentClusters.run` permission.
 
 - Google Cloud CLI is installed and you've configured Application Default Credentials ( `gcloud auth application-default login` ). For automated tools that can't run an interactive login, authenticate as a service account with the `aiplatform.googleapis.com/modelDevelopmentClusters.run` permission.
 

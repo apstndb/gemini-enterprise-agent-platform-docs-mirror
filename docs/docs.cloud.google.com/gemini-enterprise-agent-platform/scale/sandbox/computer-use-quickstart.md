@@ -2,11 +2,11 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/computer-use-quickstart
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/computer-use-quickstart
 title: Computer Use quickstart
-description: Learn how to create and use a Computer Use sandbox.
+description: Learn how to create and use an Agent Platform Computer Use sandbox.
 data_source: docs.cloud.google.com
 ---
 
-This page demonstrates how to make direct API calls to create and use a Computer Use sandbox environment. In this quickstart, you perform the follow tasks:
+This page demonstrates how to make direct API calls to create and use an Agent Platform Computer Use sandbox environment. In this quickstart, you perform the follow tasks:
 
 - Create an Agent Platform instance to access the sandbox.
 - Create a Computer Use sandbox.

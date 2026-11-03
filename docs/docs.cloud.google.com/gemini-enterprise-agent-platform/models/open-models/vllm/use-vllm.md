@@ -34,9 +34,9 @@ By the end of this guide, you will understand how to:
 
 **Table 1: Summary of vLLM features**
 
-### Google Gemini Enterprise Agent Platform vLLM Customizations: Enhance performance and integration
+### Gemini Enterprise Agent Platform vLLM Customizations: Enhance performance and integration
 
-The vLLM implementation within Google Gemini Enterprise Agent Platform Model Garden is not a direct integration of the open-source library. Gemini Enterprise Agent Platform maintains a customized and optimized version of vLLM that is specifically tailored to enhance performance, reliability, and seamless integration within the Google Cloud.
+The vLLM implementation within Gemini Enterprise Agent Platform Model Garden is not a direct integration of the open-source library. Gemini Enterprise Agent Platform maintains a customized and optimized version of vLLM that is specifically tailored to enhance performance, reliability, and seamless integration within the Google Cloud.
 
 - **Performance optimizations:**
   - **Parallel downloading from Cloud Storage:** Significantly accelerates model loading and deployment times by enabling parallel data retrieval from Cloud Storage, reducing latency and improving startup speed.

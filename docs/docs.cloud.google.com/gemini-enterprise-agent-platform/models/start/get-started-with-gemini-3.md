@@ -18,7 +18,7 @@ This guide provides a consolidated, practical path to get started with Gemini 3 
 
 Before you begin, you must authenticate to Gemini Enterprise Agent Platform using an API key or application default credentials (ADC). See [authentication methods](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start?usertype=adc#choose_your_authentication_method) for more information.
 
-#### Install the Google Google Gen AI SDK
+#### Install the Google Gen AI SDK
 
 Gemini 3 API features require Google Gen AI SDK for Python version 1.51.0 or later.
 
@@ -308,7 +308,7 @@ There are two primary ways to handle thought signatures: automatically using the
 
 ##### Automated handling (recommended)
 
-If you are using the Google Google Gen AI SDKs (Python, Node.js, Go, Java) or OpenAI Chat Completions API, and utilizing the standard chat history features or appending the full model response, `thought_signatures` are handled automatically. You don't need to make any changes to your code.
+If you are using the Google Gen AI SDKs (Python, Node.js, Go, Java) or OpenAI Chat Completions API, and utilizing the standard chat history features or appending the full model response, `thought_signatures` are handled automatically. You don't need to make any changes to your code.
 
 ###### Manual function calling example
 

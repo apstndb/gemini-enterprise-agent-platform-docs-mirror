@@ -6,7 +6,7 @@ description: Run Retrieval Augmented Generation (RAG) tasks on Gemini Enterprise
 data_source: docs.cloud.google.com
 ---
 
-> The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by Agent Platform RAG Engine. Data residency and AXT security controls aren't supported.
+> The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by RAG Engine on Gemini Enterprise Agent Platform. Data residency and AXT security controls aren't supported.
 
 > To see an example of using RAG Engine on Gemini Enterprise Agent Platform, run the "Intro to RAG Engine in Gemini Enterprise Agent Platform" notebook in one of the following environments:
 >

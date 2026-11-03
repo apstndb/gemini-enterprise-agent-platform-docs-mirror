@@ -49,16 +49,16 @@ This calculation includes a wide range of services, from predictions on all Gemi
 
 The following table lists the categories of [Google Cloud SKUs](https://cloud.google.com/skus) that are included in the calculation of the total spend.
 
-| Category                   | Description of included SKUs                                                                                                                                                                                              |
-|----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Gemini Models**          | All Gemini model families (such as 2.0, 2.5, and 3.0 in Pro, Flash, and Lite versions) for predictions across all modalities (Text, Image, Audio, Video), including batch, long-context, tuned, and "thinking" variations |
-| **Gemini Model Features**  | All related Gemini SKUs for features like Caching, Caching Storage, and Priority Tiers, across all modalities and model versions                                                                                          |
-| **Agent Platform CPU**     | Online and Batch Predictions on all CPU-based instance families (such as C2, C3, E2, N1, N2, and their variants)                                                                                                          |
-| **Agent Platform GPU**     | Online and Batch Predictions on all NVIDIA GPU-accelerated instances (such as A100, H100, H200, B200, L4, T4, V100, and RTX series)                                                                                       |
-| **Agent Platform TPU**     | Online and Batch Predictions on all TPU-based instances (such as TPU-v5e and v6e)                                                                                                                                         |
-| **Management & Fees**      | All "Management fee" SKUs associated with various Agent Platform prediction instances                                                                                                                                     |
-| **Provisioned Throughput** | All commitment-based SKUs for Provisioned Throughput                                                                                                                                                                      |
-| **Other Services**         | Specialized services such as "LLM Grounding for Gemini... with Google Search tool"                                                                                                                                        |
+| Category                   | Description of included SKUs                                                                                                                                                                                                    |
+|----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Gemini Models**          | All Gemini model families (such as 2.0, 2.5, and 3.0 in Pro, Flash, and Flash-Lite versions) for predictions across all modalities (Text, Image, Audio, Video), including batch, long-context, tuned, and "thinking" variations |
+| **Gemini Model Features**  | All related Gemini SKUs for features like Caching, Caching Storage, and Priority Tiers, across all modalities and model versions                                                                                                |
+| **Agent Platform CPU**     | Online and Batch Predictions on all CPU-based instance families (such as C2, C3, E2, N1, N2, and their variants)                                                                                                                |
+| **Agent Platform GPU**     | Online and Batch Predictions on all NVIDIA GPU-accelerated instances (such as A100, H100, H200, B200, L4, T4, V100, and RTX series)                                                                                             |
+| **Agent Platform TPU**     | Online and Batch Predictions on all TPU-based instances (such as TPU-v5e and v6e)                                                                                                                                               |
+| **Management & Fees**      | All "Management fee" SKUs associated with various Agent Platform prediction instances                                                                                                                                           |
+| **Provisioned Throughput** | All commitment-based SKUs for Provisioned Throughput                                                                                                                                                                            |
+| **Other Services**         | Specialized services such as "LLM Grounding for Gemini... with Google Search tool"                                                                                                                                              |
 
 ### Verify usage tier
 

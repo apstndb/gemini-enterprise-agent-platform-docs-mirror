@@ -275,7 +275,7 @@ As you migrate, apply these tips to achieve optimal performance from your chosen
 
 - For all Gemini 3 models, sampling parameters ( `temperature` , `top_p` , and `top_k` ) are deprecated. The model manages its own sampling for optimal results. Google recommends removing these parameters from all requests.
 - Check your [system instructions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/system-instructions) , [prompts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/prompt-design-strategies) , and [few-shot learning examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/few-shot-examples) for any inconsistencies, contradictions, or irrelevant instructions and examples.
-- Test a more powerful model. For example, if you evaluated a Flash-Lite model, try a Flash or Pro model instead.
+- Test a more powerful model. For example, if you evaluated a Gemini Flash-Lite model, try a Flash or Pro model instead.
 - Review automated evaluation results to ensure they match human judgment, especially results using a [judge model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluate-judge-model) . Ensure your judge model instructions are clear, consistent, and unambiguous.
 - To improve judge model instructions, test the instructions with multiple humans working in isolation. If humans interpret the instructions differently and provide different judgments, your judge model instructions are unclear.
 - [Fine-tune the model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models) .

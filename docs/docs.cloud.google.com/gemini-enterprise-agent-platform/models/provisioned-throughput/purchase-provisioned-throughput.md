@@ -32,11 +32,11 @@ To help you decide whether you want to purchase Provisioned Throughput, consider
 
   All changes are processed based on commercially reasonable efforts and are typically fulfilled within 10 business days of the initial request.
 
-  Model changes are limited to a specific publisher. For example, you can switch the model assignment of Provisioned Throughput from Google Gemini 2.5 Flash to Google Gemini 2.5 Flash-Lite, but you can't switch from Google Gemini 2.5 Flash to Anthropic's Claude 3.5 Sonnet v2.
+  Model changes are limited to a specific publisher. For example, you can switch the model assignment of Provisioned Throughput from Gemini 2.5 Flash to Gemini 2.5 Flash-Lite, but you can't switch from Gemini 2.5 Flash to Anthropic's Claude 3.5 Sonnet v2.
 
 - **By default, the overage is billed as pay-as-you-go.**
 
-  If your throughput exceeds your Provisioned Throughput order amount, overages are processed and billed as standard pay-as-you-go. You can control overages on a per-request basis. For more information, see [Use Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput) .
+  If your throughput exceeds your Provisioned Throughput order amount, overages are processed and billed as Standard pay-as-you-go. You can control overages on a per-request basis. For more information, see [Use Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput) .
 
 For information about pricing, see [Provisioned Throughput](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#provisioned-throughput) .
 

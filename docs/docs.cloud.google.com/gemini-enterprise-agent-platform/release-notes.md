@@ -10,6 +10,16 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## November 02, 2026
+
+Feature
+
+**Serving tuned Gemini 3.x models on global endpoints**
+
+Serving tuned Gemini 3.x models on `global` endpoints is available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages) . You can copy fine-tuned Gemini 3.x models to the `global` region using the Model Registry `models:copy` API, deploy them to global serving endpoints, and send inference requests directly to `aiplatform.googleapis.com` .
+
+For more information, see [About supervised fine-tuning for Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning) and [Tune Gemini models with supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use#copy-tuned-model) .
+
 ## October 30, 2026
 
 Feature

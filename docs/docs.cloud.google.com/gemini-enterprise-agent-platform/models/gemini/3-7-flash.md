@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 
 Gemini 3.7 Flash is our intelligent everyday driver for developers, and delivers a step forward in software engineering, feeling distinctly better to build with. This model brings better intelligence for complex tasks, instruction following, and tool calling into your daily workflows.
 
-3.7 Flash serves as the primary agentic workhorse in the Gemini 3 family, bridging the gap between deep-reasoning Pro models and high-throughput Flash-Lite models while delivering high token efficiency and multi-step multimodal processing.
+3.7 Flash serves as the primary agentic workhorse in the Gemini 3 family, bridging the gap between deep-reasoning Gemini Pro models and high-throughput Gemini Flash-Lite models while delivering high token efficiency and multi-step multimodal processing.
 
 > **Note:** `thinking_level="MINIMAL"` is not available for 3.7 Flash. Explicitly setting `thinking_level` to `MINIMAL` will return an API validation error. The supported values for 3.7 Flash are `LOW` , `MEDIUM` (default), and `HIGH` .
 

@@ -153,15 +153,15 @@ When migrating to Gemini Enterprise Agent Platform:
 
 ### 1. Migrate your prompts to Agent Studio
 
-Your Google AI Studio prompt data is saved in a Google Drive folder. This section shows how to migrate your prompts to Agent Studio.
+Your Google AI Studio prompt data is saved in a Drive folder. This section shows how to migrate your prompts to Agent Studio.
 
-1.  Open [Google Drive](https://drive.google.com) .
+1.  Open [Drive](https://drive.google.com) .
 
-2.  Navigate to the **AI_Studio** folder where the prompts are stored. ![Location of prompts in Google Drive](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/models/migrate/images/ai-studio-drive.png)
+2.  Navigate to the **AI_Studio** folder where the prompts are stored. ![Location of prompts in Drive](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/models/migrate/images/ai-studio-drive.png)
 
-3.  Download your prompts from Google Drive to a local directory.
+3.  Download your prompts from Drive to a local directory.
 
-    > **Note:** Prompts downloaded from Google Drive are in the text ( `txt` ) format. Before you upload them to Agent Studio, change the file extensions from `.txt` to `.json` to convert them to JSON files.
+    > **Note:** Prompts downloaded from Drive are in the text ( `txt` ) format. Before you upload them to Agent Studio, change the file extensions from `.txt` to `.json` to convert them to JSON files.
 
 4.  Open [Agent Studio](https://console.cloud.google.com/agent-platform/generative) in the Google Cloud console.
 

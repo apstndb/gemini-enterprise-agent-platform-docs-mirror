@@ -6,7 +6,7 @@ description: Configure RagManagedDb for vector database management, retrieval st
 data_source: docs.cloud.google.com
 ---
 
-> The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by Agent Platform RAG Engine. Data residency and AXT security controls aren't supported.
+> The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by RAG Engine on Gemini Enterprise Agent Platform. Data residency and AXT security controls aren't supported.
 
 > The RAG Engine-managed Spanner instance is used as a vector database and is GA with billing enabled. For more information, see [RAG Engine on Gemini Enterprise Agent Platform billing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-engine-billing) .
 
@@ -253,7 +253,7 @@ For information on CMEK limitations for RAG corpora, see [CMEK limitations for R
 
 ### Set up your Cloud KMS key and grant permissions
 
-Before you can create a RAG corpus encrypted with CMEK, you must set up a cryptographic key in Google Cloud KMS, and grant the RAG Engine service account the necessary permissions to use this key.
+Before you can create a RAG corpus encrypted with CMEK, you must set up a cryptographic key in Cloud KMS, and grant the RAG Engine service account the necessary permissions to use this key.
 
 #### Prerequisites
 

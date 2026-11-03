@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 Use this page to learn how to view logs, monitor requests, and track distributed traces for traffic routed through your Agent Gateway deployment.
 
-## Logging
+## Cloud Logging
 
 Agent Gateway logs are generated using the `networkservices.googleapis.com/Gateway` monitored resource.
 
@@ -117,9 +117,9 @@ Agent Gateway log entries contain information useful for monitoring and debuggin
 </tbody>
 </table>
 
-## Monitoring
+## Cloud Monitoring
 
-Agent Gateway exports some Service Extensions metrics to Cloud Monitoring. If you're delegating authorization to Service Extensions, you can use these metrics to monitor traffic to and from your extension. For details, see [Logging and monitoring for Cloud Load Balancing callouts](https://docs.cloud.google.com/service-extensions/docs/monitor-lb-callouts#monitoring_metrics_for_callouts) .
+Agent Gateway exports some Service Extensions metrics to Monitoring. If you're delegating authorization to Service Extensions, you can use these metrics to monitor traffic to and from your extension. For details, see [Logging and monitoring for Cloud Load Balancing callouts](https://docs.cloud.google.com/service-extensions/docs/monitor-lb-callouts#monitoring_metrics_for_callouts) .
 
 ### Observability dashboard
 
@@ -241,12 +241,12 @@ After enabling distributed tracing and sending traffic through your gateway, you
 
 Agent Gateway provides seamless correlation between traces, logs, and metrics:
 
-- **Log-trace correlation** : every gateway request log entry written to Cloud Logging contains a `trace` field with the format: `projects/ `` PROJECT_ID `` /traces/ `` TRACE_ID` .
+- **Log-trace correlation** : every gateway request log entry written to Logging contains a `trace` field with the format: `projects/ `` PROJECT_ID `` /traces/ `` TRACE_ID` .
 
   - In the [**Logs Explorer**](https://console.cloud.google.com/logs) , click the log entry and then select **View trace details** to navigate directly to the corresponding span in Trace.
   - In Trace, click **Show logs** on the **Trace Details** pane to view all gateway request logs that are associated with that request.
 
-- **Metric correlation** : compare latency spikes observed in Cloud Monitoring metrics, such as `networkservices.googleapis.com/agentgateway/total_latencies` , with trace span breakdowns to identify whether a latency spike occurred within the gateway or at the destination tool or server.
+- **Metric correlation** : compare latency spikes observed in Monitoring metrics, such as `networkservices.googleapis.com/agentgateway/total_latencies` , with trace span breakdowns to identify whether a latency spike occurred within the gateway or at the destination tool or server.
 
 ### Troubleshooting
 

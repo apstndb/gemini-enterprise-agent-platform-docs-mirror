@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ai-agent-ecosystem-partners
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ai-agent-ecosystem-partners
 title: AI Agent Ecosystem partners
-description: Provides a list of AI agent solutions from our partners that have been validated by Google through the Google Cloud AI Agent Ecosystem Program.
+description: Provides a list of AI agent solutions from our partners that have been validated by Google through the {{dynamic_data.site_values.cloud_name}} AI Agent Ecosystem Program.
 data_source: docs.cloud.google.com
 ---
 

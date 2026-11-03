@@ -66,7 +66,7 @@ The following is an example of a document dataset.
 }
 ```
 
-(Gemini 3 and higher models only) Starting with the Gemini 3 models, you can also [set the media resolution per individual media `Part`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/get-started-with-gemini-3#media-resolution-by-part) . This lets you mix resolutions in your dataset (for example, by setting `MEDIA_RESOLUTION_HIGH` for one item and `MEDIA_RESOLUTION_LOW` for another).
+(Gemini 3 and later models only) Starting with the Gemini 3 models, you can also [set the media resolution per individual media `Part`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/get-started-with-gemini-3#media-resolution-by-part) . This lets you mix resolutions in your dataset (for example, by setting `MEDIA_RESOLUTION_HIGH` for one item and `MEDIA_RESOLUTION_LOW` for another).
 
 `Part` -level media resolution settings take precedence over global settings.
 
@@ -119,4 +119,3 @@ The following is an example dataset that sets the media resolution at both the `
 
 - To learn more about the document understanding capability of Gemini models, see the [Document understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/document-understanding) overview.
 - To start tuning, see [Tune Gemini models by using supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning)
-- To learn how supervised fine-tuning can be used in a solution that builds a generative AI knowledge base, see [Jump Start Solution: Generative AI knowledge base](https://docs.cloud.google.com/architecture/ai-ml/generative-ai-knowledge-base) .

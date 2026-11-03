@@ -87,7 +87,7 @@ For Google models, the Chat Completions API supports the following OpenAI parame
 </tr>
 <tr class="odd">
 <td><code>detail</code></td>
-<td>For models older than Gemini 3, the <code>detail</code> field must be consistent across all messages and contents (it is request-level). For Gemini 3 and onwards, this corresponds to a part-level `media_resolution`. For more information, see <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GenerationConfig#MediaResolution">Media Resolution</a> .</td>
+<td>For models earlier than Gemini 3, the <code>detail</code> field must be consistent across all messages and contents (it is request-level). For Gemini 3 and later, this corresponds to a part-level `media_resolution`. For more information, see <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GenerationConfig#MediaResolution">Media Resolution</a> .</td>
 </tr>
 <tr class="even">
 <td><code>max_completion_tokens</code></td>

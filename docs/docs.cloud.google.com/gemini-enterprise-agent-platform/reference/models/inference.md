@@ -532,7 +532,7 @@ Configuration settings used when generating the prompt.
 <p>If the model returns a response that's too generic, too short, or the model gives a fallback response, try increasing the temperature. If the model enters infinite generation, increasing the temperature to at least <code>0.1</code> may lead to improved results.</p>
 <code>1.0</code> is the recommended starting value for temperature.
 <ul>
-<li>Range for Gemini 3 models versions 3.5 Flash and lower: <code>0.0 - 2.0</code> (default: <code>1.0</code> )</li>
+<li>Range for Gemini 3 models (3.5 Flash and earlier): <code>0.0 - 2.0</code> (default: <code>1.0</code> )</li>
 </ul>
 <blockquote>
 <strong>Warning:</strong> For Gemini 3.6 Flash and later models, custom values for sampling parameters ( <code>temperature</code> , <code>topP</code> , and <code>topK</code> ) aren't supported and are ignored if set, and custom values for penalization parameters ( <code>frequencyPenalty</code> and <code>presencePenalty</code> ) return an error. Remove these parameters from your requests.

@@ -40,7 +40,7 @@ Batch inference is optimized for **large-scale processing tasks** like:
 
 The following base and tuned Gemini models support batch inference:
 
-> **Note:** Batch inference is not supported for tuned Gemini 3 and higher models.
+> **Note:** Batch inference is not supported for tuned Gemini 3 and later models.
 
 #### Click to expand supported models
 

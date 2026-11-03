@@ -62,7 +62,7 @@ To use training clusters, you must:
     | Service Account User        | `roles/iam.serviceAccountUser`          |
     | Service Networking Admin    | `roles/servicenetworking.networksAdmin` |
 
-4.  To allow the cluster's nodes to read from and write to Cloud Storage buckets using Google Cloud Storage FUSE, grant the Storage Object User role ( `roles/storage.objectUser` ) to the service account used by the VMs.
+4.  To allow the cluster's nodes to read from and write to Cloud Storage buckets using Cloud Storage FUSE, grant the Storage Object User role ( `roles/storage.objectUser` ) to the service account used by the VMs.
 
 5.  For SSH access to the Slurm login nodes, grant the following permissions:
 
@@ -73,7 +73,7 @@ To use training clusters, you must:
 
 ### Enable APIs
 
-1.  Enable the Google Compute Engine API:
+1.  Enable the Compute Engine API:
 
     ```
        gcloud services enable compute.googleapis.com

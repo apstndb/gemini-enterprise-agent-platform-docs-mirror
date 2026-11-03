@@ -75,7 +75,7 @@ async def streaming_main(audio_file, config):
                     print(f"Final: {final.text}")
 ```
 
-> **Note:** When establishing a Live API connection, clients must wait to receive the `setup_complete` message from the server before streaming audio data. Sending audio requests before `setup_complete` is received can cause the session to cancel unexpectedly and may result in empty transcriptions, particularly on short audio clips.
+> **Note:** When establishing a Gemini Live API connection, clients must wait to receive the `setup_complete` message from the server before streaming audio data. Sending audio requests before `setup_complete` is received can cause the session to cancel unexpectedly and may result in empty transcriptions, particularly on short audio clips.
 
 ## Synchronous transcription
 

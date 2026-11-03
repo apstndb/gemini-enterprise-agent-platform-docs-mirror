@@ -26,7 +26,7 @@ Agent Runtime lets you do the following:
 
 The workflow for building an agent on Agent Runtime is:
 
-1.  [**Set up the environment**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup) : Set up your Google project and install the latest version of the Agent Platform SDK for Python.
+1.  [**Set up the environment**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup) : Set up your Google Cloud project and install the latest version of the Agent Platform SDK for Python.
 2.  [**Develop an agent**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-agent) : Develop an agent that can be deployed on Agent Runtime.
 3.  [**Deploy the agent**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent) : Deploy the agent on the Agent Runtime managed runtime.
 4.  [**Use the agent**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-agent) : Query the agent by sending an API request.

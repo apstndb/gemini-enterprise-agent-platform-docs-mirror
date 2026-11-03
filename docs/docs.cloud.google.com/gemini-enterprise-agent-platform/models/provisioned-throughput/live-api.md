@@ -35,7 +35,7 @@ Enforcement windows are larger at smaller GSU amounts to ensure that smaller req
 
 ### Estimating GSU requirements
 
-Let's walk through an example of a potential workload and understand how the [estimation tool](https://console.cloud.google.com/agent-platform/provisioned-throughput/price-estimate) would provide a recommendation for this model, which also informs how requests are processed and burndown rates are applied. A user is planning to use the Live API for a chatbot where 10 concurrent sessions are expected, and the duration is 5 minutes (300 seconds). There are an expected 30 conversation turns per session, and the user specifies a maximum session context window of 6,000 trigger tokens. The shape of the requests are captured below:
+Let's walk through an example of a potential workload and understand how the [estimation tool](https://console.cloud.google.com/agent-platform/provisioned-throughput/price-estimate) would provide a recommendation for this model, which also informs how requests are processed and burndown rates are applied. A user is planning to use Gemini Live API for a chatbot where 10 concurrent sessions are expected, and the duration is 5 minutes (300 seconds). There are an expected 30 conversation turns per session, and the user specifies a maximum session context window of 6,000 trigger tokens. The shape of the requests are captured below:
 
 | Field                                     | Example Value |
 |-------------------------------------------|---------------|
