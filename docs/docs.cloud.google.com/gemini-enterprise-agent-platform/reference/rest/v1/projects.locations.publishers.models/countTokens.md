@@ -36,7 +36,7 @@ Optional. The name of the publisher model requested to serve the prediction. For
 
 Optional. The instances that are the input to token counting call. Schema is identical to the prediction schema of the underlying model.
 
-`contents[]` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Content)` )`
+`contents[]` `object ( ``Content`` )`
 
 Optional. Input content.
 
@@ -46,7 +46,7 @@ Optional. A list of `Tools` the model may use to generate the next response.
 
 A `Tool` is a piece of code that enables the system to interact with external systems to perform an action, or set of actions, outside of knowledge and scope of the model.
 
-`systemInstruction` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Content)` )`
+`systemInstruction` `object ( ``Content`` )`
 
 Optional. The user provided system instructions for the model. Note: only text should be used in parts and content in each part will be in a separate paragraph.
 

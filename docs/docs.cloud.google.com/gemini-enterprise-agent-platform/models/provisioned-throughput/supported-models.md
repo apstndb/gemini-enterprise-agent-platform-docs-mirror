@@ -14,7 +14,7 @@ Provisioned Throughput only supports models that you call directly from your pro
 
 While Provisioned Throughput assures capacity for your model requests, it doesn't include or bypass quotas for other tools that you might use, such as [Grounding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/overview) . Depending on the size of your workload, you might need to request additional quota for these tools separately.
 
-Moreover, Provisioned Throughput doesn't support models that are called by other Gemini Enterprise Agent Platform products, such as Vertex AI Agents and Agent Search. For example, if you make API calls to Gemini 3.5 Flash while using Agent Search, your Provisioned Throughput order for Gemini 3.5 Flash won't guarantee the calls made by Agent Search.
+Moreover, Provisioned Throughput doesn't support models that are called by other Gemini Enterprise Agent Platform products, such as Agent Conversation on Gemini Enterprise Agent Platform and Agent Search on Gemini Enterprise Agent Platform. For example, if you make API calls to Gemini 3.5 Flash while using Agent Search, your Provisioned Throughput order for Gemini 3.5 Flash won't guarantee the calls made by Agent Search.
 
 Provisioned Throughput doesn't support [batch prediction](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-prediction-gemini) calls.
 

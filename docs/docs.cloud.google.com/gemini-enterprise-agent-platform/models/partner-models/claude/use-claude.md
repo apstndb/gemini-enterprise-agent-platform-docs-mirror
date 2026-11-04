@@ -514,8 +514,8 @@ You should receive a JSON response similar to the following.
 }
 ```
 
-Use Agent Studio on Gemini Enterprise Agent Platform
+### Use Agent Studio
 
-For some of the Anthropic Claude models, you can use Agent Studio on Gemini Enterprise Agent Platform to quickly prototype and test generative AI models in the Google Cloud console. As an example, you can use Agent Studio on Gemini Enterprise Agent Platform to compare Claude model responses with other supported models such as Gemini.
+For some of the Anthropic Claude models, you can use Agent Studio to quickly prototype and test generative AI models in the Google Cloud console. As an example, you can use Agent Studio to compare Claude model responses with other supported models such as Gemini.
 
-For more information, see [Quickstart: Send text prompts to Gemini using Agent Studio on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/quickstart) .
+For more information, see [Quickstart: Send text prompts to Gemini using Agent Studio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/quickstart) .

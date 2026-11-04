@@ -29,7 +29,7 @@ If you used service accounts to [set up the identity and permissions for your ag
 
 The *AI Platform Reasoning Engine Service Agent* service account uses the format of `service- `` PROJECT_NUMBER `` @gcp-sa-aiplatform-re.iam.gserviceaccount.com` .
 
-The service account has a *Gemini Enterprise Agent Platform Reasoning Engine Service Agent* **role** ( `roles/aiplatform.reasoningEngineServiceAgent` ) that grants the default permissions required for deployed agents. You can view the full list of default permissions in the [IAM documentation](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.reasoningEngineServiceAgent) .
+The service account has a *Vertex AI Reasoning Engine Service Agent* **role** ( `roles/aiplatform.reasoningEngineServiceAgent` ) that grants the default permissions required for deployed agents. You can view the full list of default permissions in the [IAM documentation](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.reasoningEngineServiceAgent) .
 
 ### List the roles of a deployed agent
 

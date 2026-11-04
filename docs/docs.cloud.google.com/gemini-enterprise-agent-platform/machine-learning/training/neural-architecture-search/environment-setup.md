@@ -10,7 +10,7 @@ Set up an environment before you launch a Agent Platform Neural Architecture Sea
 
 ## Before you begin
 
-1.  To grant all Agent Platform Neural Architecture Search Neural Architecture Search users the [Agent Platform User](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform) role ( `roles/aiplatform.user` ), contact your project administrator.
+1.  To grant all Agent Platform Neural Architecture Search users the [Agent Platform User](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform) role ( `roles/aiplatform.user` ), contact your project administrator.
 
 2.  [Install Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/) .
 
@@ -178,7 +178,7 @@ You must set up a [service account](https://docs.cloud.google.com/iam/docs/servi
         --display-name=DISPLAY_NAME
     ```
 
-2.  Grant the `aiplatform.user` and `storage.objectAdmin` role to the service account:
+2.  Grant the `roles/aiplatform.user` and `roles/storage.objectAdmin` roles to the service account:
 
     ```
     gcloud projects add-iam-policy-binding PROJECT_ID \
@@ -189,7 +189,7 @@ You must set up a [service account](https://docs.cloud.google.com/iam/docs/servi
         --role=roles/storage.objectAdmin
     ```
 
-For example, the following commands create a service account named `my-nas-sa` under the project `my-nas-project` with the `aiplatform.user` and `storage.objectAdmin` role:
+For example, the following commands create a service account named `my-nas-sa` under the project `my-nas-project` with the `roles/aiplatform.user` and `roles/storage.objectAdmin` roles:
 
 ```
   gcloud iam service-accounts create my-nas-sa \

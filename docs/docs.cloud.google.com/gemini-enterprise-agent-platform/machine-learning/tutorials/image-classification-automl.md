@@ -6,7 +6,7 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-If you plan to use the Agent Platform SDK for Python, make sure that the service account initializing the client has the [Gemini Enterprise Agent Platform Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.serviceAgent) ( `roles/aiplatform.serviceAgent` ) IAM role.
+If you plan to use the Agent Platform SDK for Python, make sure that the service account initializing the client has the [Vertex AI Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.serviceAgent) ( `roles/aiplatform.serviceAgent` ) IAM role.
 
 You'll set up your Google Cloud project to use Gemini Enterprise Agent Platform. Then create a Cloud Storage bucket and copy image files to use for training an AutoML image classification model.
 

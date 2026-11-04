@@ -50,7 +50,7 @@ To ensure that [Compute Engine default service account](https://docs.cloud.googl
 
 > **Important:** You must grant these roles to [Compute Engine default service account](https://docs.cloud.google.com/compute/docs/access/service-accounts#default_service_account) , *not* to your user account. Failure to grant the roles to the correct principal might result in permission errors.
 
-- [Agent Platform Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.serviceAgent) ( `roles/aiplatform.serviceAgent` )
+- [Vertex AI Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.serviceAgent) ( `roles/aiplatform.serviceAgent` )
 - [Cloud Build Service Account](https://docs.cloud.google.com/iam/docs/roles-permissions/cloudbuild#cloudbuild.builds.builder) ( `roles/cloudbuild.builds.builder` )
 
 For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .

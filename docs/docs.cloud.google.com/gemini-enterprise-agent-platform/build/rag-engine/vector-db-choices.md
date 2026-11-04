@@ -97,7 +97,7 @@ This table lists your choices of vector databases that are supported within RAG 
 <td>Generally available</td>
 </tr>
 <tr class="odd">
-<td><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-feature-store-with-rag">Vertex AI Feature Store</a> is a managed service for organizing, storing, and serving machine-learning features.</td>
+<td><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-feature-store-with-rag">Feature Store on Gemini Enterprise Agent Platform</a> is a managed service for organizing, storing, and serving machine-learning features.</td>
 <td><ul>
 <li>Integrates with Gemini Enterprise Agent Platform and other Google Cloud services.</li>
 <li>Scalability and reliability are supported by Google Cloud infrastructure.</li>

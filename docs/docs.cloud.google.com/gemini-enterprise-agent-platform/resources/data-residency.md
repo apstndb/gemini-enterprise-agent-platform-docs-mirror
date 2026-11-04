@@ -48,6 +48,8 @@ The tables in this section cover the regional support for ML processing at a per
 - [Partner models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency#ml-processing-partner-models)
 - [Open models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency#ml-processing-open-models)
 
+> **Note:** Checkmarks in the following tables indicate the geographic boundary where ML processing occurs, not which endpoint types a model supports. A checkmark under **US multi-region** or **EU multi-region** applies when you call a supported `us` or `eu` multi-region endpoint or a supported US or EU single-region endpoint. For example, `gemini-embedding-001` doesn't support the `us` or `eu` multi-region endpoints, but requests to US or EU single-region endpoints such as `us-central1` or `europe-west4` are processed within that multi-region. For a list of supported endpoints for each model, see [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) .
+
 ### Google models
 
 To learn what capabilities support data residency, see [Supported capabilities](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/supported-capabilities) .

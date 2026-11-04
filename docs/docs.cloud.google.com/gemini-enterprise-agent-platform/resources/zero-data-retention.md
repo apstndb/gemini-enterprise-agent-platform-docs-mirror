@@ -125,7 +125,7 @@ $ curl -X GET \
 
 #### Turn off caching
 
-Run the following curl command to turn off all caching for a Google Cloud project. This disables both in-memory caching and durable caching, and no cached data is retained. To run this command, a user must be granted the Gemini Enterprise Agent Platform administrator role, `roles/aiplatform.admin` .
+Run the following curl command to turn off all caching for a Google Cloud project. This disables both in-memory caching and durable caching, and no cached data is retained. To run this command, a user must be granted the Agent Platform Administrator role, `roles/aiplatform.admin` .
 
 ```
 PROJECT_ID=PROJECT_ID
@@ -156,7 +156,7 @@ To keep in-memory caching and turn off only durable caching, see **Turn off dura
 
 #### Enable caching
 
-If you disabled caching for a Google Cloud project and want re-enable it, run the following curl command. To run this command, a user must be granted the Gemini Enterprise Agent Platform administrator role, `roles/aiplatform.admin` .
+If you disabled caching for a Google Cloud project and want re-enable it, run the following curl command. To run this command, a user must be granted the Agent Platform Administrator role, `roles/aiplatform.admin` .
 
 ```
 PROJECT_ID=PROJECT_ID
@@ -185,7 +185,7 @@ $ curl -X PATCH     -H "Authorization: Bearer $(gcloud auth application-default 
 
 #### Turn off durable caching
 
-Run the following curl command to turn off durable caching and keep in-memory caching for a Google Cloud project. To run this command, a user must be granted the Gemini Enterprise Agent Platform administrator role, `roles/aiplatform.admin` .
+Run the following curl command to turn off durable caching and keep in-memory caching for a Google Cloud project. To run this command, a user must be granted the Agent Platform Administrator role, `roles/aiplatform.admin` .
 
 ```
 PROJECT_ID=PROJECT_ID
@@ -217,7 +217,7 @@ curl -X PATCH \
 
 #### Turn on durable caching
 
-If you turned off durable caching for a Google Cloud project and want to turn it back on, run the following curl command. To run this command, a user must be granted the Gemini Enterprise Agent Platform administrator role, `roles/aiplatform.admin` .
+If you turned off durable caching for a Google Cloud project and want to turn it back on, run the following curl command. To run this command, a user must be granted the Agent Platform Administrator role, `roles/aiplatform.admin` .
 
 ```
 PROJECT_ID=PROJECT_ID

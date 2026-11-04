@@ -114,6 +114,14 @@ See [Feature availability](https://docs.cloud.google.com/gemini-enterprise-agent
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
 | [`bidiInvokeReasoningEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/reasoningEngines.ws.v1beta1.projects.locations.reasoningEngines.revisions.runtimeRevisions.api/bidiInvokeReasoningEngine) | `POST /reasoningEngines/ws/v1beta1/{name}/api/**` Invokes reasoning engine with arbitrary WebSocket requests for bidi streaming |
 
+## REST Resource: [v1.interactions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/interactions)
+
+| Methods                                                                                                                |                                                                                                                |
+|------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
+| [`cancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/interactions/cancel)       | `POST /v1/{name}:cancel` Cancels an interaction.                                                               |
+| [`getPoll`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/interactions/getPoll)     | `GET /v1/{name}:poll` Fully typed proto, unary version of GetInteraction that returns Interaction proto.       |
+| [`getStream`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/interactions/getStream) | `GET /v1/{name}:stream` Fully typed proto, streaming version of GetInteraction that returns Interaction proto. |
+
 ## REST Resource: [v1.media](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/media)
 
 | Methods                                                                                                   |                                                                                                                |
@@ -410,6 +418,21 @@ See [Feature availability](https://docs.cloud.google.com/gemini-enterprise-agent
 | [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexes/patch)                       | `PATCH /v1/{index.name}` Updates an Index.                               |
 | [`removeDatapoints`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexes/removeDatapoints) | `POST /v1/{index}:removeDatapoints` Remove Datapoints from an Index.     |
 | [`upsertDatapoints`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexes/upsertDatapoints) | `POST /v1/{index}:upsertDatapoints` Add/update Datapoints into an Index. |
+
+## REST Resource: [v1.projects.locations.interactions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.interactions)
+
+| Methods                                                                                                                                                  |                                                                                                              |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| [`createStream`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.interactions/createStream)          | `POST /v1/projects/*/locations/*/interactions:createStream` Creates an interaction and streams the response. |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.interactions/delete)` `**`(deprecated)`** | `DELETE /v1/{name}` Deletes an interaction.                                                                  |
+
+## REST Resource: [v1.projects.locations.interactionsHttp](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.interactionsHttp)
+
+| Methods                                                                                                                                 |                                                                                                     |
+|-----------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| [`cancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.interactionsHttp/cancel) | `POST /v1/{name}/cancel` Cancels an interaction by id.                                              |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.interactionsHttp/create) | `POST /v1/{parent}/interactionsHttp` Creates a new interaction.                                     |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.interactionsHttp/get)       | `GET /v1/{name}` Retrieves the full details of a single interaction based on its `Interaction.id` . |
 
 ## REST Resource: [v1.projects.locations.metadataStores](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores)
 

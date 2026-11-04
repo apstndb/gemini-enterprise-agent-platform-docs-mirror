@@ -37,7 +37,7 @@ You can use a custom organization policy to allow or deny specific operations on
 To get the permissions that you need to manage organization policies, ask your administrator to grant you the following IAM roles:
 
 - To manage organization policies: [Organization Policy Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/orgpolicy#orgpolicy.policyAdmin) ( `roles/orgpolicy.policyAdmin` ) on the organization resource
-- Create or update a metadata store: [Agent Platform Admin](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.admin) ( `roles/aiplatform.admin` ) or [Agent Platform User](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.user) ( `roles/aiplatform.user` ) on the project resource
+- Create or update a metadata store: [Agent Platform Administrator](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.admin) ( `roles/aiplatform.admin` ) or [Agent Platform User](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.user) ( `roles/aiplatform.user` ) on the project resource
 
 For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 

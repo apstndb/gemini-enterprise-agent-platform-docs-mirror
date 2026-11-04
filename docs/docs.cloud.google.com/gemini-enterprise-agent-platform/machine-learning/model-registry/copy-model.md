@@ -36,7 +36,7 @@ To copy a model across projects, the source model owner needs to first grant the
 2.  Navigate to the IAM & Admin page.
 3.  On the IAM permissions page, click **Grant access** and a pop up window appears to let you add a new principal to the source project.
 4.  Get the per-product, per-project service account (P4SA) `service-{project_number}@gcp-sa-aiplatform.iam.gserviceaccount.com` of the destination project.
-5.  Add the P4SA of the destination project as a new principal to the source project and assign the Gemini Enterprise Agent Platform Service Agent role to it.
+5.  Add the P4SA of the destination project as a new principal to the source project and assign the Vertex AI Service Agent role to it.
 6.  After clicking **Save** , the destination project P4SA will have permissions to export models from the source project.
 
 > **Note:** Granting the model export permission to the destination project P4SA means that anyone with model upload access on the other project can trigger the model export process.
@@ -47,7 +47,7 @@ To copy a model across projects, the source model owner needs to first grant the
 2.  Select your source project from the Google Cloud console.
 3.  Navigate to the IAM & Admin page.
 4.  On the IAM permissions page, click **Grant access** and a pop up window appears to let you add a new principal to the source project.
-5.  Add the custom service account as a new principal to the source project and assign the `Gemini Enterprise Agent Platform User` role to it or any custom role with the `aiplatform.models.export` permission.
+5.  Add the custom service account as a new principal to the source project and assign the Agent Platform User role to it or any custom role with the `aiplatform.models.export` permission.
 6.  After clicking **Save** , the custom service account will have permissions to export models from the source project.
 7.  Get the per-product, per-project service account (P4SA) `service-{project_number}@gcp-sa-aiplatform.iam.gserviceaccount.com` of the destination project.
 8.  Grant the P4SA of the destination project with the `Service Account Token Creator` role on the custom service account.

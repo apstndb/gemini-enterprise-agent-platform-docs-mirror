@@ -1387,10 +1387,10 @@ The model cards for applicable computer vision models support creating a vision 
 
 3.  Click **Build app** .
 
-    You're taken to Vertex AI Vision.
+    You're taken to Gemini Enterprise Agent Platform Vision.
 
 4.  In **Application name** , enter a name for your application and click **Continue** .
 
 5.  Select a billing plan and click **Create** .
 
-    You're taken to Vertex AI Vision Studio where you can continue creating your computer vision application.
+    You're taken to Agent Platform Vision Studio where you can continue creating your computer vision application.

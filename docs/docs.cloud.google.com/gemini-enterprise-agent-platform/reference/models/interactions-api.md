@@ -6,15 +6,11 @@ description: REST reference documentation for the Interactions API in Gemini Ent
 data_source: docs.cloud.google.com
 ---
 
-> **Preview**
->
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) , and the [Additional Terms for Generative AI Preview Products](https://cloud.google.com/trustedtester/aitos) . You can process personal data for this feature as outlined in the [Cloud Data Processing Addendum](https://docs.cloud.google.com/terms/data-processing-addendum) , subject to the obligations and restrictions described in the agreement under which you access Google Cloud. Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-
 The Interactions API lets developers build generative AI applications using generative models and agents hosted on Gemini Enterprise Agent Platform. For conceptual information, supported models and tools, and billing and compliance details, see the [Interactions API overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) . For SDK setup instructions and code samples for common interaction workflows, see the [Interactions API developer guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/developer-guide) .
 
 ## Creating an interaction
 
-post https://aiplatform.googleapis.com/v1beta1/projects/{project}/locations/global/interactions
+post https://aiplatform.googleapis.com/v1/projects/{project}/locations/global/interactions
 
 Creates a new interaction.
 
@@ -289,7 +285,6 @@ Returns an [Interaction](https://docs.cloud.google.com/gemini-enterprise-agent-p
 {
   "id": "u-sAauOtHceE6dgPnsup0Qo",
   "status": "completed",
-  "role": "model",
   "created": "2026-05-10T20:34:13Z",
   "updated": "2026-05-10T20:34:13Z",
   "steps": [
@@ -335,7 +330,6 @@ Returns an [Interaction](https://docs.cloud.google.com/gemini-enterprise-agent-p
 {
   "id": "v1_ChdPU0F4YWFtNkFwS2kxZThQZ05lbXdROBIXT1NBeGFhbTZBcEtpMWU4UGdOZW13UTg",
   "status": "completed",
-  "role": "model",
   "created": "2026-05-10T20:35:12Z",
   "updated": "2026-05-10T20:35:12Z",
   "steps": [
@@ -433,7 +427,7 @@ Returns an [Interaction](https://docs.cloud.google.com/gemini-enterprise-agent-p
 
 ## Listing created interactions
 
-get https://aiplatform.googleapis.com/v1beta1/projects/{project}/locations/global/interactions
+get https://aiplatform.googleapis.com/v1/projects/{project}/locations/global/interactions
 
 Retrieves a list of interactions.
 
@@ -461,7 +455,7 @@ Returns a response containing a list of [InteractionMetadata](https://docs.cloud
 ```
 curl -X GET \
   -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-  "https://aiplatform.googleapis.com/v1beta1/projects/$PROJECT_ID/locations/global/interactions?page_size=10&page_token=page-token-67890"
+  "https://aiplatform.googleapis.com/v1/projects/$PROJECT_ID/locations/global/interactions?page_size=10&page_token=page-token-67890"
 ```
 
 ### Response
@@ -479,7 +473,7 @@ curl -X GET \
 
 ## Retrieving an interaction
 
-get https://aiplatform.googleapis.com/v1beta1/projects/{project}/locations/global/interactions/{id}
+get https://aiplatform.googleapis.com/v1/projects/{project}/locations/global/interactions/{id}
 
 Retrieves the full details of a single interaction based on its \`Interaction.id\`.
 
@@ -576,10 +570,8 @@ data: {
       ],
       "total_thought_tokens": 230
     },
-    "role": "model",
     "created": "2026-05-10T22:14:16Z",
     "updated": "2026-05-10T22:14:16Z",
-    "event_id": "MTc3ODQ1MTI1NjI3MDc3NA==",
     "object": "interaction"
   },
   "event_type": "interaction.completed"
@@ -591,7 +583,7 @@ data: [DONE]
 
 ## Canceling an interaction
 
-post https://aiplatform.googleapis.com/v1beta1/projects/{project}/locations/global/interactions/{id}/cancel
+post https://aiplatform.googleapis.com/v1/projects/{project}/locations/global/interactions/{id}/cancel
 
 Cancels an interaction by ID. This only applies to background interactions that are still in progress. Users will still be charged for partially generated tokens for cancelled interactions.
 
@@ -616,17 +608,16 @@ Returns an [Interaction](https://docs.cloud.google.com/gemini-enterprise-agent-p
 {
   "id": "v1_ChdXS0l4YWZXTk9xbk0xZThQczhEcmlROBIXV0tJeGFmV05PcW5NMWU4UHM4RHJpUTg",
   "status": "cancelled",
-  "role": "model",
   "created": "2026-08-17T18:00:00Z",
   "updated": "2026-08-17T18:00:02Z",
   "object": "interaction",
-  "model": "gemini-3.7-flash"
+  "model": "gemini-3.8-flash"
 }
 ```
 
 ## Deleting an interaction
 
-delete https://aiplatform.googleapis.com/v1beta1/projects/{project}/locations/global/interactions/{id}
+delete https://aiplatform.googleapis.com/v1/projects/{project}/locations/global/interactions/{id}
 
 Deletes an interaction.
 
@@ -648,7 +639,7 @@ Returns an empty response on success.
 ```
 curl -X DELETE \
   -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-  "https://aiplatform.googleapis.com/v1beta1/projects/$PROJECT_ID/locations/global/interactions/v1_ChdPU0F4YWFtNkFwS2kxZThQZ05lbXdROBIXT1NBeGFhbTZBcEtpMWU4UGdOZW13UTg"
+  "https://aiplatform.googleapis.com/v1/projects/$PROJECT_ID/locations/global/interactions/v1_ChdPU0F4YWFtNkFwS2kxZThQZ05lbXdROBIXT1NBeGFhbTZBcEtpMWU4UGdOZW13UTg"
 ```
 
 ## Resources
@@ -781,10 +772,6 @@ Required. Output only. The time at which the response was created in ISO 8601 fo
 updated string (optional)
 
 Required. Output only. The time at which the response was last updated in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ).
-
-role string (optional)
-
-Output only. The role of the interaction.
 
 system_instruction string (optional)
 

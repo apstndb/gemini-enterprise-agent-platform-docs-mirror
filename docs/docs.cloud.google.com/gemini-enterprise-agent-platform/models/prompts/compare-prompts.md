@@ -73,7 +73,7 @@ To compare your saved prompt with a new prompt, follow these steps:
 
 1.  Select one of the following options:
     - **Grounding: Google** : Grounding with Google Search or Google Maps.
-    - **Grounding: Your data** : Grounding with RAG Engine on Gemini Enterprise Agent Platform, Agent Search or Elasticsearch.
+    - **Grounding: Your data** : Grounding with RAG Engine on Gemini Enterprise Agent Platform, Agent Search on Gemini Enterprise Agent Platform or Elasticsearch.
       1.  If you select **Grounding: Your data** , select the data source that you want to use.
 
 <!-- -->

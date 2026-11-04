@@ -158,7 +158,7 @@ The following quotas apply to the number of resources or in-flight operations a 
 
 ## Auto-embedding
 
-Auto-embedding uses the Gemini API in Vertex AI ( `aiplatform.googleapis.com` ). Each API request counts against `search_requests` or `data_object_writes` *and* the embedding call counts against prediction quotas. Ensure both APIs have headroom.
+Auto-embedding uses the Gemini API in Gemini Enterprise Agent Platform ( `aiplatform.googleapis.com` ). Each API request counts against `search_requests` or `data_object_writes` *and* the embedding call counts against prediction quotas. Ensure both APIs have headroom.
 
 ## Usage Examples
 

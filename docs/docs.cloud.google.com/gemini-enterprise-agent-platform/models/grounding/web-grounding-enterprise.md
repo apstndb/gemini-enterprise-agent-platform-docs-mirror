@@ -220,5 +220,5 @@ When you use the API to ground a response to search, the model response provides
 
 ## What's next
 
-- To learn more about how to ground Gemini models to your data, see [Grounding with Agent Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-vertex-ai-search) .
+- To learn more about how to ground Gemini models to your data, see [Grounding with Agent Search on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-vertex-ai-search) .
 - To learn more about responsible AI best practices and Gemini Enterprise Agent Platform's safety filters, see [Responsible AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai) .

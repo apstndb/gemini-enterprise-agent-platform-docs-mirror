@@ -45,7 +45,7 @@ You can also set up ingress and egress control without a VPC Service Controls pe
 Add the Agent Platform API to the list of restricted services in your VPC Service Controls perimeter. This protects Agent Platform (including the sandbox control plane) and blocks public internet access to the API unless the caller is on an [access level](https://docs.cloud.google.com/vpc-service-controls/docs/use-access-levels) .
 
 1.  Open **VPC Service Controls** in the Google Cloud console and edit your perimeter.
-2.  Under **Restricted services** , add **Vertex AI API** ( `aiplatform.googleapis.com` ).
+2.  Under **Restricted services** , add **Agent Platform API** ( `aiplatform.googleapis.com` ).
 3.  Ensure dependencies your sandbox uses are in the same perimeter—typically **Cloud Storage** ( `storage.googleapis.com` ) and **Artifact Registry** ( `artifactregistry.googleapis.com` , for custom container images). Snapshot storage is handled for you automatically.
 4.  To restore access for trusted users outside the perimeter (for example, your corporate network), attach an access level to the perimeter.
 

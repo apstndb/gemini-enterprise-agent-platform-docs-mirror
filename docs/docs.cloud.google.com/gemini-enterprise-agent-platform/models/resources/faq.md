@@ -80,8 +80,8 @@ See [Roles and permissions](https://docs.cloud.google.com/gemini-enterprise-agen
 
 If you still run into issues placing an order, you likely need to add one of the following roles:
 
-- Gemini Enterprise Agent Platform Administrator
-- Gemini Enterprise Agent Platform Platform Provisioned Throughput Admin
+- Agent Platform Administrator
+- Vertex AI Platform Provisioned Throughput Admin
 
 ### What is a GSU?
 

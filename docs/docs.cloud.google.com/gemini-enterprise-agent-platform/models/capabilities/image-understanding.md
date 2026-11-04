@@ -1608,6 +1608,8 @@ For models earlier than Gemini 3, each image is processed using Pan and Scan and
 
 This code sample demonstrates how to adjust `media_resolution` :
 
+#### GenerateContent API
+
 ```
 from google import genai
 from google.genai import types
@@ -1626,7 +1628,7 @@ response = client.models.generate_content(
               level=types.PartMediaResolutionLevel.MEDIA_RESOLUTION_HIGH
           ),
       ),
-      Part(
+      types.Part(
           file_data=types.FileData(
               file_uri="gs://cloud-samples-data/generative-ai/video/behind_the_scenes_pixel.mp4",
               mime_type="video/mp4",
@@ -1639,6 +1641,41 @@ response = client.models.generate_content(
   ],
 )
 print(response.text)
+```
+
+#### Interactions API
+
+```
+from google import genai
+
+client = genai.Client(
+    enterprise=True,
+    project="PROJECT_ID",
+    location="global",
+)
+
+interaction = client.interactions.create(
+    model="gemini-3.8-flash",
+    input=[
+        {
+            "type": "image",
+            "uri": "gs://cloud-samples-data/generative-ai/image/a-man-and-a-dog.png",
+            "mime_type": "image/png",
+            "resolution": "high",  # Options: "low", "medium", "high", "ultra_high"
+        },
+        {
+            "type": "video",
+            "uri": "gs://cloud-samples-data/generative-ai/video/behind_the_scenes_pixel.mp4",
+            "mime_type": "video/mp4",
+            "resolution": "low",  # Options: "low", "medium", "high", "ultra_high"
+        },
+        {
+            "type": "text",
+            "text": "When does the image appear in the video? What is the context?",
+        },
+    ],
+)
+print(interaction.output_text)
 ```
 
 ## Best practices

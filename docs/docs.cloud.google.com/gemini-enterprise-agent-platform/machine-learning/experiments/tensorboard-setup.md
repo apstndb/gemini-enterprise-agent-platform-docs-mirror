@@ -16,7 +16,7 @@ The following are required to setup Vertex AI TensorBoard:
 
 The Vertex AI TensorBoard integration with custom training requires [attaching a service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account) .
 
-> **Note:** If you already have a service account that you use for custom training, you can skip this step. Make sure the service account has the [Storage Admin role](https://docs.cloud.google.com/storage/docs/access-control/iam-roles) ( `roles/storage.admin` ) and [Gemini Enterprise Agent Platform User role](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#predefined-roles) . ( `roles/aiplatform.user` ) associated with it.
+> **Note:** If you already have a service account that you use for custom training, you can skip this step. Make sure the service account has the [Storage Admin role](https://docs.cloud.google.com/storage/docs/access-control/iam-roles) ( `roles/storage.admin` ) and [Agent Platform User role](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#predefined-roles) ( `roles/aiplatform.user` ) associated with it.
 
 1.  Create a service account:
 

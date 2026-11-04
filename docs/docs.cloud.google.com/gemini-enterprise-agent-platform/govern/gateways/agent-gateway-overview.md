@@ -179,6 +179,12 @@ Explore the ecosystem of identity and AI security providers integrating with Age
 
 Guide
 
+### [Manage Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/manage-agent-gateways)
+
+Learn how to view, update, disassociate, and delete Agent Gateway resources.
+
+Guide
+
 ### [Set up an Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway)
 
 Learn how to set up an Agent Gateway.

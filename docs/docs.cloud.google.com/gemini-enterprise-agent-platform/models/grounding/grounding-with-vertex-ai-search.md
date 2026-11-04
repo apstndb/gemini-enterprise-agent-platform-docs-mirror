@@ -136,7 +136,7 @@ If you don't know your data store ID, follow these steps:
 
 ### Console
 
-To ground your model output to AI Applications by using Agent Studio in the Google Cloud console, follow these steps:
+To ground your model output to Agent Search by using Agent Studio in the Google Cloud console, follow these steps:
 
 1.  In the Google Cloud console, go to the **Agent Studio** page.
 2.  To turn on grounding, follow these steps:
@@ -184,7 +184,7 @@ To ground your model output to AI Applications by using Agent Studio in the Goog
     </table>
 
     1.  Click **Save** .
-3.  Enter your prompt in the text box, and click **Submit** . Your prompt responses are grounded in AI Applications.
+3.  Enter your prompt in the field, and click **Submit** . Your prompt responses are grounded in Agent Search.
 
 ### Python
 

@@ -1,0 +1,28 @@
+---
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Error
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Error
+title: Error
+description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+data_source: docs.cloud.google.com
+---
+
+Error message from an interaction.
+
+Fields
+
+`code` `string`
+
+A URI that identifies the error type.
+
+`message` `string`
+
+A human-readable error message.
+
+**JSON representation**
+
+```
+{
+  "code": string,
+  "message": string
+}
+```

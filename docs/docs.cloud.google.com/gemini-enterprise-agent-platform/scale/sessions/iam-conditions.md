@@ -32,17 +32,17 @@ To set up conditional Identity and Access Management policies for sessions and s
 
 - **Grant IAM roles** : Ensure you have the required roles that contain the necessary permissions you need to perform the tasks in this document.
 
-  To get the permissions that you need to apply IAM Conditions to Vertex AI Agent Engine Session resources , ask your administrator to grant you the following IAM roles:
+  To get the permissions that you need to apply IAM Conditions to Agent Platform Sessions resources , ask your administrator to grant you the following IAM roles:
 
   - For projects: Project IAM Admin (\`roles/resourcemanager.projectIamAdmin\`)
 
   For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 
-  These predefined roles contain the permissions required to apply IAM Conditions to Vertex AI Agent Engine Session resources . To see the exact permissions that are required, expand the **Required permissions** section:
+  These predefined roles contain the permissions required to apply IAM Conditions to Agent Platform Sessions resources . To see the exact permissions that are required, expand the **Required permissions** section:
 
   #### Required permissions
 
-  The following permissions are required to apply IAM Conditions to Vertex AI Agent Engine Session resources :
+  The following permissions are required to apply IAM Conditions to Agent Platform Sessions resources :
 
   - Set conditional IAM access at the project level: \`resourcemanager.projects.setIamPolicy\`
 

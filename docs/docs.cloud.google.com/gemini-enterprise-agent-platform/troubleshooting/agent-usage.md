@@ -52,7 +52,7 @@ If you're in a notebook instance (for example, Jupyter or Colab or Workbench), y
 
 Your query might fail if you don't have the required permissions.
 
-### Vertex AI extensions permissions
+### Agent Platform extensions permissions
 
 **Issue**
 
@@ -74,7 +74,7 @@ metadata {
 ]
 ```
 
-Your agent doesn't have the Vertex AI extensions permissions. To use Vertex AI extensions with Agent Runtime, grant the Vertex AI User ( `roles/aiplatform.user` ) role to your agent identity service account. For more information, see [Set up the identity and permissions for your agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#identity-and-permissions) .
+Your agent doesn't have the Agent Platform extensions permissions. To use Agent Platform extensions with Agent Runtime, grant the Agent Platform User ( `roles/aiplatform.user` ) role to your agent identity service account. For more information, see [Set up the identity and permissions for your agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#identity-and-permissions) .
 
 ### LLM permissions
 

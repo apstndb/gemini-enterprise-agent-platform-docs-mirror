@@ -30,7 +30,7 @@ You can use Lyria to generate novel music tracks from prompts. Supported interfa
 
 ### Console
 
-1.  In the Google Cloud console, go to the **Vertex AI Studio \> Generate Media** \> **Generate media** page.
+1.  In the Google Cloud console, go to the **Agent Studio \> Generate Media** \> **Generate media** page.
 
 2.  Click **Music** .
 
@@ -50,7 +50,7 @@ You can use Lyria to generate novel music tracks from prompts. Supported interfa
 
 Before using any of the request data, make the following replacements:
 
-- `PROJECT_ID` : A string representing your Google Cloud project ID.
+- `PROJECT_ID` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
 
 - `MODEL_ID` : A string representing the model ID to use. The following are accepted values:
 
@@ -59,14 +59,14 @@ Before using any of the request data, make the following replacements:
 
 - `TEXT_PROMPT` : The text prompt used to guide music generation.
 
-- `IMAGE_URI` : optional: the Cloud Storage uri where your input image is located.
+- `IMAGE_URI` : Optional: The Cloud Storage URI where your input image is located.
 
-- `IMAGE_DATABYTES` : Optional: A Base64-encoded input image.
+- `IMAGE_DATABYTES` : Optional: A base64-encoded input image.
 
 HTTP method and URL:
 
 ```
-POST https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions
+POST https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions
 ```
 
 Request JSON body:
@@ -76,19 +76,24 @@ Request JSON body:
   "model": "MODEL_ID",
   "input": [
     {
-      "type": "text",
-      "text": "TEXT_PROMPT"
-    },
-    {
-      "type": "image",
-      "mime_type": "image/jpeg",
-      "uri": "IMAGE_URI"
-    },
-    {
-      "type": "image",
-      "mime_type": "image/png",
-      "data": "IMAGE_DATABYTES"
-    },
+      "type": "user_input",
+      "content": [
+        {
+          "type": "text",
+          "text": "TEXT_PROMPT"
+        },
+        {
+          "type": "image",
+          "mime_type": "image/jpeg",
+          "uri": "IMAGE_URI"
+        },
+        {
+          "type": "image",
+          "mime_type": "image/png",
+          "data": "IMAGE_DATABYTES"
+        }
+      ]
+    }
   ]
 }
 ```
@@ -106,7 +111,7 @@ curl -X POST \
      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
      -H "Content-Type: application/json; charset=utf-8" \
      -d @request.json \
-     "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions"
+     "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions"
 ```
 
 #### PowerShell
@@ -124,33 +129,47 @@ Invoke-WebRequest `
     -Headers $headers `
     -ContentType: "application/json; charset=utf-8" `
     -InFile request.json `
-    -Uri "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions" | Select-Object -Expand Content
+    -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions" | Select-Object -Expand Content
 ```
 
-The request returns the operation name, status, and result.
+The request returns the interaction ID, status, and generated steps.
 
 ```
 {
+  "id": "INTERACTION_ID",
   "status": "completed",
-  "outputs": [
-    {
-      "text": "LYRICS",
-      "type": "text"
-    },
-    {
-      "text": "DESCRIPTION",
-      "type": "text"
-    },
-    {
-      "mime_type": "audio/mpeg",
-      "data": "GENERATED_SONG_DATABYTES",
-      "type": "audio"
-    },
-    {}
-  ],
-  "role": "model",
   "created": "CREATED_TIME",
   "updated": "UPDATE_TIME",
+  "steps": [
+    {
+      "type": "model_output",
+      "content": [
+        {
+          "type": "text",
+          "text": "LYRICS"
+        }
+      ]
+    },
+    {
+      "type": "model_output",
+      "content": [
+        {
+          "type": "text",
+          "text": "DESCRIPTION"
+        }
+      ]
+    },
+    {
+      "type": "model_output",
+      "content": [
+        {
+          "type": "audio",
+          "mime_type": "audio/mpeg",
+          "data": "GENERATED_SONG_DATABYTES"
+        }
+      ]
+    }
+  ],
   "object": "interaction",
   "model": "lyria-3-pro-preview"
 }

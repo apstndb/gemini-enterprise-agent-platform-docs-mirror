@@ -40,7 +40,7 @@ Complete the steps in [Before you begin](https://docs.cloud.google.com/gemini-en
 
 Each request to create a replicated voice needs two recordings of the same adult speaker:
 
-- **Reference audio ( `source_audio` )** : 10 to 30 seconds of clean, natural speech from the speaker whose voice you want to replicate. Longer samples generally produce better results.
+- **Reference audio ( `source_audio` )** : 60 seconds of clean, natural speech from the speaker whose voice you want to replicate. Longer samples generally produce better results.
 
 - **Consent audio ( `consent_audio` )** : A recording of the same speaker reading the consent statement for their language word for word. For the statements, see [Supported languages and consent statements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-replication#consent-statements) . In English, the statement is:
 

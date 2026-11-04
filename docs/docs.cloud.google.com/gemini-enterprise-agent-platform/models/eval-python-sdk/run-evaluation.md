@@ -61,9 +61,9 @@ The [service account](https://docs.cloud.google.com/iam/docs/principals-overview
 
 The permissions associated with the rapid evaluation service agent are:
 
-| Role                                                                             | Permissions                    |
-|----------------------------------------------------------------------------------|--------------------------------|
-| Agent Platform Rapid Eval Service Agent (roles/aiplatform.rapidevalServiceAgent) | `aiplatform.endpoints.predict` |
+| Role                                                                            | Permissions                    |
+|---------------------------------------------------------------------------------|--------------------------------|
+| Vertex AI Rapid Eval Service Agent ( `roles/aiplatform.rapidevalServiceAgent` ) | `aiplatform.endpoints.predict` |
 
 ## Run your evaluation
 

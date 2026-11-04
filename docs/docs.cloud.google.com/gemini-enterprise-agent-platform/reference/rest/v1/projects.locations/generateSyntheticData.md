@@ -164,7 +164,7 @@ Fields
 
 Optional. The name of the specific field, such as "productName" or "reviewText".
 
-`content` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Content)` )`
+`content` `object ( ``Content`` )`
 
 Required. The actual content or value for this field. This can be text, images, or other types of data.
 

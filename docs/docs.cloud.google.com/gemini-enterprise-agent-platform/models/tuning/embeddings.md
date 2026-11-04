@@ -113,7 +113,7 @@ Tuning is executed within your project using the [Gemini Enterprise Agent Platfo
 
 The pipeline executes training code under two service agents. These service agents must be granted specific roles in order to begin training using your project and dataset.
 
-> **Note:** If your dataset and pipeline job are in the same project, these service accounts will have access to your dataset by default. The only preparation necessary is granting the [Compute Engine default service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/embeddings#compute-engine-service-account) (or your custom service account) the `Agent Platform User` role.
+> **Note:** If your dataset and pipeline job are in the same project, these service accounts will have access to your dataset by default. The only preparation necessary is granting the [Compute Engine default service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/embeddings#compute-engine-service-account) (or your custom service account) the Agent Platform User role.
 
 ##### Compute Engine default service account
 
@@ -125,7 +125,7 @@ This service account requires:
 
 - `Storage Object Viewer` access to each dataset file you created in Cloud Storage.
 - `Storage Object User` access to the output Cloud Storage directory of your pipeline, ` PIPELINE_OUTPUT_DIRECTORY ` .
-- `Agent Platform User` access to your project.
+- Agent Platform User access to your project.
 
 Instead of the [Compute Engine default service account](https://docs.cloud.google.com/compute/docs/access/service-accounts#default_service_account) , you can specify a custom service account. For more information, see [Configure a service account with granular permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-project#service-account) .
 

@@ -551,7 +551,7 @@ In this section, you create a VM instance that simulates an on-premises data ser
         --role="roles/aiplatform.user"
     ```
 
-4.  Assign the [Gemini Enterprise Agent Platform Viewer ( `roles/aiplatform.viewer` )](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.viewer) role:
+4.  Assign the [Agent Platform Viewer ( `roles/aiplatform.viewer` )](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.viewer) role:
 
     ```
     gcloud projects add-iam-policy-binding $projectid \

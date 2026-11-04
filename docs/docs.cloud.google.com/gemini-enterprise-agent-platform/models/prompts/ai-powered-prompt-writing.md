@@ -6,15 +6,15 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-This document describes how to use the AI assistant in Vertex AI Studio to help you refine and generate prompts. AI assistant can speed up your prompt writing process.
+This document describes how to use the AI assistant in Agent Studio to help you refine and generate prompts. AI assistant can speed up your prompt writing process.
 
 ## Refine prompts
 
-The AI assistant in Vertex AI Studio can help you refine your prompts based on your targeted results.
+The AI assistant in Agent Studio can help you refine your prompts based on your targeted results.
 
 To refine prompts, do the following:
 
-1.  Open Vertex AI Studio and click **Create prompt** :
+1.  Open Agent Studio and click **Create prompt** :
 
 2.  In the prompt box, add your prompt.
 
@@ -35,11 +35,11 @@ To refine prompts, do the following:
 
 ## Generate prompts
 
-Use the Vertex AI Studio AI prompt assistant to generate your prompts. Generating prompts can help you speed up the prompt-writing process.
+Use the Agent Studio AI prompt assistant to generate your prompts. Generating prompts can help you speed up the prompt-writing process.
 
 To generate prompts, do the following:
 
-1.  Open Vertex AI Studio and click **Create prompt** :
+1.  Open Agent Studio and click **Create prompt** :
 
 2.  In the prompt box, click **Help me write** .
 

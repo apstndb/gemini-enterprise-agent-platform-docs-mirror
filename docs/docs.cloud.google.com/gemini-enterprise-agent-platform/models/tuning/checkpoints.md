@@ -42,7 +42,7 @@ You can create a tuning job that exports checkpoints by using the Google Gen AI 
 
 ### Console
 
-To create a tuning job that exports checkpoints, go to the **Agent Platform Studio** page and select the **Tuning** tab. For more information, see [Tune a model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning) .
+To create a tuning job that exports checkpoints, go to the **Agent Studio** page and select the **Tuning** tab. For more information, see [Tune a model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning) .
 
 ### Google Gen AI SDK
 
@@ -208,7 +208,7 @@ You can view your tuned model in the Gemini Enterprise Agent Platform Model Regi
 
 3.  Click the **Version details** tab to see information about your model version.
 
-    Note that the **Objective** is `Large model` , the **Model type** is `Foundation` , and the **Source** is `Vertex AI Studio tuning` .
+    Note that the **Objective** is `Large model` , the **Model type** is `Foundation` , and the **Source** is `Agent Studio tuning` .
 
 4.  Click the **Deploy & test** tab to see the endpoint where the model is deployed.
 

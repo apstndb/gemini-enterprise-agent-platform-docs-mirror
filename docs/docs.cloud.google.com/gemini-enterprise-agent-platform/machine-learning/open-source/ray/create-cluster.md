@@ -173,7 +173,7 @@ These base images include an installation of Python, Ubuntu, and Ray. They also 
 
 ## Private and public connectivity
 
-By default, Ray on Agent Platform creates a public, secure endpoint for interactive development with the *Ray Client* on Ray clusters on Gemini Enterprise Agent Platform. Use public connectivity for development or ephemeral use cases. This public endpoint is accessible through the internet. Only authorized users who have, at a minimum, [Gemini Enterprise Agent Platform user role permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.user) on the Ray cluster's user project can access the cluster.
+By default, Ray on Agent Platform creates a public, secure endpoint for interactive development with the *Ray Client* on Ray clusters on Gemini Enterprise Agent Platform. Use public connectivity for development or ephemeral use cases. This public endpoint is accessible through the internet. Only authorized users who have, at a minimum, [Agent Platform User role permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.user) on the Ray cluster's user project can access the cluster.
 
 If you require a private connection to your cluster or if you use VPC Service Controls, VPC peering is supported for Ray clusters on Gemini Enterprise Agent Platform. Clusters with a private endpoint are only accessible from a client within a VPC network that is peered with Gemini Enterprise Agent Platform.
 

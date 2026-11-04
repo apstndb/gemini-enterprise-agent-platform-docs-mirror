@@ -30,6 +30,86 @@ Input only. Whether the interaction will be streamed.
 
 Input only. Whether to store the response and request for later retrieval.
 
+`interaction.stepList.steps[].thought.signature` `string ( `[`bytes`](https://developers.google.com/discovery/v1/type-format)` format)`
+
+A signature hash for backend validation.
+
+A base64-encoded string.
+
+`interaction.stepList.steps[].thought.summary[].text.text` `string`
+
+Required. The text content.
+
+`interaction.stepList.steps[].thought.summary[].text.annotations[].urlCitation.url` `string`
+
+The URL.
+
+`interaction.stepList.steps[].thought.summary[].text.annotations[].urlCitation.title` `string`
+
+The title of the URL.
+
+`interaction.stepList.steps[].thought.summary[].text.annotations[].startIndex` `integer`
+
+Start of segment of the response that is attributed to this source.
+
+Index indicates the start of the segment, measured in bytes.
+
+`interaction.stepList.steps[].thought.summary[].text.annotations[].endIndex` `integer`
+
+End of the attributed segment, exclusive.
+
+`interaction.stepList.steps[].thought.summary[].image.mimeTypeString` `string`
+
+Flexible MIME type string of the image, superseding mimeType = 1. Note: Bespoke logic in the GAOS parser/serializer maps this to the "mimeType" JSON key.
+
+`interaction.stepList.steps[].thought.summary[].image.resolution` `enum ( `[`MediaResolution`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/MediaResolution)` )`
+
+The resolution of the media.
+
+`interaction.stepList.steps[].thought.summary[].audio.mimeTypeString` `string`
+
+Flexible MIME type string of the audio, superseding mimeType = 1. Note: Bespoke logic in the GAOS parser/serializer maps this to the "mimeType" JSON key.
+
+`interaction.stepList.steps[].thought.summary[].audio.channels` `integer`
+
+The number of audio channels.
+
+`interaction.stepList.steps[].thought.summary[].audio.sampleRate` `integer`
+
+The sample rate of the audio.
+
+`interaction.stepList.steps[].thought.summary[].document.mimeTypeString` `string`
+
+Flexible MIME type string of the document, superseding mimeType = 1. Note: Bespoke logic in the GAOS parser/serializer maps this to the "mimeType" JSON key.
+
+`interaction.stepList.steps[].thought.summary[].video.mimeTypeString` `string`
+
+Flexible MIME type string of the video, superseding mimeType = 1. Note: Bespoke logic in the GAOS parser/serializer maps this to the "mimeType" JSON key.
+
+`interaction.stepList.steps[].thought.summary[].video.resolution` `enum ( `[`MediaResolution`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/MediaResolution)` )`
+
+The resolution of the media.
+
+`interaction.stepList.steps[].thought.summary[].video.name` `string`
+
+A user-defined name for this content block. Can be referenced by the model in the final response.
+
+`interaction.stepList.steps[].toolCall.functionCall.name` `string`
+
+Required. The name of the tool to call.
+
+`interaction.stepList.steps[].toolCall.functionCall.arguments.fields[].name` `string`
+
+`interaction.stepList.steps[].toolCall.id` `string`
+
+Required. A unique id for this specific tool call.
+
+`interaction.stepList.steps[].toolCall.signature` `string ( `[`bytes`](https://developers.google.com/discovery/v1/type-format)` format)`
+
+A signature hash for backend validation.
+
+A base64-encoded string.
+
 `interaction.modelInteraction.model` `string`
 
 The name of the `Model` used for generating the completion.
@@ -163,6 +243,158 @@ Input only. The steps for the interaction.
 `interaction.content` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Content)` )`
 
 The content for the interaction.
+
+End of mutually exclusive fields.
+
+`type` `Union type`
+
+The type of annotation. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+
+`interaction.stepList.steps[].thought.summary[].text.annotations[].urlCitation` `object ( `[`UrlCitation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Annotation#UrlCitation)` )`
+
+NOTE: We use these instead of the Citation message for historical reasons. A URL citation annotation.
+
+`interaction.stepList.steps[].thought.summary[].text.annotations[].fileCitation` `object ( `[`FileCitation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Annotation#FileCitation)` )`
+
+A file citation annotation.
+
+`interaction.stepList.steps[].thought.summary[].text.annotations[].placeCitation` `object ( `[`PlaceCitation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Annotation#PlaceCitation)` )`
+
+A place citation annotation.
+
+`interaction.stepList.steps[].thought.summary[].text.annotations[].wordInfo` `object ( `[`WordInfo`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Annotation#WordInfo)` )`
+
+word-level ASR annotation with timing and speaker info.
+
+End of mutually exclusive fields.
+
+`data_or_uri` `Union type`
+
+The image content. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+
+`interaction.stepList.steps[].thought.summary[].image.data` `string ( `[`bytes`](https://developers.google.com/discovery/v1/type-format)` format)`
+
+The image content.
+
+A base64-encoded string.
+
+`interaction.stepList.steps[].thought.summary[].image.uri` `string`
+
+The URI of the image.
+
+End of mutually exclusive fields.
+
+`data_or_uri` `Union type`
+
+The audio content. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+
+`interaction.stepList.steps[].thought.summary[].audio.data` `string ( `[`bytes`](https://developers.google.com/discovery/v1/type-format)` format)`
+
+The audio content.
+
+A base64-encoded string.
+
+`interaction.stepList.steps[].thought.summary[].audio.uri` `string`
+
+The URI of the audio.
+
+End of mutually exclusive fields.
+
+`data_or_uri` `Union type`
+
+The document content. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+
+`interaction.stepList.steps[].thought.summary[].document.data` `string ( `[`bytes`](https://developers.google.com/discovery/v1/type-format)` format)`
+
+The document content.
+
+A base64-encoded string.
+
+`interaction.stepList.steps[].thought.summary[].document.uri` `string`
+
+The URI of the document.
+
+End of mutually exclusive fields.
+
+`data_or_uri` `Union type`
+
+The video content. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+
+`interaction.stepList.steps[].thought.summary[].video.data` `string ( `[`bytes`](https://developers.google.com/discovery/v1/type-format)` format)`
+
+The video content.
+
+A base64-encoded string.
+
+`interaction.stepList.steps[].thought.summary[].video.uri` `string`
+
+The URI of the video.
+
+End of mutually exclusive fields.
+
+`processing` `Union type`
+
+How the model processes this video for understanding. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+
+`interaction.stepList.steps[].thought.summary[].video.processingType` `enum ( `[`Processing`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Processing)` )`
+
+`interaction.stepList.steps[].thought.summary[].video.processingConfig` `object ( `[`MediaProcessing`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/MediaProcessing)` )`
+
+End of mutually exclusive fields.
+
+`kind` `Union type`
+
+The kind of value. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+
+`interaction.stepList.steps[].toolCall.functionCall.arguments.fields[].value.nullValue` `null`
+
+Represents a null value.
+
+`interaction.stepList.steps[].toolCall.functionCall.arguments.fields[].value.numberValue` `number`
+
+Represents a double value.
+
+`interaction.stepList.steps[].toolCall.functionCall.arguments.fields[].value.stringValue` `string`
+
+Represents a string value.
+
+`interaction.stepList.steps[].toolCall.functionCall.arguments.fields[].value.boolValue` `boolean`
+
+Represents a boolean value.
+
+`interaction.stepList.steps[].toolCall.functionCall.arguments.fields[].value.structValue` `object ( `[`Struct`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Struct)` )`
+
+Represents a structured value.
+
+`interaction.stepList.steps[].toolCall.functionCall.arguments.fields[].value.listValue` `object ( `[`ListValue`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Value#ListValue)` )`
+
+Represents a repeated `value` .
+
+`interaction.stepList.steps[].toolCall.functionCall.arguments.fields[].value.contentValue` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Content)` )`
+
+Represents rich content (text, image, etc.).
+
+End of mutually exclusive fields.
+
+`type` `Union type`
+
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+
+`interaction.stepList.steps[].toolCall.functionCall` `object ( `[`FunctionCallStep`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Step#FunctionCallStep)` )`
+
+`interaction.stepList.steps[].toolCall.codeExecutionCall` `object ( `[`CodeExecutionCallStep`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Step#CodeExecutionCallStep)` )`
+
+`interaction.stepList.steps[].toolCall.urlContextCall` `object ( `[`UrlContextCallStep`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Step#UrlContextCallStep)` )`
+
+`interaction.stepList.steps[].toolCall.mcpServerToolCall` `object ( `[`McpServerToolCallStep`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Step#McpServerToolCallStep)` )`
+
+`interaction.stepList.steps[].toolCall.googleSearchCall` `object ( `[`GoogleSearchCallStep`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Step#GoogleSearchCallStep)` )`
+
+`interaction.stepList.steps[].toolCall.fileSearchCall` `object ( `[`FileSearchCallStep`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Step#FileSearchCallStep)` )`
+
+`interaction.stepList.steps[].toolCall.googleMapsCall` `object ( `[`GoogleMapsCallStep`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Step#GoogleMapsCallStep)` )`
+
+`interaction.stepList.steps[].toolCall.retrievalCall` `object ( `[`RetrievalCallStep`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Step#RetrievalCallStep)` )`
 
 End of mutually exclusive fields.
 

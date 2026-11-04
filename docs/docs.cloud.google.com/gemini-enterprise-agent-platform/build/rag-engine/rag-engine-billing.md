@@ -80,7 +80,7 @@ This table explains how billing works when you use the RAG components.
 <td><p>The following ranking tools are supported post retrieval:</p>
 <ul>
 <li><strong>LLM Reranker</strong> : RAG Engine uses the LLM model that you specified to rerank the retrieval results, and you will see and pay LLM model costs directly from your project.</li>
-<li><strong>Agent Search ranking API</strong> : RAG Engine uses the Agent Search ranking API to rerank the retrieval results, and you will see and pay for the <a href="https://docs.cloud.google.com/generative-ai-app-builder/pricing#ranking_api_pricing">Ranking API</a> directly from your project.</li>
+<li><strong>Agent Search on Gemini Enterprise Agent Platform ranking API</strong> : RAG Engine uses the Agent Search ranking API to rerank the retrieval results, and you will see and pay for the <a href="https://docs.cloud.google.com/generative-ai-app-builder/pricing#ranking_api_pricing">Ranking API</a> directly from your project.</li>
 </ul></td>
 </tr>
 </tbody>

@@ -107,7 +107,7 @@ You need to add access permissions to the default service account for using the 
 
 1.  Go to the IAM page in the Google Cloud console.
 2.  Look for the principal for default compute service account. It should look like: `compute@developer.gserviceaccount.com`
-3.  Click the edit button and grant the default compute service account with the following roles: Gemini Enterprise Agent Platform User and Storage Admin and Service Usage Admin.
+3.  Click the edit button and grant the default compute service account with the following roles: Agent Platform User and Storage Admin and Service Usage Admin.
 
 ### Enable APIs
 

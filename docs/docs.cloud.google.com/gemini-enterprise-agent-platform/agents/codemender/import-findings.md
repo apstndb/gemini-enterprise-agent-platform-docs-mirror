@@ -18,13 +18,15 @@ CodeMender parses external security reports and registers findings in its local 
 
 ### Import a JSON findings file
 
-To import findings from a JSON file, use the `--file` (or `-f` ) flag. The JSON file must conform to the following schema:
+To import findings from a JSON file, use the `--file` (or `-f` ) flag. The JSON file contains an array of findings, such as the following:
 
 ```
 [
   {
     "file_path": "src/auth/session_manager.py",
-    "line": 42,
+    "start_line": 42,
+    "end_line": 47,
+    "snippet": "cursor.execute(\"SELECT * FROM users WHERE id = \" + user_id)",
     "title": "SQL Injection",
     "message": "Raw user input concatenated in SQL query",
     "severity": "HIGH",
@@ -32,6 +34,16 @@ To import findings from a JSON file, use the `--file` (or `-f` ) flag. The JSON 
   }
 ]
 ```
+
+Each finding has the following fields:
+
+- `file_path` (required): the path to the affected file.
+- `start_line` and `end_line` : the first and last lines of the vulnerable code. A finding can span several lines. For a single line, you can set `line` instead of `start_line` and `end_line` .
+- `snippet` : the vulnerable code. If a finding has neither a line range nor a snippet, it covers the whole file, and `cm fix` searches the file for the vulnerable code.
+- `title` , `message` , `analysis` , and `vuln_type` : a description of the finding. Each finding needs at least one of these fields.
+- `severity` : `CRITICAL` , `HIGH` , `MEDIUM` , or `LOW` . The default is `MEDIUM` .
+
+You can also import a SARIF 2.1.0 report. For the formats that your CLI release supports, run `cm report import --help` .
 
 Run the import command:
 

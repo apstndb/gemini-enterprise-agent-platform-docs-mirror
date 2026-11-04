@@ -1748,7 +1748,7 @@ Repeated Content type.
 
 Fields
 
-`contents[]` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Content)` )`
+`contents[]` `object ( ``Content`` )`
 
 Optional. Repeated contents.
 

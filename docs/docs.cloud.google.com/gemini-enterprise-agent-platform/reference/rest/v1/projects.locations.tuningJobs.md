@@ -1810,7 +1810,7 @@ Output only. Dataset distributions for the user output tokens.
 
 Output only. Dataset distributions for the messages per example.
 
-`userDatasetExamples[]` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Content)` )`
+`userDatasetExamples[]` `object ( ``Content`` )`
 
 Output only. Sample user messages in the training dataset uri.
 

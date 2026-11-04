@@ -36,7 +36,7 @@ Optional. Facts used to generate the text can also be used to corroborate the te
 
 Optional. Parameters that can be set to override default settings per request.
 
-`content` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Content)` )`
+`content` `object ( ``Content`` )`
 
 Optional. Input content to corroborate, only text format is supported for now.
 

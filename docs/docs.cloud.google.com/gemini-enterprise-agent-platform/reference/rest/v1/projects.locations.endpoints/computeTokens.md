@@ -36,7 +36,7 @@ Optional. The instances that are the input to token computing API call. Schema i
 
 Optional. The name of the publisher model requested to serve the prediction. Format: projects/{project}/locations/{location}/publishers/\*/models/\*
 
-`contents[]` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Content)` )`
+`contents[]` `object ( ``Content`` )`
 
 Optional. Input content.
 

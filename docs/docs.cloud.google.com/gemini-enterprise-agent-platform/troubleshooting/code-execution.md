@@ -14,7 +14,7 @@ This document provides descriptions of common issues and their solutions when wo
 
 ## Sandbox creation issues
 
-- **Permissions error:** If you encounter errors when creating a sandbox, ensure your Google Cloud project has the Agent Platform User `(roles/aiplatform.user)` Identity and Access Management (IAM) role.
+- **Permissions error:** If you encounter errors when creating a sandbox, ensure your Google Cloud project has the Agent Platform User ( `roles/aiplatform.user` ) Identity and Access Management (IAM) role.
 
 - **Invalid Project ID or Location:** Verify that the `PROJECT_ID` and `LOCATION` variables used in your code are correct and supported. For a list of supported regions, see [Supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) .
 

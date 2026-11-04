@@ -28,7 +28,7 @@ The request body contains data with the following structure:
 
 Fields
 
-`content` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Content)` )`
+`content` `object ( ``Content`` )`
 
 Required. The content to be embedded.
 

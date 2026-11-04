@@ -349,7 +349,7 @@ To deny an agent access to resources, you can use the [IAM deny policy](https://
   }
   ```
 
-- Set up Principal Access Boundary to limit the resources that the agent may access, despite other permissions that the agent might have:
+- Set up principal access boundary to limit the resources that the agent may access, despite other permissions that the agent might have:
 
   ```
   // PAB Policy (Only allow agents to operate within resource boundary)

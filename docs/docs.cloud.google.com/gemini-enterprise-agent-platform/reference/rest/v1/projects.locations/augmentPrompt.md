@@ -28,7 +28,7 @@ The request body contains data with the following structure:
 
 Fields
 
-`contents[]` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Content)` )`
+`contents[]` `object ( ``Content`` )`
 
 Optional. Input content to augment, only text format is supported for now.
 
@@ -54,7 +54,7 @@ If successful, the response body contains data with the following structure:
 
 Fields
 
-`augmentedPrompt[]` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Content)` )`
+`augmentedPrompt[]` `object ( ``Content`` )`
 
 Augmented prompt, only text format is supported for now.
 

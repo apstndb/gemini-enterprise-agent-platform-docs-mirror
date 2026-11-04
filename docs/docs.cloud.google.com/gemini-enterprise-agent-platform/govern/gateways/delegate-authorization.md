@@ -726,6 +726,12 @@ Learn how to govern agentic workloads with Agent Gateway on Gemini Enterprise Ag
 
 Guide
 
+### [Manage Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/manage-agent-gateways)
+
+Learn how to view, update, disassociate, and delete Agent Gateway resources.
+
+Guide
+
 ### [Monitor Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/monitor-agent-gateway)
 
 Learn how to monitor Agent Gateway.

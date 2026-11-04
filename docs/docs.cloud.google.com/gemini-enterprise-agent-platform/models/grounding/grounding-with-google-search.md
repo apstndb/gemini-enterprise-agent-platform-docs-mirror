@@ -68,7 +68,7 @@ Search results can be customized for a specific geographic location of the end u
 
 ### Console
 
-To use Grounding with Google Search with the Agent Studio on Gemini Enterprise Agent Platform, follow these steps:
+To use Grounding with Google Search with Agent Studio, follow these steps:
 
 1.  In the Google Cloud console, go to the **Agent Studio** page.
 2.  In the side panel, under **Model settings** , go to the **Grounding** section, and turn on the **Google Search** toggle.
@@ -627,13 +627,13 @@ The following example shows the `groundingMetadata` structure in a response:
 
 ## Understand your response
 
-If your model prompt successfully uses Grounding with Google Search from the Agent Studio or from the API, then the responses include metadata with source links (web URLs). However, there are several reasons this metadata might not be provided, and the prompt response won't be grounded. These reasons include low source relevance or incomplete information within the model's response.
+If your model prompt successfully uses Grounding with Google Search from Agent Studio or from the API, then the responses include metadata with source links (web URLs). However, there are several reasons this metadata might not be provided, and the prompt response won't be grounded. These reasons include low source relevance or incomplete information within the model's response.
 
 ## Inline citations
 
 Inline citations use the structured `grounding_metadata` returned by the API to link specific segments of generated text to verifiable sources.
 
-This capability supports all grounding methods including Search, Google Maps, and Agent Search, providing the precise source details required to display accurate, interactive citations within your application.
+This capability supports all grounding methods including Search, Google Maps, and Agent Search on Gemini Enterprise Agent Platform, providing the precise source details required to display accurate, interactive citations within your application.
 
 ```
 response = client.models.generate_content(

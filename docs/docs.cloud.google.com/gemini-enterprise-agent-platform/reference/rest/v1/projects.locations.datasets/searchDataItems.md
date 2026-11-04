@@ -163,7 +163,7 @@ Fields
 
 The DataItem.
 
-`annotations[]` `object ( `[`Annotation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Annotation)` )`
+`annotations[]` `object ( ``Annotation`` )`
 
 The Annotations on the DataItem. If too many Annotations should be returned for the DataItem, this field will be truncated per annotationsLimit in request. If it was, then the hasTruncatedAnnotations will be set to true.
 

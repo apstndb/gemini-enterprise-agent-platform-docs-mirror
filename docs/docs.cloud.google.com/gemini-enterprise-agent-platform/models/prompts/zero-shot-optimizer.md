@@ -29,7 +29,7 @@ To ensure that the [Compute Engine default service account](https://docs.cloud.g
 > **Important:** You must grant these roles to the Compute Engine default service account, along with a user account that has the Agent Platform User ( `roles/aiplatform.user` ) role. Failure to grant the roles to the correct principals might result in permission errors.
 
 - [Agent Platform User](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user) ( `roles/aiplatform.user` )
-- [Agent Platform Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.serviceAgent) ( `roles/aiplatform.serviceAgent` )
+- [Vertex AI Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.serviceAgent) ( `roles/aiplatform.serviceAgent` )
 
 For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 

@@ -73,7 +73,7 @@ To set up authentication, you must create a service account key, and set an envi
 
     4.  Click **Create** .
 
-    5.  Click the **Select a role** field. Under **All roles** , select **Gemini Enterprise Agent Platform** \> **Agent Platform User** .
+    5.  Click the **Select a role** field. Under **All roles** , select **Agent Platform User** .
 
     > **Note** : The roles you select allow your service account to access resources. You can view and change these roles later by using the [Google Cloud console](https://console.cloud.google.com/) . For more information, see [access control for Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#predefined_roles) .
 

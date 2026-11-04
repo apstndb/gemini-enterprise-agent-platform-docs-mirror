@@ -155,7 +155,7 @@ To ground with Elasticsearch in the Google Cloud console, do the following:
 
 ### Understand your response
 
-If your model prompt successfully grounds to Elasticsearch data stores using the Agent Studio or the API, then the model's responses include metadata with citations and source content. If low-source relevance or incomplete information occurs within the model's response, then metadata might not be provided, and the prompt response won't be grounded.
+If your model prompt successfully grounds to Elasticsearch data stores using Agent Studio or the API, then the model's responses include metadata with citations and source content. If low-source relevance or incomplete information occurs within the model's response, then metadata might not be provided, and the prompt response won't be grounded.
 
 ### Python
 

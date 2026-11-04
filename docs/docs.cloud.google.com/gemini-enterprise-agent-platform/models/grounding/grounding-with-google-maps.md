@@ -142,7 +142,7 @@ Before using any of the request data, make the following replacements:
   - `places` : Search for place information including establishments, prominent points of interest, and geographical locations.
   - `routing` : Find directions and search along route.
 
-  If not specified, it defaults to `places` only.
+  If not specified, Gemini 4 and later models enable `places` and `routing` , and earlier models enable `places` only. If specified, only the listed types are enabled.
 
 HTTP method and URL:
 
@@ -379,7 +379,12 @@ The following are examples of the types of questions that Find Directions suppor
 
 ### Enable Find Directions
 
-In the REST API and SDKs, Grounding with Google Maps defaults to Places data only when `grounding_types` is omitted. To enable directions capabilities, you must explicitly configure `routing` in `grounding_types` in your request configuration. If you want to use both Places and Routing tools, you must specify both `places` and `routing` in `grounding_types` .
+In the REST API and SDKs, what Grounding with Google Maps enables when `grounding_types` is omitted depends on the model:
+
+- Gemini 4 and later models: Places and Routing, so Find Directions is available by default.
+- Earlier models: Places data only. To enable directions capabilities, you must explicitly configure `routing` in `grounding_types` in your request configuration.
+
+If you set `grounding_types` , only the grounding types that you list are enabled. To use both Places and Routing tools, specify both `places` and `routing` in `grounding_types` . To use Places data only, specify only `places` .
 
 ### Understand the response
 
@@ -433,7 +438,7 @@ The following examples illustrate the types of questions the Search Along Route 
 
 ### Enable Search Along Route
 
-Search Along Route requires both **Places** and **Routing** capabilities to discover places situated along a travel route. In the REST API and SDKs, you must explicitly configure both `places` and `routing` in `grounding_types` in your request configuration.
+Search Along Route requires both **Places** and **Routing** capabilities to discover places situated along a travel route. In the REST API and SDKs, both are enabled by default for Gemini 4 and later models when `grounding_types` is omitted. For earlier models, or if you set `grounding_types` , you must include both `places` and `routing` in `grounding_types` to enable Search Along Route.
 
 ### Understand the response
 
@@ -593,7 +598,7 @@ Grounding with Google Maps has restrictions for certain content and activities t
 
 Grounding with Google Maps charges for each Google Maps query (see [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) ).
 
-A customer-submitted request to Gemini may result in one or more queries to Google Maps. The following table shows a few examples:
+A customer-submitted request to Gemini may result in one or more queries to Google Maps. For Gemini 4 and later models, Places and Routing are both enabled when `grounding_types` is omitted, so such a request can result in Place Search, Find Directions, and Search Along Route queries. To limit a request to Place Search queries, specify only `places` in `grounding_types` . The following table shows a few examples:
 
 | Example prompt                                                                                                  | Potential number of Google Maps queries                                                                                 | Example query generation                                                                                                                                                                                                                                                                                                                                                                                  |
 |-----------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

@@ -59,7 +59,7 @@ For more information about granting roles, see [Manage access to projects, folde
 
 You might also be able to get the required permissions through [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined) .
 
-If you're making requests to the Feedback service from Google Cloud, make sure that your service account has the necessary permissions. User-managed service accounts must have the [Agent Platform User (aiplatform.user)](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user) permission to interact with the Feedback service.
+If you're making requests to the Feedback service from Google Cloud, make sure that your service account has the necessary permissions. User-managed service accounts must have the [Agent Platform User ( `roles/aiplatform.user` )](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user) permission to interact with the Feedback service.
 
 The [Reasoning Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.reasoningEngineServiceAgent) already has the necessary permissions to manage feedback, so outbound requests from Agent Runtime should already have permission to access the Feedback service.
 

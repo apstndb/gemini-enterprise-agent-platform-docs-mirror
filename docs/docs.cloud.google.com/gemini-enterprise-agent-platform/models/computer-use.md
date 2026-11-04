@@ -676,9 +676,11 @@ The following examples demonstrate how to configure the execution environment fo
 
 ### REST API
 
+#### GenerateContent API
+
 Before using any of the request data, make the following replacements:
 
-- ` PROJECT_ID ` : Your project ID.
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
 
 HTTP method and URL:
 
@@ -738,6 +740,74 @@ Invoke-WebRequest `
     -ContentType: "application/json; charset=utf-8" `
     -InFile request.json `
     -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent" | Select-Object -Expand Content
+```
+
+You should receive a successful status code (2xx) and an empty response.
+
+#### Interactions API
+
+Before using any of the request data, make the following replacements:
+
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+
+HTTP method and URL:
+
+```
+POST https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions
+```
+
+Request JSON body:
+
+```
+{
+  "model": "gemini-3.8-flash",
+  "input": [
+    {
+      "type": "user_input",
+      "content": [
+        {
+          "type": "text",
+          "text": "find me a flight from SF to Hawaii on Jun 30th, coming back on Jul 6th. start by navigating directly to flights.google.com"
+        }
+      ]
+    }
+  ],
+  "tools": [
+    {
+      "type": "computer_use",
+      "environment": "browser"
+    }
+  ]
+}
+```
+
+To send your request, expand one of these options:
+
+#### curl (Linux, macOS, or Cloud Shell)
+
+Save the request body in a file named `request.json` , and execute the following command:
+
+```
+curl -X POST \
+     -H "Authorization: Bearer TOKEN" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions"
+```
+
+#### PowerShell (Windows)
+
+Save the request body in a file named `request.json` , and execute the following command:
+
+```
+$headers = @{ "Authorization" = "Bearer TOKEN" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions" | Select-Object -Expand Content
 ```
 
 You should receive a successful status code (2xx) and an empty response.
@@ -1031,9 +1101,11 @@ The following examples demonstrate enabling the computer use configuration to en
 
 ### REST API
 
+#### GenerateContent API
+
 Before using any of the request data, make the following replacements:
 
-- ` PROJECT_ID ` : Your project ID.
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
 
 HTTP method and URL:
 
@@ -1094,6 +1166,75 @@ Invoke-WebRequest `
     -ContentType: "application/json; charset=utf-8" `
     -InFile request.json `
     -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent" | Select-Object -Expand Content
+```
+
+You should receive a successful status code (2xx) and an empty response.
+
+#### Interactions API
+
+Before using any of the request data, make the following replacements:
+
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+
+HTTP method and URL:
+
+```
+POST https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions
+```
+
+Request JSON body:
+
+```
+{
+  "model": "gemini-3.8-flash",
+  "input": [
+    {
+      "type": "user_input",
+      "content": [
+        {
+          "type": "text",
+          "text": "find me a flight from SF to Hawaii on Jun 30th, coming back on Jul 6th. start by navigating directly to flights.google.com"
+        }
+      ]
+    }
+  ],
+  "tools": [
+    {
+      "type": "computer_use",
+      "environment": "browser",
+      "enable_prompt_injection_detection": true
+    }
+  ]
+}
+```
+
+To send your request, expand one of these options:
+
+#### curl (Linux, macOS, or Cloud Shell)
+
+Save the request body in a file named `request.json` , and execute the following command:
+
+```
+curl -X POST \
+     -H "Authorization: Bearer TOKEN" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions"
+```
+
+#### PowerShell (Windows)
+
+Save the request body in a file named `request.json` , and execute the following command:
+
+```
+$headers = @{ "Authorization" = "Bearer TOKEN" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions" | Select-Object -Expand Content
 ```
 
 You should receive a successful status code (2xx) and an empty response.

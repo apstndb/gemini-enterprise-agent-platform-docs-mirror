@@ -56,7 +56,7 @@ Labels that will be applied to newly imported DataItems. If an identical DataIte
 
 `annotationLabels` `map (key: string, value: string)`
 
-Labels that will be applied to newly imported Annotations. If two Annotations are identical, one of them will be deduped. Two Annotations are considered identical if their [`payload`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Annotation#FIELDS.payload) , [`payloadSchemaUri`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Annotation#FIELDS.payload_schema_uri) and all of their [`labels`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Annotation#FIELDS.labels) are the same. These labels will be overridden by Annotation labels specified inside index file referenced by [`importSchemaUri`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/import#ImportDataConfig.FIELDS.import_schema_uri) , e.g. jsonl file.
+Labels that will be applied to newly imported Annotations. If two Annotations are identical, one of them will be deduped. Two Annotations are considered identical if their `payload` , `payloadSchemaUri` and all of their `labels` are the same. These labels will be overridden by Annotation labels specified inside index file referenced by [`importSchemaUri`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/import#ImportDataConfig.FIELDS.import_schema_uri) , e.g. jsonl file.
 
 `importSchemaUri` `string`
 

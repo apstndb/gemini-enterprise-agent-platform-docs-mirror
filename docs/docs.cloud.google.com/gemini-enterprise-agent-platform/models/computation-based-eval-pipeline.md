@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/computation-based-eval-pipeline
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computation-based-eval-pipeline
 title: Run a computation-based evaluation pipeline
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Learn how to run a computation-based evaluation pipeline for foundation and tuned models on Gemini Enterprise Agent Platform.
 data_source: docs.cloud.google.com
 ---
 
@@ -74,7 +74,7 @@ To perform this task, you must grant [Identity and Access Management (IAM)](http
 <td>Agent Platform Service Agent</td>
 <td><code>service- </code><var translate="no"> PROJECT_NUMBER </var><code> @gcp-sa-aiplatform.iam.gserviceaccount.com</code></td>
 <td>The Agent Platform Service Agent is automatically provisioned for your project and granted a predefined role. However, if an org policy modifies the default permissions of the Agent Platform Service Agent, you must manually grant the role to the service agent.</td>
-<td><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.serviceAgent">Agent Platform Service Agent ( <code>roles/aiplatform.serviceAgent</code> )</a></td>
+<td><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.serviceAgent">Vertex AI Service Agent ( <code>roles/aiplatform.serviceAgent</code> )</a></td>
 </tr>
 <tr class="even">
 <td>Agent Platform Pipelines Service Account</td>
@@ -346,7 +346,7 @@ To create a model evaluation job by using the Google Cloud console, perform the 
     - **Objective** : Select the task that you want to evaluate.
     - **Target column or field** : (Classification only) Enter the target column for prediction. Example: `ground_truth` .
     - **Source path** : Enter or select the URI of your evaluation dataset.
-    - **Output format** : Enter the format of the evaluation output. Currently, only `jsonl` is supported.
+    - **Output format** : Enter the format of the evaluation output. Only `jsonl` is supported.
     - **Cloud Storage path** : Enter or select the URI to store evaluation output.
     - **Class names** : (Classification only) Enter the list of possible class names.
     - **Number of compute nodes** : Enter the number of compute nodes to run the evaluation job.

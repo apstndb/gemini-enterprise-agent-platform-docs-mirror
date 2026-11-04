@@ -10,7 +10,7 @@ This interactive demo lets you explore [Agent Retrieval (formerly Vector Search 
 
 ## Agent Retrieval benefits
 
-Vector Search required separate embedding generation, index deployment, and a Vertex AI Feature Store for metadata. Agent Retrieval provides unified storage for data and embeddings, automatic embedding generation, and built-in text search without requiring you to manage infrastructure.
+Vector Search required separate embedding generation, index deployment, and Feature Store on Gemini Enterprise Agent Platform for metadata. Agent Retrieval provides unified storage for data and embeddings, automatic embedding generation, and built-in text search without requiring you to manage infrastructure.
 
 ## Try it!
 
@@ -104,11 +104,11 @@ In Agent Retrieval, the query process depends on the kind of searches being done
 
 ### Semantic and hybrid search
 
-Embedding generation and search happen in a single API call. Agent Retrieval auto-generates the query embedding server-side using the model specified in the `vertex_embedding_config` for the [Collection](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/collections/collections) , performs the search, and returns results with full metadata without needing a separate Vertex AI Feature Store fetch.
+Embedding generation and search happen in a single API call. Agent Retrieval auto-generates the query embedding server-side using the model specified in the `vertex_embedding_config` for the [Collection](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/collections/collections) , performs the search, and returns results with full metadata without needing a separate Agent Platform Feature Store fetch.
 
 ### Word2Vec and multimodal
 
-The client generates the query embedding and sends it to Agent Retrieval for vector search. The results still include full metadata from the Collection and a Vertex AI Feature Store fetch isn't needed.
+The client generates the query embedding and sends it to Agent Retrieval for vector search. The results still include full metadata from the Collection and an Agent Platform Feature Store fetch isn't needed.
 
 ### Text
 

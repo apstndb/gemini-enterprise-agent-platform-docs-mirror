@@ -18,7 +18,7 @@ Identifier. The resource name of the event. Format: `projects/{project}/location
 
 Required. The name of the agent that sent the event, or user.
 
-`content` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Content)` )`
+`content` `object ( ``Content`` )`
 
 Optional. Content of the event provided by the author.
 

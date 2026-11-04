@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/access-control
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/access-control
 title: Access control
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Learn about predefined IAM roles and permissions for generative AI features on Gemini Enterprise Agent Platform.
 data_source: docs.cloud.google.com
 ---
 
@@ -12,8 +12,8 @@ To use the generative AI features on Gemini Enterprise Agent Platform, the princ
 
 You can grant the users or groups in your project one of the following predefined roles to give them access to the generative AI features on Gemini Enterprise Agent Platform:
 
-- [Gemini Enterprise Agent Platform Administrator ( `roles/aiplatform.admin` )](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.admin)
-- [Gemini Enterprise Agent Platform User ( `roles/aiplatform.user` )](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.user)
+- [Agent Platform Administrator ( `roles/aiplatform.admin` )](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.admin)
+- [Agent Platform User ( `roles/aiplatform.user` )](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.user)
 
 To learn more about Gemini Enterprise Agent Platform IAM roles, see [Gemini Enterprise Agent Platform access control with IAM](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control) .
 

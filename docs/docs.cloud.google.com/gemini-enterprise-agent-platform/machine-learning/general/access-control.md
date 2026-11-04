@@ -209,6 +209,16 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <li><code>aiplatform. deploymentResourcePools. queryDeployedModels</code></li>
 <li><code>aiplatform. deploymentResourcePools. update</code></li>
 </ul>
+<p><code>aiplatform.detectors.*</code></p>
+<ul>
+<li><code>aiplatform.detectors.create</code></li>
+<li><code>aiplatform.detectors.delete</code></li>
+<li><code>aiplatform.detectors.disable</code></li>
+<li><code>aiplatform.detectors.enable</code></li>
+<li><code>aiplatform.detectors.get</code></li>
+<li><code>aiplatform.detectors.list</code></li>
+<li><code>aiplatform.detectors.update</code></li>
+</ul>
 <p><code>aiplatform. edgeDeploymentJobs.*</code></p>
 <ul>
 <li><code>aiplatform. edgeDeploymentJobs. create</code></li>
@@ -960,6 +970,16 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <li><code>aiplatform. deploymentResourcePools. list</code></li>
 <li><code>aiplatform. deploymentResourcePools. queryDeployedModels</code></li>
 <li><code>aiplatform. deploymentResourcePools. update</code></li>
+</ul>
+<p><code>aiplatform.detectors.*</code></p>
+<ul>
+<li><code>aiplatform.detectors.create</code></li>
+<li><code>aiplatform.detectors.delete</code></li>
+<li><code>aiplatform.detectors.disable</code></li>
+<li><code>aiplatform.detectors.enable</code></li>
+<li><code>aiplatform.detectors.get</code></li>
+<li><code>aiplatform.detectors.list</code></li>
+<li><code>aiplatform.detectors.update</code></li>
 </ul>
 <p><code>aiplatform. edgeDeploymentJobs.*</code></p>
 <ul>
@@ -1723,6 +1743,16 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <li><code>aiplatform. deploymentResourcePools. queryDeployedModels</code></li>
 <li><code>aiplatform. deploymentResourcePools. update</code></li>
 </ul>
+<p><code>aiplatform.detectors.*</code></p>
+<ul>
+<li><code>aiplatform.detectors.create</code></li>
+<li><code>aiplatform.detectors.delete</code></li>
+<li><code>aiplatform.detectors.disable</code></li>
+<li><code>aiplatform.detectors.enable</code></li>
+<li><code>aiplatform.detectors.get</code></li>
+<li><code>aiplatform.detectors.list</code></li>
+<li><code>aiplatform.detectors.update</code></li>
+</ul>
 <p><code>aiplatform. edgeDeploymentJobs.*</code></p>
 <ul>
 <li><code>aiplatform. edgeDeploymentJobs. create</code></li>
@@ -2307,6 +2337,8 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <p><code>aiplatform. deploymentResourcePools. get</code></p>
 <p><code>aiplatform. deploymentResourcePools. list</code></p>
 <p><code>aiplatform. deploymentResourcePools. queryDeployedModels</code></p>
+<p><code>aiplatform.detectors.get</code></p>
+<p><code>aiplatform.detectors.list</code></p>
 <p><code>aiplatform. edgeDeploymentJobs. get</code></p>
 <p><code>aiplatform. edgeDeploymentJobs. list</code></p>
 <p><code>aiplatform. edgeDeviceDebugInfo. get</code></p>
@@ -2489,7 +2521,9 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <td>Agent Platform Agents Admin Role <sup>Beta</sup>
 <p>( <code>roles/ aiplatform.agentsAdmin</code> )</p>
 <p>Grants full administrative access to Agent Platform agents, including reading and managing their memories and their access control policies.</p></td>
-<td><p><code>aiplatform.agentMemories.*</code></p>
+<td><p><code>agentidentity. authProviders. get</code></p>
+<p><code>agentidentity. authProviders. list</code></p>
+<p><code>aiplatform.agentMemories.*</code></p>
 <ul>
 <li><code>aiplatform. agentMemories. delete</code></li>
 <li><code>aiplatform.agentMemories.get</code></li>
@@ -2508,26 +2542,33 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <li><code>aiplatform.agents.unsuspend</code></li>
 <li><code>aiplatform.agents.update</code></li>
 </ul>
+<p><code>aiplatform.tasks.cancel</code></p>
 <p><code>aiplatform.tasks.delete</code></p></td>
 </tr>
 <tr class="odd">
 <td>Agent Platform Agents Creator Role <sup>Beta</sup>
 <p>( <code>roles/ aiplatform.agentsCreator</code> )</p>
-<p>Grants access to create and discover Agent Platform agents and their auth providers.</p></td>
-<td><p><code>aiplatform.agents.create</code></p>
+<p>Grants access to create and discover Agent Platform agents and their auth providers, and to create and list collaborative projects.</p></td>
+<td><p><code>agentidentity. authProviders. get</code></p>
+<p><code>agentidentity. authProviders. list</code></p>
+<p><code>aiplatform.agents.create</code></p>
 <p><code>aiplatform.agents.list</code></p></td>
 </tr>
 <tr class="even">
 <td>Agent Platform Agents User Role <sup>Beta</sup>
 <p>( <code>roles/ aiplatform.agentsUser</code> )</p>
-<p>Grants access to view agents and to create, update, and delete their tasks.</p></td>
+<p>Grants access to view agents and to create, update, cancel, and delete their tasks.</p></td>
 <td><p><code>aiplatform.agents.get</code></p>
 <p><code>aiplatform.agents.list</code></p>
-<p><code>aiplatform.tasks.create</code></p>
-<p><code>aiplatform.tasks.delete</code></p>
-<p><code>aiplatform.tasks.get</code></p>
-<p><code>aiplatform.tasks.list</code></p>
-<p><code>aiplatform.tasks.update</code></p></td>
+<p><code>aiplatform.tasks.*</code></p>
+<ul>
+<li><code>aiplatform.tasks.cancel</code></li>
+<li><code>aiplatform.tasks.create</code></li>
+<li><code>aiplatform.tasks.delete</code></li>
+<li><code>aiplatform.tasks.get</code></li>
+<li><code>aiplatform.tasks.list</code></li>
+<li><code>aiplatform.tasks.update</code></li>
+</ul></td>
 </tr>
 <tr class="odd">
 <td>Agent Platform Agents Viewer Role <sup>Beta</sup>
@@ -2694,18 +2735,15 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <p><code>developerconnect. connections. processGitHubAppCreationCallback</code></p>
 <p><code>developerconnect. connections. processGitHubOAuthCallback</code></p>
 <p><code>developerconnect. connections. update</code></p>
-<p><code>developerconnect. gitRepositoryLinks.*</code></p>
-<ul>
-<li><code>developerconnect. gitRepositoryLinks. create</code></li>
-<li><code>developerconnect. gitRepositoryLinks. delete</code></li>
-<li><code>developerconnect. gitRepositoryLinks. fetchGitRefs</code></li>
-<li><code>developerconnect. gitRepositoryLinks. fetchReadToken</code></li>
-<li><code>developerconnect. gitRepositoryLinks. fetchReadWriteToken</code></li>
-<li><code>developerconnect. gitRepositoryLinks. get</code></li>
-<li><code>developerconnect. gitRepositoryLinks. gitProxyRead</code></li>
-<li><code>developerconnect. gitRepositoryLinks. gitProxyWrite</code></li>
-<li><code>developerconnect. gitRepositoryLinks. list</code></li>
-</ul>
+<p><code>developerconnect. gitRepositoryLinks. create</code></p>
+<p><code>developerconnect. gitRepositoryLinks. delete</code></p>
+<p><code>developerconnect. gitRepositoryLinks. fetchGitRefs</code></p>
+<p><code>developerconnect. gitRepositoryLinks. fetchReadToken</code></p>
+<p><code>developerconnect. gitRepositoryLinks. fetchReadWriteToken</code></p>
+<p><code>developerconnect. gitRepositoryLinks. get</code></p>
+<p><code>developerconnect. gitRepositoryLinks. gitProxyRead</code></p>
+<p><code>developerconnect. gitRepositoryLinks. gitProxyWrite</code></p>
+<p><code>developerconnect. gitRepositoryLinks. list</code></p>
 <p><code>developerconnect.locations.*</code></p>
 <ul>
 <li><code>developerconnect.locations.get</code></li>
@@ -3608,6 +3646,16 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <li><code>aiplatform. deploymentResourcePools. list</code></li>
 <li><code>aiplatform. deploymentResourcePools. queryDeployedModels</code></li>
 <li><code>aiplatform. deploymentResourcePools. update</code></li>
+</ul>
+<p><code>aiplatform.detectors.*</code></p>
+<ul>
+<li><code>aiplatform.detectors.create</code></li>
+<li><code>aiplatform.detectors.delete</code></li>
+<li><code>aiplatform.detectors.disable</code></li>
+<li><code>aiplatform.detectors.enable</code></li>
+<li><code>aiplatform.detectors.get</code></li>
+<li><code>aiplatform.detectors.list</code></li>
+<li><code>aiplatform.detectors.update</code></li>
 </ul>
 <p><code>aiplatform. edgeDeploymentJobs.*</code></p>
 <ul>
@@ -4530,6 +4578,8 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 </blockquote></td>
 <td><p><code>agentregistry.agents.get</code></p>
 <p><code>agentregistry.agents.list</code></p>
+<p><code>agentregistry. aiApplications. get</code></p>
+<p><code>agentregistry. aiApplications. list</code></p>
 <p><code>agentregistry. bindings. fetchAvailable</code></p>
 <p><code>agentregistry.bindings.get</code></p>
 <p><code>agentregistry.bindings.list</code></p>
@@ -4693,6 +4743,16 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <li><code>aiplatform. deploymentResourcePools. list</code></li>
 <li><code>aiplatform. deploymentResourcePools. queryDeployedModels</code></li>
 <li><code>aiplatform. deploymentResourcePools. update</code></li>
+</ul>
+<p><code>aiplatform.detectors.*</code></p>
+<ul>
+<li><code>aiplatform.detectors.create</code></li>
+<li><code>aiplatform.detectors.delete</code></li>
+<li><code>aiplatform.detectors.disable</code></li>
+<li><code>aiplatform.detectors.enable</code></li>
+<li><code>aiplatform.detectors.get</code></li>
+<li><code>aiplatform.detectors.list</code></li>
+<li><code>aiplatform.detectors.update</code></li>
 </ul>
 <p><code>aiplatform. edgeDeploymentJobs.*</code></p>
 <ul>
@@ -5662,6 +5722,10 @@ Gives Vertex AI the permissions it needs to function.
 
 `agentregistry.agents.list`
 
+`agentregistry. aiApplications. get`
+
+`agentregistry. aiApplications. list`
+
 `agentregistry. bindings. fetchAvailable`
 
 `agentregistry.bindings.get`
@@ -5841,6 +5905,16 @@ Gives Vertex AI the permissions it needs to function.
 - `aiplatform. deploymentResourcePools. list`
 - `aiplatform. deploymentResourcePools. queryDeployedModels`
 - `aiplatform. deploymentResourcePools. update`
+
+`aiplatform.detectors.*`
+
+- `aiplatform.detectors.create`
+- `aiplatform.detectors.delete`
+- `aiplatform.detectors.disable`
+- `aiplatform.detectors.enable`
+- `aiplatform.detectors.get`
+- `aiplatform.detectors.list`
+- `aiplatform.detectors.update`
 
 `aiplatform. edgeDeploymentJobs.*`
 
@@ -7114,6 +7188,16 @@ Gives Vertex AI Custom Code the proper permissions. The aiplatform.customJobs.cr
 - `aiplatform. deploymentResourcePools. queryDeployedModels`
 - `aiplatform. deploymentResourcePools. update`
 
+`aiplatform.detectors.*`
+
+- `aiplatform.detectors.create`
+- `aiplatform.detectors.delete`
+- `aiplatform.detectors.disable`
+- `aiplatform.detectors.enable`
+- `aiplatform.detectors.get`
+- `aiplatform.detectors.list`
+- `aiplatform.detectors.update`
+
 `aiplatform. edgeDeploymentJobs.*`
 
 - `aiplatform. edgeDeploymentJobs. create`
@@ -7924,6 +8008,14 @@ Provide access for notebooks service agent to manage notebook instances in user 
 `backupdr.operations.list`
 
 `backupdr. serviceConfig. initialize`
+
+`compute. acceleratorInterconnectMemberInstances. list`
+
+`compute. acceleratorInterconnects. get`
+
+`compute. acceleratorInterconnects. list`
+
+`compute. acceleratorInterconnects. queryFormability`
 
 `compute.acceleratorTypes.*`
 

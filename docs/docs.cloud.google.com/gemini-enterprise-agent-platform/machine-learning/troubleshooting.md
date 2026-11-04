@@ -618,7 +618,7 @@ If you encounter a permission error when accessing another Google Cloud service 
 
   **Solution**
 
-  Add `storage.buckets.create` permission to your Gemini Enterprise Agent Platform Custom Code Service Agent role for the project.
+  Add `storage.buckets.create` permission to your Vertex AI Custom Code Service Agent role for the project.
 
   Learn how to fix this problem by [adding specific roles to Agent Platform's service agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#grant_service_agents_access_to_other_resources) .
 

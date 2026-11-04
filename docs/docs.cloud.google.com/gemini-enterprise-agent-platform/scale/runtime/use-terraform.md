@@ -16,7 +16,7 @@ Before using Terraform to deploy an agent, ensure that you have completed the fo
 
 1.  [Install Terraform](https://developer.hashicorp.com/terraform/downloads) (version 1.5.0 or later) and review the official HashiCorp Terraform Registry documentation for the `google_vertex_ai_reasoning_engine` resource ( [GA provider](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/vertex_ai_reasoning_engine) and [Beta provider](https://registry.terraform.io/providers/hashicorp/google-beta/latest/docs/resources/vertex_ai_reasoning_engine) ).
 
-2.  [Set up your Google Cloud environment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup) and enable the Vertex AI API ( `aiplatform.googleapis.com` ), Artifact Registry API ( `artifactregistry.googleapis.com` ), and Cloud Build API ( `cloudbuild.googleapis.com` ).
+2.  [Set up your Google Cloud environment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup) and enable the Agent Platform API ( `aiplatform.googleapis.com` ), Artifact Registry API ( `artifactregistry.googleapis.com` ), and Cloud Build API ( `cloudbuild.googleapis.com` ).
 
 3.  Authenticate your local environment using Google Cloud credentials:
 
@@ -520,6 +520,8 @@ In enterprise multi-project architectures, you can manage a central governance p
 - **Central registry and egress policies** : Register cross-project agents and tools in the central project's registry using `google_agent_registry_service` and grant `roles/iap.egressor` with `google_iap_agent_registry_*` resources. See [Create IAM agent policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies) .
 - **Model Armor templates and floor settings** : Enforce safety thresholds across your organization or folders with `google_model_armor_floorsetting` and `google_model_armor_template` . See [Delegate authorization to Model Armor](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization#configure-authz-ma) .
 
+To deploy an end-to-end multi-tenant agent system across isolated projects with centralized governance, see the [Multi-tenant agentic AI system](https://docs.cloud.google.com/architecture/multi-tenant-agentic-ai-system#deployment) reference architecture and deploy the [`terraform-google-multi-tenant-agentic-ai` module](https://github.com/GoogleCloudPlatform/architecture-center-samples/tree/main/terraform-google-multi-tenant-agentic-ai) from GitHub.
+
 ## Execution and lifecycle
 
 Execute the standard Terraform lifecycle to plan, deploy, invoke, and destroy your agent resources.
@@ -591,7 +593,10 @@ terraform destroy -var="project_id=PROJECT_ID" -var="project_number=PROJECT_NUMB
 ## What's next
 
 - [Route Runtime traffic through Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy)
+- [Multi-tenant agentic AI system architecture blueprint](https://docs.cloud.google.com/architecture/multi-tenant-agentic-ai-system)
+- [Multi-tenant agentic AI Terraform module (GitHub)](https://github.com/GoogleCloudPlatform/architecture-center-samples/tree/main/terraform-google-multi-tenant-agentic-ai)
 - [HashiCorp Terraform Registry — `google_vertex_ai_reasoning_engine` (GA)](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/vertex_ai_reasoning_engine)
 - [HashiCorp Terraform Registry — `google_vertex_ai_reasoning_engine` (Beta)](https://registry.terraform.io/providers/hashicorp/google-beta/latest/docs/resources/vertex_ai_reasoning_engine)
 - [Google Cloud Generative AI — Agent Runtime Terraform Deployment Tutorial (GitHub)](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/agents/agent_engine/tutorial_get_started_with_agent_engine_terraform_deployment.ipynb)
+- [Agent Development Kit (ADK) code recipes (GitHub)](https://github.com/google/adk-recipes)
 - [Google Developer Forum — Deploy Your Agent Runtime with Terraform the Enterprise Way](https://discuss.google.dev/t/deploy-your-agent-engine-with-terraform-the-enterprise-way/271921)

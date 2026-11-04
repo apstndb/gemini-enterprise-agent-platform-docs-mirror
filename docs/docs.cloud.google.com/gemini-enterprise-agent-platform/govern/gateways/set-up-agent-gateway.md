@@ -99,7 +99,7 @@ Depending on the features, observability tools, and agent runtimes that you use 
   - **Telemetry API ( `telemetry.googleapis.com` ):** Collects and streams runtime telemetry and performance metrics across platform components.
   - **Cloud Trace API ( `cloudtrace.googleapis.com` ):** Provides distributed tracing to inspect multi-hop requests across agents and backends.
 - **Agent runtimes and semantic governance:**
-  - **Vertex AI API ( `aiplatform.googleapis.com` ):** Required in projects that host Agent Runtime agents or use [Semantic governance policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance) .
+  - **Agent Platform API ( `aiplatform.googleapis.com` ):** Required in projects that host Agent Runtime agents or use [Semantic governance policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance) .
   - **Discovery Engine API ( `discoveryengine.googleapis.com` ):** Required in projects that host Gemini Enterprise apps and agents.
   - **Agent Identity API ( `agentidentity.googleapis.com` ):** Required only if you manage outbound credentials with [Agent Identity auth manager](https://docs.cloud.google.com/iam/docs/auth-manager-overview) or view Agent Identity auth providers in the Google Cloud console.
 
@@ -572,6 +572,12 @@ Guide
 ### [Delegate authorization for Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization)
 
 Learn how to delegate authorization for Agent Gateway to IAP, Model Armor, or your own custom authorization service.
+
+Guide
+
+### [Manage Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/manage-agent-gateways)
+
+Learn how to view, update, disassociate, and delete Agent Gateway resources.
 
 Guide
 

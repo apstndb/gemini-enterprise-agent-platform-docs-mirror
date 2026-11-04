@@ -6,11 +6,7 @@ description: Learn about the Interactions API on Gemini Enterprise Agent Platfor
 data_source: docs.cloud.google.com
 ---
 
-> **Preview**
->
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) , and the [Additional Terms for Generative AI Preview Products](https://cloud.google.com/trustedtester/aitos) . You can process personal data for this feature as outlined in the [Cloud Data Processing Addendum](https://docs.cloud.google.com/terms/data-processing-addendum) , subject to the obligations and restrictions described in the agreement under which you access Google Cloud. Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-
-The Interactions API provides a unified, stateful interface for building generative AI applications and agentic workflows using Gemini models and agents hosted on Gemini Enterprise Agent Platform. While there is feature overlap with the existing `generateContent` API, the `generateContent` API remains fully supported.
+The Interactions API provides a unified, stateful interface for building generative AI applications and agentic workflows using Gemini models and agents hosted on Gemini Enterprise Agent Platform. The `generateContent` API remains fully supported alongside the Interactions API.
 
 ## Why use the Interactions API?
 
@@ -18,7 +14,6 @@ The Interactions API provides several key advantages for building generative AI 
 
 - **Single API for models and agents** : One unified endpoint and pattern for calling standard Gemini models as well as specialized agents directly (such as Gemini Deep Research Agent and custom managed agents).
 - **New capabilities out of the box** : Features like optional server-side conversation state using `previous_interaction_id` , observable execution steps for debugging and UI rendering, and background execution for long-running tasks using `background=true` .
-- **Where new features launch** : Going forward, all new models, multimodal capabilities, tools, and agentic features will be supported on the Interactions API.
 
 ## How the Interactions API works
 
@@ -59,7 +54,7 @@ The following sections describe the core capabilities, technical specifications,
 
 ### State management
 
-By default, the Interactions API stores requests so you can leverage the server-side state management features by using `previous_interaction_id` . You can opt into stateless behavior by setting `store=false` .
+By default, the Interactions API stores interactions on the server ( `store=true` ) for 7 days so you can chain multi-turn conversations with `previous_interaction_id` and run asynchronous background tasks ( `background=true` ). To opt into stateless execution and support [Zero Data Retention (ZDR)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention#customer-data-retention) workflows, set `store=false` . For details, see [Manage session storage and conversation state](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/developer-guide#stateful-conversations) .
 
 ### Supported tools and grounding
 
@@ -67,9 +62,11 @@ The following built-in tools, grounding providers, and search capabilities are s
 
 - **[Grounding with Google Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-search) and [Web Grounding for Enterprise](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/web-grounding-enterprise)** : Grounds model responses with real-time web information from Google Search or Web Grounding for Enterprise.
 - **Agent Search and RAG Engine on Gemini Enterprise Agent Platform** : Grounds model responses against private enterprise datastores and document repositories using Agent Search and RAG Engine.
-- **xAI Search** : Connects models to real-time social search and knowledge grounding.
-- **Parallel Search** : Grounds model responses with real-time public web data provided by Parallel Web Systems' search API.
+- **Exa Web Search** : Grounds model responses with web search results from Exa's search API.
+- **Parallel Web Search** : Grounds model responses with real-time public web data provided by Parallel Web Systems' search API.
+- **[URL context](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/url-context)** : Retrieves and analyzes content from public web URLs included in your prompt.
 - **[Code execution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/code-execution)** : Lets the model generate and execute Python code in a secure, sandboxed environment.
+- **[Computer use](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use)** : Enables browser and user-interface automation workflows.
 - **[Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling)** : Enables models to connect to external tools, APIs, and databases by returning structured function arguments.
 
 The Interactions API supports Web Grounding for Enterprise and Grounding with Google Search. Your use of these features is additionally subject to their [Service Specific Terms](https://cloud.google.com/terms/service-terms) .
@@ -85,13 +82,14 @@ Billing for interrupted or unfulfilled requests is handled as follows:
 
 ### Security and compliance
 
-During Preview, the Interactions API has the following security, compliance, and data residency considerations:
+The Interactions API supports the following [security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) , compliance certifications, and endpoint configurations:
 
-- **Security & compliance certifications** : The Interactions API preview doesn't support FedRAMP, and isn't compliant with Department of Defense (DoD) Impact Level 5 (IL5) or International Traffic in Arms Regulations (ITAR) requirements.
-- **Customer-managed encryption keys (CMEK)** : The Interactions API supports [CMEK for stored interaction data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/developer-guide#cmek) through [serving profiles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#serving-profiles) (with `scope` set to `INTERACTIONS_API` ) in the `us` and `eu` multi-regions.
-- **VPC Service Controls** : The Interactions API preview supports VPC-SC to secure your API perimeter.
-- **Data residency** : The Interactions API preview doesn't support Data residency and doesn't make any commitments for session storage.
-- **Endpoints** : The Interactions API preview supports the global endpoint ( `locations/global` ), and supports the `us` and `eu` multi-region endpoints ( `locations/us` and `locations/eu` ) when using CMEK.
+- **Endpoints** : The Interactions API supports the global endpoint ( `locations/global` on `aiplatform.googleapis.com` ) and the `us` and `eu` multi-region endpoints ( `locations/us` on `aiplatform.us.rep.googleapis.com` and `locations/eu` on `aiplatform.eu.rep.googleapis.com` ). Single-region endpoints (such as `us-central1` or `europe-west1` ) aren't supported.
+- **[Data residency](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency)** : The Interactions API supports data residency for both ML processing (in-use) and stored interaction data at rest ( `store=true` ) when you use the `us` and `eu` multi-region endpoints ( `locations/us` and `locations/eu` ). Requests sent to the `global` endpoint don't provide data residency guarantees.
+- **Customer-managed encryption keys (CMEK)** : The Interactions API supports [CMEK for stored interaction data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/developer-guide#cmek) through [serving profiles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#serving-profiles) (with `scope` set to `INTERACTIONS_API` ) in the `us` and `eu` multi-regions. The `global` endpoint isn't supported for CMEK.
+- **[VPC Service Controls (VPC-SC)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls)** : The Interactions API supports VPC-SC to help secure your API perimeter and mitigate data exfiltration risks.
+- **[Access Transparency (AXT)](https://docs.cloud.google.com/assured-workloads/access-transparency/docs/overview)** : The Interactions API supports AXT logs for near-real-time visibility when Google personnel access stored interaction content.
+- **Security and compliance certifications** : The Interactions API meets [FedRAMP High](https://cloud.google.com/security/compliance/fedramp) requirements within the Google Cloud FedRAMP High authorization boundary. The Interactions API isn't compliant with Department of Defense (DoD) Impact Level 5 (IL5) or International Traffic in Arms Regulations (ITAR) requirements.
 
 ## Supported SDKs
 

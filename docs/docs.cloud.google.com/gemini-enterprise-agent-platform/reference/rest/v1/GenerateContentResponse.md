@@ -67,7 +67,7 @@ Fields
 
 Output only. The 0-based index of this candidate in the list of generated responses. This is useful for distinguishing between multiple candidates when `candidateCount` \> 1.
 
-`content` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Content)` )`
+`content` `object ( ``Content`` )`
 
 Output only. The content of the candidate.
 

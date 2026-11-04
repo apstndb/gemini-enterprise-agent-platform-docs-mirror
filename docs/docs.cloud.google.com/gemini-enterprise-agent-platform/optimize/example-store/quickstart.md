@@ -26,7 +26,7 @@ To complete the steps demonstrated in this tutorial, you must first set up your 
 
 ### Set up your project
 
-1.  If you selected a project, ensure that you have the [Agent Platform user](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user) ( `roles/aiplatform.user` ) IAM role on the project.
+1.  If you selected a project, ensure that you have the [Agent Platform User](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user) ( `roles/aiplatform.user` ) IAM role on the project.
 
 ### Authenticate to Agent Platform
 

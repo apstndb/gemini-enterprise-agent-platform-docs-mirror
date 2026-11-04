@@ -513,13 +513,15 @@ public class ControlledGenerationWithResponseSchema {
 
 ### REST
 
+#### GenerateContent API
+
 Before using any of the request data, make the following replacements:
 
 - ` GENERATE_RESPONSE_METHOD ` : The type of response that you want the model to generate. Choose a method that generates how you want the model's response to be returned:
   - `streamGenerateContent` : The response is streamed as it's being generated to reduce the perception of latency to a human audience.
   - `generateContent` : The response is returned after it's fully generated.
 - ` LOCATION ` : The region to process the request.
-- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
 - ` MODEL_ID ` : The model ID of the multimodal model that you want to use.
 - ` ROLE ` : The role in a conversation associated with the content. Specifying a role is required even in singleturn use cases. Acceptable values include the following:
   - `USER` : Specifies content that's sent by you.
@@ -538,14 +540,27 @@ Request JSON body:
 ```
 {
   "contents": {
-    "role": "ROLE",
+    "role": "user",
     "parts": {
-      "text": "TEXT"
+      "text": "List a few popular cookie recipes."
     }
   },
   "generation_config": {
-    "responseMimeType": "RESPONSE_MIME_TYPE",
-    "responseSchema": RESPONSE_SCHEMA,
+    "maxOutputTokens": 2048,
+    "responseMimeType": "application/json",
+    "responseSchema": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "recipe_name": {
+            "type": "string",
+            "description": "The name of the cookie recipe."
+          }
+        },
+        "required": ["recipe_name"]
+      }
+    }
   }
 }
 ```
@@ -641,26 +656,42 @@ You should receive a JSON response similar to the following.
 }
 ```
 
-#### Example curl command
+#### Interactions API
+
+Before using any of the request data, make the following replacements:
+
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+- ` MODEL_ID ` : The model ID of the multimodal model that you want to use.
+
+HTTP method and URL:
 
 ```
-LOCATION="us-central1"
-MODEL_ID="gemini-3.5-flash"
-PROJECT_ID="test-project"
-GENERATE_RESPONSE_METHOD="generateContent"
+POST https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions
+```
 
-cat << EOF > request.json
+Request JSON body:
+
+```
 {
-  "contents": {
-    "role": "user",
-    "parts": {
-      "text": "List a few popular cookie recipes."
+  "model": "MODEL_ID",
+  "input": [
+    {
+      "type": "user_input",
+      "content": [
+        {
+          "type": "text",
+          "text": "List a few popular cookie recipes."
+        }
+      ]
     }
-  },
+  ],
   "generation_config": {
-    "maxOutputTokens": 2048,
-    "responseMimeType": "application/json",
-    "responseSchema": {
+    "max_output_tokens": 2048
+  },
+  "response_format": {
+    "type": "text",
+    "mime_type": "application/json",
+    "schema": {
       "type": "array",
       "items": {
         "type": "object",
@@ -668,21 +699,90 @@ cat << EOF > request.json
           "recipe_name": {
             "type": "string",
             "description": "The name of the cookie recipe."
-          },
+          }
         },
-        "required": ["recipe_name"],
-      },
+        "required": ["recipe_name"]
+      }
     }
   }
 }
-EOF
+```
 
-curl \
--X POST \
--H "Authorization: Bearer $(gcloud auth print-access-token)" \
--H "Content-Type: application/json" \
-https://${LOCATION}-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/${LOCATION}/publishers/google/models/${MODEL_ID}:${GENERATE_RESPONSE_METHOD} \
--d '@request.json'
+To send your request, choose one of these options:
+
+#### curl
+
+> **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs) , which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
+
+Save the request body in a file named `request.json` , and execute the following command:
+
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions"
+```
+
+#### PowerShell
+
+> **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
+
+Save the request body in a file named `request.json` , and execute the following command:
+
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions" | Select-Object -Expand Content
+```
+
+You should receive a JSON response similar to the following.
+
+#### Response
+
+```
+{
+  "id": "INTERACTION_ID",
+  "model": "gemini-3.8-flash",
+  "status": "completed",
+  "steps": [
+    {
+      "type": "model_output",
+      "content": [
+        {
+          "type": "text",
+          "text": "[{\"recipe_name\": \"Chocolate Chip Cookies\"}, {\"recipe_name\": \"Peanut Butter Cookies\"}, {\"recipe_name\": \"Oatmeal Raisin Cookies\"}, {\"recipe_name\": \"Sugar Cookies\"}, {\"recipe_name\": \"Snickerdoodles\"}]"
+        }
+      ]
+    }
+  ],
+  "usage": {
+    "total_tokens": 62,
+    "total_input_tokens": 7,
+    "input_tokens_by_modality": [
+      {
+        "modality": "text",
+        "tokens": 7
+      }
+    ],
+    "total_output_tokens": 55,
+    "output_tokens_by_modality": [
+      {
+        "modality": "text",
+        "tokens": 55
+      }
+    ]
+  },
+  "object": "interaction",
+  "created": "2026-05-29T02:17:56Z",
+  "updated": "2026-05-29T02:17:56Z"
+}
 ```
 
 ### Example schemas for JSON output

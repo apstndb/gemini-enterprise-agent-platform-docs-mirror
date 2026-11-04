@@ -30,13 +30,13 @@ You might also be able to get the required permissions through [custom roles](ht
 
 You have the following options when setting up identity and permissions:
 
-- [Agent identity (Recommended)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) Use Identity Access Management (IAM) agent identity to provide security and access management features when using agents on Agent Runtime. Agent identity is tied to each individual agent. By default, agents have the *Agent Platform Agent Default Access* role ( `roles/aiplatform.agentDefaultAccess` ), which only includes basic project-wide logging and model calling permissions, and the *Agent Platform Agent Context Editor* role ( `roles/aiplatform.agentContextEditor` ), which limits an agent to accessing only their own sessions, memories, and sandboxes.
+- [Agent identity (Recommended)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) Use Identity Access Management (IAM) agent identity to provide security and access management features when using agents on Agent Runtime. Agent identity is tied to each individual agent. By default, agents have the *Vertex AI Agent Engine - Agent Default Access Role* ( `roles/aiplatform.agentDefaultAccess` ), which only includes basic project-wide logging and model calling permissions, and the *Vertex AI Agent Engine - Agent Context Editor Role* ( `roles/aiplatform.agentContextEditor` ), which limits an agent to accessing only their own sessions, memories, and sandboxes.
 
   Note: Some features accessible by this role may be in [Preview](https://cloud.google.com/products/#product-launch-stages)
 
 - [Service accounts](https://docs.cloud.google.com/iam/docs/service-account-overview) : Service accounts are shared across agents you deploy to Agent Runtime. You have two options for the service account:
 
-  - **Default Service Agent:** By default, agents use the *AI Platform Reasoning Engine Service Agent* . This Google-managed service account has the *Gemini Enterprise Agent Platform Reasoning Engine Service Agent* role ( `roles/aiplatform.reasoningEngineServiceAgent` ), which includes the default permissions required for deployed agents.
+  - **Default Service Agent:** By default, agents use the *AI Platform Reasoning Engine Service Agent* . This Google-managed service account has the *Vertex AI Reasoning Engine Service Agent* role ( `roles/aiplatform.reasoningEngineServiceAgent` ), which includes the default permissions required for deployed agents.
   - **Custom Service Account:** You can specify your own service account for the agents to use. This gives you more granular control over the permissions granted to the agents.
 
 ### Agent identity

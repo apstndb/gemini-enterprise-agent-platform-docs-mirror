@@ -32,7 +32,7 @@ The request body contains data with the following structure:
 
 Fields
 
-`contents[]` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Content)` )`
+`contents[]` `object ( ``Content`` )`
 
 Required. The content of the current conversation with the model.
 
@@ -70,7 +70,7 @@ Optional. Settings for prompt and response sanitization using the Model Armor se
 
 Optional. Generation config.
 
-`systemInstruction` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Content)` )`
+`systemInstruction` `object ( ``Content`` )`
 
 Optional. The user provided system instructions for the model. Note: only text should be used in parts and content in each part will be in a separate paragraph.
 

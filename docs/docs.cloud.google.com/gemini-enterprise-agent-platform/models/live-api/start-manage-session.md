@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 The Gemini Live API enables low-latency voice and text interactions by processing continuous streams of audio or text called *sessions* to deliver immediate, human-like spoken responses. Session lifecycle management, from the initial handshake to graceful termination, is controlled by the developer.
 
-This page shows you how to start a conversation session with Gemini models using the Gemini Live API. You can start a session using Vertex AI Studio, the Google Gen AI SDK, or WebSockets.
+This page shows you how to start a conversation session with Gemini models using the Gemini Live API. You can start a session using Agent Studio, the Google Gen AI SDK, or WebSockets.
 
 This page also shows you how to do the following:
 
@@ -35,11 +35,11 @@ Concurrent session quotas are checked when a session starts and apply whether yo
 
 ## Start a session
 
-The following tabs show how to start a live conversation session using Vertex AI Studio, the Google Gen AI SDK, or WebSockets:
+The following tabs show how to start a live conversation session using Agent Studio, the Google Gen AI SDK, or WebSockets:
 
 ### Console
 
-1.  Open [**Vertex AI Studio \> Stream realtime**](https://console.cloud.google.com/agent-platform/studio/multimodal-live) .
+1.  Open [**Agent Studio \> Stream realtime**](https://console.cloud.google.com/agent-platform/studio/multimodal-live) .
 2.  Click **mic Start session** to initiate the conversation.
 
 To end the session, click **stop_circle Stop session** .
@@ -126,7 +126,7 @@ if __name__ == "__main__":
 
 ## Extend a session
 
-> **Note:** Session extension is only available when using the Google Gen AI SDK, not Vertex AI Studio.
+> **Note:** Session extension is only available when using the Google Gen AI SDK, not Agent Studio.
 
 The default maximum length of a conversation session is 10 minutes, which you can extend using goAway notifications. A `goAway` notification ( [`BidiGenerateContentServerMessage.goAway`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/live-api#server-messages) ) is sent to the client 60 seconds before the session ends.
 
@@ -338,7 +338,7 @@ The Gemini Live API context window is used to store real-time streamed data (25 
 
 In long-running sessions, as the conversation progresses, the history of audio and text tokens accumulates. If this history exceeds the model's limit, the model may hallucinate, slow down, or the session may be forcibly terminated. To enable longer sessions, you can enable *context window compression* by setting the `contextWindowCompression` field as part of the session configuration.
 
-Context window compression uses a a server-side sliding window to truncate the oldest turns when enabled. When the accumulated tokens exceed a defined maximum length (set using the **Max content size** slider in Vertex AI Studio, or trigger_tokens in the API), the server automatically prunes the oldest turns or summarizes them to maintain context within the limit. In the `ContextWindowCompressionConfig` , you can configure a sliding-window mechanism and the number of tokens defined in the `target_tokens` parameter that triggers compression.
+Context window compression uses a a server-side sliding window to truncate the oldest turns when enabled. When the accumulated tokens exceed a defined maximum length (set using the **Max content size** slider in Agent Studio, or trigger_tokens in the API), the server automatically prunes the oldest turns or summarizes them to maintain context within the limit. In the `ContextWindowCompressionConfig` , you can configure a sliding-window mechanism and the number of tokens defined in the `target_tokens` parameter that triggers compression.
 
 This allows for theoretically infinite session durations from the user's perspective, as the "memory" is constantly managed. Without compression, audio-only sessions might be limited to approximately 15 minutes before hitting hard limits.
 
@@ -353,7 +353,7 @@ To set the context window:
 
 ### Console
 
-1.  Open [**Vertex AI Studio \> Stream realtime**](https://console.cloud.google.com/agent-platform/studio/multimodal-live) .
+1.  Open [**Agent Studio \> Stream realtime**](https://console.cloud.google.com/agent-platform/studio/multimodal-live) .
 2.  Click to open the **Advanced** menu.
 3.  In the **Session Context** section, use the **Max context size** slider to set the context size to a value between 5,000 and 128,000.
 4.  (Optional) In the same section, use the **Target context size** slider to set the target size to a value between 0 and 128,000.

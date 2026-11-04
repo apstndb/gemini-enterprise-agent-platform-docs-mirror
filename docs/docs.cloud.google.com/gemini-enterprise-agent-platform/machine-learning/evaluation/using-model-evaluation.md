@@ -23,11 +23,11 @@ This page describes how to evaluate models using Gemini Enterprise Agent Platfor
 
 5.  Make sure your [default Compute Engine service account](https://docs.cloud.google.com/iam/docs/service-account-types#default) has the following [IAM permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/iam-permissions) :
 
-    - Agent Platform Administrator ( `aiplatform.admin` )
-    - Agent Platform Service Agent ( `aiplatform.serviceAgent` )
-    - Storage Object Admin ( `storage.objectAdmin` )
-    - Dataflow Worker ( `dataflow.worker` )
-    - BigQuery Data Editor ( `bigquery.dataEditor` ) (only required if you are providing data in the form of BigQuery tables)
+    - Agent Platform Administrator ( `roles/aiplatform.admin` )
+    - Vertex AI Service Agent ( `roles/aiplatform.serviceAgent` )
+    - Storage Object Admin ( `roles/storage.objectAdmin` )
+    - Dataflow Worker ( `roles/dataflow.worker` )
+    - BigQuery Data Editor ( `roles/bigquery.dataEditor` ) (only required if you are providing data in the form of BigQuery tables)
 
 ## Create an evaluation
 

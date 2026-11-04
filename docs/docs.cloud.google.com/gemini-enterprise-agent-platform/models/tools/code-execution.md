@@ -382,27 +382,20 @@ public class ToolsCodeExecWithText {
 
 ### REST
 
+#### GenerateContent API
+
 Before using any of the request data, make the following replacements:
 
 - `GENERATE_RESPONSE_METHOD` : The type of response that you want the model to generate. Choose a method that generates how you want the model's response to be returned:
   - `streamGenerateContent` : The response is streamed as it's being generated to reduce the perception of latency to a human audience.
   - `generateContent` : The response is returned after it's fully generated.
-
 - `LOCATION` : The region to process the request.
-
-- `PROJECT_ID` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
-
+- `PROJECT_ID` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
 - `MODEL_ID` : The model ID of the model that you want to use.
-
 - `ROLE` : The role in a conversation associated with the content. Specifying a role is required even in singleturn use cases. Acceptable values include the following:
   - `USER` : Specifies content that's sent by you.
   - `MODEL` : Specifies the model's response.
-
-- ```
-  TEXT
-  ```
-
-  The text instructions to include in the prompt.
+- `TEXT` The text instructions to include in the prompt.
 
 To send your request, choose one of these options:
 
@@ -547,57 +540,465 @@ You should receive a JSON response similar to the following.
 }
 ```
 
+#### Interactions API
+
+Before using any of the request data, make the following replacements:
+
+- `PROJECT_ID` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+- `MODEL_ID` : The model ID of the model that you want to use.
+- `TEXT` The text instructions to include in the prompt.
+
+To send your request, choose one of these options:
+
+#### curl
+
+> **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs) , which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
+
+Save the request body in a file named `request.json` . Run the following command in the terminal to create or overwrite this file in the current directory:
+
+```
+cat > request.json << 'EOF'
+{
+  "model": "MODEL_ID",
+  "tools": [
+    {
+      "type": "code_execution"
+    }
+  ],
+  "input": [
+    {
+      "type": "user_input",
+      "content": [
+        {
+          "type": "text",
+          "text": "TEXT"
+        }
+      ]
+    }
+  ]
+}
+EOF
+```
+
+Then execute the following command to send your REST request:
+
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions"
+```
+
+#### PowerShell
+
+> **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
+
+Save the request body in a file named `request.json` . Run the following command in the terminal to create or overwrite this file in the current directory:
+
+```
+@'
+{
+  "model": "MODEL_ID",
+  "tools": [
+    {
+      "type": "code_execution"
+    }
+  ],
+  "input": [
+    {
+      "type": "user_input",
+      "content": [
+        {
+          "type": "text",
+          "text": "TEXT"
+        }
+      ]
+    }
+  ]
+}
+'@  | Out-File -FilePath request.json -Encoding utf8
+```
+
+Then execute the following command to send your REST request:
+
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions" | Select-Object -Expand Content
+```
+
+You should receive a JSON response similar to the following.
+
+#### Response
+
+```
+{
+  "id": "W35XZ9S5M6acmecP3vDFkQU",
+  "model": "gemini-3.8-flash",
+  "status": "completed",
+  "steps": [
+    {
+      "type": "model_output",
+      "content": [
+        {
+          "type": "text",
+          "text": "Okay, I understand. You want me to calculate the sum of the first 10 positive integers and to use code to do so. Here's my plan: I will use a loop to add the numbers from 1 to 10 and then return the final sum.\n\n"
+        }
+      ]
+    },
+    {
+      "type": "code_execution_call",
+      "id": "code_call_71021",
+      "arguments": {
+        "language": "PYTHON",
+        "code": "\ntotal = 0\nfor i in range(1, 11):\n    total += i\nprint(f'{total=}')\n"
+      }
+    },
+    {
+      "type": "code_execution_result",
+      "call_id": "code_call_71021",
+      "result": "total=55\n"
+    },
+    {
+      "type": "model_output",
+      "content": [
+        {
+          "type": "text",
+          "text": "The sum of the first 10 positive numbers is 55.\n"
+        }
+      ]
+    }
+  ],
+  "usage": {
+    "total_tokens": 144,
+    "total_input_tokens": 34,
+    "input_tokens_by_modality": [
+      {
+        "modality": "text",
+        "tokens": 34
+      }
+    ],
+    "total_output_tokens": 110,
+    "output_tokens_by_modality": [
+      {
+        "modality": "text",
+        "tokens": 110
+      }
+    ]
+  },
+  "object": "interaction",
+  "created": "2026-05-29T02:17:56Z",
+  "updated": "2026-05-29T02:17:56Z"
+}
+```
+
 ### Use code execution in chat
 
 You can also use code execution as part of a chat.
 
 ### REST
 
+#### GenerateContent API
+
+Before using any of the request data, make the following replacements:
+
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+
+To send your request, choose one of these options:
+
+#### curl
+
+> **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs) , which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
+
+Save the request body in a file named `request.json` . Run the following command in the terminal to create or overwrite this file in the current directory:
+
+```
+cat > request.json << 'EOF'
+{
+  "tools": [
+    {
+      "code_execution": {}
+    }
+  ],
+  "contents": [
+    {
+      "role": "user",
+      "parts": {
+        "text": "Can you print \"Hello world!\"?"
+      }
+    },
+    {
+      "role": "model",
+      "parts": [
+        {
+          "text": ""
+        },
+        {
+          "executable_code": {
+            "language": "PYTHON",
+            "code": "\nprint(\"hello world!\")\n"
+          }
+        },
+        {
+          "code_execution_result": {
+            "outcome": "OUTCOME_OK",
+            "output": "hello world!\n"
+          }
+        },
+        {
+          "text": "I have printed \"hello world!\" using the provided python code block. \n"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "parts": {
+        "text": "What is the sum of the first 50 prime numbers? Generate and run code for the calculation, and make sure you get all 50."
+      }
+    }
+  ]
+}
+EOF
+```
+
+Then execute the following command to send your REST request:
+
 ```
 curl -X POST \
--H "Authorization: Bearer $(gcloud auth print-access-token)" \
--H "Content-Type: application/json" \
-https://aiplatform.googleapis.com/v1/projects/test-project/locations/global/publishers/google/models/gemini-3.5-flash:generateContent -d \
-$'{
-    "tools": [{'code_execution': {}}],
-    "contents": [
-      {
-        "role": "user",
-        "parts": {
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent"
+```
+
+#### PowerShell
+
+> **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
+
+Save the request body in a file named `request.json` . Run the following command in the terminal to create or overwrite this file in the current directory:
+
+```
+@'
+{
+  "tools": [
+    {
+      "code_execution": {}
+    }
+  ],
+  "contents": [
+    {
+      "role": "user",
+      "parts": {
+        "text": "Can you print \"Hello world!\"?"
+      }
+    },
+    {
+      "role": "model",
+      "parts": [
+        {
+          "text": ""
+        },
+        {
+          "executable_code": {
+            "language": "PYTHON",
+            "code": "\nprint(\"hello world!\")\n"
+          }
+        },
+        {
+          "code_execution_result": {
+            "outcome": "OUTCOME_OK",
+            "output": "hello world!\n"
+          }
+        },
+        {
+          "text": "I have printed \"hello world!\" using the provided python code block. \n"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "parts": {
+        "text": "What is the sum of the first 50 prime numbers? Generate and run code for the calculation, and make sure you get all 50."
+      }
+    }
+  ]
+}
+'@  | Out-File -FilePath request.json -Encoding utf8
+```
+
+Then execute the following command to send your REST request:
+
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent" | Select-Object -Expand Content
+```
+
+#### Interactions API
+
+Before using any of the request data, make the following replacements:
+
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+
+To send your request, choose one of these options:
+
+#### curl
+
+> **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs) , which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
+
+Save the request body in a file named `request.json` . Run the following command in the terminal to create or overwrite this file in the current directory:
+
+```
+cat > request.json << 'EOF'
+{
+  "model": "gemini-3.8-flash",
+  "tools": [
+    {
+      "type": "code_execution"
+    }
+  ],
+  "input": [
+    {
+      "type": "user_input",
+      "content": [
+        {
+          "type": "text",
           "text": "Can you print \"Hello world!\"?"
         }
-      },
-      {
-        "role": "model",
-        "parts": [
-          {
-            "text": ""
-          },
-          {
-            "executable_code": {
-              "language": "PYTHON",
-              "code": "\nprint(\"hello world!\")\n"
-            }
-          },
-          {
-            "code_execution_result": {
-              "outcome": "OUTCOME_OK",
-              "output": "hello world!\n"
-            }
-          },
-          {
-            "text": "I have printed \"hello world!\" using the provided python code block. \n"
-          }
-        ],
-      },
-      {
-        "role": "user",
-        "parts": {
+      ]
+    },
+    {
+      "type": "code_execution_call",
+      "id": "code_call_71021",
+      "arguments": {
+        "language": "PYTHON",
+        "code": "\nprint(\"hello world!\")\n"
+      }
+    },
+    {
+      "type": "code_execution_result",
+      "call_id": "code_call_71021",
+      "result": "hello world!\n"
+    },
+    {
+      "type": "model_output",
+      "content": [
+        {
+          "type": "text",
+          "text": "I have printed \"hello world!\" using the provided python code block. \n"
+        }
+      ]
+    },
+    {
+      "type": "user_input",
+      "content": [
+        {
+          "type": "text",
           "text": "What is the sum of the first 50 prime numbers? Generate and run code for the calculation, and make sure you get all 50."
         }
+      ]
+    }
+  ]
+}
+EOF
+```
+
+Then execute the following command to send your REST request:
+
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions"
+```
+
+#### PowerShell
+
+> **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
+
+Save the request body in a file named `request.json` . Run the following command in the terminal to create or overwrite this file in the current directory:
+
+```
+@'
+{
+  "model": "gemini-3.8-flash",
+  "tools": [
+    {
+      "type": "code_execution"
+    }
+  ],
+  "input": [
+    {
+      "type": "user_input",
+      "content": [
+        {
+          "type": "text",
+          "text": "Can you print \"Hello world!\"?"
+        }
+      ]
+    },
+    {
+      "type": "code_execution_call",
+      "id": "code_call_71021",
+      "arguments": {
+        "language": "PYTHON",
+        "code": "\nprint(\"hello world!\")\n"
       }
-    ]
-  }'
+    },
+    {
+      "type": "code_execution_result",
+      "call_id": "code_call_71021",
+      "result": "hello world!\n"
+    },
+    {
+      "type": "model_output",
+      "content": [
+        {
+          "type": "text",
+          "text": "I have printed \"hello world!\" using the provided python code block. \n"
+        }
+      ]
+    },
+    {
+      "type": "user_input",
+      "content": [
+        {
+          "type": "text",
+          "text": "What is the sum of the first 50 prime numbers? Generate and run code for the calculation, and make sure you get all 50."
+        }
+      ]
+    }
+  ]
+}
+'@  | Out-File -FilePath request.json -Encoding utf8
+```
+
+Then execute the following command to send your REST request:
+
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions" | Select-Object -Expand Content
 ```
 
 ### (Gemini 3 Flash only) Use code execution with images
@@ -618,6 +1019,8 @@ To use code execution with images, [enable code execution](https://docs.cloud.go
 
 ### Python
 
+#### GenerateContent API
+
 ```
 # Example input image
 image_path = "https://storage.googleapis.com/cloud-samples-data/generative-ai/image/chips.jpeg"
@@ -633,6 +1036,49 @@ response = client.models.generate_content(
         tools=[types.Tool(code_execution=types.ToolCodeExecution)]
     ),
 )
+```
+
+#### Interactions API
+
+```
+import base64
+from google import genai
+import requests
+
+client = genai.Client(
+    enterprise=True,
+    project="PROJECT_ID",
+    location="global",
+)
+
+# Example input image
+image_path = "https://storage.googleapis.com/cloud-samples-data/generative-ai/image/chips.jpeg"
+image_bytes = requests.get(image_path).content
+base64_image = base64.b64encode(image_bytes).decode("utf-8")
+
+interaction = client.interactions.create(
+    model="gemini-3.8-flash",
+    input=[
+        {
+            "type": "image",
+            "data": base64_image,
+            "mime_type": "image/jpeg",
+        },
+        {
+            "type": "text",
+            "text": "Locate the ESMT chip. What are the numbers on the chip?",
+        },
+    ],
+    tools=[{"type": "code_execution"}],
+)
+
+for step in interaction.steps:
+    if step.type == "code_execution_call":
+        print(f"Code:\n{step.arguments.code}")
+    elif step.type == "code_execution_result":
+        print(f"Output:\n{step.result}")
+    elif step.type == "model_output":
+        print(step.content[0].text)
 ```
 
 ## Code execution versus function calling

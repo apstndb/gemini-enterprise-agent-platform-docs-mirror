@@ -50,7 +50,7 @@ These Gemini Enterprise Agent Platform-specific customizations, while often tran
 
 - **Gemini Enterprise Agent Platform ecosystem integration:**
   - **Gemini Enterprise Agent Platform prediction input/output format support:** Ensures seamless compatibility with Gemini Enterprise Agent Platform prediction input and output formats, simplifying data handling and integration with other Gemini Enterprise Agent Platform services.
-  - **Vertex Environment variable awareness:** Respects and leverages Gemini Enterprise Agent Platform environment variables ( `AIP_*` ) for configuration and resource management, streamlining deployment and ensuring consistent behavior within the Gemini Enterprise Agent Platform environment.
+  - **Agent Platform Environment variable awareness:** Respects and leverages Gemini Enterprise Agent Platform environment variables ( `AIP_*` ) for configuration and resource management, streamlining deployment and ensuring consistent behavior within the Gemini Enterprise Agent Platform environment.
   - **Enhanced error handling and robustness:** Implements comprehensive error handling, input/output validation, and server termination mechanisms to ensure stability, reliability, and seamless operation within the managed Gemini Enterprise Agent Platform environment.
   - **Nginx server for capability:** Integrates an Nginx server on top of the vLLM server, facilitating the deployment of multiple replicas and enhancing scalability and high availability of the serving infrastructure.
 
@@ -97,7 +97,7 @@ The vLLM Cloud GPUs serving container is integrated into Model Garden the playgr
 [Playground](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama3_1) and [one-click](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama3_1) deployments are also available but are not outlined in this tutorial.
 
 1.  Navigate to the [model card page](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama3_1) and click **Open notebook** .
-2.  Select the Vertex Serving notebook. The notebook is opened in Colab Enterprise.
+2.  In the **Open Notebook** dialog, for the `model_garden_pytorch_llama3_1_deployment.ipynb` ( **Deployment** ) notebook, click **Colab Enterprise** . The notebook opens in Colab Enterprise.
 3.  Run through the notebook to deploy a model by using vLLM and send prediction requests to the endpoint.
 
 ## Setup and requirements
@@ -427,7 +427,7 @@ models["vllm_gpu"], endpoints["vllm_gpu"] = deploy_model_vllm(
 
 After running this code sample, your Llama 3.1 model will be deployed on Gemini Enterprise Agent Platform and accessible through the specified endpoint. You can interact with it for inference tasks such as text generation, summarization, and dialogue. Depending on model size, new model deployment can take up to an hour. You can check the progress at online prediction.
 
-![Llama 3.1 Deployment Endpoint in Vertex Dashboard](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/models/open-models/vllm/images/vertexai_llama3_1_endpoint.png) **Figure 4: Llama 3.1 Deployment Endpoint in Vertex Dashboard**
+![Llama 3.1 Deployment Endpoint in Agent Platform Dashboard](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/models/open-models/vllm/images/vertexai_llama3_1_endpoint.png) **Figure 4: Llama 3.1 Deployment Endpoint in Agent Platform Dashboard**
 
 ## Making predictions with Llama 3.1 on Gemini Enterprise Agent Platform
 
@@ -663,7 +663,7 @@ models["vllm_gpu"], endpoints["vllm_gpu"] = deploy_model_vllm(
 )
 ```
 
-![Llama 3.2 Deployment Endpoint in Vertex Dashboard](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/models/open-models/vllm/images/vertexai_llama3_2_endpoint.png) **Figure 5: Llama 3.2 Deployment Endpoint in Vertex Dashboard**
+![Llama 3.2 Deployment Endpoint in Agent Platform Dashboard](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/models/open-models/vllm/images/vertexai_llama3_2_endpoint.png) **Figure 5: Llama 3.2 Deployment Endpoint in Agent Platform Dashboard**
 
 Depending on model size, new model deployment can take up to an hour to complete. You can check its progress at online prediction.
 

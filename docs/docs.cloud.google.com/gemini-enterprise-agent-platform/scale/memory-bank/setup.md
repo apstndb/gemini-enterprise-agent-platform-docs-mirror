@@ -25,7 +25,7 @@ Every project can be identified in two ways: the project number or the project I
 To get the permissions that you need to use Memory Bank, ask your administrator to grant you the following IAM roles on your project:
 
 - Create or update a Memory Bank instance: [Agent Platform User](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user) ( `roles/aiplatform.user` )
-- Read, write, or generate memories: [Memory Bank User](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.memoryUser) ( `roles/aiplatform.memoryUser` )
+- Read, write, or generate memories: [Agent Platform Memory Bank User Role](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.memoryUser) ( `roles/aiplatform.memoryUser` )
 
 For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 

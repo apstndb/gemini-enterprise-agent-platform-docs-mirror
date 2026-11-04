@@ -6,11 +6,15 @@ description: Explore APIs, SDKs, client libraries, and command-line references f
 data_source: docs.cloud.google.com
 ---
 
-Gemini Enterprise Agent Platform provides model APIs, platform REST and RPC APIs, client libraries, and command-line tools to build, deploy, and manage AI agents, generative AI applications, and machine learning workflows. This page highlights key model API references—such as the Interactions API, Gemini Live API, and APIs for embeddings, tuning, and evaluation—alongside RAG and platform SDK references across Agent Platform.
+Gemini Enterprise Agent Platform provides model APIs, platform REST and RPC APIs, client libraries, and command-line tools to build, deploy, and manage AI agents, generative AI applications, and machine learning workflows. This page highlights key model API references—such as the GenerateContent API, Interactions API, Gemini Live API, and APIs for embeddings, tuning, and evaluation—alongside RAG and platform SDK references across Agent Platform.
 
 ## Model APIs
 
 Interact with Gemini and other generative AI models for text and multimodal generation, real-time streaming, embeddings, customization, and evaluation.
+
+### [GenerateContent API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference)
+
+Generate text and multimodal content in standard or streaming responses with Gemini models.
 
 ### [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api)
 
