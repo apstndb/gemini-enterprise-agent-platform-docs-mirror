@@ -1402,9 +1402,11 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-When passing Cloud Storage URIs (for example, `gs://bucket-name/path/to/file` ) to the Interactions API, requests are evaluated using end-user credentials (EUC). The API fetches Cloud Storage objects using the identity of the authenticated caller rather than a background project service agent.
+When passing Cloud Storage URIs (for example, `gs://bucket-name/path/to/file` ) to the Interactions API, requests verify read access using the caller's credentials before the calling project's Agent Platform Service Agent ( `service- `` PROJECT_NUMBER `` @gcp-sa-aiplatform.iam.gserviceaccount.com` ) fetches the object from Cloud Storage.
 
-To pass Cloud Storage files in an interaction request, the calling principal (user account, service account, or federated identity) must hold the `storage.objects.get` permission for all referenced objects.
+To pass Cloud Storage files in an interaction request, the calling principal (user account, service account, or federated identity) must hold the `storage.objects.get` permission for all referenced objects. For cross-project Cloud Storage buckets or Cloud Storage buckets with custom IAM policies, grant read access to both the calling principal and the calling project's service agent.
+
+Each standard Gemini model interaction request supports up to 100 distinct Cloud Storage ( `gs://` ) URIs (up to 2 GiB minus 500 KiB per file). When you chain stateful turns using `previous_interaction_id` , Agent Platform counts distinct `gs://` URIs cumulatively across the conversation history and the current turn. Managed agent interactions (requests that set `agent` instead of `model` ), Gemini Omni models, and Lyria 3 models are excluded from this 100-URI limit.
 
 #### Configure IAM roles for accessing Cloud Storage files
 
@@ -1440,7 +1442,7 @@ PERMISSION_DENIED - 403 Forbidden: Calling principal lacks
 storage.objects.get on one or more Cloud Storage URIs.
 ```
 
-To resolve this issue, grant the Storage Object Viewer role ( `roles/storage.objectViewer` ) on the bucket or object to the authenticated caller.
+To resolve this issue, grant the Storage Object Viewer role ( `roles/storage.objectViewer` ) on the Cloud Storage bucket or object to the authenticated caller (and to the calling project's Agent Platform Service Agent for cross-project or custom-IAM Cloud Storage buckets).
 
 If the specified object doesn't exist, or if bucket permissions prevent the caller from seeing whether the object exists, the Interactions API returns a `404 Not Found` error similar to the following:
 
@@ -1451,6 +1453,18 @@ permissions prevent revealing object existence.
 ```
 
 To resolve this issue, verify that the Cloud Storage URI is correct and confirm that the authenticated caller has read access to the bucket.
+
+If a model interaction request references more than 100 distinct Cloud Storage URIs across the current turn and any linked `previous_interaction_id` history, the Interactions API returns a `400 Bad Request` error similar to the following:
+
+```
+INVALID_ARGUMENT - 400 Bad Request: Request references 101 distinct gs:// URIs, which exceeds the maximum of 100.
+```
+
+To resolve this issue, do one of the following:
+
+- Start a new interaction without `previous_interaction_id` when files from earlier turns are no longer needed.
+- Combine smaller documents or pass additional files inline within the request payload limit (256 MiB compressed for synchronous or streaming requests, or 9.75 MiB uncompressed when `service_tier` is set to `deferred` with `background` and `store` set to `true` ).
+- Use [`generateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference) for requests that reference `gs://` URIs up to the per-modality model item limits (3,000 images and PDFs combined, 1,000 audio files, and 10 videos, or up to 6,500 files when including plain-text files).
 
 ### Encrypt interaction data with CMEK
 

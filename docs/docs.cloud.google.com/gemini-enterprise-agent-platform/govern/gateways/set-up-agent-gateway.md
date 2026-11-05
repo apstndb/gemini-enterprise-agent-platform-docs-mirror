@@ -263,8 +263,8 @@ Use the following steps to create an Agent Gateway resource for [Agent-to-Anywhe
 
 8.  In the **Access Authorization** section, choose how traffic is handled by IAP:
 
-    - To deploy the gateway in a dry-run mode where the gateway permits all traffic through and only generates [audit logs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/monitor-agent-gateway) , select **Audit-only** . Your IAM policies are not enforced by IAP in dry-run mode. Once you gain confidence, you can disable dry-run mode to enforce IAM policies.
-    - To block requests that don't have an explicit `Allow` IAM policy, select **Enforce policies** . This option is recommended for production environments.
+    - To deploy the gateway in a dry-run mode where the gateway permits all traffic through and only generates [audit logs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/monitor-agent-gateway) , select **Audit-only** (which sets `iamEnforcementMode: "DRY_RUN"` on the authorization extension). Your IAM policies are not enforced by IAP in dry-run mode. Once you gain confidence, you can disable dry-run mode to enforce IAM policies.
+    - To block requests that don't have an explicit `Allow` IAM policy, select **Enforce policies** (which writes `iamEnforcementMode: "ENFORCED"` on the authorization extension when creating a gateway, or removes `iamEnforcementMode` when updating an existing gateway). This option is recommended for production environments.
     - For **Policy model** , select **Unified Access Policy** .
 
     > **Note:** We strongly recommend using Unified Access Policy for advanced, expressive, and fine-grained access control. To replace a legacy Allow policy on an existing gateway, navigate to the Policies UI and manually redefine your rules under the UAP tab. For more information, see [Create IAM agent policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap) .
@@ -343,7 +343,7 @@ You define Agent Gateways declaratively using YAML.
         EOF
         ```
 
-        Remove the `iamEnforcementMode: "DRY_RUN"` field from the `metadata` block when you're ready to start enforcing policies.
+        Remove the `iamEnforcementMode: "DRY_RUN"` field from the `metadata` block when you're ready to start enforcing policies. For instructions on auditing dry-run violations across controls before enabling enforcement, see dry-run violations across controls before enabling enforcement, see [Audit dry-run policy violations across controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/dry-run-report) .
 
         > **Note:** We strongly recommend using UAP ( `iapPolicyVersion: "V2"` ) for advanced, expressive, and fine-grained access control. To replace a legacy Allow policy ( `iapPolicyVersion: "V1"` ) on an existing gateway, navigate to the Policies UI and manually redefine your rules under the UAP tab. For more information, see [Create IAM agent policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap) .
 

@@ -730,11 +730,11 @@ After you create and bind your policies, verify that your agent can access the r
 
     Replace `PROJECT_ID` with your project ID.
 
-    The log entries display the access decision, principal, target, and CEL expression evaluation details. We recommend that, during testing, you use `DRY_RUN` mode so that policy violations don't block access.
+    The log entries display the access decision, principal, target, and CEL expression evaluation details. We recommend that, during testing, you use `DRY_RUN` mode ( `iamEnforcementMode: "DRY_RUN"` , or **Audit-only** in the Google Cloud console) so that policy violations don't block access. To query dry-run violations across all governance controls, see [Audit dry-run policy violations across controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/dry-run-report) .
 
 3.  Adjust policy rules based on evaluation results in the audit logs.
 
-4.  After you confirm that your rules operate as expected, update your gateway service extension metadata, and set `iamEnforcementMode` to `"ENFORCE"` .
+4.  After you confirm that your rules operate as expected, enable active enforcement by selecting **Enforce policies** in the Google Cloud console (which writes `iamEnforcementMode: "ENFORCED"` when creating a gateway, or removes `iamEnforcementMode` when updating an existing gateway), or by removing `iamEnforcementMode: "DRY_RUN"` in your gateway authorization extension metadata.
 
 ## Example policies
 
@@ -1739,6 +1739,7 @@ The following table describes the CEL attributes that you can use in an agent-to
 
 - [CEL attributes for UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/cel-attributes-uap)
 - [Manage IAM UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/manage-iam-policies-uap)
+- [Audit dry-run policy violations across controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/dry-run-report)
 - [Troubleshoot IAM UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-iam-policies-uap)
 
 Overview

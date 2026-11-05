@@ -360,7 +360,7 @@ The media type of the file specified in the <code>data</code> or <code>fileUri</
 <td><p><code>data</code></p></td>
 <td><p><code>bytes</code></p>
 <p>The <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/tutorials/base64-encode">base64 encoding</a> of the image, PDF, or video to include inline in the prompt. When including media inline, you must also specify the media type ( <code>mimeType</code> ) of the data.</p>
-<p>Size limit: 7 MB for images</p></td>
+<p>Size limit: Up to 256 MB per inline part across all modalities on standard Gemini 3 and later models (30 MiB for images, 50 MiB for PDFs, or 7 MiB for plain text on non-migrated Gemini 2.5 endpoints and <code>gemini-3.1-pro-preview-customtools</code> ). The total compressed HTTP or gRPC request payload can't exceed 500 MiB (base64 encoding adds approximately 33% size overhead).</p></td>
 </tr>
 </tbody>
 </table>
@@ -391,7 +391,7 @@ URI or web-URL data.
 <p>The URI or URL of the file to include in the prompt. Acceptable values include the following:</p>
 <ul>
 <li><strong>Cloud Storage bucket URI:</strong> The object must either be publicly readable or reside in the same Google Cloud project that's sending the request.</li>
-<li><strong>HTTP URL:</strong> The file URL must be publicly readable. You can specify one video file, one audio file, and up to 10 image files per request. Audio files, video files, and documents can't exceed 15 MB.</li>
+<li><strong>HTTP URL:</strong> The file URL must be publicly readable and can't exceed 15 MiB per file. Standard Gemini 3 and later models accept up to 3,000 images and PDFs combined, 1,000 audio files, or 10 videos per request (up to 6,500 total files when including plain-text files). Non-migrated Gemini 2.5 endpoints and <code>gemini-3.1-pro-preview-customtools</code> limit HTTP or HTTPS URLs to 10 images, 1 audio file, or 1 video per request.</li>
 <li><strong>YouTube video URL:</strong> The YouTube video must be either owned by the account that you used to sign in to the Google Cloud console or be public. Only one YouTube video URL is supported per request.</li>
 </ul>
 <p>When specifying a <code>fileURI</code> , you must also specify the media type ( <code>mimeType</code> ) of the file. If VPC Service Controls is enabled, specifying a media file URL for <code>fileURI</code> is not supported.</p></td>

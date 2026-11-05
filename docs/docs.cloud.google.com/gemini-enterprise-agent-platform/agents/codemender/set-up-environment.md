@@ -511,7 +511,18 @@ Redirected files and non-interactive CI/CD streams keep `plain` set to `false` b
 
 ## Telemetry
 
-To help us monitor and improve product health, we collect anonymous telemetry data through the CLI. We fully anonymize all collected data, which includes basic usage metrics and performance diagnostics. Telemetry never collects or transmits source code, file contents, findings, patches, or user identities.
+To help us monitor and improve product health, the CLI sends usage telemetry to Google: an event when a command starts, an event when it exits, and an event for each error it reports. When the CLI can determine them, events identify the Google Account or service account that runs the CLI and the Google Cloud project that it uses.
+
+Telemetry events can contain the following:
+
+- Your Google Account ID or service account ID, the Google Cloud project ID, and the team ID, if you set one.
+- A random ID for each command, the command name, the server session ID, the selected model, and the CLI version.
+- The operating system family, platform, and version.
+- Whether the sandbox is turned on, and whether `-y` ( `--yes` ) is set to skip [confirmation prompts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment#confirmation-prompts) .
+- On exit: the duration, exit code, and outcome; token counts; the number of lines, files, and bytes scanned and the languages detected; and the number of findings by severity or the result of a verification or fix.
+- On error: the error category and reason, and a stack trace of the CLI's own code.
+
+Telemetry doesn't contain source code, file contents, file paths, prompts, findings, patches, or error message text. The CLI sends telemetry to a global Google endpoint. Telemetry is Service Data, as described in the [Google Cloud Privacy Notice](https://cloud.google.com/terms/cloud-privacy-notice) .
 
 By default, telemetry is enabled. If you want to disable telemetry, set the `CM_TELEMETRY_OPT_OUT` environment variable to `1` or `true` .
 

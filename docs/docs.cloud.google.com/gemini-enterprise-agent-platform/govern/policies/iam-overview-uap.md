@@ -20,11 +20,11 @@ You can also create a Principal Access Boundary (PAB) on the agent identity. Age
 
 To use agentic communication policies, you must [set up Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway) .
 
-We recommend that you configure Agent Gateway in dry-run mode ( `DRY_RUN` ) in a staging environment to verify that your policies are working as expected.
+We recommend that you configure Agent Gateway in dry-run mode ( `iamEnforcementMode: "DRY_RUN"` , or **Audit-only** in the Google Cloud console) in a staging environment to verify that your policies are working as expected.
 
-> **Important:** In dry-run mode, IAP logs disallowed agentic communications to Cloud Audit Logs but doesn't block them.
+> **Important:** In dry-run mode, IAP logs disallowed agentic communications to Cloud Audit Logs ( `protoPayload.metadata.dryRun=true` and `protoPayload.authorizationInfo.granted=false` ) but doesn't block them. To query dry-run violations across controls, see [Audit dry-run policy violations across controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/dry-run-report) .
 
-When you are satisfied that the policies are functioning correctly, you can update the Agent Gateway configuration to set enforcement mode to `ENFORCE` . In this mode, agentic communications that violate the policy are disallowed and communication to the resource is blocked.
+When you are satisfied that the policies are functioning correctly, you can enable active enforcement by selecting **Enforce policies** in the Google Cloud console (which writes `iamEnforcementMode: "ENFORCED"` when creating a gateway, or removes `iamEnforcementMode` when updating an existing gateway), or by removing `iamEnforcementMode` in your authorization extension metadata. In active enforcement mode, agentic communications that violate the policy are disallowed and communication to the resource is blocked.
 
 ## UAPs overview
 
@@ -517,6 +517,7 @@ The attributes described in the following table are available for each resource 
 - [CEL attributes for UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/cel-attributes-uap)
 - [Create IAM UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap)
 - [Manage IAM UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/manage-iam-policies-uap)
+- [Audit dry-run policy violations across controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/dry-run-report)
 - [Troubleshoot IAM UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-iam-policies-uap)
 
 Codelab

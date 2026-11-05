@@ -20,7 +20,7 @@ This section describes issues with enforcement.
 
 **Solution** :
 
-1.  **Switch dry-run mode to enforce mode** : First, check your authorization extension configuration file ( `iap-request-authz-extension.yaml` ). If `iamEnforcementMode` is set to `"DRY_RUN"` , update it to `"ENFORCE"` (or remove the `DRY_RUN` setting) and re-import the extension using the gcloud CLI:
+1.  **Switch dry-run mode to enforce mode** : In the Google Cloud console, edit your gateway and select **Enforce policies** under **Access Authorization** (which writes `iamEnforcementMode: "ENFORCED"` when creating a gateway, or removes `iamEnforcementMode` when updating an existing gateway). Or, check your authorization extension configuration file ( `iap-request-authz-extension.yaml` ): if `iamEnforcementMode` is set to `"DRY_RUN"` , remove `iamEnforcementMode` and re-import the extension using the gcloud CLI:
 
     ```sh
     gcloud service-extensions authz-extensions import EXTENSION_NAME \
@@ -223,3 +223,4 @@ For the complete list of attributes and supported operations, see [CEL attribute
 - [CEL attributes for UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/cel-attributes-uap)
 - [Create IAM UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap)
 - [Manage IAM UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/manage-iam-policies-uap)
+- [Audit dry-run policy violations across controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/dry-run-report)

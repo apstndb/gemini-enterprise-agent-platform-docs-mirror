@@ -115,7 +115,7 @@ Supported</li>
 <ul>
 <li>Launch stage: GA</li>
 <li>Release date: November 17, 2025</li>
-<li>Retirement date <sup><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#retirement-date">†</a></sup> : November 17, 2026 or later</li>
+<li>Retirement date <sup><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#retirement-date">†</a></sup> : May 4, 2027 or later</li>
 </ul></li>
 </ul></td>
 <td></td>
@@ -247,7 +247,7 @@ Supported</li>
 <ul>
 <li>Launch stage: GA</li>
 <li>Release date: November 17, 2025</li>
-<li>Retirement date <sup><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#retirement-date">†</a></sup> : November 17, 2026 or later</li>
+<li>Retirement date <sup><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#retirement-date">†</a></sup> : May 4, 2027 or later</li>
 </ul></li>
 </ul></td>
 <td></td>

@@ -6,9 +6,11 @@ description: Model details for Claude Sonnet 4.5
 data_source: docs.cloud.google.com
 ---
 
+> **Caution:** As of September 29, 2026, Anthropic's Claude Sonnet 4.5 on Google Cloud ( `claude-sonnet-4-5` ) is deprecated and will be shut down on November 30, 2026. Anthropic's Claude Sonnet 4.5 on Google Cloud is available to existing customers only. For more information, see [Partner model deprecations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/partner-models#sonnet-4-5) .
+
 Anthropic's Claude Sonnet 4.5 on Google Cloud is Anthropic's Sonnet-class model for powering real-world agents, with industry leading capabilities around coding, computer use, cybersecurity, and working with office files like spreadsheets.
 
-**Retirement Date:** Not sooner than Sept 29, 2026.
+**Retirement Date:** November 30, 2026.
 
 - **Long-running agents** : Power production-ready assistants for multi-step, real-time applications, from customer support automation to complex operational workflows that require peak accuracy, intelligence, and speed.
 - **Coding** : Handle everyday development tasks with enhanced performance - or plan and execute complex software projects spanning hours or days - with the ability to save, maintain, and reference information across multiple sessions.
@@ -32,7 +34,7 @@ Anthropic's Claude Sonnet 4.5 on Google Cloud is Anthropic's Sonnet-class model 
 </tr>
 <tr class="even">
 <th>Launch stage</th>
-<td>GA</td>
+<td>deprecated</td>
 </tr>
 <tr class="odd">
 <th>Supported inputs &amp; outputs</th>
@@ -98,9 +100,8 @@ Not supported</td>
 <td><ul>
 <li><code>claude-sonnet-4-5</code>
 <ul>
-<li><strong>Launch stage:</strong> Generally available</li>
+<li><strong>Launch stage:</strong> Deprecated</li>
 <li><strong>Release date:</strong> September 29, 2025</li>
-<li><strong>Retirement date not sooner than:</strong> September 29, 2026</li>
 </ul></li>
 </ul></td>
 </tr>

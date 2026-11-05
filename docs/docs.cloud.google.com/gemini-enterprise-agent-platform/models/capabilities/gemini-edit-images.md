@@ -424,7 +424,7 @@ The following Gemini models support multi-turn editing:
 - [`gemini-3-pro-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
 - [`gemini-2.5-flash-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-image)
 
-Limit the entire request file size to 50 MB maximum.
+Each inline attachment can't exceed 256 MB, and the total compressed request payload can't exceed 500 MiB.
 
 To test out multi-turn image editing, see the [Gemini Nano Banana 2.1 Image Generation in Agent Platform](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/vision/getting-started/gemini_nano_banana_2_1_image_gen.ipynb) notebook.
 

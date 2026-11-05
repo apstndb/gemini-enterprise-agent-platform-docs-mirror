@@ -367,6 +367,26 @@ Ask your administrator to grant the AI Platform Reasoning Engine Service Agent o
 
 The AI Platform Reasoning Engine Service Agent should be located in the same project you use to deploy your agent. The IAM binding of the role grant should be in the project where the custom service account resides.
 
+## Environment provisioning failed
+
+**Issue** :
+
+Creating an agent fails with a `500` , `INTERNAL` status ( `REASONING_ENGINE_PROVISIONING_FAILED` ) and a message saying that the agent's Google-managed environment couldn't be provisioned.
+
+**Possible cause** :
+
+Before Agent Runtime deploys your first agent in a project and region, it sets up Google-managed resources for your agents, such as service agents and the hosting environment. If this setup fails, every pending agent creation in that project and region fails with this error.
+
+**Recommended solution** :
+
+[Contact support](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-support) and include the failed operation's name in the format `projects/ `` PROJECT_ID `` /locations/ `` LOCATION `` /operations/ `` OPERATION_ID` .
+
+**Solutions that don't apply** :
+
+- Retrying the agent creation doesn't resolve this error, because Google must fix the failed setup first.
+- Changing your agent's code, requirements, or `resource_limits` doesn't help, because the failure occurs before Agent Runtime deploys your agent.
+- Requesting a quota increase for your project has no effect, because Google manages these resources.
+
 ## Resource exhausted errors
 
 If your deployment fails with a `429` , `RESOURCE_EXHAUSTED` status, one of the following issues might be the cause:

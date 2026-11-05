@@ -131,16 +131,19 @@ Not supported</li>
 </tr>
 <tr class="odd">
 <th>Input size limit</th>
-<th>500 MB</th>
+<th>500 MiB compressed</th>
 <td></td>
 </tr>
 <tr class="even">
 <th>Technical specifications</th>
 <th><strong>Image</strong> photo</th>
 <td><ul>
-<li>Maximum images per prompt: 14 (up to 10 HTTP or HTTPS URLs)</li>
-<li>Maximum file size per file for inline data or direct uploads through the console: 7 MB</li>
-<li>Maximum file size per file from Google Cloud Storage: 30 MB</li>
+<li>Maximum images per prompt: 14</li>
+<li>Maximum inline part size: 256 MB</li>
+<li>Maximum file size per file from Cloud Storage: 2 GiB minus 500 KiB</li>
+<li>Maximum file size per file from public HTTP or HTTPS URLs: 15 MiB</li>
+<li>Maximum file size per file for direct local uploads in the console: 7 MiB inline (up to 50 MiB staged to Cloud Storage)</li>
+<li>Maximum file size per file for Google Drive imports in the console: 7 MB (10 MB total)</li>
 <li>Maximum number of output images per prompt: Limited to 32,768 output tokens</li>
 <li>Supported aspect ratios: 1:1, 3:2, 2:3, 3:4, 1:4, 4:1, 4:3, 4:5, 5:4, 1:8, 8:1, 9:16, 16:9, 21:9</li>
 <li>Supported resolutions: 1K, 2K, 4K</li>
@@ -153,7 +156,11 @@ Not supported</li>
 <th><ul>
 <li>Maximum number of files per prompt: As supported by the 65,536 token context window</li>
 <li>Maximum number of pages per file: As supported by the 65,536 token context window</li>
-<li>Maximum file size per file: 50 MB (API and Cloud Storage imports) or 7 MB (direct upload through Google Cloud console)</li>
+<li>Maximum inline part size: 256 MB</li>
+<li>Maximum file size per file from Cloud Storage: 2 GiB minus 500 KiB</li>
+<li>Maximum file size per file from public HTTP or HTTPS URLs: 15 MiB</li>
+<li>Maximum file size per file for direct local uploads in the console: 7 MiB inline (up to 50 MiB staged to Cloud Storage)</li>
+<li>Maximum file size per file for Google Drive imports in the console: 7 MB (10 MB total)</li>
 <li>Supported MIME types:
 <code>application/pdf</code> , <code>text/plain</code></li>
 </ul></th>

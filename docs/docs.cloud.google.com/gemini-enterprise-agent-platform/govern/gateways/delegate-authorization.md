@@ -102,7 +102,7 @@ The following steps show you how to configure an authorization extension with an
         EOF
         ```
 
-        Remove the `iamEnforcementMode: "DRY_RUN"` field from the `metadata` block when you're ready to start enforcing policies.
+        Remove the `iamEnforcementMode: "DRY_RUN"` field from the `metadata` block (or select **Enforce policies** in the Google Cloud console) when you're ready to start enforcing policies. For instructions on auditing dry-run violations before enabling enforcement, see [Audit dry-run policy violations across controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/dry-run-report) .
 
         > **Note:** We strongly recommend using Unified Access Policy ( `iapPolicyVersion: "V2"` ) for advanced, expressive, and fine-grained access control. To replace a legacy Allow policy ( `iapPolicyVersion: "V1"` ) on an existing gateway, navigate to the Policies UI and manually redefine your rules under the UAP tab. For more information, see [Create IAM agent policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap) .
 

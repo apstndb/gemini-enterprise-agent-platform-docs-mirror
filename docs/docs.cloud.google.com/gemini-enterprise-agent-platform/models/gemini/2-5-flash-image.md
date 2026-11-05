@@ -135,7 +135,7 @@ Not supported</li>
 </tr>
 <tr class="odd">
 <th>Input size limit</th>
-<th>500 MB</th>
+<th>500 MiB compressed</th>
 <td></td>
 </tr>
 <tr class="even">

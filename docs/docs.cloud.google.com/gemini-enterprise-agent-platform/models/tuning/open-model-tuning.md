@@ -42,6 +42,7 @@ Distillation provides smaller gains on tasks where the student model already per
 - Gemma 3 12B IT ( `google/gemma3@gemma-3-12b-it` )
 - Gemma 3 27B IT ( `google/gemma3@gemma-3-27b-it` )
 - Medgemma 1.5 4B IT ( `google/medgemma@medgemma-1.5-4b-it` )
+- Qwen 3.8 27B ( `qwen/qwen3.8@qwen3.8-27b` )
 - Qwen 3.6 27B ( `qwen/qwen3-6@qwen3.6-27b` )
 - Qwen 3.6 35B A3B ( `qwen/qwen3-6@qwen3.6-35b-a3b` )
 - Qwen 3.5 9B ( `qwen/qwen3-5@qwen3.5-9b` )
@@ -124,6 +125,9 @@ Region-specific tuning jobs are still available for users with more advanced nee
 | Modalities                     | Text                                                                                                                                                                                                               |                                                  |
 | Medgemma 1.5 4B IT             | Tuning modes                                                                                                                                                                                                       | Full fine-tuning                                 |
 | Maximum sequence length        | 8192                                                                                                                                                                                                               |                                                  |
+| Modalities                     | Text                                                                                                                                                                                                               |                                                  |
+| Qwen 3.8 27B                   | Tuning modes                                                                                                                                                                                                       | Parameter-efficient fine-tuning                  |
+| Maximum sequence length        | 12288                                                                                                                                                                                                              |                                                  |
 | Modalities                     | Text                                                                                                                                                                                                               |                                                  |
 | Qwen 3.6 27B                   | Tuning modes                                                                                                                                                                                                       | Parameter-efficient fine-tuning                  |
 | Maximum sequence length        | 12288                                                                                                                                                                                                              |                                                  |

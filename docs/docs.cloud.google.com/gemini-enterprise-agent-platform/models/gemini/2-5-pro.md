@@ -126,16 +126,19 @@ Not supported</li>
 </tr>
 <tr class="odd">
 <th>Input size limit</th>
-<th>500 MB</th>
+<th>500 MiB compressed</th>
 <td></td>
 </tr>
 <tr class="even">
 <th>Technical specifications</th>
 <th><strong>Image</strong> photo</th>
 <td><ul>
-<li>Maximum images per prompt: 3,000</li>
-<li>Maximum file size per file for inline data or direct uploads through the console: 7 MB</li>
-<li>Maximum file size per file from Google Cloud Storage: 30 MB</li>
+<li>Maximum images per prompt: 3,000 (images and PDFs combined; up to 10 HTTP or HTTPS URLs on non-migrated regional, tuned, or Model Armor endpoints)</li>
+<li>Maximum inline part size: 256 MB (30 MiB on non-migrated endpoints)</li>
+<li>Maximum file size per file from Cloud Storage: 2 GiB minus 500 KiB (30 MiB on non-migrated endpoints)</li>
+<li>Maximum file size per file from public HTTP or HTTPS URLs: 15 MiB</li>
+<li>Maximum file size per file for direct local uploads in the console: 7 MiB inline (up to 50 MiB staged to Cloud Storage)</li>
+<li>Maximum file size per file for Google Drive imports in the console: 7 MB (10 MB total)</li>
 <li>Supported MIME types:
 <code>image/png</code> , <code>image/jpeg</code> , <code>image/webp</code> , <code>image/heic</code> , <code>image/heif</code></li>
 </ul></td>
@@ -143,10 +146,13 @@ Not supported</li>
 <tr class="odd">
 <th><strong>Text</strong> description</th>
 <th><ul>
-<li>Maximum number of files per prompt: 3,000</li>
-<li>Maximum number of pages per file: 3,000</li>
-<li>Maximum file size per file for the API or Cloud Storage imports: 50 MB(application/pdf) or 7 MB(text/plain)</li>
-<li>Maximum file size per file for direct uploads through the console: 7 MB</li>
+<li>Maximum number of files per prompt: 3,000 PDFs (shared with images; up to 6,500 total files when including plain text)</li>
+<li>Maximum number of pages per file: 3,000 (1,000 on non-migrated endpoints)</li>
+<li>Maximum inline part size: 256 MB (50 MiB for PDF or 7 MiB for plain text on non-migrated endpoints)</li>
+<li>Maximum file size per file from Cloud Storage: 2 GiB minus 500 KiB (50 MiB for PDF or 7 MiB for plain text on non-migrated endpoints)</li>
+<li>Maximum file size per file from public HTTP or HTTPS URLs: 15 MiB (7 MiB for plain text on non-migrated endpoints)</li>
+<li>Maximum file size per file for direct local uploads in the console: 7 MiB inline (up to 50 MiB staged to Cloud Storage)</li>
+<li>Maximum file size per file for Google Drive imports in the console: 7 MB (10 MB total)</li>
 <li>Supported MIME types:
 <code>application/pdf</code> , <code>text/plain</code></li>
 </ul></th>
@@ -157,7 +163,10 @@ Not supported</li>
 <th><ul>
 <li>Maximum video length (with audio): Approximately 45 minutes</li>
 <li>Maximum video length (without audio): Approximately 1 hour</li>
-<li>Maximum number of videos per prompt: 10</li>
+<li>Maximum number of videos per prompt: 10 (up to 1 HTTP or HTTPS URL on non-migrated endpoints)</li>
+<li>Maximum inline part size: 256 MB</li>
+<li>Maximum file size per file from Cloud Storage: 2 GiB minus 500 KiB</li>
+<li>Maximum file size per file from public HTTP or HTTPS URLs: 15 MiB</li>
 <li>Supported MIME types:
 <code>video/x-flv</code> , <code>video/quicktime</code> , <code>video/mpeg</code> , <code>video/mpegs</code> , <code>video/mpg</code> , <code>video/mp4</code> , <code>video/webm</code> , <code>video/wmv</code> , <code>video/3gpp</code></li>
 </ul></th>
@@ -167,7 +176,10 @@ Not supported</li>
 <th><strong>Audio</strong> mic</th>
 <th><ul>
 <li>Maximum audio length per prompt: Approximately 8.4 hours, or up to 1 million tokens</li>
-<li>Maximum number of audio files per prompt: 1</li>
+<li>Maximum number of audio files per prompt: 1,000 (up to 1 HTTP or HTTPS URL on non-migrated endpoints)</li>
+<li>Maximum inline part size: 256 MB</li>
+<li>Maximum file size per file from Cloud Storage: 2 GiB minus 500 KiB</li>
+<li>Maximum file size per file from public HTTP or HTTPS URLs: 15 MiB</li>
 <li>Speech understanding for: Audio summarization, transcription, and translation</li>
 <li>Supported MIME types:
 <code>audio/x-aac</code> , <code>audio/flac</code> , <code>audio/mp3</code> , <code>audio/m4a</code> , <code>audio/mpeg</code> , <code>audio/mpga</code> , <code>audio/mp4</code> , <code>audio/ogg</code> , <code>audio/pcm</code> , <code>audio/wav</code> , <code>audio/webm</code></li>

@@ -136,7 +136,7 @@ Before using any of the request data, make the following replacements:
 - `FILE_URI` : The URI or URL of the file to include in the prompt. Acceptable values include the following:
 
   - **Cloud Storage bucket URI:** The object must either be publicly readable or reside in the same Google Cloud project that's sending the request.
-  - **HTTP URL:** The file URL must be publicly readable. You can specify one video file, one audio file, and up to 10 image files per request. Audio files, video files, and documents can't exceed 15 MB.
+  - **HTTP URL:** The file URL must be publicly readable and can't exceed 15 MiB per file. Requests to `gemini-3.1-flash-image` accept up to 14 images or 10 videos per request.
   - **YouTube video URL:** The YouTube video must be either owned by the account that you used to sign in to the Google Cloud console or be public. Only one YouTube video URL is supported per request.
 
   When specifying a `fileURI` , you must also specify the media type ( `mimeType` ) of the file. If VPC Service Controls is enabled, specifying a media file URL for `fileURI` is not supported.

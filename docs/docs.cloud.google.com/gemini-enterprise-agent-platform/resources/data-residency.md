@@ -102,7 +102,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 | Anthropic's Anthropic's Claude Opus 4.8 on Google Cloud    |                 |                 |                        |                            |                             |                     |
 | Anthropic's Anthropic's Claude Opus 4.7 on Google Cloud    |                 |                 |                        |                            |                             |                     |
 | Anthropic's Anthropic's Claude Opus 4.6 on Google Cloud    |                 |                 |                        |                            |                             |                     |
-| Anthropic's Anthropic's Claude Sonnet 4.5 on Google Cloud  |                 |                 |                        |                            |                             |                     |
+| Anthropic's Claude Sonnet 4.5 on Google Cloud (deprecated) |                 |                 |                        |                            |                             |                     |
 | Anthropic's Anthropic's Claude Sonnet 4.6 on Google Cloud  |                 |                 |                        |                            |                             |                     |
 | Anthropic's Claude 3.5 Haiku on Google Cloud (deprecated)  |                 |                 |                        |                            |                             |                     |
 | Anthropic's Claude 3 Haiku on Google Cloud (deprecated)    |                 |                 |                        |                            |                             |                     |

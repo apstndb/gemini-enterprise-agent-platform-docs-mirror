@@ -632,7 +632,7 @@ curl -X POST \
 
 ## Supported languages
 
-The Gemini 3.8 TTS models detect the input language automatically. Gemini 3.8 Flash TTS supports 130 languages, and Gemini 3.8 Flash-Lite TTS supports 101 languages:
+The Gemini 3.8 TTS models detect the input language automatically. Gemini 3.8 Flash TTS supports 132 languages, and Gemini 3.8 Flash-Lite TTS supports 103 languages:
 
 | Language                      | Gemini 3.8 Flash TTS | Gemini 3.8 Flash-Lite TTS |
 |-------------------------------|----------------------|---------------------------|
@@ -765,7 +765,9 @@ The Gemini 3.8 TTS models detect the input language automatically. Gemini 3.8 Fl
 | Thai                          |                      |                           |
 | Tigrinya                      |                      |                           |
 | Tosk Albanian                 |                      |                           |
+| Turkish                       |                      |                           |
 | Uyghur                        |                      |                           |
+| Vietnamese                    |                      |                           |
 
 ## Limitations
 

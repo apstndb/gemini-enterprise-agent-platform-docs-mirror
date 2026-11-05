@@ -14,7 +14,7 @@ If you haven't already, [create a Agent Platform Workbench instance](https://doc
 
 ### Required roles
 
-To ensure that your instance's service account has the necessary permissions to query data in BigQuery, ask your administrator to grant the Service Usage Consumer ( [`roles/serviceusage.serviceUsageConsumer`](https://docs.cloud.google.com/service-usage/docs/access-control#predefined_roles) ) IAM role to your instance's service account on the project.
+To ensure that your instance's service account has the necessary permissions to query data in BigQuery, ask your administrator to grant the Service Usage Consumer ( [`roles/serviceusage.serviceUsageConsumer`](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceusage#serviceusage.serviceUsageConsumer) IAM role to your instance's service account on the project.
 
 > **Important:** You must grant this role to your instance's service account, *not* to your user account. Failure to grant the role to the correct principal might result in permission errors.
 

@@ -26,6 +26,14 @@ Security
 
 Updated the CA certificate configuration.
 
+Fixed
+
+Changes to the idle shutdown timeout now take effect on running instances without a restart. Previously, an instance could still be stopped after the old timeout until it was restarted.
+
+Fixed
+
+Fixed an issue where temporary metadata server errors could delay idle shutdown or stop it from working until the instance was restarted.
+
 ## October 20, 2026
 
 Change

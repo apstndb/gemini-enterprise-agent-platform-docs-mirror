@@ -42,10 +42,10 @@ The following table lists the models that will be available for at least 12 mont
 
 ### Veo models
 
-| Model ID                                                                                                                                    | Release date      | Retirement date            | Replacement model ID |
-|---------------------------------------------------------------------------------------------------------------------------------------------|-------------------|----------------------------|----------------------|
-| [`veo-3.1-generate-001`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-generate-001)           | November 17, 2025 | November 17, 2026 or later |                      |
-| [`veo-3.1-fast-generate-001`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-fast-generate-001) | November 17, 2025 | November 17, 2026 or later |                      |
+| Model ID                                                                                                                                    | Release date      | Retirement date      | Replacement model ID |
+|---------------------------------------------------------------------------------------------------------------------------------------------|-------------------|----------------------|----------------------|
+| [`veo-3.1-generate-001`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-generate-001)           | November 17, 2025 | May 4, 2027 or later |                      |
+| [`veo-3.1-fast-generate-001`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-fast-generate-001) | November 17, 2025 | May 4, 2027 or later |                      |
 
 ### Embeddings models
 

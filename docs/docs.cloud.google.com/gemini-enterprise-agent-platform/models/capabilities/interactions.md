@@ -32,8 +32,18 @@ The following Gemini models support the Interactions API:
 
 #### Click to expand supported models
 
+- [Gemini Omni Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview) preview
+- [Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash) preview
 - [Gemini 4 Argon Cyber Permissive](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber)
 - [Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon)
+- [Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber)
+- [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
+- [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)
+- [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)
+- [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
+- [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
+- [Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) preview
+- [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
 
 In addition to the models listed above, the Interactions API supports the following specialized multimodal and audio generation models:
 
@@ -55,6 +65,14 @@ The following sections describe the core capabilities, technical specifications,
 ### State management
 
 By default, the Interactions API stores interactions on the server ( `store=true` ) for 7 days so you can chain multi-turn conversations with `previous_interaction_id` and run asynchronous background tasks ( `background=true` ). To opt into stateless execution and support [Zero Data Retention (ZDR)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention#customer-data-retention) workflows, set `store=false` . For details, see [Manage session storage and conversation state](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/developer-guide#stateful-conversations) .
+
+### Request and multimodal limits
+
+The Interactions API enforces the following request payload and multimodal input limits:
+
+- **Request payload limits** : The compressed HTTP request payload can't exceed 256 MiB for synchronous and streaming `interactions.create` requests. When `service_tier` is set to `deferred` (which requires both `background` and `store` to be `true` ), the uncompressed request can't exceed 9.75 MiB.
+- **URI limit for Cloud Storage files** : Standard Gemini model interaction requests support up to 100 distinct Cloud Storage ( `gs://` ) URIs per request, including URIs carried forward from earlier conversation turns through `previous_interaction_id` . Managed agent interactions, Gemini Omni models, and Lyria 3 models are excluded from this 100-URI limit. For permissions and multi-turn URI handling, see [Access uploaded Cloud Storage files](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/developer-guide#access-storage-files) .
+- **Multimodal item and token limits** : Standard Gemini models accept the same per-modality item counts as `generateContent` (up to 3,000 images and PDFs combined, 1,000 audio files, 10 videos, and up to 6,500 combined multimodal files when including plain-text files), bounded by the model's 1,048,576-token context window. Individual Cloud Storage files can't exceed 2 GiB minus 500 KiB, and public HTTP or HTTPS URLs can't exceed 15 MiB. To send more than 100 files in a single request, pass additional attachments inline within the request payload limit or call [`generateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference) .
 
 ### Supported tools and grounding
 

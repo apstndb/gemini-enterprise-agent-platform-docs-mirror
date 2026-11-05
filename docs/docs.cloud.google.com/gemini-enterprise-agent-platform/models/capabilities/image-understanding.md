@@ -83,15 +83,26 @@ The following table lists the models that support image understanding:
 </tr>
 <tr class="even">
 <td><ul>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1">Gemini Nano Banana 2.1</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber">Gemini 4 Argon Cyber Permissive</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon">Gemini 4 Argon</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber">Gemini 3.8 Flash Cyber</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash">Gemini 3.8 Flash</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash">Gemini 3.7 Flash</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash">Gemini 3.6 Flash</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite">Gemini 3.5 Flash-Lite</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash">Gemini 3.5 Flash</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro">Gemini 3.1 Pro</a> preview</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite">Gemini 3.1 Flash-Lite</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash">Gemini 3 Flash</a> preview</li>
 </ul></td>
 <td><ul>
-<li>Maximum images per prompt: 14</li>
-<li>Maximum file size per file for inline data or direct uploads through the console: 7 MB</li>
-<li>Maximum file size per file from Google Cloud Storage: 30 MB</li>
-<li>Maximum number of output images per prompt: Limited to 32,768 output tokens</li>
-<li>Supported aspect ratios: 1:1, 3:2, 2:3, 3:4, 1:4, 4:1, 4:3, 4:5, 5:4, 1:8, 8:1, 9:16, 16:9, 21:9</li>
-<li>Supported resolutions: 1K, 2K, 4K</li>
+<li>Maximum images per prompt: 3,000 (images and PDFs combined)</li>
+<li>Maximum inline part size (GenerateContent API): 256 MB</li>
+<li>Maximum file size per file from Cloud Storage: 2 GiB minus 500 KiB</li>
+<li>Maximum file size per file from public HTTP or HTTPS URLs: 15 MiB</li>
+<li>Maximum file size per file for direct local uploads in the console: 7 MiB inline (up to 50 MiB staged to Cloud Storage)</li>
+<li>Maximum file size per file for Google Drive imports in the console: 7 MB (10 MB total)</li>
+<li>Default resolution tokens: 1,120</li>
 </ul></td>
 <td><ul>
 <li><code>image/png</code></li>
@@ -102,24 +113,6 @@ The following table lists the models that support image understanding:
 </ul></td>
 </tr>
 <tr class="odd">
-<td><ul>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber">Gemini 4 Argon Cyber Permissive</a></li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon">Gemini 4 Argon</a></li>
-</ul></td>
-<td><ul>
-<li>Maximum images per prompt: 3,000 (up to 100 URIs)</li>
-<li>Maximum file size per file for inline data or direct uploads through the console: 7 MB</li>
-<li>Maximum file size per file from Google Cloud Storage: 30 MB</li>
-</ul></td>
-<td><ul>
-<li><code>image/png</code></li>
-<li><code>image/jpeg</code></li>
-<li><code>image/webp</code></li>
-<li><code>image/heic</code></li>
-<li><code>image/heif</code></li>
-</ul></td>
-</tr>
-<tr class="even">
 <td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live">Gemini 3.8 Live</a></li>
 </ul></td>
@@ -135,19 +128,101 @@ The following table lists the models that support image understanding:
 <li><code>image/heif</code></li>
 </ul></td>
 </tr>
+<tr class="even">
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image">Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)</a></li>
+</ul></td>
+<td><ul>
+<li>Maximum images per prompt: 14</li>
+<li>Maximum inline part size: 256 MB</li>
+<li>Maximum file size per file from Cloud Storage: 2 GiB minus 500 KiB</li>
+<li>Maximum file size per file from public HTTP or HTTPS URLs: 15 MiB</li>
+<li>Maximum file size per file for direct local uploads in the console: 7 MiB inline (up to 50 MiB staged to Cloud Storage)</li>
+<li>Maximum file size per file for Google Drive imports in the console: 7 MB (10 MB total)</li>
+<li>Maximum number of output images per prompt: Limited to 4,096 output tokens</li>
+<li>Supported aspect ratios: 1:1, 1:4, 4:1, 1:8, 8:1, 2:3, 3:2, 3:4, 4:3, 4:5, 5:4, 9:16, 16:9, 21:9</li>
+<li>Supported resolutions: 1K</li>
+</ul></td>
+<td><ul>
+<li><code>image/png</code></li>
+<li><code>image/jpeg</code></li>
+<li><code>image/webp</code></li>
+<li><code>image/heic</code></li>
+<li><code>image/heif</code></li>
+</ul></td>
+</tr>
 <tr class="odd">
 <td><ul>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber">Gemini 3.8 Flash Cyber</a></li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash">Gemini 3.8 Flash</a></li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash">Gemini 3.7 Flash</a></li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash">Gemini 3.6 Flash</a></li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite">Gemini 3.5 Flash-Lite</a></li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash">Gemini 3.5 Flash</a></li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite">Gemini 3.1 Flash-Lite</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image">Gemini 3.1 Flash Image</a></li>
+</ul></td>
+<td><ul>
+<li>Maximum images per prompt: 14</li>
+<li>Maximum inline part size: 256 MB</li>
+<li>Maximum file size per file from Cloud Storage: 2 GiB minus 500 KiB</li>
+<li>Maximum file size per file from public HTTP or HTTPS URLs: 15 MiB</li>
+<li>Maximum file size per file for direct local uploads in the console: 7 MiB inline (up to 50 MiB staged to Cloud Storage)</li>
+<li>Maximum file size per file for Google Drive imports in the console: 7 MB (10 MB total)</li>
+<li>Maximum number of output images per prompt: Limited to 32,768 output tokens</li>
+<li>Supported aspect ratios: 1:1, 3:2, 2:3, 3:4, 1:4, 4:1, 4:3, 4:5, 5:4, 1:8, 8:1, 9:16, 16:9, 21:9</li>
+<li>Supported resolutions: 512, 1K, 2K, 4K</li>
+</ul></td>
+<td><ul>
+<li><code>image/png</code></li>
+<li><code>image/jpeg</code></li>
+<li><code>image/webp</code></li>
+<li><code>image/heic</code></li>
+<li><code>image/heif</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1">Gemini Nano Banana 2.1</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image">Gemini 3 Pro Image</a></li>
+</ul></td>
+<td><ul>
+<li>Maximum images per prompt: 14</li>
+<li>Maximum inline part size: 256 MB</li>
+<li>Maximum file size per file from Cloud Storage: 2 GiB minus 500 KiB</li>
+<li>Maximum file size per file from public HTTP or HTTPS URLs: 15 MiB</li>
+<li>Maximum file size per file for direct local uploads in the console: 7 MiB inline (up to 50 MiB staged to Cloud Storage)</li>
+<li>Maximum file size per file for Google Drive imports in the console: 7 MB (10 MB total)</li>
+<li>Maximum number of output images per prompt: Limited to 32,768 output tokens</li>
+<li>Supported aspect ratios: 1:1, 3:2, 2:3, 3:4, 1:4, 4:1, 4:3, 4:5, 5:4, 1:8, 8:1, 9:16, 16:9, 21:9</li>
+<li>Supported resolutions: 1K, 2K, 4K</li>
+</ul></td>
+<td><ul>
+<li><code>image/png</code></li>
+<li><code>image/jpeg</code></li>
+<li><code>image/webp</code></li>
+<li><code>image/heic</code></li>
+<li><code>image/heif</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro">Gemini 2.5 Pro</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite">Gemini 2.5 Flash-Lite</a></li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-live-api">Gemini 2.5 Flash with Gemini Live API native audio</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash">Gemini 2.5 Flash</a></li>
+</ul></td>
+<td><ul>
+<li>Maximum images per prompt: 3,000 (images and PDFs combined; up to 10 HTTP or HTTPS URLs on non-migrated regional, tuned, or Model Armor endpoints)</li>
+<li>Maximum inline part size: 256 MB (30 MiB on non-migrated endpoints)</li>
+<li>Maximum file size per file from Cloud Storage: 2 GiB minus 500 KiB (30 MiB on non-migrated endpoints)</li>
+<li>Maximum file size per file from public HTTP or HTTPS URLs: 15 MiB</li>
+<li>Maximum file size per file for direct local uploads in the console: 7 MiB inline (up to 50 MiB staged to Cloud Storage)</li>
+<li>Maximum file size per file for Google Drive imports in the console: 7 MB (10 MB total)</li>
+</ul></td>
+<td><ul>
+<li><code>image/png</code></li>
+<li><code>image/jpeg</code></li>
+<li><code>image/webp</code></li>
+<li><code>image/heic</code></li>
+<li><code>image/heif</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-live-api">Gemini 2.5 Flash with Gemini Live API native audio</a></li>
 </ul></td>
 <td><ul>
 <li>Maximum images per prompt: 3,000</li>
@@ -162,86 +237,7 @@ The following table lists the models that support image understanding:
 <li><code>image/heif</code></li>
 </ul></td>
 </tr>
-<tr class="even">
-<td><ul>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro">Gemini 3.1 Pro</a> preview</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash">Gemini 3 Flash</a> preview</li>
-</ul></td>
-<td><ul>
-<li>Maximum images per prompt: 3000</li>
-<li>Maximum file size per file for inline data or direct uploads through the console: 7 MB</li>
-<li>Maximum file size per file from Google Cloud Storage: 30 MB</li>
-<li>Default resolution tokens: 1120</li>
-</ul></td>
-<td><ul>
-<li><code>image/png</code></li>
-<li><code>image/jpeg</code></li>
-<li><code>image/webp</code></li>
-<li><code>image/heic</code></li>
-<li><code>image/heif</code></li>
-</ul></td>
-</tr>
 <tr class="odd">
-<td><ul>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image">Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)</a></li>
-</ul></td>
-<td><ul>
-<li>Maximum images per prompt: 14</li>
-<li>Maximum file size per file for inline data or direct uploads through the console: 7 MB</li>
-<li>Maximum file size per file from Google Cloud Storage: 30 MB</li>
-<li>Maximum number of output images per prompt: Limited to 4,096 output tokens</li>
-<li>Supported aspect ratios: 1:1, 1:4, 4:1, 1:8, 8:1, 2:3, 3:2, 3:4, 4:3, 4:5, 5:4, 9:16, 16:9, 21:9</li>
-<li>Supported resolutions: 1K</li>
-</ul></td>
-<td><ul>
-<li><code>image/png</code></li>
-<li><code>image/jpeg</code></li>
-<li><code>image/webp</code></li>
-<li><code>image/heic</code></li>
-<li><code>image/heif</code></li>
-</ul></td>
-</tr>
-<tr class="even">
-<td><ul>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image">Gemini 3.1 Flash Image</a></li>
-</ul></td>
-<td><ul>
-<li>Maximum images per prompt: 14</li>
-<li>Maximum file size per file for inline data or direct uploads through the console: 7 MB</li>
-<li>Maximum file size per file from Google Cloud Storage: 30 MB</li>
-<li>Maximum number of output images per prompt: Limited to 32,768 output tokens</li>
-<li>Supported aspect ratios: 1:1, 3:2, 2:3, 3:4, 1:4, 4:1, 4:3, 4:5, 5:4, 1:8, 8:1, 9:16, 16:9, 21:9</li>
-<li>Supported resolutions: 512, 1K, 2K, 4K</li>
-</ul></td>
-<td><ul>
-<li><code>image/png</code></li>
-<li><code>image/jpeg</code></li>
-<li><code>image/webp</code></li>
-<li><code>image/heic</code></li>
-<li><code>image/heif</code></li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td><ul>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image">Gemini 3 Pro Image</a></li>
-</ul></td>
-<td><ul>
-<li>Maximum images per prompt: 14 (up to 10 HTTP or HTTPS URLs)</li>
-<li>Maximum file size per file for inline data or direct uploads through the console: 7 MB</li>
-<li>Maximum file size per file from Google Cloud Storage: 30 MB</li>
-<li>Maximum number of output images per prompt: Limited to 32,768 output tokens</li>
-<li>Supported aspect ratios: 1:1, 3:2, 2:3, 3:4, 1:4, 4:1, 4:3, 4:5, 5:4, 1:8, 8:1, 9:16, 16:9, 21:9</li>
-<li>Supported resolutions: 1K, 2K, 4K</li>
-</ul></td>
-<td><ul>
-<li><code>image/png</code></li>
-<li><code>image/jpeg</code></li>
-<li><code>image/webp</code></li>
-<li><code>image/heic</code></li>
-<li><code>image/heif</code></li>
-</ul></td>
-</tr>
-<tr class="even">
 <td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-image">Gemini 2.5 Flash Image</a></li>
 </ul></td>
@@ -264,6 +260,14 @@ The following table lists the models that support image understanding:
 </table>
 
 For a list of languages supported by Gemini models, see model information [Google models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models) . To learn more about how to design multimodal prompts, see [Design multimodal prompts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/design-multimodal-prompts) . If you're looking for a way to use Gemini directly from your mobile and web apps, see the [Firebase AI Logic client SDKs](https://firebase.google.com/docs/ai-logic) for Swift, Android, Web, Flutter, and Unity apps.
+
+## API endpoint and context window limits
+
+Standard Gemini 3 and later models accept up to 3,000 images and PDFs combined, 1,000 audio files, or 10 videos per request across both `generateContent` and the [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) (up to 6,500 combined multimodal files when plain-text files are included). Non-migrated Gemini 2.5 endpoints and `gemini-3.1-pro-preview-customtools` enforce legacy file size, PDF page (1,000), and HTTP or HTTPS URL count limits. Practical request limits also depend on the API endpoint, file source, and context window:
+
+- **Interactions API URI limit for Cloud Storage files** : [Interactions API requests](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/developer-guide#access-storage-files) support up to 100 distinct Cloud Storage ( `gs://` ) URIs per model interaction request, including URIs carried forward from earlier conversation turns through `previous_interaction_id` . `generateContent` requests support `gs://` URIs up to the model item limit.
+- **File source, inline part, and request payload limits** : Individual files referenced from Cloud Storage can't exceed 2 GiB minus 500 KiB, and files referenced from public HTTP or HTTPS URLs can't exceed 15 MiB. On `generateContent` and `streamGenerateContent` , each inline attachment ( `inline_data` ) can't exceed 256 MB on standard Gemini 3 and later models, and the total compressed HTTP or gRPC request payload can't exceed 500 MiB (base64 encoding adds approximately 33% size overhead). On the Interactions API, the compressed HTTP request payload can't exceed 256 MiB for synchronous or streaming requests; when `service_tier` is set to `deferred` (which requires both `background` and `store` to be `true` ), the uncompressed request can't exceed 9.75 MiB.
+- **Context window** : The combined token count of all multimodal inputs and text in a request can't exceed the model's input token limit (1,048,576 tokens on standard Gemini 3 and later models). For standard Gemini 3 and later models, at the default high resolution (1,120 tokens per image), a 1,048,576-token context window fits at most 936 images unless you set `media_resolution` to `medium` (560 tokens per image) or `low` (280 tokens per image).
 
 ## Add images to a request
 
@@ -595,7 +599,7 @@ Before using any of the request data, make the following replacements:
 - `FILE_URI` : The URI or URL of the file to include in the prompt. Acceptable values include the following:
 
   - **Cloud Storage bucket URI:** The object must either be publicly readable or reside in the same Google Cloud project that's sending the request.
-  - **HTTP URL:** The file URL must be publicly readable. You can specify one video file, one audio file, and up to 10 image files per request. Audio files, video files, and documents can't exceed 15 MB.
+  - **HTTP URL:** The file URL must be publicly readable and can't exceed 15 MiB per file. Standard Gemini 3 and later models accept up to 3,000 images and PDFs combined, 1,000 audio files, or 10 videos per request (up to 6,500 total files when including plain-text files). Non-migrated Gemini 2.5 endpoints and `gemini-3.1-pro-preview-customtools` limit HTTP or HTTPS URLs to 10 images, 1 audio file, or 1 video per request.
   - **YouTube video URL:** The YouTube video must be either owned by the account that you used to sign in to the Google Cloud console or be public. Only one YouTube video URL is supported per request.
 
   When specifying a `fileURI` , you must also specify the media type ( `mimeType` ) of the file. If VPC Service Controls is enabled, specifying a media file URL for `fileURI` is not supported.
@@ -1347,7 +1351,7 @@ Before using any of the request data, make the following replacements:
 - `FILE_URI1` : The URI or URL of the file to include in the prompt. Acceptable values include the following:
 
   - **Cloud Storage bucket URI:** The object must either be publicly readable or reside in the same Google Cloud project that's sending the request.
-  - **HTTP URL:** The file URL must be publicly readable. You can specify one video file, one audio file, and up to 10 image files per request. Audio files, video files, and documents can't exceed 15 MB.
+  - **HTTP URL:** The file URL must be publicly readable and can't exceed 15 MiB per file. Standard Gemini 3 and later models accept up to 3,000 images and PDFs combined, 1,000 audio files, or 10 videos per request (up to 6,500 total files when including plain-text files). Non-migrated Gemini 2.5 endpoints and `gemini-3.1-pro-preview-customtools` limit HTTP or HTTPS URLs to 10 images, 1 audio file, or 1 video per request.
   - **YouTube video URL:** The YouTube video must be either owned by the account that you used to sign in to the Google Cloud console or be public. Only one YouTube video URL is supported per request.
 
   When specifying a `fileURI` , you must also specify the media type ( `mimeType` ) of the file. If VPC Service Controls is enabled, specifying a media file URL for `fileURI` is not supported.
@@ -1382,7 +1386,7 @@ Before using any of the request data, make the following replacements:
 - `FILE_URI2` : The URI or URL of the file to include in the prompt. Acceptable values include the following:
 
   - **Cloud Storage bucket URI:** The object must either be publicly readable or reside in the same Google Cloud project that's sending the request.
-  - **HTTP URL:** The file URL must be publicly readable. You can specify one video file, one audio file, and up to 10 image files per request. Audio files, video files, and documents can't exceed 15 MB.
+  - **HTTP URL:** The file URL must be publicly readable and can't exceed 15 MiB per file. Standard Gemini 3 and later models accept up to 3,000 images and PDFs combined, 1,000 audio files, or 10 videos per request (up to 6,500 total files when including plain-text files). Non-migrated Gemini 2.5 endpoints and `gemini-3.1-pro-preview-customtools` limit HTTP or HTTPS URLs to 10 images, 1 audio file, or 1 video per request.
   - **YouTube video URL:** The YouTube video must be either owned by the account that you used to sign in to the Google Cloud console or be public. Only one YouTube video URL is supported per request.
 
   When specifying a `fileURI` , you must also specify the media type ( `mimeType` ) of the file. If VPC Service Controls is enabled, specifying a media file URL for `fileURI` is not supported.
@@ -1394,7 +1398,7 @@ Before using any of the request data, make the following replacements:
 - `FILE_URI3` : The URI or URL of the file to include in the prompt. Acceptable values include the following:
 
   - **Cloud Storage bucket URI:** The object must either be publicly readable or reside in the same Google Cloud project that's sending the request.
-  - **HTTP URL:** The file URL must be publicly readable. You can specify one video file, one audio file, and up to 10 image files per request. Audio files, video files, and documents can't exceed 15 MB.
+  - **HTTP URL:** The file URL must be publicly readable and can't exceed 15 MiB per file. Standard Gemini 3 and later models accept up to 3,000 images and PDFs combined, 1,000 audio files, or 10 videos per request (up to 6,500 total files when including plain-text files). Non-migrated Gemini 2.5 endpoints and `gemini-3.1-pro-preview-customtools` limit HTTP or HTTPS URLs to 10 images, 1 audio file, or 1 video per request.
   - **YouTube video URL:** The YouTube video must be either owned by the account that you used to sign in to the Google Cloud console or be public. Only one YouTube video URL is supported per request.
 
   When specifying a `fileURI` , you must also specify the media type ( `mimeType` ) of the file. If VPC Service Controls is enabled, specifying a media file URL for `fileURI` is not supported.

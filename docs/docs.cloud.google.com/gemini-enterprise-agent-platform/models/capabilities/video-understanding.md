@@ -83,6 +83,9 @@ The following table lists the models that support video understanding:
 <li>Maximum number of input video files per prompt: 10</li>
 <li>Maximum YouTube URLs per prompt: 1</li>
 <li>Maximum video length (without audio): As supported by the 128k token context window (approximately 25 minutes).</li>
+<li>Maximum inline part size: 256 MB</li>
+<li>Maximum file size per file from Cloud Storage: 2 GiB minus 500 KiB</li>
+<li>Maximum file size per file from public HTTP or HTTPS URLs: 15 MiB</li>
 </ul></td>
 <td><ul>
 <li><code>video/x-flv</code></li>
@@ -106,15 +109,18 @@ The following table lists the models that support video understanding:
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash">Gemini 3.6 Flash</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite">Gemini 3.5 Flash-Lite</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash">Gemini 3.5 Flash</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro">Gemini 3.1 Pro</a> preview</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite">Gemini 3.1 Flash-Lite</a></li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro">Gemini 2.5 Pro</a></li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite">Gemini 2.5 Flash-Lite</a></li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash">Gemini 2.5 Flash</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash">Gemini 3 Flash</a> preview</li>
 </ul></td>
 <td><ul>
 <li>Maximum video length (with audio): Approximately 45 minutes</li>
 <li>Maximum video length (without audio): Approximately 1 hour</li>
 <li>Maximum number of videos per prompt: 10</li>
+<li>Maximum inline part size (GenerateContent API): 256 MB</li>
+<li>Maximum file size per file from Cloud Storage: 2 GiB minus 500 KiB</li>
+<li>Maximum file size per file from public HTTP or HTTPS URLs: 15 MiB</li>
+<li>Default resolution tokens per frame: 70</li>
 </ul></td>
 <td><ul>
 <li><code>video/x-flv</code></li>
@@ -150,14 +156,15 @@ The following table lists the models that support video understanding:
 </tr>
 <tr class="even">
 <td><ul>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro">Gemini 3.1 Pro</a> preview</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash">Gemini 3 Flash</a> preview</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image">Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)</a></li>
 </ul></td>
 <td><ul>
-<li>Maximum video length (with audio): Approximately 45 minutes</li>
-<li>Maximum video length (without audio): Approximately 1 hour</li>
-<li>Maximum number of videos per prompt: 10</li>
-<li>Default resolution tokens per frame: 70</li>
+<li>Maximum number of input video files per prompt: 10</li>
+<li>Maximum YouTube URLs per prompt: 1</li>
+<li>Maximum video length (without audio): As supported by the 65,536 token context window (approximately 12 minutes).</li>
+<li>Maximum inline part size: 256 MB</li>
+<li>Maximum file size per file from Cloud Storage: 2 GiB minus 500 KiB</li>
+<li>Maximum file size per file from public HTTP or HTTPS URLs: 15 MiB</li>
 </ul></td>
 <td><ul>
 <li><code>video/x-flv</code></li>
@@ -173,12 +180,17 @@ The following table lists the models that support video understanding:
 </tr>
 <tr class="odd">
 <td><ul>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image">Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro">Gemini 2.5 Pro</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite">Gemini 2.5 Flash-Lite</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash">Gemini 2.5 Flash</a></li>
 </ul></td>
 <td><ul>
-<li>Maximum number of input video files per prompt: 10</li>
-<li>Maximum YouTube URLs per prompt: 1</li>
-<li>Maximum video length (without audio): As supported by the 65,536 token context window (approximately 12 minutes).</li>
+<li>Maximum video length (with audio): Approximately 45 minutes</li>
+<li>Maximum video length (without audio): Approximately 1 hour</li>
+<li>Maximum number of videos per prompt: 10 (up to 1 HTTP or HTTPS URL on non-migrated endpoints)</li>
+<li>Maximum inline part size: 256 MB</li>
+<li>Maximum file size per file from Cloud Storage: 2 GiB minus 500 KiB</li>
+<li>Maximum file size per file from public HTTP or HTTPS URLs: 15 MiB</li>
 </ul></td>
 <td><ul>
 <li><code>video/x-flv</code></li>
@@ -215,6 +227,14 @@ The following table lists the models that support video understanding:
 </table>
 
 For a list of languages supported by Gemini models, see model information [Google models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models) . To learn more about how to design multimodal prompts, see [Design multimodal prompts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/design-multimodal-prompts) . If you're looking for a way to use Gemini directly from your mobile and web apps, see the [Firebase AI Logic client SDKs](https://firebase.google.com/docs/ai-logic) for Swift, Android, Web, Flutter, and Unity apps.
+
+## API endpoint and context window limits
+
+Standard Gemini 3 and later models accept up to 3,000 images and PDFs combined, 1,000 audio files, or 10 videos per request across both `generateContent` and the [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) (up to 6,500 combined multimodal files when plain-text files are included). Non-migrated Gemini 2.5 endpoints and `gemini-3.1-pro-preview-customtools` enforce legacy file size, PDF page (1,000), and HTTP or HTTPS URL count limits. Practical request limits also depend on the API endpoint, file source, and context window:
+
+- **Interactions API URI limit for Cloud Storage files** : [Interactions API requests](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/developer-guide#access-storage-files) support up to 100 distinct Cloud Storage ( `gs://` ) URIs per model interaction request, including URIs carried forward from earlier conversation turns through `previous_interaction_id` . `generateContent` requests support `gs://` URIs up to the model item limit.
+- **File source, inline part, and request payload limits** : Individual files referenced from Cloud Storage can't exceed 2 GiB minus 500 KiB, and files referenced from public HTTP or HTTPS URLs can't exceed 15 MiB. On `generateContent` and `streamGenerateContent` , each inline attachment ( `inline_data` ) can't exceed 256 MB on standard Gemini 3 and later models, and the total compressed HTTP or gRPC request payload can't exceed 500 MiB (base64 encoding adds approximately 33% size overhead). On the Interactions API, the compressed HTTP request payload can't exceed 256 MiB for synchronous or streaming requests; when `service_tier` is set to `deferred` (which requires both `background` and `store` to be `true` ), the uncompressed request can't exceed 9.75 MiB.
+- **Context window** : The combined token count of all multimodal inputs and text in a request can't exceed the model's input token limit (1,048,576 tokens on standard Gemini 3 and later models).
 
 ## Add videos to a request
 
@@ -589,7 +609,7 @@ Before using any of the request data, make the following replacements:
 - `FILE_URI` : The URI or URL of the file to include in the prompt. Acceptable values include the following:
 
   - **Cloud Storage bucket URI:** The object must either be publicly readable or reside in the same Google Cloud project that's sending the request.
-  - **HTTP URL:** The file URL must be publicly readable. You can specify one video file, one audio file, and up to 10 image files per request. Audio files, video files, and documents can't exceed 15 MB.
+  - **HTTP URL:** The file URL must be publicly readable and can't exceed 15 MiB per file. Standard Gemini 3 and later models accept up to 3,000 images and PDFs combined, 1,000 audio files, or 10 videos per request (up to 6,500 total files when including plain-text files). Non-migrated Gemini 2.5 endpoints and `gemini-3.1-pro-preview-customtools` limit HTTP or HTTPS URLs to 10 images, 1 audio file, or 1 video per request.
   - **YouTube video URL:** The YouTube video must be either owned by the account that you used to sign in to the Google Cloud console or be public. Only one YouTube video URL is supported per request.
 
   When specifying a `fileURI` , you must also specify the media type ( `mimeType` ) of the file. If VPC Service Controls is enabled, specifying a media file URL for `fileURI` is not supported.
@@ -768,7 +788,7 @@ Before using any of the request data, make the following replacements:
 - `FILE_URI` : The URI or URL of the file to include in the prompt. Acceptable values include the following:
 
   - **Cloud Storage bucket URI:** The object must either be publicly readable or reside in the same Google Cloud project that's sending the request.
-  - **HTTP URL:** The file URL must be publicly readable. You can specify one video file, one audio file, and up to 10 image files per request. Audio files, video files, and documents can't exceed 15 MB.
+  - **HTTP URL:** The file URL must be publicly readable and can't exceed 15 MiB per file. Standard Gemini 3 and later models accept up to 3,000 images and PDFs combined, 1,000 audio files, or 10 videos per request (up to 6,500 total files when including plain-text files). Non-migrated Gemini 2.5 endpoints and `gemini-3.1-pro-preview-customtools` limit HTTP or HTTPS URLs to 10 images, 1 audio file, or 1 video per request.
   - **YouTube video URL:** The YouTube video must be either owned by the account that you used to sign in to the Google Cloud console or be public. Only one YouTube video URL is supported per request.
 
   When specifying a `fileURI` , you must also specify the media type ( `mimeType` ) of the file. If VPC Service Controls is enabled, specifying a media file URL for `fileURI` is not supported.
@@ -994,7 +1014,7 @@ Before using any of the request data, make the following replacements:
 - `FILE_URI` : The URI or URL of the file to include in the prompt. Acceptable values include the following:
 
   - **Cloud Storage bucket URI:** The object must either be publicly readable or reside in the same Google Cloud project that's sending the request.
-  - **HTTP URL:** The file URL must be publicly readable. You can specify one video file, one audio file, and up to 10 image files per request. Audio files, video files, and documents can't exceed 15 MB.
+  - **HTTP URL:** The file URL must be publicly readable and can't exceed 15 MiB per file. Standard Gemini 3 and later models accept up to 3,000 images and PDFs combined, 1,000 audio files, or 10 videos per request (up to 6,500 total files when including plain-text files). Non-migrated Gemini 2.5 endpoints and `gemini-3.1-pro-preview-customtools` limit HTTP or HTTPS URLs to 10 images, 1 audio file, or 1 video per request.
   - **YouTube video URL:** The YouTube video must be either owned by the account that you used to sign in to the Google Cloud console or be public. Only one YouTube video URL is supported per request.
 
   When specifying a `fileURI` , you must also specify the media type ( `mimeType` ) of the file. If VPC Service Controls is enabled, specifying a media file URL for `fileURI` is not supported.
@@ -1183,7 +1203,7 @@ Before using any of the request data, make the following replacements:
 - `FILE_URI` : The URI or URL of the file to include in the prompt. Acceptable values include the following:
 
   - **Cloud Storage bucket URI:** The object must either be publicly readable or reside in the same Google Cloud project that's sending the request.
-  - **HTTP URL:** The file URL must be publicly readable. You can specify one video file, one audio file, and up to 10 image files per request. Audio files, video files, and documents can't exceed 15 MB.
+  - **HTTP URL:** The file URL must be publicly readable and can't exceed 15 MiB per file. Standard Gemini 3 and later models accept up to 3,000 images and PDFs combined, 1,000 audio files, or 10 videos per request (up to 6,500 total files when including plain-text files). Non-migrated Gemini 2.5 endpoints and `gemini-3.1-pro-preview-customtools` limit HTTP or HTTPS URLs to 10 images, 1 audio file, or 1 video per request.
   - **YouTube video URL:** The YouTube video must be either owned by the account that you used to sign in to the Google Cloud console or be public. Only one YouTube video URL is supported per request.
 
   When specifying a `fileURI` , you must also specify the media type ( `mimeType` ) of the file. If VPC Service Controls is enabled, specifying a media file URL for `fileURI` is not supported.

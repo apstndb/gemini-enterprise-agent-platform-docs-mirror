@@ -12,7 +12,7 @@ Gemini 3.8 Flash TTS ( `gemini-3.8-flash-tts` ) is Google's flagship text-to-spe
 
 - **Acoustic fidelity and acting nuance** : Delivers a wide emotional range, natural cadence, and close adherence to turn-level `style` directions and inline vocal events such as `<laugh>` , `<sigh>` , and `<short pause>` .
 - **Long-form, multi-turn stability** : Keeps voice identity, timbre, volume, and room tone consistent across long dialogues and multi-minute narration.
-- **Regional accents and pronunciation** : Supports regional accents and minority dialects in 130 languages.
+- **Regional accents and pronunciation** : Supports regional accents and minority dialects in 132 languages.
 - **Voice options** : Works with 30 prebuilt voices, more than 2,000 curated voices in the Extended Voice Library, voices that you create with [Voice design](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-design) , and voices that you replicate with [Voice replication](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-replication) .
 
 For features, code samples, and prompting guidance, see [Generate speech with Gemini TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview) .
@@ -25,7 +25,7 @@ Both Gemini 3.8 TTS models share the same request schema and prompting format. C
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Primary strength**    | Voice fidelity, acting nuance, and dialect coverage                                                                                 | High throughput, low latency, and cost efficiency                                                                                                            |
 | **Best use cases**      | Audiobooks, studio narration, complex multi-speaker dialogue, frequent vocal-burst tags, difficult pronunciation, regional dialects | High-volume production, real-time voice agent cascades, read-aloud features, voice replication, everyday single-speaker speech                               |
-| **Supported languages** | 130 languages                                                                                                                       | 101 languages                                                                                                                                                |
+| **Supported languages** | 132 languages                                                                                                                       | 103 languages                                                                                                                                                |
 
 [Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-3.8-flash-tts) [View in Model Garden](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemini-3.8-flash-tts) [Developer guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
@@ -150,7 +150,7 @@ Supported</li>
 </tr>
 <tr class="odd">
 <th>Supported languages</th>
-<th>130 languages. See <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview#languages">Supported languages</a> .</th>
+<th>132 languages. See <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview#languages">Supported languages</a> .</th>
 <td></td>
 </tr>
 </tbody>

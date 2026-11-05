@@ -563,248 +563,248 @@ Partner model endpoints for Agent Platform are available in the following region
 
 ### Global
 
-|                                                         | Global (global) |
-|---------------------------------------------------------|-----------------|
-| Anthropic models                                        |                 |
-| Anthropic's Claude Haiku 5.5 on Google Cloud            |                 |
-| Anthropic's Claude Sonnet 5.5 on Google Cloud           |                 |
-| Anthropic's Claude Sonnet 5 on Google Cloud             |                 |
-| Anthropic's Claude Opus 5.5 on Google Cloud             |                 |
-| Anthropic's Claude Opus 5 on Google Cloud               |                 |
-| Anthropic's Claude Fable 5.1 on Google Cloud            |                 |
-| Anthropic's Claude Fable 5 on Google Cloud              |                 |
-| Anthropic's Claude Opus 4.8 on Google Cloud             |                 |
-| Anthropic's Claude Opus 4.7 on Google Cloud             |                 |
-| Anthropic's Claude Opus 4.6 on Google Cloud             |                 |
-| Anthropic's Claude Opus 4.5 on Google Cloud             |                 |
-| Anthropic's Claude Sonnet 4.6 on Google Cloud           |                 |
-| Anthropic's Claude Sonnet 4.5 on Google Cloud           |                 |
-| Anthropic's Claude Haiku 4.5 on Google Cloud            |                 |
-| Anthropic's Claude 3.7 Sonnet on Google Cloud           |                 |
-| Anthropic's Claude 3.5 Haiku on Google Cloud            |                 |
-| Anthropic's Claude 3 Haiku on Google Cloud (deprecated) |                 |
-| Mistral models                                          |                 |
-| Mistral Medium 3                                        |                 |
-| Mistral OCR (25.05)                                     |                 |
-| Mistral Small 3.1 (25.03)                               |                 |
-| Mistral Large (24.07)                                   |                 |
-| Codestral 2                                             |                 |
-| Codestral (24.05)                                       |                 |
-| Grok models                                             |                 |
-| Grok 4.7                                                |                 |
-| Grok 4.6                                                |                 |
-| Grok 4.20 (Reasoning)                                   |                 |
-| Grok 4.20 (Non-reasoning)                               |                 |
+|                                                            | Global (global) |
+|------------------------------------------------------------|-----------------|
+| Anthropic models                                           |                 |
+| Anthropic's Claude Haiku 5.5 on Google Cloud               |                 |
+| Anthropic's Claude Sonnet 5.5 on Google Cloud              |                 |
+| Anthropic's Claude Sonnet 5 on Google Cloud                |                 |
+| Anthropic's Claude Opus 5.5 on Google Cloud                |                 |
+| Anthropic's Claude Opus 5 on Google Cloud                  |                 |
+| Anthropic's Claude Fable 5.1 on Google Cloud               |                 |
+| Anthropic's Claude Fable 5 on Google Cloud                 |                 |
+| Anthropic's Claude Opus 4.8 on Google Cloud                |                 |
+| Anthropic's Claude Opus 4.7 on Google Cloud                |                 |
+| Anthropic's Claude Opus 4.6 on Google Cloud                |                 |
+| Anthropic's Claude Opus 4.5 on Google Cloud                |                 |
+| Anthropic's Claude Sonnet 4.6 on Google Cloud              |                 |
+| Anthropic's Claude Sonnet 4.5 on Google Cloud (deprecated) |                 |
+| Anthropic's Claude Haiku 4.5 on Google Cloud               |                 |
+| Anthropic's Claude 3.7 Sonnet on Google Cloud              |                 |
+| Anthropic's Claude 3.5 Haiku on Google Cloud               |                 |
+| Anthropic's Claude 3 Haiku on Google Cloud (deprecated)    |                 |
+| Mistral models                                             |                 |
+| Mistral Medium 3                                           |                 |
+| Mistral OCR (25.05)                                        |                 |
+| Mistral Small 3.1 (25.03)                                  |                 |
+| Mistral Large (24.07)                                      |                 |
+| Codestral 2                                                |                 |
+| Codestral (24.05)                                          |                 |
+| Grok models                                                |                 |
+| Grok 4.7                                                   |                 |
+| Grok 4.6                                                   |                 |
+| Grok 4.20 (Reasoning)                                      |                 |
+| Grok 4.20 (Non-reasoning)                                  |                 |
 
 ### Multi-region
 
-|                                                         | United States multi-region (us) | European Union multi-region (eu) |
-|---------------------------------------------------------|---------------------------------|----------------------------------|
-| Anthropic models                                        |                                 |                                  |
-| Anthropic's Claude Haiku 5.5 on Google Cloud            |                                 |                                  |
-| Anthropic's Claude Sonnet 5.5 on Google Cloud           |                                 |                                  |
-| Anthropic's Claude Sonnet 5 on Google Cloud             |                                 |                                  |
-| Anthropic's Claude Opus 5.5 on Google Cloud             |                                 |                                  |
-| Anthropic's Claude Opus 5 on Google Cloud               |                                 |                                  |
-| Anthropic's Claude Fable 5.1 on Google Cloud            |                                 |                                  |
-| Anthropic's Claude Fable 5 on Google Cloud              |                                 |                                  |
-| Anthropic's Claude Opus 4.8 on Google Cloud             |                                 |                                  |
-| Anthropic's Claude Opus 4.7 on Google Cloud             |                                 |                                  |
-| Anthropic's Claude Opus 4.6 on Google Cloud             |                                 |                                  |
-| Anthropic's Claude Opus 4.5 on Google Cloud             |                                 |                                  |
-| Anthropic's Claude Sonnet 4.6 on Google Cloud           |                                 |                                  |
-| Anthropic's Claude Sonnet 4.5 on Google Cloud           |                                 |                                  |
-| Anthropic's Claude Haiku 4.5 on Google Cloud            |                                 |                                  |
-| Anthropic's Claude 3.7 Sonnet on Google Cloud           |                                 |                                  |
-| Anthropic's Claude 3.5 Haiku on Google Cloud            |                                 |                                  |
-| Anthropic's Claude 3 Haiku on Google Cloud (deprecated) |                                 |                                  |
-| Mistral models                                          |                                 |                                  |
-| Mistral Medium 3                                        |                                 |                                  |
-| Mistral OCR (25.05)                                     |                                 |                                  |
-| Mistral Small 3.1 (25.03)                               |                                 |                                  |
-| Mistral Large (24.07)                                   |                                 |                                  |
-| Codestral 2                                             |                                 |                                  |
-| Codestral (24.05)                                       |                                 |                                  |
-| Grok models                                             |                                 |                                  |
-| Grok 4.7                                                |                                 |                                  |
-| Grok 4.6                                                |                                 |                                  |
-| Grok 4.20 (Reasoning)                                   |                                 |                                  |
-| Grok 4.20 (Non-reasoning)                               |                                 |                                  |
+|                                                            | United States multi-region (us) | European Union multi-region (eu) |
+|------------------------------------------------------------|---------------------------------|----------------------------------|
+| Anthropic models                                           |                                 |                                  |
+| Anthropic's Claude Haiku 5.5 on Google Cloud               |                                 |                                  |
+| Anthropic's Claude Sonnet 5.5 on Google Cloud              |                                 |                                  |
+| Anthropic's Claude Sonnet 5 on Google Cloud                |                                 |                                  |
+| Anthropic's Claude Opus 5.5 on Google Cloud                |                                 |                                  |
+| Anthropic's Claude Opus 5 on Google Cloud                  |                                 |                                  |
+| Anthropic's Claude Fable 5.1 on Google Cloud               |                                 |                                  |
+| Anthropic's Claude Fable 5 on Google Cloud                 |                                 |                                  |
+| Anthropic's Claude Opus 4.8 on Google Cloud                |                                 |                                  |
+| Anthropic's Claude Opus 4.7 on Google Cloud                |                                 |                                  |
+| Anthropic's Claude Opus 4.6 on Google Cloud                |                                 |                                  |
+| Anthropic's Claude Opus 4.5 on Google Cloud                |                                 |                                  |
+| Anthropic's Claude Sonnet 4.6 on Google Cloud              |                                 |                                  |
+| Anthropic's Claude Sonnet 4.5 on Google Cloud (deprecated) |                                 |                                  |
+| Anthropic's Claude Haiku 4.5 on Google Cloud               |                                 |                                  |
+| Anthropic's Claude 3.7 Sonnet on Google Cloud              |                                 |                                  |
+| Anthropic's Claude 3.5 Haiku on Google Cloud               |                                 |                                  |
+| Anthropic's Claude 3 Haiku on Google Cloud (deprecated)    |                                 |                                  |
+| Mistral models                                             |                                 |                                  |
+| Mistral Medium 3                                           |                                 |                                  |
+| Mistral OCR (25.05)                                        |                                 |                                  |
+| Mistral Small 3.1 (25.03)                                  |                                 |                                  |
+| Mistral Large (24.07)                                      |                                 |                                  |
+| Codestral 2                                                |                                 |                                  |
+| Codestral (24.05)                                          |                                 |                                  |
+| Grok models                                                |                                 |                                  |
+| Grok 4.7                                                   |                                 |                                  |
+| Grok 4.6                                                   |                                 |                                  |
+| Grok 4.20 (Reasoning)                                      |                                 |                                  |
+| Grok 4.20 (Non-reasoning)                                  |                                 |                                  |
 
 ### United States
 
-|                                                         | Oregon (us-west1) | Las Vegas (us-west4) | Iowa (us-central1) | South Carolina (us-east1) | N. Virginia (us-east4) | Columbus (us-east5) | Dallas (us-south1) |
-|---------------------------------------------------------|-------------------|----------------------|--------------------|---------------------------|------------------------|---------------------|--------------------|
-| Anthropic models                                        |                   |                      |                    |                           |                        |                     |                    |
-| Anthropic's Claude Haiku 5.5 on Google Cloud            |                   |                      |                    |                           |                        |                     |                    |
-| Anthropic's Claude Sonnet 5.5 on Google Cloud           |                   |                      |                    |                           |                        |                     |                    |
-| Anthropic's Claude Sonnet 5 on Google Cloud             |                   |                      |                    |                           |                        |                     |                    |
-| Anthropic's Claude Opus 5.5 on Google Cloud             |                   |                      |                    |                           |                        |                     |                    |
-| Anthropic's Claude Opus 5 on Google Cloud               |                   |                      |                    |                           |                        |                     |                    |
-| Anthropic's Claude Fable 5.1 on Google Cloud            |                   |                      |                    |                           |                        |                     |                    |
-| Anthropic's Claude Fable 5 on Google Cloud              |                   |                      |                    |                           |                        |                     |                    |
-| Anthropic's Claude Opus 4.8 on Google Cloud             |                   |                      |                    |                           |                        |                     |                    |
-| Anthropic's Claude Opus 4.7 on Google Cloud             |                   |                      |                    |                           |                        |                     |                    |
-| Anthropic's Claude Opus 4.6 on Google Cloud             |                   |                      |                    |                           |                        |                     |                    |
-| Anthropic's Claude Opus 4.5 on Google Cloud             |                   |                      |                    |                           |                        |                     |                    |
-| Anthropic's Claude Sonnet 4.6 on Google Cloud           |                   |                      |                    |                           |                        |                     |                    |
-| Anthropic's Claude Sonnet 4.5 on Google Cloud           |                   |                      |                    |                           |                        |                     |                    |
-| Anthropic's Claude Haiku 4.5 on Google Cloud            |                   |                      |                    |                           |                        |                     |                    |
-| Anthropic's Claude 3.7 Sonnet on Google Cloud           |                   |                      |                    |                           |                        |                     |                    |
-| Anthropic's Claude 3.5 Haiku on Google Cloud            |                   |                      |                    |                           |                        |                     |                    |
-| Anthropic's Claude 3 Haiku on Google Cloud (deprecated) |                   |                      |                    |                           |                        |                     |                    |
-| Mistral models                                          |                   |                      |                    |                           |                        |                     |                    |
-| Mistral Medium 3                                        |                   |                      |                    |                           |                        |                     |                    |
-| Mistral OCR (25.05)                                     |                   |                      |                    |                           |                        |                     |                    |
-| Mistral Small 3.1 (25.03)                               |                   |                      |                    |                           |                        |                     |                    |
-| Mistral Large (24.07)                                   |                   |                      |                    |                           |                        |                     |                    |
-| Codestral 2                                             |                   |                      |                    |                           |                        |                     |                    |
-| Codestral (24.05)                                       |                   |                      |                    |                           |                        |                     |                    |
-| Grok models                                             |                   |                      |                    |                           |                        |                     |                    |
-| Grok 4.7                                                |                   |                      |                    |                           |                        |                     |                    |
-| Grok 4.6                                                |                   |                      |                    |                           |                        |                     |                    |
-| Grok 4.20 (Reasoning)                                   |                   |                      |                    |                           |                        |                     |                    |
-| Grok 4.20 (Non-reasoning)                               |                   |                      |                    |                           |                        |                     |                    |
+|                                                            | Oregon (us-west1) | Las Vegas (us-west4) | Iowa (us-central1) | South Carolina (us-east1) | N. Virginia (us-east4) | Columbus (us-east5) | Dallas (us-south1) |
+|------------------------------------------------------------|-------------------|----------------------|--------------------|---------------------------|------------------------|---------------------|--------------------|
+| Anthropic models                                           |                   |                      |                    |                           |                        |                     |                    |
+| Anthropic's Claude Haiku 5.5 on Google Cloud               |                   |                      |                    |                           |                        |                     |                    |
+| Anthropic's Claude Sonnet 5.5 on Google Cloud              |                   |                      |                    |                           |                        |                     |                    |
+| Anthropic's Claude Sonnet 5 on Google Cloud                |                   |                      |                    |                           |                        |                     |                    |
+| Anthropic's Claude Opus 5.5 on Google Cloud                |                   |                      |                    |                           |                        |                     |                    |
+| Anthropic's Claude Opus 5 on Google Cloud                  |                   |                      |                    |                           |                        |                     |                    |
+| Anthropic's Claude Fable 5.1 on Google Cloud               |                   |                      |                    |                           |                        |                     |                    |
+| Anthropic's Claude Fable 5 on Google Cloud                 |                   |                      |                    |                           |                        |                     |                    |
+| Anthropic's Claude Opus 4.8 on Google Cloud                |                   |                      |                    |                           |                        |                     |                    |
+| Anthropic's Claude Opus 4.7 on Google Cloud                |                   |                      |                    |                           |                        |                     |                    |
+| Anthropic's Claude Opus 4.6 on Google Cloud                |                   |                      |                    |                           |                        |                     |                    |
+| Anthropic's Claude Opus 4.5 on Google Cloud                |                   |                      |                    |                           |                        |                     |                    |
+| Anthropic's Claude Sonnet 4.6 on Google Cloud              |                   |                      |                    |                           |                        |                     |                    |
+| Anthropic's Claude Sonnet 4.5 on Google Cloud (deprecated) |                   |                      |                    |                           |                        |                     |                    |
+| Anthropic's Claude Haiku 4.5 on Google Cloud               |                   |                      |                    |                           |                        |                     |                    |
+| Anthropic's Claude 3.7 Sonnet on Google Cloud              |                   |                      |                    |                           |                        |                     |                    |
+| Anthropic's Claude 3.5 Haiku on Google Cloud               |                   |                      |                    |                           |                        |                     |                    |
+| Anthropic's Claude 3 Haiku on Google Cloud (deprecated)    |                   |                      |                    |                           |                        |                     |                    |
+| Mistral models                                             |                   |                      |                    |                           |                        |                     |                    |
+| Mistral Medium 3                                           |                   |                      |                    |                           |                        |                     |                    |
+| Mistral OCR (25.05)                                        |                   |                      |                    |                           |                        |                     |                    |
+| Mistral Small 3.1 (25.03)                                  |                   |                      |                    |                           |                        |                     |                    |
+| Mistral Large (24.07)                                      |                   |                      |                    |                           |                        |                     |                    |
+| Codestral 2                                                |                   |                      |                    |                           |                        |                     |                    |
+| Codestral (24.05)                                          |                   |                      |                    |                           |                        |                     |                    |
+| Grok models                                                |                   |                      |                    |                           |                        |                     |                    |
+| Grok 4.7                                                   |                   |                      |                    |                           |                        |                     |                    |
+| Grok 4.6                                                   |                   |                      |                    |                           |                        |                     |                    |
+| Grok 4.20 (Reasoning)                                      |                   |                      |                    |                           |                        |                     |                    |
+| Grok 4.20 (Non-reasoning)                                  |                   |                      |                    |                           |                        |                     |                    |
 
 ### Americas
 
-|                                                         | Montréal (northamerica-northeast1) | São Paulo (southamerica-east1) |
-|---------------------------------------------------------|------------------------------------|--------------------------------|
-| Anthropic models                                        |                                    |                                |
-| Anthropic's Claude Haiku 5.5 on Google Cloud            |                                    |                                |
-| Anthropic's Claude Sonnet 5.5 on Google Cloud           |                                    |                                |
-| Anthropic's Claude Sonnet 5 on Google Cloud             |                                    |                                |
-| Anthropic's Claude Opus 5.5 on Google Cloud             |                                    |                                |
-| Anthropic's Claude Opus 5 on Google Cloud               |                                    |                                |
-| Anthropic's Claude Fable 5.1 on Google Cloud            |                                    |                                |
-| Anthropic's Claude Fable 5 on Google Cloud              |                                    |                                |
-| Anthropic's Claude Opus 4.8 on Google Cloud             |                                    |                                |
-| Anthropic's Claude Opus 4.7 on Google Cloud             |                                    |                                |
-| Anthropic's Claude Opus 4.6 on Google Cloud             |                                    |                                |
-| Anthropic's Claude Opus 4.5 on Google Cloud             |                                    |                                |
-| Anthropic's Claude Sonnet 4.6 on Google Cloud           |                                    |                                |
-| Anthropic's Claude Sonnet 4.5 on Google Cloud           |                                    |                                |
-| Anthropic's Claude Haiku 4.5 on Google Cloud            |                                    |                                |
-| Anthropic's Claude 3.7 Sonnet on Google Cloud           |                                    |                                |
-| Anthropic's Claude 3.5 Haiku on Google Cloud            |                                    |                                |
-| Anthropic's Claude 3 Haiku on Google Cloud (deprecated) |                                    |                                |
-| Mistral models                                          |                                    |                                |
-| Mistral Medium 3                                        |                                    |                                |
-| Mistral OCR (25.05)                                     |                                    |                                |
-| Mistral Small 3.1 (25.03)                               |                                    |                                |
-| Mistral Large (24.07)                                   |                                    |                                |
-| Codestral 2                                             |                                    |                                |
-| Codestral (24.05)                                       |                                    |                                |
-| Grok models                                             |                                    |                                |
-| Grok 4.7                                                |                                    |                                |
-| Grok 4.6                                                |                                    |                                |
-| Grok 4.20 (Reasoning)                                   |                                    |                                |
-| Grok 4.20 (Non-reasoning)                               |                                    |                                |
+|                                                            | Montréal (northamerica-northeast1) | São Paulo (southamerica-east1) |
+|------------------------------------------------------------|------------------------------------|--------------------------------|
+| Anthropic models                                           |                                    |                                |
+| Anthropic's Claude Haiku 5.5 on Google Cloud               |                                    |                                |
+| Anthropic's Claude Sonnet 5.5 on Google Cloud              |                                    |                                |
+| Anthropic's Claude Sonnet 5 on Google Cloud                |                                    |                                |
+| Anthropic's Claude Opus 5.5 on Google Cloud                |                                    |                                |
+| Anthropic's Claude Opus 5 on Google Cloud                  |                                    |                                |
+| Anthropic's Claude Fable 5.1 on Google Cloud               |                                    |                                |
+| Anthropic's Claude Fable 5 on Google Cloud                 |                                    |                                |
+| Anthropic's Claude Opus 4.8 on Google Cloud                |                                    |                                |
+| Anthropic's Claude Opus 4.7 on Google Cloud                |                                    |                                |
+| Anthropic's Claude Opus 4.6 on Google Cloud                |                                    |                                |
+| Anthropic's Claude Opus 4.5 on Google Cloud                |                                    |                                |
+| Anthropic's Claude Sonnet 4.6 on Google Cloud              |                                    |                                |
+| Anthropic's Claude Sonnet 4.5 on Google Cloud (deprecated) |                                    |                                |
+| Anthropic's Claude Haiku 4.5 on Google Cloud               |                                    |                                |
+| Anthropic's Claude 3.7 Sonnet on Google Cloud              |                                    |                                |
+| Anthropic's Claude 3.5 Haiku on Google Cloud               |                                    |                                |
+| Anthropic's Claude 3 Haiku on Google Cloud (deprecated)    |                                    |                                |
+| Mistral models                                             |                                    |                                |
+| Mistral Medium 3                                           |                                    |                                |
+| Mistral OCR (25.05)                                        |                                    |                                |
+| Mistral Small 3.1 (25.03)                                  |                                    |                                |
+| Mistral Large (24.07)                                      |                                    |                                |
+| Codestral 2                                                |                                    |                                |
+| Codestral (24.05)                                          |                                    |                                |
+| Grok models                                                |                                    |                                |
+| Grok 4.7                                                   |                                    |                                |
+| Grok 4.6                                                   |                                    |                                |
+| Grok 4.20 (Reasoning)                                      |                                    |                                |
+| Grok 4.20 (Non-reasoning)                                  |                                    |                                |
 
 ### Europe
 
-|                                                         | London (europe-west2) | Belgium (europe-west1) | Netherlands (europe-west4) | Zürich (europe-west6) | Frankfurt (europe-west3) | Finland (europe-north1) | Warsaw (europe-central2) | Milan (europe-west8) | Madrid (europe-southwest1) | Paris (europe-west9) |
-|---------------------------------------------------------|-----------------------|------------------------|----------------------------|-----------------------|--------------------------|-------------------------|--------------------------|----------------------|----------------------------|----------------------|
-| Anthropic models                                        |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
-| Anthropic's Claude Haiku 5.5 on Google Cloud            |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
-| Anthropic's Claude Sonnet 5.5 on Google Cloud           |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
-| Anthropic's Claude Sonnet 5 on Google Cloud             |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
-| Anthropic's Claude Opus 5.5 on Google Cloud             |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
-| Anthropic's Claude Opus 5 on Google Cloud               |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
-| Anthropic's Claude Fable 5.1 on Google Cloud            |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
-| Anthropic's Claude Fable 5 on Google Cloud              |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
-| Anthropic's Claude Opus 4.8 on Google Cloud             |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
-| Anthropic's Claude Opus 4.7 on Google Cloud             |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
-| Anthropic's Claude Opus 4.6 on Google Cloud             |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
-| Anthropic's Claude Opus 4.5 on Google Cloud             |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
-| Anthropic's Claude Sonnet 4.6 on Google Cloud           |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
-| Anthropic's Claude Sonnet 4.5 on Google Cloud           |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
-| Anthropic's Claude Haiku 4.5 on Google Cloud            |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
-| Anthropic's Claude 3.7 Sonnet on Google Cloud           |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
-| Anthropic's Claude 3.5 Haiku on Google Cloud            |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
-| Anthropic's Claude 3 Haiku on Google Cloud (deprecated) |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
-| Mistral models                                          |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
-| Mistral Medium 3                                        |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
-| Mistral OCR (25.05)                                     |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
-| Mistral Small 3.1 (25.03)                               |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
-| Mistral Large (24.07)                                   |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
-| Codestral 2                                             |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
-| Codestral (24.05)                                       |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
-| Grok models                                             |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
-| Grok 4.7                                                |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
-| Grok 4.6                                                |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
-| Grok 4.20 (Reasoning)                                   |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
-| Grok 4.20 (Non-reasoning)                               |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+|                                                            | London (europe-west2) | Belgium (europe-west1) | Netherlands (europe-west4) | Zürich (europe-west6) | Frankfurt (europe-west3) | Finland (europe-north1) | Warsaw (europe-central2) | Milan (europe-west8) | Madrid (europe-southwest1) | Paris (europe-west9) |
+|------------------------------------------------------------|-----------------------|------------------------|----------------------------|-----------------------|--------------------------|-------------------------|--------------------------|----------------------|----------------------------|----------------------|
+| Anthropic models                                           |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+| Anthropic's Claude Haiku 5.5 on Google Cloud               |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+| Anthropic's Claude Sonnet 5.5 on Google Cloud              |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+| Anthropic's Claude Sonnet 5 on Google Cloud                |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+| Anthropic's Claude Opus 5.5 on Google Cloud                |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+| Anthropic's Claude Opus 5 on Google Cloud                  |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+| Anthropic's Claude Fable 5.1 on Google Cloud               |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+| Anthropic's Claude Fable 5 on Google Cloud                 |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+| Anthropic's Claude Opus 4.8 on Google Cloud                |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+| Anthropic's Claude Opus 4.7 on Google Cloud                |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+| Anthropic's Claude Opus 4.6 on Google Cloud                |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+| Anthropic's Claude Opus 4.5 on Google Cloud                |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+| Anthropic's Claude Sonnet 4.6 on Google Cloud              |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+| Anthropic's Claude Sonnet 4.5 on Google Cloud (deprecated) |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+| Anthropic's Claude Haiku 4.5 on Google Cloud               |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+| Anthropic's Claude 3.7 Sonnet on Google Cloud              |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+| Anthropic's Claude 3.5 Haiku on Google Cloud               |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+| Anthropic's Claude 3 Haiku on Google Cloud (deprecated)    |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+| Mistral models                                             |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+| Mistral Medium 3                                           |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+| Mistral OCR (25.05)                                        |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+| Mistral Small 3.1 (25.03)                                  |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+| Mistral Large (24.07)                                      |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+| Codestral 2                                                |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+| Codestral (24.05)                                          |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+| Grok models                                                |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+| Grok 4.7                                                   |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+| Grok 4.6                                                   |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+| Grok 4.20 (Reasoning)                                      |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+| Grok 4.20 (Non-reasoning)                                  |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
 
 ### Asia Pacific
 
-|                                                         | Mumbai (asia-south1) | Singapore (asia-southeast1) | Hong Kong (asia-east2) | Taiwan (asia-east1) | Tokyo (asia-northeast1) | Sydney (australia-southeast1) | Seoul (asia-northeast3) |
-|---------------------------------------------------------|----------------------|-----------------------------|------------------------|---------------------|-------------------------|-------------------------------|-------------------------|
-| Anthropic models                                        |                      |                             |                        |                     |                         |                               |                         |
-| Anthropic's Claude Haiku 5.5 on Google Cloud            |                      |                             |                        |                     |                         |                               |                         |
-| Anthropic's Claude Sonnet 5.5 on Google Cloud           |                      |                             |                        |                     |                         |                               |                         |
-| Anthropic's Claude Sonnet 5 on Google Cloud             |                      |                             |                        |                     |                         |                               |                         |
-| Anthropic's Claude Opus 5.5 on Google Cloud             |                      |                             |                        |                     |                         |                               |                         |
-| Anthropic's Claude Opus 5 on Google Cloud               |                      |                             |                        |                     |                         |                               |                         |
-| Anthropic's Claude Fable 5.1 on Google Cloud            |                      |                             |                        |                     |                         |                               |                         |
-| Anthropic's Claude Fable 5 on Google Cloud              |                      |                             |                        |                     |                         |                               |                         |
-| Anthropic's Claude Opus 4.8 on Google Cloud             |                      |                             |                        |                     |                         |                               |                         |
-| Anthropic's Claude Opus 4.7 on Google Cloud             |                      |                             |                        |                     |                         |                               |                         |
-| Anthropic's Claude Opus 4.6 on Google Cloud             |                      |                             |                        |                     |                         |                               |                         |
-| Anthropic's Claude Opus 4.5 on Google Cloud             |                      |                             |                        |                     |                         |                               |                         |
-| Anthropic's Claude Sonnet 4.6 on Google Cloud           |                      |                             |                        |                     |                         |                               |                         |
-| Anthropic's Claude Sonnet 4.5 on Google Cloud           |                      |                             |                        |                     |                         |                               |                         |
-| Anthropic's Claude Haiku 4.5 on Google Cloud            |                      |                             |                        |                     |                         |                               |                         |
-| Anthropic's Claude 3.7 Sonnet on Google Cloud           |                      |                             |                        |                     |                         |                               |                         |
-| Anthropic's Claude 3.5 Haiku on Google Cloud            |                      |                             |                        |                     |                         |                               |                         |
-| Anthropic's Claude 3 Haiku on Google Cloud (deprecated) |                      |                             |                        |                     |                         |                               |                         |
-| Mistral models                                          |                      |                             |                        |                     |                         |                               |                         |
-| Mistral Medium 3                                        |                      |                             |                        |                     |                         |                               |                         |
-| Mistral OCR (25.05)                                     |                      |                             |                        |                     |                         |                               |                         |
-| Mistral Small 3.1 (25.03)                               |                      |                             |                        |                     |                         |                               |                         |
-| Mistral Large (24.07)                                   |                      |                             |                        |                     |                         |                               |                         |
-| Codestral 2                                             |                      |                             |                        |                     |                         |                               |                         |
-| Codestral (24.05)                                       |                      |                             |                        |                     |                         |                               |                         |
-| Grok models                                             |                      |                             |                        |                     |                         |                               |                         |
-| Grok 4.7                                                |                      |                             |                        |                     |                         |                               |                         |
-| Grok 4.6                                                |                      |                             |                        |                     |                         |                               |                         |
-| Grok 4.20 (Reasoning)                                   |                      |                             |                        |                     |                         |                               |                         |
-| Grok 4.20 (Non-reasoning)                               |                      |                             |                        |                     |                         |                               |                         |
+|                                                            | Mumbai (asia-south1) | Singapore (asia-southeast1) | Hong Kong (asia-east2) | Taiwan (asia-east1) | Tokyo (asia-northeast1) | Sydney (australia-southeast1) | Seoul (asia-northeast3) |
+|------------------------------------------------------------|----------------------|-----------------------------|------------------------|---------------------|-------------------------|-------------------------------|-------------------------|
+| Anthropic models                                           |                      |                             |                        |                     |                         |                               |                         |
+| Anthropic's Claude Haiku 5.5 on Google Cloud               |                      |                             |                        |                     |                         |                               |                         |
+| Anthropic's Claude Sonnet 5.5 on Google Cloud              |                      |                             |                        |                     |                         |                               |                         |
+| Anthropic's Claude Sonnet 5 on Google Cloud                |                      |                             |                        |                     |                         |                               |                         |
+| Anthropic's Claude Opus 5.5 on Google Cloud                |                      |                             |                        |                     |                         |                               |                         |
+| Anthropic's Claude Opus 5 on Google Cloud                  |                      |                             |                        |                     |                         |                               |                         |
+| Anthropic's Claude Fable 5.1 on Google Cloud               |                      |                             |                        |                     |                         |                               |                         |
+| Anthropic's Claude Fable 5 on Google Cloud                 |                      |                             |                        |                     |                         |                               |                         |
+| Anthropic's Claude Opus 4.8 on Google Cloud                |                      |                             |                        |                     |                         |                               |                         |
+| Anthropic's Claude Opus 4.7 on Google Cloud                |                      |                             |                        |                     |                         |                               |                         |
+| Anthropic's Claude Opus 4.6 on Google Cloud                |                      |                             |                        |                     |                         |                               |                         |
+| Anthropic's Claude Opus 4.5 on Google Cloud                |                      |                             |                        |                     |                         |                               |                         |
+| Anthropic's Claude Sonnet 4.6 on Google Cloud              |                      |                             |                        |                     |                         |                               |                         |
+| Anthropic's Claude Sonnet 4.5 on Google Cloud (deprecated) |                      |                             |                        |                     |                         |                               |                         |
+| Anthropic's Claude Haiku 4.5 on Google Cloud               |                      |                             |                        |                     |                         |                               |                         |
+| Anthropic's Claude 3.7 Sonnet on Google Cloud              |                      |                             |                        |                     |                         |                               |                         |
+| Anthropic's Claude 3.5 Haiku on Google Cloud               |                      |                             |                        |                     |                         |                               |                         |
+| Anthropic's Claude 3 Haiku on Google Cloud (deprecated)    |                      |                             |                        |                     |                         |                               |                         |
+| Mistral models                                             |                      |                             |                        |                     |                         |                               |                         |
+| Mistral Medium 3                                           |                      |                             |                        |                     |                         |                               |                         |
+| Mistral OCR (25.05)                                        |                      |                             |                        |                     |                         |                               |                         |
+| Mistral Small 3.1 (25.03)                                  |                      |                             |                        |                     |                         |                               |                         |
+| Mistral Large (24.07)                                      |                      |                             |                        |                     |                         |                               |                         |
+| Codestral 2                                                |                      |                             |                        |                     |                         |                               |                         |
+| Codestral (24.05)                                          |                      |                             |                        |                     |                         |                               |                         |
+| Grok models                                                |                      |                             |                        |                     |                         |                               |                         |
+| Grok 4.7                                                   |                      |                             |                        |                     |                         |                               |                         |
+| Grok 4.6                                                   |                      |                             |                        |                     |                         |                               |                         |
+| Grok 4.20 (Reasoning)                                      |                      |                             |                        |                     |                         |                               |                         |
+| Grok 4.20 (Non-reasoning)                                  |                      |                             |                        |                     |                         |                               |                         |
 
 ### Middle East
 
-|                                                         | Tel Aviv (me-west1) | Doha (me-central1) | Dammam (me-central2) |
-|---------------------------------------------------------|---------------------|--------------------|----------------------|
-| Anthropic models                                        |                     |                    |                      |
-| Anthropic's Claude Haiku 5.5 on Google Cloud            |                     |                    |                      |
-| Anthropic's Claude Sonnet 5.5 on Google Cloud           |                     |                    |                      |
-| Anthropic's Claude Sonnet 5 on Google Cloud             |                     |                    |                      |
-| Anthropic's Claude Opus 5.5 on Google Cloud             |                     |                    |                      |
-| Anthropic's Claude Opus 5 on Google Cloud               |                     |                    |                      |
-| Anthropic's Claude Fable 5.1 on Google Cloud            |                     |                    |                      |
-| Anthropic's Claude Fable 5 on Google Cloud              |                     |                    |                      |
-| Anthropic's Claude Opus 4.8 on Google Cloud             |                     |                    |                      |
-| Anthropic's Claude Opus 4.7 on Google Cloud             |                     |                    |                      |
-| Anthropic's Claude Opus 4.6 on Google Cloud             |                     |                    |                      |
-| Anthropic's Claude Opus 4.5 on Google Cloud             |                     |                    |                      |
-| Anthropic's Claude Sonnet 4.6 on Google Cloud           |                     |                    |                      |
-| Anthropic's Claude Sonnet 4.5 on Google Cloud           |                     |                    |                      |
-| Anthropic's Claude Haiku 4.5 on Google Cloud            |                     |                    |                      |
-| Anthropic's Claude 3.7 Sonnet on Google Cloud           |                     |                    |                      |
-| Anthropic's Claude 3.5 Haiku on Google Cloud            |                     |                    |                      |
-| Anthropic's Claude 3 Haiku on Google Cloud (deprecated) |                     |                    |                      |
-| Mistral models                                          |                     |                    |                      |
-| Mistral Medium 3                                        |                     |                    |                      |
-| Mistral OCR (25.05)                                     |                     |                    |                      |
-| Mistral Small 3.1 (25.03)                               |                     |                    |                      |
-| Mistral Large (24.07)                                   |                     |                    |                      |
-| Codestral 2                                             |                     |                    |                      |
-| Codestral (24.05)                                       |                     |                    |                      |
-| Grok models                                             |                     |                    |                      |
-| Grok 4.7                                                |                     |                    |                      |
-| Grok 4.6                                                |                     |                    |                      |
-| Grok 4.20 (Reasoning)                                   |                     |                    |                      |
-| Grok 4.20 (Non-reasoning)                               |                     |                    |                      |
+|                                                            | Tel Aviv (me-west1) | Doha (me-central1) | Dammam (me-central2) |
+|------------------------------------------------------------|---------------------|--------------------|----------------------|
+| Anthropic models                                           |                     |                    |                      |
+| Anthropic's Claude Haiku 5.5 on Google Cloud               |                     |                    |                      |
+| Anthropic's Claude Sonnet 5.5 on Google Cloud              |                     |                    |                      |
+| Anthropic's Claude Sonnet 5 on Google Cloud                |                     |                    |                      |
+| Anthropic's Claude Opus 5.5 on Google Cloud                |                     |                    |                      |
+| Anthropic's Claude Opus 5 on Google Cloud                  |                     |                    |                      |
+| Anthropic's Claude Fable 5.1 on Google Cloud               |                     |                    |                      |
+| Anthropic's Claude Fable 5 on Google Cloud                 |                     |                    |                      |
+| Anthropic's Claude Opus 4.8 on Google Cloud                |                     |                    |                      |
+| Anthropic's Claude Opus 4.7 on Google Cloud                |                     |                    |                      |
+| Anthropic's Claude Opus 4.6 on Google Cloud                |                     |                    |                      |
+| Anthropic's Claude Opus 4.5 on Google Cloud                |                     |                    |                      |
+| Anthropic's Claude Sonnet 4.6 on Google Cloud              |                     |                    |                      |
+| Anthropic's Claude Sonnet 4.5 on Google Cloud (deprecated) |                     |                    |                      |
+| Anthropic's Claude Haiku 4.5 on Google Cloud               |                     |                    |                      |
+| Anthropic's Claude 3.7 Sonnet on Google Cloud              |                     |                    |                      |
+| Anthropic's Claude 3.5 Haiku on Google Cloud               |                     |                    |                      |
+| Anthropic's Claude 3 Haiku on Google Cloud (deprecated)    |                     |                    |                      |
+| Mistral models                                             |                     |                    |                      |
+| Mistral Medium 3                                           |                     |                    |                      |
+| Mistral OCR (25.05)                                        |                     |                    |                      |
+| Mistral Small 3.1 (25.03)                                  |                     |                    |                      |
+| Mistral Large (24.07)                                      |                     |                    |                      |
+| Codestral 2                                                |                     |                    |                      |
+| Codestral (24.05)                                          |                     |                    |                      |
+| Grok models                                                |                     |                    |                      |
+| Grok 4.7                                                   |                     |                    |                      |
+| Grok 4.6                                                   |                     |                    |                      |
+| Grok 4.20 (Reasoning)                                      |                     |                    |                      |
+| Grok 4.20 (Non-reasoning)                                  |                     |                    |                      |
 
 ## Google Cloud open model endpoint locations
 
