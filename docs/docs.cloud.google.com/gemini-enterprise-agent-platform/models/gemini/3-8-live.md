@@ -6,7 +6,11 @@ description: Learn about Gemini 3.8 Live, offering improved voice quality, relia
 data_source: docs.cloud.google.com
 ---
 
-[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal-live?model=gemini-3.8-live) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+Gemini 3.8 Live is a real-time conversational model for low-latency, bidirectional voice and video interactions through the [Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api) . 3.8 Live supports dynamic multilingual switching, affective dialogue, proactive audio, function calling, and synchronized [Live Avatar](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-live-avatars) video synthesis.
+
+You can configure speech output using any of the 30 prebuilt HD voices ( `prebuilt_voice_config` ) or a per-session custom voice sample ( `replicated_voice_config` ). For the list of supported voices and languages, see [Configure language and voice](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice#voices-supported) .
+
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal-live?model=gemini-3.8-live) [Developer guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-3-8-live) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 <table>
 <colgroup>

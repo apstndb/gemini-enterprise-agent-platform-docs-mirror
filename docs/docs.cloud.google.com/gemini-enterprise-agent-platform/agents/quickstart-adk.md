@@ -6,7 +6,7 @@ description: Build and deploy a prototype AI agent using the Agent Development K
 data_source: docs.cloud.google.com
 ---
 
-This document demonstrates how to build, evaluate, and deploy a prototype AI agent using the [Agent Development Kit (ADK)](https://adk.dev/) with the [Agents CLI](https://github.com/google/agents-cli) in Agent Platform. The ADK is an open-source, code-first framework for building sophisticated AI agents. Agents CLI provides a unified, machine-readable interface for AI development tools to interact with the ADK, enabling end-to-end agent lifecycle management. It encapsulates expert knowledge of ADK, agent evaluation, and deployment to Google Cloud, enabling AI development tools to perform complex actions from natural language prompts.
+This document demonstrates how to build, evaluate, and deploy a prototype AI agent using the [Agent Development Kit (ADK)](https://adk.dev/) with the [Agents CLI](https://github.com/google/agents-cli) in Agent Platform. The ADK is an open-source, code-first framework for building sophisticated AI agents. Agents CLI provides a unified, machine-readable interface for AI development tools to interact with the ADK, enabling end-to-end agent lifecycle management. It encapsulates design patterns and best practices for ADK, agent evaluation, and deployment to Google Cloud, enabling AI development tools to perform complex actions from natural language prompts.
 
 By using Agents CLI with your preferred AI-powered development tool, such as Gemini CLI, Claude Code, or Codex, you can use natural language prompts to define, test locally, and deploy a prototype agent to a Google Cloud runtime.
 

@@ -2,19 +2,20 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-text
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-text
 title: Generate videos from text prompts
-description: You can use Gemini Omni Flash or Veo on Gemini Enterprise Agent Platform to generate videos from a text prompt that you provide. Use either the {{dynamic_data.site_values.cloud_name_short}} console or the Agent Platform API to send a request.
+description: You can use Gemini Omni or Veo on Gemini Enterprise Agent Platform to generate videos from a text prompt that you provide. Use either the {{dynamic_data.site_values.cloud_name_short}} console or the Agent Platform API to send a request.
 data_source: docs.cloud.google.com
 ---
 
-You can use Gemini Omni Flash or Veo on Gemini Enterprise Agent Platform to generate new videos from a text prompt. Supported interfaces include the Google Cloud console and the Agent Platform API.
+You can use Gemini Omni or Veo on Gemini Enterprise Agent Platform to generate new videos from a text prompt. Supported interfaces include the Google Cloud console and the Agent Platform API.
 
 The following models support generating video from a text prompt:
 
-**Gemini Omni Flash**
+**Gemini Omni**
 
 #### Click to expand supported models
 
 - [`gemini-omni-flash-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview) preview
+- [`gemini-omni-1.2-flash`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-2-flash)
 - [`gemini-omni-1.1-flash-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash) preview
 
 **Veo**
@@ -47,22 +48,22 @@ For more information about writing effective text prompts for video generation, 
 
     For more information, see [Authenticate for using REST](https://docs.cloud.google.com/docs/authentication/rest) in the Google Cloud authentication documentation.
 
-## Generate videos using Gemini Omni Flash
+## Generate videos using Gemini Omni
 
-To generate videos using Gemini Omni Flash, see the following examples. While focused on text-to-video, these examples can be extended to other use cases as well, such as supplying a starting image to guide generation.
+To generate videos using Gemini Omni, see the following examples. Although focused on text-to-video, these examples can be extended to other use cases as well, such as supplying a starting image to guide generation. With `gemini-omni-1.2-flash` , you can generate videos from 3 to 15 seconds in length (3 to 10 seconds for preview models), specify `generation_config.seed` for reproducible results, and attach custom metadata [labels](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/add-labels-to-api-calls) ( `labels` ) to organize requests and track billing costs.
 
 ### REST
 
 Video generation can take over a minute to complete. You can choose from several interaction modes depending on your workflow:
 
-- **Synchronous: stateless** : Generate a video in a single request without persisting the interaction state on the server.
+- **Synchronous: stateless** : Set `store` to `false` to generate a video in a single request without persisting the interaction state on the server.
 - **Synchronous: stateful** : Set `store` to `true` to persist the interaction state, which lets you retrieve the result later or reference the interaction ID for multi-turn video editing.
 - **Synchronous: stateful streaming** : Set both `store` and `stream` to `true` to receive model thoughts incrementally as they are generated, followed by the output video.
 - **Asynchronous** : Set `background` to `true` to run video generation in the background and retrieve the result later using the interaction ID.
 
 Stored and asynchronous interactions are retained for up to 7 days.
 
-For more information about using the Gemini Omni Flash API, see [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api) .
+For more information about using Gemini Omni models with the Interactions API, see [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api) .
 
 ### Synchronous: stateless
 
@@ -71,6 +72,7 @@ Before using any of the request data, make the following replacements:
 - `PROJECT_ID` : A string representing your Google Cloud project ID.
 
 - `MODEL_ID` : A string representing the model ID to use. The following are accepted values:
+  - `"gemini-omni-1.2-flash"`
   - `"gemini-omni-1.1-flash-preview"`
   - `"gemini-omni-flash-preview"`
 
@@ -86,7 +88,7 @@ Before using any of the request data, make the following replacements:
 
   Optional: A string representing the video output resolution. If not provided, the output defaults to 720p.
 
-  `gemini-omni-1.1-flash-preview` supports the following values:
+  `gemini-omni-1.2-flash` and `gemini-omni-1.1-flash-preview` support the following values:
 
   - `"360p"`
   - `"720p"`
@@ -95,7 +97,7 @@ Before using any of the request data, make the following replacements:
 
   `gemini-omni-flash-preview` only supports `"720p"` .
 
-- `DURATION` : A string representing the length of the generated video files. Allowed strings are integers between `3` and `10` , followed by "s" for seconds. For example, `"10s"` .
+- `DURATION` : A string representing the length of the generated video files. Allowed strings are integers between `3` and `15` for `gemini-omni-1.2-flash` (or `3` and `10` for preview models), followed by "s" for seconds. For example, `"10s"` or `"15s"` .
 
 HTTP method and URL:
 
@@ -108,6 +110,7 @@ Request JSON body:
 ```
 {
   "model": "MODEL_ID",
+  "store": false,
   "input": [
     {
       "type": "text",
@@ -224,13 +227,14 @@ Before using any of the request data, make the following replacements:
 
 - `PROJECT_ID` : A string representing your Google Cloud project ID.
 - `MODEL_ID` : A string representing the model ID to use. The following are accepted values:
+  - `"gemini-omni-1.2-flash"`
   - `"gemini-omni-1.1-flash-preview"`
 - `TEXT_PROMPT` : The text prompt used to guide video generation.
 - `CLOUD_STORAGE_OUTPUT_URI` : Optional: A string representing the Cloud Storage bucket to store the output videos. If not provided, video bytes are returned in the response. For example: `"gs://video-bucket/output/"` .
 - `ASPECT_RATIO` : Optional: A string representing the expected aspect ratio of the output video. If not provided, the aspect ratio is inferred from the prompt. The following are accepted values:
   - `"16:9"`
   - `"9:16"`
-- `DURATION` : A string representing the length of the generated video files. Allowed strings are integers between `3` and `10` , followed by "s" for seconds. For example, `"10s"`
+- `DURATION` : A string representing the length of the generated video files. Allowed strings are integers between `3` and `15` for `gemini-omni-1.2-flash` (or `3` and `10` for preview models), followed by "s" for seconds. For example, `"10s"` or `"15s"` .
 
 HTTP method and URL:
 
@@ -356,7 +360,7 @@ The response contains an interaction which includes the model thoughts and an ou
 }
 ```
 
-Use the ` INTERACTION_ID ` to get the generated video:
+Use the `INTERACTION_ID` to get the generated video:
 
 Before using any of the request data, make the following replacements:
 
@@ -399,7 +403,7 @@ The response is in a format similar to the following:
 ```
 {
   "id":"INTERACTION_ID",
-  "model":"gemini-omni-1.1-flash-preview",
+  "model":"gemini-omni-1.2-flash",
   "status":"completed",
   "usage":{
     "total_tokens":479,
@@ -471,13 +475,14 @@ Before using any of the request data, make the following replacements:
 
 - `PROJECT_ID` : A string representing your Google Cloud project ID.
 - `MODEL_ID` : A string representing the model ID to use. The following are accepted values:
+  - `"gemini-omni-1.2-flash"`
   - `"gemini-omni-1.1-flash-preview"`
 - `TEXT_PROMPT` : The text prompt used to guide video generation.
 - `CLOUD_STORAGE_OUTPUT_URI` : Optional: A string representing the Cloud Storage bucket to store the output videos. If not provided, video bytes are returned in the response. For example: `"gs://video-bucket/output/"` .
 - `ASPECT_RATIO` : Optional: A string representing the expected aspect ratio of the output video. If not provided, the aspect ratio is inferred from the prompt. The following are accepted values:
   - `"16:9"`
   - `"9:16"`
-- `DURATION` : A string representing the length of the generated video files. Allowed strings are integers between `3` and `10` , followed by "s" for seconds. For example, `"10s"`
+- `DURATION` : A string representing the length of the generated video files. Allowed strings are integers between `3` and `15` for `gemini-omni-1.2-flash` (or `3` and `10` for preview models), followed by "s" for seconds. For example, `"10s"` or `"15s"` .
 
 HTTP method and URL:
 
@@ -588,7 +593,7 @@ event: done
 data: [DONE]
 ```
 
-Use the ` INTERACTION_ID ` with \`?stream=true\` to stream the stored interaction and generated video:
+Use the `INTERACTION_ID` with \`?stream=true\` to stream the stored interaction and generated video:
 
 Before using any of the request data, make the following replacements:
 
@@ -630,7 +635,7 @@ The response is a stream of Server-Sent Events (SSE) in a format similar to the 
 
 ```
 event: interaction.created
-data: {"interaction":{"id":"INTERACTION_ID","status":"in_progress","object":"interaction","model":"gemini-omni-1.1-flash-preview"},"event_type":"interaction.created"}
+data: {"interaction":{"id":"INTERACTION_ID","status":"in_progress","object":"interaction","model":"gemini-omni-1.2-flash"},"event_type":"interaction.created"}
 
 event: interaction.status_update
 data: {"interaction_id":"INTERACTION_ID","status":"in_progress","event_type":"interaction.status_update"}
@@ -660,7 +665,7 @@ event: step.stop
 data: {"index":1,"event_type":"step.stop"}
 
 event: interaction.completed
-data: {"interaction":{"id":"INTERACTION_ID","status":"completed","usage":{"total_tokens":17664,"total_input_tokens":21,"input_tokens_by_modality":[{"modality":"text","tokens":21}],"total_output_tokens":17376,"output_tokens_by_modality":[{"modality":"video","tokens":17376}],"total_thought_tokens":267},"created":"2026-08-12T21:33:08Z","updated":"2026-08-12T21:33:08Z","event_id":"EVENT_ID","object":"interaction","model":"gemini-omni-1.1-flash-preview"},"event_id":"EVENT_ID","event_type":"interaction.completed"}
+data: {"interaction":{"id":"INTERACTION_ID","status":"completed","usage":{"total_tokens":17664,"total_input_tokens":21,"input_tokens_by_modality":[{"modality":"text","tokens":21}],"total_output_tokens":17376,"output_tokens_by_modality":[{"modality":"video","tokens":17376}],"total_thought_tokens":267},"created":"2026-08-12T21:33:08Z","updated":"2026-08-12T21:33:08Z","event_id":"EVENT_ID","object":"interaction","model":"gemini-omni-1.2-flash"},"event_id":"EVENT_ID","event_type":"interaction.completed"}
 
 event: done
 data: [DONE]
@@ -674,6 +679,7 @@ Before using any of the request data, make the following replacements:
 
 - `MODEL_ID` : A string representing the model ID to use. The following are accepted values:
   - `"gemini-omni-flash-preview"`
+  - `"gemini-omni-1.2-flash"`
   - `"gemini-omni-1.1-flash-preview"`
 
 - `TEXT_PROMPT` : The text prompt used to guide video generation.
@@ -688,7 +694,7 @@ Before using any of the request data, make the following replacements:
 
   Optional: A string representing the video output resolution. If not provided, the output defaults to 720p.
 
-  `gemini-omni-1.1-flash-preview` supports the following values:
+  `gemini-omni-1.2-flash` and `gemini-omni-1.1-flash-preview` support the following values:
 
   - `"360p"`
   - `"720p"`
@@ -697,7 +703,7 @@ Before using any of the request data, make the following replacements:
 
   `gemini-omni-flash-preview` only supports `"720p"` .
 
-- `DURATION` : A string representing the length of the generated video files. Allowed strings are integers between `3` and `10` , followed by "s" for seconds. For example, `"10s"` .
+- `DURATION` : A string representing the length of the generated video files. Allowed strings are integers between `3` and `15` for `gemini-omni-1.2-flash` (or `3` and `10` for preview models), followed by "s" for seconds. For example, `"10s"` or `"15s"` .
 
 HTTP method and URL:
 
@@ -710,9 +716,9 @@ Request JSON body:
 ```
 {
   "model": "MODEL_ID",
+  "background": true,
   "input": [
     {
-      "background": true,
       "type": "text",
       "text": "TEXT_PROMPT"
     }
@@ -723,7 +729,7 @@ Request JSON body:
       "delivery": "uri",
       "gcs_uri": "CLOUD_STORAGE_OUTPUT_URI",
       "aspect_ratio": "ASPECT_RATIO",
-      "output": "OUTPUT_RESOLUTION",
+      "resolution": "OUTPUT_RESOLUTION",
       "duration": "DURATION"
     }
   ],
@@ -774,7 +780,7 @@ The response contains an interaction ID, which you'll use to get the video you g
 }
 ```
 
-Later, use the ` INTERACTION_ID ` to get the generated video:
+Later, use the `INTERACTION_ID` to get the generated video:
 
 Before using any of the request data, make the following replacements:
 
@@ -817,7 +823,7 @@ The response is in a format similar to the following:
 ```
 {
   "id":"INTERACTION_ID",
-  "model":"gemini-omni-1.1-flash-preview",
+  "model":"gemini-omni-1.2-flash",
   "status":"completed",
   "usage":{
     "total_tokens":479,
@@ -1397,5 +1403,7 @@ For more information about the Veo API, see the following:
 - [Extend videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/extend-videos)
 
 - [Edit videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/edit-videos)
+
+- [Upscale videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/upscale-videos)
 
 - [Understand responsible AI and usage guidelines for Veo on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/responsible-ai-and-usage-guidelines)

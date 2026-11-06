@@ -388,7 +388,7 @@ Here is what the core default parameters mean:
 - **`build: { command: "make build && make test" }`**
 
   - **What it means:** Defines the exact shell command that CodeMender executes to compile and build your project, as well as run your unit and regression tests.
-  - **Why this is the default:** Setting a build and test command is critical for the verification workflow. It allows CodeMender to compile your project and run your existing test suite in the isolated sandbox environment to prove that the generated security patch successfully mitigates the vulnerability without breaking existing application logic.
+  - **Why this is the default:** Setting a build and test command is critical for the verification workflow. It allows CodeMender to compile your project and run your existing test suite in the isolated sandbox environment to verify that the generated security patch successfully mitigates the vulnerability without breaking existing application logic.
 
 ### Confirmation prompts
 
@@ -528,7 +528,7 @@ By default, telemetry is enabled. If you want to disable telemetry, set the `CM_
 
 ## Updating the CLI
 
-CodeMender has a built-in update mechanism to ensure you are running the latest version of the CLI.
+CodeMender has a built-in update mechanism to help keep your CLI up to date with the latest version.
 
 ### Automatic update checks
 

@@ -10,6 +10,44 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## November 05, 2026
+
+Feature
+
+**Gemini Omni 1.2 Flash**
+
+[Gemini Omni 1.2 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-2-flash) ( `gemini-omni-1.2-flash` ) is available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages) . Gemini Omni 1.2 Flash is an omni-modal foundation model that processes text, image, and video inputs to generate text and high-definition video with synchronized audio through the [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) .
+
+Gemini Omni 1.2 Flash introduces the following capabilities:
+
+- **Standalone video upscaling** : Upscale previously generated videos from 360p to 720p or 1080p, and from 720p to 1080p or 4K using `task: "upscale"` . See [Upscale videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/upscale-videos) .
+
+- **Extended video generation and editing duration** : Generate or edit videos up to 15 seconds in length across text-to-video, image-to-video, reference-to-video, and video editing tasks (up to 10 seconds for first-and-last-frame interpolation and video extension).
+
+- **Reference-guided video editing and extension** : Supply up to 2 reference images along with an input video when editing or extending videos. See [Edit videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/edit-videos) and [Extend videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/extend-videos) .
+
+- **Deterministic generation and billing labels** : Specify `seed` for reproducible video outputs and attach custom `labels` to Interactions API requests.
+
+- **Standard PayGo and Provisioned Throughput** : Available with [Standard Pay-as-you-go (PayGo)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo) and [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/gemini-omni-models) (685 tokens per second per GSU).
+
+Fixed
+
+**CodeMender updates (v0.18.0)**
+
+This release introduces updates to CodeMender:
+
+- **Verification tool-turn guardrails** : Added exploratory tool-turn limits to `cm verify` sessions to prevent unbounded command execution loops.
+- **Release notes link in update prompts** : Added a direct link to DevSite release notes when CodeMender prompts to update to a newer CLI version.
+- **Agent IAM diagnostic guidance** : Added actionable `roles/aiplatform.agentsUser` IAM binding commands to CLI setup and error messages for service account and CI/CD environments.
+- **Bug fixes** :
+  - Improved the reliability of agent sessions, including verification and resumed sessions.
+  - Improved compatibility across shell environments.
+  - Improved the sign-in flow during interactive activation.
+  - Improved error reporting when the service is temporarily unavailable.
+  - Includes security and stability improvements.
+
+For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender) .
+
 ## November 04, 2026
 
 Feature

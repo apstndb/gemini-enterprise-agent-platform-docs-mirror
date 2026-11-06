@@ -99,8 +99,9 @@ Not supported</td>
 <td><ul>
 <li>Maximum number of files per prompt: 3,000</li>
 <li>Maximum number of pages per file: 3,000</li>
-<li>Maximum file size per file for the API or Cloud Storage imports: 50 MB (application/pdf) or 7 MB (text/plain)</li>
-<li>Maximum file size per file for direct uploads through the console: 7 MB</li>
+<li>Maximum file size per file from Cloud Storage: 2 GiB minus 500 KiB</li>
+<li>Maximum file size per file for direct local uploads in the console: 7 MiB inline (up to 50 MiB staged to Cloud Storage)</li>
+<li>Maximum file size per file for Google Drive imports in the console: 7 MB (10 MB total)</li>
 <li>Default resolution tokens: 560</li>
 <li>OCR for scanned PDFs: Not used by default</li>
 <li>Supported MIME types:

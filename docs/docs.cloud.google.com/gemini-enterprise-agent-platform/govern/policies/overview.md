@@ -6,6 +6,8 @@ description: Learn about policies to govern agent interactions.
 data_source: docs.cloud.google.com
 ---
 
+> **Note:** We recommend that you instead [use Unified Access Policies (UAPs)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/overview-uap) to manage access to Agent Gateway.
+
 You can define, apply, and manage policies that govern agent interactions.
 
 By using the **Policies** page, you can do the following:

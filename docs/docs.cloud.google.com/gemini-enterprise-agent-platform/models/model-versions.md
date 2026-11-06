@@ -40,6 +40,12 @@ The following table lists the models that will be available for at least 12 mont
 | [`gemini-3.1-flash-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)           | May 28, 2026    | May 28, 2027 or later  |                                                                                                                                    |
 | [`gemini-2.5-flash-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-image)           | October 2, 2025 | March 15, 2027         | [`gemini-3.1-flash-lite-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image) |
 
+### Gemini Omni models
+
+| Model ID                                                                                                               | Release date     | Retirement date           | Replacement model ID |
+|------------------------------------------------------------------------------------------------------------------------|------------------|---------------------------|----------------------|
+| [`gemini-omni-1.2-flash`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-2-flash) | November 5, 2026 | November 5, 2027 or later |                      |
+
 ### Veo models
 
 | Model ID                                                                                                                                    | Release date      | Retirement date      | Replacement model ID |

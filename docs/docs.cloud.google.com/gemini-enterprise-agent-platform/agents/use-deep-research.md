@@ -30,7 +30,7 @@ Consider the following strengths of Deep Research as you plan your project:
 
 - **Advanced workloads** : Deep Research is specifically designed to handle complex tasks such as due diligence, market analysis, and competitive landscaping.
 
-- **Extensive data grounding** : The Gemini Deep Research Agent can reason across various data sources simultaneously. This includes remote MCP servers, internal institutional knowledge, and direct context from uploaded files or folders.
+- **Extensive data grounding** : The Gemini Deep Research Agent can query and synthesize information across various data sources simultaneously. This includes remote MCP servers, internal institutional knowledge, and direct context from uploaded files or folders.
 
 - **Polished reporting** : It produces comprehensive, cited reports that can feature presentation-ready visuals. These include financial graphs, inline infographics, and market positioning matrices, which are generated using HTML and an image model.
 
@@ -65,7 +65,7 @@ You can access the Gemini Deep Research Agent using the global endpoint ( **v1be
 
 ## Start a Deep Research task
 
-Research tasks involve iterative searching and reading, and can take several minutes to complete. You must run Gemini Deep Research Agent asynchronously by setting `background` to `True` .
+Research tasks involve iterative search, retrieval, and analysis, and can take several minutes to complete. You must run Gemini Deep Research Agent asynchronously by setting `background` to `True` .
 
 You can use Gemini Deep Research Agent with or without streaming:
 
@@ -322,7 +322,7 @@ while True:
   time.sleep(10)
 ```
 
-## Document understanding
+## Document processing
 
 You can pass documents directly as multimodal input. The agent analyzes the provided documents and conducts research grounded in their content.
 

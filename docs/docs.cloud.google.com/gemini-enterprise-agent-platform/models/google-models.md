@@ -68,6 +68,8 @@ banana_spark [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enter
 
 banana_spark [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image) High-fidelity image generation with reasoning-enhanced composition. Supports legible text rendering, complex multi-turn editing, and character consistency using up to 14 reference inputs.
 
+movie [Gemini Omni 1.2 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-2-flash) Multimodal model optimized for video generation and conversational video editing up to 15 seconds, video extension, and standalone video upscaling up to 4K resolution alongside text responses.
+
 spark [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash) Gemini 3.5 Flash delivers near-Pro intelligence at Flash-tier cost and speed: Pro-level coding proficiency, parallel agentic execution, all at the same price point as a Flash model.
 
 performance_auto [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite) Our most cost-efficient model, optimized for low latency use cases for high-volume, cost-sensitive LLM traffic.

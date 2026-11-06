@@ -60,6 +60,10 @@ Possible values:
 
   Highly cost-efficient, low-latency model for high-frequency requests.
 
+- `gemini-omni-1.2-flash`
+
+  Our generally available multimodal model designed for video, image, and text tasks, optimized for video generation and editing up to 15 seconds, video extension, and standalone video upscaling alongside text responses.
+
 - `gemini-omni-1.1-flash-preview`
 
   Our updated multimodal model designed for video, image, and text tasks, optimized for video generation alongside text responses.
@@ -117,7 +121,7 @@ Input only. Whether the interaction will be streamed.
 
 store boolean (optional)
 
-Input only. Whether to store the response and request for later retrieval.
+Input only. Whether to store the response and request for later retrieval. Defaults to `true` ; set to `false` for stateless interactions.
 
 background boolean (optional)
 
@@ -697,6 +701,10 @@ Possible values:
 - `gemini-3.1-flash-lite`
 
   Highly cost-efficient, low-latency model for high-frequency requests.
+
+- `gemini-omni-1.2-flash`
+
+  Our generally available multimodal model designed for video, image, and text tasks, optimized for video generation and editing up to 15 seconds, video extension, and standalone video upscaling alongside text responses.
 
 - `gemini-omni-1.1-flash-preview`
 

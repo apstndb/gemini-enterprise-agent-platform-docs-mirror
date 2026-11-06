@@ -53,6 +53,35 @@ The following table lists the models that support video understanding:
 </tr>
 <tr class="even">
 <td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-2-flash">Gemini Omni 1.2 Flash</a></li>
+</ul></td>
+<td><ul>
+<li>Maximum video length (with audio): 15 seconds</li>
+<li>Maximum video length (without audio): 15 seconds</li>
+<li>Maximum input video length (video understanding): 10 minutes</li>
+<li>Maximum input video length (editing): 15 seconds</li>
+<li>Maximum input video length (extension): Any duration (uses up to the last 10 seconds)</li>
+<li>Maximum input video length (upscaling): 15 seconds</li>
+<li>Output video duration (generation and editing): 3 to 15 seconds (3 to 10 seconds for first and last frames)</li>
+<li>Output video duration (extension): 3 to 10 seconds (concatenated onto up to the last 30 seconds of the input video)</li>
+<li>Maximum number of videos per prompt: 3</li>
+<li>Supported aspect ratios: 16:9, 9:16</li>
+<li>Supported resolutions: 360p, 720p, 1080p, 4k</li>
+</ul></td>
+<td><ul>
+<li><code>video/x-flv</code></li>
+<li><code>video/quicktime</code></li>
+<li><code>video/mpeg</code></li>
+<li><code>video/mpegs</code></li>
+<li><code>video/mpg</code></li>
+<li><code>video/mp4</code></li>
+<li><code>video/webm</code></li>
+<li><code>video/wmv</code></li>
+<li><code>video/3gpp</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash">Gemini Omni 1.1 Flash</a> preview</li>
 </ul></td>
 <td><ul>
@@ -74,7 +103,7 @@ The following table lists the models that support video understanding:
 <li><code>video/3gpp</code></li>
 </ul></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1">Gemini Nano Banana 2.1</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image">Gemini 3.1 Flash Image</a></li>
@@ -99,7 +128,7 @@ The following table lists the models that support video understanding:
 <li><code>video/3gpp</code></li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber">Gemini 4 Argon Cyber Permissive</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon">Gemini 4 Argon</a></li>
@@ -134,7 +163,7 @@ The following table lists the models that support video understanding:
 <li><code>video/3gpp</code></li>
 </ul></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live">Gemini 3.8 Live</a></li>
 </ul></td>
@@ -154,7 +183,7 @@ The following table lists the models that support video understanding:
 <li><code>video/3gpp</code></li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image">Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)</a></li>
 </ul></td>
@@ -178,7 +207,7 @@ The following table lists the models that support video understanding:
 <li><code>video/3gpp</code></li>
 </ul></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro">Gemini 2.5 Pro</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite">Gemini 2.5 Flash-Lite</a></li>
@@ -204,7 +233,7 @@ The following table lists the models that support video understanding:
 <li><code>video/3gpp</code></li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-live-api">Gemini 2.5 Flash with Gemini Live API native audio</a></li>
 </ul></td>

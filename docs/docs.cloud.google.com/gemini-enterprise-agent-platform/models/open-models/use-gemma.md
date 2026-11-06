@@ -47,8 +47,6 @@ To get started with Gemma, see the following notebooks:
 
 - [Serve Gemma in Gemini Enterprise Agent Platform](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_gemma_deployment_on_vertex.ipynb)
 
-- [Fine-tune Gemma 3 using Axolotl and then deploy to Gemini Enterprise Agent Platform from Vertex](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_axolotl_gemma3_finetuning.ipynb)
-
 - [Fine-tune Gemma 2 using PEFT and then deploy to Gemini Enterprise Agent Platform from Vertex](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_gemma2_finetuning_on_vertex.ipynb)
 
 - [Fine-tune Gemma using PEFT and then deploy to Gemini Enterprise Agent Platform from Vertex](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_gemma_finetuning_on_vertex.ipynb)

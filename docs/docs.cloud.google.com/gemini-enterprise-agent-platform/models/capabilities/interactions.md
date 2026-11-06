@@ -33,6 +33,7 @@ The following Gemini models support the Interactions API:
 #### Click to expand supported models
 
 - [Gemini Omni Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview) preview
+- [Gemini Omni 1.2 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-2-flash)
 - [Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash) preview
 - [Gemini 4 Argon Cyber Permissive](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber)
 - [Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon)
@@ -45,10 +46,7 @@ The following Gemini models support the Interactions API:
 - [Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) preview
 - [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
 
-In addition to the models listed above, the Interactions API supports the following specialized multimodal and audio generation models:
-
-- `gemini-omni-flash-preview` : High-performance multimodal model for conversational video generation, editing, and cinematic control.
-- `lyria-3-clip-preview` and `lyria-3-pro-preview` : Generative music models for high-fidelity audio clips and full-song composition (supported in stateless interactions only with `store=false` ).
+In addition to the Gemini models in the preceding list, the Interactions API supports the following generative music models: \* `lyria-3-clip-preview` and `lyria-3-pro-preview` : Generative music models for high-fidelity audio clips and full-song composition (supported in stateless interactions only with `store=false` ).
 
 ## Supported agents
 

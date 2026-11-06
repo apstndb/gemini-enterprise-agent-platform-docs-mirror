@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 >
 > This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
-CodeMender can automatically produce, validate, and apply source code patches for verified vulnerabilities, testing them in your local sandbox to prevent regressions.
+CodeMender can automatically produce, validate, and apply source code patches for verified vulnerabilities, testing them in your local sandbox to help reduce regressions.
 
 ## Generate vulnerability fixes
 
@@ -43,7 +43,7 @@ By default, CodeMender prompts you to confirm each file modification before writ
   cm fix FINDING_ID -y
   ```
 
-  **Note:** You can also disable interactive confirmation prompts in your `config.yaml` by setting `tools.confirm_writes: false` and `tools.confirm_commands: false` .
+  **Note:** You can also disable interactive confirmation prompts in your `config.yaml` by setting `tools.confirm_writes: false` and `tools.confirm_commands: false` . When confirmation prompts are disabled, review test results before staging or committing changes.
 
 - **Control sandboxing ( `--sandbox` )** : Explicitly enable or disable the OS-level sandbox for this run (for example, `--sandbox=false` to disable):
 

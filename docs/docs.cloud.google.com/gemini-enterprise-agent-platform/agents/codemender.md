@@ -18,7 +18,7 @@ data_source: docs.cloud.google.com
 
 The launch of advanced AI models triggered widespread concern regarding code vulnerabilities. As attackers gain access to new capabilities for generating exploits, security teams are under immense time pressure to proactively find and fix vulnerabilities before attackers exploit them.
 
-CodeMender is an AI code security agent that can find, verify, and fix deep vulnerabilities in your codebase. CodeMender wraps a fine-tuned harness around an LLM, using Google DeepMind-engineered prompts, skills, and orchestration logic to turn the model into an agentic system specialized in code security.
+CodeMender is an AI code security agent that can find, verify, and generate patches for deep vulnerabilities in your codebase. CodeMender wraps a fine-tuned harness around an LLM, using Google DeepMind-engineered prompts, skills, and orchestration logic to turn the model into an agentic system specialized in code security.
 
 ## How it works
 
@@ -43,7 +43,7 @@ From a user perspective, the CodeMender system consists of two components:
 
 CodeMender supports the following languages by default: C/C++, C# / .NET, Go, Java, JavaScript and TypeScript, Kotlin, Python, Ruby, Rust, and PHP. Additionally, it provides broad support for standard libraries within these languages, as well as common enterprise frameworks (such as HTML/CSS, Django, Flask, React, Spring Boot, ASP.NET, and Express).
 
-The listed programming languages aren't a hard limit. Because CodeMender is an AI code security agent, it can analyze and remediate code in any language understood by the underlying model. Support is generally available for any non-proprietary language.
+The listed programming languages aren't a hard limit. Because CodeMender is an AI code security agent, it can analyze and remediate code in any language supported by the underlying model. Support is generally available for any non-proprietary language.
 
 ### Scanning additional programming languages
 
@@ -207,7 +207,7 @@ The following sections outline CodeMender's security model, data retention polic
 
 ### What data does CodeMender send to the cloud?
 
-When using CodeMender, the local CLI tool mediates access to your code, ensuring that you never upload your full source code repositories to Google's servers and the hosted agent does not independently clone them.
+When using CodeMender, the local CLI tool mediates access to your code so that your full source code repositories aren't uploaded to Google's servers and the hosted agent does not independently clone them.
 
 Instead, the CLI strictly localizes the data it sends to the Google-hosted agent, which consists of:
 

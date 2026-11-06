@@ -44,7 +44,7 @@ cm find . --deep-workers=8 --model=gemini-3.8-flash-cyber
 
 ### Strengths
 
-A deep scan runs with zero configuration and delivers high recall and comprehensive vulnerability discovery across large enterprise codebases. It outperforms single-session scans and uses automated verification to maintain high precision. It is also platform-independent and works across all languages supported by Gemini without requiring language-specific compilers, build setups, or grammar files. Finally, it optimizes resource usage by focusing analysis on production code and minimizing compute and token consumption on non-production files.
+A deep scan runs with zero configuration and provides comprehensive vulnerability discovery across large enterprise codebases. It performs broader file traversal than single-session scans and uses automated verification to filter out candidate false positives. It is also platform-independent and works across all languages supported by Gemini without requiring language-specific compilers, build setups, or grammar files. Finally, it optimizes resource usage by focusing analysis on production code and minimizing compute and token consumption on non-production files.
 
 ### Trade-offs and limitations
 
@@ -61,7 +61,7 @@ Use a deep scan in the following scenarios:
 
 ## Diff scan
 
-A diff scan performs Git diff analysis for pull request workflows and CI/CD pipelines by inspecting modified and added files, focusing on the exact line ranges (diff hunks) that changed. In addition to inspecting changed lines, it performs impact analysis to discover untouched files in the repository that call, import, or depend on the modified functions and symbols. This helps ensure that changes altering contracts or function signatures in one file don't introduce vulnerabilities in dependent files.
+A diff scan performs Git diff analysis for pull request workflows and CI/CD pipelines by inspecting modified and added files, focusing on the exact line ranges (diff hunks) that changed. In addition to inspecting changed lines, it performs impact analysis to discover untouched files in the repository that call, import, or depend on the modified functions and symbols. This helps verify that changes altering contracts or function signatures in one file don't introduce vulnerabilities in dependent files.
 
 During the scan, CodeMender automatically isolates pre-existing vulnerabilities in untouched code so that legacy issues don't cause the scan to fail or block the pull request. It then evaluates findings against your `--fail-on` policy and outputs results in table, JSON, or SARIF v2.1.0 format.
 

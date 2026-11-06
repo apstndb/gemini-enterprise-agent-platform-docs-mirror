@@ -33,6 +33,7 @@ The following table lists the models that support document understanding:
 <tr class="odd">
 <td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview">Gemini Omni Flash</a> preview</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-2-flash">Gemini Omni 1.2 Flash</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash">Gemini Omni 1.1 Flash</a> preview</li>
 </ul></td>
 <td><ul>

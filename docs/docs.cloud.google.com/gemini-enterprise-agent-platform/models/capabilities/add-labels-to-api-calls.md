@@ -2,15 +2,15 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/add-labels-to-api-calls
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/add-labels-to-api-calls
 title: Custom metadata labels
-description: Add custom metadata labels to generateContent and streamGenerateContent API calls to organize calls and manage costs.
+description: Add custom metadata labels to generateContent, streamGenerateContent, and interactions.create API calls to organize calls and manage costs.
 data_source: docs.cloud.google.com
 ---
 
-You can add custom metadata to API calls like `generateContent` and `rawPredict` by using labels. This page explains what labels are, and shows you how to use them to break down your billed charges.
+You can add custom metadata to API calls like `generateContent` , `interactions.create` , and `rawPredict` by using labels. This page explains what labels are, and shows you how to use them to break down your billed charges.
 
-## What are labels?
+## About labels
 
-A label is a key-value pair that you can assign to API calls like `generateContent` and `rawPredict` . They help you organize these calls and manage your usage and costs at scale, with the granularity you need. You can attach a label to each call, then filter the calls based on their labels. Information about labels is forwarded to the logging and billing system that lets you break down your usage and billed charges by label. With built-in [billing reports](https://docs.cloud.google.com/billing/docs/how-to/reports) , you can filter and group costs by labels. You can also use labels to query [billing data exports](https://docs.cloud.google.com/billing/docs/how-to/bq-examples) . For information on how to use labels after creation, see [an example from the labels overview](https://docs.cloud.google.com/resource-manager/docs/labels-overview#example) .
+A label is a key-value pair that you can assign to API calls like `generateContent` , `interactions.create` , and `rawPredict` . They help you organize these calls and manage your usage and costs at scale, with the granularity you need. You can attach a label to each call, then filter the calls based on their labels. Information about labels is forwarded to the logging and billing system that lets you break down your usage and billed charges by label. With built-in [billing reports](https://docs.cloud.google.com/billing/docs/how-to/reports) , you can filter and group costs by labels. You can also use labels to query [billing data exports](https://docs.cloud.google.com/billing/docs/how-to/bq-examples) . For information on how to use labels after creation, see [an example from the labels overview](https://docs.cloud.google.com/resource-manager/docs/labels-overview#example) .
 
 Agent Platform supports two kinds of labels: request body labels, which reach Cloud Billing, and header labels, which appear in inference request metadata logs. The next section compares them.
 
@@ -141,7 +141,7 @@ Here are some common use cases for labels:
 
 > **Note:** Don't include sensitive information in labels, including personally identifiable information, such as an individual's name or title. Labels are not designed to handle sensitive information.
 
-We recommend against creating large numbers of unique labels, such as for timestamps or individual values for every API call. The problem with this approach is that the keys clutter the catalog, increase load times significantly during queries, and make it difficult to effectively filter and report on API calls.
+Avoid creating large numbers of unique labels, such as for timestamps or individual values for every API call. Creating large numbers of unique keys clutters the catalog, increases load times significantly during queries, and makes it difficult to effectively filter and report on API calls.
 
 ## Supported models for request labels
 
@@ -149,24 +149,25 @@ Request labels and header labels are supported on different models. The ability 
 
 ### Google models
 
-Google models support labels on the following API methods.
+Google models support labels on the following API methods:
 
 - `generateContent`
 - `streamGenerateContent`
+- [`interactions.create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#CreateInteraction)
 
 ### Partner models
 
-Partner models support labels on the following API methods.
+Partner models support labels on the following API methods:
 
 - `rawPredict`
 - `streamRawPredict`
 
-The following partner models support labels.
+The following partner models support labels:
 
 - [Anthropic](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude)
 - [Mistral AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/mistral)
 
-Labels are only forwarded to Cloud Billing when the request uses the [PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options) consumption option. Requests using the [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/overview) consumption option will silently ignore labels sent in the request.
+Labels are only forwarded to Cloud Billing when the request uses the [PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options) consumption option. Requests using the [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/overview) consumption option silently ignore labels sent in the request.
 
 ## Supported models for header labels
 
@@ -180,7 +181,7 @@ Header labels are written only to the inference request metadata log, so they wo
 
 ## Add a request label to a Google model API call
 
-To add a label to a `generateContent` or `streamGenerateContent` API call, do the following:
+To add a label to a `generateContent` , `streamGenerateContent` , or `interactions.create` API call, do the following:
 
 ### REST
 
@@ -386,7 +387,7 @@ Before using any of the request data, make the following replacements:
 - `PROJECT_ID` : Your project ID.
 - `MODEL_ID` : The model ID of the model you want to use. For example, `claude-opus-4-6` .
 
-> **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs) , which automatically logs you into the `gcloud` CLI. You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
+> **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs) , which automatically logs you into the `gcloud` CLI. You can check the active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
 
 Save the request body in a file named `request.json` . Run the following command in the terminal to create or overwrite this file in the current directory:
 

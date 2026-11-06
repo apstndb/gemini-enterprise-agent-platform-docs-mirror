@@ -43,7 +43,7 @@ To generate images from video with Gemini, do the following:
 
     ### Upload
 
-    Select the file that you want to upload and click **Open** .
+    Select the file that you want to upload and click **Open** . You can upload video files up to 7 MiB inline (or up to 50 MiB staged to Cloud Storage).
 
     ### By URL
 
