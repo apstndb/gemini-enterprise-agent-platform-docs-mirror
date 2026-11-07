@@ -40,17 +40,27 @@ As outlined in the [Advanced AI Safety Addendum](https://cloud.google.com/terms/
 
 - **Prompt and response logging** : All prompts and responses will be logged and securely stored for up to 30 days for the sole purpose of monitoring for abuse. This data won't be used to train or fine-tune any AI/ML models. This data is stored in the same region or multi-region selected by the customer for their project and adheres to Google Cloud assurances, such as Data Residency, Access Transparency and VPC Service Controls. Prompt and response logs for the purposes of abuse monitoring are not encrypted by CMEK. It may not be possible to opt-out of prompt-response logging when using some Advanced AI features. Please contact your account team for clarification.
 
-- **Automated investigation** : Google deploys automated investigative tools, including safety classifiers, to analyze logged data and detect potential abuse and violations.
+- **Automated investigation** : Google and Model Providers deploy automated investigative tools, including safety classifiers, to analyze logged data and detect potential abuse and violations.
 
 - **Action** : Authorized Google employees may assess the flagged prompts and may reach out to the customer for clarification. Failure to address the behavior—or recurring or severe abuse—may result in suspension or termination of the customer's access to Gemini Enterprise Agent Platform or Google Cloud services.
 
 - **Services in scope** : Models and features designated as "Advanced AI", including:
 
-  - Claude Mythos (all versions)
-  - Claude Fable (all versions)
-  - Claude Opus \>=4.7 and Sonnet \>=5 when `advanced_ai_enabled` is set to `true` for use within Anthropic's [Cyber Verification Program](https://support.claude.com/en/articles/14604842-real-time-cyber-safeguards-on-claude) (CVP). All other usage of these models is out of scope of the Advanced AI Safety Addendum. To enroll and enable CVP for Claude models, see [Cyber Verification Program for Claude](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/cyber-verification-program) .
+  - Anthropic models:
 
-- **Customer opt-out** : Zero data retention may not be possible when using some Advanced AI features. Please contact your account team for clarification. See the following section on how to govern acceptance of the addendum.
+    - Claude Mythos (all versions)
+    - Claude Fable (all versions)
+    - Claude Opus \>=4.7 and Sonnet \>=5 when `advanced_ai_enabled` is set to `true` for use within Anthropic's [Cyber Verification Program](https://support.claude.com/en/articles/14604842-real-time-cyber-safeguards-on-claude) (CVP). All other usage of these models is out of scope of the Advanced AI Safety Addendum. To enroll and enable CVP for Claude models, see [Cyber Verification Program for Claude](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/cyber-verification-program) .
+
+  - OpenAI models:
+
+    - GPT Astra (all versions)
+    - GPT Sol (all versions)
+    - GPT Terra (all versions)
+    - GPT Luna (all versions)
+    - All other OpenAI models available on the platform are not designated as "Advanced AI" and aren't governed by the Advanced AI Safety Addendum.
+
+- **Customer opt-out** : Some model providers offer Zero Data Retention (ZDR) for specific models, which exempts approved projects from the Advanced AI Safety Addendum, but access is not guaranteed and requires provider approval. Contact your Google Cloud account team for details based on your needs.
 
 ### Consent to the Advanced AI Safety Addendum
 

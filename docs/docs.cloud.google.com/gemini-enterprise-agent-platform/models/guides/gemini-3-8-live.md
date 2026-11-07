@@ -93,7 +93,7 @@ pip install --upgrade google-genai websockets numpy
 
 ### Start a bidirectional session with asynchronous tool calling
 
-The following example establishes a real-time session with `gemini-3.8-live` , configures custom vocabulary biasing, and runs non-blocking asynchronous function calls:
+The following example establishes a real-time session with `gemini-3.8-live` , selects a [prebuilt voice](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice#voices-supported) ( `Aoede` ), configures custom vocabulary biasing, and runs non-blocking asynchronous function calls:
 
 ```
 import asyncio
@@ -254,6 +254,7 @@ Add domain-specific keywords and SKUs using `custom_vocabulary` in `AudioTranscr
 For more information, see the following resources:
 
 - [Gemini 3.8 Live model page](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live)
+- [Configure language and voice](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice)
 - [Configure live avatars](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-live-avatars)
 - [Best practices with Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/best-practices)
 - [Migrate from Gemini 2.5 Flash Live API Native Audio to Gemini 3.8 Live](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/migrate-from-gemini-2-5-to-gemini-3-8-live)

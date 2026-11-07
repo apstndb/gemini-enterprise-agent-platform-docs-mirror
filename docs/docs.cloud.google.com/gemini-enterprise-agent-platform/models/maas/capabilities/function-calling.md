@@ -10,6 +10,25 @@ Function calling lets you define custom functions and provide LLMs with the capa
 
 For more conceptual information about function calling, see [Introduction to function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling) .
 
+## Before you begin
+
+To use open models with Gemini Enterprise Agent Platform, you must perform the following steps. The Agent Platform API ( `aiplatform.googleapis.com` ) and the Cloud Commerce Consumer Procurement API ( `cloudcommerceconsumerprocurement.googleapis.com` ) must be enabled to use open models on Gemini Enterprise Agent Platform. If you already have an existing project with these APIs enabled, you can use that project instead of creating a new project.
+
+1.  Go to the Model Garden model card for the model you want to use, then click **Enable** to enable the model for use in your project.
+
+### Required roles
+
+To get the permissions that you need to enable and use open models, ask your administrator to grant you the following IAM roles on your project:
+
+- [Agent Platform User](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user) ( `roles/aiplatform.user` )
+- [Consumer Procurement Entitlement Manager](https://docs.cloud.google.com/iam/docs/roles-permissions/consumerprocurement#consumerprocurement.entitlementManager) ( `roles/consumerprocurement.entitlementManager` )
+
+For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
+
+You might also be able to get the required permissions through [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined) .
+
+For more information about granting permissions and configuring organization policies for open models, see [Grant user access to open models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/grant-access-open-models) .
+
 ## Use function calling
 
 The following samples show how to use function calling.
@@ -45,7 +64,7 @@ response = client.chat.completions.create(
 )
 ```
 
-- ` MODEL ` : The model name you want to use, for example `qwen/qwen3-next-80b-a3b-instruct-maas` .
+- ` MODEL ` : The model name you want to use, for example `zai-org/glm-5.2-maas` .
 - ` CONTENT ` : The user prompt to send to the model.
 - ` FUNCTION_NAME ` : The name of the function to call.
 - ` FUNCTION_DESCRIPTION ` : A description of the function.
@@ -54,11 +73,12 @@ response = client.chat.completions.create(
 
 ### REST
 
+After you set up your environment, you can use REST to test a text prompt. The following sample sends a request to the publisher model endpoint.
+
 Before using any of the request data, make the following replacements:
 
 - ` PROJECT_ID ` : Your Google Cloud project ID.
-- ` LOCATION ` : A region that supports open models.
-- ` MODEL ` : The model name you want to use, for example `qwen/qwen3-next-80b-a3b-instruct-maas` .
+- ` MODEL ` : The model name you want to use, for example `zai-org/glm-5.2-maas` .
 - ` CONTENT ` : The user prompt to send to the model.
 - ` FUNCTION_NAME ` : The name of the function to call.
 - ` FUNCTION_DESCRIPTION ` : A description of the function.
@@ -68,7 +88,7 @@ Before using any of the request data, make the following replacements:
 HTTP method and URL:
 
 ```
-POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions
+POST https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/endpoints/openapi/chat/completions
 ```
 
 Request JSON body:
@@ -109,7 +129,7 @@ curl -X POST \
      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
      -H "Content-Type: application/json; charset=utf-8" \
      -d @request.json \
-     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions"
+     "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/endpoints/openapi/chat/completions"
 ```
 
 #### PowerShell
@@ -127,7 +147,7 @@ Invoke-WebRequest `
     -Headers $headers `
     -ContentType: "application/json; charset=utf-8" `
     -InFile request.json `
-    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions" | Select-Object -Expand Content
+    -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/endpoints/openapi/chat/completions" | Select-Object -Expand Content
 ```
 
 You should receive a successful status code (2xx) and an empty response.
@@ -143,7 +163,7 @@ from openai import OpenAI
 client = OpenAI()
 
 response = client.chat.completions.create(
-  model="qwen/qwen3-next-80b-a3b-instruct-maas",
+  model="zai-org/glm-5.2-maas",
   messages=[
     {
       "role": "user",
@@ -198,9 +218,9 @@ response = client.chat.completions.create(
 curl -X POST \
 -H "Authorization: Bearer $(gcloud auth print-access-token)" \
 -H "Content-Type: application/json" \
-https://us-central1-aiplatform.googleapis.com/v1/projects/sample-project/locations/us-central1/endpoints/openapi/chat/completions -d \
+https://aiplatform.googleapis.com/v1/projects/sample-project/locations/global/endpoints/openapi/chat/completions -d \
 '{
-  "model": "qwen/qwen3-next-80b-a3b-instruct-maas",
+  "model": "zai-org/glm-5.2-maas",
   "messages": [
     {
       "role": "user",
@@ -269,7 +289,7 @@ After receiving the information retrieved through the calling the external \`get
  ],
  "created": 1750450289,
  "id": "2025-06-20|13:11:29.240295-07|6.230.75.101|-987540014",
- "model": "qwen/qwen3-next-80b-a3b-instruct-maas",
+ "model": "zai-org/glm-5.2-maas",
  "object": "chat.completion",
  "system_fingerprint": "",
  "usage": {
@@ -294,7 +314,7 @@ DeepSeek models don't perform as well on function calling if you use a system pr
 
 ### OpenAI
 
-When using `openai/gpt-oss-120b-instruct-maas` and `openai/gpt-oss-20b-instruct-maas` , place your tool definitions in the system prompt for optimal performance. For example:
+When using `openai/gpt-oss-120b-maas` , place your tool definitions in the system prompt for optimal performance. For example:
 
 ```
 {"messages": [
@@ -304,11 +324,7 @@ When using `openai/gpt-oss-120b-instruct-maas` and `openai/gpt-oss-20b-instruct-
 ]}
 ```
 
-These models don't support `tool_choice = 'required'` or named tool calling.
-
-### Qwen
-
-Qwen models perform best when `tool_choice` is explicitly set to `auto` or `none` . If `tool_choice` is unset, the model might not perform as well.
+This model doesn't support `tool_choice = 'required'` or named tool calling.
 
 ## What's next
 

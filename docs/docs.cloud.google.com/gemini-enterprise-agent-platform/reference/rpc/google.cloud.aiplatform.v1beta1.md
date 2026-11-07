@@ -11263,6 +11263,15 @@ Requires one of the following OAuth scopes:
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
+<!-- -->
+
+IAM Permissions  
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.ragCorpora.update`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 **BatchCreateRagMetadata**
 
 `rpc BatchCreateRagMetadata( `[`BatchCreateRagMetadataRequest`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.BatchCreateRagMetadataRequest)` ) returns ( `[`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.longrunning#google.longrunning.Operation)` )`
@@ -11276,6 +11285,15 @@ Requires one of the following OAuth scopes:
 - `https://www.googleapis.com/auth/aiplatform`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
+
+<!-- -->
+
+IAM Permissions  
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.ragFiles.upload`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
 
 **BatchDeleteRagDataSchemas**
 
@@ -11291,6 +11309,15 @@ Requires one of the following OAuth scopes:
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
+<!-- -->
+
+IAM Permissions  
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.ragCorpora.delete`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 **BatchDeleteRagMetadata**
 
 `rpc BatchDeleteRagMetadata( `[`BatchDeleteRagMetadataRequest`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.BatchDeleteRagMetadataRequest)` ) returns ( `[`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.longrunning#google.longrunning.Operation)` )`
@@ -11304,6 +11331,15 @@ Requires one of the following OAuth scopes:
 - `https://www.googleapis.com/auth/aiplatform`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
+
+<!-- -->
+
+IAM Permissions  
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.ragFiles.delete`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
 
 **CreateRagCorpus**
 
@@ -11342,6 +11378,15 @@ Requires one of the following OAuth scopes:
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
+<!-- -->
+
+IAM Permissions  
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.ragCorpora.update`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 **CreateRagMetadata**
 
 `rpc CreateRagMetadata( `[`CreateRagMetadataRequest`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.CreateRagMetadataRequest)` ) returns ( `[`RagMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.RagMetadata)` )`
@@ -11355,6 +11400,15 @@ Requires one of the following OAuth scopes:
 - `https://www.googleapis.com/auth/aiplatform`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
+
+<!-- -->
+
+IAM Permissions  
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.ragFiles.upload`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
 
 **DeleteRagCorpus**
 
@@ -11587,6 +11641,15 @@ Requires one of the following OAuth scopes:
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
+<!-- -->
+
+IAM Permissions  
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.ragCorpora.get`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 **ListRagFiles**
 
 `rpc ListRagFiles( `[`ListRagFilesRequest`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ListRagFilesRequest)` ) returns ( `[`ListRagFilesResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ListRagFilesResponse)` )`
@@ -11623,6 +11686,15 @@ Requires one of the following OAuth scopes:
 - `https://www.googleapis.com/auth/aiplatform`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
+
+<!-- -->
+
+IAM Permissions  
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.ragFiles.get`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
 
 **UpdateRagCorpus**
 
@@ -12465,12 +12537,14 @@ Example JSON for an MCP server tool: { "type": "mcp_server", "name": "my-mcp-ser
 <td><p><code>string</code></p>
 <p>Required. The type of the tool. Supported types:</p>
 <ul>
-<li><code>code_execution</code></li>
+<li><code>audio_generation</code></li>
 <li><code>endpoint</code></li>
-<li><code>filesystem</code></li>
 <li><code>google_search</code></li>
+<li><code>image_generation</code></li>
 <li><code>mcp_server</code></li>
+<li><code>speech_generation</code></li>
 <li><code>url_context</code></li>
+<li><code>video_generation</code></li>
 </ul></td>
 </tr>
 <tr class="even">
@@ -12481,12 +12555,12 @@ Example JSON for an MCP server tool: { "type": "mcp_server", "name": "my-mcp-ser
 <tr class="odd">
 <td><code>url</code></td>
 <td><p><code>string</code></p>
-<p>Optional. Fallback for the tool's runtime reference, consumed by <code>CreateAgent</code> to create the downstream AI App. Applicable when <code>type</code> is <code>mcp_server</code> or <code>endpoint</code> , and optional: the Agent service derives the runtime reference from <code>name</code> via Agent Registry ( <code>GetMcpServer</code> / <code>GetEndpoint</code> ), and reads this only when that lookup yields none.</p></td>
+<p>Optional. The runtime reference is resolved from <code>name</code> via Agent Registry ( <code>GetMcpServer</code> / <code>GetEndpoint</code> ), so this is not required.</p></td>
 </tr>
 <tr class="even">
 <td><code>headers</code></td>
 <td><p><code>map&lt;string, string&gt;</code></p>
-<p>Optional. The headers for the MCP server, such as for authentication. Only applicable when <code>type</code> is <code>mcp_server</code> .</p></td>
+<p>Optional. Not used; the tool is resolved from <code>name</code> via Agent Registry.</p></td>
 </tr>
 </tbody>
 </table>
@@ -29520,19 +29594,19 @@ Notebook Software Config. This is passed to the backend when user makes software
 
 An OnlineEvaluator contains the configuration for an Online Evaluation.
 
-| Fields                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `name`                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | `string` Identifier. The resource name of the OnlineEvaluator. Format: projects/{project}/locations/{location}/onlineEvaluators/{id}.                                                                                                                                                                                                                                                                                                                                                                                                                |
-| `agent_resource`                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | `string` Required. Immutable. The name of the agent that the OnlineEvaluator evaluates periodically. This value is used to filter the traces with a matching cloud.resource_id and link the evaluation results with relevant dashboards/UIs. This field is immutable. Once set, it cannot be changed.                                                                                                                                                                                                                                                |
-| `metric_sources[]`                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | [`MetricSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MetricSource) Required. A list of metric sources to be used for evaluating samples. At least one MetricSource must be provided. Right now, only predefined metrics and registered metrics are supported. Every registered metric must have `display_name` (or `title` ) and `score_range` defined. Otherwise, the evaluations will fail. The maximum number of `metric_sources` is 25. |
-| `config`                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | [`Config`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.OnlineEvaluator.Config) Required. Configuration for the OnlineEvaluator.                                                                                                                                                                                                                                                                                                                     |
-| `state`                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | [`State`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.OnlineEvaluator.State) Output only. The state of the OnlineEvaluator.                                                                                                                                                                                                                                                                                                                         |
-| `state_details[]`                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | [`StateDetails`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.OnlineEvaluator.StateDetails) Output only. Contains additional information about the state of the OnlineEvaluator. This is used to provide more details in the event of a failure.                                                                                                                                                                                                     |
-| `create_time`                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | [`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp) Output only. Timestamp when the OnlineEvaluator was created.                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `update_time`                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | [`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp) Output only. Timestamp when the OnlineEvaluator was last updated.                                                                                                                                                                                                                                                                                                                                                                                                  |
-| `display_name`                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | `string` Optional. Human-readable name for the OnlineEvaluator. The name doesn't have to be unique. The name can consist of any UTF-8 characters. The maximum length is `63` characters. If the display name exceeds max characters, an `INVALID_ARGUMENT` error is returned.                                                                                                                                                                                                                                                                        |
-| Union field `data_source` . Required. The data source used to query samples for evaluations. More data sources will be supported in the future. The data source type is immutable once set. Within `cloud_observability` , `log_view` and `trace_view` can be updated; the `eval_scope` and `convention` are immutable. Within `bigquery_agent_analytics` , `result_table` can be updated; `source_table` and `scope` are immutable. `data_source` can be only one of the following: |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `cloud_observability`                                                                                                                                                                                                                                                                                                                                                                                                                                                                | [`CloudObservability`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.OnlineEvaluator.CloudObservability) Data source for the OnlineEvaluator, based on Google Cloud Observability stack (Cloud Trace & Cloud Logging).                                                                                                                                                                                                                                |
+| Fields                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `name`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | `string` Identifier. The resource name of the OnlineEvaluator. Format: projects/{project}/locations/{location}/onlineEvaluators/{id}.                                                                                                                                                                                                                                                                                                                                                                                                                |
+| `agent_resource`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | `string` Required. Immutable. The name of the agent that the OnlineEvaluator evaluates periodically. This value is used to filter the traces with a matching cloud.resource_id and link the evaluation results with relevant dashboards/UIs. This field is immutable. Once set, it cannot be changed.                                                                                                                                                                                                                                                |
+| `metric_sources[]`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | [`MetricSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MetricSource) Required. A list of metric sources to be used for evaluating samples. At least one MetricSource must be provided. Right now, only predefined metrics and registered metrics are supported. Every registered metric must have `display_name` (or `title` ) and `score_range` defined. Otherwise, the evaluations will fail. The maximum number of `metric_sources` is 25. |
+| `config`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | [`Config`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.OnlineEvaluator.Config) Required. Configuration for the OnlineEvaluator.                                                                                                                                                                                                                                                                                                                     |
+| `state`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | [`State`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.OnlineEvaluator.State) Output only. The state of the OnlineEvaluator.                                                                                                                                                                                                                                                                                                                         |
+| `state_details[]`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | [`StateDetails`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.OnlineEvaluator.StateDetails) Output only. Contains additional information about the state of the OnlineEvaluator. This is used to provide more details in the event of a failure.                                                                                                                                                                                                     |
+| `create_time`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | [`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp) Output only. Timestamp when the OnlineEvaluator was created.                                                                                                                                                                                                                                                                                                                                                                                                       |
+| `update_time`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | [`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp) Output only. Timestamp when the OnlineEvaluator was last updated.                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `display_name`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | `string` Optional. Human-readable name for the OnlineEvaluator. The name doesn't have to be unique. The name can consist of any UTF-8 characters. The maximum length is `63` characters. If the display name exceeds max characters, an `INVALID_ARGUMENT` error is returned.                                                                                                                                                                                                                                                                        |
+| Union field `data_source` . Required. The data source used to query samples for evaluations. More data sources will be supported in the future. The data source type is immutable once set. Within `cloud_observability` , `log_view` and `trace_view` can be updated; the `eval_scope` and `convention` are immutable. Within `bigquery_agent_analytics` , `result_table` can be updated; `source_table` , `scope` and `multi_turn_config` are immutable. `data_source` can be only one of the following: |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `cloud_observability`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | [`CloudObservability`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.OnlineEvaluator.CloudObservability) Data source for the OnlineEvaluator, based on Google Cloud Observability stack (Cloud Trace & Cloud Logging).                                                                                                                                                                                                                                |
 
 ## CloudObservability
 

@@ -37,3 +37,11 @@ The request body contains an instance of [`RagDataSchema`](https://docs.cloud.go
 ### Response body
 
 If successful, the response body contains a newly created instance of [`RagDataSchema`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragDataSchemas#RagDataSchema) .
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.ragCorpora.update`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

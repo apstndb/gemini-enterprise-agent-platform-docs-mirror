@@ -10,6 +10,22 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## November 06, 2026
+
+Feature
+
+**Dedicated Memory Bank functionality in the Google Cloud console**
+
+You can create, configure, and inspect Agent Platform Memory Bank instances from the dedicated **Memory Bank** page in the Google Cloud console, with updated memory management controls for deployed agents in Agent Runtime:
+
+- **Memory Bank list and creation** : View and manage standalone memory banks on the **Memory Bank** page (separate from deployed agents on the **Deployments** page), edit basic information or labels, delete instances, and click **Create memory bank** to create an instance with default memory settings and Google-managed or Cloud KMS encryption.
+- **Memories inspection and filtering** : On the **Memories** tab, switch between **Unstructured** and **Structured** views, filter memories by `key:value` scope pairs or scope chips, edit or delete unstructured memories, inspect structured memory profiles and underlying facts in the **Memory details** panel, and select **View revisions** to inspect revision history.
+- **Instance and schema configuration** : On the **Configuration** tab, view and edit **Details** , **Generation** (memory extraction toggle, perspective, and managed or custom topics), **Retrieval** (embedding model, configurable before you store the first memory), and **Retention** (expiration and revision history TTL), or click **Schemas** to add and edit profile schemas.
+- **Agent integration snippets** : Click **Link to an agent** to get installation commands and prefilled Python code (populated with your project, region, and memory bank ID) for connecting with Agent Development Kit (ADK) or retrieving memories.
+- **Agent Runtime memory updates** : On the **Deployments** page, deployed agents include `key:value` scope filtering and **View revisions** on the **Memories** tab, along with **Generation** , **Retrieval** , and **Retention** configuration controls under **Service configuration** in the **Memory bank** section.
+
+For more information, see [Set up Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup) , [Fetch memories](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories) , [Memory Profiles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/profiles) , and [Memory revisions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/revisions) .
+
 ## November 05, 2026
 
 Feature
@@ -29,6 +45,14 @@ Gemini Omni 1.2 Flash introduces the following capabilities:
 - **Deterministic generation and billing labels** : Specify `seed` for reproducible video outputs and attach custom `labels` to Interactions API requests.
 
 - **Standard PayGo and Provisioned Throughput** : Available with [Standard Pay-as-you-go (PayGo)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo) and [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/gemini-omni-models) (685 tokens per second per GSU).
+
+Feature
+
+**Interactions API long decodes for Gemini 4 Argon**
+
+Long decodes up to 1,048,576 tokens (minus input tokens) on the [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) ( `v1beta1` ) are available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages) for [Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon) ( `gemini-4-argon` and `gemini-4-argon-cyber-permissive` ). You can extend single-turn outputs beyond the per-segment limit (65,536 streaming or 32,768 non-streaming tokens) using automatic continuation in the Google Gen AI SDK ( `google-genai >= 2.34.0` for Python, `@google/genai >= 2.32.0` for JavaScript/TypeScript, Go `>= 1.77.0` , and Java `>= 1.80.0` ), server-managed background execution ( `background=true` ), or custom stored ( `store=true` ) and stateless ( `store=false` ) `continuation_token` loops.
+
+For code samples, continuation options, and implementation rules, see [Long decodes in the developer's guide to Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-argon#long-decodes) .
 
 Fixed
 

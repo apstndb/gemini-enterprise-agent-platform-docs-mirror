@@ -6,8 +6,6 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-> **Note:** Billing for batch prediction for OpenMaaS embedding models is enabled on October 3, 2025.
-
 Batch predictions lets you efficiently send multiple text-only prompts that aren't latency sensitive to a model. Compared to online predictions, where you send one input prompt for each request, you can batch a large number of input prompts in a single request.
 
 ## Supported models
@@ -18,33 +16,17 @@ Gemini Enterprise Agent Platform supports batch predictions for the following mo
 
 - [Llama 4 Maverick 17B-128E](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama-4-maverick-17b-128e-instruct-maas)
 - [Llama 4 Scout 17B-16E](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama-4-maverick-17b-128e-instruct-maas)
-- [Llama 3.3 70B](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama-3.3-70b-instruct-maas)
 
 **OpenAI gpt-oss:**
 
-**Qwen:**
-
-**DeepSeek:**
-
-**Embedding models:**
-
-- [Multilingual E5 (small)](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)
-- [Multilingual E5 (large)](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)
+- [gpt-oss 120B](https://console.cloud.google.com/agent-platform/publishers/openai/model-garden/gpt-oss-120b-maas)
 
 ## Prepare input
 
-Before you begin, prepare your inputs in a BigQuery table or as a JSONL file in Cloud Storage. The input for both sources must follow the [OpenAI API schema](https://platform.openai.com/docs/api-reference/fine-tuning/chat-input) JSONL format, as shown in the following examples.
-
-Large language models:
+Before you begin, prepare your inputs in a BigQuery table or as a JSONL file in Cloud Storage. The input for both sources must follow the [OpenAI API schema](https://platform.openai.com/docs/api-reference/fine-tuning/chat-input) JSONL format, as shown in the following example.
 
 ```
 {"custom_id": "test-request-0", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "MODEL_ID", "messages": [{"role": "user", "content": "Give me a recipe for banana bread"}], "max_tokens": 1000}}
-```
-
-Embedding models:
-
-```
-{"custom_id": "test-request-0", "method": "POST", "url": "/v1/embeddings", "body": {"model": "MODEL_ID", "input": "Hello World"}}
 ```
 
 > **Note:** Gemini Enterprise Agent Platform doesn't use the `custom_id` , `method` , `url` , and `model` fields. You can include them but they are ignored by the batch prediction job.

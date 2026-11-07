@@ -14,7 +14,7 @@ Fields
 
 `name` `string`
 
-Identifier. The resource name of the ReasoningEngineRuntimeRevision. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoningEngine}/runtimeRevisions/{runtime_revision}`
+Identifier. The resource name of the ReasoningEngineRuntimeRevision. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoningEngine}/runtimeRevisions/{runtimeRevision}`
 
 `spec` `object ( `[`ReasoningEngineSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ReasoningEngineSpec)` )`
 

@@ -18,7 +18,7 @@ List all deployed agents for a given project and location:
 
 1.  In the Google Cloud console, go to the Agent Platform **Deployments** page.  
 
-Deployed agents that are part of the selected project appear in the list. You can use the **Filter** field to filter the list by your specified column.
+Deployed agents that are part of the selected project appear in the list (standalone Memory Bank instances without a deployed runtime appear on the **Memory Bank** page). You can use the **Filter** field to filter the list by your specified column.
 
 ### Agent Platform SDK
 
@@ -315,7 +315,7 @@ Configure telemetry for deployed agents with telemetry enabled:
 
     - **Deployment details** : View deployment details for the agent, including **Resource name** and **Display name** .
 
-    - **Agent Platform Memory Bank** : View [Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank) details for the agent, including **Memory Generation** and **Memory Search** .
+    - **Memory bank** : View and edit [Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#configure-console) **Generation** , **Retrieval** , and **Retention** settings for the agent. Editing requires the `aiplatform.reasoningEngines.update` permission; without this permission, these settings are read-only.
 
 4.  Click **Update** or **Close** .
 

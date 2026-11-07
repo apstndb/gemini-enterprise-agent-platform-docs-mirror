@@ -244,1131 +244,6 @@ End of mutually exclusive fields.
 }
 ```
 
-## StepList
-
-A list of Steps.
-
-Fields
-
-`steps[]` `object ( `[`Step`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Step)` )`
-
-The steps of the list.
-
-**JSON representation**
-
-```
-{
-  "steps": [
-    {
-      object (Step)
-    }
-  ]
-}
-```
-
-## ResponseFormatList
-
-Fields
-
-`responseFormats[]` `object ( `[`ResponseFormat`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#ResponseFormat)` )`
-
-**JSON representation**
-
-```
-{
-  "responseFormats": [
-    {
-      object (ResponseFormat)
-    }
-  ]
-}
-```
-
-## ResponseFormat
-
-Fields
-
-`type` `Union type`
-
-The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
-
-`audio` `object ( `[`AudioResponseFormat`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#AudioResponseFormat)` )`
-
-`text` `object ( `[`TextResponseFormat`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#TextResponseFormat)` )`
-
-`image` `object ( `[`ImageResponseFormat`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#ImageResponseFormat)` )`
-
-`video` `object ( `[`VideoResponseFormat`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#VideoResponseFormat)` )`
-
-`structValue` `object ( `[`Struct`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Struct)` )`
-
-Multi-discriminator values is already enabled in GAOS
-
-End of mutually exclusive fields.
-
-**JSON representation**
-
-```
-{
-
-  // type
-  "audio": {
-    object (AudioResponseFormat)
-  },
-  "text": {
-    object (TextResponseFormat)
-  },
-  "image": {
-    object (ImageResponseFormat)
-  },
-  "video": {
-    object (VideoResponseFormat)
-  },
-  "structValue": {
-    object (Struct)
-  }
-  // Union type
-}
-```
-
-## AudioResponseFormat
-
-Configuration for audio output format.
-
-Fields
-
-`mimeType` `enum ( `[`MimeType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#MimeType)` )`
-
-The MIME type of the audio output.
-
-`delivery` `enum ( `[`Delivery`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#Delivery)` )`
-
-The delivery mode for the audio output.
-
-`sampleRate` `integer`
-
-Sample rate in Hz.
-
-`bitRate` `integer`
-
-Bit rate in bits per second (bps). Only applicable for compressed formats (MP3, Opus).
-
-**JSON representation**
-
-```
-{
-  "mimeType": enum (MimeType),
-  "delivery": enum (Delivery),
-  "sampleRate": integer,
-  "bitRate": integer
-}
-```
-
-## MimeType
-
-Supported MIME types for audio output.
-
-| Enums              |                                      |
-|--------------------|--------------------------------------|
-| `TYPE_UNSPECIFIED` | Default value. This value is unused. |
-| `TYPE_MP3`         | MP3 audio format.                    |
-| `TYPE_OGG_OPUS`    | OGG Opus audio format.               |
-| `TYPE_L16`         | Raw PCM (L16) audio format.          |
-| `TYPE_WAV`         | WAV audio format.                    |
-| `TYPE_ALAW`        | A-law audio format.                  |
-| `TYPE_MULAW`       | Mu-law audio format.                 |
-
-## Delivery
-
-Delivery mode for audio output.
-
-| Enums                  |                                                |
-|------------------------|------------------------------------------------|
-| `DELIVERY_UNSPECIFIED` | Default value. This value is unused.           |
-| `INLINE`               | Audio data is returned inline in the response. |
-| `URI`                  | Audio data is returned as a URI.               |
-
-## TextResponseFormat
-
-Configuration for text output format.
-
-Fields
-
-`mimeType` `enum ( `[`MimeType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#MimeType_1)` )`
-
-The MIME type of the text output.
-
-`schema` `object ( `[`Struct`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Struct)` )`
-
-The JSON schema that the output should conform to. Only applicable when mimeType is application/json.
-
-**JSON representation**
-
-```
-{
-  "mimeType": enum (MimeType),
-  "schema": {
-    object (Struct)
-  }
-}
-```
-
-## MimeType
-
-Supported MIME types for text output.
-
-| Enums                   |                                      |
-|-------------------------|--------------------------------------|
-| `TYPE_UNSPECIFIED`      | Default value. This value is unused. |
-| `TYPE_APPLICATION_JSON` | JSON output format.                  |
-| `TYPE_TEXT_PLAIN`       | Plain text output format.            |
-
-## ImageResponseFormat
-
-Configuration for image output format.
-
-Fields
-
-`mimeType` `enum ( `[`MimeType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#MimeType_2)` )`
-
-The MIME type of the image output.
-
-`delivery` `enum ( `[`Delivery`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#Delivery_1)` )`
-
-The delivery mode for the image output.
-
-`aspectRatio` `enum ( `[`AspectRatio`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#AspectRatio)` )`
-
-The aspect ratio for the image output.
-
-`imageSize` `enum ( `[`ImageSize`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#ImageSize)` )`
-
-The size of the image output.
-
-**JSON representation**
-
-```
-{
-  "mimeType": enum (MimeType),
-  "delivery": enum (Delivery),
-  "aspectRatio": enum (AspectRatio),
-  "imageSize": enum (ImageSize)
-}
-```
-
-## MimeType
-
-Supported MIME types for image output.
-
-| Enums              |                                      |
-|--------------------|--------------------------------------|
-| `TYPE_UNSPECIFIED` | Default value. This value is unused. |
-| `TYPE_JPEG`        | JPEG image format.                   |
-
-## Delivery
-
-Delivery mode for image output.
-
-| Enums                  |                                                |
-|------------------------|------------------------------------------------|
-| `DELIVERY_UNSPECIFIED` | Default value. This value is unused.           |
-| `INLINE`               | Image data is returned inline in the response. |
-| `URI`                  | Image data is returned as a URI.               |
-
-## AspectRatio
-
-Supported aspect ratios for image output.
-
-| Enums                             |                                      |
-|-----------------------------------|--------------------------------------|
-| `ASPECT_RATIO_UNSPECIFIED`        | Default value. This value is unused. |
-| `ASPECT_RATIO_ONE_BY_ONE`         | 1:1 aspect ratio.                    |
-| `ASPECT_RATIO_TWO_BY_THREE`       | 2:3 aspect ratio.                    |
-| `ASPECT_RATIO_THREE_BY_TWO`       | 3:2 aspect ratio.                    |
-| `ASPECT_RATIO_THREE_BY_FOUR`      | 3:4 aspect ratio.                    |
-| `ASPECT_RATIO_FOUR_BY_THREE`      | 4:3 aspect ratio.                    |
-| `ASPECT_RATIO_FOUR_BY_FIVE`       | 4:5 aspect ratio.                    |
-| `ASPECT_RATIO_FIVE_BY_FOUR`       | 5:4 aspect ratio.                    |
-| `ASPECT_RATIO_NINE_BY_SIXTEEN`    | 9:16 aspect ratio.                   |
-| `ASPECT_RATIO_SIXTEEN_BY_NINE`    | 16:9 aspect ratio.                   |
-| `ASPECT_RATIO_TWENTY_ONE_BY_NINE` | 21:9 aspect ratio.                   |
-| `ASPECT_RATIO_ONE_BY_EIGHT`       | 1:8 aspect ratio.                    |
-| `ASPECT_RATIO_EIGHT_BY_ONE`       | 8:1 aspect ratio.                    |
-| `ASPECT_RATIO_ONE_BY_FOUR`        | 1:4 aspect ratio.                    |
-| `ASPECT_RATIO_FOUR_BY_ONE`        | 4:1 aspect ratio.                    |
-
-## ImageSize
-
-Supported image sizes for image output.
-
-| Enums                    |                                      |
-|--------------------------|--------------------------------------|
-| `IMAGE_SIZE_UNSPECIFIED` | Default value. This value is unused. |
-| `IMAGE_SIZE_FIVE_TWELVE` | 512px image size.                    |
-| `IMAGE_SIZE_ONE_K`       | 1K image size.                       |
-| `IMAGE_SIZE_TWO_K`       | 2K image size.                       |
-| `IMAGE_SIZE_FOUR_K`      | 4K image size.                       |
-
-## VideoResponseFormat
-
-Configuration for video output format.
-
-Fields
-
-`delivery` `enum ( `[`Delivery`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#Delivery_2)` )`
-
-The delivery mode for the video output.
-
-`gcsUri` `string`
-
-The Cloud Storage URI to store the video output. Required for Vertex if delivery mode is URI.
-
-`aspectRatio` `enum ( `[`AspectRatio`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#AspectRatio_1)` )`
-
-The aspect ratio for the video output.
-
-`duration` `string ( `[`Duration`](https://protobuf.dev/reference/protobuf/google.protobuf/#duration)` format)`
-
-The duration for the video output.
-
-A duration in seconds with up to nine fractional digits, ending with ' `s` '. Example: `"3.5s"` .
-
-`resolution` `enum ( `[`Resolution`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#Resolution)` )`
-
-The video output resolution. Defaults to 720p.
-
-**JSON representation**
-
-```
-{
-  "delivery": enum (Delivery),
-  "gcsUri": string,
-  "aspectRatio": enum (AspectRatio),
-  "duration": string,
-  "resolution": enum (Resolution)
-}
-```
-
-## Delivery
-
-Delivery mode for video output.
-
-| Enums                  |                                                |
-|------------------------|------------------------------------------------|
-| `DELIVERY_UNSPECIFIED` | Default value. This value is unused.           |
-| `INLINE`               | Video data is returned inline in the response. |
-| `URI`                  | Video data is returned as a URI.               |
-
-## AspectRatio
-
-Supported aspect ratios for video output.
-
-| Enums                          |                                      |
-|--------------------------------|--------------------------------------|
-| `ASPECT_RATIO_UNSPECIFIED`     | Default value. This value is unused. |
-| `ASPECT_RATIO_SIXTEEN_BY_NINE` | 16:9 aspect ratio.                   |
-| `ASPECT_RATIO_NINE_BY_SIXTEEN` | 9:16 aspect ratio.                   |
-
-## Resolution
-
-Supported resolutions for video output.
-
-| Enums                       |                                      |
-|-----------------------------|--------------------------------------|
-| `RESOLUTION_UNSPECIFIED`    | Default value. This value is unused. |
-| `RESOLUTION_THREE_SIXTY_P`  | 360p resolution.                     |
-| `RESOLUTION_SEVEN_TWENTY_P` | 720p resolution.                     |
-| `RESOLUTION_TEN_EIGHTY_P`   | 1080p resolution.                    |
-| `RESOLUTION_FOUR_K`         | 4K resolution.                       |
-
-## ModelInteraction
-
-Interaction for generating the completion using models.
-
-Fields
-
-`model` `string`
-
-The name of the `Model` used for generating the completion.
-
-`generationConfig` `object ( `[`GenerationConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#GenerationConfig)` )`
-
-Input only. Configuration parameters for the model interaction.
-
-**JSON representation**
-
-```
-{
-  "model": string,
-  "generationConfig": {
-    object (GenerationConfig)
-  }
-}
-```
-
-## GenerationConfig
-
-Configuration parameters for model interactions.
-
-Fields
-
-`temperature `**`(deprecated)`** `number`
-
-> This item is deprecated!
-
-Controls the randomness of the output.
-
-`topP `**`(deprecated)`** `number`
-
-> This item is deprecated!
-
-The maximum cumulative probability of tokens to consider when sampling.
-
-`seed` `integer`
-
-Seed used in decoding for reproducibility.
-
-`stopSequences[]` `string`
-
-A list of character sequences that will stop output interaction.
-
-`thinkingLevel` `enum ( `[`ThinkingLevel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#ThinkingLevel)` )`
-
-The level of thought tokens that the model should generate.
-
-`thinkingSummaries` `enum ( `[`ThinkingSummaries`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#ThinkingSummaries)` )`
-
-Whether to include thought summaries in the response.
-
-`maxOutputTokens` `integer`
-
-The maximum number of tokens to include in the response.
-
-`imageConfig `**`(deprecated)`** `object ( `[`ImageConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#ImageConfig)` )`
-
-> This item is deprecated!
-
-Configuration for image interaction.
-
-`videoConfig` `object ( `[`VideoConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#VideoConfig)` )`
-
-Configuration for video generation.
-
-`transcriptionConfig` `object ( `[`TranscriptionConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#TranscriptionConfig)` )`
-
-Optional. Configuration for speech recognition (transcription). If present, ASR is enabled.
-
-`tool_choice` `Union type`
-
-The tool choice configuration. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
-
-`toolChoiceMode` `enum ( `[`ToolChoiceType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#ToolChoiceType)` )`
-
-The mode of the tool choice.
-
-`toolChoiceConfig` `object ( `[`ToolChoiceConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#ToolChoiceConfig)` )`
-
-The config for the tool choice.
-
-End of mutually exclusive fields.
-
-**JSON representation**
-
-```
-{
-  "temperature": number,
-  "topP": number,
-  "seed": integer,
-  "stopSequences": [
-    string
-  ],
-  "thinkingLevel": enum (ThinkingLevel),
-  "thinkingSummaries": enum (ThinkingSummaries),
-  "maxOutputTokens": integer,
-  "imageConfig": {
-    object (ImageConfig)
-  },
-  "videoConfig": {
-    object (VideoConfig)
-  },
-  "transcriptionConfig": {
-    object (TranscriptionConfig)
-  },
-
-  // tool_choice
-  "toolChoiceMode": enum (ToolChoiceType),
-  "toolChoiceConfig": {
-    object (ToolChoiceConfig)
-  }
-  // Union type
-}
-```
-
-## ToolChoiceType
-
-The type of tool choice.
-
-| Enums                          |                                      |
-|--------------------------------|--------------------------------------|
-| `TOOL_CHOICE_TYPE_UNSPECIFIED` | Default value. This value is unused. |
-| `AUTO`                         | Auto tool choice.                    |
-| `ANY`                          | Any tool choice.                     |
-| `NONE`                         | No tool choice.                      |
-| `VALIDATED`                    | Validated tool choice.               |
-
-## ToolChoiceConfig
-
-The tool choice configuration containing allowed tools.
-
-Fields
-
-`allowedTools` `object ( `[`AllowedTools`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#AllowedTools)` )`
-
-The allowed tools.
-
-**JSON representation**
-
-```
-{
-  "allowedTools": {
-    object (AllowedTools)
-  }
-}
-```
-
-## AllowedTools
-
-The configuration for allowed tools.
-
-Fields
-
-`mode` `enum ( `[`ToolChoiceType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#ToolChoiceType)` )`
-
-The mode of the tool choice.
-
-`tools[]` `string`
-
-The names of the allowed tools.
-
-**JSON representation**
-
-```
-{
-  "mode": enum (ToolChoiceType),
-  "tools": [
-    string
-  ]
-}
-```
-
-## ThinkingLevel
-
-The level of thought tokens that the model should generate.
-
-| Enums                        |                                      |
-|------------------------------|--------------------------------------|
-| `THINKING_LEVEL_UNSPECIFIED` | Default value. This value is unused. |
-| `THINKING_LEVEL_MINIMAL`     | Little to no thinking.               |
-| `THINKING_LEVEL_LOW`         | Low thinking level.                  |
-| `THINKING_LEVEL_MEDIUM`      | Medium thinking level.               |
-| `THINKING_LEVEL_HIGH`        | High thinking level.                 |
-
-## ThinkingSummaries
-
-Whether to include thought summaries in the response.
-
-| Enums                            |                                      |
-|----------------------------------|--------------------------------------|
-| `THINKING_SUMMARIES_UNSPECIFIED` | Default value. This value is unused. |
-| `THINKING_SUMMARIES_AUTO`        | Auto thinking summaries.             |
-| `THINKING_SUMMARIES_NONE`        | No thinking summaries.               |
-
-## ImageConfig
-
-> This item is deprecated!
-
-The configuration for image interaction.
-
-Fields
-
-`aspectRatio` `string`
-
-The aspect ratio of the image to generate. Supported aspect ratios: 1:1, 2:3, 3:2, 3:4, 4:3, 9:16, 16:9, 21:9.
-
-If not specified, the model will choose a default aspect ratio based on any reference images provided.
-
-`imageSize` `string`
-
-Specifies the size of generated images. Supported values are `1K` , `2K` , `4K` . If not specified, the model will use default value `1K` .
-
-**JSON representation**
-
-```
-{
-  "aspectRatio": string,
-  "imageSize": string
-}
-```
-
-## VideoConfig
-
-Configuration options for video generation.
-
-Fields
-
-`task` `enum ( `[`Task`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#Task)` )`
-
-Optional task mode for video generation. If not specified, the model automatically determines the appropriate mode based on the provided text prompt and input media.
-
-**JSON representation**
-
-```
-{
-  "task": enum (Task)
-}
-```
-
-## Task
-
-Supported video generation tasks.
-
-| Enums                |                                                                                                                                                    |
-|----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
-| `TASK_UNSPECIFIED`   | Unspecified task. The task is inferred from the input prompt and media.                                                                            |
-| `TEXT_TO_VIDEO`      | Generates video solely from a text prompt.                                                                                                         |
-| `IMAGE_TO_VIDEO`     | Generates video from one or two source images. The first image defines the starting frame, and the optional second image defines the ending frame. |
-| `REFERENCE_TO_VIDEO` | Generates video using reference media (such as images, audio, or video).                                                                           |
-| `EDIT`               | Modifies an existing input video.                                                                                                                  |
-| `EXTEND`             | Extends an existing input video.                                                                                                                   |
-
-## TranscriptionConfig
-
-Configuration for speech recognition (transcription).
-
-Fields
-
-`languageCodes[]` `string`
-
-Optional. BCP-47 language codes providing hints about the languages present in the audio. If omitted or empty, defaults to automatic language detection.
-
-`customVocabulary[]` `string`
-
-Optional. A list of custom vocabulary phrases to bias the speech recognition model toward recognizing specific terms.
-
-`timestampGranularities[] `**`(deprecated)`** `string`
-
-> This item is deprecated!
-
-Optional. The granularity of timestamps to include in the transcription output. Supported values: "word". If empty, no timestamps are generated.
-
-`diarizationMode `**`(deprecated)`** `string`
-
-> This item is deprecated!
-
-Optional. Configures speaker diarization. Supported values: "speaker".
-
-`adaptationPhrases[] `**`(deprecated)`** `string`
-
-> This item is deprecated!
-
-Optional. A list of phrases to bias the ASR model towards.
-
-**JSON representation**
-
-```
-{
-  "languageCodes": [
-    string
-  ],
-  "customVocabulary": [
-    string
-  ],
-  "timestampGranularities": [
-    string
-  ],
-  "diarizationMode": string,
-  "adaptationPhrases": [
-    string
-  ]
-}
-```
-
-## AgentInteraction
-
-Interaction for generating the completion using agents.
-
-Fields
-
-`agent` `string`
-
-The name of the `Agent` used for generating the completion.
-
-`agent_config` `Union type`
-
-Configuration parameters for the agent interaction. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
-
-`dynamicConfig` `object ( `[`DynamicAgentConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#DynamicAgentConfig)` )`
-
-`deepResearchConfig` `object ( `[`DeepResearchAgentConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#DeepResearchAgentConfig)` )`
-
-`codeMenderConfig` `object ( `[`CodeMenderAgentConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#CodeMenderAgentConfig)` )`
-
-`antigravityConfig` `object ( `[`AntigravityAgentConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#AntigravityAgentConfig)` )`
-
-Antigravity agent configuration. This configuration is session-level settings that are passed to the agent runtime on a per-request basis.
-
-End of mutually exclusive fields.
-
-**JSON representation**
-
-```
-{
-  "agent": string,
-
-  // agent_config
-  "dynamicConfig": {
-    object (DynamicAgentConfig)
-  },
-  "deepResearchConfig": {
-    object (DeepResearchAgentConfig)
-  },
-  "codeMenderConfig": {
-    object (CodeMenderAgentConfig)
-  },
-  "antigravityConfig": {
-    object (AntigravityAgentConfig)
-  }
-  // Union type
-}
-```
-
-## DynamicAgentConfig
-
-Configuration for dynamic agents.
-
-Fields
-
-`config` `object ( `[`Struct`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Struct)` )`
-
-For agents that are not supported statically in the API definition.
-
-**JSON representation**
-
-```
-{
-  "config": {
-    object (Struct)
-  }
-}
-```
-
-## DeepResearchAgentConfig
-
-Configuration for the Deep Research agent.
-
-Fields
-
-`thinkingSummaries` `enum ( `[`ThinkingSummaries`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#ThinkingSummaries)` )`
-
-Whether to include thought summaries in the response.
-
-`visualization` `enum ( `[`VisualizationMode`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#VisualizationMode)` )`
-
-Whether to include visualizations in the response.
-
-`collaborativePlanning` `boolean`
-
-Enables human-in-the-loop planning for the Deep Research agent. If set to true, the Deep Research agent will provide a research plan in its response. The agent will then proceed only if the user confirms the plan in the next turn.
-
-`enableBigqueryTool` `boolean`
-
-Enables bigquery tool for the Deep Research agent.
-
-**JSON representation**
-
-```
-{
-  "thinkingSummaries": enum (ThinkingSummaries),
-  "visualization": enum (VisualizationMode),
-  "collaborativePlanning": boolean,
-  "enableBigqueryTool": boolean
-}
-```
-
-## VisualizationMode
-
-Enum for visualization mode. Eventually we will support an interactive mode where the user can choose whether to include HTML visualizations in the response.
-
-| Enums         |                                                       |
-|---------------|-------------------------------------------------------|
-| `UNSPECIFIED` | The default visualization mode. Will default to AUTO. |
-| `OFF`         | Do not include visualizations.                        |
-| `AUTO`        | Automatically include visualizations.                 |
-
-## CodeMenderAgentConfig
-
-Configuration for the CodeMender agent.
-
-Fields
-
-`sessionId` `string`
-
-Parameter for grouping multiple interactions that belong to the same CodeMender session.
-
-`sessionConfig` `object ( `[`SessionConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#SessionConfig)` )`
-
-Optional session-specific configurations to override default agent behavior.
-
-`model` `string`
-
-The name of the model to use for the CodeMender agent. One CodeMender session will only use one model.
-
-`request` `Union type`
-
-CodeMender's request type. Set exactly one of find_request/fix_request only on the first round to start a session; on subsequent rounds (e.g. submitting tool results), leave this unset and identify the session via session_id. This oneof is intentionally not a subtype_source discriminator so it can be omitted on resume rounds. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
-
-`findRequest` `object ( `[`FindRequest`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#FindRequest)` )`
-
-Parameters for finding vulnerabilities.
-
-`fixRequest` `object ( `[`FixRequest`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#FixRequest)` )`
-
-Parameters for fixing vulnerabilities.
-
-End of mutually exclusive fields.
-
-**JSON representation**
-
-```
-{
-  "sessionId": string,
-  "sessionConfig": {
-    object (SessionConfig)
-  },
-  "model": string,
-
-  // request
-  "findRequest": {
-    object (FindRequest)
-  },
-  "fixRequest": {
-    object (FixRequest)
-  }
-  // Union type
-}
-```
-
-## FindRequest
-
-Request parameters specific to FIND sessions, used for discovering vulnerabilities in a codebase.
-
-Fields
-
-`sourceFiles[]` `object ( `[`FileContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#FileContent)` )`
-
-A list of source files to provide as context for the scan.
-
-`findingId` `string`
-
-The identifier of a specific finding to verify. This is primarily used in VERIFY mode to focus the agent's execution-based validation on a single vulnerability.
-
-`description` `string`
-
-Additional context or custom instructions provided by the user to guide the vulnerability analysis.
-
-`mode` `enum ( `[`Mode`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#Mode)` )`
-
-The mode of the find session.
-
-**JSON representation**
-
-```
-{
-  "sourceFiles": [
-    {
-      object (FileContent)
-    }
-  ],
-  "findingId": string,
-  "description": string,
-  "mode": enum (Mode)
-}
-```
-
-## FileContent
-
-Content of a single file in the codebase.
-
-Fields
-
-`path` `string`
-
-The relative path of the file from the project root.
-
-`content` `string`
-
-The UTF-8 encoded text content of the file.
-
-**JSON representation**
-
-```
-{
-  "path": string,
-  "content": string
-}
-```
-
-## Mode
-
-Defines the depth and thoroughness of the find session.
-
-| Enums              |                                                             |
-|--------------------|-------------------------------------------------------------|
-| `MODE_UNSPECIFIED` | Default value. This value is unused.                        |
-| `MODE_SCAN`        | Fast scan using only the initial classifier.                |
-| `MODE_VERIFY`      | Performs classification followed by detailed investigation. |
-
-## FixRequest
-
-Request parameters specific to FIX sessions, used for generating and validating security patches.
-
-Fields
-
-`sourceFiles[]` `object ( `[`FileContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#FileContent)` )`
-
-A list of source files providing context for the remediation. These files are typically the ones containing the identified vulnerability.
-
-`findingId` `string`
-
-The identifier of the specific security finding to be remediated. This id maps to a previously discovered vulnerability.
-
-`description` `string`
-
-Additional context or custom instructions provided by the user to guide the patch generation process.
-
-**JSON representation**
-
-```
-{
-  "sourceFiles": [
-    {
-      object (FileContent)
-    }
-  ],
-  "findingId": string,
-  "description": string
-}
-```
-
-## SessionConfig
-
-The configuration of CodeMender sessions.
-
-Fields
-
-`maxRounds` `integer`
-
-The maximum number of interaction rounds the agent is allowed to perform before reaching a timeout.
-
-**JSON representation**
-
-```
-{
-  "maxRounds": integer
-}
-```
-
-## AntigravityAgentConfig
-
-Configuration for the Antigravity agent runtime. Provides server-side control over the agent's execution environment and tool configuration.
-
-Fields
-
-`maxTotalTokens` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
-
-Max total tokens for the agent run.
-
-`model_config` `Union type`
-
-The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
-
-`model` `string`
-
-The model to use for agent reasoning.
-
-End of mutually exclusive fields.
-
-**JSON representation**
-
-```
-{
-  "maxTotalTokens": string,
-
-  // model_config
-  "model": string
-  // Union type
-}
-```
-
-## EnvironmentConfig
-
-Configuration for a custom environment.
-
-Fields
-
-`sources[]` `object ( `[`Source`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#Source)` )`
-
-`environmentId` `string`
-
-Optional. The environment id for the interaction. If specified, the request will update the existing environment instead of creating a new one.
-
-`network` `Union type`
-
-Network configuration for the environment. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
-
-`networkAllowlist` `object ( `[`EnvironmentNetworkEgressAllowlist`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#EnvironmentNetworkEgressAllowlist)` )`
-
-Allow only specific domains.
-
-`networkMode` `enum ( `[`NetworkMode`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#NetworkMode)` )`
-
-Network egress mode.
-
-End of mutually exclusive fields.
-
-**JSON representation**
-
-```
-{
-  "sources": [
-    {
-      object (Source)
-    }
-  ],
-  "environmentId": string,
-
-  // network
-  "networkAllowlist": {
-    object (EnvironmentNetworkEgressAllowlist)
-  },
-  "networkMode": enum (NetworkMode)
-  // Union type
-}
-```
-
-## EnvironmentNetworkEgressAllowlist
-
-Network egress configuration for the environment.
-
-Fields
-
-`allowlist[]` `object ( `[`EgressRule`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#EgressRule)` )`
-
-List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
-
-**JSON representation**
-
-```
-{
-  "allowlist": [
-    {
-      object (EgressRule)
-    }
-  ]
-}
-```
-
-## EgressRule
-
-A single domain allowlist rule with optional header injection.
-
-Fields
-
-`domain` `string`
-
-domain to allow outbound requests to. Supports wildcards (e.g. '\*.googleapis.com'). Use '\*' to allow all domains.
-
-`transform` `map (key: string, value: string)`
-
-headers to inject into requests matching this rule. Key: header name (e.g., "Authorization"). value: header value (e.g., "Bearer your-token").
-
-**JSON representation**
-
-```
-{
-  "domain": string,
-  "transform": {
-    string: string,
-    ...
-  }
-}
-```
-
-## NetworkMode
-
-Network egress mode for non-allowlist configurations.
-
-| Enums                      |                                |
-|----------------------------|--------------------------------|
-| `NETWORK_MODE_UNSPECIFIED` | Default value. Unused.         |
-| `DISABLED`                 | All network egress is blocked. |
-
-## Source
-
-A source to be mounted into the environment.
-
-Fields
-
-`type` `enum ( `[`Type`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#Type)` )`
-
-`source` `string`
-
-The source of the environment. For Cloud Storage, this is the Cloud Storage path. For GitHub, this is the GitHub path.
-
-`target` `string`
-
-Where the source should appear in the environment.
-
-`content` `string`
-
-The inline content if `type` is `INLINE` .
-
-`encoding` `string`
-
-Optional encoding for inline content (e.g. `base64` ).
-
-**JSON representation**
-
-```
-{
-  "type": enum (Type),
-  "source": string,
-  "target": string,
-  "content": string,
-  "encoding": string
-}
-```
-
-## Type
-
-| Enums              |                                                                                                                                                                                                                                                                                                         |
-|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `TYPE_UNSPECIFIED` |                                                                                                                                                                                                                                                                                                         |
-| `GCS`              | A Cloud Storage bucket.                                                                                                                                                                                                                                                                                 |
-| `INLINE`           | Inline content.                                                                                                                                                                                                                                                                                         |
-| `REPOSITORY`       | A generic repository. The protocol prefix in the source URL identifies the provider (e.g., github://, gcs://).                                                                                                                                                                                          |
-| `SKILL_REGISTRY`   | A skill resource from the Skill Registry service. Skill: projects/{project}/locations/{location}/skills/{skill} SkillRevision: projects/{project}/locations/{location}/skills/{skill}/revisions/{revision} Support mounting all skills under a project: projects/{project}/locations/{location}/skills. |
-
-## LocalEnvironmentConfig
-
-This type has no fields.
-
-Configuration for an environment that lives on the client connection rather than in a server-managed sandbox.
-
-When set (via Interaction.local_environment), the agent's filesystem and shell are treated as living on the client: the agent's built-in environment operations (e.g. reading/listing/editing files and running commands) are suspended on the server and yielded back to the client to execute, with their results returned on a subsequent turn. This is mutually exclusive with a server-managed `EnvironmentConfig` (remoteEnvironment), since the environment is either on the client or in a server sandbox, never both.
-
-This governs only the agent's built-in environment. client-declared function tools are always executed on the client regardless of this field.
-
 ## Tool
 
 A tool that can be used by the model.
@@ -1471,6 +346,8 @@ A description of the function.
 `parameters` `object ( `[`Value`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Value)` )`
 
 The JSON Schema for the function's parameters.
+
+Supports a subset of JSON Schema. `minLength` , `maxLength` , `minProperties` , `maxProperties` , `uniqueItems` , `contains` , `minContains` , and `maxContains` are ignored and not enforced.
 
 **JSON representation**
 
@@ -1605,6 +482,43 @@ End of mutually exclusive fields.
   // Union type
 }
 ```
+
+## AllowedTools
+
+The configuration for allowed tools.
+
+Fields
+
+`mode` `enum ( `[`ToolChoiceType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#ToolChoiceType)` )`
+
+The mode of the tool choice.
+
+`tools[]` `string`
+
+The names of the allowed tools.
+
+**JSON representation**
+
+```
+{
+  "mode": enum (ToolChoiceType),
+  "tools": [
+    string
+  ]
+}
+```
+
+## ToolChoiceType
+
+The type of tool choice.
+
+| Enums                          |                                      |
+|--------------------------------|--------------------------------------|
+| `TOOL_CHOICE_TYPE_UNSPECIFIED` | Default value. This value is unused. |
+| `AUTO`                         | Auto tool choice.                    |
+| `ANY`                          | Any tool choice.                     |
+| `NONE`                         | No tool choice.                      |
+| `VALIDATED`                    | Validated tool choice.               |
 
 ## GoogleSearch
 
@@ -2015,6 +929,1096 @@ Optional. The model name of the rank service.
   "modelName": string
 }
 ```
+
+## StepList
+
+A list of Steps.
+
+Fields
+
+`steps[]` `object ( `[`Step`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Step)` )`
+
+The steps of the list.
+
+**JSON representation**
+
+```
+{
+  "steps": [
+    {
+      object (Step)
+    }
+  ]
+}
+```
+
+## ResponseFormatList
+
+Fields
+
+`responseFormats[]` `object ( `[`ResponseFormat`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#ResponseFormat)` )`
+
+**JSON representation**
+
+```
+{
+  "responseFormats": [
+    {
+      object (ResponseFormat)
+    }
+  ]
+}
+```
+
+## ResponseFormat
+
+Fields
+
+`type` `Union type`
+
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+
+`audio` `object ( `[`AudioResponseFormat`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#AudioResponseFormat)` )`
+
+`text` `object ( `[`TextResponseFormat`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#TextResponseFormat)` )`
+
+`image` `object ( `[`ImageResponseFormat`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#ImageResponseFormat)` )`
+
+`video` `object ( `[`VideoResponseFormat`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#VideoResponseFormat)` )`
+
+`structValue` `object ( `[`Struct`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Struct)` )`
+
+Multi-discriminator values is already enabled in GAOS
+
+End of mutually exclusive fields.
+
+**JSON representation**
+
+```
+{
+
+  // type
+  "audio": {
+    object (AudioResponseFormat)
+  },
+  "text": {
+    object (TextResponseFormat)
+  },
+  "image": {
+    object (ImageResponseFormat)
+  },
+  "video": {
+    object (VideoResponseFormat)
+  },
+  "structValue": {
+    object (Struct)
+  }
+  // Union type
+}
+```
+
+## AudioResponseFormat
+
+Configuration for audio output format.
+
+Fields
+
+`mimeType` `enum ( `[`MimeType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#MimeType)` )`
+
+The MIME type of the audio output.
+
+`delivery` `enum ( `[`Delivery`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#Delivery)` )`
+
+The delivery mode for the audio output.
+
+`sampleRate` `integer`
+
+Sample rate in Hz.
+
+`bitRate` `integer`
+
+Bit rate in bits per second (bps). Only applicable for compressed formats (MP3, Opus).
+
+**JSON representation**
+
+```
+{
+  "mimeType": enum (MimeType),
+  "delivery": enum (Delivery),
+  "sampleRate": integer,
+  "bitRate": integer
+}
+```
+
+## MimeType
+
+Supported MIME types for audio output.
+
+| Enums              |                                      |
+|--------------------|--------------------------------------|
+| `TYPE_UNSPECIFIED` | Default value. This value is unused. |
+| `TYPE_MP3`         | MP3 audio format.                    |
+| `TYPE_OGG_OPUS`    | OGG Opus audio format.               |
+| `TYPE_L16`         | Raw PCM (L16) audio format.          |
+| `TYPE_WAV`         | WAV audio format.                    |
+| `TYPE_ALAW`        | A-law audio format.                  |
+| `TYPE_MULAW`       | Mu-law audio format.                 |
+
+## Delivery
+
+Delivery mode for audio output.
+
+| Enums                  |                                                |
+|------------------------|------------------------------------------------|
+| `DELIVERY_UNSPECIFIED` | Default value. This value is unused.           |
+| `INLINE`               | Audio data is returned inline in the response. |
+| `URI`                  | Audio data is returned as a URI.               |
+
+## TextResponseFormat
+
+Configuration for text output format.
+
+Fields
+
+`mimeType` `enum ( `[`MimeType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#MimeType_1)` )`
+
+The MIME type of the text output.
+
+`schema` `object ( `[`Struct`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Struct)` )`
+
+The JSON schema that the output should conform to. Only applicable when mimeType is application/json.
+
+Supports a subset of JSON Schema. `minLength` , `maxLength` , `minProperties` , `maxProperties` , `uniqueItems` , `contains` , `minContains` , and `maxContains` are ignored and not enforced; validate these in your application. `minItems` and `maxItems` are enforced. Schemas that are too complex to enforce (for example, large `maxItems` on nested arrays) return a 400 INVALID_ARGUMENT error.
+
+**JSON representation**
+
+```
+{
+  "mimeType": enum (MimeType),
+  "schema": {
+    object (Struct)
+  }
+}
+```
+
+## MimeType
+
+Supported MIME types for text output.
+
+| Enums                   |                                      |
+|-------------------------|--------------------------------------|
+| `TYPE_UNSPECIFIED`      | Default value. This value is unused. |
+| `TYPE_APPLICATION_JSON` | JSON output format.                  |
+| `TYPE_TEXT_PLAIN`       | Plain text output format.            |
+
+## ImageResponseFormat
+
+Configuration for image output format.
+
+Fields
+
+`mimeType` `enum ( `[`MimeType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#MimeType_2)` )`
+
+The MIME type of the image output.
+
+`delivery` `enum ( `[`Delivery`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#Delivery_1)` )`
+
+The delivery mode for the image output.
+
+`aspectRatio` `enum ( `[`AspectRatio`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#AspectRatio)` )`
+
+The aspect ratio for the image output.
+
+`imageSize` `enum ( `[`ImageSize`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#ImageSize)` )`
+
+The size of the image output.
+
+**JSON representation**
+
+```
+{
+  "mimeType": enum (MimeType),
+  "delivery": enum (Delivery),
+  "aspectRatio": enum (AspectRatio),
+  "imageSize": enum (ImageSize)
+}
+```
+
+## MimeType
+
+Supported MIME types for image output.
+
+| Enums              |                                      |
+|--------------------|--------------------------------------|
+| `TYPE_UNSPECIFIED` | Default value. This value is unused. |
+| `TYPE_JPEG`        | JPEG image format.                   |
+
+## Delivery
+
+Delivery mode for image output.
+
+| Enums                  |                                                |
+|------------------------|------------------------------------------------|
+| `DELIVERY_UNSPECIFIED` | Default value. This value is unused.           |
+| `INLINE`               | Image data is returned inline in the response. |
+| `URI`                  | Image data is returned as a URI.               |
+
+## AspectRatio
+
+Supported aspect ratios for image output.
+
+| Enums                             |                                      |
+|-----------------------------------|--------------------------------------|
+| `ASPECT_RATIO_UNSPECIFIED`        | Default value. This value is unused. |
+| `ASPECT_RATIO_ONE_BY_ONE`         | 1:1 aspect ratio.                    |
+| `ASPECT_RATIO_TWO_BY_THREE`       | 2:3 aspect ratio.                    |
+| `ASPECT_RATIO_THREE_BY_TWO`       | 3:2 aspect ratio.                    |
+| `ASPECT_RATIO_THREE_BY_FOUR`      | 3:4 aspect ratio.                    |
+| `ASPECT_RATIO_FOUR_BY_THREE`      | 4:3 aspect ratio.                    |
+| `ASPECT_RATIO_FOUR_BY_FIVE`       | 4:5 aspect ratio.                    |
+| `ASPECT_RATIO_FIVE_BY_FOUR`       | 5:4 aspect ratio.                    |
+| `ASPECT_RATIO_NINE_BY_SIXTEEN`    | 9:16 aspect ratio.                   |
+| `ASPECT_RATIO_SIXTEEN_BY_NINE`    | 16:9 aspect ratio.                   |
+| `ASPECT_RATIO_TWENTY_ONE_BY_NINE` | 21:9 aspect ratio.                   |
+| `ASPECT_RATIO_ONE_BY_EIGHT`       | 1:8 aspect ratio.                    |
+| `ASPECT_RATIO_EIGHT_BY_ONE`       | 8:1 aspect ratio.                    |
+| `ASPECT_RATIO_ONE_BY_FOUR`        | 1:4 aspect ratio.                    |
+| `ASPECT_RATIO_FOUR_BY_ONE`        | 4:1 aspect ratio.                    |
+
+## ImageSize
+
+Supported image sizes for image output.
+
+| Enums                    |                                      |
+|--------------------------|--------------------------------------|
+| `IMAGE_SIZE_UNSPECIFIED` | Default value. This value is unused. |
+| `IMAGE_SIZE_FIVE_TWELVE` | 512px image size.                    |
+| `IMAGE_SIZE_ONE_K`       | 1K image size.                       |
+| `IMAGE_SIZE_TWO_K`       | 2K image size.                       |
+| `IMAGE_SIZE_FOUR_K`      | 4K image size.                       |
+
+## VideoResponseFormat
+
+Configuration for video output format.
+
+Fields
+
+`delivery` `enum ( `[`Delivery`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#Delivery_2)` )`
+
+The delivery mode for the video output.
+
+`gcsUri` `string`
+
+The Cloud Storage URI to store the video output. Required for Vertex if delivery mode is URI.
+
+`aspectRatio` `enum ( `[`AspectRatio`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#AspectRatio_1)` )`
+
+The aspect ratio for the video output.
+
+`duration` `string ( `[`Duration`](https://protobuf.dev/reference/protobuf/google.protobuf/#duration)` format)`
+
+The duration for the video output.
+
+A duration in seconds with up to nine fractional digits, ending with ' `s` '. Example: `"3.5s"` .
+
+`resolution` `enum ( `[`Resolution`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#Resolution)` )`
+
+The video output resolution. Defaults to 720p.
+
+**JSON representation**
+
+```
+{
+  "delivery": enum (Delivery),
+  "gcsUri": string,
+  "aspectRatio": enum (AspectRatio),
+  "duration": string,
+  "resolution": enum (Resolution)
+}
+```
+
+## Delivery
+
+Delivery mode for video output.
+
+| Enums                  |                                                |
+|------------------------|------------------------------------------------|
+| `DELIVERY_UNSPECIFIED` | Default value. This value is unused.           |
+| `INLINE`               | Video data is returned inline in the response. |
+| `URI`                  | Video data is returned as a URI.               |
+
+## AspectRatio
+
+Supported aspect ratios for video output.
+
+| Enums                          |                                      |
+|--------------------------------|--------------------------------------|
+| `ASPECT_RATIO_UNSPECIFIED`     | Default value. This value is unused. |
+| `ASPECT_RATIO_SIXTEEN_BY_NINE` | 16:9 aspect ratio.                   |
+| `ASPECT_RATIO_NINE_BY_SIXTEEN` | 9:16 aspect ratio.                   |
+
+## Resolution
+
+Supported resolutions for video output.
+
+| Enums                       |                                      |
+|-----------------------------|--------------------------------------|
+| `RESOLUTION_UNSPECIFIED`    | Default value. This value is unused. |
+| `RESOLUTION_THREE_SIXTY_P`  | 360p resolution.                     |
+| `RESOLUTION_SEVEN_TWENTY_P` | 720p resolution.                     |
+| `RESOLUTION_TEN_EIGHTY_P`   | 1080p resolution.                    |
+| `RESOLUTION_FOUR_K`         | 4K resolution.                       |
+
+## ModelInteraction
+
+Interaction for generating the completion using models.
+
+Fields
+
+`model` `string`
+
+The name of the `Model` used for generating the completion.
+
+`generationConfig` `object ( `[`GenerationConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#GenerationConfig)` )`
+
+Input only. Configuration parameters for the model interaction.
+
+**JSON representation**
+
+```
+{
+  "model": string,
+  "generationConfig": {
+    object (GenerationConfig)
+  }
+}
+```
+
+## GenerationConfig
+
+Configuration parameters for model interactions.
+
+Fields
+
+`temperature `**`(deprecated)`** `number`
+
+> This item is deprecated!
+
+Controls the randomness of the output.
+
+`topP `**`(deprecated)`** `number`
+
+> This item is deprecated!
+
+The maximum cumulative probability of tokens to consider when sampling.
+
+`seed` `integer`
+
+Seed used in decoding for reproducibility.
+
+`stopSequences[]` `string`
+
+A list of character sequences that will stop output interaction.
+
+`thinkingLevel` `enum ( `[`ThinkingLevel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#ThinkingLevel)` )`
+
+The level of thought tokens that the model should generate.
+
+`thinkingSummaries` `enum ( `[`ThinkingSummaries`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#ThinkingSummaries)` )`
+
+Whether to include thought summaries in the response.
+
+`maxOutputTokens` `integer`
+
+The maximum number of tokens to include in the response.
+
+`imageConfig `**`(deprecated)`** `object ( `[`ImageConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#ImageConfig)` )`
+
+> This item is deprecated!
+
+Configuration for image interaction.
+
+`videoConfig` `object ( `[`VideoConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#VideoConfig)` )`
+
+Configuration for video generation.
+
+`transcriptionConfig` `object ( `[`TranscriptionConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#TranscriptionConfig)` )`
+
+Optional. Configuration for speech recognition (transcription). If present, ASR is enabled.
+
+`tool_choice` `Union type`
+
+The tool choice configuration. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+
+`toolChoiceMode` `enum ( `[`ToolChoiceType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#ToolChoiceType)` )`
+
+The mode of the tool choice.
+
+`toolChoiceConfig` `object ( `[`ToolChoiceConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#ToolChoiceConfig)` )`
+
+The config for the tool choice.
+
+End of mutually exclusive fields.
+
+**JSON representation**
+
+```
+{
+  "temperature": number,
+  "topP": number,
+  "seed": integer,
+  "stopSequences": [
+    string
+  ],
+  "thinkingLevel": enum (ThinkingLevel),
+  "thinkingSummaries": enum (ThinkingSummaries),
+  "maxOutputTokens": integer,
+  "imageConfig": {
+    object (ImageConfig)
+  },
+  "videoConfig": {
+    object (VideoConfig)
+  },
+  "transcriptionConfig": {
+    object (TranscriptionConfig)
+  },
+
+  // tool_choice
+  "toolChoiceMode": enum (ToolChoiceType),
+  "toolChoiceConfig": {
+    object (ToolChoiceConfig)
+  }
+  // Union type
+}
+```
+
+## ToolChoiceConfig
+
+The tool choice configuration containing allowed tools.
+
+Fields
+
+`allowedTools` `object ( `[`AllowedTools`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#AllowedTools)` )`
+
+The allowed tools.
+
+**JSON representation**
+
+```
+{
+  "allowedTools": {
+    object (AllowedTools)
+  }
+}
+```
+
+## ThinkingLevel
+
+The level of thought tokens that the model should generate.
+
+| Enums                        |                                      |
+|------------------------------|--------------------------------------|
+| `THINKING_LEVEL_UNSPECIFIED` | Default value. This value is unused. |
+| `THINKING_LEVEL_MINIMAL`     | Little to no thinking.               |
+| `THINKING_LEVEL_LOW`         | Low thinking level.                  |
+| `THINKING_LEVEL_MEDIUM`      | Medium thinking level.               |
+| `THINKING_LEVEL_HIGH`        | High thinking level.                 |
+
+## ThinkingSummaries
+
+Whether to include thought summaries in the response.
+
+| Enums                            |                                      |
+|----------------------------------|--------------------------------------|
+| `THINKING_SUMMARIES_UNSPECIFIED` | Default value. This value is unused. |
+| `THINKING_SUMMARIES_AUTO`        | Auto thinking summaries.             |
+| `THINKING_SUMMARIES_NONE`        | No thinking summaries.               |
+
+## ImageConfig
+
+> This item is deprecated!
+
+The configuration for image interaction.
+
+Fields
+
+`aspectRatio` `string`
+
+The aspect ratio of the image to generate. Supported aspect ratios: 1:1, 2:3, 3:2, 3:4, 4:3, 9:16, 16:9, 21:9.
+
+If not specified, the model will choose a default aspect ratio based on any reference images provided.
+
+`imageSize` `string`
+
+Specifies the size of generated images. Supported values are `1K` , `2K` , `4K` . If not specified, the model will use default value `1K` .
+
+**JSON representation**
+
+```
+{
+  "aspectRatio": string,
+  "imageSize": string
+}
+```
+
+## VideoConfig
+
+Configuration options for video generation.
+
+Fields
+
+`task` `enum ( `[`Task`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#Task)` )`
+
+Optional task mode for video generation. If not specified, the model automatically determines the appropriate mode based on the provided text prompt and input media.
+
+**JSON representation**
+
+```
+{
+  "task": enum (Task)
+}
+```
+
+## Task
+
+Supported video generation tasks.
+
+| Enums                |                                                                                                                                                    |
+|----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
+| `TASK_UNSPECIFIED`   | Unspecified task. The task is inferred from the input prompt and media.                                                                            |
+| `TEXT_TO_VIDEO`      | Generates video solely from a text prompt.                                                                                                         |
+| `IMAGE_TO_VIDEO`     | Generates video from one or two source images. The first image defines the starting frame, and the optional second image defines the ending frame. |
+| `REFERENCE_TO_VIDEO` | Generates video using reference media (such as images, audio, or video).                                                                           |
+| `EDIT`               | Modifies an existing input video.                                                                                                                  |
+| `EXTEND`             | Extends an existing input video.                                                                                                                   |
+
+## TranscriptionConfig
+
+Configuration for speech recognition (transcription).
+
+Fields
+
+`languageCodes[]` `string`
+
+Optional. BCP-47 language codes providing hints about the languages present in the audio. If omitted or empty, defaults to automatic language detection.
+
+`customVocabulary[]` `string`
+
+Optional. A list of custom vocabulary phrases to bias the speech recognition model toward recognizing specific terms.
+
+`timestampGranularities[] `**`(deprecated)`** `string`
+
+> This item is deprecated!
+
+Optional. The granularity of timestamps to include in the transcription output. Supported values: "word". If empty, no timestamps are generated.
+
+`diarizationMode `**`(deprecated)`** `string`
+
+> This item is deprecated!
+
+Optional. Configures speaker diarization. Supported values: "speaker".
+
+`adaptationPhrases[] `**`(deprecated)`** `string`
+
+> This item is deprecated!
+
+Optional. A list of phrases to bias the ASR model towards.
+
+**JSON representation**
+
+```
+{
+  "languageCodes": [
+    string
+  ],
+  "customVocabulary": [
+    string
+  ],
+  "timestampGranularities": [
+    string
+  ],
+  "diarizationMode": string,
+  "adaptationPhrases": [
+    string
+  ]
+}
+```
+
+## AgentInteraction
+
+Interaction for generating the completion using agents.
+
+Fields
+
+`agent` `string`
+
+The name of the `Agent` used for generating the completion.
+
+`agent_config` `Union type`
+
+Configuration parameters for the agent interaction. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+
+`dynamicConfig` `object ( `[`DynamicAgentConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#DynamicAgentConfig)` )`
+
+`deepResearchConfig` `object ( `[`DeepResearchAgentConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#DeepResearchAgentConfig)` )`
+
+`codeMenderConfig` `object ( `[`CodeMenderAgentConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#CodeMenderAgentConfig)` )`
+
+`antigravityConfig` `object ( `[`AntigravityAgentConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#AntigravityAgentConfig)` )`
+
+Antigravity agent configuration. This configuration is session-level settings that are passed to the agent runtime on a per-request basis.
+
+End of mutually exclusive fields.
+
+**JSON representation**
+
+```
+{
+  "agent": string,
+
+  // agent_config
+  "dynamicConfig": {
+    object (DynamicAgentConfig)
+  },
+  "deepResearchConfig": {
+    object (DeepResearchAgentConfig)
+  },
+  "codeMenderConfig": {
+    object (CodeMenderAgentConfig)
+  },
+  "antigravityConfig": {
+    object (AntigravityAgentConfig)
+  }
+  // Union type
+}
+```
+
+## DynamicAgentConfig
+
+Configuration for dynamic agents.
+
+Fields
+
+`config` `object ( `[`Struct`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Struct)` )`
+
+For agents that are not supported statically in the API definition.
+
+**JSON representation**
+
+```
+{
+  "config": {
+    object (Struct)
+  }
+}
+```
+
+## DeepResearchAgentConfig
+
+Configuration for the Deep Research agent.
+
+Fields
+
+`thinkingSummaries` `enum ( `[`ThinkingSummaries`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#ThinkingSummaries)` )`
+
+Whether to include thought summaries in the response.
+
+`visualization` `enum ( `[`VisualizationMode`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#VisualizationMode)` )`
+
+Whether to include visualizations in the response.
+
+`collaborativePlanning` `boolean`
+
+Enables human-in-the-loop planning for the Deep Research agent. If set to true, the Deep Research agent will provide a research plan in its response. The agent will then proceed only if the user confirms the plan in the next turn.
+
+`enableBigqueryTool` `boolean`
+
+Enables bigquery tool for the Deep Research agent.
+
+**JSON representation**
+
+```
+{
+  "thinkingSummaries": enum (ThinkingSummaries),
+  "visualization": enum (VisualizationMode),
+  "collaborativePlanning": boolean,
+  "enableBigqueryTool": boolean
+}
+```
+
+## VisualizationMode
+
+Enum for visualization mode. Eventually we will support an interactive mode where the user can choose whether to include HTML visualizations in the response.
+
+| Enums         |                                                       |
+|---------------|-------------------------------------------------------|
+| `UNSPECIFIED` | The default visualization mode. Will default to AUTO. |
+| `OFF`         | Do not include visualizations.                        |
+| `AUTO`        | Automatically include visualizations.                 |
+
+## CodeMenderAgentConfig
+
+Configuration for the CodeMender agent.
+
+Fields
+
+`sessionId` `string`
+
+Parameter for grouping multiple interactions that belong to the same CodeMender session.
+
+`sessionConfig` `object ( `[`SessionConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#SessionConfig)` )`
+
+Optional session-specific configurations to override default agent behavior.
+
+`model` `string`
+
+The name of the model to use for the CodeMender agent. One CodeMender session will only use one model.
+
+`request` `Union type`
+
+CodeMender's request type. Set exactly one of find_request/fix_request only on the first round to start a session; on subsequent rounds (e.g. submitting tool results), leave this unset and identify the session via session_id. This oneof is intentionally not a subtype_source discriminator so it can be omitted on resume rounds. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+
+`findRequest` `object ( `[`FindRequest`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#FindRequest)` )`
+
+Parameters for finding vulnerabilities.
+
+`fixRequest` `object ( `[`FixRequest`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#FixRequest)` )`
+
+Parameters for fixing vulnerabilities.
+
+End of mutually exclusive fields.
+
+**JSON representation**
+
+```
+{
+  "sessionId": string,
+  "sessionConfig": {
+    object (SessionConfig)
+  },
+  "model": string,
+
+  // request
+  "findRequest": {
+    object (FindRequest)
+  },
+  "fixRequest": {
+    object (FixRequest)
+  }
+  // Union type
+}
+```
+
+## SessionConfig
+
+The configuration of CodeMender sessions.
+
+Fields
+
+`maxRounds` `integer`
+
+The maximum number of interaction rounds the agent is allowed to perform before reaching a timeout.
+
+**JSON representation**
+
+```
+{
+  "maxRounds": integer
+}
+```
+
+## FindRequest
+
+Request parameters specific to FIND sessions, used for discovering vulnerabilities in a codebase.
+
+Fields
+
+`sourceFiles[]` `object ( `[`FileContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#FileContent)` )`
+
+A list of source files to provide as context for the scan.
+
+`findingId` `string`
+
+The identifier of a specific finding to verify. This is primarily used in VERIFY mode to focus the agent's execution-based validation on a single vulnerability.
+
+`description` `string`
+
+Additional context or custom instructions provided by the user to guide the vulnerability analysis.
+
+`mode` `enum ( `[`Mode`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#Mode)` )`
+
+The mode of the find session.
+
+**JSON representation**
+
+```
+{
+  "sourceFiles": [
+    {
+      object (FileContent)
+    }
+  ],
+  "findingId": string,
+  "description": string,
+  "mode": enum (Mode)
+}
+```
+
+## FileContent
+
+Content of a single file in the codebase.
+
+Fields
+
+`path` `string`
+
+The relative path of the file from the project root.
+
+`content` `string`
+
+The UTF-8 encoded text content of the file.
+
+**JSON representation**
+
+```
+{
+  "path": string,
+  "content": string
+}
+```
+
+## Mode
+
+Defines the depth and thoroughness of the find session.
+
+| Enums              |                                                             |
+|--------------------|-------------------------------------------------------------|
+| `MODE_UNSPECIFIED` | Default value. This value is unused.                        |
+| `MODE_SCAN`        | Fast scan using only the initial classifier.                |
+| `MODE_VERIFY`      | Performs classification followed by detailed investigation. |
+
+## FixRequest
+
+Request parameters specific to FIX sessions, used for generating and validating security patches.
+
+Fields
+
+`sourceFiles[]` `object ( `[`FileContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#FileContent)` )`
+
+A list of source files providing context for the remediation. These files are typically the ones containing the identified vulnerability.
+
+`findingId` `string`
+
+The identifier of the specific security finding to be remediated. This id maps to a previously discovered vulnerability.
+
+`description` `string`
+
+Additional context or custom instructions provided by the user to guide the patch generation process.
+
+**JSON representation**
+
+```
+{
+  "sourceFiles": [
+    {
+      object (FileContent)
+    }
+  ],
+  "findingId": string,
+  "description": string
+}
+```
+
+## AntigravityAgentConfig
+
+Configuration for the Antigravity agent runtime. Provides server-side control over the agent's execution environment and tool configuration.
+
+Fields
+
+`maxTotalTokens` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
+
+Max total tokens for the agent run.
+
+`model_config` `Union type`
+
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+
+`model` `string`
+
+The model to use for agent reasoning.
+
+End of mutually exclusive fields.
+
+**JSON representation**
+
+```
+{
+  "maxTotalTokens": string,
+
+  // model_config
+  "model": string
+  // Union type
+}
+```
+
+## EnvironmentConfig
+
+Configuration for a custom environment.
+
+Fields
+
+`sources[]` `object ( `[`Source`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#Source)` )`
+
+`environmentId` `string`
+
+Optional. The environment id for the interaction. If specified, the request will update the existing environment instead of creating a new one.
+
+`network` `Union type`
+
+Network configuration for the environment. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+
+`networkAllowlist` `object ( `[`EnvironmentNetworkEgressAllowlist`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#EnvironmentNetworkEgressAllowlist)` )`
+
+Allow only specific domains.
+
+`networkMode` `enum ( `[`NetworkMode`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#NetworkMode)` )`
+
+Network egress mode.
+
+End of mutually exclusive fields.
+
+**JSON representation**
+
+```
+{
+  "sources": [
+    {
+      object (Source)
+    }
+  ],
+  "environmentId": string,
+
+  // network
+  "networkAllowlist": {
+    object (EnvironmentNetworkEgressAllowlist)
+  },
+  "networkMode": enum (NetworkMode)
+  // Union type
+}
+```
+
+## Source
+
+A source to be mounted into the environment.
+
+Fields
+
+`type` `enum ( `[`Type`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#Type)` )`
+
+`source` `string`
+
+The source of the environment. For Cloud Storage, this is the Cloud Storage path. For GitHub, this is the GitHub path.
+
+`target` `string`
+
+Where the source should appear in the environment.
+
+`content` `string`
+
+The inline content if `type` is `INLINE` .
+
+`encoding` `string`
+
+Optional encoding for inline content (e.g. `base64` ).
+
+**JSON representation**
+
+```
+{
+  "type": enum (Type),
+  "source": string,
+  "target": string,
+  "content": string,
+  "encoding": string
+}
+```
+
+## Type
+
+| Enums              |                                                                                                                                                                                                                                                                                                         |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `TYPE_UNSPECIFIED` |                                                                                                                                                                                                                                                                                                         |
+| `GCS`              | A Cloud Storage bucket.                                                                                                                                                                                                                                                                                 |
+| `INLINE`           | Inline content.                                                                                                                                                                                                                                                                                         |
+| `REPOSITORY`       | A generic repository. The protocol prefix in the source URL identifies the provider (e.g., github://, gcs://).                                                                                                                                                                                          |
+| `SKILL_REGISTRY`   | A skill resource from the Skill Registry service. Skill: projects/{project}/locations/{location}/skills/{skill} SkillRevision: projects/{project}/locations/{location}/skills/{skill}/revisions/{revision} Support mounting all skills under a project: projects/{project}/locations/{location}/skills. |
+
+## EnvironmentNetworkEgressAllowlist
+
+Network egress configuration for the environment.
+
+Fields
+
+`allowlist[]` `object ( `[`EgressRule`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#EgressRule)` )`
+
+List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
+
+**JSON representation**
+
+```
+{
+  "allowlist": [
+    {
+      object (EgressRule)
+    }
+  ]
+}
+```
+
+## EgressRule
+
+A single domain allowlist rule with optional header injection.
+
+Fields
+
+`domain` `string`
+
+domain to allow outbound requests to. Supports wildcards (e.g. '\*.googleapis.com'). Use '\*' to allow all domains.
+
+`transform` `map (key: string, value: string)`
+
+headers to inject into requests matching this rule. Key: header name (e.g., "Authorization"). value: header value (e.g., "Bearer your-token").
+
+**JSON representation**
+
+```
+{
+  "domain": string,
+  "transform": {
+    string: string,
+    ...
+  }
+}
+```
+
+## NetworkMode
+
+Network egress mode for non-allowlist configurations.
+
+| Enums                      |                                |
+|----------------------------|--------------------------------|
+| `NETWORK_MODE_UNSPECIFIED` | Default value. Unused.         |
+| `DISABLED`                 | All network egress is blocked. |
+
+## LocalEnvironmentConfig
+
+This type has no fields.
+
+Configuration for an environment that lives on the client connection rather than in a server-managed sandbox.
+
+When set (via Interaction.local_environment), the agent's filesystem and shell are treated as living on the client: the agent's built-in environment operations (e.g. reading/listing/editing files and running commands) are suspended on the server and yielded back to the client to execute, with their results returned on a subsequent turn. This is mutually exclusive with a server-managed `EnvironmentConfig` (remoteEnvironment), since the environment is either on the client or in a server sandbox, never both.
+
+This governs only the agent's built-in environment. client-declared function tools are always executed on the client regardless of this field.
 
 ## SafetySetting
 

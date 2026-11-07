@@ -14,9 +14,22 @@ This page shows how to make streaming and non-streaming calls to open models tha
 
 ## Before you begin
 
-To use open models with Gemini Enterprise Agent Platform, you must perform the following steps. The Agent Platform API ( `aiplatform.googleapis.com` ) must be enabled to use Gemini Enterprise Agent Platform. If you already have an existing project with the Agent Platform API enabled, you can use that project instead of creating a new project.
+To use open models with Gemini Enterprise Agent Platform, you must perform the following steps. The Agent Platform API ( `aiplatform.googleapis.com` ) and the Cloud Commerce Consumer Procurement API ( `cloudcommerceconsumerprocurement.googleapis.com` ) must be enabled to use open models on Gemini Enterprise Agent Platform. If you already have an existing project with these APIs enabled, you can use that project instead of creating a new project.
 
 1.  Go to the Model Garden model card for the model you want to use, then click **Enable** to enable the model for use in your project.
+
+### Required roles
+
+To get the permissions that you need to enable and use open models, ask your administrator to grant you the following IAM roles on your project:
+
+- [Agent Platform User](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user) ( `roles/aiplatform.user` )
+- [Consumer Procurement Entitlement Manager](https://docs.cloud.google.com/iam/docs/roles-permissions/consumerprocurement#consumerprocurement.entitlementManager) ( `roles/consumerprocurement.entitlementManager` )
+
+For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
+
+You might also be able to get the required permissions through [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined) .
+
+For more information about granting permissions and configuring organization policies for open models, see [Grant user access to open models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/grant-access-open-models) .
 
 ## Make a streaming call to an open model
 
@@ -44,7 +57,7 @@ for chunk in stream:
     print(chunk.choices[0].delta.content or "", end="")
 ```
 
-- ` MODEL ` : The model name you want to use, for example `deepseek-ai/deepseek-v3.1-maas` .
+- ` MODEL ` : The model name you want to use, for example `openai/gpt-oss-120b-maas` .
 
 - ` ROLE ` : The role associated with a message. You can specify a `user` or an `assistant` . The first message must use the `user` role. The models operate with alternating `user` and `assistant` turns. If the final message uses the `assistant` role, then the response content continues immediately from the content in that message. You can use this to constrain part of the model's response.
 
@@ -60,9 +73,9 @@ After you set up your environment, you can use REST to test a text prompt. The f
 
 Before using any of the request data, make the following replacements:
 
-- ` LOCATION ` : A region that supports open models.
+- ` PROJECT_ID ` : Your Google Cloud project ID.
 
-- ` MODEL ` : The model name you want to use, for example `deepseek-ai/deepseek-v2` .
+- ` MODEL ` : The model name you want to use, for example `openai/gpt-oss-120b-maas` .
 
 - ` ROLE ` : The role associated with a message. You can specify a `user` or an `assistant` . The first message must use the `user` role. The models operate with alternating `user` and `assistant` turns. If the final message uses the `assistant` role, then the response content continues immediately from the content in that message. You can use this to constrain part of the model's response.
 
@@ -77,7 +90,7 @@ Before using any of the request data, make the following replacements:
 HTTP method and URL:
 
 ```
-POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions
+POST https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/endpoints/openapi/chat/completions
 ```
 
 Request JSON body:
@@ -109,7 +122,7 @@ curl -X POST \
      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
      -H "Content-Type: application/json; charset=utf-8" \
      -d @request.json \
-     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions"
+     "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/endpoints/openapi/chat/completions"
 ```
 
 #### PowerShell
@@ -127,7 +140,7 @@ Invoke-WebRequest `
     -Headers $headers `
     -ContentType: "application/json; charset=utf-8" `
     -InFile request.json `
-    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions" | Select-Object -Expand Content
+    -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/endpoints/openapi/chat/completions" | Select-Object -Expand Content
 ```
 
 You should receive a JSON response similar to the following.
@@ -205,7 +218,7 @@ completion = client.chat.completions.create(
 print(completion.choices[0].message)
 ```
 
-- ` MODEL ` : The model name you want to use, for example `deepseek-ai/deepseek-v3.1-maas` .
+- ` MODEL ` : The model name you want to use, for example `openai/gpt-oss-120b-maas` .
 
 - ` ROLE ` : The role associated with a message. You can specify a `user` or an `assistant` . The first message must use the `user` role. The models operate with alternating `user` and `assistant` turns. If the final message uses the `assistant` role, then the response content continues immediately from the content in that message. You can use this to constrain part of the model's response.
 
@@ -221,9 +234,9 @@ After you set up your environment, you can use REST to test a text prompt. The f
 
 Before using any of the request data, make the following replacements:
 
-- ` LOCATION ` : A region that supports open models.
+- ` PROJECT_ID ` : Your Google Cloud project ID.
 
-- ` MODEL ` : The model name you want to use, for example `deepseek-ai/deepseek-v2` .
+- ` MODEL ` : The model name you want to use, for example `openai/gpt-oss-120b-maas` .
 
 - ` ROLE ` : The role associated with a message. You can specify a `user` or an `assistant` . The first message must use the `user` role. The models operate with alternating `user` and `assistant` turns. If the final message uses the `assistant` role, then the response content continues immediately from the content in that message. You can use this to constrain part of the model's response.
 
@@ -238,7 +251,7 @@ Before using any of the request data, make the following replacements:
 HTTP method and URL:
 
 ```
-POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions
+POST https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/endpoints/openapi/chat/completions
 ```
 
 Request JSON body:
@@ -270,7 +283,7 @@ curl -X POST \
      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
      -H "Content-Type: application/json; charset=utf-8" \
      -d @request.json \
-     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions"
+     "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/endpoints/openapi/chat/completions"
 ```
 
 #### PowerShell
@@ -288,7 +301,7 @@ Invoke-WebRequest `
     -Headers $headers `
     -ContentType: "application/json; charset=utf-8" `
     -InFile request.json `
-    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions" | Select-Object -Expand Content
+    -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/endpoints/openapi/chat/completions" | Select-Object -Expand Content
 ```
 
 You should receive a JSON response similar to the following.

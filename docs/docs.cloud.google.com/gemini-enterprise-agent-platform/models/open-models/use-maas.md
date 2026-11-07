@@ -26,7 +26,7 @@ Before you can use a MaaS model, you must enable its API. To do this, go to the 
 
 ## Call the model using the Google Gen AI SDK for Python
 
-The following example calls the Llama 3.3 model using the Google Gen AI SDK for Python.
+The following example calls the Llama 4 Maverick model using the Google Gen AI SDK for Python.
 
 ```
 from google import genai
@@ -34,7 +34,7 @@ from google.genai import types
 
 PROJECT_ID="PROJECT_ID"
 LOCATION="LOCATION"
-MODEL="meta/llama-3.3-70b-instruct-maas"  # The model ID from Model Garden with "API Service"
+MODEL="meta/llama-4-maverick-17b-128e-instruct-maas"  # The model ID from Model Garden with "API Service"
 
 # Define the prompt to send to the model.
 prompt = "What is the distance between earth and moon?"

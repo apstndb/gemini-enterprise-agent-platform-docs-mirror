@@ -12,7 +12,7 @@ For more conceptual information about function calling, see [Introduction to fun
 
 ## Use function calling with the Responses API
 
-> **Note:** Setting `store` to `true` and the `previous_response_id` parameter for stateful API calls are not supported for Grok models at this time, and `store` defaults to `false` . Support is planned for an upcoming release. When support is added, the default behavior will change to `store: true` , and `previous_response_id` will be enabled. If you want to prevent your responses from being stored after this change, explicitly set `store` to `false` (or `False` in Python) in your requests.
+The default value for `store` is `false` , so requests are stateless unless you set `store` to `true` (or `True` in Python). To store responses, see [Make a stateful call to the Responses API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/responses#stateful) .
 
 The following templates show how to use function calling with the Responses API:
 
@@ -140,7 +140,7 @@ from openai import OpenAI
 client = OpenAI()
 
 response = client.responses.create(
-    model="xai/grok-4.20-reasoning",
+    model="xai/grok-4.7",
     input=[
         {"role": "user", "content": "What is the temperature in San Francisco?"}
     ],
@@ -168,11 +168,11 @@ print(response)
 
 ```
 curl -X POST \
--H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
 -H "Content-Type: application/json" \
 https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/endpoints/openapi/responses -d \
 '{
-  "model": "xai/grok-4.20-reasoning",
+  "model": "xai/grok-4.7",
   "input": [
     {"role": "user", "content": "What is the temperature in San Francisco?"}
   ],
@@ -203,25 +203,25 @@ The following is an example of what the model output could look like:
 ```
 {
   "background": false,
-  "completed_at": 1778893466,
-  "created_at": 1778893464,
+  "completed_at": 1793837405,
+  "created_at": 1793837405,
   "error": null,
   "frequency_penalty": 0,
-  "id": "mMIHaqfCCIjUmAb_mMIHaqfCCIjUmAb_6LbAAg",
+  "id": "01740aca-cb19-4ced-a0ad-1d9d66823486",
   "incomplete_details": null,
   "instructions": null,
   "max_output_tokens": null,
   "max_tool_calls": null,
   "metadata": {
-    "system_fingerprint": "fp_39c5j0a3e9"
+    "system_fingerprint": "fp_grok47_0"
   },
-  "model": "xai/grok-4.20-reasoning",
+  "model": "xai/grok-4.7",
   "object": "response",
   "output": [
     {
       "arguments": "{\"location\":\"San Francisco\"}",
-      "call_id": "call-81ad585c-9e8d-47bd-85ef-2ced8a8fc898-0",
-      "id": "fc_mMIHaqfCCIjUmAb_6LbAAg",
+      "call_id": "call-bf667907-754b-4848-a95b-d2fae296d56e-0",
+      "id": "01740aca-cb19-4ced-a0ad-1d9d66823486",
       "name": "get_temperature",
       "status": "completed",
       "type": "function_call"
@@ -232,13 +232,13 @@ The following is an example of what the model output could look like:
   "previous_response_id": null,
   "prompt_cache_key": null,
   "reasoning": {
-    "effort": "medium",
+    "effort": "high",
     "summary": "detailed"
   },
   "safety_identifier": null,
   "service_tier": "default",
   "status": "completed",
-  "store": true,
+  "store": false,
   "temperature": 0.7,
   "text": {
     "format": {
@@ -278,22 +278,26 @@ The following is an example of what the model output could look like:
   "top_p": 0.95,
   "truncation": "disabled",
   "usage": {
+    "context_details": {
+      "input_tokens": 325,
+      "output_tokens": 31
+    },
     "extra_properties": {
       "google": {
         "traffic_type": "ON_DEMAND"
       }
     },
-    "input_tokens": 462,
+    "input_tokens": 325,
     "input_tokens_details": {
-      "cached_tokens": 320
+      "cached_tokens": 0
     },
     "num_server_side_tools_used": 0,
     "num_sources_used": 0,
-    "output_tokens": 187,
+    "output_tokens": 31,
     "output_tokens_details": {
-      "reasoning_tokens": 175
+      "reasoning_tokens": 18
     },
-    "total_tokens": 649
+    "total_tokens": 356
   },
   "user": null
 }
@@ -485,7 +489,7 @@ response = client.chat.completions.create(
 
 ```
 curl -X POST \
--H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
 -H "Content-Type: application/json" \
 https://us-central1-aiplatform.googleapis.com/v1/projects/sample-project/locations/us-central1/endpoints/openapi/chat/completions -d \
 '{

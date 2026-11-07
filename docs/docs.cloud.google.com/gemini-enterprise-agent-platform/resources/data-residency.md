@@ -116,28 +116,12 @@ To learn what capabilities support data residency, see [Supported capabilities](
 
 | Model                               | US multi-region | EU multi-region | Singapore (asia-southeast1) |
 |-------------------------------------|-----------------|-----------------|-----------------------------|
-| DeepSeek-OCR                        |                 |                 |                             |
-| DeepSeek R1 (0528)                  |                 |                 |                             |
-| DeepSeek-V3.1                       |                 |                 |                             |
-| DeepSeek-V3.2                       |                 |                 |                             |
 | DeepSeek-V4.1-Flash                 |                 |                 |                             |
 | Gemma 4 26B A4B IT                  |                 |                 |                             |
-| GLM 4.7                             |                 |                 |                             |
-| GLM 5                               |                 |                 |                             |
 | GLM 5.2                             |                 |                 |                             |
 | gpt-oss 120B                        |                 |                 |                             |
-| gpt-oss 20B                         |                 |                 |                             |
-| Kimi K2 Thinking                    |                 |                 |                             |
-| Llama 3.3 70B (Preview)             |                 |                 |                             |
 | Llama 4 Maverick 17B-128E (Preview) |                 |                 |                             |
 | Llama 4 Scout 17B-16E (Preview)     |                 |                 |                             |
-| MiniMax M2                          |                 |                 |                             |
-| Multilingual E5 Large               |                 |                 |                             |
-| Multilingual E5 Small               |                 |                 |                             |
-| Qwen3 235B                          |                 |                 |                             |
-| Qwen3 Coder                         |                 |                 |                             |
-| Qwen3-Next-80B Instruct             |                 |                 |                             |
-| Qwen3-Next-80B Thinking             |                 |                 |                             |
 
 ## What's next
 

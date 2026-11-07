@@ -6,6 +6,8 @@ description: Learn about Gemini Omni 1.1 Flash Preview, which is optimized for v
 data_source: docs.cloud.google.com
 ---
 
+> **Deprecated:** Gemini Omni 1.1 Flash ( `gemini-omni-1.1-flash-preview` ) is deprecated. Migrate to [Gemini Omni 1.2 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-2-flash) ( `gemini-omni-1.2-flash` ).
+
 > **Preview**
 >
 > This product or feature is a Generative AI Preview offering, subject to the "Pre-GA Offerings Terms" of the [Google Cloud Service Specific Terms](https://cloud.google.com/terms/service-terms) . For this Generative AI Preview offering, Customers may elect to use it for production or commercial purposes, or disclose Generated Output to third-parties, and may process personal data as outlined in the [Cloud Data Processing Addendum](https://cloud.google.com/terms/data-processing-addendum) , subject to the obligations and restrictions described in the agreement under which you access Google Cloud.

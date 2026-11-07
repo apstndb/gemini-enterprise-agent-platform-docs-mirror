@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/use-open-models
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/use-open-models
 title: Gemini Enterprise Agent Platform open models for MaaS
-description: Understand Gemini Enterprise Agent Platform's managed open models as a service (MaaS). Discover, deploy, and use serverless open models, including embedding models.
+description: Understand Gemini Enterprise Agent Platform's managed open models as a service (MaaS). Discover, deploy, and use serverless open models.
 data_source: docs.cloud.google.com
 ---
 
@@ -25,13 +25,6 @@ The following open models are offered as managed APIs on Gemini Enterprise Agent
 | Llama 4 Maverick 17B-128E | Language, Vision       | The largest Llama 4 model that has coding, reasoning, and image capabilities. Llama 4 Maverick 17B-128E is a multimodal model that uses the Mixture-of-Experts (MoE) architecture and early fusion.                                                                  | [Model card](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama-4-maverick-17b-128e-instruct-maas) |
 | Llama 4 Scout 17B-16E     | Language, Vision       | Llama 4 Scout 17B-16E delivers high-performance results for its size class, outperforming other open and proprietary models on several benchmarks. Llama 4 Scout 17B-16E is a multimodal model that uses the Mixture-of-Experts (MoE) architecture and early fusion. | [Model card](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama-4-maverick-17b-128e-instruct-maas) |
 
-The following open embedding models are offered as managed APIs on Gemini Enterprise Agent Platform Model Garden (MaaS):
-
-| Model name            | Description                                                                       | Output dimensions | Max sequence length | Supported text languages                                                                         | Quickstart                                                                                                                         |
-|-----------------------|-----------------------------------------------------------------------------------|-------------------|---------------------|--------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| multilingual-e5-small | Part of the E5 family of text embedding models. Small variant contains 12 layers. | Up to 384         | 512 tokens          | [Supported languages](https://huggingface.co/intfloat/multilingual-e5-small#supported-languages) | [Model card](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas) |
-| multilingual-e5-large | Part of the E5 family of text embedding models. Large variant contains 24 layers. | Up to 1024        | 512 tokens          | [Supported languages](https://huggingface.co/intfloat/multilingual-e5-small#supported-languages) | [Model card](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas) |
-
 ## Open model regulatory compliance
 
 The [certifications](https://cloud.google.com/security/compliance/services-in-scope/) for [Generative AI on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models) continue to apply when open models are used as a managed API using Gemini Enterprise Agent Platform. If you need details about the models themselves, additional information can be found in the respective model card, or you can contact the respective model publisher.
@@ -52,15 +45,8 @@ The supported type of caching is implicit caching, which is automatic caching th
 
 ### Supported models
 
-- qwen3-coder-480b-a35b-instruct-maas
-- kimi-k2-thinking-maas
-- minimax-m2-maas
-- gpt-oss-20b-maas
-- deepseek-v3.1-maas
-- deepseek-v3.2-maas
 - deepseek-v4.1-flash-maas
 - gemma-4-26b-a4b-it-maas
-- glm-5-maas
 - glm-5.2-maas
 
 The [`cachedContentTokenCount`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GenerateContentResponse) field in your response's metadata indicates the number of tokens in the cached part of your input. Caching requests must contain a minimum of 4096 tokens (this minimum is subject to change during Preview).

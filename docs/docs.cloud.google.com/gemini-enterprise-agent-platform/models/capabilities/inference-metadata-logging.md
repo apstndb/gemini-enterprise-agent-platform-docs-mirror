@@ -365,7 +365,7 @@ SELECT
   SUM(CAST(JSON_VALUE(json_payload.generateContentDetails.usageMetadata.candidatesTokenCount) AS INT64)) AS output_tokens
 FROM `PROJECT_ID.global._Default._Default`
 WHERE log_id = "aiplatform.googleapis.com/inference_request"
-  AND >timestamp  TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 24 HOUR)
+  AND timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 24 HOUR)
 GROUP BY region, model, traffic_type
 ORDER BY requests DESC
 ```
@@ -381,8 +381,8 @@ SELECT
   SUM(CAST(JSON_VALUE(json_payload.provisionedThroughput.ptChargedInputTokenCount)  AS INT64)) AS pt_input_tokens,
   SUM(CAST(JSON_VALUE(json_payload.provisionedThroughput.ptChargedOutputTokenCount) AS INT64)) AS pt_output_tokens
 FROM `PROJECT_ID.global._Default._Default`
-WHERE log_id = "aiplatform.googleapis.com/inference_>request"
-  AND timestamp  TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 24 HOUR)
+WHERE log_id = "aiplatform.googleapis.com/inference_request"
+  AND timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 24 HOUR)
 GROUP BY region, pt_project
 ORDER BY pt_input_tokens DESC
 ```
@@ -396,8 +396,8 @@ SELECT
   COUNT(*) AS requests,
   SUM(CAST(JSON_VALUE(json_payload.generateContentDetails.usageMetadata.totalTokenCount) AS INT64)) AS total_tokens
 FROM `PROJECT_ID.global._Default._Default`
-WHERE log_id = "aiplatform.googleapis.com/inference_request&qu>ot;
-  AND timestamp  TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 7 DAY)
+WHERE log_id = "aiplatform.googleapis.com/inference_request"
+  AND timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 7 DAY)
 GROUP BY team
 ORDER BY total_tokens DESC
 ```
@@ -424,8 +424,8 @@ SELECT
       + 0.75 * IFNULL(CAST(JSON_VALUE(json_payload.rawPredictDetails.usageMetadata.cache_creation.ephemeral_1h_input_tokens) AS INT64), 0)
       + 5    * IFNULL(CAST(JSON_VALUE(json_payload.rawPredictDetails.usageMetadata.output_tokens) AS INT64), 0), 0)) AS claude_consumed_tokens
 FROM `PROJECT_ID.global._Default._Default`
-WHERE log_id = "aiplatform.googleapis.com/inference_>request"
-  AND timestamp  TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 24 HOUR)
+WHERE log_id = "aiplatform.googleapis.com/inference_request"
+  AND timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 24 HOUR)
 GROUP BY minute_ts
 ORDER BY minute_ts DESC
 ```
@@ -451,7 +451,7 @@ SELECT
 FROM `PROJECT_ID.global._Default._Default`
 WHERE log_id = "aiplatform.googleapis.com/inference_request"
   AND JSON_VALUE(json_payload.trafficType) IS NOT NULL
-  AND >timestamp  TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 7 DAY)
+  AND timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 7 DAY)
 GROUP BY model, traffic_type
 ORDER BY model, traffic_type
 ```
@@ -471,8 +471,8 @@ WITH entries AS (
      WHERE LOWER(v) IN ("priority", "flex")
      LIMIT 1)                                 AS requested
   FROM `PROJECT_ID.global._Default._Default`
-  WHERE log_id = "aiplatform.googleapis.com/in>ference_request"
-    AND timestamp  TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 7 DAY)
+  WHERE log_id = "aiplatform.googleapis.com/inference_request"
+    AND timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 7 DAY)
 )
 SELECT
   model,
@@ -504,8 +504,8 @@ WITH entries AS (
       WHERE LOWER(v) IN ("dedicated", "shared")) AS routed_by_header
   FROM `PROJECT_ID.global._Default._Default`
   WHERE log_id = "aiplatform.googleapis.com/inference_request"
-    >AND severity = "INFO"
-    AND timestamp  TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 24 HOUR)
+    AND severity = "INFO"
+    AND timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 24 HOUR)
 ),
 pt_models AS (
   SELECT DISTINCT region, model FROM entries WHERE traffic_type = "PROVISIONED_THROUGHPUT"
@@ -517,9 +517,9 @@ SELECT
   COUNTIF(e.traffic_type = "PROVISIONED_THROUGHPUT")              AS pt_requests,
   COUNTIF(e.traffic_type = "ON_DEMAND" AND NOT e.routed_by_header) AS spillover_requests
 FROM entries AS e
-JOIN pt_models USING >(region, model)
+JOIN pt_models USING (region, model)
 GROUP BY minute_ts, e.region, e.model
-HAVING spillover_requests  0
+HAVING spillover_requests > 0
 ORDER BY minute_ts DESC
 ```
 
@@ -536,8 +536,8 @@ SELECT
     CAST(REGEXP_REPLACE(JSON_VALUE(json_payload.requestDuration), r"s$", "") AS FLOAT64),
     100)[OFFSET(95)] AS p95_latency_seconds
 FROM `PROJECT_ID.global._Default._Default`
-WHERE log_id = "aiplatform.googleapis.com/>inference_request"
-  AND timestamp  TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 6 HOUR)
+WHERE log_id = "aiplatform.googleapis.com/inference_request"
+  AND timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 6 HOUR)
 GROUP BY region, minute_ts
 ORDER BY minute_ts DESC
 ```

@@ -2,13 +2,13 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/llama/llama4-maverick
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/llama/llama4-maverick
 title: Llama 4 Maverick 17B-128E
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Learn about Llama 4 Maverick 17B-128E on Gemini Enterprise Agent Platform, including Managed API (MaaS) specifications, FP8 serving precision, and Model Garden self-deployment options.
 data_source: docs.cloud.google.com
 ---
 
-Llama 4 Maverick 17B-128E is the largest and most capable Llama 4 model that offers coding, reasoning, and image capabilities. It features Mixture-of-Experts (MoE) architecture with 17 billion active parameters out of 400 billion total parameters and 128 experts. Llama 4 Maverick 17B-128E uses alternating dense and MoE layers, where each token activates a shared expert plus one of the 128 routed experts. The model is pretrained on 200 languages and optimized for high-quality chat interactions through a refined post-training pipeline.
+Llama 4 Maverick 17B-128E is the largest Llama 4 model and offers coding, reasoning, and image capabilities. It features Mixture-of-Experts (MoE) architecture with 17 billion active parameters out of 400 billion total parameters and 128 experts. Llama 4 Maverick 17B-128E uses alternating dense and MoE layers, where each token activates a shared expert plus one of the 128 routed experts. The model is pretrained on 200 languages and optimized for high-quality chat interactions through a refined post-training pipeline.
 
-Llama 4 Maverick 17B-128E is multimodal and is suited for advanced image captioning, analysis, precise image understanding, visual questions and answers, creative text generation, general-purpose AI assistants, and sophisticated chatbots requiring top-tier intelligence and image understanding.
+Llama 4 Maverick 17B-128E is multimodal and is suited for image captioning, visual analysis, visual questions and answers, creative text generation, general-purpose AI assistants, and complex chat applications.
 
 ## Managed API (MaaS) specifications
 
@@ -111,10 +111,22 @@ Not supported
 
 ## Deploy as a self-deployed model
 
-To self-deploy the model, navigate to the [Llama 4 Maverick 17B-128E model card](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama4) in the Model Garden console and click **Deploy model** . For more information about deploying and using partner models, see [Deploy a partner model and make prediction requests](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/use-models#deploy_a_partner_model_and_make_prediction_requests) .
+To self-deploy the model, navigate to the [Llama 4 Maverick 17B-128E model card](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama4) in the Model Garden console and click **Deploy model** . When you self-deploy from Model Garden, you can select from the following model variants:
+
+- `llama-4-maverick-17b-128e` : Pretrained model.
+
+- `llama-4-maverick-17b-128e-instruct` : Instruction-tuned model in BF16 precision.
+
+- `llama-4-maverick-17b-128e-instruct-fp8` : Instruction-tuned model with FP8 quantization.
+
+For more information about deploying and using partner models, see [Deploy a partner model and make prediction requests](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/use-models#deploy_a_partner_model_and_make_prediction_requests) .
 
 ## Considerations
 
+Keep the following considerations in mind when using Llama 4 Maverick 17B-128E:
+
+- The managed MaaS endpoint ( `llama-4-maverick-17b-128e-instruct-maas` ) serves the instruction-tuned model in fixed FP8 precision. You can't change the quantization format on the managed endpoint; to deploy the BF16 or pretrained variant, [self-deploy the model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/llama/llama4-maverick#self-deploy) from Model Garden.
+
 - You can include a maximum of three images per request.
-- The MaaS endpoint doesn't use Llama Guard, unlike previous versions. To use Llama Guard, deploy Llama Guard from Model Garden and then send the prompts and responses to that endpoint. However, compared to Llama 4, Llama Guard has a more limited context (128,000) and can only process requests with a single image at the beginning of the prompt.
-- Batch predictions aren't supported.
+
+- The MaaS endpoint doesn't use Llama Guard, unlike earlier Llama versions. To use Llama Guard, deploy Llama Guard from Model Garden and then send the prompts and responses to that endpoint. Compared to Llama 4, Llama Guard has a smaller context window (128,000 tokens) and only accepts requests with a single image at the beginning of the prompt.

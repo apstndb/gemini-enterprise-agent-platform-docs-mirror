@@ -153,7 +153,7 @@ After you've created your memory-enabled agent, you need to link it to a memory 
 
 > **Note:** Skip this section if you already have an existing Memory Bank instance.
 
-You first need to create a Memory Bank instance. This step is optional if you're using Agent Runtime to deploy your agent. For more information on customizing your Memory Bank behavior, see the [Configure your Memory Bank instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#memory-bank-config) section on the Set up Memory Bank page.
+You first need to create a Memory Bank instance. This step is optional if you're using Agent Runtime to deploy your agent. You can create an instance on the **Memory Bank** page in the Google Cloud console (and click **Link to an agent** \> **Use with ADK** for prefilled setup code) or with the Agent Platform SDK. For more information on customizing your Memory Bank behavior, see [Configure your Memory Bank instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#memory-bank-config) .
 
 ```
 import agentplatform

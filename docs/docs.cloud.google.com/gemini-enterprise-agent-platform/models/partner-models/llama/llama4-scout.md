@@ -2,11 +2,11 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/llama/llama4-scout
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/llama/llama4-scout
 title: Llama 4 Scout 17B-16E
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Learn about Llama 4 Scout 17B-16E on Gemini Enterprise Agent Platform, including Managed API (MaaS) specifications, FP8 serving precision, and Model Garden self-deployment options.
 data_source: docs.cloud.google.com
 ---
 
-Llama 4 Scout 17B-16E delivers state-of-the-art results for its size class that outperforms previous Llama generations and other open and proprietary models on several benchmarks. It features MoE architecture with 17 billion active parameters out of the 109 billion total parameters and 16 experts.
+Llama 4 Scout 17B-16E is a high-efficiency Mixture-of-Experts (MoE) model that features 17 billion active parameters out of 109 billion total parameters and 16 experts.
 
 Llama 4 Scout 17B-16E is suited for retrieval tasks within long contexts and tasks that demand reasoning over large amounts of information, such as summarizing multiple large documents, analyzing extensive user interaction logs for personalization, and reasoning across large codebases.
 
@@ -111,10 +111,20 @@ Not supported
 
 ## Deploy as a self-deployed model
 
-To self-deploy the model, navigate to the [Llama 4 Scout 17B-16E model card](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama4) in the Model Garden console and click **Deploy model** . For more information about deploying and using partner models, see [Deploy a partner model and make prediction requests](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/use-models#deploy_a_partner_model_and_make_prediction_requests) .
+To self-deploy the model, navigate to the [Llama 4 Scout 17B-16E model card](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama4) in the Model Garden console and click **Deploy model** . When you self-deploy from Model Garden, you can select from the following model variants:
+
+- `llama-4-scout-17b-16e` : Pretrained model.
+
+- `llama-4-scout-17b-16e-instruct` : Instruction-tuned model.
+
+For more information about deploying and using partner models, see [Deploy a partner model and make prediction requests](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/use-models#deploy_a_partner_model_and_make_prediction_requests) .
 
 ## Considerations
 
+Keep the following considerations in mind when using Llama 4 Scout 17B-16E:
+
+- The managed MaaS endpoint ( `llama-4-scout-17b-16e-instruct-maas` ) serves the instruction-tuned model in fixed FP8 precision. You can't change the quantization format on the managed endpoint; to deploy a custom or pretrained variant, [self-deploy the model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/llama/llama4-scout#self-deploy) from Model Garden.
+
 - You can include a maximum of three images per request.
-- The MaaS endpoint doesn't use Llama Guard, unlike previous versions. To use Llama Guard, deploy Llama Guard from Model Garden and then send the prompts and responses to that endpoint. However, compared to Llama 4, Llama Guard has a more limited context (128,000) and can only process requests with a single image at the beginning of the prompt.
-- Batch predictions aren't supported.
+
+- The MaaS endpoint doesn't use Llama Guard, unlike earlier Llama versions. To use Llama Guard, deploy Llama Guard from Model Garden and then send the prompts and responses to that endpoint. Compared to Llama 4, Llama Guard has a smaller context window (128,000 tokens) and only accepts requests with a single image at the beginning of the prompt.

@@ -2,13 +2,13 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories
 title: Fetch memories
-description: Retrieve generated and uploaded memories from Memory Bank. Use `GetMemories`, `ListMemories`, or scope-based retrieval with similarity search.
+description: Retrieve generated and uploaded memories from Agent Platform Memory Bank. Use `GetMemories`, `ListMemories`, or scope-based retrieval with similarity search.
 data_source: docs.cloud.google.com
 ---
 
-Memory Bank lets you retrieve stored memories using different operations depending on your needs. You can fetch a single memory, list all memories, or perform scope-based retrieval with similarity search.
+Agent Platform Memory Bank lets you retrieve stored memories using different operations depending on your needs. You can fetch a single memory, list and filter memories, or perform scope-based retrieval with similarity search.
 
-This document explains how to use these fetch operations using the Agent Platform SDK.
+This document explains how to fetch and inspect memories in the Google Cloud console or with the Agent Platform SDK.
 
 If you use the Agent Development Kit (ADK), your agent can automatically orchestrate these calls for you. See [Quickstart with ADK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/adk-quickstart) .
 
@@ -24,7 +24,7 @@ You have the following options to fetch generated memories:
 
 - [Retrieve memories](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories#scope-based) : Using the Agent Platform SDK, retrieve memories using scope-based memory retrieval. Retrieve memories using similarity search or all memories within the scope.
 
-- [List memories](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories#list-memories) : List memories using the Agent Platform SDK.
+- [List memories](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories#list-memories) : List and filter memories in the Google Cloud console or with the Agent Platform SDK.
 
 ### Get memory
 
@@ -143,9 +143,31 @@ Replace the following:
 
 ### List memories
 
+You can list and inspect memories in the Google Cloud console or with the Agent Platform SDK.
+
+### Console
+
+To view and filter memories in the Google Cloud console (requires `aiplatform.memories.list` , included in `roles/aiplatform.memoryViewer` and `roles/aiplatform.memoryUser` ):
+
+1.  Open your instance in the Google Cloud console:
+
+    - **Standalone Memory Bank instance** : Go to the Agent Platform **Memory Bank** page and click your instance.
+
+    - **Deployed agent on Agent Runtime** : Go to the Agent Platform **Deployments** page and click your agent.
+
+2.  Open the **Memories** tab. By default, the **Unstructured** view displays a table of memories ( **Scope** , **Resource Name** , **Fact** , **Created** , and **Updated** ).
+
+3.  Optional: Filter or manage memories:
+
+    - **Filter by scope** : Type a `key:value` pair (such as `user_id:123` ) in the filter bar, or click a scope chip in any row.
+    - **View structured profiles** : Switch to **Structured** and select a complete scope, or apply a scope filter in **Unstructured** and click **Search structured memories** . For details, see [Memory Profiles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/profiles#inspect-profiles) .
+    - **Edit, inspect revisions, or delete** : Click the **more actions** menu ( more_vert ) on a memory row and select **Edit** , **View revisions** , or **Delete** .
+
+### Agent Platform SDK
+
 > **Warning:** Calling `list()` on a `ListMemories` response triggers automatic pagination across all pages. For large collections, use `response.page` directly to fetch items one page at a time and prevent unexpected calls.
 
-Use `ListMemories` to memories from your Memory Bank without scope-based filtering. For scope-based retrieval, use [`RetrieveMemories`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories#scope-based) instead. `ListMemories` is not recommended for low-latency retrieval.
+Use `ListMemories` to list memories from your Memory Bank without scope-based filtering. For scope-based retrieval, use [`RetrieveMemories`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories#scope-based) instead. `ListMemories` isn't recommended for low-latency retrieval.
 
 ```
 pager = client.memory_banks.memories.list(name=memory_bank.name)

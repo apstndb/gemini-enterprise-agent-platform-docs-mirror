@@ -12,7 +12,7 @@ For more conceptual information about the structured output capability, see [Int
 
 ## Use structured outputs with the Responses API
 
-> **Note:** Setting `store` to `true` and the `previous_response_id` parameter for stateful API calls are not supported for Grok models at this time, and `store` defaults to `false` . Support is planned for an upcoming release. When support is added, the default behavior will change to `store: true` , and `previous_response_id` will be enabled. If you want to prevent your responses from being stored after this change, explicitly set `store` to `false` (or `False` in Python) in your requests.
+The default value for `store` is `false` , so requests are stateless unless you set `store` to `true` (or `True` in Python). To store responses, see [Make a stateful call to the Responses API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/responses#stateful) .
 
 The following templates show how to use structured outputs with the Responses API:
 
@@ -135,7 +135,7 @@ from openai import OpenAI
 client = OpenAI()
 
 response = client.responses.create(
-    model="xai/grok-4.20-reasoning",
+    model="xai/grok-4.7",
     input="Extract: John Doe is 30.",
     text={
         "format": {
@@ -162,11 +162,11 @@ print(response)
 
 ```
 curl -X POST \
--H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
 -H "Content-Type: application/json" \
 https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/endpoints/openapi/responses -d \
 '{
-  "model": "xai/grok-4.20-reasoning",
+  "model": "xai/grok-4.7",
   "input": "Extract: John Doe is 30.",
   "text": {
     "format": {
@@ -204,19 +204,19 @@ The following is an example of what the model output could look like:
 ```
 {
   "background": false,
-  "completed_at": 1779159186,
-  "created_at": 1779159184,
+  "completed_at": 1793837914,
+  "created_at": 1793837914,
   "error": null,
   "frequency_penalty": 0,
-  "id": "kNALat3NENmDifEP14TQ8Qk",
+  "id": "d18533b9-ecdc-447d-9bbd-f061359c89e9",
   "incomplete_details": null,
   "instructions": null,
   "max_output_tokens": null,
   "max_tool_calls": null,
   "metadata": {
-    "system_fingerprint": "fp_39c5j0a3e9"
+    "system_fingerprint": "fp_grok47_0"
   },
-  "model": "xai/grok-4.20-reasoning",
+  "model": "xai/grok-4.7",
   "object": "response",
   "output": [
     {
@@ -224,11 +224,11 @@ The following is an example of what the model output could look like:
         {
           "annotations": [],
           "logprobs": [],
-          "text": "**Extracted Information:**\n\n- **Name:** John Doe\n- **Age:** 30\n\n**Structured output:**\n```json\n{\n  \"name\": \"John Doe\",\n  \"age\": 30\n}\n```",
+          "text": "{\"age\":30,\"name\":\"John Doe\"}",
           "type": "output_text"
         }
       ],
-      "id": "msg_kNALat3NENmDifEP14TQ8Qk",
+      "id": "msg_d18533b9-ecdc-447d-9bbd-f061359c89e9",
       "role": "assistant",
       "status": "completed",
       "type": "message"
@@ -239,17 +239,33 @@ The following is an example of what the model output could look like:
   "previous_response_id": null,
   "prompt_cache_key": null,
   "reasoning": {
-    "effort": "medium",
+    "effort": "high",
     "summary": "detailed"
   },
   "safety_identifier": null,
   "service_tier": "default",
   "status": "completed",
-  "store": true,
+  "store": false,
   "temperature": 0.7,
   "text": {
     "format": {
-      "type": "text"
+      "schema": {
+        "additionalProperties": false,
+        "properties": {
+          "age": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "age"
+        ],
+        "type": "object"
+      },
+      "type": "json_schema"
     }
   },
   "tool_choice": "auto",
@@ -258,22 +274,26 @@ The following is an example of what the model output could look like:
   "top_p": 0.95,
   "truncation": "disabled",
   "usage": {
+    "context_details": {
+      "input_tokens": 276,
+      "output_tokens": 70
+    },
     "extra_properties": {
       "google": {
         "traffic_type": "ON_DEMAND"
       }
     },
-    "input_tokens": 343,
+    "input_tokens": 276,
     "input_tokens_details": {
       "cached_tokens": 0
     },
     "num_server_side_tools_used": 0,
     "num_sources_used": 0,
-    "output_tokens": 369,
+    "output_tokens": 70,
     "output_tokens_details": {
-      "reasoning_tokens": 325
+      "reasoning_tokens": 59
     },
-    "total_tokens": 712
+    "total_tokens": 346
   },
   "user": null
 }

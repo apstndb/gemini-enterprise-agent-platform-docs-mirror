@@ -2,11 +2,11 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/revisions
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/revisions
 title: Memory revisions
-description: Learn how to inspect memory revisions and roll back memories to previous states in Memory Bank.
+description: Learn how to inspect memory revisions and roll back memories to previous states in Agent Platform Memory Bank.
 data_source: docs.cloud.google.com
 ---
 
-Memory Bank automatically maintains a version history of your memories through memory revision resources. Each time a memory is created or modified, a new immutable revision is saved, providing transparency into how information evolves and what was extracted at each step.
+Agent Platform Memory Bank automatically maintains a version history of your memories through memory revision resources. Each time a memory is created or modified, a new immutable revision is saved, providing transparency into how information evolves and what was extracted at each step.
 
 This document explains the lifecycle of memories and their revisions, and describes operations such as listing, getting, and rolling back revisions.
 
@@ -184,6 +184,27 @@ This section describes how you can inspect memory revisions and roll back a memo
 
 ### List revisions
 
+You can inspect memory revisions in the Google Cloud console or with the Agent Platform SDK.
+
+### Console
+
+Viewing memory revisions in the Google Cloud console requires the `aiplatform.memoryRevisions.list` permission (included in `roles/aiplatform.memoryViewer` and `roles/aiplatform.memoryUser` ) and isn't available in express mode.
+
+1.  Open your instance in the Google Cloud console:
+
+    - **Standalone Memory Bank instance** : Go to the Agent Platform **Memory Bank** page and click your instance.
+
+    - **Deployed agent on Agent Runtime** : Go to the Agent Platform **Deployments** page and click your agent.
+
+2.  Open the **Memories** tab:
+
+    - **Unstructured memories** : On a memory row, click the **more actions** menu ( more_vert ) \> **View revisions** .
+    - **Structured profiles** (standalone instances): Select **Structured** , choose a complete scope, click **View** on a profile row to open **Memory details** , and click **View revisions** for a memory fact.
+
+    The revisions panel lists each revision's **Created** , **Expires** , **Fact** , and **Context** fields.
+
+### Agent Platform SDK
+
 Use `ListMemoryRevisions` to return all memory revisions belonging to a memory.
 
 ```
@@ -194,7 +215,7 @@ Replace the following:
 
 - `MEMORY_NAME` : Resource name of the memory in the format: `projects/.../locations/.../reasoningEngines/.../memories/...`
 
-When generating memories, you can provide revision labels which are applied to the affiliated revisions. Labels are arbitrary key-value pairs. For example, you can label revisions with an ID of the data source used to generate the memory and then filter revisions by this label:
+When generating memories, you can provide revision labels that are applied to the affiliated revisions. Labels are arbitrary key-value pairs. For example, you can label revisions with an ID of the data source used to generate the memory and then filter revisions by this label:
 
 ```
 response = client.memory_banks.memories.generate(
@@ -272,7 +293,7 @@ client.memory_banks.memories.rollback(
 
 Memory revisions are enabled by default. You can disable memory revisions either for all requests to your Memory Bank instance or for each individual request. If memory revisions are disabled, a memory revision isn't created when the memory is mutated.
 
-You can disable memory revisions for all requests to your Memory Bank instance when you set up the instance:
+You can turn off memory revisions for all requests to your Memory Bank instance in the Google Cloud console (under **Configuration** \> **Retention** , or **Service configuration** \> **Memory bank** for deployed agents) or with the Agent Platform SDK:
 
 ```
 memory_bank = client.memory_banks.create(
@@ -321,7 +342,7 @@ client.memory_banks.memories.update(
 
 Memory revisions are not persisted forever. You must either set the revisions' expiration or use the default expiration. The default time to live (TTL) is 365 days. You can configure the expiration either for all requests to your Memory Bank instance or for each individual request. Once a memory revision has expired, it is not available for inspection or rollbacks.
 
-You can configure TTL for all requests to your Memory Bank instance when you set up the instance:
+You can configure revision history TTL for all requests to your Memory Bank instance in the Google Cloud console (under **Configuration** \> **Retention** , or **Service configuration** \> **Memory bank** for deployed agents) or with the Agent Platform SDK:
 
 ```
 client.memory_banks.create(

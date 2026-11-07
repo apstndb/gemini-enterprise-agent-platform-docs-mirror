@@ -16,18 +16,11 @@ OpenAI gpt-oss 120B is a 120B open-weight language model released under the Apac
 
 The 120B model achieves near-parity with OpenAI o4-mini on core reasoning benchmarks, while running on a single 80GB GPU.
 
-### gpt-oss 20B
-
-OpenAI gpt-oss 20B is a 20B open-weight language model released under the Apache 2.0 license. It is well-suited for reasoning and function calling use cases. The model is optimized for deployment on consumer hardware.
-
-The 20B model delivers similar results to OpenAI o3-mini on common benchmarks and can run on edge devices with 16GB of memory, making it ideal for on-device use cases, local inference, or rapid iteration without costly infrastructure.
-
 ## Use OpenAI models
 
 For managed models, you can use curl commands to send requests to the Gemini Enterprise Agent Platform endpoint using the following model names:
 
 - For gpt-oss 120B, use `gpt-oss-120b-maas`
-- For gpt-oss 20B, use `gpt-oss-20b-maas`
 
 To learn how to make streaming and non-streaming calls to OpenAI models, see [Call open model APIs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/call-open-model-apis) .
 
@@ -59,12 +52,6 @@ OpenAI models are available in the following regions:
 <td>gpt-oss 120B</td>
 <td><ul>
 <li><code>global</code></li>
-</ul></td>
-</tr>
-<tr class="even">
-<td>gpt-oss 20B</td>
-<td><ul>
-<li><code>us-central1</code></li>
 </ul></td>
 </tr>
 </tbody>

@@ -35,3 +35,11 @@ Required. The RagDataSchemas to delete. A maximum of 500 schemas can be deleted 
 ### Response body
 
 If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.ragCorpora.delete`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

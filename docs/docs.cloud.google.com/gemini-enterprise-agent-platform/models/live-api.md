@@ -36,6 +36,8 @@ Gemini Live API offers a comprehensive set of features for building robust voice
 
 - **High audio quality** : Gemini Live API provides natural, realistic-sounding speech across multiple languages.
 
+- [**Prebuilt and custom voices**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice#voices-supported) : Configure responses with 30 prebuilt HD voices or replicate a custom voice per session.
+
 - [**Multilingual support**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice#languages-supported) : Converse in 24 supported languages.
 
 - [**Barge-in**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice#voice-activity-detection) : Users can interrupt the model at any time for responsive interactions.

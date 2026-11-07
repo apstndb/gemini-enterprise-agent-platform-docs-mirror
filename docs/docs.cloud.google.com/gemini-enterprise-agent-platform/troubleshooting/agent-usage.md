@@ -106,6 +106,88 @@ Your agent identity [service account](https://docs.cloud.google.com/gemini-enter
 
 Make sure your service account has the proper Identity and Access Management (IAM) permissions listed in the error message. An example of an IAM permission you might be missing is `aiplatform.endpoints.predict` . See [Set up the identity and permissions for your agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#identity-and-permissions) for more information.
 
+## Request rejected before it reaches your agent
+
+If your request fails before Agent Runtime sends it to your agent, one of the following issues might be the cause:
+
+### Agent not found
+
+**Issue** :
+
+The request fails with a `404` , `NOT_FOUND` status ( `REASONING_ENGINE_NOT_FOUND` ) and a message similar to the following:
+
+```
+The Reasoning Engine `projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID` was not found.
+```
+
+**Possible causes** :
+
+- The project, location, or resource ID in the request is incorrect.
+- The agent was deleted.
+
+**Recommended solutions** :
+
+- Compare the resource name in the error message with your deployed agents. See [List deployed agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents#list) .
+- Make sure that your client sends the request to the project and region where you deployed the agent.
+
+### Agent isn't active
+
+**Issue** :
+
+The request fails with a `403` , `PERMISSION_DENIED` status ( `REASONING_ENGINE_NOT_ACTIVE` ) and a message similar to the following:
+
+```
+The Reasoning Engine `projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID` is not active, so it can't serve requests.
+```
+
+**Possible causes** :
+
+- The agent is still being created.
+- The agent failed to be created.
+- The agent is being deleted.
+
+**Recommended solutions** :
+
+- If you just created the agent, wait for the creation to finish, and then retry the request.
+- If agent creation failed, check the logs linked in the error metadata's `logs_url` field to find the cause. Fix the error and deploy the agent again. See [Troubleshoot deploying an agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment) .
+
+### Agent has no running instances
+
+**Issue** :
+
+The request fails with a `400` , `FAILED_PRECONDITION` status ( `REASONING_ENGINE_NO_RUNNING_INSTANCES` ) and a message similar to the following:
+
+```
+The Reasoning Engine `projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID` has no running instances because no agent is deployed to it.
+```
+
+**Possible cause** :
+
+The resource exists, but no agent (object, source files, or container image) was specified for deployment during its creation or update.
+
+**Recommended solution** :
+
+Update the resource with an agent to deploy. See [Update a deployed agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents#update) .
+
+### A2A methods not defined
+
+**Issue** :
+
+An A2A request fails with a `400` , `FAILED_PRECONDITION` status ( `REASONING_ENGINE_A2A_NOT_CONFIGURED` ) and a message similar to the following:
+
+```
+The Reasoning Engine `projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID` does not define A2A methods, so it can't serve A2A requests.
+```
+
+**Possible cause** :
+
+You sent an A2A request, such as a request for the Agent Card or a message, to an agent that wasn't built as an A2A agent.
+
+**Recommended solutions** :
+
+- To serve A2A requests, deploy an A2A agent. See [Create an A2A agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-a2a-agent) .
+- To query an agent that isn't an A2A agent, see [Use an agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-agent) .
+
 ## Reasoning Engine Execution failed
 
 If you receive the error message "Reasoning Engine Execution failed" when querying your agent, it might be due to one of the issues that's described in this section.

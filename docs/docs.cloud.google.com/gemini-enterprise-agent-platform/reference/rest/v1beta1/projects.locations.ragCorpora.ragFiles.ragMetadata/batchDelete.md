@@ -35,3 +35,11 @@ Required. The RagMetadata to delete. A maximum of 500 rag metadata can be delete
 ### Response body
 
 If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.ragFiles.delete`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

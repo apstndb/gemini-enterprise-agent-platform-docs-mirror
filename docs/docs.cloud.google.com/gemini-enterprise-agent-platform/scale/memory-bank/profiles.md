@@ -60,7 +60,23 @@ Memory(
 
 ## Schema definition
 
-The profiles that Memory Bank generate align with the schema that was defined when the [Agent Platform instance was created or updated](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#create-update) . You can use a `pydantic` model to define the fields you want Memory Bank to extract and maintain. For example:
+The profiles that Memory Bank generates align with the schemas defined on your [Memory Bank instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#create-update) . You can define multiple independent profile schemas; each schema must have a unique ID. Note that adding or updating a schema doesn't backfill profiles from earlier memories.
+
+### Console
+
+To add or edit profile schemas on a standalone Memory Bank instance in the Google Cloud console (requires `aiplatform.reasoningEngines.update` to save changes):
+
+1.  In the Google Cloud console, go to the Agent Platform **Memory Bank** page and click your Memory Bank instance.
+
+2.  Click **Schemas** in the action bar (or in the **Generation** section on the **Configuration** tab).
+
+3.  Click **Add schema** to create a schema with a unique ID, or click an existing schema card header to expand it.
+
+4.  Define or edit the schema fields using the **Simple** or **JSON** view, and then click **Save** .
+
+### Agent Platform SDK
+
+You can use a `pydantic` model to define the fields you want Memory Bank to extract and maintain. For example:
 
 ```
 from pydantic import BaseModel, Field
@@ -79,7 +95,7 @@ class UserProfile(BaseModel):
       description="The job status of the individual")
 ```
 
-Upload the schema to Memory Bank when you create or update your Agent Platform instance. You can define multiple independent profile schemas; each schema must be identified by a unique ID:
+Upload the schema to Memory Bank when you create or update your Memory Bank instance:
 
 ```
 schema_config = {
@@ -98,7 +114,7 @@ memory_bank = client.memory_banks.create(
 )
 ```
 
-By default, Memory Bank will always try to extract natural language memories. You can disable natural language memory generation if you only want Memory Bank to generate profiles:
+By default, Memory Bank extracts natural language memories. You can turn off natural language memory generation if you only want Memory Bank to generate profiles:
 
 ```
 memory_bank = client.memory_banks.create(
@@ -108,7 +124,7 @@ memory_bank = client.memory_banks.create(
                 "schema_configs": [schema_config]
             }
         ],
-        # Optional: Disable natural language memories.
+        # Optional: Turn off natural language memories.
         "unstructured_memory_configs": [
             {"disable_natural_language_memories": True}
         ]
@@ -221,14 +237,25 @@ for profile in result.profiles.values():
 
 ## Profile inspection
 
-Under the hood, a profile is composed of individual memories of type `STRUCTURED_PROFILE` . Each field in your schema maps to a single memory per scope, allowing for granular observability.
+Under the hood, a profile is composed of individual memories of type `STRUCTURED_PROFILE` . Each field in your schema maps to a single memory per scope, providing granular observability.
 
-While [`RetrieveProfiles`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/profiles#retrieve-profiles) is the primary method for production retrieval of profiles, you can inspect individual memories to audit the profile's evolution. This provides access to:
+While [`RetrieveProfiles`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/profiles#retrieve-profiles) is the primary method for production retrieval of profiles, you can inspect individual memories in the Google Cloud console or with the Agent Platform SDK to audit the profile's evolution:
 
-- Field-Level Metadata: View and update specific time to live (TTL) and `Memory.metadata` for individual fields in the profile.
-- Revision History: Trace the lineage of a field to see historical values and the specific conversation context that triggered each change.
+- **Field-level metadata** : View and update specific time to live (TTL) and `Memory.metadata` for individual fields in the profile.
 
-For example, you can use `RetrieveMemories` to retrieve all memories containing fragments of a user's profile. By default, `RetrieveMemories` only retrieves natural language memories, so you need to explicitly request `STRUCTURED_PROFILE` memories:
+- **Revision history** : Trace the lineage of a field to see historical values and the specific conversation context that triggered each change.
+
+### Console
+
+1.  In the Google Cloud console, open your standalone instance on the **Memory Bank** page or your deployed agent on the **Deployments** page, and then select the **Memories** tab.
+
+2.  Select **Structured** , and then choose values for all keys in the target scope (or apply a scope filter in **Unstructured** and click **Search structured memories** ). Matching profile rows display **Schema** , **Type** , **Content** , **Created** , and **Updated** .
+
+3.  Click **View** on a profile row to open the **Memory details** panel, which displays the scope chip, a link to the schema, individual **Memory facts** (with **View revisions** for each fact), and the consolidated profile JSON.
+
+### Agent Platform SDK
+
+Use `RetrieveMemories` to retrieve memories containing fragments of a user's profile. By default, `RetrieveMemories` retrieves only natural language memories, so explicitly request `STRUCTURED_PROFILE` memories:
 
 ```
 client.memory_banks.memories.retrieve(
@@ -262,7 +289,7 @@ Returns:
 """
 ```
 
-Then, you can retrieve the revision history of this structured profile fragment to inspect how the profile field changed over time and the context around each of those changes:
+Then, retrieve the revision history of a structured profile fragment to inspect how the profile field changed over time and the context around each change:
 
 ```
 for retrieved_memory in list(results):

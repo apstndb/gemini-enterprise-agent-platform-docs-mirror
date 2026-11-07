@@ -127,11 +127,21 @@ If the model server implements multiple inference routes, using invoke API to ac
 
 You must push your container image to [Artifact Registry](https://docs.cloud.google.com/artifact-registry/docs/overview) in order to use it with Agent Platform. Learn how to [push a container image to Artifact Registry](https://docs.cloud.google.com/artifact-registry/docs/docker/pushing-and-pulling) .
 
-In particular, you must push the container image to a repository that meets the following location and permissions requirements.
+In particular, your container image and repository must meet the following location, URI format, and permissions requirements.
 
 ### Location
 
 When you use Artifact Registry, the repository must use [a region](https://docs.cloud.google.com/artifact-registry/docs/repo-locations) that matches the [locational endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) where you plan to create a `Model` . For example, if you plan to create a `Model` on the `us-central1-aiplatform.googleapis.com` endpoint, the full name of your container image must start with `us-central1-docker.pkg.dev/` . Don't use a multi-regional repository for your container image.
+
+### Image URI format
+
+When you create a `Model` , specify [`containerSpec.imageUri`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/ModelContainerSpec#FIELDS.image_uri) in one of the following formats:
+
+- **By digest** : `LOCATION `` -docker.pkg.dev/ `` PROJECT_ID `` / `` REPOSITORY `` / `` IMAGE `` @sha256: `` DIGEST`
+- **By tag** : `LOCATION `` -docker.pkg.dev/ `` PROJECT_ID `` / `` REPOSITORY `` / `` IMAGE `` : `` TAG`
+- **Without a tag or digest** (defaults to `:latest` ): `LOCATION `` -docker.pkg.dev/ `` PROJECT_ID `` / `` REPOSITORY `` / `` IMAGE`
+
+Don't include both a tag and a digest in the same URI (for example, `IMAGE `` : `` TAG `` @sha256: `` DIGEST` ). Agent Platform rejects image URIs that combine a tag and a digest during model upload.
 
 ### Permissions
 

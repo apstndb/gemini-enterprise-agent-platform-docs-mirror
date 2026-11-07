@@ -232,7 +232,7 @@ You can pair a custom avatar with a prebuilt voice or with a [custom voice](http
 
 ## Available prebuilt voices
 
-You can pair prebuilt avatars with any of the prebuilt HD voices in Gemini Live API. For more information on prebuilt voices, see [Prebuilt voices](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice#prebuilt-voice) .
+You can pair prebuilt avatars with any of the 30 prebuilt HD voices in Gemini Live API. For more information about supported voices, see [Voices supported](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice#voices-supported) .
 
 ## What's next
 

@@ -52,7 +52,7 @@ When you create the `Model` , make sure to configure the [`containerSpec` field]
 You must specify a [`ModelContainerSpec` message](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models#modelcontainerspec) in the `Model.containerSpec` field. Within this message, you can specify the following subfields:
 
 `imageUri` (required)  
-The Artifact Registry URI of your container image.
+The Artifact Registry URI of your container image. Specify a digest ( `IMAGE `` @sha256: `` DIGEST` ), a tag ( `IMAGE `` : `` TAG` ), or neither (defaults to `:latest` ); don't specify both a tag and a digest in the same URI. For details, see [Image URI format](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/custom-container-requirements#image-uri-format) .
 
 If you are using the [`gcloud ai models upload` command](https://docs.cloud.google.com/sdk/gcloud/reference/ai/models/upload) , you can use the `--container-image-uri` flag to specify this field.
 

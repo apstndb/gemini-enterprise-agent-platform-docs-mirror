@@ -832,7 +832,7 @@ The following resolutions are available for Gemini 3 models:
 
 - `MEDIA_RESOLUTION_HIGH` : 1120 tokens for PDFs
 - `MEDIA_RESOLUTION_MEDIUM` : 560 tokens for PDFs
-- `MEDIA_RESOLUTION_LOW` : 280 tokens for PDFs
+- `MEDIA_RESOLUTION_LOW` : 280 tokens per page for PDFs
 - `MEDIA_RESOLUTION_UNSPECIFIED` : 560 for PDFs (default)
 
 This code sample demonstrates how to adjust `media_resolution` :

@@ -54,10 +54,12 @@ For more use cases and examples that are powered by function calling, see [Use c
 
 - Open models:
 
-  - [DeepSeek R1-0528](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/deepseek/r1-0528)
+  - [DeepSeek-V4.1-Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/deepseek/deepseek-v41-flash)
+  - [Gemma 4 26B A4B IT](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/google/gemma-4-26b-a4b-it)
+  - [GLM 5.2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/zaiorg/glm-52)
   - [Llama 4 Maverick](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/llama/llama4-maverick)
   - [Llama 4 Scout](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/llama/llama4-scout)
-  - [Llama 3.3](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/llama/llama3-3)
+  - [OpenAI gpt-oss 120B](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/openai/gpt-oss-120b)
 
 - Define your functions in the [OpenAPI schema](https://spec.openapis.org/oas/v3.0.3#schema) format.
 

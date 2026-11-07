@@ -20,7 +20,7 @@ Where `{service-endpoint}` is one of the [supported service endpoints](https://d
 
 `name` `string`
 
-Optional. The name of the ReasoningEngine. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoningEngine}` or `projects/{project}/locations/{location}/reasoningEngines/{reasoningEngine}/runtimeRevisions/{runtime_revision}`
+Optional. The name of the ReasoningEngine. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoningEngine}` or `projects/{project}/locations/{location}/reasoningEngines/{reasoningEngine}/runtimeRevisions/{runtimeRevision}`
 
 ### Query parameters
 

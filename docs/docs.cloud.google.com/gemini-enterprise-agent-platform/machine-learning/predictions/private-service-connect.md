@@ -535,6 +535,11 @@ Getting online inferences from an endpoint with Private Service Connect is simil
 
 - If [global access](https://cloud.google.com/blog/products/networking/access-managed-services-globally-with-private-service-connect) isn't enabled, the request must be sent from the same region.
 
+- Because a Private Service Connect endpoint uses an internal IP address that is routable only within your VPC network, you can't send requests directly from public or external networks, such as an unconnected local developer machine or a default Cloud Shell session. To send requests from a local machine or external network, route traffic to the consumer VPC network by using one of the following methods:
+  - Configure a hybrid networking connection, such as Cloud VPN or Cloud Interconnect, that terminates in the same VPC network as the endpoint. For hybrid routing, DNS, subnet advertisement, and firewall requirements, see [Access endpoints from hybrid networks](https://docs.cloud.google.com/vpc/docs/configure-private-service-connect-services#on-premises) and [Deployment considerations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/psc-endpoints#deployment-considerations) .
+  - Route requests through an intermediate proxy or bastion host, such as a Compute Engine VM instance, deployed inside the consumer VPC network.
+  - Configure an external regional Application Load Balancer with a [Private Service Connect Network Endpoint Group (NEG) backend](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/private-service-connect#custom-certificate-support-tls) .
+
 - There are two ports open, 443 with TLS using self-signed certificate and 80 without TLS. Both ports support HTTP and gRPC. All traffic remains on your private network and doesn't traverse the public internet.
 
 - The best practice is to use HTTPS with the self-signed certificate obtained from Gemini Enterprise Agent Platform online inference or to deploy your own self-signed certificate.

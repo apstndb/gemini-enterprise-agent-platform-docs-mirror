@@ -20,7 +20,7 @@ Where `{service-endpoint}` is one of the [supported service endpoints](https://d
 
 `name` `string`
 
-Required. The name of the ReasoningEngineRuntimeRevision resource to be deleted. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoningEngine}/runtimeRevisions/{runtime_revision}`
+Required. The name of the ReasoningEngineRuntimeRevision resource to be deleted. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoningEngine}/runtimeRevisions/{runtimeRevision}`
 
 ### Request body
 

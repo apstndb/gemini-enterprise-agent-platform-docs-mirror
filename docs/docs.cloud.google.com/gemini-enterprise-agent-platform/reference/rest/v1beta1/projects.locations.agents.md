@@ -111,12 +111,14 @@ Fields
 
 Required. The type of the tool. Supported types:
 
-- `code_execution`
+- `audio_generation`
 - `endpoint`
-- `filesystem`
 - `google_search`
+- `imageGeneration`
 - `mcp_server`
+- `speech_generation`
 - `url_context`
+- `videoGeneration`
 
 `name` `string`
 
@@ -124,11 +126,11 @@ Optional. The tool's Google Cloud resource name, used to resolve the tool. Appli
 
 `url` `string`
 
-Optional. Fallback for the tool's runtime reference, consumed by `agents.create` to create the downstream AI App. Applicable when `type` is `mcp_server` or `endpoint` , and optional: the Agent service derives the runtime reference from `name` via Agent Registry ( `GetMcpServer` / `GetEndpoint` ), and reads this only when that lookup yields none.
+Optional. The runtime reference is resolved from `name` via Agent Registry ( `GetMcpServer` / `GetEndpoint` ), so this is not required.
 
 `headers` `map (key: string, value: string)`
 
-Optional. The headers for the MCP server, such as for authentication. Only applicable when `type` is `mcp_server` .
+Optional. Not used; the tool is resolved from `name` via Agent Registry.
 
 **JSON representation**
 

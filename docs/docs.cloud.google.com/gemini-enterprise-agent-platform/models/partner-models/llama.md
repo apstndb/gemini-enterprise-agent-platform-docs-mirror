@@ -22,8 +22,6 @@ The following models are available from Llama to use in Gemini Enterprise Agent 
 
 [Llama 4 Scout 17B-16E](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/llama/llama4-scout) High-efficiency MoE model (17B active / 109B total) delivering state-of-the-art results for long-context retrieval, document summarization, and reasoning across large codebases.
 
-block [Llama 3.3 70B](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/llama/llama3-3) A text-only 70B instruction-tuned model that provides enhanced performance relative to Llama 3.1 70B and Llama 3.2 90B for text-only applications.
-
 ## Use Llama models
 
 For managed models, you can use curl commands to send requests to the Gemini Enterprise Agent Platform endpoint using the following model names. To learn how to make streaming and non-streaming calls to Llama models, see [Call open model APIs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/call-open-model-apis) .

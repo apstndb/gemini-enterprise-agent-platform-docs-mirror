@@ -40,15 +40,16 @@ You can control generated output when using the following models:
 
 - Open models:
 
+  - [DeepSeek-V4.1-Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/deepseek/deepseek-v41-flash)
   - [Gemma 4 26B A4B IT](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/google/gemma-4-26b-a4b-it)
-  - [DeepSeek R1-0528](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/deepseek/r1-0528)
+  - [GLM 5.2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/zaiorg/glm-52)
   - [Llama 4 Maverick](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/llama/llama4-maverick)
   - [Llama 4 Scout](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/llama/llama4-scout)
-  - [Llama 3.3](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/llama/llama3-3)
+  - [OpenAI gpt-oss 120B](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/openai/gpt-oss-120b)
 
 For Open Models, follow this [user guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/structured-output) .
 
-> **Note:** Using structured output on [tuned Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning) can result in [decreased model quality](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning#known_issues) .
+> **Note:** Using structured output on [tuned Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning) can result in [decreased model quality](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning#known_issues) .
 
 ## Example use cases
 
@@ -74,7 +75,7 @@ The following considerations discuss potential limitations if you plan on using 
   - To ensure 100% valid JSON objects, requests must include both a `response_schema` and `response_mime_type` set to `application/json` .
   - As a best practice, if your use case prevents you from pre-defining a schema, implement a client-side JSON validator with a retry mechanism.
 
-- Structured output supports a subset of the [Agent Platform schema reference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Schema) . For more information, see [Supported schema fields](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output#fields) .
+- Structured output supports a subset of the [Gemini Enterprise Agent Platform schema reference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Schema) . For more information, see [Supported schema fields](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output#fields) .
 
 - A complex schema can result in an `InvalidArgument: 400` error. Complexity might come from long property names, long array length limits, enums with many values, objects with lots of optional properties, or a combination of these factors.
 
@@ -91,34 +92,22 @@ The following considerations discuss potential limitations if you plan on using 
 
 You can specify a `response_schema` that describes the output format.
 
-The model will then generate a response that matches the provided schema. When using structured outputs, the model will produce outputs in the same order as the keys in the schema.
+The model generates a response that matches the provided schema. When using structured outputs, the model produces outputs in the same order as the keys in the schema.
 
-- The following fields from the [Agent Platform schema](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Schema) are supported. If you use an unsupported field, Gemini Enterprise Agent Platform can still handle your request but ignores the field.
+The following fields from the [Agent Platform schema](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Schema) are supported. If you use an unsupported field, Agent Platform can still handle your request but ignores the field:
 
 - `anyOf`
-
-- `enum` : only `string` enums are supported
-
+- `enum` : only non-empty `string` elements are supported. Including an empty string ( `""` ) returns a `400 INVALID_ARGUMENT` error ( `cannot be empty` ).
 - `format`
-
 - `items`
-
 - `maximum`
-
 - `maxItems`
-
 - `minimum`
-
 - `minItems`
-
 - `nullable`
-
-- `properties`
-
+- `properties` : property keys must be non-empty strings. Including an empty string key ( `""` ) returns a `400 INVALID_ARGUMENT` error ( `key cannot be empty` ).
 - `description`
-
 - `propertyOrdering` [<sup>\*</sup>](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output#note)
-
 - `required`
 
 <span class="small"></span>
@@ -129,11 +118,11 @@ The model will then generate a response that matches the provided schema. When u
 
 When you define a schema, the model doesn't strictly follow the order of properties that you define in the `properties` field. To enforce a specific order for property generation, use the `propertyOrdering` field. Properties listed in `propertyOrdering` are generated first, in the specified order, followed by any other properties.
 
-> **Important:** If there are any descriptions (for example, in a bulleted list), schemas, or examples (for example, for few-shot learning or RAG) in the prompt, they **must** present the same property ordering as is specified in the `responseSchema` . A mismatch in ordering can confuse the model and lead to incorrect or malformed output.
+> **Important:** If there are any descriptions (for example, in a bulleted list), schemas, or examples (for example, for few-shot learning or RAG) in the prompt, they **must** present the same property ordering as is specified in the `responseSchema` . A mismatch in ordering can lead to incorrect or malformed output.
 
 If you use the Python SDK, the default property ordering follows the order that is defined in your schema. For all other cases, properties are generated alphabetically with the required properties grouped first followed by optional properties.
 
-For the `format` field, Gemini Enterprise Agent Platform supports the following values: `date` , `date-time` , `duration` , and `time` . The description and format of each value is described in the [OpenAPI Initiative Registry](https://spec.openapis.org/registry/format/)
+For the `format` field, Agent Platform supports the following values: `date` , `date-time` , `duration` , and `time` . The description and format of each value is described in the [OpenAPI Initiative Registry](https://spec.openapis.org/registry/format/) .
 
 ## Before you begin
 
@@ -145,17 +134,17 @@ For sample schemas, see the [Example schemas and model responses](https://docs.c
 
 ### Model behavior and response schema
 
-When a model generates a response, it uses the field name and description from the provided schema. As such, we recommend that you use a clear structure and unambiguous field names so that your intent is clear. It is a best practice to use the `description` field inside schema properties to define the purpose of each field.
+When a model generates a response, it uses the field name and description from the provided schema. Use a clear structure and unambiguous field names so that your intent is clear. As a best practice, use the `description` field inside schema properties to define the purpose of each field.
 
 By default, fields are optional, meaning the model can *populate* the fields or *skip* them. You can set fields as required to force the model to provide a value. If there's insufficient context in the associated input prompt, the model generates responses mainly based on the data it was trained on.
 
-If you aren't seeing the results you expect, start by iterating on the descriptions in the schema. If you feel you cannot fully capture the nuances of the schema in the schema description it is acceptable to discuss the schema in the prompt but make sure to:
+If you aren't seeing the results you expect, start by iterating on the descriptions in the schema. If you cannot capture the nuances of the schema in the schema description alone, you can discuss the schema in the prompt by following these guidelines:
 
 1.  Only specify the schema in the schema object. Don't also specify the schema in the prompt. Doing both can reduce performance.
 
-2.  Avoid discussing the schema in the prompt (beyond "follow the provided schema" or similar) unless necessary. This makes maintenance easier; if your schema ever needs to change, you can just change the schema instead of making sure the prompt and the schema are both updated correctly.
+2.  Avoid discussing the schema in the prompt (beyond "follow the provided schema" or similar) unless necessary. This makes maintenance easier; if your schema ever needs to change, you can update only the schema instead of updating both the prompt and the schema.
 
-3.  If you absolutely need to discuss the schema in the prompt (to provide examples, or to provide especialy detailed instructions that would otherwise lead to confusing `description` values in the schema), make sure to follow the *exact* same order of fields as in the provided schema. Mixing up the field order in the provided schema versus the prompt can lead to output errors.
+3.  If you must discuss the schema in the prompt (to provide examples, or to provide especially detailed instructions that would otherwise lead to long `description` values in the schema), follow the *exact* same order of fields as in the provided schema. Mixing up the field order in the provided schema versus the prompt can lead to output errors.
 
 ## Send a prompt with a response schema
 

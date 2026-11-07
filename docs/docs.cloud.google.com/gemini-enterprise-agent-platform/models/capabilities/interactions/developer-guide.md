@@ -38,6 +38,8 @@ Ensure your environment and requests meet the following requirements before inte
 
 - **Turn-scoped parameters** : Configuration parameters such as `tools` , `system_instruction` , and `generation_config` apply only to the current turn. Pass these parameters on each subsequent interaction turn if your workflow requires them across a multi-turn conversation.
 
+- **Long decodes on Gemini 4 Argon** : To generate single-turn outputs exceeding 65,536 tokens (up to 1,048,576 tokens minus input tokens) on `gemini-4-argon` or `gemini-4-argon-cyber-permissive` , use automatic Google Gen AI SDK continuation ( `google-genai >= 2.34.0` for Python, `@google/genai >= 2.32.0` for TypeScript/JavaScript, Go `>= 1.77.0` , Java `>= 1.80.0` ), `background=True` , or `continuation_token` on the `v1beta1` endpoint. For code samples and continuation rules, see [Long decodes in the developer's guide to Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-argon#long-decodes) .
+
 > **Tip:** If you use an AI coding assistant, you can install the Interactions API agent skill from the [`google/skills` GitHub repository](https://github.com/google/skills/blob/main/skills/cloud/gemini-interactions-api/SKILL.md) .
 
 ## Install the Google Gen AI SDK

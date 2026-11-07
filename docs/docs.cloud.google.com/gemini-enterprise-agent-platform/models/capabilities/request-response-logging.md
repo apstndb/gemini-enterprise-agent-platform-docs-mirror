@@ -219,7 +219,7 @@ You should receive a JSON response similar to the following:
 }
 ```
 
-If request-response logging hasn't been configured for the model in the specified location, the request returns a `404 NOT_FOUND` error. This error indicates that no `PublisherModelConfig` resource exists and that request-response logging is in its default disabled state. If request-response logging was previously configured and then disabled, the response returns `"enabled": false` in the `loggingConfig` field.
+If request-response logging hasn't been configured for the model in the specified location, the request returns a `404 NOT_FOUND` error. This error indicates that no `PublisherModelConfig` resource exists and that request-response logging is in its default disabled state. If request-response logging was previously configured and then disabled, the response returns `"enabled": false` in the `loggingConfig` field. If request-response log sharing with a MaaS partner is configured for the model, the response also includes the `dataSharingEnabledProvider` field (see [Sharing requests and responses with MaaS partners](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/request-response-logging#share-requests-responses-with-maas-partners) ).
 
 ### Disable logging
 
@@ -576,7 +576,7 @@ VPC Service Controls protected projects are prevented from sharing data with Maa
 
 ### Enable data sharing
 
-Do the following:
+To enable request-response log sharing for a foundation model, use `setPublisherModelConfig` to set the `dataSharingEnabledProvider` field of the `PublisherModelConfig` resource to the uppercase name of the model's publisher (for example, `ANTHROPIC` ):
 
 ### REST API
 
@@ -584,13 +584,13 @@ Before using any of the request data, make the following replacements:
 
 - ` ENDPOINT_PREFIX ` : the appropriate prefix for the model endpoint location. Use the following values:
   - For the `global` endpoint, use `aiplatform` .
-  - For multi-region endpoints like `us` or `eu` , use `aiplatform. `` LOCATION `` .rep`
+  - For multi-region endpoints like `us` or `eu` , use `aiplatform. `` LOCATION `` .rep` .
   - For regional endpoints like `us-central1` , use `LOCATION `` -aiplatform` .
 - ` PROJECT_ID ` : Your project ID.
 - ` LOCATION ` : The location of the model endpoint. For example, `global` , `us` , `eu` , or `us-central1` .
 - ` PUBLISHER ` : The model publisher's name, in lowercase. For example, `anthropic` .
 - ` MODEL ` : The foundation model name. For example, `claude-fable-5` .
-- ` MAAS_PARTNER ` : The model publisher's name, in uppercase. The MaaS Partner must be the uppercase version of the `MODEL` , described above. For example, `ANTHROPIC` .
+- ` MAAS_PARTNER ` : To enable sharing, set this field to the model publisher's name, in uppercase. The MaaS Partner must be the uppercase version of the `PUBLISHER` of the `MODEL` . For example, `ANTHROPIC` . Setting this field to `MODEL_PROVIDER_UNSPECIFIED` disables data sharing.
 
 HTTP method and URL:
 
@@ -603,7 +603,7 @@ Request JSON body:
 ```
 {
   "publisherModelConfig": {
-    "dataSharingEnabledProvider": "ANTHROPIC"
+    "dataSharingEnabledProvider": "MAAS_PARTNER"
   }
 }
 ```
@@ -646,7 +646,7 @@ You should receive a successful status code (2xx) and an empty response.
 
 ### Get sharing config
 
-Do the following:
+Get the data sharing configuration for the foundation model by using `fetchPublisherModelConfig` . This is the same API method used to [get the logging configuration for base foundation models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/request-response-logging#get-logging-configuration) and returns the complete `PublisherModelConfig` resource:
 
 ### REST API
 
@@ -654,7 +654,7 @@ Before using any of the request data, make the following replacements:
 
 - ` ENDPOINT_PREFIX ` : the appropriate prefix for the model endpoint location. Use the following values:
   - For the `global` endpoint, use `aiplatform` .
-  - For multi-region endpoints like `us` or `eu` , use `aiplatform. `` LOCATION `` .rep`
+  - For multi-region endpoints like `us` or `eu` , use `aiplatform. `` LOCATION `` .rep` .
   - For regional endpoints like `us-central1` , use `LOCATION `` -aiplatform` .
 - ` PROJECT_ID ` : Your project ID.
 - ` LOCATION ` : The location of the model endpoint. For example, `global` , `us` , `eu` , or `us-central1` .
@@ -706,9 +706,16 @@ You should receive a JSON response similar to the following:
 }
 ```
 
+The response contains the following fields:
+
+- `loggingConfig` : The request-response logging configuration for BigQuery. If request-response logging isn't configured, this object is empty ( `{}` ). For details about the fields in `loggingConfig` , see [Enable request-response logging](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/request-response-logging#enable-request-response-logging) and [Get logging configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/request-response-logging#get-logging-configuration) .
+- `dataSharingEnabledProvider` : The MaaS partner for which request-response log sharing is enabled, such as `ANTHROPIC` . If data sharing is disabled, this field is set to `MODEL_PROVIDER_UNSPECIFIED` or omitted from the response.
+
+If neither request-response logging nor data sharing has been configured for the model in the specified location, the request returns a `404 NOT_FOUND` error, which indicates that no `PublisherModelConfig` resource exists and both settings are in their default disabled state.
+
 ### Disable data sharing
 
-Do the following:
+To disable request-response log sharing for a foundation model, use `setPublisherModelConfig` to set `dataSharingEnabledProvider` to `MODEL_PROVIDER_UNSPECIFIED` (any valid provider value other than the uppercase name of the model's publisher disables data sharing for that model):
 
 ### REST API
 
@@ -716,7 +723,7 @@ Before using any of the request data, make the following replacements:
 
 - ` ENDPOINT_PREFIX ` : the appropriate prefix for the model endpoint location. Use the following values:
   - For the `global` endpoint, use `aiplatform` .
-  - For multi-region endpoints like `us` or `eu` , use `aiplatform. `` LOCATION `` .rep`
+  - For multi-region endpoints like `us` or `eu` , use `aiplatform. `` LOCATION `` .rep` .
   - For regional endpoints like `us-central1` , use `LOCATION `` -aiplatform` .
 - ` PROJECT_ID ` : Your project ID.
 - ` LOCATION ` : The location of the model endpoint. For example, `global` , `us` , `eu` , or `us-central1` .

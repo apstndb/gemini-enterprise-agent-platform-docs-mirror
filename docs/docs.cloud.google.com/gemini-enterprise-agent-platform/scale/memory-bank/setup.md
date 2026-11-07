@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 To use Agent Platform Memory Bank, you must first create and configure a Memory Bank instance. This instance manages your memories and can be integrated with your agents across various runtimes.
 
-This document explains how to set up your Google Cloud project, install the required libraries, and create or update an instance with custom configurations like topics and TTL.
+This document explains how to set up your Google Cloud project, install the required libraries, and create or configure a Memory Bank instance in the Google Cloud console or with the Agent Platform SDK.
 
 ## Get started
 
@@ -78,24 +78,44 @@ Memory Bank supports multi-regional and global endpoints:
 
 ## Create or update a Memory Bank instance
 
-To get started with Memory Bank, you first need a Memory Bank instance. If you don't already have an instance, you can create one using the default configuration, and a display name of your choosing.
+To get started with Memory Bank, you first need a Memory Bank instance. If you don't already have an instance, you can create one with the default configuration in the Google Cloud console or with the Agent Platform SDK.
 
-> **Tip:** Always set a display name, so you can distinguish between difference resource instances in the project.
+> **Tip:** Always set a display name so that you can distinguish between resource instances in the project.
+
+### Console
+
+Standalone Memory Bank instances appear on the **Memory Bank** page in the Google Cloud console (deployed agents appear on the **Deployments** page).
+
+1.  In the Google Cloud console, go to the Agent Platform **Memory Bank** page.
+
+2.  Click **Create memory bank** .
+
+3.  Enter a **Display name** , select a **Region** , and optionally enter a **Description** .
+
+4.  Select an encryption option (a Google-owned and Google-managed encryption key or a Cloud Key Management Service key). You can't change the region or encryption settings after you create the instance.
+
+5.  Click **Create** . Agent Platform creates your Memory Bank instance with default memory settings and opens the **Configuration** tab.
+
+6.  Optional: Click **Link to an agent** in the action bar to view installation commands and Python code prefilled with your project, region, and Memory Bank ID on the **Use with ADK** (for Agent Development Kit (ADK)) and **Retrieve** tabs.
+
+To edit basic information, edit labels, or delete an existing standalone instance from the **Memory Bank** list, click the **more actions** menu ( more_vert ) for the instance and select **Edit basic info** , **Edit labels** , or **Delete** .
+
+### Agent Platform SDK
 
 ```
-# create the resource
+# Create the resource
 memory_bank = client.memory_banks.create(
     config={
         "display_name": "My Memory Bank",
     }
 )
 
-# Optionally, print out the Memory Bank resource name. You will need the
-# resource name to interact with your Memory Bank instance later on.
+# Optionally, print out the Memory Bank resource name. You need the
+# resource name to interact with your Memory Bank instance later.
 print(memory_bank.name)
 ```
 
-If you want to customize the configuration of your new or existing Memory Bank instance's behavior, refer to [Configure your Memory Bank instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#memory-bank-config) . For example, you can specify what information Memory Bank considers meaningful to persist.
+If you want to customize the configuration of your new or existing Memory Bank instance's behavior, see [Configure your Memory Bank instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#memory-bank-config) . For example, you can specify what information Memory Bank considers meaningful to persist.
 
 Once you have a Memory Bank instance, you can use the name of the instance to read or write memories. For example:
 
@@ -118,7 +138,7 @@ To deploy an agent on Agent Runtime with built-in Memory Bank, first [set up you
 
 ### AdkApp
 
-If you're using the [Agent Platform Agent Development Kit (ADK) template](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/adk) , the agent uses the `VertexAiMemoryBankService` by default when deployed to Agent Runtime. This means that the ADK Memory tools read memories from Memory Bank.
+If you're using the [Agent Platform ADK template](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/adk) , the agent uses the `VertexAiMemoryBankService` by default when deployed to Agent Runtime. This means that the ADK Memory tools read memories from Memory Bank.
 
 ```
 from google.adk.agents import Agent
@@ -177,6 +197,8 @@ agent_engine_name = f"projects/{project}/locations/{location}/reasoningEngines/{
 ```
 
 If you're using the [default service agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#default-service-agent) for your agent on Agent Runtime, your agent already has permission to read and write memories. If you're using a [customer service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#custom-service-account) , you need to grant permissions to your service account to read and write memories. The required permissions depend on what operations your agent should be able to perform. If you only want your agent to retrieve and generate memories, [`aiplatform.memories.generate`](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.memories.generate) and [`aiplatform.memories.retrieve`](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.memories.retrieve) are sufficient.
+
+In the Google Cloud console, you can view and edit Memory Bank settings for a deployed agent on the **Deployments** page by opening the agent and clicking **Service configuration** \> **Memory bank** .
 
 ### Use in all other runtimes
 
@@ -244,9 +266,25 @@ You can use Memory Bank in any environment that has permission to read and write
 
 ## Configure your Memory Bank instance
 
-You can configure your Memory Bank to customize how memories are generated and managed. If you don't provide the configuration, then Memory Bank uses the default settings for each type of configuration.
+You can configure your Memory Bank instance in the Google Cloud console or with the Agent Platform SDK to customize how memories are generated and managed. If you don't provide a configuration, Memory Bank uses the default settings for each configuration option.
 
-You can configure the following Memory Bank settings for your instance:
+### Configure in the Google Cloud console
+
+To view or edit Memory Bank settings in the Google Cloud console (requires `aiplatform.reasoningEngines.update` to edit):
+
+1.  Open your instance's configuration view:
+    - **Standalone Memory Bank instance** : Go to the **Memory Bank** page, click your instance, and open the **Configuration** tab.
+    - **Deployed agent on Agent Runtime** : Go to the **Deployments** page, click your agent, and click **Service configuration** \> **Memory bank** .
+2.  Click **Edit** in any of the following sections to update its settings, and then click **Save** :
+    - **Details** (standalone instances): Edit the display name and description. Region, encryption, and labels are read-only in this panel.
+    - **Generation** : Turn **Memory extraction** on or off, choose first-person or third-person perspective, and configure managed or custom memory topics (the console displays scope-level overrides as read-only).
+    - **Retrieval** : Select the embedding model for similarity search. You can change the embedding model only before you store the first memory in the Memory Bank instance.
+    - **Retention** : Configure memory expiration (TTL) and memory revision history retention.
+3.  Optional: To add or edit structured memory profile schemas on a standalone instance, click **Schemas** in the action bar (or in the **Generation** section). For details, see [Memory Profiles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/profiles#schema) .
+
+### Configure with the Agent Platform SDK
+
+You can configure the following Memory Bank settings for your instance with the Agent Platform SDK:
 
 - [Customization configuration ( `unstructured_memory_configs` )](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#customization-config) : Configures how memories are extracted from source data and consolidated with existing memories.
 - [Similarity search configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#similarity-search-config) : Specifies which embedding model Memory Bank uses for similarity search. Defaults to `text-embedding-005` .

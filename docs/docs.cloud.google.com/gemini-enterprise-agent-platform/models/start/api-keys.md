@@ -6,7 +6,7 @@ description: Learn how to get a {{dynamic_data.site_values.cloud_name}} API key.
 data_source: docs.cloud.google.com
 ---
 
-To use Gemini on Gemini Enterprise Agent Platform, authenticate by using a **Google Cloud API key** or [**application default credentials**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/gcp-auth) . We recommend using an API key for testing and using application default credentials for production.
+To use Gemini on Gemini Enterprise Agent Platform, authenticate by using a **Google Cloud API key** or [**Application Default Credentials**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/gcp-auth) . Use an API key for testing and Application Default Credentials for production.
 
 This page shows you how to get a Google Cloud API key based on whether you're a new or existing Google Cloud user.
 
@@ -23,7 +23,7 @@ The fastest way to get an API key is through an express mode account in the Goog
 
 > **Note:** Gemini Enterprise Agent Platform in express mode is available for developers with a `@gmail.com` Google Account. If you use a Google Workspace account, then select [**I'm an existing Google Cloud user with a billing account**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/api-keys?usertype=standard) to create a standard Google Cloud API key, or authenticate by using [application default credentials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/gcp-auth) .
 
-To learn more about Gemini Enterprise Agent Platform in express mode, see the [express mode overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/express-mode/overview) page.
+To learn more about Agent Platform in express mode, see the [express mode overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/express-mode/overview) page. Requests sent in express mode target projectless endpoints and don't generate customer-accessible [Data Access ( `DATA_READ` ) audit logs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/enable-audit-logs#authentication-attribution) in Cloud Logging.
 
 Get an API key with express mode:
 
@@ -111,6 +111,7 @@ For initial testing, you can hard code an API key, but this should only be tempo
 > - Google Cloud recommends [application default credentials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/gcp-auth) as a production-safe way to authenticate your application
 > - Gemini Enterprise Agent Platform uses API keys for authorization. If others get access to your API key, they can make calls using your project's quota, which could result in lost quota or additional charges for billed projects, in addition to accessing tuned models and files.
 > - Adding [API key restrictions](https://docs.cloud.google.com/api-keys/docs/add-restrictions-api-keys#add-api-restrictions) can help limit the surface area usable through each API key.
+> - Standard Google Cloud API keys attribute all requests in [Data Access ( `DATA_READ` ) audit logs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/enable-audit-logs#authentication-attribution) to a single bound service account, and express mode API keys don't generate customer-accessible `DATA_READ` audit logs. Use [Application Default Credentials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/gcp-auth) when you require per-caller audit attribution.
 > - You're responsible for keeping your API key secure.
 >   - Do **not** check API keys into source control.
 >   - Client-side applications (Android, Swift, web, and Dart/Flutter) risk exposing API keys. We don't recommend using the Google AI client SDKs in production apps to call the API directly from your mobile and web apps.

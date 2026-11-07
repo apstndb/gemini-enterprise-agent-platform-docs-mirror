@@ -62,11 +62,7 @@ Distillation provides smaller gains on tasks where the student model already per
 
 Supported teacher models:
 
-- DeepSeek R1 0528 MaaS ( `deepseek-ai/deepseek-r1-0528-maas` )
-- DeepSeek V3.2 MaaS ( `deepseek-ai/deepseek-v3.2-maas` )
 - GLM 5.2 MaaS ( `zai-org/glm-5.2-maas` )
-- Kimi K2 Thinking MaaS ( `moonshotai/kimi-k2-thinking-maas` )
-- Qwen 3 Next 80B A3B Thinking MaaS ( `qwen/qwen3-next-80b-a3b-thinking-maas` )
 
 Supported student models:
 
@@ -372,7 +368,7 @@ tuning_job = client.tunings.tune(
     ),
     config=types.CreateTuningJobConfig(
         method="DISTILLATION",
-        base_teacher_model="qwen/qwen3-next-80b-a3b-thinking-maas",
+        base_teacher_model="zai-org/glm-5.2-maas",
         epoch_count=3,
         validation_dataset=types.TuningValidationDataset(
             gcs_uri="gs://{STORAGE-URI}"

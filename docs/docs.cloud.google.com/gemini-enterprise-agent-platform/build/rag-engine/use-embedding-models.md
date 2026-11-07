@@ -40,7 +40,7 @@ Embedding models are used to create a corpus and used for search and retrieval d
 
 ### Open source embedding models
 
-The following open embedding models are also supported. You can find them in [Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/use-open-models#open-models) .
+The following open embedding models are also supported. You can find them in [Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models) .
 
 - `e5-base-v2`
 - `e5-large-v2`

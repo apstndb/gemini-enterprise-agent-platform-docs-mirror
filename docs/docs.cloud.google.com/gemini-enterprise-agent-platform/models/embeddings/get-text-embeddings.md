@@ -385,7 +385,7 @@ $'{
 
 ## Supported models
 
-The following tables show the available Google and open text embedding models.
+The following table shows the available Google text embedding models.
 
 ### Google models
 
@@ -399,17 +399,6 @@ You can get text embeddings by using the following models:
 | `text-multilingual-embedding-002` | Specialized in multilingual tasks.                                                                                                                                                                                                                                                                                                                 | up to 768         | 2048 tokens         | [Supported text languages](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/text-embeddings-api#supported_text_languages) |
 
 For superior embedding quality, `gemini-embedding-001` is our large model designed to provide the highest performance.
-
-### Open models
-
-You can get text embeddings by using the following models:
-
-| Model name              | Description                                                                       | Output dimensions | Max sequence length | Supported text languages                                                                         |
-|-------------------------|-----------------------------------------------------------------------------------|-------------------|---------------------|--------------------------------------------------------------------------------------------------|
-| `multilingual-e5-small` | Part of the E5 family of text embedding models. Small variant contains 12 layers. | Up to 384         | 512 tokens          | [Supported languages](https://huggingface.co/intfloat/multilingual-e5-small#supported-languages) |
-| `multilingual-e5-large` | Part of the E5 family of text embedding models. Large variant contains 24 layers. | Up to 1024        | 512 tokens          | [Supported languages](https://huggingface.co/intfloat/multilingual-e5-small#supported-languages) |
-
-To get started, see the E5 family [model card](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas) . For more information on open models, see [Open models for MaaS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/use-open-models)
 
 ## Add an embedding to a vector database
 
