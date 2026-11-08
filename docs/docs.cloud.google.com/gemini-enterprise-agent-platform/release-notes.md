@@ -76,6 +76,12 @@ For more information, see the [CodeMender documentation](https://docs.cloud.goog
 
 Feature
 
+**Provisioned Throughput support for supervised fine-tuned models (GA)**
+
+Provisioned Throughput [support for supervised fine-tuned models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/supported-models#supervised-fine-tuned-model-support) is [generally available](https://cloud.google.com/products#product-launch-stages) . Burndown rates for fine-tuned model inference can include a premium that's directly proportional to the model's fine-tuned inference pricing premium.
+
+Feature
+
 **AlphaGenome gRPC and unified HTTP serving support**
 
 AlphaGenome ( `alphagenome-004` ) now supports unified HTTP/2 gRPC streaming and chunked binary protobuf HTTP streaming on Gemini Enterprise Agent Platform:
