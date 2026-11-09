@@ -66,6 +66,16 @@ For example:
 "home_directory_storage": "projects/PROJECT_ID/locations/REGION-ZONE/instances/FILESTORE_INSTANCE_NAME"
 ```
 
+### Slurm controller version
+
+The optional `controller_version` field specifies the Slurm version that the cluster's controller node uses. Supported values are `"26.05"` and `"25.05"` . If left unset, new clusters use `"26.05"` by default. You can't change the Slurm controller version after you create a cluster.
+
+For example:
+
+```
+"controller_version": "25.05"
+```
+
 ## Advanced Slurm configuration
 
 Gemini Enterprise Agent Platform training clusters lets you set `slurm.conf` parameters and change them on a running cluster. See [Slurm configuration maps](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/create-cluster#slurm-config-maps) .

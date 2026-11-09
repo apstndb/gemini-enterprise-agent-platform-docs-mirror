@@ -548,6 +548,7 @@ These fields are defined within the `orchestrator_spec.slurm_spec` block of the 
 - ` LOGIN_NODE_POOL_ID ` (corresponds to `login_node_pool_id` ): The id of the node pool that should be used for login nodes.
 - `partitions` : A list of partition objects, where each object requires an `id` and a list of `node_pool_ids` .
 - `default_partition_id` (optional): The `id` of the partition used to execute Slurm jobs when no partition is explicitly specified (for example, when running `sbatch` without the `--partition` flag). If left unset, the first partition in the partitions list becomes the default, therefore reordering the list will change the default partition.
+- `controller_version` (optional): The Slurm version that the controller node uses. Supported values are `"26.05"` and `"25.05"` . If left unset, the cluster uses version `"26.05"` by default. You can't change the Slurm controller version after you create a cluster.
 
 #### Advanced Slurm settings
 

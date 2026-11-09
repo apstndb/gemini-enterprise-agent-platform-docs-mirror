@@ -627,14 +627,14 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/train-nfs-share	2026-10-29T21:06:23Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/cluster-resiliency	2026-10-01T19:23:10Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/compute-resources	2026-10-31T00:06:29Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/create-cluster	2026-10-31T04:25:07Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/create-cluster	2026-11-08T22:38:26Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/get-started	2026-11-02T17:12:09Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/manage-cluster	2026-10-31T04:25:07Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/manage-clusters-slurm	2026-11-02T21:12:49Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/manage-shared-slurm-cluster	2026-10-01T19:22:51Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/monitor-resilience-dashboard	2026-10-01T19:22:51Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/networking	2026-10-26T23:02:09Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/orchestration	2026-10-26T23:02:09Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/orchestration	2026-11-08T22:38:26Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/overview	2026-10-28T17:50:42Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/run-prebuilt-workloads	2026-11-02T17:12:09Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/storage	2026-10-26T23:02:09Z
@@ -3059,7 +3059,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-re
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/glossary	2026-10-01T19:22:34Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations	2026-11-06T18:55:45Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/supported-capabilities	2026-10-26T23:31:45Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention	2026-11-03T20:20:47Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention	2026-11-08T17:50:13Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale	2026-11-03T04:41:25Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/efficiency/autonomous-scheduling	2026-10-01T19:22:51Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/feedback-service	2026-11-03T20:20:40Z
