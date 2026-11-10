@@ -173,8 +173,20 @@ The response is a `ModelDevelopmentCluster` resource. Alongside the cluster's co
 - `clusterStatus.state` : the state of the cluster, one of `PROVISIONING` , `RUNNING` , `UPDATING` , `STOPPING` , or `ERROR` . The Google Cloud console shows `PROVISIONING` as **Creating** .
 - `clusterStatus.nodesStatus[]` : one entry for each node in the cluster, giving the node's `nodeState` ( `PREPARING` , `RUNNING` , `UPDATING` , or `ERROR` ), its Compute Engine instance name, its node pool, and the time its state last changed.
 - `clusterStatus.detail` : a human-readable description of the cluster's status, when one is available.
+- `clusterStatus.infrastructureNotices[]` : active infrastructure maintenance notices for the cluster, when any are present. For more information, see [Cluster maintenance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/view-clusters#cluster-maintenance) .
 
 For a description of the configuration fields, see the [parameter reference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/create-cluster#param-reference) .
+
+## Cluster maintenance
+
+Gemini Enterprise Agent Platform training clusters periodically updates the cluster management software on a running cluster, such as the Slurm controller. During or after a maintenance update, the Google Cloud console shows a notice in the **Status** column on the **Training Clusters** page and in a banner on the **Cluster details** page. In the Agent Platform API, active notices appear in the `clusterStatus.infrastructureNotices` field.
+
+The following maintenance notices can appear:
+
+- **Maintenance in progress** : The cluster is undergoing infrastructure maintenance and might be temporarily unavailable. Wait for the maintenance update to finish before submitting new Slurm jobs or updating the cluster.
+- **Incomplete maintenance** : An unexpected issue prevented the maintenance update from completing. The cluster remains functional, and no action is needed if your workloads are running normally. If the cluster is partially inaccessible or Slurm commands fail, contact your Google representative or the Google Cloud support team with your project ID, cluster ID, and region.
+
+Maintenance notices clear automatically when maintenance is finished.
 
 ## What's next
 

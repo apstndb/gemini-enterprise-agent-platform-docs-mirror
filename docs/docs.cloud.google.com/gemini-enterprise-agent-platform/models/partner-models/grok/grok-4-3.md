@@ -44,6 +44,7 @@ Text</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/function-calling">Function calling</a> preview Preview feature</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/structured-output">Structured output</a> preview Preview feature</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/reasoning">Reasoning</a> preview Preview feature</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/responses">Responses API</a></li>
 </ul>
 Not supported
 <ul>

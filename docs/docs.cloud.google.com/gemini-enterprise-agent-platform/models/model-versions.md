@@ -2,15 +2,17 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions
 title: Model versions and lifecycle
-description: Learn about key terms, lifecycle stages, and important dates for Gemini and embedding models on {{dynamic_data.site_values.cloud_name}} Gemini Enterprise Agent Platform, including recommended upgrades and migration paths.
+description: Learn about key terms, lifecycle stages, and important dates for generally available Gemini and embedding models on {{dynamic_data.site_values.cloud_name}} Gemini Enterprise Agent Platform, including recommended upgrades and migration paths.
 data_source: docs.cloud.google.com
 ---
 
-This document defines key terms related to the lifecycle stages and important dates for Gemini and embedding models that are available on Google Cloud Gemini Enterprise Agent Platform. It also gives you the recommended upgrades for the models and points you to available migration paths.
+This document defines key terms related to the lifecycle stages and important dates for generally available Gemini and embedding models that are available on Google Cloud Gemini Enterprise Agent Platform. It also gives you the recommended upgrades for the models and points you to available migration paths.
 
 ## Latest available models
 
-The following tables list the available models and their retirement dates. While retirement timelines may be extended, they won't be moved to an earlier date than what is listed.
+The following tables list the generally available (GA) models and their retirement dates. While retirement timelines may be extended, they won't be moved to an earlier date than what is listed.
+
+> **Note:** Preview models aren't included in these tables. Each Preview model's documentation page lists its version IDs and release dates. For more information about available Preview models, see the Preview sections of the [Google models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models) page.
 
 ### Models available for at least 12 months after release
 

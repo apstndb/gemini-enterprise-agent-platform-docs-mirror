@@ -8,6 +8,8 @@ data_source: docs.cloud.google.com
 
 This guide helps you debug and troubleshoot connectivity issues with the Gemini Enterprise Agent Platform, especially when you use Agent Gateway, agent identity, Identity and Access Management (IAM) policies, and delegated authorization with Service Extensions.
 
+If deploying or updating your agent fails before it starts, see [Troubleshoot deploying an agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment) . If binding a gateway fails with a `504` , `DEADLINE_EXCEEDED` status ( `REASONING_ENGINE_AGENT_GATEWAY_PROVISION_TIMEOUT` ), see [Agent Gateway binding timed out](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#agent-gateway-provision-timeout) .
+
 ## Troubleshoot using the Agent Platform Troubleshooting skill
 
 To diagnose connectivity, authorization, and startup issues interactively with an AI coding assistant, you can install the [`agent-platform-troubleshooting`](https://github.com/google/skills/tree/main/skills/cloud/agent-platform-troubleshooting) skill from the Google Cloud Agent Skills repository.

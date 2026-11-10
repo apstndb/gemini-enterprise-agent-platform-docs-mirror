@@ -564,20 +564,29 @@ code execution result step.
 
 Fields
 
+`isError` `boolean`
+
+Whether the code execution resulted in an error.
+
+`output` `Union type`
+
+The output of the code execution. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+
 `result` `string`
 
 Required. The output of the code execution.
 
-`isError` `boolean`
-
-Whether the code execution resulted in an error.
+End of mutually exclusive fields.
 
 **JSON representation**
 
 ```
 {
-  "result": string,
-  "isError": boolean
+  "isError": boolean,
+
+  // output
+  "result": string
+  // Union type
 }
 ```
 

@@ -318,10 +318,6 @@ End of mutually exclusive fields.
 
 Enforces that the generated response is a JSON object that complies with the JSON schema specified in this field. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`interaction.responseFormat `**`(deprecated)`** `object ( `[`Value`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Value)` )`
-
-Enforces that the generated response is a JSON object that complies with the JSON schema specified in this field.
-
 `interaction.responseFormatList` `object ( `[`ResponseFormatList`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#ResponseFormatList)` )`
 
 `interaction.responseFormatSingleton` `object ( `[`ResponseFormat`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#ResponseFormat)` )`

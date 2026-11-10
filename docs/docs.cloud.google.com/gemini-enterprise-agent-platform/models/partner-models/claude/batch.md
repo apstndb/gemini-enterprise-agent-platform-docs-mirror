@@ -13,6 +13,7 @@ Batch predictions lets you send multiple prompts that aren't latency sensitive t
 Gemini Enterprise Agent Platform supports batch predictions for the following Anthropic Claude models:
 
 - [Anthropic's Claude Sonnet 5.5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-5-5)
+- [Anthropic's Claude Fable 5.2 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-fable-5-2)
 - [Anthropic's Claude Fable 5.1 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-fable-5-1)
 - [Anthropic's Claude Sonnet 5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-5)
 - [Anthropic's Claude Opus 5.5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-5-5)

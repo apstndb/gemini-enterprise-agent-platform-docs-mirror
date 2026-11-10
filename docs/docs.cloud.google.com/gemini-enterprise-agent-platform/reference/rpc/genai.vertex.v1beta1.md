@@ -493,10 +493,11 @@ Code execution result content.
 
 Code execution result step.
 
-| Fields     |                                                         |
-|------------|---------------------------------------------------------|
-| `result`   | `string` Required. The output of the code execution.    |
-| `is_error` | `bool` Whether the code execution resulted in an error. |
+| Fields                                                                                              |                                                         |
+|-----------------------------------------------------------------------------------------------------|---------------------------------------------------------|
+| `is_error`                                                                                          | `bool` Whether the code execution resulted in an error. |
+| Union field `output` . The output of the code execution. `output` can be only one of the following: |                                                         |
+| `result`                                                                                            | `string` Required. The output of the code execution.    |
 
 ## CodeMenderAgentConfig
 
@@ -1707,49 +1708,41 @@ Response for InteractionService.CreateInteraction.
 <td></td>
 </tr>
 <tr class="odd">
-<td><code>response_format </code><strong><code>(deprecated)</code></strong></td>
-<td><p><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.Value"><code>Value</code></a></p>
-<blockquote>
-<p>This item is deprecated!</p>
-</blockquote>
-<p>Enforces that the generated response is a JSON object that complies with the JSON schema specified in this field.</p></td>
-</tr>
-<tr class="even">
 <td><code>response_format_list</code></td>
 <td><p><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.ResponseFormatList"><code>ResponseFormatList</code></a></p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>response_format_singleton</code></td>
 <td><p><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.ResponseFormat"><code>ResponseFormat</code></a></p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Union field <code>request_type</code> . The request type for the interaction. <code>request_type</code> can be only one of the following:</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>model_interaction</code></td>
 <td><p><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.ModelInteraction"><code>ModelInteraction</code></a></p>
 <p>Interaction for generating the completion using models.</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>agent_interaction</code></td>
 <td><p><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.AgentInteraction"><code>AgentInteraction</code></a></p>
 <p>Interaction for generating the completion using agents.</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Union field <code>environment</code> . The environment configuration for the interaction. Can be an object specifying remote environment sources or a string referencing an existing environment ID. <code>environment</code> can be only one of the following:</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>env_id</code></td>
 <td><p><code>string</code></p>
 <p>The environment ID for the interaction. Can be 'remote' for default environment.</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>remote_environment</code></td>
 <td><p><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.EnvironmentConfig"><code>EnvironmentConfig</code></a></p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>local_environment</code></td>
 <td><p><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.LocalEnvironmentConfig"><code>LocalEnvironmentConfig</code></a></p>
 <p>The agent's environment lives on the client connection: its built-in environment operations (filesystem ops and running commands) are yielded to the client to execute, instead of running in a server-managed sandbox. Mutually exclusive with <code>remote_environment</code> . (Independent of any client-declared function tools, which are always executed on the client regardless of this field.)</p></td>

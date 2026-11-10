@@ -26,6 +26,8 @@ To log token counts, latency and errors for every Claude request without storing
 
 ## Claude Fable models
 
+cognition [Anthropic's Claude Fable 5.2 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/fable-5-2) Designed for technical and scientific work, including coding and finance.
+
 cognition [Anthropic's Claude Fable 5.1 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/fable-5-1) Optimized for autonomous knowledge work and coding, handling long-running, complex, and asynchronous tasks.
 
 cognition [Anthropic's Claude Fable 5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/fable-5) Optimized for autonomous knowledge work and coding, handling long-running, complex, and asynchronous tasks with agent harnesses.

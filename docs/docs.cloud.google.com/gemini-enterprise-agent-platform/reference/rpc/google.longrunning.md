@@ -61,6 +61,8 @@ Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
 - `https://www.googleapis.com/auth/aiplatform`
+- `https://www.googleapis.com/auth/discoveryengine.assist.readwrite`
+- `https://www.googleapis.com/auth/discoveryengine.serving.readwrite`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 

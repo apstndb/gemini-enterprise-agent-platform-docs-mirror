@@ -68,7 +68,7 @@ To create a runtime template:
 
 ### Environment
 
-1.  In the **Environment** section, select an **Environment** . The default is **Latest** (currently Python 3.12).
+1.  In the **Environment** section, select an **Environment** . The default is **Latest** (currently Python 3.13).
 
 2.  Optional: In the **Post-startup script** field, enter the URI for a post-startup script. For more information about using a post-startup script, see [Use a post-startup script](https://docs.cloud.google.com/colab/docs/post-startup-script) .
 

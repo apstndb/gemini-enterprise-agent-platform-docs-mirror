@@ -45,6 +45,7 @@ To use training clusters, you must:
 - `europe-west4`
 - `europe-north1`
 - `asia-south2`
+- `me-central1`
 
 ### IAM permissions
 

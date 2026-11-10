@@ -394,10 +394,11 @@ Supported programming languages for the generated code.
 
 Code execution result step.
 
-| Fields     |                                                         |
-|------------|---------------------------------------------------------|
-| `result`   | `string` Required. The output of the code execution.    |
-| `is_error` | `bool` Whether the code execution resulted in an error. |
+| Fields                                                                                              |                                                         |
+|-----------------------------------------------------------------------------------------------------|---------------------------------------------------------|
+| `is_error`                                                                                          | `bool` Whether the code execution resulted in an error. |
+| Union field `output` . The output of the code execution. `output` can be only one of the following: |                                                         |
+| `result`                                                                                            | `string` Required. The output of the code execution.    |
 
 ## CodeMenderAgentConfig
 

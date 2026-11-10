@@ -84,6 +84,46 @@ Output only. Statistics on the interaction request's token usage.
 
 The id of the previous interaction, if any.
 
+`interaction.modelInteraction.model` `string`
+
+The name of the `Model` used for generating the completion.
+
+`interaction.modelInteraction.generationConfig.temperature `**`(deprecated)`** `number`
+
+Controls the randomness of the output.
+
+`interaction.modelInteraction.generationConfig.topP `**`(deprecated)`** `number`
+
+The maximum cumulative probability of tokens to consider when sampling.
+
+`interaction.modelInteraction.generationConfig.seed` `integer`
+
+Seed used in decoding for reproducibility.
+
+`interaction.modelInteraction.generationConfig.stopSequences[]` `string`
+
+A list of character sequences that will stop output interaction.
+
+`interaction.modelInteraction.generationConfig.thinkingLevel` `enum ( `[`ThinkingLevel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Interaction#ThinkingLevel)` )`
+
+The level of thought tokens that the model should generate.
+
+`interaction.modelInteraction.generationConfig.thinkingSummaries` `enum ( `[`ThinkingSummaries`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Interaction#ThinkingSummaries)` )`
+
+Whether to include thought summaries in the response.
+
+`interaction.modelInteraction.generationConfig.maxOutputTokens` `integer`
+
+The maximum number of tokens to include in the response.
+
+`interaction.modelInteraction.generationConfig.videoConfig` `object ( `[`VideoConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Interaction#VideoConfig)` )`
+
+Configuration for video generation.
+
+`interaction.modelInteraction.generationConfig.transcriptionConfig` `object ( `[`TranscriptionConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Interaction#TranscriptionConfig)` )`
+
+Optional. Configuration for speech recognition (transcription). If present, ASR is enabled.
+
 `interaction.environmentId` `string`
 
 Output only. The environment id for the interaction. Only populated if environment config is set in the request.
@@ -249,6 +289,20 @@ Enforces that the generated response is a JSON object that complies with the JSO
 `interaction.responseFormatList` `object ( `[`ResponseFormatList`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Interaction#ResponseFormatList)` )`
 
 `interaction.responseFormatSingleton` `object ( `[`ResponseFormat`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Interaction#ResponseFormat)` )`
+
+End of mutually exclusive fields.
+
+`tool_choice` `Union type`
+
+The tool choice configuration. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+
+`interaction.modelInteraction.generationConfig.toolChoiceMode` `enum ( `[`ToolChoiceType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Interaction#ToolChoiceType)` )`
+
+The mode of the tool choice.
+
+`interaction.modelInteraction.generationConfig.toolChoiceConfig` `object ( `[`ToolChoiceConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Interaction#ToolChoiceConfig)` )`
+
+The config for the tool choice.
 
 End of mutually exclusive fields.
 

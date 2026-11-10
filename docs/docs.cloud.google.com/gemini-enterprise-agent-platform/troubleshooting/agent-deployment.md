@@ -92,6 +92,7 @@ Agent Runtime starts your agent in a container and waits for it to accept reques
 - **Error during initialization** : Your agent's `set_up()` method, or other code that runs when the agent is loaded, raises an exception or waits on a resource it can't reach.
 - **Slow initialization** : Loading the agent takes longer than the startup timeout.
 - **Custom container not listening** : A custom container must listen for HTTP requests on `0.0.0.0` on port `8080` . See the [runtime contract](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/runtime-contract#requirements) .
+- **Agent Gateway blocking startup** : When you [route traffic through Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy) , startup fails if Identity-Aware Proxy (IAP) blocks initialization calls, if the agent identity lacks the required roles, or if a custom container doesn't trust the gateway's root certificate. See [Errors during Agent Runtime startup](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-agent-gateway#bootstrap-errors) and [Agent deployed with custom container (BYOC) fails to connect to Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-agent-gateway#byoc-ca-fail) .
 
 **Recommended solutions** :
 
@@ -478,6 +479,37 @@ The Reasoning Engine could not access `projects/PROJECT_NUMBER/secrets/SECRET_ID
 - **For `PERMISSION_DENIED`** : Grant the **Secret Manager Secret Accessor** role ( `roles/secretmanager.secretAccessor` ) on the secret (or the project containing the secret) to the service account that fetches the secret:
   - **Default service account** : Grant the role to the AI Platform Reasoning Engine Service Agent ( `service- `` PROJECT_NUMBER `` @gcp-sa-aiplatform-re.iam.gserviceaccount.com` ).
   - **Custom service account** : Grant the role to the [custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#custom-service-account) configured on the agent.
+
+## Agent Gateway binding timed out
+
+**Issue** :
+
+Deploying or updating an agent fails with a `504` , `DEADLINE_EXCEEDED` status ( `REASONING_ENGINE_AGENT_GATEWAY_PROVISION_TIMEOUT` ) and a message similar to the following:
+
+```
+The Reasoning Engine timed out waiting for an in-progress operation on shared Agent Gateway `projects/PROJECT_NUMBER/locations/LOCATION/agentGateways/AGENT_GATEWAY_ID` to finish. Wait for the other operation to complete, then try again.
+```
+
+**Possible causes** :
+
+Agent Runtime agents in the same project and region share one binding to each configured [Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy) . Setting up or tearing down the shared binding can take several minutes longer than attaching an agent to an active binding. Your deployment or update times out if another binding or unbinding operation in the same project and region doesn't finish within the allowed time. Common causes can include the following:
+
+- **Concurrent initial bindings** : You bind multiple agents to an Agent Gateway in the same project and region before the initial shared setup finishes.
+- **In-progress unbinding** : You unbind or delete the last gateway-bound agent in the project and region, and then bind another agent to the same or a different gateway before the shared teardown finishes.
+- **Retry after a failed binding** : A deployment or update that binds a gateway fails, and you retry it before Agent Runtime finishes cleaning up the failed setup.
+
+**Recommended solutions** :
+
+- Wait several minutes for other operations on the gateway named in the error to finish, and then retry the deployment or update.
+- To bind multiple agents in a project and region without an active Agent Gateway binding, bind one agent first and wait for that operation to succeed. Then deploy or update the remaining agents concurrently.
+- In automated workflows, avoid unbinding or deleting the last gateway-bound agent in a project and region immediately before binding other agents. Removing the last gateway-bound agent tears down the shared binding, so the next deployment repeats the full setup.
+
+**Solutions that don't apply** :
+
+- Checking container logs or Agent Gateway traffic logs doesn't show an error for this failure, because the timeout occurs before Agent Runtime starts your agent's container.
+- Changing your agent's code, `requirements` , or `resource_limits` doesn't reduce shared binding setup time.
+
+If the gateway binding succeeds but the container then fails to start, see [Errors during Agent Runtime startup](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-agent-gateway#bootstrap-errors) .
 
 ## Support resources
 

@@ -579,6 +579,7 @@ Partner model endpoints for Agent Platform are available in the following region
 | Anthropic's Claude Sonnet 5 on Google Cloud                |                 |
 | Anthropic's Claude Opus 5.5 on Google Cloud                |                 |
 | Anthropic's Claude Opus 5 on Google Cloud                  |                 |
+| Anthropic's Claude Fable 5.2 on Google Cloud               |                 |
 | Anthropic's Claude Fable 5.1 on Google Cloud               |                 |
 | Anthropic's Claude Fable 5 on Google Cloud                 |                 |
 | Anthropic's Claude Opus 4.8 on Google Cloud                |                 |
@@ -614,6 +615,7 @@ Partner model endpoints for Agent Platform are available in the following region
 | Anthropic's Claude Sonnet 5 on Google Cloud                |                                 |                                  |
 | Anthropic's Claude Opus 5.5 on Google Cloud                |                                 |                                  |
 | Anthropic's Claude Opus 5 on Google Cloud                  |                                 |                                  |
+| Anthropic's Claude Fable 5.2 on Google Cloud               |                                 |                                  |
 | Anthropic's Claude Fable 5.1 on Google Cloud               |                                 |                                  |
 | Anthropic's Claude Fable 5 on Google Cloud                 |                                 |                                  |
 | Anthropic's Claude Opus 4.8 on Google Cloud                |                                 |                                  |
@@ -649,6 +651,7 @@ Partner model endpoints for Agent Platform are available in the following region
 | Anthropic's Claude Sonnet 5 on Google Cloud                |                   |                      |                    |                           |                        |                     |                    |
 | Anthropic's Claude Opus 5.5 on Google Cloud                |                   |                      |                    |                           |                        |                     |                    |
 | Anthropic's Claude Opus 5 on Google Cloud                  |                   |                      |                    |                           |                        |                     |                    |
+| Anthropic's Claude Fable 5.2 on Google Cloud               |                   |                      |                    |                           |                        |                     |                    |
 | Anthropic's Claude Fable 5.1 on Google Cloud               |                   |                      |                    |                           |                        |                     |                    |
 | Anthropic's Claude Fable 5 on Google Cloud                 |                   |                      |                    |                           |                        |                     |                    |
 | Anthropic's Claude Opus 4.8 on Google Cloud                |                   |                      |                    |                           |                        |                     |                    |
@@ -684,6 +687,7 @@ Partner model endpoints for Agent Platform are available in the following region
 | Anthropic's Claude Sonnet 5 on Google Cloud                |                                    |                                |
 | Anthropic's Claude Opus 5.5 on Google Cloud                |                                    |                                |
 | Anthropic's Claude Opus 5 on Google Cloud                  |                                    |                                |
+| Anthropic's Claude Fable 5.2 on Google Cloud               |                                    |                                |
 | Anthropic's Claude Fable 5.1 on Google Cloud               |                                    |                                |
 | Anthropic's Claude Fable 5 on Google Cloud                 |                                    |                                |
 | Anthropic's Claude Opus 4.8 on Google Cloud                |                                    |                                |
@@ -719,6 +723,7 @@ Partner model endpoints for Agent Platform are available in the following region
 | Anthropic's Claude Sonnet 5 on Google Cloud                |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
 | Anthropic's Claude Opus 5.5 on Google Cloud                |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
 | Anthropic's Claude Opus 5 on Google Cloud                  |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+| Anthropic's Claude Fable 5.2 on Google Cloud               |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
 | Anthropic's Claude Fable 5.1 on Google Cloud               |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
 | Anthropic's Claude Fable 5 on Google Cloud                 |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
 | Anthropic's Claude Opus 4.8 on Google Cloud                |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
@@ -754,6 +759,7 @@ Partner model endpoints for Agent Platform are available in the following region
 | Anthropic's Claude Sonnet 5 on Google Cloud                |                      |                             |                        |                     |                         |                               |                         |
 | Anthropic's Claude Opus 5.5 on Google Cloud                |                      |                             |                        |                     |                         |                               |                         |
 | Anthropic's Claude Opus 5 on Google Cloud                  |                      |                             |                        |                     |                         |                               |                         |
+| Anthropic's Claude Fable 5.2 on Google Cloud               |                      |                             |                        |                     |                         |                               |                         |
 | Anthropic's Claude Fable 5.1 on Google Cloud               |                      |                             |                        |                     |                         |                               |                         |
 | Anthropic's Claude Fable 5 on Google Cloud                 |                      |                             |                        |                     |                         |                               |                         |
 | Anthropic's Claude Opus 4.8 on Google Cloud                |                      |                             |                        |                     |                         |                               |                         |
@@ -789,6 +795,7 @@ Partner model endpoints for Agent Platform are available in the following region
 | Anthropic's Claude Sonnet 5 on Google Cloud                |                     |                    |                      |
 | Anthropic's Claude Opus 5.5 on Google Cloud                |                     |                    |                      |
 | Anthropic's Claude Opus 5 on Google Cloud                  |                     |                    |                      |
+| Anthropic's Claude Fable 5.2 on Google Cloud               |                     |                    |                      |
 | Anthropic's Claude Fable 5.1 on Google Cloud               |                     |                    |                      |
 | Anthropic's Claude Fable 5 on Google Cloud                 |                     |                    |                      |
 | Anthropic's Claude Opus 4.8 on Google Cloud                |                     |                    |                      |

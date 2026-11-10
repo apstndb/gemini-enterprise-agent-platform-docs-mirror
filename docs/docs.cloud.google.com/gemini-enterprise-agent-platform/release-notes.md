@@ -10,6 +10,30 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## November 09, 2026
+
+Feature
+
+**Fast mode for Anthropic Claude models is generally available**
+
+[Fast mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/fast-mode) for supported Anthropic Claude models, starting with [Claude Fable 5.2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/fable-5-2) ( `claude-fable-5-2` ), is available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages) . You can set `"speed": "fast"` in online pay-as-you-go prediction requests to accelerate output token generation for latency-sensitive agentic workflows.
+
+For more information, see [Fast mode with Anthropic Claude models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/fast-mode) .
+
+Feature
+
+**Anthropic's Claude Fable 5.2**
+
+[Claude Fable 5.2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/fable-5-2) ( `claude-fable-5-2` ) is available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages) in Model Garden, including support for [fast mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/fast-mode) ( `"speed": "fast"` ).
+
+Feature
+
+**Meta Muse models in Preview**
+
+[Muse Wonder 1.0 from Meta](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-wonder-1-0) ( `meta/muse-wonder-1.0` ), [Muse Ember 1.0 from Meta](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-ember-1-0) ( `meta/muse-ember-1.0` ), and [Muse Spark 1.3 from Meta](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-spark-1-3) ( `meta/muse-spark-1.3` ) are available in [Preview](https://cloud.google.com/products#product-launch-stages) on the global endpoint through the OpenAI-compatible Responses API. Muse Wonder 1.0 and Muse Spark 1.3 accept text, image, and PDF inputs, and Muse Ember 1.0 accepts text and image inputs. All three models support reasoning, function calling, structured output, and a 1M-token context window.
+
+For more information, see [Muse models from Meta](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta) .
+
 ## November 06, 2026
 
 Feature

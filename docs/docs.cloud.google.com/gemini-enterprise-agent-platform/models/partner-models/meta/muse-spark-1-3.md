@@ -10,9 +10,9 @@ data_source: docs.cloud.google.com
 >
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
-Muse Spark 1.3 from Meta is a reasoning model trained for agentic workflows and competitive coding. It delivers higher first-attempt accuracy, reliable built-in tool calling with MCP support, and 1M-token long context for multi-step tasks.
+Muse Spark 1.3 from Meta is a reasoning model trained for agentic workflows and competitive coding. It supports built-in tool calling with Model Context Protocol (MCP) support, accepts text, image, and PDF inputs, and offers a 1M-token context window for multi-step tasks.
 
-Contact your Google Cloud account manager or go to [https://dev.meta.ai/contact-sales](https://dev.meta.ai/contact-sales?utm_source=google_cloud&utm_medium=partner&utm_campaign=muse_spark_1_3&utm_content=model_page) for Preview access.
+Requests on the global `/locations/global/publishers/meta/v1/responses` endpoint pass the bare model ID `muse-spark-1.3` in the `model` field. For an example request, see [Use Meta models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta#use-meta-models) .
 
 <table>
 <colgroup>
@@ -32,25 +32,31 @@ Contact your Google Cloud account manager or go to [https://dev.meta.ai/contact-
 <th>Supported inputs &amp; outputs</th>
 <td><ul>
 <li>Inputs:
-Text</li>
+Text , Image , PDF</li>
 <li>Outputs:
 Text</li>
 </ul></td>
 </tr>
 <tr class="even">
+<th>Token limits</th>
+<td><ul>
+<li>Maximum input tokens: 1,048,576</li>
+</ul></td>
+</tr>
+<tr class="odd">
 <th>Capabilities</th>
 <td>Supported
 <ul>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling">Function calling</a> preview Preview feature</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output">Structured output</a> preview Preview feature</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking">Reasoning</a> preview Preview feature</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta#use-meta-models">Function calling</a> preview Preview feature</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta#use-meta-models">Structured output</a> preview Preview feature</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta#use-meta-models">Reasoning</a> preview Preview feature</li>
 </ul>
 Not supported
 <ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/batch-prediction">Batch predictions</a> preview Preview feature</li>
 </ul></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th>Usage types</th>
 <td>Supported
 <ul>
@@ -62,7 +68,7 @@ Not supported
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput">Provisioned Throughput</a> preview Preview feature</li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>Versions</th>
 <td><ul>
 <li><code>meta/muse-spark-1.3</code>
@@ -72,25 +78,25 @@ Not supported
 </ul></li>
 </ul></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th>Supported regions</th>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th><p>Model availability</p></th>
 <td>Global
 <ul>
 <li><code>global endpoint</code></li>
 </ul></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th>Quota limits</th>
 <td><p>global endpoint:</p>
 <ul>
-<li>Context length: 1,000,000</li>
+<li>Context length: 1,048,576</li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>Pricing</th>
 <td>See <a href="https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing">Pricing</a> .</td>
 </tr>
