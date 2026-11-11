@@ -344,7 +344,9 @@ You should receive a continuation of the conversation like the following sequenc
 
 By default, [`AdkApp`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.AdkApp) uses an in-memory implementation of agentic memory when running locally and uses [Agent Platform Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank) after you deploy the agent to Agent Runtime.
 
-When developing your ADK agent, you can include a `PreloadMemoryTool` that controls when the agent retrieves memories and how memories are included in the prompt. The following example agent always retrieves memories at the start of each turn and includes the memories in the system instruction:
+To choose a memory generation callback or a different memory retrieval tool, see [Use Agent Platform Memory Bank with ADK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/use-with-adk) .
+
+When developing your ADK agent, you can include a `PreloadMemoryTool` that controls when the agent retrieves memories and how memories are included in the prompt. The following example agent always retrieves memories at the start of each turn and injects them into the model request context before the user turn:
 
 ```
 from google.adk.agents import Agent

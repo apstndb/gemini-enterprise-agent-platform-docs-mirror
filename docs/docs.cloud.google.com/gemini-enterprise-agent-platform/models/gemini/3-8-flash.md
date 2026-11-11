@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 Gemini 3.8 Flash is our most intelligent workhorse model yet, delivering significant improvements from 3.7 Flash across software engineering, agentic tasks, and critical, multi-step reasoning in specialized domains. 3.8 Flash delivers substantial gains from 3.7 Flash, often approaching the performance of higher-cost frontier models.
 
-At times, 3.8 Flash might use more tokens to maximize performance, especially at higher effort levels. For applications where compute efficiency is the primary constraint, you can use lower effort levels to minimize token overhead or use 3.7 Flash instead.
+At times, 3.8 Flash might use more tokens to maximize performance, especially at higher effort levels. For applications where compute efficiency is the primary constraint, you can use lower effort levels to minimize token overhead.
 
 > **Note:** `thinking_level="MINIMAL"` is not available for 3.8 Flash. Explicitly setting `thinking_level` to `MINIMAL` will return an API validation error. The supported values for 3.8 Flash are `LOW` , `MEDIUM` (default), and `HIGH` .
 
@@ -214,12 +214,16 @@ Not supported</li>
 <td><ul>
 <li>Global: <code>global</code></li>
 <li>Multi-region: <code>us</code> , <code>eu</code></li>
+<li>Americas: <code>northamerica-northeast1</code></li>
+<li>Asia Pacific: <code>asia-northeast1</code></li>
 </ul></td>
 </tr>
 <tr class="odd">
 <th><p><strong><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency">ML processing</a></strong></p></th>
 <th><ul>
 <li>Multi-region: <code>us</code> , <code>eu</code></li>
+<li>Americas: <code>northamerica-northeast1</code></li>
+<li>Asia Pacific: <code>asia-northeast1</code></li>
 </ul></th>
 <td></td>
 </tr>
@@ -228,6 +232,8 @@ Not supported</li>
 <th><ul>
 <li>Global: <code>global</code></li>
 <li>Multi-region: <code>us</code> , <code>eu</code></li>
+<li>Americas: <code>northamerica-northeast1</code></li>
+<li>Asia Pacific: <code>asia-northeast1</code></li>
 </ul></th>
 <td></td>
 </tr>

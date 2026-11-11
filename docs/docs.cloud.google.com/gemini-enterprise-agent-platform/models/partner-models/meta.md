@@ -14,13 +14,13 @@ Muse models from Meta are available for use as managed APIs on Agent Platform. Y
 
 The following models are available from Meta to use in Agent Platform. To find and enable a Meta model, go to its model card in [Model Garden](https://console.cloud.google.com/agent-platform/model-garden) .
 
-### Muse Wonder 1.0 from Meta
+### Muse Wonder from Meta
 
-[Muse Wonder 1.0 from Meta](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-wonder-1-0) is a high-capability reasoning model built for complex software engineering and long-horizon agentic work. In multi-step coding, autonomous agent, and computer-use workflows, it plans tasks, delegates to sub-agents, calls tools in parallel, and recovers from errors.
+[Muse Wonder from Meta](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-wonder-1-0) is a high-capability reasoning model built for complex software engineering and long-horizon agentic work. In multi-step coding, autonomous agent, and computer-use workflows, it plans tasks, delegates to sub-agents, calls tools in parallel, and recovers from errors.
 
-### Muse Ember 1.0 from Meta
+### Muse Ember from Meta
 
-[Muse Ember 1.0 from Meta](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-ember-1-0) is an efficient reasoning model built for high-volume agent tasks, including tool calls, coding subtasks, routing, extraction, and long-document processing. Pair it with Muse Wonder 1.0 or Muse Spark 1.3 for multi-step planning and reasoning.
+[Muse Ember from Meta](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-ember-1-0) is an efficient reasoning model built for high-volume agent tasks, including tool calls, coding subtasks, routing, extraction, and long-document processing. Pair it with Muse Wonder or Muse Spark 1.3 for multi-step planning and reasoning.
 
 ### Muse Spark 1.3 from Meta
 
@@ -30,7 +30,7 @@ The following models are available from Meta to use in Agent Platform. To find a
 
 Muse models from Meta are served through the stateless OpenAI-compatible [Responses API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.publishers.v1.responses) on the `global` endpoint. Stateful response storage ( `store: true` ) isn't supported. Send `POST` requests to `https://aiplatform.googleapis.com/v1/projects/ `` PROJECT_ID `` /locations/global/publishers/meta/v1/responses` and pass the bare model ID ( `muse-wonder-1.0` , `muse-ember-1.0` , or `muse-spark-1.3` ) in the `model` field.
 
-The following curl example sends a prompt request to Muse Wonder 1.0 on the global endpoint:
+The following curl example sends a prompt request to Muse Wonder on the global endpoint:
 
 ```sh
 curl -X POST \

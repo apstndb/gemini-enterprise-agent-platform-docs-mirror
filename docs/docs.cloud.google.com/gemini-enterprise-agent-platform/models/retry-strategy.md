@@ -27,7 +27,7 @@ Before implementing a custom retry strategy, consider how your endpoint selectio
 ### Define latency tolerance
 
 - **Real-time** (for example, chat): Fail fast. Limit the number of retry attempts so users are not left waiting indefinitely for a response.
-- **Batch Inference** : **Do not retry individual items.** The Batch service automatically handles retries for individual requests within the job to strive for a high completion rate. Your only responsibility is to successfully *submit* the job once. For more information, see [Batch prediction](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-prediction-gemini) .
+- **Batch Inference** : **Do not retry individual items.** The Batch service automatically handles retries for individual requests within the job to strive for a high completion rate. Your only responsibility is to successfully *submit* the job once. For more information, see [Batch prediction](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference) .
 
 ## Identifying retryable errors
 

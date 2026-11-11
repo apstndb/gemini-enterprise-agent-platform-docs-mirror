@@ -170,7 +170,7 @@ Guide
 
 ### [Use models in Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/use-models)
 
-Use generative models from Model Garden in the .
+Use generative models from Model Garden in the Google Cloud console.
 
 Guide
 

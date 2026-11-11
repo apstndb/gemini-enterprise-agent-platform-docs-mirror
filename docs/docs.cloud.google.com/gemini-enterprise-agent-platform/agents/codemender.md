@@ -12,7 +12,7 @@ data_source: docs.cloud.google.com
 >
 > Pre-GA products are in various stages of internal testing and review. As such, customers should closely supervise the use of CodeMender, and not use CodeMender in situations where serious errors cannot be corrected. This product is made available to Customers solely for limited testing and evaluation, and may not be used for commercial or production purposes.
 >
-> You may only use CodeMender to analyze (i) source code that you own or are authorized to use or (ii) open source code distributed under an OSI-approved license. You must use this offering solely for legitimate security defense purposes (and not for unauthorized testing, exploitation, or cyberattacks) in compliance with the [Google Cloud Acceptable Use Policy](https://cloud.google.com/terms/aup?e=48754805) and the [Generative AI Prohibited Use Policy](https://policies.google.com/terms/generative-ai/use-policy) . When using CodeMender built with a Gemini Cyber or Gemini Frontier Cyber model, your access to and use of those models is also governed by Section 31 of the [Service Specific Terms](https://cloud.google.com/terms/service-terms#1) .
+> You may only use CodeMender to analyze (i) source code that you own or are authorized to use or (ii) open source code distributed under an OSI-approved license. You must use this offering solely for legitimate security defense purposes (and not for unauthorized testing, exploitation, or cyberattacks) in compliance with the [Google Cloud Acceptable Use Policy](https://cloud.google.com/terms/aup?e=48754805) and the [Generative AI Prohibited Use Policy](https://policies.google.com/terms/generative-ai/use-policy) . When using CodeMender built with a Google Cyber Model or Google Frontier Cyber Model, or a Google Frontier Model, your access to and use of those models is also governed by Sections 31 and 34 of the [Service Specific Terms](https://cloud.google.com/terms/service-terms#1) , respectively.
 >
 > When disabling human confirmation of write and tool execution actions (as described in the [configuration file parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment#configuration-file) ), Customer is responsible for such modification under Section 20(j) ("Modifying, Disregarding, or Disabling Safety Filters") of the Service Specific Terms. The customer agrees not to automatically bypass or circumvent other responses requiring human confirmation.
 
@@ -116,9 +116,11 @@ CodeMender supports the following models:
 - [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
 - [Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) preview
 
-CodeMender also supports [Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber) and Gemini 4 Argon Cyber Permissive for customers with access through the [Fairwind Program](https://deepmind.google/fairwind-program/) .
+CodeMender also supports [Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber) , Gemini 4 Argon Cyber Permissive, and Gemini 4 Carbon for cyber for customers with access through the [Fairwind Program](https://deepmind.google/fairwind-program/) .
 
-Gemini 4 Argon ( `gemini-4-argon` ) includes built-in cyber safety capabilities that may block requests involving exploit generation or vulnerability verification. Any safety block on `gemini-4-argon` automatically triggers a retry against Gemini 3.8 Flash Cyber ( `gemini-3.8-flash-cyber` ), and then falls back to Gemini 3.8 Flash ( `gemini-3.8-flash` ) if your project does not have access to Gemini 3.8 Flash Cyber.
+Gemini 4 Argon ( `gemini-4-argon` ) and Gemini 4 Carbon ( `gemini-4-carbon` ) include built-in cyber safety capabilities that may block requests involving exploit generation or vulnerability verification. Any safety block on `gemini-4-argon` or `gemini-4-carbon` automatically triggers a retry against Gemini 3.8 Flash Cyber ( `gemini-3.8-flash-cyber` ), and then falls back to Gemini 3.8 Flash ( `gemini-3.8-flash` ) if your project does not have access to Gemini 3.8 Flash Cyber.
+
+`cm verify` works best with a cyber model. If your project has access through the Fairwind Program, pass one with the `--model` flag, for example `--model gemini-3.8-flash-cyber` .
 
 To specify a model when running CodeMender CLI commands, see [Specifying the model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender#specifying-the-model) .
 
@@ -182,6 +184,8 @@ By default, CodeMender uses Gemini 3.8 Flash. To override the default model, pas
 - Gemini 3.8 Flash Cyber: `--model gemini-3.8-flash-cyber`
 - Gemini 4 Argon: `--model gemini-4-argon`
 - Gemini 4 Argon Cyber Permissive: `--model gemini-4-argon-cyber-permissive`
+- Gemini 4 Carbon: `--model gemini-4-carbon`
+- Gemini 4 Carbon for cyber: `--model gemini-4-carbon-cyber-permissive`
 - Gemini 3.7 Flash: `--model gemini-3.7-flash` (retires on January 28, 2027)
 - Gemini 3.6 Flash: `--model gemini-3.6-flash` (deprecated; retires on November 19, 2026)
 - Gemini 3.5 Flash: `--model gemini-3.5-flash`

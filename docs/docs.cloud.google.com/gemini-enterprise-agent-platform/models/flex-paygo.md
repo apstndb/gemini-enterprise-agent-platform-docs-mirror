@@ -31,7 +31,7 @@ Flex PayGo is ideal for the synchronous, latency-tolerant, and non-critical task
 
 - Building a product catalog
 
-> **Note:** For large workloads that can tolerate 24-hour turnaround times and process hundreds of billions of tokens daily, we recommend [Batch inference with Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-prediction-gemini) for improved throughput and success rate.
+> **Note:** For large workloads that can tolerate 24-hour turnaround times and process hundreds of billions of tokens daily, we recommend [Batch inference with Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference) for improved throughput and success rate.
 
 ## Supported models and locations
 

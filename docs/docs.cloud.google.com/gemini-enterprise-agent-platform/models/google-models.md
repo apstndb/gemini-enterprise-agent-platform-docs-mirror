@@ -40,9 +40,13 @@ Turn ideas into production-ready assets
 
 ## Generally available Gemini models
 
+spark [Gemini 4 Carbon (Google Frontier Model)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon) Google's frontier model that excels at deep work in complex, real-world tasks across domains including coding, finance, legal, cybersecurity, and science.
+
+spark [Gemini 4 Carbon for cyber (Google Frontier Cyber Model)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon#cyber) A version of Gemini 4 Carbon for defensive cybersecurity use cases. Available behind an allowlist.
+
 spark [Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon) Google's frontier model that excels at deep work in complex, real-world tasks across domains including coding, finance, legal, cybersecurity, and science.
 
-spark [Gemini 4 Argon Cyber Permissive (Gemini Frontier Cyber Model)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber) A version of Gemini 4 Argon for defensive cybersecurity use cases. Available behind an allowlist.
+spark [Gemini 4 Argon Cyber Permissive (Google Frontier Cyber Model)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber) A version of Gemini 4 Argon for defensive cybersecurity use cases. Available behind an allowlist.
 
 spark [Gemini 3.8 Flash Cyber (Gemini Cyber)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber) Our model optimized for cyber security.
 

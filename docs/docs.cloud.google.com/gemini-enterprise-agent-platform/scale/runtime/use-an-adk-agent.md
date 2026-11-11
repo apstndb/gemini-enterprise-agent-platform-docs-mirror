@@ -558,6 +558,8 @@ Once the job is cancelled, its operation completes with an error code of `1` ( `
 
 `AdkApp` uses [Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank) if you include a `PreloadMemoryTool` in [the agent definition](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-adk-agent#manage-memories) and deploy the agent to Agent Platform. This section describes how to use generate and retrieve memories from the agent through the default implementation of the [ADK memory service](https://google.github.io/adk-docs/sessions/memory/#vertex-ai-memory-bank) .
 
+For memory generation callbacks, retrieval tools, and other runtimes, see [Use Memory Bank with ADK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/use-with-adk) .
+
 ### Add session to memory
 
 To retain memory of meaningful information in a session (that can be used in future sessions), use the [`async_add_session_to_memory`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.AdkApp#vertexai_agent_engines_AdkApp_async_add_session_to_memory) method:

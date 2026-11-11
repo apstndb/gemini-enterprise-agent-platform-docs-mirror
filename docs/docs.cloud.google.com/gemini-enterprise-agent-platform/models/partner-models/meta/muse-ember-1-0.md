@@ -1,8 +1,8 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-ember-1-0
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-ember-1-0
-title: Muse Ember 1.0
-description: Explore the Muse Ember 1.0 model in Model Garden.
+title: Muse Ember
+description: Explore the Muse Ember model in Model Garden.
 data_source: docs.cloud.google.com
 ---
 
@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 >
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
-Muse Ember 1.0 from Meta is an efficient reasoning model built for high-volume agent tasks, including tool calls, coding subtasks, routing, extraction, and long-document processing. It accepts text and image inputs with a 1M-token context window. Pair it with Muse Wonder 1.0 or Muse Spark 1.3 for multi-step planning and reasoning.
+Muse Ember from Meta is an efficient reasoning model built for high-volume agent tasks, including tool calls, coding subtasks, routing, extraction, and long-document processing. It accepts text and image inputs with a 1M-token context window. Pair it with Muse Wonder or Muse Spark 1.3 for multi-step planning and reasoning.
 
 Requests on the global `/locations/global/publishers/meta/v1/responses` endpoint pass the bare model ID `muse-ember-1.0` in the `model` field. For an example request, see [Use Meta models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta#use-meta-models) .
 

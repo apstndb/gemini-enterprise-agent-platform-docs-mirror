@@ -28,6 +28,14 @@ The name of the \`Model\` used for generating the interaction.
 
 Possible values:
 
+- `gemini-4-carbon`
+
+  Google's frontier model that excels at deep work in complex, real-world tasks across domains including coding, finance, legal, cybersecurity, and science.
+
+- `gemini-4-carbon-cyber-permissive`
+
+  Cybersecurity variant of `gemini-4-carbon` for defensive cybersecurity workflows (available behind the Fairwind Program allowlist).
+
 - `gemini-4-argon`
 
   Google's frontier model that excels at deep work in complex, real-world tasks across domains including coding, finance, legal, cybersecurity, and science.
@@ -669,6 +677,14 @@ model ModelOption (optional)
 The name of the \`Model\` used for generating the interaction.
 
 Possible values:
+
+- `gemini-4-carbon`
+
+  Google's frontier model that excels at deep work in complex, real-world tasks across domains including coding, finance, legal, cybersecurity, and science.
+
+- `gemini-4-carbon-cyber-permissive`
+
+  Cybersecurity variant of `gemini-4-carbon` for defensive cybersecurity workflows (available behind the Fairwind Program allowlist).
 
 - `gemini-4-argon`
 

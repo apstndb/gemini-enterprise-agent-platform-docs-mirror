@@ -107,6 +107,8 @@ Verification and enforcement rely on the **Agent Gateway** , which acts as a run
 3.  **Evaluation:** The policy engine evaluates the suggested tool call against user intent and any applicable constraints, and renders its verdict.
 4.  **Enforcement:** The verdict is added to the model response, removing the proposed tool call, before returning to the agent through the Agent Gateway.
 
+In a multi-project (hub-and-spoke) architecture, you can provision a single Agent Gateway and Semantic governance policy engine in a central [management project](https://docs.cloud.google.com/agent-registry/boundaries-and-topology#management-project) to govern agents deployed across multiple member projects in a management boundary. For setup instructions, see [Govern agents across multiple projects](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#cross-project-governance) .
+
 ### Supported model providers
 
 The policy engine reads the request and response format of each supported model provider, so the same policies apply whichever model your agent uses. If a tool call is denied, the engine replaces it with a denial message in that provider's response format.

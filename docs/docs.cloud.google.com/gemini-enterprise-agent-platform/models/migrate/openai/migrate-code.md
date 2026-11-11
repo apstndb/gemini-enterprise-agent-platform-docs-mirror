@@ -72,7 +72,7 @@ Set `GOOGLE_GENAI_USE_ENTERPRISE` , `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOC
 ```
 export GOOGLE_GENAI_USE_ENTERPRISE=true
 export GOOGLE_CLOUD_PROJECT='your-project-id'
-export GOOGLE_CLOUD_LOCATION=&#39;global'
+export GOOGLE_CLOUD_LOCATION='global'
 ```
 
 Once configured, you can initialize the client without passing parameters:

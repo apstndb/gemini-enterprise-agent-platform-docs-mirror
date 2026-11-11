@@ -30,7 +30,7 @@ As outlined in Section 34 of the [Service Specific Terms](https://cloud.google.c
 
 - **Human review of abuse logs for customers covered under Google Cloud online terms** : As outlined in Section 4.3 "Generative AI Safety and Abuse" of [Google Cloud Platform Terms of Service](https://cloud.google.com/terms/) , Google may additionally conduct human review of prompts flagged by our abuse classifiers, solely for the purpose of determining whether a violation of the AUP or Prohibited Use Policy has occurred. This data won't be used to train or fine-tune any AI/ML models. Only customers whose use of Google Cloud is governed by the [Google Cloud Platform Terms of Service](https://cloud.google.com/terms/) are in scope for human review. This means that customers with a Google Cloud Master Agreement are exempt from human review for this abuse monitoring by default.
 
-- **Models in scope** : [Gemini 4 Argon (Cyber Permissive)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber)
+- **Models in scope** : [Gemini 4 Carbon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon) (Google Frontier Model), [Gemini 4 Carbon for cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon#cyber) (Google Frontier Cyber Model), [Gemini 4 Argon Cyber Permissive](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber) (Google Frontier Cyber Model)
 
 - **Services in scope** : Google's Generative AI Services.
 

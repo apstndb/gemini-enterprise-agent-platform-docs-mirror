@@ -10,7 +10,53 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## November 11, 2026
+
+Feature
+
+**Gemini 4 Carbon in CodeMender (Preview)**
+
+CodeMender now supports Gemini 4 Carbon. To use it, pass `--model gemini-4-carbon` to `cm find` , `cm verify` , or `cm fix` . Gemini 3.8 Flash remains the default model.
+
+For more information, see [Specifying the model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender#specifying-the-model) .
+
+## November 10, 2026
+
+Feature
+
+**Cross-project governance for semantic governance policies**
+
+You can use semantic governance policies in a multi-project (hub-and-spoke) architecture to centrally govern agents deployed across multiple Google Cloud projects. When you configure a Resource Manager management boundary with the `AGENT_MANAGEMENT` capability, Agent Registry in the central management project automatically discovers agents across all member projects with their runtime identities intact. You can then provision a single Agent Gateway and semantic governance policy engine in the management project to author and enforce policies across member project agents.
+
+For more information, see [Govern agents across multiple projects](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#cross-project-governance) and [Cross-project boundaries](https://docs.cloud.google.com/agent-registry/boundaries-and-topology) .
+
+Fixed
+
+**CodeMender updates (v0.20.0)**
+
+This release introduces updates to CodeMender:
+
+- **Bug fixes** :
+  - Fixed patch application failures during validation on large repositories and projects with mixed LF and CRLF line endings.
+  - Fixed scan error handling to properly surface permission denied errors when scanning unreadable directories instead of reporting zero findings.
+
+For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender) .
+
+Feature
+
+**Gemini 4 Carbon and Gemini 4 Carbon for cyber (GA)**
+
+[Gemini 4 Carbon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon) ( `gemini-4-carbon` ) and [Gemini 4 Carbon for cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon#cyber) ( `gemini-4-carbon-cyber-permissive` ) are [generally available (GA)](https://cloud.google.com/products#product-launch-stages) . Gemini 4 Carbon is Google's frontier model for complex, real-world tasks across coding, finance, legal, cybersecurity, and science, with a unified 1,048,576-token input and output limit, long decodes up to 1,048,576 tokens using `continuation_token` , configurable thinking levels ( `LOW` , `MEDIUM` , and `HIGH` ), implicit context caching with durable caching, Microsoft Office and OpenDocument file inputs, and [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/supported-models#google-models) support. Gemini 4 Carbon for cyber is a defensive cybersecurity variant available behind the [Fairwind Program](https://deepmind.google/fairwind-program/) allowlist.
+
 ## November 09, 2026
+
+Feature
+
+**Gemini 3.8 Flash regional support in Canada and Japan**
+
+[Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash) ( `gemini-3.8-flash` ) is [generally available (GA)](https://cloud.google.com/products#product-launch-stages) in Canada ( `northamerica-northeast1` ) and Japan ( `asia-northeast1` ). On Gemini Enterprise Agent Platform, both regions support regional endpoints, in-region ML processing for data residency, and Provisioned Throughput.
+
+For more information, see [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) and [Data residency](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency) .
 
 Feature
 
@@ -30,7 +76,7 @@ Feature
 
 **Meta Muse models in Preview**
 
-[Muse Wonder 1.0 from Meta](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-wonder-1-0) ( `meta/muse-wonder-1.0` ), [Muse Ember 1.0 from Meta](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-ember-1-0) ( `meta/muse-ember-1.0` ), and [Muse Spark 1.3 from Meta](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-spark-1-3) ( `meta/muse-spark-1.3` ) are available in [Preview](https://cloud.google.com/products#product-launch-stages) on the global endpoint through the OpenAI-compatible Responses API. Muse Wonder 1.0 and Muse Spark 1.3 accept text, image, and PDF inputs, and Muse Ember 1.0 accepts text and image inputs. All three models support reasoning, function calling, structured output, and a 1M-token context window.
+[Muse Wonder from Meta](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-wonder-1-0) ( `meta/muse-wonder-1.0` ), [Muse Ember from Meta](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-ember-1-0) ( `meta/muse-ember-1.0` ), and [Muse Spark 1.3 from Meta](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-spark-1-3) ( `meta/muse-spark-1.3` ) are available in [Preview](https://cloud.google.com/products#product-launch-stages) on the global endpoint through the OpenAI-compatible Responses API. Muse Wonder and Muse Spark 1.3 accept text, image, and PDF inputs, and Muse Ember accepts text and image inputs. All three models support reasoning, function calling, structured output, and a 1M-token context window.
 
 For more information, see [Muse models from Meta](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta) .
 

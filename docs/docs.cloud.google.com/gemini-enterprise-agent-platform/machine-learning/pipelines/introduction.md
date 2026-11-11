@@ -14,6 +14,8 @@ Agent Platform Pipelines lets you automate, monitor, and govern your machine lea
 
 This page provides an overview of the following:
 
+- [Choosing the right orchestrator for your ML workloads](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/introduction#choose-orchestrator)
+
 - [What is an ML pipeline?](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/introduction#ml-pipeline)
 
 - [Structure of an ML pipeline](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/introduction#structure)
@@ -27,6 +29,12 @@ This page provides an overview of the following:
 - [Add pipeline runs to experiments](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/introduction#experiments)
 
 > **Note:** If you're experienced in creating ML pipelines using the Kubeflow Pipelines SDK and want to understand the differences between Agent Platform Pipelines and Kubeflow Pipelines, see [Migrate from Kubeflow Pipelines to Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/migrate-kfp) .
+
+## Choosing the right orchestrator for your ML workloads
+
+- **Choose Agent Platform Pipelines** if you are a machine learning engineer building specialized, container-native ML workflows using Kubeflow Pipelines or TFX, and your pipeline executes entirely within the Agent Platform and Google Cloud ecosystem.
+
+- **Choose Managed Service for Apache Airflow** if you are building an end-to-end MLOps process that requires unifying data engineering and machine learning. Managed Airflow features [Orchestration Pipelines](https://docs.cloud.google.com/orchestration-pipelines) , a declarative YAML framework that lets data scientists orchestrate feature engineering (for example, Dataform or dbt pipelines) and distributed ML processing (for example, PySpark on Managed Service for Apache Spark) without writing complex Python DAGs.
 
 ## What is an ML pipeline?
 

@@ -218,12 +218,12 @@ public class CreateTrainingPipelineImageClassificationSample {
     // Initialize client that will be used to send requests. This client only needs to be created
     // once, and can be reused for multiple requests. After completing all of your requests, call
     // the "close" method on the client to safely clean up any remaining background resources.
-    try (PipelineServiceClient pipelineServiceClient =
+   try (PipelineServiceClient pipelineServiceClient =
         PipelineServiceClient.create(pipelineServiceSettings)) {
       String location = "us-central1";
       String trainingTaskDefinition =
-          "gs://google-cloud-aiplatform/schema/trainingjob/definition/"
-              + "automl_image_classification_1.0.0.yaml";
+          "gs://google-cloud-aiplatform/schema/trainingjob/definition/&quot;
+            + "automl_image_classification_1.0.0.yaml";
       LocationName locationName = LocationName.of(project, location);
 
       AutoMlImageClassificationInputs autoMlImageClassificationInputs =
@@ -235,7 +235,7 @@ public class CreateTrainingPipelineImageClassificationSample {
               .build();
 
       InputDataConfig trainingInputDataConfig =
-          InputDataConfig.newBuilder().setDatasetId(datasetId).build();
+     InputDataConfig.newBuilder().setDatasetId(datasetId).build();
       Model model = Model.newBuilder().setDisplayName(modelDisplayName).build();
       TrainingPipeline trainingPipeline =
           TrainingPipeline.newBuilder()
@@ -269,31 +269,31 @@ public class CreateTrainingPipelineImageClassificationSample {
 
       InputDataConfig inputDataConfig = trainingPipelineResponse.getInputDataConfig();
       System.out.println("Input Data Config");
-      System.out.format("Dataset Id: %s", inputDataConfig.getDatasetId());
+ System.out.format("Dataset Id: %s", inputDataConfig.getDatasetId());
       System.out.format("Annotations Filter: %s\n", inputDataConfig.getAnnotationsFilter());
 
       FractionSplit fractionSplit = inputDataConfig.getFractionSplit();
-      System.out.println("Fraction Split");
+      System.out.println("Fraction Split&quot;);
       System.out.format("Training Fraction: %s\n", fractionSplit.getTrainingFraction());
       System.out.format("Validation Fraction: %s\n", fractionSplit.getValidationFraction());
       System.out.format("Test Fraction: %s\n", fractionSplit.getTestFraction());
 
       FilterSplit filterSplit = inputDataConfig.getFilterSplit();
-      System.out.println("Filter Split");
+      System.out.println(&quot;Filter Split");
       System.out.format("Training Filter: %s\n", filterSplit.getTrainingFilter());
-      System.out.format("Validation Filter: %s\n", filterSplit.getValidationFilter());
-      System.out.format("Test Filter: %s\n", filterSplit.getTestFilter());
+      System.out.format("Validation Filter: %s\n";, filterSplit.getValidationFilter());
+      System.out.format(&quot;Test Filter: %s\n", filterSplit.getTestFilter());
 
       PredefinedSplit predefinedSplit = inputDataConfig.getPredefinedSplit();
       System.out.println("Predefined Split");
       System.out.format("Key: %s\n", predefinedSplit.getKey());
 
       TimestampSplit timestampSplit = inputDataConfig.getTimestampSplit();
-      System.out.println("Timestamp Split");
+      System.out.println(&quot;Timestamp Split");
       System.out.format("Training Fraction: %s\n", timestampSplit.getTrainingFraction());
-      System.out.format("Validation Fraction: %s\n", timestampSplit.getValidationFraction());
+      System.out.format("Validation Fraction: %s\n&quot;, timestampSplit.getValidationFraction());
       System.out.format("Test Fraction: %s\n", timestampSplit.getTestFraction());
-      System.out.format("Key: %s\n", timestampSplit.getKey());
+    System.out.format("Key: %s\n", timestampSplit.getKey());
 
       Model modelResponse = trainingPipelineResponse.getModelToUpload();
       System.out.println("Model To Upload");
@@ -308,26 +308,26 @@ public class CreateTrainingPipelineImageClassificationSample {
 
       System.out.format(
           "Supported Deployment Resources Types: %s\n",
-          modelResponse.getSupportedDeploymentResourcesTypesList());
+        modelResponse.getSupportedDeploymentResourcesTypesList());
       System.out.format(
-          "Supported Input Storage Formats: %s\n",
+          &quot;Supported Input Storage Formats: %s\n",
           modelResponse.getSupportedInputStorageFormatsList());
       System.out.format(
           "Supported Output Storage Formats: %s\n",
           modelResponse.getSupportedOutputStorageFormatsList());
 
       System.out.format("Create Time: %s\n", modelResponse.getCreateTime());
-      System.out.format("Update Time: %s\n", modelResponse.getUpdateTime());
-      System.out.format("Labels: %sn\n", modelResponse.getLabelsMap());
+      System.out.format(&quot;Update Time: %s\n", modelResponse.getUpdateTime());
+      System.out.format("Labels: %sn\n";, modelResponse.getLabelsMap());
 
       PredictSchemata predictSchemata = modelResponse.getPredictSchemata();
-      System.out.println("Predict Schemata");
+      System.out.println(&quot;Predict Schemata");
       System.out.format("Instance Schema Uri: %s\n", predictSchemata.getInstanceSchemaUri());
       System.out.format("Parameters Schema Uri: %s\n", predictSchemata.getParametersSchemaUri());
-      System.out.format("Prediction Schema Uri: %s\n", predictSchemata.getPredictionSchemaUri());
+      System.out.format(&quot;Prediction Schema Uri: %s\n", predictSchemata.getPredictionSchemaUri());
 
       for (ExportFormat exportFormat : modelResponse.getSupportedExportFormatsList()) {
-        System.out.println("Supported Export Format");
+        System.out.println("Supported Export Format&quot;);
         System.out.format("Id: %s\n", exportFormat.getId());
       }
 
@@ -335,7 +335,7 @@ public class CreateTrainingPipelineImageClassificationSample {
       System.out.println("Container Spec");
       System.out.format("Image Uri: %s\n", modelContainerSpec.getImageUri());
       System.out.format("Command: %s\n", modelContainerSpec.getCommandList());
-      System.out.format("Args: %s\n", modelContainerSpec.getArgsList());
+      System.out.format("Args: %s\n&quot;, modelContainerSpec.getArgsList());
       System.out.format("Predict Route: %s\n", modelContainerSpec.getPredictRoute());
       System.out.format("Health Route: %s\n", modelContainerSpec.getHealthRoute());
 
@@ -675,12 +675,12 @@ public class CreateTrainingPipelineImageClassificationSample {
     // Initialize client that will be used to send requests. This client only needs to be created
     // once, and can be reused for multiple requests. After completing all of your requests, call
     // the "close" method on the client to safely clean up any remaining background resources.
-    try (PipelineServiceClient pipelineServiceClient =
+   try (PipelineServiceClient pipelineServiceClient =
         PipelineServiceClient.create(pipelineServiceSettings)) {
       String location = "us-central1";
       String trainingTaskDefinition =
-          "gs://google-cloud-aiplatform/schema/trainingjob/definition/"
-              + "automl_image_classification_1.0.0.yaml";
+          "gs://google-cloud-aiplatform/schema/trainingjob/definition/&quot;
+            + "automl_image_classification_1.0.0.yaml";
       LocationName locationName = LocationName.of(project, location);
 
       AutoMlImageClassificationInputs autoMlImageClassificationInputs =
@@ -692,7 +692,7 @@ public class CreateTrainingPipelineImageClassificationSample {
               .build();
 
       InputDataConfig trainingInputDataConfig =
-          InputDataConfig.newBuilder().setDatasetId(datasetId).build();
+     InputDataConfig.newBuilder().setDatasetId(datasetId).build();
       Model model = Model.newBuilder().setDisplayName(modelDisplayName).build();
       TrainingPipeline trainingPipeline =
           TrainingPipeline.newBuilder()
@@ -726,31 +726,31 @@ public class CreateTrainingPipelineImageClassificationSample {
 
       InputDataConfig inputDataConfig = trainingPipelineResponse.getInputDataConfig();
       System.out.println("Input Data Config");
-      System.out.format("Dataset Id: %s", inputDataConfig.getDatasetId());
+ System.out.format("Dataset Id: %s", inputDataConfig.getDatasetId());
       System.out.format("Annotations Filter: %s\n", inputDataConfig.getAnnotationsFilter());
 
       FractionSplit fractionSplit = inputDataConfig.getFractionSplit();
-      System.out.println("Fraction Split");
+      System.out.println("Fraction Split&quot;);
       System.out.format("Training Fraction: %s\n", fractionSplit.getTrainingFraction());
       System.out.format("Validation Fraction: %s\n", fractionSplit.getValidationFraction());
       System.out.format("Test Fraction: %s\n", fractionSplit.getTestFraction());
 
       FilterSplit filterSplit = inputDataConfig.getFilterSplit();
-      System.out.println("Filter Split");
+      System.out.println(&quot;Filter Split");
       System.out.format("Training Filter: %s\n", filterSplit.getTrainingFilter());
-      System.out.format("Validation Filter: %s\n", filterSplit.getValidationFilter());
-      System.out.format("Test Filter: %s\n", filterSplit.getTestFilter());
+      System.out.format("Validation Filter: %s\n";, filterSplit.getValidationFilter());
+      System.out.format(&quot;Test Filter: %s\n", filterSplit.getTestFilter());
 
       PredefinedSplit predefinedSplit = inputDataConfig.getPredefinedSplit();
       System.out.println("Predefined Split");
       System.out.format("Key: %s\n", predefinedSplit.getKey());
 
       TimestampSplit timestampSplit = inputDataConfig.getTimestampSplit();
-      System.out.println("Timestamp Split");
+      System.out.println(&quot;Timestamp Split");
       System.out.format("Training Fraction: %s\n", timestampSplit.getTrainingFraction());
-      System.out.format("Validation Fraction: %s\n", timestampSplit.getValidationFraction());
+      System.out.format("Validation Fraction: %s\n&quot;, timestampSplit.getValidationFraction());
       System.out.format("Test Fraction: %s\n", timestampSplit.getTestFraction());
-      System.out.format("Key: %s\n", timestampSplit.getKey());
+    System.out.format("Key: %s\n", timestampSplit.getKey());
 
       Model modelResponse = trainingPipelineResponse.getModelToUpload();
       System.out.println("Model To Upload");
@@ -765,26 +765,26 @@ public class CreateTrainingPipelineImageClassificationSample {
 
       System.out.format(
           "Supported Deployment Resources Types: %s\n",
-          modelResponse.getSupportedDeploymentResourcesTypesList());
+        modelResponse.getSupportedDeploymentResourcesTypesList());
       System.out.format(
-          "Supported Input Storage Formats: %s\n",
+          &quot;Supported Input Storage Formats: %s\n",
           modelResponse.getSupportedInputStorageFormatsList());
       System.out.format(
           "Supported Output Storage Formats: %s\n",
           modelResponse.getSupportedOutputStorageFormatsList());
 
       System.out.format("Create Time: %s\n", modelResponse.getCreateTime());
-      System.out.format("Update Time: %s\n", modelResponse.getUpdateTime());
-      System.out.format("Labels: %sn\n", modelResponse.getLabelsMap());
+      System.out.format(&quot;Update Time: %s\n", modelResponse.getUpdateTime());
+      System.out.format("Labels: %sn\n";, modelResponse.getLabelsMap());
 
       PredictSchemata predictSchemata = modelResponse.getPredictSchemata();
-      System.out.println("Predict Schemata");
+      System.out.println(&quot;Predict Schemata");
       System.out.format("Instance Schema Uri: %s\n", predictSchemata.getInstanceSchemaUri());
       System.out.format("Parameters Schema Uri: %s\n", predictSchemata.getParametersSchemaUri());
-      System.out.format("Prediction Schema Uri: %s\n", predictSchemata.getPredictionSchemaUri());
+      System.out.format(&quot;Prediction Schema Uri: %s\n", predictSchemata.getPredictionSchemaUri());
 
       for (ExportFormat exportFormat : modelResponse.getSupportedExportFormatsList()) {
-        System.out.println("Supported Export Format");
+        System.out.println("Supported Export Format&quot;);
         System.out.format("Id: %s\n", exportFormat.getId());
       }
 
@@ -792,7 +792,7 @@ public class CreateTrainingPipelineImageClassificationSample {
       System.out.println("Container Spec");
       System.out.format("Image Uri: %s\n", modelContainerSpec.getImageUri());
       System.out.format("Command: %s\n", modelContainerSpec.getCommandList());
-      System.out.format("Args: %s\n", modelContainerSpec.getArgsList());
+      System.out.format("Args: %s\n&quot;, modelContainerSpec.getArgsList());
       System.out.format("Predict Route: %s\n", modelContainerSpec.getPredictRoute());
       System.out.format("Health Route: %s\n", modelContainerSpec.getHealthRoute());
 

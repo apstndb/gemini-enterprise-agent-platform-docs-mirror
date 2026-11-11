@@ -65,6 +65,37 @@ The following table lists the models that support document understanding:
 </tr>
 <tr class="odd">
 <td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon#cyber">Gemini 4 Carbon for cyber</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon">Gemini 4 Carbon</a></li>
+</ul></td>
+<td><ul>
+<li>Maximum number of files per prompt: 3,000 documents (shared with images; up to 6,500 total files when including plain text)</li>
+<li>Maximum number of pages per file: 3,000</li>
+<li>Maximum inline part size (GenerateContent API): 256 MB</li>
+<li>Maximum file size per file from Cloud Storage: 2 GiB minus 500 KiB</li>
+<li>Maximum file size per file from public HTTP or HTTPS URLs: 15 MiB</li>
+<li>Maximum file size per file for direct local uploads in the console: 7 MiB inline (up to 50 MiB staged to Cloud Storage)</li>
+<li>Maximum file size per file for Google Drive imports in the console: 7 MB (10 MB total)</li>
+<li>Default resolution tokens: 560</li>
+<li>OCR for scanned PDFs: Not used by default</li>
+</ul></td>
+<td><ul>
+<li><code>application/pdf</code></li>
+<li><code>text/plain</code></li>
+<li><code>application/msword</code></li>
+<li><code>application/vnd.openxmlformats-officedocument.wordprocessingml.document</code></li>
+<li><code>application/vnd.openxmlformats-officedocument.wordprocessingml.template</code></li>
+<li><code>application/vnd.oasis.opendocument.text</code></li>
+<li><code>application/vnd.ms-powerpoint</code></li>
+<li><code>application/vnd.openxmlformats-officedocument.presentationml.presentation</code></li>
+<li><code>application/vnd.oasis.opendocument.presentation</code></li>
+<li><code>application/vnd.ms-excel</code></li>
+<li><code>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</code></li>
+<li><code>application/vnd.oasis.opendocument.spreadsheet</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber">Gemini 4 Argon Cyber Permissive</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon">Gemini 4 Argon</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber">Gemini 3.8 Flash Cyber</a></li>
@@ -93,7 +124,7 @@ The following table lists the models that support document understanding:
 <li><code>text/plain</code></li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live">Gemini 3.8 Live</a></li>
 </ul></td>
@@ -102,7 +133,7 @@ The following table lists the models that support document understanding:
 <li><code>text/plain</code></li>
 </ul></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image">Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image">Gemini 3 Pro Image</a></li>
@@ -121,7 +152,7 @@ The following table lists the models that support document understanding:
 <li><code>text/plain</code></li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro">Gemini 2.5 Pro</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash">Gemini 2.5 Flash</a></li>
@@ -140,7 +171,7 @@ The following table lists the models that support document understanding:
 <li><code>text/plain</code></li>
 </ul></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite">Gemini 2.5 Flash-Lite</a></li>
 </ul></td>
@@ -158,7 +189,7 @@ The following table lists the models that support document understanding:
 <li><code>text/plain</code></li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-image">Gemini 2.5 Flash Image</a></li>
 </ul></td>

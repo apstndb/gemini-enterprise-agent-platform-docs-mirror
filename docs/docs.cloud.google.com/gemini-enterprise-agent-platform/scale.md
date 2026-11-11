@@ -211,7 +211,7 @@ Quickstart
 
 ### [Quickstart with Agent Development Kit](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/adk-quickstart)
 
-Get started with the Agent Development Kit (ADK).
+Build an ADK agent that recalls user preferences.
 
 Guide
 

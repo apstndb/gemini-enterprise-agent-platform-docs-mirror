@@ -725,4 +725,4 @@ parameters = {
 
 - Learn about [generative AI evaluation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-overview) .
 - Learn about online evaluation with [Gen AI evaluation service](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-overview) .
-- Learn how to [tune language foundation models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models) .
+- Learn how to [tune language foundation models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning) .

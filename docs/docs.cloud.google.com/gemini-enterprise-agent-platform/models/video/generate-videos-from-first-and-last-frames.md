@@ -211,7 +211,7 @@ The response contains an interaction which includes the model thoughts and an ou
           "type":"text",
           "text":"MODEL THOUGHTS"
         }
-      ],
+      ]
     },
     { 
       "type":"model_output",
@@ -227,7 +227,7 @@ The response contains an interaction which includes the model thoughts and an ou
   "object":"interaction",
   "role":"model",
   "created":"2026-05-29T02:17:56Z",
-  "updated":"2026-05-29T02:17:56Z",
+  "updated":"2026-05-29T02:17:56Z"
 }
 ```
 
@@ -380,7 +380,7 @@ The response contains an interaction which includes the model thoughts and an ou
           "type":"text",
           "text":"MODEL THOUGHTS"
         }
-      ],
+      ]
     },
     { 
       "type":"model_output",
@@ -396,7 +396,7 @@ The response contains an interaction which includes the model thoughts and an ou
   "object":"interaction",
   "role":"model",
   "created":"2026-05-29T02:17:56Z",
-  "updated":"2026-05-29T02:17:56Z",
+  "updated":"2026-05-29T02:17:56Z"
 }
 ```
 

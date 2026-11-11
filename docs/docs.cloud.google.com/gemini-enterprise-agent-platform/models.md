@@ -46,7 +46,7 @@ Test model capabilities quickly.
 
 ### [Deploy Open Models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/deploy-model-garden)
 
-Instructions for deploying open models from to endpoints.
+Instructions for deploying open models from Model Garden to endpoints.
 
 ## Model Types
 

@@ -1,558 +1,318 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/adk-quickstart
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/adk-quickstart
-title: Memory Bank quickstart with ADK
-description: Learn how to create an agent using the Agent Development Kit (Agent Development Kit (ADK)) and integrate it with Agent Platform Memory Bank to manage long-term memories.
+title: 'Quickstart: Add long-term memory to an ADK agent with Memory Bank'
+description: Build an ADK agent that remembers a user preference across sessions with Agent Platform Memory Bank, and verify recall in a new session.
 data_source: docs.cloud.google.com
 ---
 
-Agent Platform Memory Bank allows your agents to manage long-term memories across sessions. When used with the Agent Development Kit (ADK) (ADK), your agent can automatically orchestrate calls to Memory Bank to store and retrieve memories based on user interactions.
+Agent Platform Memory Bank gives agents that you build with the Agent Development Kit (ADK) long-term memory across sessions. In this quickstart, you run an agent that learns a user's preferred temperature in one session and recalls the preference in the next session.
 
-This document explains how to create an ADK agent, configure it to use Memory Bank, and interact with it to generate and access memories.
+This quickstart guides you through the following steps:
 
-For information on making direct calls to the API without ADK, see the [Memory Bank API quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/api-quickstart) .
+- Set up your environment.
+- Create a Memory Bank instance.
+- Run a memory-enabled ADK agent locally.
+- Verify that the agent recalls the preference in a new session.
 
-> **Important:** ADK primarily uses [asynchronous functions](https://google.github.io/adk-docs/runtime/#async-is-primary-run_async) . If you're running code in a notebook like Colaboratory, you can directly `await` async functions because an event loop is already running. If you're running this code as a standard Python script, you need to wrap your async function calls with `asyncio.run()` to create and manage an event loop to execute your async functions. Otherwise, you might get an error like `'await' outside function` .
+To call Memory Bank directly without ADK, see the [Memory Bank API quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/api-quickstart) . To choose other memory tools, callbacks, or runtimes, see [Use Memory Bank with ADK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/use-with-adk) .
 
 > To see an example of using Memory Bank with ADK, run the "Get started with Memory Bank on ADK" notebook in one of the following environments:
 >
 > [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/agents/agent_engine/memory_bank/get_started_with_memory_bank_on_adk.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fagents%2Fagent_engine%2Fmemory_bank%2Fget_started_with_memory_bank_on_adk.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fagents%2Fagent_engine%2Fmemory_bank%2Fget_started_with_memory_bank_on_adk.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/agents/agent_engine/memory_bank/get_started_with_memory_bank_on_adk.ipynb)
 
-## Manage memories with ADK memory service and Memory Bank
-
-[`VertexAiMemoryBankService`](https://github.com/google/adk-python/blob/main/src/google/adk/memory/vertex_ai_memory_bank_service.py) is an ADK wrapper around Memory Bank that is defined by ADK's [`BaseMemoryService`](https://github.com/google/adk-python/blob/main/src/google/adk/memory/base_memory_service.py) . You can define callbacks and tools that interact with the memory service to read and write memories.
-
-The `VertexAiMemoryBankService` interface includes:
-
-- `memory_service.add_session_to_memory` triggers a [`GenerateMemories`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/generate-memories) request to Memory Bank using all of the events in the provided `adk.Session` as the source content. You can orchestrate calls to this method using `callback_context.add_session_to_memory` in your callbacks.
-
-  ```
-  from google.adk.agents.callback_context import CallbackContext
-
-  async def add_session_to_memory_callback(callback_context: CallbackContext):
-      await callback_context.add_session_to_memory()
-      return None
-  ```
-
-- `memory_service.add_events_to_memory` which triggers a [`GenerateMemories`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/generate-memories) request to Memory Bank using a subset of events. You can orchestrate calls to this method using `callback_context.add_events_to_memory` in your callbacks.
-
-  ```
-  from google.adk.agents.callback_context import CallbackContext
-
-  async def add_events_to_memory_callback(callback_context: CallbackContext):
-      await callback_context.add_events_to_memory(events=callback_context.session.events[-5:-1])
-      return None
-  ```
-
-- `memory_service.search_memory` triggers a [`RetrieveMemories`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories#scope-based) request to Memory Bank to fetch relevant memories for the current `user_id` and `app_name` . You can orchestrate calls to this method using built-in memory tools ( `LoadMemoryTool` or `PreloadMemoryTool` ) or a custom tool that invokes `tool_context.search_memory` .
-
 ## Before you begin
 
-To complete the steps demonstrated in this tutorial, you must first follow the steps in the [getting started section of the Set up Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#get-started) page.
+1.  Set up a [Python development environment](https://docs.cloud.google.com/python/docs/setup) .
 
-### Set environment variables
+2.  If you're using a local shell, then create local authentication credentials for your user account:
 
-To use ADK, set your environment variables:
+    ```
+    gcloud auth application-default login
+    ```
 
-```
-import os
+    You don't need to do this if you're using Cloud Shell.
 
-os.environ["GOOGLE_GENAI_USE_ENTERPRISE"] = "TRUE"
-os.environ["GOOGLE_CLOUD_PROJECT"] = "PROJECT_ID"
-os.environ["GOOGLE_CLOUD_LOCATION"] = "LOCATION"
-```
+    > **Note:** If the gcloud CLI prints a warning that your account doesn't have the `serviceusage.services.use` permission, then some gcloud CLI commands and client libraries might not work. Ask an administrator to grant you the Service Usage Consumer IAM role ( `roles/serviceusage.serviceUsageConsumer` ), then run the following command:
+    >
+    > ```
+    > gcloud auth application-default set-quota-project PROJECT_ID
+    > ```
 
-Replace the following:
+    If an authentication error is returned, and you are using an external identity provider (IdP), confirm that you have [signed in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud) .
 
-- ` PROJECT_ID ` : Your project ID.
-- ` LOCATION ` : Your region. See the [supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) for Memory Bank.
+> **Note:** To enable APIs, you need the `serviceusage.services.enable` permission. If you don't have this permission, ask your administrator to grant you the Service Usage Admin ( `roles/serviceusage.serviceUsageAdmin` ) role.
 
-## Create your ADK agent
+### Required roles
 
-To create a memory-enabled agent, set up tools and callbacks that orchestrate calls to your memory service.
+To get the permissions that you need to create a Memory Bank instance and generate and retrieve memories, ask your administrator to grant you the following IAM roles on your project:
 
-### Define a memory generation callback
+- Create or update a Memory Bank instance: Agent Platform User (\`roles/aiplatform.user\`)
+- Read, write, or generate memories: Memory Bank User (\`roles/aiplatform.memoryUser\`)
 
-To orchestrate calls for memory generation, create a callback function that triggers memory generation. You can either send a subset of events (with `callback_context.add_events_to_memory` ) or all of the events in a session (with `callback_context.add_session_to_memory` ) to be processed in the background:
+For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 
-```
-from google.adk.agents.callback_context import CallbackContext
+You might also be able to get the required permissions through [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined) .
 
-async def generate_memories_callback(callback_context: CallbackContext):
-    # Option 1 (Recommended): Send events to Memory Bank for memory generation,
-    # which is ideal for incremental processing of events.
-    await callback_context.add_events_to_memory(
-      events=callback_context.session.events[-5:-1])
+## Set up your environment
 
-    # Option 2: Send the full session to Memory Bank for memory generation.
-    # It's recommended to only call this at the end of a session to minimize
-    # how many times a single event is re-processed.
-    await callback_context.add_session_to_memory()
+1.  In your terminal, install ADK and the Agent Platform SDK:
 
-    return None
-```
+    ```
+    pip install --upgrade "google-adk[gcp]" "google-cloud-agentplatform>=2.0.1"
+    ```
 
-### Define a memory retrieval tool
+2.  Set the environment variables that the scripts in this quickstart read:
 
-When [developing your ADK agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-adk-agent) , include a memory tool that controls when the agent retrieves memories and how memories are included in the prompt.
+    ```
+    export GOOGLE_GENAI_USE_ENTERPRISE=TRUE
+    export GOOGLE_CLOUD_PROJECT=PROJECT_ID
+    export GOOGLE_CLOUD_LOCATION=global
+    ```
 
-If you use `PreloadMemoryTool` , your agent will retrieve memories at the start of each turn and include the retrieved memories in the system instruction, which is good for establishing baseline context about the user. If you use `LoadMemoryTool` , the model will call this tool when it decides that memories are necessary to answer the user query.
+    Replace ` PROJECT_ID ` with your Google Cloud project ID.
 
-```
-from google import adk
-from google.adk.tools.load_memory_tool import LoadMemoryTool
-from google.adk.tools.preload_memory_tool import PreloadMemoryTool
+    This quickstart uses the global endpoint. To use a regional or multi-regional location instead, replace `global` with one of the [supported locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) . If you need customer-managed encryption keys (CMEK), use a regional or multi-regional location, because CMEK isn't available with the global endpoint.
 
-memory_retrieval_tools = [
-  # Option 1: Retrieve memories at the start of every turn.
-  PreloadMemoryTool(),
-  # Option 2: Retrieve memories via tool calls. The model will only call this tool
-  # when it decides that memories are necessary to respond to the user query.
-  LoadMemoryTool()
-]
+    Run the rest of this quickstart in the same terminal session and directory so that the scripts can read these variables.
 
-agent = adk.Agent(
-    model="gemini-3.5-flash",
-    name='stateful_agent',
-    instruction="""You are a Vehicle Voice Agent, designed to assist users with information and in-vehicle actions.
+## Create a Memory Bank instance
 
-1.  **Direct Action:** If a user requests a specific vehicle function (e.g., "turn on the AC"), execute it immediately using the corresponding tool. You don't have the outcome of the actual tool execution, so provide a hypothetical tool execution outcome.
-2.  **Information Retrieval:** Respond concisely to general information requests with your own knowledge (e.g., restaurant recommendation).
-3.  **Clarity:** When necessary, try to seek clarification to better understand the user's needs and preference before taking an action.
-4.  **Brevity:** Limit responses to under 30 words.
-""",
-    tools=memory_retrieval_tools,
-    after_agent_callback=generate_memories_callback
-)
-```
+1.  Create a file named `create_memory_bank.py` with the following code:
 
-Alternatively, you can create your own custom tool to retrieve memories, which is helpful for when you want to provide instructions to your agent on when to retrieve memories:
+    ```
+    import os
 
-```
-from google import adk
-from google.adk.tools import ToolContext, FunctionTool
+    import agentplatform
 
-async def search_memories(query: str, tool_context: ToolContext):
-  """Query this tool when you need to fetch information about user preferences."""
-  return await tool_context.search_memory(query)
-
-agent = adk.Agent(
-    model="gemini-3.5-flash",
-    name='stateful_agent',
-    instruction="""...""",
-    tools=[FunctionTool(func=search_memories)],
-    after_agent_callback=generate_memories_callback
-)
-```
-
-## Define an ADK Memory Bank memory service and Memory Bank instance
-
-After you've created your memory-enabled agent, you need to link it to a memory service. The process of configuring your ADK memory service depends on where your ADK agent [runs](https://google.github.io/adk-docs/runtime/) . The runtime orchestrates the execution of your agents, tools, and callbacks.
-
-### Create a Memory Bank instance
-
-> **Note:** Skip this section if you already have an existing Memory Bank instance.
-
-You first need to create a Memory Bank instance. This step is optional if you're using Agent Runtime to deploy your agent. You can create an instance on the **Memory Bank** page in the Google Cloud console (and click **Link to an agent** \> **Use with ADK** for prefilled setup code) or with the Agent Platform SDK. For more information on customizing your Memory Bank behavior, see [Configure your Memory Bank instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#memory-bank-config) .
-
-```
-import agentplatform
-
-client = agentplatform.Client(
-  project="PROJECT_ID",
-  location="LOCATION"
-)
-# If you don't have a Memory Bank instance already, create a
-# Memory Bank instance using the default configuration.
-memory_bank = client.memory_banks.create()
-
-# Optionally, print out the resource name. You will need the
-# resource name if you want to interact with your Memory Bank instance later on.
-print(memory_bank.name)
-
-memory_bank_id = memory_bank.name.split("/")[-1]
-```
-
-Replace the following:
-
-- ` PROJECT_ID ` : Your project ID.
-- ` LOCATION ` : Your region. See the [supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) for Memory Bank.
-
-### Create an ADK runtime
-
-Pass the Memory Bank instance ID to the runtime or deployment scripts so that your agent uses Memory Bank as the ADK memory service.
-
-### Local runner
-
-`adk.Runner` is generally used in a local environment, like Colab. In this case, you need to directly create the memory service and runner.
-
-```
-import asyncio
-
-from google.adk.memory import VertexAiMemoryBankService
-from google.adk.sessions import VertexAiSessionService
-from google.genai import types
-
-memory_service = VertexAiMemoryBankService(
-    project="PROJECT_ID",
-    location="LOCATION",
-    agent_engine_id="MEMORY_BANK_ID",
-)
-
-# You can use any ADK session service. This example uses Sessions.
-session_service = VertexAiSessionService(
-    project="PROJECT_ID",
-    location="LOCATION",
-    agent_engine_id="SESSIONS_ID",
-)
-
-runner = adk.Runner(
-    agent=agent,
-    app_name="APP_NAME",
-    session_service=session_service,
-    memory_service=memory_service
-)
-
-async def call_agent(query, session, user_id):
-  content = types.Content(role='user', parts=[types.Part(text=query)])
-  events = runner.run_async(
-    user_id=user_id, session_id=session, new_message=content)
-
-  async for event in events:
-      if event.is_final_response():
-          final_response = event.content.parts[0].text
-          print("Agent Response: ", final_response)
-```
-
-Replace the following:
-
-- ` PROJECT_ID ` : Your project ID.
-- ` LOCATION ` : Your region. See the [supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) for Memory Bank.
-- ` APP_NAME ` : ADK app name. The app name will be included in the generated memories' `scope` dictionary so that memories are isolated across both users and apps.
-- ` MEMORY_BANK_ID ` : The Memory Bank instance ID. For example, `456` in `projects/my-project/locations/us-central1/reasoningEngines/456` .
-- ` SESSIONS_ID ` : The Agent Platform Sessions instance ID. For example, `789` in `projects/my-project/locations/us-central1/reasoningEngines/789` .
-
-### Agent Runtime on Gemini Enterprise Agent Platform
-
-The [Agent Runtime ADK template](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-adk-agent) ( `AdkApp` ) can be used both locally and to deploy an ADK agent to Agent Runtime. When deployed on Agent Platform, the [Memory Bank ADK template](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-adk-agent) uses `VertexAiMemoryBankService` as the default memory service. So, you can create your Memory Bank instance and deploy to a runtime in a single step.
-
-See [Configure Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#configure-agent-engine) for more details on setting up your Memory Bank instance, including how to customize the behavior of your Memory Bank.
-
-Use the following code to deploy your memory-enabled ADK agent to Agent Runtime:
-
-```
-import asyncio
-
-import agentplatform
-from agentplatform.frameworks import AdkApp
-
-client = agentplatform.Client(
-  project="PROJECT_ID",
-  location="LOCATION"
-)
-
-adk_app = AdkApp(agent=agent)
-
-# Create a new resource with your agent deployed to Agent Runtime.
-# The Agent Runtime instance will also include an empty Memory Bank instance.
-runtime_instance = client.runtimes.create(
-      agent=adk_app,
-      config={
-            "staging_bucket": "STAGING_BUCKET",
-            "requirements": ["google-cloud-agentplatform[runtimes,adk]"]
-      }
-)
-
-# Alternatively, update an existing resource to deploy your agent to Agent Platform.
-# Your agent will have access to the Runtime instance's existing memories.
-runtime_instance = client.runtimes.update(
-      name=agent_engine.api_resource.name,
-      agent=adk_app,
-      config={
-            "staging_bucket": "STAGING_BUCKET",
-            "requirements": ["google-cloud-agentplatform[runtimes,adk]"]
-      }
-)
-
-async def call_agent(query, session_id, user_id):
-    async for event in agent_engine.async_stream_query(
-        user_id=user_id,
-        session_id=session_id,
-        message=query,
-    ):
-        print(event)
-```
-
-Replace the following:
-
-- ` PROJECT_ID ` : Your project ID.
-- ` LOCATION ` : Your region. See the [supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) for Memory Bank.
-- ` STAGING_BUCKET ` : Your Cloud Storage bucket to use for staging your Agent Runtime.
-
-When run locally, the ADK template uses `InMemoryMemoryService` as the default memory service. However, you can override the default memory service to use `VertexAiMemoryBankService` :
-
-```
-def memory_bank_service_builder():
-    return VertexAiMemoryBankService(
-        project="PROJECT_ID",
-        location="LOCATION",
-        agent_engine_id="MEMORY_BANK_ID"
+    client = agentplatform.Client(
+        project=os.environ["GOOGLE_CLOUD_PROJECT"],
+        location=os.environ["GOOGLE_CLOUD_LOCATION"],
     )
 
-adk_app = AdkApp(
-      agent=adk_agent,
-      # Override the default memory service.
-      memory_service_builder=memory_bank_service_builder
-)
-
-async def call_agent(query, session_id, user_id):
-  # adk_app is a local agent. If you want to deploy it to Agent Runtime,
-  # use `client.runtimes.create(...)` or `client.runtimes.update(...)`
-  # and call the returned Agent Runtime instance instead.
-  async for event in adk_app.async_stream_query(
-      user_id=user_id,
-      session_id=session_id,
-      message=query,
-  ):
-      print(event)
-```
-
-Replace the following:
-
-- ` PROJECT_ID ` : Your project ID.
-- ` LOCATION ` : Your region. See the [supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) for Memory Bank.
-- ` MEMORY_BANK_ID ` : The Memory Bank instance ID to use for Memory Bank. For example, `456` in `projects/my-project/locations/us-central1/reasoningEngines/456` .
-
-### Cloud Run
-
-> To see an example of using Memory Bank with Cloud Run, run the "Get started with Sessions and Memory Bank for ADK agents in Cloud Run" notebook in one of the following environments:
->
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/agents/cloud_run/agents_with_memory/get_started_with_memory_for_adk_in_cloud_run.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fagents%2Fcloud_run%2Fagents_with_memory%2Fget_started_with_memory_for_adk_in_cloud_run.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fagents%2Fcloud_run%2Fagents_with_memory%2Fget_started_with_memory_for_adk_in_cloud_run.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/agents/cloud_run/agents_with_memory/get_started_with_memory_for_adk_in_cloud_run.ipynb)
-
-To deploy your agent to Cloud Run, refer to the instructions in the [ADK documentation](https://google.github.io/adk-docs/deploy/cloud-run/) to learn how to define your agent to deploy to Cloud Run.
-
-```
-adk deploy cloud_run \
-    ...
-    --memory_service_uri=agentengine://AGENT_ENGINE_ID
-```
-
-### Google Kubernetes Engine (GKE)
-
-> To see an example of using Memory Bank with Google Kubernetes Engine, run the "Get started with Sessions and Memory Bank for ADK agents in GKE" notebook in one of the following environments:
->
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/agents/gke/agents_with_memory/get_started_with_memory_for_adk_in_gke.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fagents%2Fgke%2Fagents_with_memory%2Fget_started_with_memory_for_adk_in_gke.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fagents%2Fgke%2Fagents_with_memory%2Fget_started_with_memory_for_adk_in_gke.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/agents/gke/agents_with_memory/get_started_with_memory_for_adk_in_gke.ipynb)
-
-To deploy your agent to GKE, refer to the instructions in the [ADK documentation](https://google.github.io/adk-docs/deploy/gke/) to learn how to define your agent to deploy to GKE.
-
-```
-adk deploy gke \
-    ...
-    --memory_service_uri=agentengine://AGENT_ENGINE_ID
-```
-
-### ADK Web
-
-> **Important:** ADK Web is not meant for use in production deployments. You should use ADK Web for development and debugging purposes only.
-
-The [ADK web interface](https://google.github.io/adk-docs/runtime/web-interface/) lets you test your agents directly in the browser.
-
-```
-export GOOGLE_CLOUD_PROJECT="PROJECT_ID"
-export GOOGLE_CLOUD_LOCATION="LOCATION"
-
-adk web --memory_service_uri=agentengine://MEMORY_BANK_ID
-```
-
-Replace the following:
-
-- ` PROJECT_ID ` : Your project ID.
-- ` LOCATION ` : Your region. See the [supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) for Memory Bank.
-- ` MEMORY_BANK_ID ` : The Memory Bank instance ID. For example, `456` in `projects/my-project/locations/us-central1/reasoningEngines/456` .
-
-## Interact with your agent
-
-After defining your agent and setting up Memory Bank, you can interact with your agent. If you provided a [callback to trigger memory generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/adk-quickstart#memory-generation-callback) when initializing your agent, memories generation will be triggered every time that the agent is invoked.
-
-Memories will be stored using the scope `{"user_id": USER_ID, "app_name": APP_NAME}` corresponding to the user ID and app name used to execute your agent.
-
-The method of interacting with your agent depends on its execution environment:
-
-### Local runner
-
-```
-# Use `asyncio.run(session_service.create(...))` if you're running this
-# code as a standard Python script.
-session = await session_service.create_session(
-    app_name="APP_NAME",
-    user_id="USER_ID"
-)
-
-# Use `asyncio.run(call_agent(...))` if you're running this code as a
-# standard Python script.
-await call_agent(
-    "Can you fix the temperature?",
-    session.id,
-    "USER_ID"
-)
-```
-
-Replace the following:
-
-- ` APP_NAME ` : App name for your runner.
-- ` USER_ID ` : An identifier for your user. Memories generated from this session are keyed by this opaque identifier. The generated memories' scope is stored as `{"user_id": " `` USER_ID `` "}` .
-
-### Agent Runtime
-
-When using the ADK template, you can call your Agent Runtime to interact with memory and sessions.
-
-```
-# Use `asyncio.run(agent_engine.async_create_session(...))` if you're
-# running this code as a standard Python script.
-session = await agent_engine.async_create_session(user_id="USER_ID")
-
-# Use `asyncio.run(call_agent(...))` if you're running this code as a
-# standard Python script.
-await call_agent(
-    "Can you fix the temperature?",
-    session.get("id"),
-    "USER_ID"
-)
-```
-
-Replace the following:
-
-- ` USER_ID ` : An identifier for your user. Memories generated from this session are keyed by this opaque identifier. The generated memories' scope is stored as `{"user_id": " `` USER_ID `` "}` .
-
-### Cloud Run
-
-Refer to the [Testing your agent](https://google.github.io/adk-docs/deploy/gke/#testing-your-agent) section of the ADK Cloud Run deployment documentation.
-
-### GKE
-
-Refer to the [Testing your agent](https://google.github.io/adk-docs/deploy/gke/#testing-your-agent) section of the ADK GKE deployment documentation.
-
-### ADK Web
-
-To use ADK Web, navigate to the local server at `http://localhost:8000` .
-
-By default, ADK Web will set the user ID to `user` . To override the default user ID, include `userId` in the query parameters, like `http://localhost:8000?userId=YOUR_USER_ID` .
-
-For more information, refer to the [ADK Web](https://google.github.io/adk-docs/runtime/web-interface/) page in the ADK documentation.
-
-### Example interaction
-
-**First session**
-
-If you used the `PreloadMemoryTool` , the agent will try to retrieve memories at the beginning of each turn to access preferences the user previously communicated to the agent. During the agent's first interaction with the user, there are no available memories to be retrieved. So, the agent doesn't know any user preferences, such as their preferred temperature, as shown in the following example:
-
-1.  First turn:
-
-    - **User** : "Can you fix the temperature?"
-
-    - **(Tool Call)** : *ADK tries to fetch memories; no memories are available.*
-
-    - **Model** : "What temperature do you prefer?"
-
-    - **(Callback)** : *ADK triggers memory generation. No memories are extracted.*
-
-2.  Second turn:
-
-    - **User** : I'm comfortable at 71 degrees.
-
-    - **(Tool Call)** : *ADK tries to fetch memories; no memories are available.*
-
-    - **Model** : Ok, I've updated the temperature to 71 degrees.
-
-    - **(Callback)** : *ADK triggers memory generation. Memory "I like the temperature 71 degrees" is created.*
-
-**Second session**
-
-The extracted memory will be available for the next session for the same app name and user ID. If the user provides similar or contradictory information to existing memories, the new information will be [consolidated with the existing memories](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/generate-memories#understanding_memory_generation) .
-
-1.  First turn
-
-    - **User** : Fix the temperature. It's so uncomfortable!
-
-    - **(Tool Call)** : *ADK tries to fetch memories. Memory "I like the temperature 71 degrees" is retrieved.*
-
-    - **Model** : Ok, I've updated the temperature to 71 degrees.
-
-    - **(Callback)** : *ADK triggers memory generation. No memories are extracted, because the user didn't share anything meaningful to persist.*
-
-2.  Second turn
-
-    - **User** : Actually, I prefer it to be warmer in the mornings.
-
-    - **(Tool Call)** : *ADK tries to fetch memories. Memory "I like the temperature 71 degrees" is retrieved.*
-
-    - **Model** : Ok, I've made the temperature warmer.
-
-    - **(Callback)** : *ADK triggers memory generation. The existing memory "I like the temperature 71 degrees" is updated to "I generally like the temperature to be 71 degrees, but I like it to be warmer in the mornings".*
-
-> **Note:** There may be some variance in the agent and Memory Bank's responses depending on what models are used.
-
-## Use a multi-regional Memory Bank with a regional runtime
-
-When using Runtime with built-in Memory Bank, your agent and Memory Bank are deployed in the same region by default. However, you can decouple them to use a multi-regional Memory Bank (for example, `us` ) with a regional runtime (for example, `us-central1` ). This configuration lets you maintain a central Memory Bank across different regional deployments.
-
-To use a multi-regional Memory Bank, you must override the default ADK memory service builder to point to the multi-region location and the corresponding Memory Bank ID.
-
-```
-import agentplatform
-from google.adk.memory import VertexAiMemoryBankService
-from agentplatform.frameworks import AdkApp
-
-# Create the Memory Bank instance in a multi-region location (for example, 'us')
-client_mb = agentplatform.Client(project="PROJECT_ID", location="us")
-memory_bank = client_mb.memory_banks.create()
-memory_bank_id = memory_bank.name.split("/")[-1]
-
-
-# Point your memory service to the 'us' location, 'us' Memory Bank
-def memory_bank_service_builder():
-    return VertexAiMemoryBankService(
-        project="PROJECT_ID",
-        location="us",
-        agent_engine_id=memory_bank_id
+    memory_bank = client.memory_banks.create(
+        config={"display_name": "Memory Bank quickstart"}
     )
 
-# Create the AdkApp with the overridden builder
-adk_app = AdkApp(
-    agent=agent,
-    memory_service_builder=memory_bank_service_builder
-)
+    # Print only the instance ID, for example 1234567890.
+    print(memory_bank.name.split("/")[-1])
+    ```
 
-# Deploy the runtime to a specific region (for example, 'us-central1')
-client_runtime = agentplatform.Client(project="PROJECT_ID", location="us-central1")
-runtime_instance = client_runtime.runtimes.create(
-    agent=adk_app,
-    config={
-        "staging_bucket": "STAGING_BUCKET",
-        "requirements": ["google-cloud-agentplatform[runtimes,adk]"]
-    }
-)
+2.  Run the script and save the instance ID in the `MEMORY_BANK_ID` environment variable:
+
+    ```
+    export MEMORY_BANK_ID=$(python create_memory_bank.py)
+    ```
+
+    If this is your first Memory Bank instance, creation can take 1-2 minutes.
+
+3.  Confirm that the variable contains the instance ID:
+
+    ```
+    echo $MEMORY_BANK_ID
+    ```
+
+    The output is an ID such as `1234567890` . If the output is empty or returns a `401` or `403` error, check your [required roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/adk-quickstart#required-roles) and run `gcloud auth application-default login` . If a new `global` instance returns a transient `403` error on first use, wait 30 seconds and run the script again.
+
+## Run a memory-enabled agent
+
+The script in this section runs two sessions for the same user. In the first session, the user states a temperature preference. In the second session, the agent recalls that preference from Memory Bank.
+
+Complete the following steps:
+
+1.  Create a directory named `memory_agent` :
+
+    ```
+    mkdir memory_agent
+    ```
+
+2.  Create a file named `memory_agent/agent.py` with the following code. The code reads your project, location, and instance ID from the variables you set in [Set up your environment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/adk-quickstart#set-up-environment) and [Create a Memory Bank instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/adk-quickstart#create-a-memory-bank-instance) . You don't need to edit the code.
+
+    ```
+    import asyncio
+    import os
+
+    import agentplatform
+    from google import adk
+    from google.adk.agents.callback_context import CallbackContext
+    from google.adk.memory import VertexAiMemoryBankService
+    from google.adk.sessions import InMemorySessionService
+    from google.adk.tools.preload_memory_tool import PreloadMemoryTool
+    from google.genai import types
+
+    PROJECT_ID = os.environ["GOOGLE_CLOUD_PROJECT"]
+    LOCATION = os.environ["GOOGLE_CLOUD_LOCATION"]
+    MEMORY_BANK_ID = os.environ["MEMORY_BANK_ID"]
+    # Memory Bank scopes memories to this app name and user ID.
+    APP_NAME = "memory_agent"
+    USER_ID = "quickstart_user"
+
+    async def generate_memories_callback(
+        callback_context: CallbackContext,
+    ) -> None:
+        # Send the latest turn to Memory Bank and wait until memory generation
+        # finishes, so that the next session can retrieve the new memory.
+        await callback_context.add_events_to_memory(
+            events=callback_context.session.events[-5:],
+            custom_metadata={"wait_for_completion": True},
+        )
+        return None
+
+    root_agent = adk.Agent(
+        model="gemini-3.5-flash",
+        name="memory_agent",
+        instruction=(
+            "You are a vehicle voice agent that controls in-vehicle settings. "
+            "Use what you know about the user's preferences. "
+            "If you don't know the user's preferred temperature, ask for it. "
+            "Limit responses to under 30 words."
+        ),
+        tools=[PreloadMemoryTool()],
+        after_agent_callback=generate_memories_callback,
+    )
+
+    memory_service = VertexAiMemoryBankService(
+        project=PROJECT_ID,
+        location=LOCATION,
+        agent_engine_id=MEMORY_BANK_ID,
+    )
+    session_service = InMemorySessionService()
+    runner = adk.Runner(
+        agent=root_agent,
+        app_name=APP_NAME,
+        session_service=session_service,
+        memory_service=memory_service,
+    )
+
+    async def send_message(session_id: str, text: str) -> None:
+        print(f"User: {text}")
+        message = types.Content(role="user", parts=[types.Part(text=text)])
+        async for event in runner.run_async(
+            user_id=USER_ID, session_id=session_id, new_message=message
+        ):
+            if event.is_final_response() and event.content:
+                print(f"Agent: {event.content.parts[0].text}")
+
+    async def main() -> None:
+        print("--- Session 1: share a preference ---")
+        session = await session_service.create_session(
+            app_name=APP_NAME, user_id=USER_ID
+        )
+        await send_message(session.id, "Can you fix the temperature?")
+        await send_message(session.id, "I'm comfortable at 71 degrees.")
+
+        print("--- Session 2: recall the preference ---")
+        session = await session_service.create_session(
+            app_name=APP_NAME, user_id=USER_ID
+        )
+        await send_message(session.id, "Fix the temperature.")
+
+        print("--- Memories stored in Memory Bank ---")
+        client = agentplatform.Client(project=PROJECT_ID, location=LOCATION)
+        memory_bank_name = (
+            f"projects/{PROJECT_ID}/locations/{LOCATION}"
+            f"/reasoningEngines/{MEMORY_BANK_ID}"
+        )
+        results = client.memory_banks.memories.retrieve(
+            name=memory_bank_name,
+            scope={"app_name": APP_NAME, "user_id": USER_ID},
+        )
+        for retrieved_memory in results.page:
+            print(f"* {retrieved_memory.memory.fact}")
+
+    if __name__ == "__main__":
+        asyncio.run(main())
+    ```
+
+    > **Note:** ADK primarily uses [asynchronous functions](https://google.github.io/adk-docs/runtime/#async-is-primary-run_async) . The script wraps its async calls in `asyncio.run()` , which creates and manages an event loop when you run a standard Python script. In a notebook such as Colaboratory, an event loop is already running, so replace `asyncio.run(main())` with `await main()` .
+
+3.  Run the script:
+
+    ```
+    python memory_agent/agent.py
+    ```
+
+    The callback waits for memory generation to finish after each turn, so the memory is available when the second session starts.
+
+## Verify that the agent remembers
+
+When the script finishes, it prints both conversations and the stored memory to your terminal. Compare that output with the following examples to confirm that the agent recalled the preference in a new session.
+
+In the first session, the agent doesn't have any memories for the user, so it asks for a temperature:
+
+```
+--- Session 1: share a preference ---
+User: Can you fix the temperature?
+Agent: Sure. What temperature would you like?
+User: I'm comfortable at 71 degrees.
+Agent: Okay, I've set the temperature to 71 degrees.
 ```
 
-Replace the following:
+In the second session, the agent retrieves the memory from Memory Bank and sets the temperature to 71 degrees without asking. The stored memory appears at the end of the output:
 
-- ` PROJECT_ID ` : Your project ID.
-- ` STAGING_BUCKET ` : Your Cloud Storage bucket to use for staging your Agent Runtime.
+```
+--- Session 2: recall the preference ---
+User: Fix the temperature.
+Agent: Okay, I've set the temperature to 71 degrees, as you prefer.
+--- Memories stored in Memory Bank ---
+* I like the temperature to be 71 degrees.
+```
+
+The wording of agent responses and memories varies depending on the models that the agent and Memory Bank use.
+
+## Optional: Chat with your agent in ADK Web
+
+ADK Web is a browser-based interface for testing agents during development.
+
+> **Important:** ADK Web isn't meant for production deployments. Use ADK Web for development and debugging only.
+
+1.  In the same terminal session, from the directory that contains the `memory_agent` directory, run the following command:
+
+    ```
+    adk web --memory_service_uri=agentengine://$MEMORY_BANK_ID memory_agent
+    ```
+
+2.  In your browser, open `http://localhost:8000?userId=quickstart_user` .
+
+    The `userId` query parameter matches the user ID in the script, so the agent can retrieve the memory that the script created.
+
+3.  Send the message `Fix the temperature.` and confirm that the agent sets the temperature to 71 degrees without asking. The agent uses the preference that the script stored in [Run a memory-enabled agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/adk-quickstart#run-agent) .
+
+4.  To stop ADK Web, press <span class="kbd"> Control+C </span> in the terminal.
 
 ## Clean up
 
-To clean up all resources used in this project, you can [delete the Google Cloud project](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#shutting_down_projects) you used for the quickstart.
+To avoid incurring charges to your Google Cloud account for the resources used on this page, you can [delete the Google Cloud project](https://docs.cloud.google.com/resource-manager/docs/delete-restore-projects#shutting_down_projects) . Otherwise, delete the individual resources:
 
-Otherwise, you can delete the individual resources you created in this tutorial, as follows:
-
-1.  Use the following code sample to delete the Agent Runtime instance, which also deletes any sessions or memories belonging to that runtime.
+1.  Create a file named `clean_up.py` with the following code:
 
     ```
-    client_runtime.runtimes.delete(name=runtime_instance.api_resource.name, force=True)
-    client_mb.memory_banks.delete(name=memory_bank.name, force=True)
+    import os
+
+    import agentplatform
+
+    project = os.environ["GOOGLE_CLOUD_PROJECT"]
+    location = os.environ["GOOGLE_CLOUD_LOCATION"]
+    memory_bank_id = os.environ["MEMORY_BANK_ID"]
+
+    client = agentplatform.Client(project=project, location=location)
+    client.memory_banks.delete(
+        name=f"projects/{project}/locations/{location}/reasoningEngines/{memory_bank_id}",
+        force=True,
+    )
     ```
 
-2.  Delete any locally created files.
+2.  Run the script to delete the Memory Bank instance:
+
+    ```
+    python clean_up.py
+    ```
+
+3.  Delete the local files that you created:
+
+    ```
+    rm -r memory_agent create_memory_bank.py clean_up.py
+    ```
 
 ## What's next
 
@@ -561,3 +321,21 @@ Quickstart
 ### [Memory Bank API quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/api-quickstart)
 
 Get started with the Memory Bank API to manage long-term memories.
+
+Guide
+
+### [Use Memory Bank with ADK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/use-with-adk)
+
+Choose callbacks, tools, and runtimes for ADK.
+
+Guide
+
+### [Generate memories](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/generate-memories)
+
+Learn how to generate memories in Memory Bank.
+
+Guide
+
+### [Set up Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup)
+
+Learn how to set up Memory Bank.

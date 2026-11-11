@@ -57,7 +57,7 @@ Memory Bank includes the following features:
 
 - **Agent integration** : Connect Memory Bank to your agent, so that it can orchestrate calls to generate and retrieve memories.
 
-  - **Agent Development Kit (ADK) Integration** : [Orchestrate calls from your ADK-based agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/adk-quickstart) using built-in ADK tools and the `VertexAiMemoryBankService` to read from and write to Memory Bank.
+  - **Agent Development Kit (ADK) Integration** : [Orchestrate calls from your ADK-based agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/use-with-adk) using built-in ADK tools and the `VertexAiMemoryBankService` to read from and write to Memory Bank.
 
   - **Other frameworks** : Wrap your Memory Bank code in tools and callbacks to orchestrate memory generation and retrieval.
 
@@ -172,7 +172,7 @@ Quickstart
 
 ### [Quickstart with Agent Development Kit](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/adk-quickstart)
 
-Get started with the Agent Development Kit (ADK).
+Build an ADK agent that recalls user preferences.
 
 Guide
 

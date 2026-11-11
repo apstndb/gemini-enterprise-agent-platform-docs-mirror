@@ -74,6 +74,8 @@ Memory Bank supports multi-regional and global endpoints:
 - For global instances, set your location to `global` .
 - For multi-regional instances, set your location to `us` or `eu` .
 
+To pair a multi-regional instance with a regional ADK runtime, see [Use a multi-regional Memory Bank with a regional runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/use-with-adk#multi-regional-memory-bank) .
+
 > **Note:** You can't use CMEK if your Memory Bank or Sessions instance is configured to use the `global` endpoint ( `location="global"` ), because Cloud Key Management Service (Cloud KMS) requires encryption keys to reside within a geographic data residency boundary. Standalone parent instances without a deployed runtime can use CMEK in regional or multi-regional locations ( `us` with a `us` key, or `eu` with a `europe` key), whereas instances with a deployed agent on Agent Runtime support CMEK only in single-region locations. For more information, see [CMEK for Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank#cmek) and [VPC Service Controls for Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank#vpc-sc) .
 
 ## Create or update a Memory Bank instance
@@ -180,7 +182,7 @@ Replace the following:
 
 - ` STAGING_BUCKET ` : Your Cloud Storage bucket to use for staging your Agent Runtime.
 
-For more information about using Memory Bank with ADK, refer to the [Quickstart with ADK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/adk-quickstart) .
+To try Memory Bank with ADK, see the [Quickstart with ADK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/adk-quickstart) . To choose memory tools, callbacks, and runtimes, see [Use Memory Bank with ADK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/use-with-adk) .
 
 ### Custom agent
 
@@ -981,4 +983,4 @@ Quickstart
 
 ### [Quickstart with Agent Development Kit](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/adk-quickstart)
 
-Get started with the Agent Development Kit (ADK).
+Build an ADK agent that recalls user preferences.

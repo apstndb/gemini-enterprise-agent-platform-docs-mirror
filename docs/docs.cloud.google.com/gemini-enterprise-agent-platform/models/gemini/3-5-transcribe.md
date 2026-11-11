@@ -394,6 +394,7 @@ Not supported</li>
 <td><p><strong><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations">Model availability</a></strong></p></td>
 <td><ul>
 <li>Global: <code>global</code></li>
+<li>Multi-region: <code>us</code> , <code>eu</code></li>
 </ul></td>
 </tr>
 <tr class="even">
