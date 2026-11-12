@@ -134,7 +134,7 @@ Alternatively, you can return the `gcp_resources` output parameter as you would 
 ```
 @dsl.component(
     base_image='python:3.9',
-    packages_to_install=['google-cloud-pipeline-components==2.22.0'],
+    packages_to_install=['google-cloud-pipeline-components==2.23.0'],
 )
 def launch_dataflow_component(project: str, location:str) -> NamedTuple("Outputs",  [("gcp_resources", str)]):
   # Launch the dataflow job
@@ -171,8 +171,8 @@ Cancellation has been implemented on several Google Cloud Pipeline Components, i
 
 For more information, including sample code that shows how to attach a SIGTERM handler, see the following GitHub links:
 
-- <https://github.com/kubeflow/pipelines/blob/google-cloud-pipeline-components-2.22.0/components/google-cloud/google_cloud_pipeline_components/container/utils/execution_context.py>
-- <https://github.com/kubeflow/pipelines/blob/google-cloud-pipeline-components-2.22.0/components/google-cloud/google_cloud_pipeline_components/container/v1/gcp_launcher/job_remote_runner.py#L124>
+- <https://github.com/kubeflow/pipelines/blob/google-cloud-pipeline-components-2.23.0/components/google-cloud/google_cloud_pipeline_components/container/utils/execution_context.py>
+- <https://github.com/kubeflow/pipelines/blob/google-cloud-pipeline-components-2.23.0/components/google-cloud/google_cloud_pipeline_components/container/v1/gcp_launcher/job_remote_runner.py#L124>
 
 Consider the following when implementing your SIGTERM handler:
 

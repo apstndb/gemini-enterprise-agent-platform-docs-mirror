@@ -18,7 +18,7 @@ Multimodal datasets on Agent Platform let you create, manage, share, and use mul
 
 - You can load datasets from BigQuery, DataFrames, or JSONL files in Cloud Storage.
 
-- Create your dataset once and use it across different job types, such as [supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning) and batch prediction, which prevents data duplication and formatting issues.
+- Create your dataset once and use it across different job types, such as [supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning) and batch prediction, which prevents data duplication and formatting issues.
 
 - Keep all your generative AI datasets in a single, managed location.
 
@@ -323,7 +323,7 @@ Then, the `assemble` method creates a new BigQuery table with the name `table_id
 
 ## Tune your model
 
-You can [tune Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning) using a multimodal dataset.
+You can [tune Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use) using a multimodal dataset.
 
 ### (Optional) Validate the dataset
 
@@ -428,11 +428,11 @@ tuning_job = genai_client.tunings.tune(
 )
 ```
 
-For more information, see [Create a tuning job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning#create_a_text_model_supervised_tuning_job) .
+For more information, see [Create a tuning job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use#create_a_text_model_supervised_tuning_job) .
 
 ## Batch prediction
 
-You can get [batch predictions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-prediction-gemini) using a multimodal dataset.
+You can get [batch predictions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference) using a multimodal dataset.
 
 ### (Optional) Validate the dataset
 

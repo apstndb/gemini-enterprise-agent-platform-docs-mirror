@@ -17,6 +17,7 @@ The following services support Agent Identity:
 - [Gemini Enterprise Agent Platform Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) ( *Agent Runtime* )
 - [Gemini Enterprise](https://docs.cloud.google.com/gemini/enterprise/docs)
 - [Cloud Run](https://docs.cloud.google.com/run/docs/ai/agent-platform-features)
+- [Google Kubernetes Engine](https://docs.cloud.google.com/kubernetes-engine/security/about-agent-identity)
 
 ## Authentication models
 
@@ -141,6 +142,10 @@ Agent Identity improves security over standard service accounts.
 ## Limitations
 
 - **Cloud Storage legacy bucket roles:** You cannot grant agent identities legacy bucket roles (for example, `storage.legacyBucketReader` ).
+
+## Agent Identity for cross-cloud Kubernetes workloads
+
+For agents running on Kubernetes clusters outside of Google Kubernetes Engine (GKE), such as Amazon Elastic Kubernetes Service (Amazon EKS), Azure Kubernetes Service (AKS), or Red Hat OpenShift, you can use [Agent Gateway for cross-cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/governance/agent-gateway-cross-cloud/overview) (Limited Preview) with Workload Identity Federation. Your pods project Kubernetes Service Account (KSA) OpenID Connect (OIDC) tokens and exchange them for Google Cloud Agent Identity tokens through Workload Identity Federation. For setup instructions, see [Configure Workload Identity Federation for Agent Gateway for cross-cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/governance/agent-gateway-cross-cloud/setup#configure-identity-federation) and [Attach projected KSA OIDC tokens](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/governance/agent-gateway-cross-cloud/deploy-agents#attach-projected-tokens) .
 
 ## What's next
 

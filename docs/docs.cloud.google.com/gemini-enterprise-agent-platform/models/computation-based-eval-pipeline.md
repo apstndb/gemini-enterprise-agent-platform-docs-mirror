@@ -6,7 +6,7 @@ description: Learn how to run a computation-based evaluation pipeline for founda
 data_source: docs.cloud.google.com
 ---
 
-> **Note:** For the most updated computation-based evaluation features, see [Define your metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/determine-eval#computation-based-metrics) .
+> **Note:** For the most updated computation-based evaluation features, see [Define your metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/determine-eval#computation-metrics) .
 
 You can evaluate the performance of foundation models and your tuned generative AI models on Gemini Enterprise Agent Platform. The models are evaluated using a set of metrics against an evaluation dataset that you provide. This page explains how computation-based model evaluation through the evaluation pipeline service works, how to create and format the evaluation dataset, and how to perform the evaluation using the Google Cloud console, Agent Platform API, or the Agent Platform SDK for Python.
 
@@ -368,4 +368,4 @@ For tuned models, you can also view evaluation results in the Google Cloud conso
 ## What's next
 
 - Learn about [generative AI evaluation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-overview) .
-- Learn how to [tune a foundation model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models) .
+- Learn how to [tune a foundation model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning) .

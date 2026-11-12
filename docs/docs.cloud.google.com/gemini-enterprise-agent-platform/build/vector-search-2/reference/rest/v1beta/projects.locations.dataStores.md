@@ -53,11 +53,11 @@ Message describing a DataStore object. A DataStore, owned directly by a Project,
 
 The content type of the Documents in a DataStore. All Documents in a DataStore share a single, immutable DocumentType.
 
-| Enums                       |                                                                                              |
-|-----------------------------|----------------------------------------------------------------------------------------------|
-| `DOCUMENT_TYPE_UNSPECIFIED` | Default value, the document type is not specified.                                           |
-| `UNSTRUCTURED`              | Text documents: PDF, plain text, Word, PowerPoint and Excel files, optionally with metadata. |
-| `VIDEO`                     | Video documents, optionally with metadata.                                                   |
+| Enums                       |                                                                                                                         |
+|-----------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| `DOCUMENT_TYPE_UNSPECIFIED` | Default value, the document type is not specified.                                                                      |
+| `UNSTRUCTURED`              | Text documents: PDF, HTML, plain text, Markdown, JSON, XML, Word, PowerPoint and Excel files, optionally with metadata. |
+| `VIDEO`                     | Video documents, optionally with metadata.                                                                              |
 
 ## ProcessingConfig
 
@@ -195,11 +195,11 @@ All sub-configurations are optional; any omitted sub-configuration falls back to
 }
 ```
 
-| Fields               |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-|----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `segmentationConfig` | `object ( `[`UnstructuredSegmentationConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/reference/rest/v1beta/projects.locations.dataStores#UnstructuredSegmentationConfig)` )` Optional. Controls how unstructured documents are split into segments prior to embedding. If unset, defaults to chunk segmentation with a `chunkSize` of 500. If set, exactly one of `chunkSegmentationConfig` or `pageSegmentationConfig` must be set; an empty config is rejected.                                                                                                                |
-| `parsingConfig`      | `object ( `[`UnstructuredParsingConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/reference/rest/v1beta/projects.locations.dataStores#UnstructuredParsingConfig)` )` Optional. The parsing config, applied to all file types for unstructured document parsing. Plain-text ( `.txt` ) files are always parsed digitally. If unset, defaults to digital (native text extraction) parsing, or to layout-aware parsing when `embeddingConfig.mode` is `MULTIMODAL` . If set, exactly one of `digitalParsingConfig` or `layoutParsingConfig` must be set; an empty config is rejected. |
-| `embeddingConfig`    | `object ( `[`UnstructuredEmbeddingConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/reference/rest/v1beta/projects.locations.dataStores#UnstructuredEmbeddingConfig)` )` Optional. Controls how the per-segment embedding is generated.                                                                                                                                                                                                                                                                                                                                            |
+| Fields               |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `segmentationConfig` | `object ( `[`UnstructuredSegmentationConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/reference/rest/v1beta/projects.locations.dataStores#UnstructuredSegmentationConfig)` )` Optional. Controls how unstructured documents are split into segments prior to embedding. If unset, defaults to chunk segmentation with a `chunkSize` of 500. If set, exactly one of `chunkSegmentationConfig` or `pageSegmentationConfig` must be set; an empty config is rejected.                                                                                                                                                                                     |
+| `parsingConfig`      | `object ( `[`UnstructuredParsingConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/reference/rest/v1beta/projects.locations.dataStores#UnstructuredParsingConfig)` )` Optional. The parsing config, applied to all file types for unstructured document parsing. Plain-text ( `.txt` ), JSON ( `.json` ) and XML ( `.xml` ) files are always parsed digitally. Markdown ( `.md` ) files support only digital parsing: with `layoutParsingConfig` , they fail to import. If unset, defaults to digital (native text extraction) parsing. If set, exactly one of `digitalParsingConfig` or `layoutParsingConfig` must be set; an empty config is rejected. |
+| `embeddingConfig`    | `object ( `[`UnstructuredEmbeddingConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/reference/rest/v1beta/projects.locations.dataStores#UnstructuredEmbeddingConfig)` )` Optional. Controls how the per-segment embedding is generated.                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
 ## UnstructuredSegmentationConfig
 
@@ -242,10 +242,10 @@ The chunk segmentation configurations for unstructured documents. Segments are p
 }
 ```
 
-| Fields                    |                                                                                                                                                                                                                                                                                                                                                         |
-|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `chunkSize`               | `integer` Optional. The token size limit for each chunk. Supported values: 100-500 (inclusive). If unset, defaults to 500.                                                                                                                                                                                                                              |
-| `includeAncestorHeadings` | `boolean` Optional. Whether each chunk also includes the headings of the sections it belongs to, so that a chunk taken from the middle of a section keeps its context. Headings are only detected by layout parsing ( `layoutParsingConfig` ). With digital parsing, and for plain-text files, this setting has no effect. If unset, defaults to false. |
+| Fields                    |                                                                                                                                                                                                                                                                                                                                                                       |
+|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `chunkSize`               | `integer` Optional. The token size limit for each chunk. Supported values: 100-500 (inclusive). If unset, defaults to 500.                                                                                                                                                                                                                                            |
+| `includeAncestorHeadings` | `boolean` Optional. Whether each chunk also includes the headings of the sections it belongs to, so that a chunk taken from the middle of a section keeps its context. Headings are only detected by layout parsing ( `layoutParsingConfig` ). With digital parsing, and for plain-text, JSON and XML files, this setting has no effect. If unset, defaults to false. |
 
 ## PageSegmentationConfig
 
@@ -253,7 +253,7 @@ This type has no fields.
 
 The page segmentation configurations for unstructured documents. Segments are produced at the page level.
 
-Use with digital parsing. With `layoutParsingConfig` , PDF files fail to import, and Word, PowerPoint and Excel files are split into chunks instead.
+Use with digital parsing. With `layoutParsingConfig` , files fail to import; use `chunkSegmentationConfig` instead.
 
 ## UnstructuredParsingConfig
 
@@ -293,7 +293,7 @@ The digital parsing configurations for unstructured documents. Extracts the text
 
 This type has no fields.
 
-The layout parsing configurations for unstructured documents. Detects the document's structure, such as headings and tables, and runs OCR on PDF files. Required for `includeAncestorHeadings` to have an effect, and for `MULTIMODAL` embedding.
+The layout parsing configurations for unstructured documents. Detects the document's structure, such as headings and tables, and runs OCR on PDF files. Required for `includeAncestorHeadings` to have an effect.
 
 ## UnstructuredEmbeddingConfig
 

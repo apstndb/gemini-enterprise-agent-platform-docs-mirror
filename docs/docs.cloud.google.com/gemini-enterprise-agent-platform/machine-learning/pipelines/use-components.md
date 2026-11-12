@@ -92,7 +92,7 @@ This page shows how to consume and produce these artifacts.
 
 The artifact's metadata can serve as input to a component. To prepare an artifact to be consumed as input, you must extract it and put it in a component YAML file.
 
-For example, the [`ModelUploadOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/model.html#v1.model.ModelUploadOp) component generates a `google.VertexModel` artifact which can be consumed by a [`ModelDeployOp`](https://github.com/kubeflow/pipelines/blob/google-cloud-pipeline-components-0.1.9/components/google-cloud/google_cloud_pipeline_components/aiplatform/endpoint/deploy_model/component.yaml#L137) component. Use the following code in a component YAML file to retrieve the a Gemini Enterprise Agent Platform `Model` resource from the inputs (reference):
+For example, the [`ModelUploadOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/model.html#v1.model.ModelUploadOp) component generates a `google.VertexModel` artifact which can be consumed by a [`ModelDeployOp`](https://github.com/kubeflow/pipelines/blob/google-cloud-pipeline-components-0.1.9/components/google-cloud/google_cloud_pipeline_components/aiplatform/endpoint/deploy_model/component.yaml#L137) component. Use the following code in a component YAML file to retrieve the a Gemini Enterprise Agent Platform `Model` resource from the inputs (reference):
 
 ```
 "model": "',"{{$.inputs.artifacts['model'].metadata['resourceName']}}", '"'
@@ -190,7 +190,7 @@ def pipeline():
 
 #### Use your own container-based component
 
-The following example shows how to generate a [`VertexBatchPredictionJob`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/artifact_types.html#google_cloud_pipeline_components.types.artifact_types.VertexBatchPredictionJob) artifact as output from a container-based component using the [`artifact_types.py`](https://github.com/kubeflow/pipelines/blob/master/components/google-cloud/google_cloud_pipeline_components/types/artifact_types.py) utility class.
+The following example shows how to generate a [`VertexBatchPredictionJob`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/artifact_types.html#google_cloud_pipeline_components.types.artifact_types.VertexBatchPredictionJob) artifact as output from a container-based component using the [`artifact_types.py`](https://github.com/kubeflow/pipelines/blob/master/components/google-cloud/google_cloud_pipeline_components/types/artifact_types.py) utility class.
 
 ```
 bp_job_artifact = VertexBatchPredictionJob(

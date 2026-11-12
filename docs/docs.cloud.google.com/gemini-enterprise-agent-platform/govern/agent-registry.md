@@ -22,6 +22,7 @@ Explore the Agent Registry documentation to learn how to integrate and govern yo
 ### Register your agentic components
 
 - **[Register agents](https://docs.cloud.google.com/agent-registry/register-agents)** : Register agents automatically from supported runtimes or manually for custom deployments.
+- **[Deploy and register cross-cloud agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/governance/agent-gateway-cross-cloud/deploy-agents) (Limited Preview)** : Automatically register agent workloads and MCP servers running on Kubernetes clusters outside of Google Cloud using [Agent Gateway for cross-cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/governance/agent-gateway-cross-cloud/overview) .
 - **[Register MCP servers](https://docs.cloud.google.com/agent-registry/register-mcp-servers)** : Make remote MCP servers and tools discoverable to your orchestrators.
 - **[Register endpoints](https://docs.cloud.google.com/agent-registry/register-endpoints)** : Define target destinations to centrally govern the external APIs and services that your agents can connect to.
 - **[Register skills](https://docs.cloud.google.com/agent-registry/register-skills) (Preview)** : Centrally govern, version, and share executable capabilities across your organization's AI agents.

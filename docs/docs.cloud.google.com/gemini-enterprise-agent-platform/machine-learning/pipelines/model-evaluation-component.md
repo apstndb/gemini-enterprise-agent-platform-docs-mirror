@@ -10,9 +10,9 @@ Model evaluation components take ground truth and [batch prediction](https://doc
 
 Agent Platform provides the following model evaluation components:
 
-- [`ModelEvaluationClassificationOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/model_evaluation.html#v1.model_evaluation.ModelEvaluationClassificationOp)
-- [`ModelEvaluationForecastingOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/model_evaluation.html#v1.model_evaluation.ModelEvaluationForecastingOp)
-- [`ModelEvaluationRegressionOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/model_evaluation.html#v1.model_evaluation.ModelEvaluationRegressionOp)
+- [`ModelEvaluationClassificationOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/model_evaluation.html#v1.model_evaluation.ModelEvaluationClassificationOp)
+- [`ModelEvaluationForecastingOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/model_evaluation.html#v1.model_evaluation.ModelEvaluationForecastingOp)
+- [`ModelEvaluationRegressionOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/model_evaluation.html#v1.model_evaluation.ModelEvaluationRegressionOp)
 
 ## Model type support
 
@@ -447,7 +447,7 @@ This table describes the required parameters for the `ModelEvaluationForecasting
 
 ### Custom-trained models
 
-For custom-trained models, the [`BatchPredictionJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/batchprediction-component) component requires you to exclude the target column (ground truth) from your dataset. You can use the [`TargetFieldDataRemoverOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/google_cloud_pipeline_components.experimental.evaluation.html#google_cloud_pipeline_components.experimental.evaluation.TargetFieldDataRemoverOp) component for a more efficient workflow.
+For custom-trained models, the [`BatchPredictionJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/batchprediction-component) component requires you to exclude the target column (ground truth) from your dataset. You can use the [`TargetFieldDataRemoverOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/google_cloud_pipeline_components.experimental.evaluation.html#google_cloud_pipeline_components.experimental.evaluation.TargetFieldDataRemoverOp) component for a more efficient workflow.
 
 The following example shows a batch prediction output file and required input parameters for a custom-trained tabular classification model:
 
@@ -521,10 +521,10 @@ You can use a model evaluation pipeline component with a batch prediction that y
 
 ## API reference
 
-- For component reference, see the [Google Cloud SDK reference page for Model evaluation components](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/model_evaluation.html) .
+- For component reference, see the [Google Cloud SDK reference page for Model evaluation components](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/model_evaluation.html) .
 
 - For examples of how to use the Model Evaluation on Gemini Enterprise Agent Platform components, see the notebooks listed at [Create an evaluation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/evaluation/using-model-evaluation#python) .
 
 ## Version history and release notes
 
-To learn more about the version history and changes to the Google Cloud Pipeline Components SDK, see the [Google Cloud Pipeline Components SDK Release Notes](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/release.html) .
+To learn more about the version history and changes to the Google Cloud Pipeline Components SDK, see the [Google Cloud Pipeline Components SDK Release Notes](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/release.html) .

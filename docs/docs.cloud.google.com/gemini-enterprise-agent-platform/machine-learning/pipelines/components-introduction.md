@@ -46,5 +46,5 @@ Additionally, Google Cloud Pipeline Components supports these prebuilt component
 
 - See all [tutorials that use the Google Cloud SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/notebooks) .
 - Learn more about specific [Google Cloud Pipeline Components in the reference section](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/gcpc-list) .
-- Read the official [Google Cloud SDK reference](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/index.html) .
+- Read the official [Google Cloud SDK reference](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/index.html) .
 - See the Google Cloud Pipeline Components section in the [Kubeflow Pipelines SDK repository](https://github.com/kubeflow/pipelines/tree/master/components/google-cloud) .

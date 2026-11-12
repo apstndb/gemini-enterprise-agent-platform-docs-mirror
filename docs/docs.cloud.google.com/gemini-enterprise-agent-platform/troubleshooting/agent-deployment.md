@@ -408,7 +408,7 @@ The project has exceeded its API rate limits or concurrent request quotas.
 - Verify current usage against limits in the Google Cloud Quotas page for the "Agent Platform API".
 - Reduce the frequency of concurrent deployments.
 
-> **Note:** These solutions apply to your project's own API rate limits. A region that is temporarily at capacity, or a deployment whose `max_instances` exceeds the regional limit for its `resource_limits` , returns the same `429` , `RESOURCE_EXHAUSTED` status but has a different cause and different solutions. See [Region temporarily at capacity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#region-capacity) and [Maximum instances exceed regional limit](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#max-instances-limit) .
+> **Note:** These solutions apply to your project's own API rate limits. A region that is temporarily at capacity, a deployment whose `max_instances` exceeds the regional limit for its `resource_limits` , or a throttled Agent Gateway lookup returns the same `429` , `RESOURCE_EXHAUSTED` status but has a different cause and different solutions. See [Region temporarily at capacity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#region-capacity) , [Maximum instances exceed regional limit](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#max-instances-limit) , and [Agent Gateway lookup throttled](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#agent-gateway-lookup-throttled) .
 
 ### Region temporarily at capacity
 
@@ -454,6 +454,30 @@ When you deploy an agent, Agent Runtime multiplies `spec.deployment_spec.max_ins
 
 - Requesting a quota increase on your project's Google Cloud Quotas page has no effect, because this limit is enforced on the Google-managed serving project rather than your project.
 - Deleting other agents in your project or retrying without changing `max_instances` or `resource_limits` doesn't resolve this error, because the check evaluates the single deployment's peak allocation against a static limit.
+
+### Agent Gateway lookup throttled
+
+**Issue** :
+
+Deploying or updating an agent that uses an Agent Gateway fails with a `429` , `RESOURCE_EXHAUSTED` status ( `REASONING_ENGINE_AGENT_GATEWAY_LOOKUP_THROTTLED` ) and a message similar to the following:
+
+```
+The Reasoning Engine could not be created or updated because the request to look up Agent Gateway `projects/PROJECT_NUMBER/locations/LOCATION/agentGateways/AGENT_GATEWAY_ID` was throttled. Wait about a minute, then try again.
+```
+
+**Possible cause** :
+
+Before a deployment or update starts, Agent Runtime looks up each [Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy) in the agent's `spec.deployment_spec.agent_gateway_config` to validate the request. This error means that the lookup is temporarily rate limited. The request is rejected before the deployment or update starts, so your agent isn't created or changed.
+
+**Recommended solutions** :
+
+- Wait about a minute, and then retry the deployment or update.
+- In automated workflows, retry the request with exponential backoff.
+- [Contact support](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-support) if the error persists.
+
+**Solutions that don't apply** :
+
+- Changing your agent's code, `requirements` , or `resource_limits` doesn't resolve this error, and checking container or Agent Gateway traffic logs won't show an error, because the request is rejected before Agent Runtime builds or starts your agent's container.
 
 ## Secret Manager access errors
 

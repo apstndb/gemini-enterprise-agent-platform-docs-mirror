@@ -24,8 +24,6 @@ Lists Documents in a DataStore.
 |-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `pageSize`  | `integer` Optional. Requested page size. Server may return fewer items than requested. If unspecified, at most 10 Documents are returned. The maximum value is 1,000; larger values are coerced to 1,000. |
 | `pageToken` | `string` Optional. A token identifying a page of results the server should return.                                                                                                                        |
-| `filter`    | `string` Optional. Not currently supported. A request that sets this field fails with `INVALID_ARGUMENT` .                                                                                                |
-| `orderBy`   | `string` Optional. Not currently supported. A request that sets this field fails with `INVALID_ARGUMENT` .                                                                                                |
 
 ### Request body
 

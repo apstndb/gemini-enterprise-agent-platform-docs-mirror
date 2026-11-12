@@ -2,17 +2,23 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent
 title: Deploy an agent
-description: Learn how to deploy an agent on Agent Runtime using different methods, including from an agent object, source files, Dockerfile, or container image.
+description: Learn how to deploy an agent on Agent Runtime using different methods, including from an agent object, source files, Dockerfile, container image, or Git repository.
 data_source: docs.cloud.google.com
 ---
 
-Deploying an agent on Agent Runtime makes it available remotely to handle requests. This document explains the ways to deploy an agent based on your development workflow: from an execution object, local source files, a Dockerfile, a container image hosted in Artifact Registry, or directly through a connected Git repository.
+Deploying an agent on Agent Runtime makes it available remotely to handle requests. This document explains the ways to deploy an agent based on your development workflow: from an execution object, local source files, a Dockerfile, a container image hosted in Artifact Registry, a public Git repository, or directly through a connected Git repository.
 
 To deploy an agent on Agent Runtime, choose between the following methods:
 
 ### Developer Connect
 
 Recommended for projects managed in a Git repository that are linked through [Developer Connect](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#developer-connect-deployment) . This method streamlines agent deployment directly from your source code and natively supports version control, team collaboration, and CI/CD pipelines. Before using this method, set up your Git repository link by following the instructions in [Set up Developer Connect Git repository link](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#developer-connect-setup) .
+
+You can use this deployment method with Python only.
+
+### Public Git repository
+
+Suited for projects in a [public Git repository](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#git-repository-deployment) that you can access over HTTPS. This method lets you deploy directly from the repository URL without setting up a Developer Connect connection or Git repository link. This method supports public repositories only; to deploy from a private repository, use [Developer Connect](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#developer-connect-overview) .
 
 You can use this deployment method with Python only.
 
@@ -214,7 +220,7 @@ You can also do the following with `extra_packages` :
   requirements = [
         "google-cloud-aiplatform[agent_engines,adk]",
         "cloudpickle==3.0",
-        "python_package.whl",  # install from the whl file that was uploaded
+        "path/to/python_package.whl",  # install from the whl file that was uploaded
     ]
     extra_packages = ["path/to/python_package.whl"]  # bundle the whl file for uploading
   ```
@@ -647,8 +653,58 @@ Deployment latency depends on the total time it takes to install required packag
 The `remote_agent` object corresponds to an [`AgentRuntime`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.AgentRuntime) class that contains the following:
 
 - [`remote_agent.api_resource`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.ReasoningEngine) with information about the deployed agent. You can also call `remote_agent.operation_schemas()` to return the list of operations that the `remote_agent` supports. See [Supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#supported-operations) for details.
-- [`remote_agent.api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.Runtimes) that allows for synchronous service interactions
-- [`remote_agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.AsyncRuntimes) that allows for asynchronous service interactions
+- [`remote_agent.api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.Runtimes) that allows for synchronous service interactions.
+- [`remote_agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.AsyncRuntimes) that allows for asynchronous service interactions.
+
+### Public Git repository
+
+To deploy from a public Git repository on Agent Platform, use `client.runtimes.create` by providing `git_source` , `entrypoint_module` , `entrypoint_object` , and `class_methods` in the config dictionary, along with other [optional configurations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#configure-agent) . To deploy from a private repository, use [Developer Connect](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#developer-connect-deployment) .
+
+You can use this deployment method with Python only.
+
+```
+remote_agent = client.runtimes.create(
+    config={
+        "git_source": {                                 # Required.
+            "url": "https://github.com/OWNER/REPO.git", # Required.
+            "revision": "main",                         # Required.
+            "dir": "path/to/dir",                       # Optional.
+        },
+        "entrypoint_module": "agent",                   # Required.
+        "entrypoint_object": "root_agent",              # Required.
+        "class_methods": class_methods,                 # Required.
+        "requirements_file": "requirements.txt",        # Optional.
+        # Other optional configs:
+        # "env_vars": {...},
+        # "service_account": "...",
+    },
+)
+```
+
+The parameters for public Git repository deployment are:
+
+- `git_source` ( `dict` ): The configuration for fetching source code from a public Git repository.
+  - `url` ( `str` ): The HTTPS URL of a public Git repository (for example, `https://github.com/OWNER/REPO.git` ). The URL can't contain credentials, such as `user:password@` .
+  - `revision` ( `str` ): A branch, a tag, or a full commit SHA to fetch. Abbreviated commit SHAs aren't supported.
+  - `dir` ( `str` ): Optional: The directory, relative to the repository root, where the build runs. Only the contents of this directory are deployed. If not set, the repository root is used. The path can't start with `/` or contain `..` segments.
+- `entrypoint_module` ( `str` ): The Python module name containing the agent entrypoint, relative to the directory specified in `git_source.dir` .
+- `entrypoint_object` ( `str` ): The name of the callable object within the `entrypoint_module` that represents the agent application (for example, `root_agent` ).
+- `class_methods` ( `list[dict]` ): A list of dictionaries that define the agent's exposed methods. Each dictionary includes a `name` , `api_mode` , and optional `parameters` field. Refer to [List supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-a-custom-agent#supported-operations) for more information about the methods for a custom agent.
+- `requirements_file` ( `str` ): Optional: The path to a pip requirements file relative to `git_source.dir` (or the repository root if `dir` isn't set). Defaults to `requirements.txt` .
+
+Deployment takes a few minutes, during which the following steps happen in the background:
+
+1.  The Agent Runtime service clones the repository at the specified revision.
+2.  The service installs dependencies from `requirements_file` (if the file exists).
+3.  The service starts the agent application using the specified `entrypoint_module` and `entrypoint_object` .
+
+Deployment latency depends on the total time it takes to install required packages. Once deployed, `remote_agent` corresponds to your agent running on Agent Platform and can be queried or deleted.
+
+The `remote_agent` object corresponds to an [`AgentRuntime`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.AgentRuntime) class that contains the following:
+
+- [`remote_agent.api_resource`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.ReasoningEngine) with information about the deployed agent. You can also call `remote_agent.operation_schemas()` to return the list of operations that the `remote_agent` supports. See [Supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#supported-operations) for details.
+- [`remote_agent.api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.Runtimes) that allows for synchronous service interactions.
+- [`remote_agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.AsyncRuntimes) that allows for asynchronous service interactions.
 
 ### Source files
 
@@ -734,8 +790,8 @@ Deployment latency depends on the total time it takes to install required packag
 The `remote_agent` object corresponds to an [`AgentRuntime`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.AgentRuntime) class that contains the following:
 
 - [`remote_agent.api_resource`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.ReasoningEngine) with information about the deployed agent. You can also call `remote_agent.operation_schemas()` to return the list of operations that the `remote_agent` supports. See [Supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#supported-operations) for details.
-- [`remote_agent.api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.Runtimes) that allows for synchronous service interactions
-- [`remote_agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.AsyncRuntimes) that allows for asynchronous service interactions
+- [`remote_agent.api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.Runtimes) that allows for synchronous service interactions.
+- [`remote_agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.AsyncRuntimes) that allows for asynchronous service interactions.
 
 ### Dockerfile
 
@@ -773,8 +829,8 @@ Deployment latency depends on the total time it takes to install required packag
 The `remote_agent` object corresponds to an [`AgentRuntime`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.AgentRuntime) class that contains the following:
 
 - [`remote_agent.api_resource`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.ReasoningEngine) with information about the deployed agent. You can also call `remote_agent.operation_schemas()` to return the list of operations that the `remote_agent` supports. See [Supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#supported-operations) for details.
-- [`remote_agent.api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.Runtimes) that allows for synchronous service interactions
-- [`remote_agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.AsyncRuntimes) that allows for asynchronous service interactions
+- [`remote_agent.api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.Runtimes) that allows for synchronous service interactions.
+- [`remote_agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.AsyncRuntimes) that allows for asynchronous service interactions.
 
 ### Container image
 
@@ -803,8 +859,8 @@ Deployment latency depends on the total time it takes to install required packag
 The `remote_agent` object corresponds to an [`AgentRuntime`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.AgentRuntime) class that contains the following:
 
 - [`remote_agent.api_resource`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.ReasoningEngine) with information about the deployed agent. You can also call `remote_agent.operation_schemas()` to return the list of operations that the `remote_agent` supports. See [Supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#supported-operations) for details.
-- [`remote_agent.api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.Runtimes) that allows for synchronous service interactions
-- [`remote_agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.AsyncRuntimes) that allows for asynchronous service interactions
+- [`remote_agent.api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.Runtimes) that allows for synchronous service interactions.
+- [`remote_agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.AsyncRuntimes) that allows for asynchronous service interactions.
 
 ### Agent Platform SDK
 
@@ -849,8 +905,8 @@ Deployment latency depends on the total time it takes to install required packag
 The `remote_agent` object corresponds to an [`AgentRuntime`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.AgentRuntime) class that contains the following:
 
 - [`remote_agent.api_resource`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.ReasoningEngine) with information about the deployed agent. You can also call `remote_agent.operation_schemas()` to return the list of operations that the `remote_agent` supports. See [Supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#supported-operations) for details.
-- [`remote_agent.api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.Runtimes) that allows for synchronous service interactions
-- [`remote_agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.AsyncRuntimes) that allows for asynchronous service interactions
+- [`remote_agent.api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.Runtimes) that allows for synchronous service interactions.
+- [`remote_agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.AsyncRuntimes) that allows for asynchronous service interactions.
 
 ## Optional: Get the agent resource ID
 

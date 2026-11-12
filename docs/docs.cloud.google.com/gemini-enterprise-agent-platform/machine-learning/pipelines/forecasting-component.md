@@ -10,16 +10,16 @@ The forecasting components let you compose tabular data forecasting pipelines wi
 
 The Google Cloud SDK includes the following operators related to tabular data forecasting pipelines:
 
-- [`ForecastingPrepareDataForTrainOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/forecasting.html#v1.forecasting.ForecastingPrepareDataForTrainOp)
-- [`ForecastingPreprocessingOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/forecasting.html#v1.forecasting.ForecastingPreprocessingOp)
-- [`ForecastingValidationOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/forecasting.html#v1.forecasting.ForecastingValidationOp)
+- [`ForecastingPrepareDataForTrainOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/forecasting.html#v1.forecasting.ForecastingPrepareDataForTrainOp)
+- [`ForecastingPreprocessingOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/forecasting.html#v1.forecasting.ForecastingPreprocessingOp)
+- [`ForecastingValidationOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/forecasting.html#v1.forecasting.ForecastingValidationOp)
 
 ## API reference
 
-For component reference, see the [Google Cloud SDK reference page for Forecasting components](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/forecasting.html) .
+For component reference, see the [Google Cloud SDK reference page for Forecasting components](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/forecasting.html) .
 
-- [`VertexNotificationEmailOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/vertex_notification_email.html#v1.vertex_notification_email.VertexNotificationEmailOp)
+- [`VertexNotificationEmailOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/vertex_notification_email.html#v1.vertex_notification_email.VertexNotificationEmailOp)
 
 ## Version history and release notes
 
-To learn more about the version history and changes to the Google Cloud Pipeline Components SDK, see the [Google Cloud Pipeline Components SDK Release Notes](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/release.html) .
+To learn more about the version history and changes to the Google Cloud Pipeline Components SDK, see the [Google Cloud Pipeline Components SDK Release Notes](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/release.html) .

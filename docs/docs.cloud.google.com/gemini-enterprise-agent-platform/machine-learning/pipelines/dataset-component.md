@@ -10,21 +10,21 @@ The dataset operators prepare the data for training an AutoML model in Gemini En
 
 The Google Cloud SDK includes the following operators related to AutoML `dataset` resource management:
 
-- [`GetVertexDatasetOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataset.html#v1.dataset.GetVertexDatasetOp)
-- [`ImageDatasetCreateOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataset.html#v1.dataset.ImageDatasetCreateOp)
-- [`ImageDatasetExportDataOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataset.html#v1.dataset.ImageDatasetExportDataOp)
-- [`ImageDatasetImportDataOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataset.html#v1.dataset.ImageDatasetImportDataOp)
-- [`TabularDatasetCreateOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataset.html#v1.dataset.TabularDatasetCreateOp)
-- [`TabularDatasetExportDataOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataset.html#v1.dataset.TabularDatasetExportDataOp)
-- [`TextDatasetCreateOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataset.html#v1.dataset.TextDatasetCreateOp)
-- [`TextDatasetExportDataOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataset.html#v1.dataset.TextDatasetExportDataOp)
-- [`TextDatasetImportDataOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataset.html#v1.dataset.TextDatasetImportDataOp)
-- [`TimeSeriesDatasetCreateOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataset.html#v1.dataset.TimeSeriesDatasetCreateOp)
-- [`TimeSeriesDatasetExportDataOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataset.html#v1.dataset.TimeSeriesDatasetExportDataOp)
+- [`GetVertexDatasetOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/dataset.html#v1.dataset.GetVertexDatasetOp)
+- [`ImageDatasetCreateOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/dataset.html#v1.dataset.ImageDatasetCreateOp)
+- [`ImageDatasetExportDataOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/dataset.html#v1.dataset.ImageDatasetExportDataOp)
+- [`ImageDatasetImportDataOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/dataset.html#v1.dataset.ImageDatasetImportDataOp)
+- [`TabularDatasetCreateOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/dataset.html#v1.dataset.TabularDatasetCreateOp)
+- [`TabularDatasetExportDataOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/dataset.html#v1.dataset.TabularDatasetExportDataOp)
+- [`TextDatasetCreateOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/dataset.html#v1.dataset.TextDatasetCreateOp)
+- [`TextDatasetExportDataOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/dataset.html#v1.dataset.TextDatasetExportDataOp)
+- [`TextDatasetImportDataOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/dataset.html#v1.dataset.TextDatasetImportDataOp)
+- [`TimeSeriesDatasetCreateOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/dataset.html#v1.dataset.TimeSeriesDatasetCreateOp)
+- [`TimeSeriesDatasetExportDataOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/dataset.html#v1.dataset.TimeSeriesDatasetExportDataOp)
 
 ## API reference
 
-- For dataset component reference, see the [Google Cloud SDK reference for Dataset components](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataset.html) .
+- For dataset component reference, see the [Google Cloud SDK reference for Dataset components](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/dataset.html) .
 
 - For Agent Platform API reference, see the following API reference pages:
 
@@ -42,7 +42,7 @@ The Google Cloud SDK includes the following operators related to AutoML `dataset
 
 ## Version history and release notes
 
-To learn more about the version history and changes to the Google Cloud Pipeline Components SDK, see the [Google Cloud Pipeline Components SDK Release Notes](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/release.html) .
+To learn more about the version history and changes to the Google Cloud Pipeline Components SDK, see the [Google Cloud Pipeline Components SDK Release Notes](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/release.html) .
 
 ### Technical support contacts
 

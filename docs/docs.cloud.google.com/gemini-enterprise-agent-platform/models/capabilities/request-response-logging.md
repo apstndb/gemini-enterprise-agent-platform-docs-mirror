@@ -566,7 +566,7 @@ The MaaS Partner and model must match. The request-response log can only be shar
 
 ### Prerequisites
 
-Google must receive consent for the Advanced AI Safety Addendum in this project before data sharing can be enabled. For more information about the addendum, see [Advanced AI safety](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring#advanced_ai_safety) .
+Google must receive consent for the Advanced AI Safety Addendum in this project before data sharing can be enabled. For more information about the addendum, see [Advanced AI safety](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring#advanced-ai-safety) .
 
 You don't need to enable request-response logging for BigQuery to use request-response log sharing.
 

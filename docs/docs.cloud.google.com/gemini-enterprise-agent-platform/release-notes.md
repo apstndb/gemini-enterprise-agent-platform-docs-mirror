@@ -14,11 +14,45 @@ You can see the latest product updates for all of Google Cloud on the [Google Cl
 
 Feature
 
+**End-user safety identifier labels for abuse monitoring**
+
+End-user `safety_identifier` request labels are available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages) for Gemini ( `generateContent` and `streamGenerateContent` ) and Veo ( `predictLongRunning` ) API calls. API resellers and multi-tenant apps can pass an anonymized per-user ID in `labels` to attribute policy violations to individual end users. Targeted attribution helps prevent enforcement actions across an entire Google Cloud project.
+
+For formatting requirements and code samples, see [Pass an end-user safety identifier in API calls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring#pass-safety-identifier) .
+
+Fixed
+
+**CodeMender updates (v0.21.0)**
+
+This release introduces updates to CodeMender:
+
+- **Sandboxed build commands and patch refresh** : When sandboxing is enabled, `cm build` and `cm fix` build validation now run `build.command` inside the sandbox, and `cm fix` refreshes stored patch diffs after build validation finishes.
+- **Read-only host toolchains and isolated caches** : Sandboxed `cm build` , `cm fix` , and `cm verify` runs now mount host toolchain and package-manager directories read-only and redirect supported compiler and package caches to session-scoped temporary directories.
+- **Command environment isolation** : Disabled repository Git hooks, isolated host Git configuration, and ignored repository Python bytecode caches ( `__pycache__` ) during command and build runs.
+- **Bug fixes** :
+  - Added a 30-minute timeout for silent active turns so stalled sessions cancel and recover cleanly.
+  - Preserved proof-of-concept execution output when reproducer errors occur, retaining stdout and stderr to help diagnose build failures, timeouts, and setup issues.
+  - Fixed an issue where patch generation failed on mid-run sandbox failures by automatically retrying with a fresh sandbox environment.
+
+For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender) .
+
+Feature
+
 **Gemini 4 Carbon in CodeMender (Preview)**
 
 CodeMender now supports Gemini 4 Carbon. To use it, pass `--model gemini-4-carbon` to `cm find` , `cm verify` , or `cm fix` . Gemini 3.8 Flash remains the default model.
 
 For more information, see [Specifying the model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender#specifying-the-model) .
+
+Feature
+
+**Govern agents on any CNCF-conformant Kubernetes cluster with Agent Gateway for cross-cloud (Limited Preview)**
+
+[Agent Gateway for cross-cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/governance/agent-gateway-cross-cloud/overview) is available in [Limited Preview](https://cloud.google.com/products#product-launch-stages) . It extends Agent Platform governance to agents that run on Cloud Native Computing Foundation (CNCF)-conformant Kubernetes clusters outside of Google Cloud, such as Amazon Elastic Kubernetes Service (Amazon EKS), Azure Kubernetes Service (AKS), Red Hat OpenShift, and bare-metal clusters. Your agents keep running where they are, but you govern them from one place: give each agent a verifiable identity, register agents and MCP servers in Agent Registry, and route their LLM, MCP, and A2A traffic through local Agent Gateway proxies by using your existing service mesh or network stack. Those proxies enforce access and Model Armor safety policies, and send access logs and agent traces to Cloud Logging and Cloud Trace.
+
+Agent Gateway for cross-cloud is available at no charge during Limited Preview. Other products that you configure with it, such as Model Armor, Cloud Logging, and Cloud Trace, are billed at their standard rates. To request access, complete the [access request form](https://docs.google.com/forms/d/e/1FAIpQLSeUpnNRtYQjLRblii-KoUbJJ7DjEV6fvQAfO21IAXgVSqFjpw/viewform) .
+
+For more information, see [Set up Agent Gateway for cross-cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/governance/agent-gateway-cross-cloud/setup) .
 
 ## November 10, 2026
 
@@ -29,6 +63,12 @@ Feature
 You can use semantic governance policies in a multi-project (hub-and-spoke) architecture to centrally govern agents deployed across multiple Google Cloud projects. When you configure a Resource Manager management boundary with the `AGENT_MANAGEMENT` capability, Agent Registry in the central management project automatically discovers agents across all member projects with their runtime identities intact. You can then provision a single Agent Gateway and semantic governance policy engine in the management project to author and enforce policies across member project agents.
 
 For more information, see [Govern agents across multiple projects](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#cross-project-governance) and [Cross-project boundaries](https://docs.cloud.google.com/agent-registry/boundaries-and-topology) .
+
+Feature
+
+**Provisioned Throughput supports more detailed order statuses**
+
+Provisioned Throughput supports more granular order statuses in the Google Cloud console in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages) . You can track order lifecycle states across `Declined` , `Cancelled` , and `Terminated` , in addition to `Pending review` , `Approved` , `Active` , and `Expired` . For more information, see [Check order status](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#check-order-status) .
 
 Fixed
 

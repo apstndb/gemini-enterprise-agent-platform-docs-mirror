@@ -346,7 +346,7 @@ https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCA
 
 ## Stream a response to a query
 
-> **Note:** The maximum duration for a `streamQuery` request is 10 minutes. For workflows that require longer execution times, use [Long-running query jobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-adk-agent#long-running-query-jobs) instead.
+> **Note:** The maximum duration for a `streamQuery` request is 15 minutes. For workflows that require longer execution times, use [Long-running query jobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-adk-agent#long-running-query-jobs) instead.
 
 To stream responses from an agent in a session, use the [`AdkApp.async_stream_query`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.AdkApp#vertexai_agent_engines_AdkApp_async_stream_query) method:
 

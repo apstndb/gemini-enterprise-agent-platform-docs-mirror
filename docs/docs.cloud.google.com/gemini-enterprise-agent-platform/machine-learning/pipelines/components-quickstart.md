@@ -20,9 +20,9 @@ pip install --upgrade google-cloud-pipeline-components
 
 After you install the Google Cloud SDK, you can use it to import a prebuilt component.
 
-For SDK reference information for supported components, see the [Google Cloud SDK documentation](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/index.html) .
+For SDK reference information for supported components, see the [Google Cloud SDK documentation](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/index.html) .
 
-For example, you can use the following code to import and use the [Dataflow component](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataflow.html) in a pipeline.
+For example, you can use the following code to import and use the [Dataflow component](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/dataflow.html) in a pipeline.
 
 ```
 from google_cloud_pipeline_components.v1.dataflow import DataflowPythonJobOp

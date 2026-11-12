@@ -10,22 +10,22 @@ The Dataflow components let you submit Apache Beam jobs to Dataflow for executio
 
 The Google Cloud SDK includes the following operators for creating `Job` resources and monitor their execution:
 
-- [`DataflowFlexTemplateJobOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataflow.html#preview.dataflow.DataflowFlexTemplateJobOp)
-- [`DataflowPythonJobOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataflow.html#v1.dataflow.DataflowPythonJobOp)
+- [`DataflowFlexTemplateJobOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/dataflow.html#preview.dataflow.DataflowFlexTemplateJobOp)
+- [`DataflowPythonJobOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/dataflow.html#v1.dataflow.DataflowPythonJobOp)
 
-Additionally, the Google Cloud SDK includes the [`WaitGcpResourcesOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/wait_gcp_resources.html#v1.wait_gcp_resources.WaitGcpResourcesOp) component, which you can use to mitigate costs while running Dataflow jobs.
+Additionally, the Google Cloud SDK includes the [`WaitGcpResourcesOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/wait_gcp_resources.html#v1.wait_gcp_resources.WaitGcpResourcesOp) component, which you can use to mitigate costs while running Dataflow jobs.
 
 ## `DataflowFlexTemplateJobOp`
 
-The [`DataflowFlexTemplateJobOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataflow.html#v1.dataflow.DataflowFlexTemplateJobOp) operator lets you create a Gemini Enterprise Agent Platform Pipelines component to launch a [Dataflow Flex Template](https://docs.cloud.google.com/dataflow/docs/guides/templates/using-flex-templates) .
+The [`DataflowFlexTemplateJobOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/dataflow.html#v1.dataflow.DataflowFlexTemplateJobOp) operator lets you create a Gemini Enterprise Agent Platform Pipelines component to launch a [Dataflow Flex Template](https://docs.cloud.google.com/dataflow/docs/guides/templates/using-flex-templates) .
 
 In Dataflow, a [`LaunchFlexTemplateParameter`](https://docs.cloud.google.com/dataflow/docs/reference/rest/v1b3/projects.locations.flexTemplates/launch#LaunchFlexTemplateParameter) resource represents a Flex Template to launch. This component creates a `LaunchFlexTemplateParameter` resource and then requests Dataflow to create a job by launching the template. If the template is launched successfully, Dataflow returns a [`Job`](https://docs.cloud.google.com/dataflow/docs/reference/rest/v1b3/projects.jobs#Job) resource.
 
-The Dataflow Flex Template component terminates upon receiving a `Job` resource from Dataflow. The component outputs a `job_id` as a [serialized `gcp_resources` proto](https://github.com/kubeflow/pipelines/blob/master/components/google-cloud/google_cloud_pipeline_components/proto/README.md#usage) . You can pass this parameter to a [`WaitGcpResourcesOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/wait_gcp_resources.html#v1.wait_gcp_resources.WaitGcpResourcesOp) component, to wait for the Dataflow job to complete.
+The Dataflow Flex Template component terminates upon receiving a `Job` resource from Dataflow. The component outputs a `job_id` as a [serialized `gcp_resources` proto](https://github.com/kubeflow/pipelines/blob/master/components/google-cloud/google_cloud_pipeline_components/proto/README.md#usage) . You can pass this parameter to a [`WaitGcpResourcesOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/wait_gcp_resources.html#v1.wait_gcp_resources.WaitGcpResourcesOp) component, to wait for the Dataflow job to complete.
 
 ## `DataflowPythonJobOp`
 
-The [`DataflowPythonJobOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataflow.html#v1.dataflow.DataflowPythonJobOp) operator lets you create a Gemini Enterprise Agent Platform Pipelines component that prepares data by submitting a Python-based Apache Beam job to Dataflow for execution.
+The [`DataflowPythonJobOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/dataflow.html#v1.dataflow.DataflowPythonJobOp) operator lets you create a Gemini Enterprise Agent Platform Pipelines component that prepares data by submitting a Python-based Apache Beam job to Dataflow for execution.
 
 The Python code of the Apache Beam job runs with Dataflow Runner. When you run your pipeline with the Dataflow service, the runner uploads your executable code to the location specified by the `python_module_path` parameter and dependencies to a Cloud Storage bucket (specified by `temp_location` ), and then creates a Dataflow job that executes your Apache Beam pipeline on managed resources in Google Cloud.
 
@@ -37,7 +37,7 @@ The Dataflow Python component accepts a list of arguments that are passed using 
 
 Dataflow jobs can often take long time to complete. The costs of a `busy-wait` container (the container that launches Dataflow job and wait for the result) can become expensive.
 
-After submitting the Dataflow job using the Beam runner, the [`DataflowPythonJobOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataflow.html#v1.dataflow.DataflowPythonJobOp) component terminates immediately and returns a `job_id` output parameter as a [serialized `gcp_resources` proto](https://github.com/kubeflow/pipelines/blob/master/components/google-cloud/google_cloud_pipeline_components/proto/README.md#usage) . You can pass this parameter to a `WaitGcpResourcesOp` component, to wait for the Dataflow job to complete.
+After submitting the Dataflow job using the Beam runner, the [`DataflowPythonJobOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/dataflow.html#v1.dataflow.DataflowPythonJobOp) component terminates immediately and returns a `job_id` output parameter as a [serialized `gcp_resources` proto](https://github.com/kubeflow/pipelines/blob/master/components/google-cloud/google_cloud_pipeline_components/proto/README.md#usage) . You can pass this parameter to a `WaitGcpResourcesOp` component, to wait for the Dataflow job to complete.
 
 ```
 dataflow_python_op = DataflowPythonJobOp(
@@ -62,7 +62,7 @@ For more information about how to create `gcp_resources` output parameter, see [
 
 ## API reference
 
-- For component reference, see the [Google Cloud SDK reference for Dataflow components](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataflow.html) .
+- For component reference, see the [Google Cloud SDK reference for Dataflow components](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/dataflow.html) .
 
 - For Dataflow resource reference, see the following API reference pages:
 
@@ -79,7 +79,7 @@ For more information about how to create `gcp_resources` output parameter, see [
 
 ## Version history and release notes
 
-To learn more about the version history and changes to the Google Cloud Pipeline Components SDK, see the [Google Cloud Pipeline Components SDK Release Notes](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/release.html) .
+To learn more about the version history and changes to the Google Cloud Pipeline Components SDK, see the [Google Cloud Pipeline Components SDK Release Notes](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/release.html) .
 
 ## Technical support contacts
 

@@ -12,32 +12,32 @@ The Google Cloud SDK includes the following operators related to AutoML models a
 
 **Operators related to AutoML forecasting**
 
-- [`ProphetTrainerOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/forecasting.html#v1.automl.forecasting.ProphetTrainerOp)
+- [`ProphetTrainerOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/automl/forecasting.html#v1.automl.forecasting.ProphetTrainerOp)
 
 **Operators related to AutoML Tabular models**
 
-- [`CvTrainerOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/tabular.html#v1.automl.tabular.CvTrainerOp)
-- [`EnsembleOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/tabular.html#v1.automl.tabular.EnsembleOp)
-- [`FinalizerOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/tabular.html#v1.automl.tabular.FinalizerOp)
-- [`InfraValidatorOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/tabular.html#v1.automl.tabular.InfraValidatorOp)
-- [`SplitMaterializedDataOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/tabular.html#v1.automl.tabular.SplitMaterializedDataOp)
-- [`Stage1TunerOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/tabular.html#v1.automl.tabular.Stage1TunerOp)
-- [`StatsAndExampleGenOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/tabular.html#v1.automl.tabular.StatsAndExampleGenOp)
-- [`TrainingConfiguratorAndValidatorOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/tabular.html#v1.automl.tabular.TrainingConfiguratorAndValidatorOp)
-- [`TransformOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/tabular.html#v1.automl.tabular.TransformOp)
+- [`CvTrainerOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/automl/tabular.html#v1.automl.tabular.CvTrainerOp)
+- [`EnsembleOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/automl/tabular.html#v1.automl.tabular.EnsembleOp)
+- [`FinalizerOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/automl/tabular.html#v1.automl.tabular.FinalizerOp)
+- [`InfraValidatorOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/automl/tabular.html#v1.automl.tabular.InfraValidatorOp)
+- [`SplitMaterializedDataOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/automl/tabular.html#v1.automl.tabular.SplitMaterializedDataOp)
+- [`Stage1TunerOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/automl/tabular.html#v1.automl.tabular.Stage1TunerOp)
+- [`StatsAndExampleGenOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/automl/tabular.html#v1.automl.tabular.StatsAndExampleGenOp)
+- [`TrainingConfiguratorAndValidatorOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/automl/tabular.html#v1.automl.tabular.TrainingConfiguratorAndValidatorOp)
+- [`TransformOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/automl/tabular.html#v1.automl.tabular.TransformOp)
 
 **Operators related to AutoML `model` resource creation**
 
-- [`AutoMLForecastingTrainingJobRunOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/training_job.html#v1.automl.training_job.AutoMLForecastingTrainingJobRunOp)
-- [`AutoMLImageTrainingJobRunOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/training_job.html#v1.automl.training_job.AutoMLImageTrainingJobRunOp)
-- [`AutoMLTabularTrainingJobRunOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/training_job.html#v1.automl.training_job.AutoMLTabularTrainingJobRunOp)
-- [`AutoMLTextTrainingJobRunOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/training_job.html#v1.automl.training_job.AutoMLTextTrainingJobRunOp)
+- [`AutoMLForecastingTrainingJobRunOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/automl/training_job.html#v1.automl.training_job.AutoMLForecastingTrainingJobRunOp)
+- [`AutoMLImageTrainingJobRunOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/automl/training_job.html#v1.automl.training_job.AutoMLImageTrainingJobRunOp)
+- [`AutoMLTabularTrainingJobRunOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/automl/training_job.html#v1.automl.training_job.AutoMLTabularTrainingJobRunOp)
+- [`AutoMLTextTrainingJobRunOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/automl/training_job.html#v1.automl.training_job.AutoMLTextTrainingJobRunOp)
 
 [Learn more about training and using your own AutoML models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training-overview#automl) .
 
 ## API reference
 
-- For AutoML component reference, see the [Google Cloud SDK reference for AutoML components](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/training_job.html) .
+- For AutoML component reference, see the [Google Cloud SDK reference for AutoML components](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/automl/training_job.html) .
 
 - For Agent Platform API reference, see the following API reference pages:
 
@@ -55,7 +55,7 @@ The Google Cloud SDK includes the following operators related to AutoML models a
 
 ## Version history and release notes
 
-To learn more about the version history and changes to the Google Cloud Pipeline Components SDK, see the [Google Cloud Pipeline Components SDK Release Notes](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/release.html) .
+To learn more about the version history and changes to the Google Cloud Pipeline Components SDK, see the [Google Cloud Pipeline Components SDK Release Notes](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/release.html) .
 
 ### Technical support contacts
 

@@ -333,7 +333,7 @@ To change the scope of an order, do the following:
 
     The Order details page opens with a notification that the Change scope request was submitted successfully. Click **view new order** at the top of the page to be taken to the corresponding Order details page from the newly created order in the selected project. This new order will be in **Approved** status.
 
-Within 15 minutes, the newly created order will move to **Active** status, and the original order will be cancelled. There is no loss in service or increase in billing charges as a result of this change.
+Within 15 minutes, the newly created order moves to **Active** status, and the original order moves to **Cancelled** status. There is no loss in service or increase in billing charges as a result of this change.
 
 #### Increase term
 
@@ -357,9 +357,9 @@ To increase the term of an order, do the following:
 
 8.  Click **Submit changes** .
 
-    The Order details page opens with a notification that the Increase term request was submitted successfully. Click **view new order** at the top of the page to be taken to the corresponding Order details page from the newly created order. This new order will be in **Pending** status.
+    The Order details page opens with a notification that the Increase term request was submitted successfully. Click **view new order** at the top of the page to be taken to the corresponding Order details page from the newly created order. The newly created order starts in **Pending review** status.
 
-After successful capacity review, once the newly created order is Approved, it will then move to **Active** status, and the original order will be cancelled. There is no loss in service or double billing as a result of this change.
+After Google approves capacity, the new order moves from **Approved** to **Active** status, and the original order moves to **Cancelled** status. There is no loss in service or double billing as a result of this change.
 
 ### When you can't change an order
 
@@ -375,12 +375,15 @@ You can't change or cancel a Provisioned Throughput order from the Google Cloud 
 
 ## Check order status
 
-After you submit your Provisioned Throughput order, the order status might appear as one of the following:
+Track Provisioned Throughput order approval, quota readiness, and billing state in the Google Cloud console. After you submit an order, the Google Cloud console displays one of the following statuses:
 
-- **Pending review** : You placed your order. Because approval depends on available capacity to provision your order, your order is waiting for review and approval. For more information about the status of your pending order, [contact your Google Cloud account representative](https://cloud.google.com/contact) .
-- **Approved** : Google has approved your order and the order is awaiting activation. You can't make changes after the order is approved.
-- **Active** : Google has activated your order, and then billing starts.
-- **Expired** : Your order has expired.
+- **Pending review** : Your submitted order awaits capacity review and approval, with no quota or billing active yet. You can [cancel a pending order](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#change-order) in the Google Cloud console, or [contact your Google Cloud account representative](https://cloud.google.com/contact) with status questions.
+- **Approved** : Google approved the order, and the Google Cloud console displays `Approved (Awaiting Activation)` until immediate or scheduled activation. Quota and billing don't start until **Active** status, and you can't modify or cancel an approved order in the Google Cloud console.
+- **Declined** : This order couldn't be approved, for example due to capacity or potentially suspicious activity. Declined orders never activate and aren't billed; for assistance, [contact your Google Cloud account representative](https://cloud.google.com/contact) .
+- **Active** : The order is activated, and quota and billing are active for the term. You can [modify](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#change-order) or [restructure](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#restructure-order) active Google model orders, subject to [order change rules](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#no-order-changes) .
+- **Cancelled** : A user-initiated action stopped your Google model order, such as [cancelling an order in **Pending review** status](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#change-order) . Orders also move to **Cancelled** when superseded through [Change scope or Increase term](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#restructure-order) . Orders cancelled before activation aren't billed, and restructured orders hand over quota without service loss or double billing.
+- **Terminated** : Google halted your active Google model order before term end, such as for potentially suspicious activity or a policy violation. Quota and billing stop, and the **Order details** page in the Google Cloud console displays an alert to [contact your Google Cloud account representative](https://cloud.google.com/contact) for next steps.
+- **Expired** : Your active order reached the end of its commitment term without renewing, ending quota and billing. Partner model orders, open model orders, and Google model orders ended before November 2026 also show **Expired** when they end. For status support by model type, see [Available capabilities for Google and open models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/supported-models#capabilities) .
 
 ## View standard Provisioned Throughput orders
 

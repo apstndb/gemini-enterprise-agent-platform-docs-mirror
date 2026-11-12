@@ -2,9 +2,11 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring
 title: Abuse monitoring
-description: Learn how Google detects potential abuse and violations of its Acceptable Use Policy and Prohibited Use Policy for Generative AI Services.
+description: Review how Google monitors potential abuse, enforces Acceptable Use and Prohibited Use policies, and attributes end-user API calls with safety identifiers.
 data_source: docs.cloud.google.com
 ---
+
+Google monitors generative AI traffic on Gemini Enterprise Agent Platform to detect potential violations of the Acceptable Use Policy (AUP) and Prohibited Use Policy. Multi-tenant applications and API resellers can also pass an anonymized `safety_identifier` label so policy feedback targets specific end users rather than an entire project.
 
 ## Google models not designated as "Google Frontier Models" or "Advanced AI"
 
@@ -87,6 +89,239 @@ Use of Anthropic models on Gemini Enterprise Agent Platform is governed by Anthr
 
 For Anthropic Anthropic's Claude Fable 5 on Google Cloud and Mythos 5, prompts and responses are retained for up to 30 days. To use Anthropic's Claude Fable 5 on Google Cloud and Mythos 5, as required by Anthropic, you must enable sharing this data with Anthropic for abuse monitoring.
 
+## Pass an end-user safety identifier in API calls
+
+API resellers, model aggregators, and applications with external users can pass a unique `safety_identifier` key in the request `labels` field. Attaching per-user safety identifiers helps Google attribute policy violations to specific end users and avoid project-wide enforcement actions.
+
+When you pass `safety_identifier` in API requests, follow these requirements:
+
+- **Format and length** : Assign each end user a unique string from 1 to 63 characters containing only lowercase letters, digits, underscores ( `_` ), or hyphens ( `-` ). Values exceeding 63 characters or containing uppercase letters or symbols such as `@` or `.` fail with an HTTP `400 INVALID_ARGUMENT` error. If you hash user IDs with SHA-256, truncate the lowercase hex digest to 63 characters or fewer.
+- **Privacy** : Don't include personally identifiable information (PII), such as email addresses or full names, in `safety_identifier` values. Use anonymized usernames or truncated hashes instead.
+- **Supported models and endpoints** : Supported on Gemini `generateContent` and `streamGenerateContent` requests ( `global` , multi-region, and regional endpoints) and Veo `predictLongRunning` requests (regional endpoints such as `us-central1` ).
+- **Access and billing** : Passing `labels` requires no extra IAM permissions beyond the `aiplatform.endpoints.predict` prediction permission and adds no extra API charges. Keys with more than 1,000 unique values per Cloud Billing account might be omitted from cost reports without affecting abuse attribution. For general label limits, see [Requirements for labels](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/add-labels-to-api-calls#requirements) .
+
+The following samples pass an end-user `safety_identifier` in the `labels` field:
+
+### REST (Gemini)
+
+Before using any of the request data, make the following replacements:
+
+- `PROJECT_ID` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . . For example, `my-genai-project` .
+- Replace `user_session_001` in `labels.safety_identifier` with your anonymized end-user identifier (1 to 63 lowercase letters, digits, underscores, or hyphens, with no personally identifiable information).
+
+HTTP method and URL:
+
+```
+POST https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent
+```
+
+Request JSON body:
+
+```
+{
+  "contents": [
+    {
+      "role": "user",
+      "parts": [
+        {
+          "text": "Summarize the key responsibilities of an API gateway."
+        }
+      ]
+    }
+  ],
+  "labels": {
+    "safety_identifier": "user_session_001"
+  }
+}
+```
+
+To send your request, choose one of these options:
+
+#### curl
+
+The following command uses `gcloud auth print-access-token` with user credentials for local testing. In production environments, use [Application Default Credentials (ADC)](https://docs.cloud.google.com/docs/authentication/application-default-credentials) with an attached service account.
+
+Save the request body in a file named `request.json` , and execute the following command:
+
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent"
+```
+
+#### PowerShell
+
+The following command uses `gcloud auth print-access-token` with user credentials for local testing. In production environments, use [Application Default Credentials (ADC)](https://docs.cloud.google.com/docs/authentication/application-default-credentials) with an attached service account.
+
+Save the request body in a file named `request.json` , and execute the following command:
+
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent" | Select-Object -Expand Content
+```
+
+A successful request returns an HTTP `200 OK` JSON response containing generated `candidates` and `usageMetadata` :
+
+#### Response
+
+```
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "An API gateway routes client requests, enforces authentication and rate limits, and centralizes observability across backend services."
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 10,
+    "candidatesTokenCount": 24,
+    "totalTokenCount": 34
+  }
+}
+```
+
+### Python (Gemini)
+
+Using the Google Gen AI SDK for Python ( `google-genai >= 1.0.0` ), replace `PROJECT_ID` with your Google Cloud project ID (for example, `my-genai-project` ):
+
+```
+from google import genai
+from google.genai import types
+
+client = genai.Client(
+    vertexai=True,
+    project="PROJECT_ID",
+    location="global",
+)
+
+response = client.models.generate_content(
+    model="gemini-3.5-flash",
+    contents="Summarize the key responsibilities of an API gateway.",
+    config=types.GenerateContentConfig(
+        labels={"safety_identifier": "user_session_001"},
+    ),
+)
+print(response.text)
+```
+
+### REST (Veo)
+
+Before using any of the request data, make the following replacements:
+
+- `PROJECT_ID` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . . For example, `my-genai-project` .
+- Replace `user_session_001` in `labels.safety_identifier` with your anonymized end-user identifier (1 to 63 lowercase letters, digits, underscores, or hyphens, with no personally identifiable information).
+
+HTTP method and URL:
+
+```
+POST https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/us-central1/publishers/google/models/veo-3.1-generate-001:predictLongRunning
+```
+
+Request JSON body:
+
+```
+{
+  "instances": [
+    {
+      "prompt": "A slow aerial pan over a coastal lighthouse at sunrise."
+    }
+  ],
+  "parameters": {
+    "aspectRatio": "16:9",
+    "sampleCount": 1
+  },
+  "labels": {
+    "safety_identifier": "user_session_001"
+  }
+}
+```
+
+To send your request, choose one of these options:
+
+#### curl
+
+The following command uses `gcloud auth print-access-token` with user credentials for local testing. In production environments, use [Application Default Credentials (ADC)](https://docs.cloud.google.com/docs/authentication/application-default-credentials) with an attached service account.
+
+Save the request body in a file named `request.json` , and execute the following command:
+
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/us-central1/publishers/google/models/veo-3.1-generate-001:predictLongRunning"
+```
+
+#### PowerShell
+
+The following command uses `gcloud auth print-access-token` with user credentials for local testing. In production environments, use [Application Default Credentials (ADC)](https://docs.cloud.google.com/docs/authentication/application-default-credentials) with an attached service account.
+
+Save the request body in a file named `request.json` , and execute the following command:
+
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/us-central1/publishers/google/models/veo-3.1-generate-001:predictLongRunning" | Select-Object -Expand Content
+```
+
+A successful request returns an HTTP `200 OK` JSON response containing a long-running operation resource `name` :
+
+#### Response
+
+```
+{
+  "name": "projects/my-genai-project/locations/us-central1/publishers/google/models/veo-3.1-generate-001/operations/7f8e9d0c-1234-5678-9abc-def012345678"
+}
+```
+
+### Python (Veo)
+
+Using the Google Gen AI SDK for Python ( `google-genai >= 1.69.0` ), replace `PROJECT_ID` with your Google Cloud project ID (for example, `my-genai-project` ):
+
+```
+from google import genai
+from google.genai import types
+
+client = genai.Client(
+    vertexai=True,
+    project="PROJECT_ID",
+    location="us-central1",
+)
+
+operation = client.models.generate_videos(
+    model="veo-3.1-generate-001",
+    prompt="A slow aerial pan over a coastal lighthouse at sunrise.",
+    config=types.GenerateVideosConfig(
+        aspect_ratio="16:9",
+        labels={"safety_identifier": "user_session_001"},
+    ),
+)
+print(operation.name)
+```
+
 ## What's next
 
 - Learn about [Responsible AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai) .
+- Add [custom metadata labels to API calls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/add-labels-to-api-calls) .

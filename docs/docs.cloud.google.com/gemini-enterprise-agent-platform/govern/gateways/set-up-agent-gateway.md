@@ -196,12 +196,14 @@ To enable secure communication, you must identify your Agent Registry instance a
 
 ### Configure access control policies
 
-Every Agent Gateway requires an associated authorization policy.
+Every Agent-to-Anywhere Agent Gateway requires an attached authorization policy ( `AuthzPolicy` ). Without an attached authorization policy, an Agent-to-Anywhere Agent Gateway adopts a default-deny policy and blocks all outbound traffic.
+
+Client-to-Agent Agent Gateway deployments don't adopt a default-deny policy. For these gateways, attaching a `CONTENT_AUTHZ` authorization policy, such as Model Armor or a semantic governance policy, is optional, and inbound requests pass through if no authorization policy is attached.
 
 IAM (Agent-to-Anywhere mode only)  
 Configure an IAM policy that assigns the `iap.resources.egressViaIAP` permission to your agent identity principal for each of the destination resources that you registered in Agent Registry.
 
-By default, Agent Gateway blocks all traffic unless an IAM access policy explicitly authorizes agent access to [destination resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap#destination-resources) by granting the `iap.resources.egressViaIAP` permission to the agent identity.
+Note that Agent Gateway blocks all outbound traffic unless an IAM access policy explicitly authorizes agent access to [destination resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap#destination-resources) by granting the `iap.resources.egressViaIAP` permission to the agent identity.
 
 Registering destinations in Agent Registry is recommended because it lets you scope policies to specific resources and apply fine-grained tool controls. If destinations are not registered in Agent Registry, you must grant the `iap.resources.egressViaIAP` permission to the agent by configuring a policy for [unregistered endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap#unregistered-resources) .
 
@@ -314,7 +316,7 @@ You define Agent Gateways declaratively using YAML.
 
     Note that for Gemini Enterprise, you must deploy Agent Gateway in a region that corresponds to your app's location. For the required location mappings, see [Route Gemini Enterprise traffic through Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-ge-deploy#plan-ge-agw) .
 
-3.  Create an authorization policy to enforce centralized access control and governance policies on traffic passing through the Agent Gateway. The following steps show you how to configure an authorization policy that uses IAP.
+3.  Create and attach an authorization policy ( `AuthzPolicy` ) to enforce centralized access control and governance policies on traffic passing through the Agent Gateway. Without an authorization policy attached, an Agent-to-Anywhere Agent Gateway adopts a default-deny policy and blocks all outbound traffic. The following steps show you how to configure an authorization policy that uses IAP.
 
     1.  Configure an authorization extension that points to IAP. Define the extension in a YAML file, such as `iap-request-authz-extension.yaml` . Use the sample values provided:
 
@@ -343,7 +345,7 @@ You define Agent Gateways declaratively using YAML.
         EOF
         ```
 
-        Remove the `iamEnforcementMode: "DRY_RUN"` field from the `metadata` block when you're ready to start enforcing policies. For instructions on auditing dry-run violations across controls before enabling enforcement, see dry-run violations across controls before enabling enforcement, see [Audit dry-run policy violations across controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/dry-run-report) .
+        Remove the `iamEnforcementMode: "DRY_RUN"` field from the `metadata` block when you're ready to start enforcing policies. For instructions on auditing dry-run violations across controls before enabling enforcement, see [Audit dry-run policy violations across controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/dry-run-report) .
 
         > **Note:** We strongly recommend using UAP ( `iapPolicyVersion: "V2"` ) for advanced, expressive, and fine-grained access control. To replace a legacy Allow policy ( `iapPolicyVersion: "V1"` ) on an existing gateway, navigate to the Policies UI and manually redefine your rules under the UAP tab. For more information, see [Create IAM agent policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap) .
 
@@ -391,7 +393,9 @@ You define Agent Gateways declaratively using YAML.
 
 ### Terraform
 
-To provision an Agent-to-Anywhere (egress) Agent Gateway and its associated IAP authorization extension and policy declaratively in a central governance project using the `google` provider:
+To provision an Agent-to-Anywhere (egress) Agent Gateway and its associated IAP authorization extension and policy declaratively in a central governance project using the `google` provider, complete the following steps.
+
+> **Important:** Without a `google_network_security_authz_policy` resource, the gateway adopts a default-deny policy and blocks all outbound traffic.
 
 1.  Create the `google_network_services_agent_gateway` resource and associate your regional Agent Registry instance:
 

@@ -281,15 +281,57 @@ If you plan to use per-resource or registry-wide policies, register the destinat
 
 ### Verify IAM bindings on the destination resource
 
-Ensure that the agent identity or its principal set has the `iap.resources.egressViaIAP` permission on the destination.
+Ensure that the agent identity or its principal set has the `iap.googleapis.com/resources.egressViaIAP` permission ( `iap.resources.egressViaIAP` in legacy V1 allow policies) on the destination.
+
+> **Caution:** Check the `iapPolicyVersion` setting on your gateway's authorization extension ( [Inspect the authorization policy and extension](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-agent-gateway#inspect-auth-policy) ). When `iapPolicyVersion` is set to `V2` (recommended), IAP evaluates only UAPs bound to your project or organization—neither project-wide IAM allow bindings nor endpoint-level V1 `roles/iap.egressor` bindings open traffic under `V2` .
 
 You can configure policy bindings across three scopes:
 
 - **Registry-wide** : Access to every agent, MCP server, and endpoint registered in the registry.
-- **Per-resource** : Narrow access. A per-resource binding replaces the registry-wide binding for that specific resource instead of merging with it.
-- **Policies for unregistered endpoints** : Access to destinations that are not registered in Agent Registry.
+- **Per-resource** : Narrow access. In legacy V1 allow policies, a per-resource binding replaces the registry-wide binding for that specific resource instead of merging with it.
+- **Policies for unregistered endpoints** : Access to a scoped domain allowlist of destinations that aren't registered in Agent Registry.
 
-Use one of the following examples to check for bindings:
+#### Check UAPs ( `iapPolicyVersion: "V2"` , recommended)
+
+1.  List the UAP bindings attached to the project that hosts your Agent Gateway:
+
+    ```
+    gcloud iam policy-bindings list \
+        --project=PROJECT_ID \
+        --location=global \
+        --filter='target.resource="//cloudresourcemanager.googleapis.com/projects/PROJECT_ID"'
+    ```
+
+    > **Note:** If you bound the policy using the project number instead of the project ID, also check `//cloudresourcemanager.googleapis.com/projects/<var>PROJECT_NUMBER</var>` .
+
+2.  Inspect each bound UAP to verify its principals, permissions ( `iap.googleapis.com/resources.egressViaIAP` ), and Common Expression Language (CEL) conditions:
+
+    ```
+    gcloud iam access-policies describe POLICY_ID \
+        --project=PROJECT_ID \
+        --location=global
+    ```
+
+    > **Note:** If the policy is defined at the organization level, pass `--organization=<var>ORGANIZATION_ID</var>` instead of `--project=<var>PROJECT_ID</var>` .
+
+    Replace the following:
+
+    - `PROJECT_ID` : The project ID where the Agent Gateway is deployed.
+    - `PROJECT_NUMBER` : The project number where the Agent Gateway is deployed.
+    - `POLICY_ID` : The unique ID of the UAP returned by `gcloud iam policy-bindings list` .
+    - `ORGANIZATION_ID` : Your Google Cloud organization ID if the policy is defined at the organization level.
+
+    Verify the following in the policy rules:
+
+    - The `principals` list includes your agent's workload identity ( `principal://agents.global.org-...` ) or project principal set ( `principalSet://agents.global.org-...` ).
+
+    - Registered resource conditions ( `destination.agent_registry.endpoint.name` , `destination.agent_registry.mcp_server.name` , or `destination.agent_registry.agent.name` ) omit a leading slash before `projects/` .
+
+    - Unregistered endpoint conditions ( `destination.is_registered == false` ) include every standard, regional, and mTLS hostname variant that the agent SDK calls in `destination.unregistered.host in [...]` , and no blanket `DENY` rule blocks `destination.is_registered == false` .
+
+#### Check legacy V1 allow policies ( `iapPolicyVersion: "V1"` )
+
+If your gateway's authorization extension uses `iapPolicyVersion: "V1"` , use one of the following commands to check for V1 `roles/iap.egressor` bindings:
 
 - To check for **registry-level** IAM policy bindings, run the following command:
 
@@ -340,17 +382,19 @@ Use one of the following examples to check for bindings:
     -X POST "https://iap.googleapis.com/v1/projects/PROJECT_NUMBER/locations/LOCATION/iap_web/agentRegistry/mcpServers/${MCP_SERVER_ID}:getIamPolicy"
   ```
 
-  Replace ` MCP_SERVER ` with the URL of the MCP server (for example, `https://example-abc12345-uc.a.run.app/mcp` ).
+  Replace `MCP_SERVER` with the URL of the MCP server (for example, `https://example-abc12345-uc.a.run.app/mcp` ).
 
-In the returned policy information, look for a binding with the `iap.resources.egressViaIAP` permission that matches the agent's identity or principal set. If the returned output contains an `"etag"` field but no bindings, that means that no IAM policy exists.
+In the returned policy information, look for a binding with the `iap.resources.egressViaIAP` permission ( `roles/iap.egressor` ) that matches the agent's identity or principal set. If the returned output contains an `"etag"` field but no bindings, no V1 IAM policy exists on that resource.
 
-If a binding exists but includes a `condition` , verify that the Common Expression Language (CEL) expression is not excluding the agent. A condition that filters by an attribute the agent lacks might be silently excluding the agent.
+If a binding exists but includes a `condition` , verify that the CEL expression isn't excluding the agent. A condition that filters by an attribute the agent lacks might be silently excluding the agent.
 
-If the target destination does not have a matching policy binding granting the `iap.resources.egressViaIAP` permission to your agent identity or principal set, grant the permission using one of the following policy options:
+#### Grant missing egress permissions
+
+If the target destination doesn't have a matching policy binding granting egress permission to your agent identity or principal set, grant the permission using one of the following policy options:
 
 - **Registry-level policy (recommended)** : [Configure an agent-to-registry policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#agent-to-registry) to grant access to all resources registered in Agent Registry.
 - **Per-resource policy (MCP server or endpoint)** : [Register the MCP server](https://docs.cloud.google.com/agent-registry/register-mcp-servers) or [register the endpoint](https://docs.cloud.google.com/agent-registry/register-endpoints) in Agent Registry, and create an [agent-to-MCP server policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#agent-to-mcp-server) or [agent-to-endpoint policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#agent-to-endpoint) .
-- **Policy for unregistered endpoints** : [Configure a policy for unregistered endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap) to grant access without registering the resource.
+- **Scoped domain allowlist for unregistered endpoints** : [Configure a policy for unregistered endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#example-unregistered-endpoints) to grant access to an explicit list of hostnames without registering the resource.
 
 ### Inspect the authorization policy and extension
 

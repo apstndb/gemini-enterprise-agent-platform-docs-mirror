@@ -14,11 +14,11 @@ The `BatchPredictionJob` resource lets you run an asynchronous prediction reques
 
 To make a batch prediction, specify an input source and an output location for Gemini Enterprise Agent Platform to store predictions results. The inputs and outputs depend on the `model` type that you're working with. For example, batch predictions for the AutoML image model type require an input [JSON Lines](https://jsonlines.org/) file and the name of a Cloud Storage bucket to store the output. For more information about batch prediction, see [Get batch predictions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-batch-predictions) .
 
-You can use the [`ModelBatchPredictOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/batch_predict_job.html#v1.batch_predict_job.ModelBatchPredictOp) component to access this resource through Gemini Enterprise Agent Platform Pipelines.
+You can use the [`ModelBatchPredictOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/batch_predict_job.html#v1.batch_predict_job.ModelBatchPredictOp) component to access this resource through Gemini Enterprise Agent Platform Pipelines.
 
 ## API reference
 
-- For component reference, see the [Google Cloud SDK reference for Batch prediction components](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/batch_predict_job.html) .
+- For component reference, see the [Google Cloud SDK reference for Batch prediction components](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/batch_predict_job.html) .
 - For Agent Platform API reference, see the [`BatchPredictionJob` resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.batchPredictionJobs) page.
 
 ## Tutorials
@@ -27,7 +27,7 @@ You can use the [`ModelBatchPredictOp`](https://google-cloud-pipeline-components
 
 ### Version history and release notes
 
-To learn more about the version history and changes to the Google Cloud Pipeline Components SDK, see the [Google Cloud Pipeline Components SDK Release Notes](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/release.html) .
+To learn more about the version history and changes to the Google Cloud Pipeline Components SDK, see the [Google Cloud Pipeline Components SDK Release Notes](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/release.html) .
 
 ### Technical support contacts
 

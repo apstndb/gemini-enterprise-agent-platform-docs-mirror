@@ -779,25 +779,23 @@ To learn how to create and bind policies, see [Create IAM UAPs](https://docs.clo
 The following example policy shows a UAP rule that allows all agents in a project access to all destination resources in a specific registry:
 
 ```json
-{
-  [
-    {
-      "description": "Allow all agents in project 9876543210 to access all destination resources in the us-central1 registry",
-      "effect": "ALLOW",
-      "principals": [
-        "principalSet://agents.global.org-123456789012.system.id.goog/attribute.platformContainer/aiplatform/projects/9876543210"
-      ],
-      "operation": {
-        "permissions": ["iap.googleapis.com/resources.egressViaIAP"]
-      },
-      "conditions": {
-        "iap.googleapis.com": {
-          "expression": "destination.is_registered == true && destination.agent_registry.location == 'us-central1'"
-        }
+[
+  {
+    "description": "Allow all agents in project 9876543210 to access all destination resources in the us-central1 registry",
+    "effect": "ALLOW",
+    "principals": [
+      "principalSet://agents.global.org-123456789012.system.id.goog/attribute.platformContainer/aiplatform/projects/9876543210"
+    ],
+    "operation": {
+      "permissions": ["iap.googleapis.com/resources.egressViaIAP"]
+    },
+    "conditions": {
+      "iap.googleapis.com": {
+        "expression": "destination.is_registered == true && destination.agent_registry.location == 'us-central1'"
       }
     }
-  ]
-}
+  }
+]
 ```
 
 To activate the policy, [bind the UAP to your project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#bind-uap) .
@@ -975,25 +973,23 @@ To activate the policy, [bind the UAP to your project](https://docs.cloud.google
 The following example policy shows an IAM allow rule that allows an orchestrator agent to invoke a specific subagent registered in the Agent Registry:
 
 ```json
-{
-  [
-    {
-      "description": "Allow orchestrator agent to invoke customer-support agent",
-      "effect": "ALLOW",
-      "principals": [
-        "principal://agents.global.org-123456789012.system.id.goog/resources/aiplatform/projects/9876543210/locations/us-central1/reasoningEngines/orchestrator-agent"
-      ],
-      "operation": {
-        "permissions": ["iap.googleapis.com/resources.egressViaIAP"]
-      },
-      "conditions": {
-        "iap.googleapis.com": {
-          "expression": "destination.agent_registry.agent.name == 'projects/9876543210/locations/us-central1/agents/customer-support-agent'"
-        }
+[
+  {
+    "description": "Allow orchestrator agent to invoke customer-support agent",
+    "effect": "ALLOW",
+    "principals": [
+      "principal://agents.global.org-123456789012.system.id.goog/resources/aiplatform/projects/9876543210/locations/us-central1/reasoningEngines/orchestrator-agent"
+    ],
+    "operation": {
+      "permissions": ["iap.googleapis.com/resources.egressViaIAP"]
+    },
+    "conditions": {
+      "iap.googleapis.com": {
+        "expression": "destination.agent_registry.agent.name == 'projects/9876543210/locations/us-central1/agents/customer-support-agent'"
       }
     }
-  ]
-}
+  }
+]
 ```
 
 To create and bind the policy by using the gcloud CLI, see [Create IAM UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#create-ag-iam-policy) .
@@ -1123,25 +1119,23 @@ To activate the policy, [bind the UAP to your project](https://docs.cloud.google
 The following example policy shows an IAM allow rule that allows a Workload Identity Federation-formatted agent principal read-only access to a tool called `GitHubTool` :
 
 ```json
-{
-  [
-    {
-      "description": "Allow read-only access to GitHubTool on MCP server",
-      "effect": "ALLOW",
-      "principals": [
-        "principal://iam.googleapis.com/projects/9876543210/locations/global/workloadIdentityPools/POOL_ID/subject/ns/default/sa/my-ae-agent"
-      ],
-      "operation": {
-        "permissions": ["iap.googleapis.com/resources.egressViaIAP"]
-      },
-      "conditions": {
-        "iap.googleapis.com": {
-          "expression": "destination.agent_registry.mcp_server.tool.name == 'GitHubTool' && destination.agent_registry.mcp_server.tool.annotations.read_only_hint == true"
-        }
+[
+  {
+    "description": "Allow read-only access to GitHubTool on MCP server",
+    "effect": "ALLOW",
+    "principals": [
+      "principal://iam.googleapis.com/projects/9876543210/locations/global/workloadIdentityPools/POOL_ID/subject/ns/default/sa/my-ae-agent"
+    ],
+    "operation": {
+      "permissions": ["iap.googleapis.com/resources.egressViaIAP"]
+    },
+    "conditions": {
+      "iap.googleapis.com": {
+        "expression": "destination.agent_registry.mcp_server.tool.name == 'GitHubTool' && destination.agent_registry.mcp_server.tool.annotations.read_only_hint == true"
       }
     }
-  ]
-}
+  }
+]
 ```
 
 Replace the following:
@@ -1542,9 +1536,15 @@ The following table describes the CEL attributes that you can use in an agent-to
 
 An agent-to-unregistered endpoint policy allows an agent to access external, third-party APIs and endpoints that aren't registered in Agent Registry.
 
+> **Caution:** Don't use wildcard or unanchored egress rules in production:
+>
+> - **Scope every unregistered allow rule to an explicit domain allowlist** : Never allow `destination.is_registered == false` without restricting `destination.unregistered.host` . Prefer an exact hostname list ( `destination.unregistered.host in ['api.example-ocr.com', 'ocr.example-ocr.com']` ). If you match subdomains with `endsWith()` , always include a leading period and explicitly check the apex domain—for example, `(destination.unregistered.host == 'example-ocr.com' || destination.unregistered.host.endsWith('.example-ocr.com'))` —so that lookalike domains such as `untrusted-example-ocr.com` don't match.
+> - **Anchor path prefixes at a slash boundary** : Check `(destination.unregistered.path == '/v2/process' || destination.unregistered.path.startsWith('/v2/process/'))` rather than an unanchored `startsWith('/v2/process')` , which also matches sibling paths such as `/v2/process-admin` .
+> - **Don't create a blanket `DENY` rule on `destination.is_registered == false`** : Agent Gateway already enforces default-deny when no `ALLOW` rule matches, and an explicit blanket `DENY` rule overrides `ALLOW` rules and blocks essential runtime telemetry such as `telemetry.mtls.googleapis.com` .
+
 ### Console
 
-To create an agent-to-unregistered endpoint policy in the Google Cloud console, do the following:
+To create an agent-to-unregistered endpoint policy with a scoped domain allowlist in the Google Cloud console, do the following:
 
 1.  In the Google Cloud console, go to the **Policies** page:
 
@@ -1553,20 +1553,18 @@ To create an agent-to-unregistered endpoint policy in the Google Cloud console, 
 3.  In **Policy details** , select a policy or create a new one. If you're creating a new policy, enter a policy name—for example, `allow-ocr-api-access` .
 
 4.  In **Add Rules** , configure the rule:
-    - **Rule description** : `Allow POST access to external OCR service`
+    - **Rule description** : `Allow POST access to scoped OCR domain allowlist`
 
     - **Rule effect** : **Allow**
 
     - **Select principals** : Select the agent principal (for example, `my-ae-agent` ).
 
-    - **Select resource(s)** : Select **Standard** \> **Unregistered endpoint** .
+    - **Select resource(s)** : Select the **Custom** tab.
 
-    - **Conditions** : Click the **Custom** tab.
-
-    - In the condition editor, enter:
+    - **Conditions** : In the condition editor, enter:
 
       ```text
-      destination.unregistered.host.endsWith('example-ocr.com') && destination.unregistered.path.startsWith('/v2/process') && destination.unregistered.method == 'POST'
+      (destination.is_registered == false) && (destination.unregistered.host in ['api.example-ocr.com', 'ocr.example-ocr.com']) && ((destination.unregistered.path == '/v2/process') || destination.unregistered.path.startsWith('/v2/process/')) && (destination.unregistered.method == 'POST')
       ```
 
 5.  To save the rule, click **Save** .
@@ -1577,12 +1575,12 @@ To activate the policy, [bind the UAP to your project](https://docs.cloud.google
 
 ### gcloud
 
-The following example shows a UAP that allows an agent to access an unregistered endpoint with a path that starts with `/v2/process` and ends with `example-ocr.com` :
+The following example shows a UAP that allows an agent to send `POST` requests only to an explicit domain allowlist ( `api.example-ocr.com` and `ocr.example-ocr.com` ) under the `/v2/process` path:
 
 ```json
 [
   {
-    "description": "Allow POST access to unregistered OCR endpoint",
+    "description": "Allow POST access to scoped OCR domain allowlist",
     "effect": "ALLOW",
     "principals": [
       "principal://iam.googleapis.com/projects/9876543210/locations/global/workloadIdentityPools/POOL_ID/subject/ns/default/sa/my-ae-agent"
@@ -1592,7 +1590,7 @@ The following example shows a UAP that allows an agent to access an unregistered
     },
     "conditions": {
       "iap.googleapis.com": {
-        "expression": "destination.unregistered.host.endsWith('example-ocr.com') && destination.unregistered.path.startsWith('/v2/process') && destination.unregistered.method == 'POST'"
+        "expression": "(destination.is_registered == false) && (destination.unregistered.host in ['api.example-ocr.com', 'ocr.example-ocr.com']) && ((destination.unregistered.path == '/v2/process') || destination.unregistered.path.startsWith('/v2/process/')) && (destination.unregistered.method == 'POST')"
       }
     }
   }
@@ -1609,7 +1607,7 @@ To activate the policy, [bind the UAP to your project](https://docs.cloud.google
 
 ### REST API
 
-To create a UAP that allows an agent to access an unregistered endpoint with a path that starts with `/v2/process` and ends with `example-ocr.com` , do the following:
+To create a UAP that allows an agent to send `POST` requests only to an explicit domain allowlist ( `api.example-ocr.com` and `ocr.example-ocr.com` ) under the `/v2/process` path, do the following:
 
 1.  Save the following to a JSON-formatted policy file named `agent-access-policy.json` :
 
@@ -1618,7 +1616,7 @@ To create a UAP that allows an agent to access an unregistered endpoint with a p
       "details": {
         "rules": [
           {
-            "description": "Allow POST access to unregistered OCR endpoint",
+            "description": "Allow POST access to scoped OCR domain allowlist",
             "effect": "ALLOW",
             "principals": [
               "principal://iam.googleapis.com/projects/9876543210/locations/global/workloadIdentityPools/POOL_ID/subject/ns/default/sa/my-ae-agent"
@@ -1628,7 +1626,7 @@ To create a UAP that allows an agent to access an unregistered endpoint with a p
             },
             "conditions": {
               "iap.googleapis.com": {
-                "expression": "destination.unregistered.host.endsWith('example-ocr.com') && destination.unregistered.path.startsWith('/v2/process') && destination.unregistered.method == 'POST'"
+                "expression": "(destination.is_registered == false) && (destination.unregistered.host in ['api.example-ocr.com', 'ocr.example-ocr.com']) && ((destination.unregistered.path == '/v2/process') || destination.unregistered.path.startsWith('/v2/process/')) && (destination.unregistered.method == 'POST')"
               }
             }
           }

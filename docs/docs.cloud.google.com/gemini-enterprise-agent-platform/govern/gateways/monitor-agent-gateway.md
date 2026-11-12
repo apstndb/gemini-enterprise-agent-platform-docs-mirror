@@ -117,6 +117,21 @@ Agent Gateway log entries contain information useful for monitoring and debuggin
 </tbody>
 </table>
 
+### Policy propagation and log ingestion latency
+
+When you update gateway access rules or investigate security events, account for the following propagation and ingestion windows:
+
+- **Unified Access Policies (UAPs) (UAPs) propagation** : Updates to UAPs enforced by Agent Gateway (such as adding a `DENY` rule or switching `iamEnforcementMode` from `"DRY_RUN"` to `"ENFORCE"` ) are eventually consistent. Direct policy changes typically take effect within 2 minutes, but can take 7 minutes or longer to propagate globally (see [Access change propagation](https://docs.cloud.google.com/iam/docs/access-change-propagation) ). Membership changes to a `principalSet` can take several minutes to hours to synchronize.
+- **Emergency traffic halt** : UAP rules are evaluated on new authorization checks at Agent Gateway and don't terminate an agent container or forcibly close already-established streaming connections. To immediately halt a compromised or misbehaving agent during an active incident, delete the agent runtime or reroute its revision traffic in addition to applying a gateway deny rule. For instructions, see [Emergency stop and access revocation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents#emergency-stop) .
+- **Log, trace, and finding latency** : Agent Gateway evaluates IAP and Model Armor policies synchronously on the request path and writes `networkservices.googleapis.com/gateway_requests` and `cloudaudit.googleapis.com/data_access` ( `AuthorizeUser` ) log entries in near real time (typically searchable in Logs Explorer within seconds). Distributed trace spans exported to Trace also appear within seconds of span completion, whereas out-of-band threat detections from [Agent Anomaly Detection](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-anomalies-overview) are evaluated asynchronously (see [Telemetry and security finding latency](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/overview#telemetry-finding-latency) ).
+
+### Retain and export gateway audit logs to a SIEM
+
+To preserve Agent Gateway access decisions as tamper-evident compliance evidence and centralize threat monitoring, you can lock your Logging buckets and stream gateway logs to a Security Information and Event Management (SIEM) platform:
+
+- **Tamper-evident retention (locked log buckets)** : Route `networkservices.googleapis.com/gateway_requests` and `cloudaudit.googleapis.com/data_access` logs to a custom Logging bucket with a configured retention period ( `--retention-days` ) and permanently lock the bucket ( `gcloud logging buckets update `` BUCKET_ID `` --location= `` LOCATION `` --locked` ) to enforce write-once, read-many (WORM) compliance storage. For step-by-step instructions, see [Tamper-evident retention for audit logs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/overview#tamper-evident-retention) .
+- **SIEM export** : Create a Logging sink (or an organization-level [aggregated sink](https://docs.cloud.google.com/logging/docs/export/aggregated_sinks) ) with an inclusion filter for `logName:("networkservices.googleapis.com%2Fgateway_requests" OR "cloudaudit.googleapis.com%2Fdata_access")` to continuously export gateway allow and deny decisions to Google Security Operations (Google SecOps), Pub/Sub (for third-party SIEM ingestion), BigQuery, or Cloud Storage. For gcloud CLI sink creation commands and filter examples, see [Export audit logs to a SIEM](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/overview#siem-export) .
+
 ## Cloud Monitoring
 
 Agent Gateway exports some Service Extensions metrics to Monitoring. If you're delegating authorization to Service Extensions, you can use these metrics to monitor traffic to and from your extension. For details, see [Logging and monitoring for Cloud Load Balancing callouts](https://docs.cloud.google.com/service-extensions/docs/monitor-lb-callouts#monitoring_metrics_for_callouts) .

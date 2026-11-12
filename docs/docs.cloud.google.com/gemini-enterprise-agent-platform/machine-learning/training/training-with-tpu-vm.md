@@ -12,7 +12,7 @@ For details on configuring TPU VMs for serverless training, see [Configure compu
 
 ## TensorFlow training
 
-> **Note:** Starting with TPU v6e, TensorFlow is no longer supported.
+> **Note:** Starting with TPU v6e, TensorFlow isn't supported for training on Agent Platform. To use TensorFlow on TPU v6e VMs directly, see [Cloud TPU runtimes](https://docs.cloud.google.com/tpu/docs/runtimes#training-v5p-v5e) .
 
 ### Prebuilt container
 

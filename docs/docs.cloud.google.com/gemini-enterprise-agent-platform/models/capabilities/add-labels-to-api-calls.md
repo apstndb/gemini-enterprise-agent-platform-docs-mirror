@@ -139,6 +139,8 @@ Here are some common use cases for labels:
 
 - **Ownership labels** : Used to identify the teams that are responsible for operations, for example: `team:shopping-cart` .
 
+- **End-user abuse attribution ( `safety_identifier` )** : Attach an anonymized per-user ID (for example, `safety_identifier:user_session_001` ) on Gemini and Veo calls so policy feedback targets specific end users rather than your entire project. For formatting rules and samples, see [Pass an end-user safety identifier in API calls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring#pass-safety-identifier) .
+
 > **Note:** Don't include sensitive information in labels, including personally identifiable information, such as an individual's name or title. Labels are not designed to handle sensitive information.
 
 Avoid creating large numbers of unique labels, such as for timestamps or individual values for every API call. Creating large numbers of unique keys clutters the catalog, increases load times significantly during queries, and makes it difficult to effectively filter and report on API calls.
@@ -153,6 +155,7 @@ Google models support labels on the following API methods:
 
 - `generateContent`
 - `streamGenerateContent`
+- `predictLongRunning` (Veo video generation)
 - [`interactions.create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#CreateInteraction)
 
 ### Partner models

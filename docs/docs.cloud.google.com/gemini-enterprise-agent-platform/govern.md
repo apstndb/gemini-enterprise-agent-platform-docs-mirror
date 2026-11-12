@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 Gemini Enterprise Agent Platform provides a full suite of capabilities for the complete agentic development lifecycle, to help agent developers and enterprises Build, Scale, Govern, and Optimize their agentic applications.
 
-Governance provides the framework for discovering, securing, and auditing AI agents and their underlying infrastructure at scale. As organizations deploy complex agentic workflows, the Govern suite of capabilities serves as the centralized command center for administrators and security teams to maintain oversight.
+Governance provides the framework for discovering, securing, and auditing AI agents and their underlying infrastructure at scale—both in Google Cloud and on Kubernetes clusters outside of Google Cloud using [Agent Gateway for cross-cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/governance/agent-gateway-cross-cloud/overview) (Limited Preview). As organizations deploy complex agentic workflows, the Govern suite of capabilities serves as the centralized command center for administrators and security teams to maintain oversight.
 
 ![Agent Platform governance ecosystem (click to enlarge).](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/images/geap-architecture.png)
 
@@ -34,7 +34,7 @@ The following Agent Platform components work together to provide a unified agent
 
   > Support for token management policies and extension bindings is coming soon. Features and timing are subject to change. To request early access, [sign up here for early preview access](https://docs.google.com/forms/d/e/1FAIpQLSeUpnNRtYQjLRblii-KoUbJJ7DjEV6fvQAfO21IAXgVSqFjpw/viewform) .
 
-- **[Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) (Where are policies enforced?)** : Serves as the main entry and exit point for network traffic between clients-to-agents and agents-to-anywhere, and applies security and governance policies to all traffic passing through the gateway. To learn more, see [How Agent Gateway enforces policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview#how-policies-are-enforced) .
+- **[Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) (Where are policies enforced?)** : Serves as the main entry and exit point for network traffic between clients-to-agents and agents-to-anywhere, and applies security and governance policies to all traffic passing through the gateway. To learn more, see [How Agent Gateway enforces policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview#how-policies-are-enforced) . You can also extend governance to Kubernetes clusters outside of Google Cloud by using [Agent Gateway for cross-cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/governance/agent-gateway-cross-cloud/overview) (Limited Preview).
 
 - **[Agent observability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/overview)** : Agent Gateway generates observability telemetry for all agent interactions at the network layer and exports it to Agent Observability to provide you with a comprehensive understanding of agent actions.
 
@@ -91,6 +91,20 @@ Guide
 ### [View agent relationships](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/topology)
 
 View real-time relationships and traffic flows across all agents and MCP servers known to Agent Registry.
+
+## Agent Gateway for cross-cloud
+
+Overview
+
+### [Agent Gateway for cross-cloud overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/governance/agent-gateway-cross-cloud/overview)
+
+Extend Agent Platform governance, identity, and safety policies to Kubernetes clusters outside of Google Cloud.
+
+Guide
+
+### [Set up Agent Gateway for cross-cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/governance/agent-gateway-cross-cloud/setup)
+
+Learn how to deploy Agent Gateway for cross-cloud on standard Kubernetes clusters.
 
 ## Policies
 

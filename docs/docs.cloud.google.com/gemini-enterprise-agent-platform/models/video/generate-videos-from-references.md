@@ -81,10 +81,12 @@ Video generation can take over a minute to complete. You can choose from several
 
 - **Synchronous: stateless** : Set `store` to `false` to generate a video in a single request without persisting the interaction state on the server.
 - **Synchronous: stateful** : Set `store` to `true` to persist the interaction state, which lets you retrieve the result later or reference the interaction ID for multi-turn video editing.
-- **Synchronous: stateful streaming** : Set both `store` and `stream` to `true` to receive model thoughts incrementally as they are generated, followed by the output video.
+- **Synchronous: stateful streaming** : Set both `store` and `stream` to `true` to receive model thoughts incrementally as they are generated, followed by the output video in a single `step.delta` event ( `"type": "video"` ).
 - **Asynchronous** : Set `background` to `true` to run video generation in the background and retrieve the result later using the interaction ID.
 
 Stored and asynchronous interactions are retained for up to 7 days.
+
+When you configure `"delivery": "uri"` with `gcs_uri` , unary responses return the Cloud Storage URI in `steps[].content[].uri` and streaming responses return it in `delta.uri` . When inline delivery is used ( `"delivery": "inline"` , or when both `"delivery"` and `"gcs_uri"` are omitted), video output is returned as a base64-encoded byte string alongside `"mime_type": "video/mp4"` in `steps[].content[].data` (unary `POST` and `GET` ) or `delta.data` (SSE `step.delta` ). Unlike text or audio deltas, inline video isn't chunked across multiple `step.delta` events—each generated video is delivered as a single, complete base64 payload in one `step.delta` event. For large or high-resolution videos, use `"delivery": "uri"` to avoid large HTTP or single-event SSE response payloads.
 
 For more information about using Gemini Omni models with the Interactions API, see [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api) .
 
@@ -466,7 +468,7 @@ Use the `INTERACTION_ID` to get the generated video:
 Before using any of the request data, make the following replacements:
 
 - `PROJECT_ID` : A string representing your Google Cloud project ID.
-- `INTERACTION_ID` : The interaction ID from the asynchronous request.
+- `INTERACTION_ID` : The interaction ID from the request.
 
 HTTP method and URL:
 
@@ -507,8 +509,8 @@ The response is in a format similar to the following:
   "model":"gemini-omni-1.2-flash",
   "status":"completed",
   "usage":{
-    "total_tokens":479,
-    "total_input_tokens":26,
+    "total_tokens":29435,
+    "total_input_tokens":150,
     "input_tokens_by_modality":[
       {
         "modality":"text",
@@ -557,7 +559,7 @@ The response is in a format similar to the following:
       "content":[
         {
           "type":"video",
-          "data":"VIDEO DATA",
+          "uri":"gs://some/output_path/123.mp4",
           "mime_type":"video/mp4" 
         }
       ]
@@ -567,6 +569,21 @@ The response is in a format similar to the following:
   "role":"model",
   "created":"2026-05-29T02:17:56Z",
   "updated":"2026-05-29T02:17:56Z"
+}
+```
+
+When inline delivery is used ( `"delivery": "inline"` , or when both `"delivery"` and `"gcs_uri"` are omitted), the `model_output` step returns the complete video as a base64-encoded byte string in `steps[].content[].data` alongside `"mime_type": "video/mp4"` instead of `uri` :
+
+```
+{
+  "type": "model_output",
+  "content": [
+    {
+      "type": "video",
+      "data": "BASE64_ENCODED_VIDEO",
+      "mime_type": "video/mp4"
+    }
+  ]
 }
 ```
 
@@ -740,6 +757,15 @@ event: done
 data: [DONE]
 ```
 
+When inline delivery is used ( `"delivery": "inline"` , or when both `"delivery"` and `"gcs_uri"` are omitted), the video `step.delta` event returns the video bytes in `delta.data` as a base64-encoded string alongside `"mime_type": "video/mp4"` instead of `delta.uri` :
+
+```
+event: step.delta
+data: {"index":1,"delta":{"mime_type":"video/mp4","data":"BASE64_ENCODED_VIDEO","type":"video"},"event_id":"EVENT_ID","event_type":"step.delta"}
+```
+
+Unlike text ( `"type": "text"` ) or audio ( `"type": "audio"` ) deltas, inline video isn't chunked across multiple `step.delta` events. Each generated video is delivered as a single, complete base64-encoded payload in one `step.delta` event ( `"type": "video"` ). Don't concatenate `delta.data` across multiple video `step.delta` events. For large or high-resolution videos, use `"delivery": "uri"` with a Cloud Storage bucket ( `gcs_uri` ) to avoid large single-event SSE payloads.
+
 Use the `INTERACTION_ID` with \`?stream=true\` to stream the stored interaction and generated video:
 
 Before using any of the request data, make the following replacements:
@@ -817,6 +843,15 @@ data: {"interaction":{"id":"INTERACTION_ID","status":"completed","usage":{"total
 event: done
 data: [DONE]
 ```
+
+When inline delivery is used ( `"delivery": "inline"` , or when both `"delivery"` and `"gcs_uri"` are omitted), the video `step.delta` event returns the video bytes in `delta.data` as a base64-encoded string alongside `"mime_type": "video/mp4"` instead of `delta.uri` :
+
+```
+event: step.delta
+data: {"index":1,"delta":{"mime_type":"video/mp4","data":"BASE64_ENCODED_VIDEO","type":"video"},"event_id":"EVENT_ID","event_type":"step.delta"}
+```
+
+Unlike text ( `"type": "text"` ) or audio ( `"type": "audio"` ) deltas, inline video isn't chunked across multiple `step.delta` events. Each generated video is delivered as a single, complete base64-encoded payload in one `step.delta` event ( `"type": "video"` ). Don't concatenate `delta.data` across multiple video `step.delta` events. For large or high-resolution videos, use `"delivery": "uri"` with a Cloud Storage bucket ( `gcs_uri` ) to avoid large single-event SSE payloads.
 
 ### Asynchronous
 
@@ -962,7 +997,7 @@ Later, use the `INTERACTION_ID` to get the generated video:
 Before using any of the request data, make the following replacements:
 
 - `PROJECT_ID` : A string representing your Google Cloud project ID.
-- `INTERACTION_ID` : The interaction ID from the asynchronous request.
+- `INTERACTION_ID` : The interaction ID from the request.
 
 HTTP method and URL:
 
@@ -1003,8 +1038,8 @@ The response is in a format similar to the following:
   "model":"gemini-omni-1.2-flash",
   "status":"completed",
   "usage":{
-    "total_tokens":479,
-    "total_input_tokens":26,
+    "total_tokens":29435,
+    "total_input_tokens":150,
     "input_tokens_by_modality":[
       {
         "modality":"text",
@@ -1053,7 +1088,7 @@ The response is in a format similar to the following:
       "content":[
         {
           "type":"video",
-          "data":"VIDEO DATA",
+          "uri":"gs://some/output_path/123.mp4",
           "mime_type":"video/mp4" 
         }
       ]
@@ -1063,6 +1098,21 @@ The response is in a format similar to the following:
   "role":"model",
   "created":"2026-05-29T02:17:56Z",
   "updated":"2026-05-29T02:17:56Z"
+}
+```
+
+When inline delivery is used ( `"delivery": "inline"` , or when both `"delivery"` and `"gcs_uri"` are omitted), the `model_output` step returns the complete video as a base64-encoded byte string in `steps[].content[].data` alongside `"mime_type": "video/mp4"` instead of `uri` :
+
+```
+{
+  "type": "model_output",
+  "content": [
+    {
+      "type": "video",
+      "data": "BASE64_ENCODED_VIDEO",
+      "mime_type": "video/mp4"
+    }
+  ]
 }
 ```
 
