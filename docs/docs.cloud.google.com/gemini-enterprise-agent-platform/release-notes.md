@@ -10,6 +10,41 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## November 12, 2026
+
+Feature
+
+**Agent Gateway for GKE in Preview**
+
+Agent Gateway for GKE is now in Preview for clusters on GKE version 1.37.2-gke.1042000 or higher. (This GKE version is accessible via the Rapid channel today, with availability across additional channels coming soon).
+
+As a key part of the Gemini platform, Agent Gateway for GKE provides a centralized management layer to control traffic flowing to, from, and between your agents on GKE. Agent Gateway for GKE is supported in the following regions:
+
+- `europe-west1`
+- `us-central1`
+
+To learn more, see [Agent Gateway for GKE overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/gke-overview) .
+
+Feature
+
+**Gemini 4 Hydrogen (GA)**
+
+[Gemini 4 Hydrogen](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen) ( `gemini-4-hydrogen` ) is generally available (GA) in Gemini Enterprise Agent Platform as a short-term release (subject to a minimum 45-day retirement notice policy). Gemini 4 Hydrogen is built for speed and efficiency across everyday coding and agentic workflows, multimodal analysis, and tool use:
+
+- **Unified 1,048,576-token limit and long decodes** : Supports a unified 1,048,576-token input and output limit (where output includes thinking, function calls, and the final response). Single foreground segments generate up to 65,536 output tokens (streaming or non-streaming) and can be extended up to 1,048,576 tokens (minus input tokens) using long decodes ( `continuation_token` ) on both the [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) and the `GenerateContent` API ( `v1beta1` ), including asynchronous server-managed background execution ( `background=true` ) on the Interactions API.
+
+- **Thinking levels ( `LOW` , `MEDIUM` , `HIGH` , and `XHIGH` )** : Supports four [thinking levels](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking) , with `HIGH` as the default and `XHIGH` for deep reasoning workloads. Setting `thinking_budget` or `thinking_level="MINIMAL"` returns an HTTP `400` validation error.
+
+- **Implicit context caching with durable caching** : Supports automatic [implicit context caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview) with durable caching enabled by default for shared prompt prefixes of 4,096 tokens or more (explicit context caching isn't supported).
+
+- **Cache write control and pricing** : Starting on January 12, 2027, Gemini 4 Hydrogen and later models support cache control features with TTL configuration. You choose what to cache and how long cached content stays valid through TTL configuration. Cache writes are billed at 1.25x the standard input token price by default, and longer retention costs more. For details, see [Pricing](https://cloud.google.com/model-garden/pricing#gemini-4) .
+
+- **Office and OpenDocument file inputs** : Supports Microsoft Office ( `.docx` , `.dotx` , `.doc` , `.pptx` , `.ppt` , `.xlsx` , `.xls` ) and OpenDocument ( `.odt` , `.odp` , `.ods` ) files inline or from Cloud Storage ( `gs://` ), including inside multimodal `FunctionResponse` parts.
+
+- **Capabilities, consumption options, and endpoints** : Supports the `GenerateContent` API, the Interactions API, the OpenAI compatibility Chat Completions API, function calling, code execution, computer use, URL context, Grounding with Google Search, Google Maps, Enterprise Web Grounding, Parallel and Exa Web Search, Agentic video understanding, Standard PayGo with Usage Tiers, Priority PayGo, Flex PayGo, batch inference, and [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/supported-models) (685 tokens per second per GSU) on the `global` endpoint and in the `us` and `eu` multi-regions.
+
+For implementation rules, long decode examples, and migration guidance from Gemini 3.8 Flash, see the [developer's guide to Gemini 4 Hydrogen](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-hydrogen) and [Get started with Gemini 4](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/get-started-with-gemini-4) .
+
 ## November 11, 2026
 
 Feature

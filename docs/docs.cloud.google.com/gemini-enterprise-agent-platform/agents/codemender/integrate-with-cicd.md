@@ -84,6 +84,7 @@ When you run CodeMender in a [GitHub Actions workflow](https://docs.cloud.google
 - **Runners** : Run the GitHub Actions workflow on GitHub-hosted runners, such as `ubuntu-24.04` , which run each job in a new virtual machine. Don't use self-hosted runners that are reused between jobs.
 - **Untrusted code** : Code in a pull request can contain text that tries to steer the agent. The GitHub Actions workflow scans only pull requests from branches in the same repository, which only users with write access can create. For Cloud Build, use comment control so that an owner or collaborator must approve builds for pull requests from other contributors.
 - **Access** : Grant each service account only the [required Identity and Access Management (IAM) roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/integrate-with-cicd#required-roles) for its pipeline.
+- **Worst case** : For what can happen when the agent runs without confirmation, see [Confirmation prompts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment#confirmation-prompts) .
 
 ## Scan pull requests with GitHub Actions
 

@@ -400,6 +400,14 @@ CodeMender asks for confirmation before it runs a shell command ( `tools.confirm
 
 If none of these settings applies and no one can answer the prompt, for example in a CI/CD job without a terminal, CodeMender doesn't run the command or write the file.
 
+> **Caution:** When you turn off confirmation prompts, CodeMender runs commands and changes files without anyone reviewing them first. The agent's actions come from an AI model. They can be wrong, and untrusted text in the code that the agent reads, such as instructions hidden in comments or files, can steer them. In the worst case:
+>
+> - **Inside the sandbox** , the agent can delete, overwrite, or corrupt files in your workspace, including source code and uncommitted changes.
+> - **Without the sandbox** , the agent's commands run with your account's access. They can delete or change files outside your workspace, run destructive commands, and use your credentials, for example to modify or delete cloud resources.
+> - **With network access** (the sandbox turned off, or the `permissive-open` network profile), the agent can send source code or other data to external destinations.
+>
+> Turn off confirmation prompts only in an isolated, disposable environment with least-privilege credentials, keep the sandbox on where you can, and review every change before you merge it.
+
 Separately from these prompts, the CLI warns you that the agent can modify files and run commands on your system, and asks you to acknowledge the warning. `-y` doesn't skip this warning. To skip it, pass `--bypass-warning` . In a non-interactive environment without `--bypass-warning` , `cm` fails with `warning not acknowledged` . `cm find` skips the warning when the sandbox is enabled with the default `permissive-closed` network profile.
 
 ### Command policy ( `command_policy.yaml` )
@@ -422,6 +430,8 @@ To bypass `command_policy.yaml` enforcement for a single command invocation, pas
 ## Execution sandboxing
 
 To safeguard your workstation against unintended file modifications or unexpected tool side effects, the CodeMender CLI runs inside an OS-level sandbox by default. You can disable sandboxing persistently in [configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment#sandbox-configuration) or bypass it per-command using CLI flags.
+
+Google provides the CodeMender sandbox as a recommended safety feature. Running CodeMender outside of a sandbox environment is at Customer's own risk under Section 20(j) of the [Service Specific Terms](https://cloud.google.com/terms/service-terms) .
 
 Although this sandboxing offers an initial layer of defense on your workstation, it offers weaker security protection than running the agent in a fully isolated virtual machine (VM):
 

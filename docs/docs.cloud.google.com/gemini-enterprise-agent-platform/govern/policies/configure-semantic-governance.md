@@ -237,7 +237,7 @@ While Google automatically creates the PSC endpoint in a Google-managed tenant p
 
 In this step, you create a VPC network, a subnet, and a proxy-only subnet for agentic traffic. The IP ranges shown ( `10.11.12.0/24` and `10.11.13.0/24` ) are examples. You can use any RFC 1918 private range that fits your network design.
 
-> **Subnet requirements:** The subnet range mustn't overlap with ranges reserved by Agent Gateway for internal use ( `10.0.0.0/24` , `10.0.1.0/24` , `10.0.2.0/24` ). For the full list of subnet requirements, see [Configure VPC connectivity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#configure-vpc-connectivity) .
+> **Subnet requirements:** For the full list of subnet requirements (such as minimum `/28` subnet size and enabling Private Google Access), see [Create a Private Service Connect network attachment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#create-psc-attachment) in Configure VPC connectivity.
 
 1.  Create the VPC network:
 

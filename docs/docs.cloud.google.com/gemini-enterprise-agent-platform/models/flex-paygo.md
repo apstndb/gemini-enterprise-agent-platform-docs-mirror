@@ -37,6 +37,7 @@ Flex PayGo is ideal for the synchronous, latency-tolerant, and non-critical task
 
 The following Gemini models support Flex PayGo in the `global` endpoint only. Flex PayGo doesn't support regional or multi-regional endpoints.
 
+- [`gemini-4-hydrogen`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen)
 - [`gemini-3.8-flash-cyber`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber)
 - [`gemini-3.8-flash`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
 - [`gemini-3.7-flash`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)

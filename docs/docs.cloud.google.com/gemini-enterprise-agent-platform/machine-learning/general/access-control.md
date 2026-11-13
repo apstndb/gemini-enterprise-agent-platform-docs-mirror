@@ -5748,6 +5748,14 @@ Gives Vertex AI the permissions it needs to function.
 - `agentregistry.operations.get`
 - `agentregistry.operations.list`
 
+`agentregistry.services.create`
+
+`agentregistry.services.delete`
+
+`agentregistry.services.get`
+
+`agentregistry.services.update`
+
 `agentregistry.skills.create`
 
 `agentregistry.skills.delete`
@@ -6643,6 +6651,8 @@ Gives Vertex AI the permissions it needs to function.
 
 `compute.instances.delete`
 
+`compute. instances. deleteTagBinding`
+
 `compute.instances.detachDisk`
 
 `compute.instances.get`
@@ -6818,6 +6828,15 @@ Gives Vertex AI the permissions it needs to function.
 `resourcemanager.projects.get`
 
 `resourcemanager.projects.list`
+
+`resourcemanager.tagKeys.get`
+
+`resourcemanager. tagValueBindings.*`
+
+- `resourcemanager. tagValueBindings. create`
+- `resourcemanager. tagValueBindings. delete`
+
+`resourcemanager.tagValues.get`
 
 `run.executions.delete`
 

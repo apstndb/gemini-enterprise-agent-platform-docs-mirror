@@ -20,18 +20,18 @@ Your traffic isn't strictly capped at your tier's TPM threshold. When spare shar
 
 The following tiers are available in Standard PayGo:
 
-| Model family                                                                                                                                        | Tier        | Customer spend (30 days)                     | Traffic TPM (org-level) |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------|-------------|----------------------------------------------|-------------------------|
-| **Gemini Pro, Carbon, and Argon models** (includes Gemini 4 Carbon, Gemini 4 Carbon for cyber, Gemini 4 Argon, and Gemini 4 Argon Cyber Permissive) | Tier 1      | \$10 - \$250                                 | 500,000                 |
-|                                                                                                                                                     | Tier 2      | \$250 - \$2,000                              | 1,000,000               |
-|                                                                                                                                                     | Tier 3      | \$2,000 - \$50,000                           | 2,000,000               |
-|                                                                                                                                                     | Tier 4      | \> \$50,000                                  | 10,000,000              |
-|                                                                                                                                                     | Custom Tier | Contact your sales team for more information |                         |
-| **Gemini Flash and Flash-Lite models**                                                                                                              | Tier 1      | \$10 - \$250                                 | 2,000,000               |
-|                                                                                                                                                     | Tier 2      | \$250 - \$2,000                              | 4,000,000               |
-|                                                                                                                                                     | Tier 3      | \$2,000 - \$50,000                           | 10,000,000              |
-|                                                                                                                                                     | Tier 4      | \> \$50,000                                  | 50,000,000              |
-|                                                                                                                                                     | Custom Tier | Contact your sales team for more information |                         |
+| Model family                                      | Tier        | Customer spend (30 days)                     | Traffic TPM (org-level) |
+|---------------------------------------------------|-------------|----------------------------------------------|-------------------------|
+| **Gemini Pro, Carbon, and Argon models**          | Tier 1      | \$10 - \$250                                 | 500,000                 |
+|                                                   | Tier 2      | \$250 - \$2,000                              | 1,000,000               |
+|                                                   | Tier 3      | \$2,000 - \$50,000                           | 2,000,000               |
+|                                                   | Tier 4      | \> \$50,000                                  | 10,000,000              |
+|                                                   | Custom Tier | Contact your sales team for more information |                         |
+| **Gemini Flash, Flash-Lite, and Hydrogen models** | Tier 1      | \$10 - \$250                                 | 2,000,000               |
+|                                                   | Tier 2      | \$250 - \$2,000                              | 4,000,000               |
+|                                                   | Tier 3      | \$2,000 - \$50,000                           | 10,000,000              |
+|                                                   | Tier 4      | \> \$50,000                                  | 50,000,000              |
+|                                                   | Custom Tier | Contact your sales team for more information |                         |
 
 The throughput threshold shown for a model family applies independently to each model within that family. For example, an organization in Tier 3 has a prioritized throughput threshold of 10,000,000 TPM for Gemini 3.5 Flash. Usage against one model's threshold doesn't affect the throughput for other models. There's no separate requests-per-minute (RPM) limit for each tier. Gemini requests with multimodal inputs are subject to the corresponding [system rate limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas#multimodal-input-quotas) .
 
@@ -49,16 +49,16 @@ This calculation includes a wide range of services, from predictions on all Gemi
 
 The following table lists the categories of [Google Cloud SKUs](https://cloud.google.com/skus) that are included in the calculation of the total spend.
 
-| Category                   | Description of included SKUs                                                                                                                                                                                                    |
-|----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Gemini Models**          | All Gemini model families (such as 2.0, 2.5, and 3.0 in Pro, Flash, and Flash-Lite versions) for predictions across all modalities (Text, Image, Audio, Video), including batch, long-context, tuned, and "thinking" variations |
-| **Gemini Model Features**  | All related Gemini SKUs for features like Caching, Caching Storage, and Priority Tiers, across all modalities and model versions                                                                                                |
-| **Agent Platform CPU**     | Online and Batch Predictions on all CPU-based instance families (such as C2, C3, E2, N1, N2, and their variants)                                                                                                                |
-| **Agent Platform GPU**     | Online and Batch Predictions on all NVIDIA GPU-accelerated instances (such as A100, H100, H200, B200, L4, T4, V100, and RTX series)                                                                                             |
-| **Agent Platform TPU**     | Online and Batch Predictions on all TPU-based instances (such as TPU-v5e and v6e)                                                                                                                                               |
-| **Management & Fees**      | All "Management fee" SKUs associated with various Agent Platform prediction instances                                                                                                                                           |
-| **Provisioned Throughput** | All commitment-based SKUs for Provisioned Throughput                                                                                                                                                                            |
-| **Other Services**         | Specialized services such as "LLM Grounding for Gemini... with Google Search tool"                                                                                                                                              |
+| Category                   | Description of included SKUs                                                                                                                                                                                                                                                           |
+|----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Gemini Models**          | All Gemini model families (such as Gemini 2.5, Gemini 3, and Gemini 4 models, including Pro, Flash, Flash-Lite, Hydrogen, Carbon, and Argon variants) for predictions across all modalities (Text, Image, Audio, Video), including batch, long-context, tuned, and thinking variations |
+| **Gemini Model Features**  | All related Gemini SKUs for features like Caching, Caching Storage, and Priority Tiers, across all modalities and model versions                                                                                                                                                       |
+| **Agent Platform CPU**     | Online and Batch Predictions on all CPU-based instance families (such as C2, C3, E2, N1, N2, and their variants)                                                                                                                                                                       |
+| **Agent Platform GPU**     | Online and Batch Predictions on all NVIDIA GPU-accelerated instances (such as A100, H100, H200, B200, L4, T4, V100, and RTX series)                                                                                                                                                    |
+| **Agent Platform TPU**     | Online and Batch Predictions on all TPU-based instances (such as TPU-v5e and v6e)                                                                                                                                                                                                      |
+| **Management & Fees**      | All "Management fee" SKUs associated with various Agent Platform prediction instances                                                                                                                                                                                                  |
+| **Provisioned Throughput** | All commitment-based SKUs for Provisioned Throughput                                                                                                                                                                                                                                   |
+| **Other Services**         | Specialized services such as "LLM Grounding for Gemini... with Google Search tool"                                                                                                                                                                                                     |
 
 ### Verify usage tier
 
@@ -86,6 +86,11 @@ The following [generally available (GA)](https://cloud.google.com/products#produ
 
 #### Click to expand supported models
 
+- [Gemini 4 Hydrogen](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen)
+- [Gemini 4 Carbon for cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon#cyber)
+- [Gemini 4 Carbon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon)
+- [Gemini 4 Argon Cyber Permissive](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber)
+- [Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon)
 - [Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber)
 - [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
 - [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)

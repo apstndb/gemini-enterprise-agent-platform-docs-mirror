@@ -238,6 +238,14 @@ Not supported</li>
 <td></td>
 </tr>
 <tr class="even">
+<th><p><strong><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/priority-paygo">Priority PayGo</a></strong></p></th>
+<th><ul>
+<li>Global: <code>global</code></li>
+<li>Multi-region: <code>us</code></li>
+</ul></th>
+<td></td>
+</tr>
+<tr class="odd">
 <th>Versions</th>
 <th><ul>
 <li><code>gemini-3.8-flash-cyber</code>
@@ -248,7 +256,7 @@ Not supported</li>
 </ul></th>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th>Security controls</th>
 <th><strong>Online prediction</strong></th>
 <td><ul>
@@ -258,7 +266,7 @@ Not supported</li>
 <li>AXT</li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th><strong>Context caching</strong></th>
 <th><ul>
 <li>Data residency</li>
@@ -268,7 +276,7 @@ Not supported</li>
 </ul></th>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th>See <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls">Security controls</a> for more information.</th>
 <th></th>
 <td></td>

@@ -118,6 +118,8 @@ You can also inspect evaluation results for specific conversations directly with
 
 ## Troubleshoot online monitors
 
+> **Warning:** The first Online Monitor that you create in a project might temporarily show a **Failed** status with a "permission denied" message. This happens because project-level service account (P4SA) permissions take a few minutes to propagate. No action is required: the monitor continues to run on its schedule and automatically returns to **Active** after a successful evaluation run. If the status remains **Failed** after 30 minutes, verify the service account's IAM roles.
+
 If your Online Monitor is active but no results appear in your dashboard:
 
 1.  **Verify Telemetry:** Ensure your agent is correctly exporting the required OpenTelemetry spans and events. Check **Cloud Trace** to see if live traces contain the `gen_ai.` attributes.

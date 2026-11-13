@@ -31,6 +31,8 @@ To use training clusters, you must:
 
 ### Supported regions
 
+Accelerator availability varies by region and zone. To check which accelerators are available in each location, see [Using accelerators](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#accelerators) .
+
 > **Note:** Issuing a request to any regions that aren't on this list causes an API error.
 
 - `us-central1`

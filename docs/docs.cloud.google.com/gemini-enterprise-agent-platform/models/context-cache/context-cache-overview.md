@@ -19,7 +19,9 @@ For both implicit and explicit caching, the [`cachedContentTokenCount`](https://
 
 ## Caching storage costs
 
-For both implicit and explicit caching, you're billed for the input tokens used to create the cache at the standard input token price. For explicit caching, there are also storage costs based on how long caches are stored. There are no storage costs for implicit caching. For more information, see [Agent Platform pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#context-caching) .
+Unless cache write pricing applies (see the following note), you're billed for the input tokens used to create an implicit or explicit cache at the standard input token price. For explicit caching, there are also storage costs based on how long caches are stored. There are no separate storage costs for implicit caching. For more information, see [Agent Platform pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#context-caching) .
+
+> **Note:** Starting on January 12, 2027, [Gemini 4 Hydrogen](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen) and later models support cache control features with TTL configuration. You choose what to cache and how long cached content stays valid through TTL configuration. For these models, cache writes are billed at 1.25x the standard input token price by default, and longer retention costs more. For details, see [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#gemini-4) .
 
 ## Implicit caching
 
@@ -49,6 +51,7 @@ In-memory caching is supported when using the following models:
 
 - [Gemini Robotics ER 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/robotics-er-2) preview
 - [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1)
+- [Gemini 4 Hydrogen](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen)
 - [Gemini 4 Carbon for cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon#cyber)
 - [Gemini 4 Carbon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon)
 - [Gemini 4 Argon Cyber Permissive](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber)
@@ -73,6 +76,7 @@ In-memory caching is supported when using the following models:
 
 Durable caching is supported when using the following models:
 
+- [Gemini 4 Hydrogen](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen)
 - [Gemini 4 Carbon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon)
 - [Gemini 4 Carbon for cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon#cyber)
 - [Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon)

@@ -24,6 +24,7 @@ In general, Priority PayGo is supported on the `global` , `us` , and `eu` endpoi
 
 The following models support Priority PayGo:
 
+- [`gemini-4-hydrogen`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen)
 - [`gemini-4-carbon`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon)
 - [`gemini-4-carbon-cyber-permissive`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon#cyber)
 - [`gemini-4-argon`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon)
@@ -320,8 +321,8 @@ You can verify whether Priority PayGo was utilized for a request from the `traff
 
 Priority PayGo provides a baseline throughput limit at the organization level for each model:
 
-- **Gemini Pro models** : 10,000,000 tokens per minute
-- **Gemini Flash and Flash-Lite models** : 50,000,000 tokens per minute
+- **Gemini Pro, Carbon, and Argon models** : 10,000,000 tokens per minute
+- **Gemini Flash, Flash-Lite, and Hydrogen models** : 50,000,000 tokens per minute
 
 These limits are available to your organization immediately. There's no ramp-up period, and no need to build sustained usage before you can reach them. Similar to [Standard PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo#usage-tiers-and-throughput) , the throughput limit shown for a model family applies independently to each model within that family.
 

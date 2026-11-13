@@ -28,6 +28,10 @@ The name of the \`Model\` used for generating the interaction.
 
 Possible values:
 
+- `gemini-4-hydrogen`
+
+  Google's near-frontier model built for speed and efficiency across everyday coding and agentic workflows, multimodal analysis, and tool use.
+
 - `gemini-4-carbon`
 
   Google's frontier model that excels at deep work in complex, real-world tasks across domains including coding, finance, legal, cybersecurity, and science.
@@ -677,6 +681,10 @@ model ModelOption (optional)
 The name of the \`Model\` used for generating the interaction.
 
 Possible values:
+
+- `gemini-4-hydrogen`
+
+  Google's near-frontier model built for speed and efficiency across everyday coding and agentic workflows, multimodal analysis, and tool use.
 
 - `gemini-4-carbon`
 

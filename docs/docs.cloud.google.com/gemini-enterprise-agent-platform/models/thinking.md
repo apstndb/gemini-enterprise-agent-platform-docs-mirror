@@ -25,6 +25,7 @@ Thinking is supported in the following models:
 - [Gemini Omni 1.2 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-2-flash)
 - [Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash) preview
 - [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1)
+- [Gemini 4 Hydrogen](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen)
 - [Gemini 4 Carbon for cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon#cyber)
 - [Gemini 4 Carbon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon)
 - [Gemini 4 Argon Cyber Permissive](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber)
@@ -81,7 +82,7 @@ response = client.models.generate_content(
     contents="How does AI work?",
     config=types.GenerateContentConfig(
         thinking_config=types.ThinkingConfig(
-            # Options: MINIMAL, LOW, MEDIUM, HIGH
+            # Options: MINIMAL, LOW, MEDIUM, HIGH, XHIGH
             thinking_level=types.ThinkingLevel.THINKING_LEVEL_VALUE
         )
     ),
@@ -101,7 +102,8 @@ You can set `thinking_level` to one of the following values:
 - **`MINIMAL`** : Uses the fewest possible tokens for thinking. Best for straightforward tasks that do not require extended reasoning. `MINIMAL` requires [thought signatures](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking/thought-signatures) in multi-turn conversations; if omitted, the model returns a `400: INVALID_ARGUMENT` error. Not supported on Gemini 4 models.
 - **`LOW`** : Uses fewer thinking tokens for faster responses. Best for high-throughput applications with low task complexity.
 - **`MEDIUM`** : Balances reasoning quality and latency. Suitable for tasks with moderate complexity that benefit from intermediate reasoning steps.
-- **`HIGH`** : Uses the maximum thinking capacity. Best for complex prompts requiring deep reasoning, multi-step problem solving, formal code verification, or multi-turn tool execution.
+- **`HIGH`** : Uses a high thinking budget for complex prompts requiring deep reasoning, multi-step problem solving, formal code verification, or multi-turn tool execution.
+- **`XHIGH`** : Allocates the maximum thinking capacity for the hardest math, science, formal verification, and long-horizon software engineering tasks. Supported on [Gemini 4 Hydrogen](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen) .
 
 #### Supported thinking levels by model
 
@@ -111,6 +113,7 @@ The following table lists supported `thinking_level` values and default configur
 |-------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|-----------|
 | [Gemini Robotics ER 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/robotics-er-2) preview                            | `MINIMAL` , `LOW` , `MEDIUM` , `HIGH` | `HIGH`    |
 | [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1)                                | `MINIMAL` , `MEDIUM` , `HIGH`         | `MEDIUM`  |
+| [Gemini 4 Hydrogen](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen)                                          | `LOW` , `MEDIUM` , `HIGH` , `XHIGH`   | `HIGH`    |
 | [Gemini 4 Carbon for cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon#cyber)                              | `LOW` , `MEDIUM` , `HIGH`             | `HIGH`    |
 | [Gemini 4 Carbon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon)                                              | `LOW` , `MEDIUM` , `HIGH`             | `MEDIUM`  |
 | [Gemini 4 Argon Cyber Permissive](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber)                         | `LOW` , `MEDIUM` , `HIGH`             | `HIGH`    |

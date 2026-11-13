@@ -170,7 +170,7 @@ The following partner models support labels:
 - [Anthropic](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude)
 - [Mistral AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/mistral)
 
-Labels are only forwarded to Cloud Billing when the request uses the [PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options) consumption option. Requests using the [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/overview) consumption option silently ignore labels sent in the request.
+Labels are only forwarded to Cloud Billing when the request uses the [PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options) consumption option. Requests using the [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput) consumption option silently ignore labels sent in the request.
 
 ## Supported models for header labels
 
