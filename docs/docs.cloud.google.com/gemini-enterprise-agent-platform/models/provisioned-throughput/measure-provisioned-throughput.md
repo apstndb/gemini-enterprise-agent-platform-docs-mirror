@@ -81,13 +81,13 @@ For more information about using Provisioned Throughput for Gemini 2.5 Flash wit
 
 To estimate your Provisioned Throughput needs, use the [estimation tool in the Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#estimate-provisioned-throughput) . The following example illustrates the process of estimating the amount of Provisioned Throughput for your model. The region isn't considered in the estimation calculations.
 
-This table provides the burndown rates for Gemini 3.6 Flash that you can use to follow the example.
+This table provides the burndown rates for Gemini 3.8 Flash that you can use to follow the example.
 
 | **Model**        | **Throughput per GSU** | **Units** | **Minimum GSU purchase increment** | **Burndown rates**                                                                                                                                                                                                                                                                                                                            |
 |------------------|------------------------|-----------|------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Gemini 3.6 Flash | 675                    | Tokens    | 1                                  | 1 input text token = 1 token 1 input image token = 1 token 1 input video token = 1 token 1 input audio token = 1 token 1 input text cache read token = 0.1 tokens 1 input image cache read token = 0.1 tokens 1 input video cache read token = 0.1 tokens 1 input audio cache read token = 0.1 tokens 1 output text response token = 5 tokens |
+| Gemini 3.8 Flash | 675                    | Tokens    | 1                                  | 1 input text token = 1 token 1 input image token = 1 token 1 input video token = 1 token 1 input audio token = 1 token 1 input text cache read token = 0.1 tokens 1 input image cache read token = 0.1 tokens 1 input video cache read token = 0.1 tokens 1 input audio cache read token = 0.1 tokens 1 output text response token = 5 tokens |
 
-1.  **Gather your requirements.** In this example, your requirement is to verify that you can support 10 queries per second (QPS) of a query with an input of 1,000 text tokens and 500 audio tokens, to receive an output of 300 text response tokens using `gemini-3.6-flash` .
+1.  **Gather your requirements.** In this example, your requirement is to verify that you can support 10 queries per second (QPS) of a query with an input of 1,000 text tokens and 500 audio tokens, to receive an output of 300 text response tokens using `gemini-3.8-flash` .
 
     To calculate your throughput for your specific use case, use the [burndown rates](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/supported-models#google-models) for your selected model.
 
@@ -111,7 +111,7 @@ This table provides the burndown rates for Gemini 3.6 Flash that you can use to 
 
     \$\text{30,000 total tokens per second} \div \text{675 per-second throughput per GSU} = \text{44.44}\$ GSUs.
 
-    The minimum GSU purchase increment for `gemini-3.6-flash` is **1** , so you'll need **45 GSUs** to assure your workload.
+    The minimum GSU purchase increment for `gemini-3.8-flash` is **1** , so you'll need **45 GSUs** to assure your workload.
 
 ## What's next
 

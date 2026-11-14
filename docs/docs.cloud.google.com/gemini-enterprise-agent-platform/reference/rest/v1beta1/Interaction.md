@@ -1407,13 +1407,14 @@ The allowed tools.
 
 The level of thought tokens that the model should generate.
 
-| Enums                        |                                      |
-|------------------------------|--------------------------------------|
-| `THINKING_LEVEL_UNSPECIFIED` | Default value. This value is unused. |
-| `THINKING_LEVEL_MINIMAL`     | Little to no thinking.               |
-| `THINKING_LEVEL_LOW`         | Low thinking level.                  |
-| `THINKING_LEVEL_MEDIUM`      | Medium thinking level.               |
-| `THINKING_LEVEL_HIGH`        | High thinking level.                 |
+| Enums                        |                                           |
+|------------------------------|-------------------------------------------|
+| `THINKING_LEVEL_UNSPECIFIED` | Default value. This value is unused.      |
+| `THINKING_LEVEL_MINIMAL`     | Little to no thinking.                    |
+| `THINKING_LEVEL_LOW`         | Low thinking level.                       |
+| `THINKING_LEVEL_MEDIUM`      | Medium thinking level.                    |
+| `THINKING_LEVEL_HIGH`        | High thinking level.                      |
+| `THINKING_LEVEL_XHIGH`       | Extra high thinking level, above `high` . |
 
 ## ThinkingSummaries
 

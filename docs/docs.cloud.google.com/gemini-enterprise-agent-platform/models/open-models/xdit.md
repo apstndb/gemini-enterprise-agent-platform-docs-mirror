@@ -23,7 +23,7 @@ The following list describes the key benefits for using xDiT to serve DiT models
 
 ## Supported models
 
-xDiT is available for certain DiT model architectures in Gemini Enterprise Agent Platform Model Garden such as Flux.1 Schnell, CogVideoX-2b, and Wan2.1 text-to-video model variants. To see if a DiT model supports xDiT in Model Garden, view its model card in [Model Garden](https://console.cloud.google.com/agent-platform/model-garden) .
+xDiT is available for certain DiT model architectures in Gemini Enterprise Agent Platform Model Garden such as CogVideoX-2b. To see if a DiT model supports xDiT in Model Garden, view its model card in [Model Garden](https://console.cloud.google.com/agent-platform/model-garden) .
 
 ## Hybrid parallelism for multi-GPU performance:
 
@@ -46,13 +46,13 @@ xDiT also has an efficient attention computation technique, called DiTFastAttn, 
 
 The xDiT optimized Cloud GPU serving container is provided within Gemini Enterprise Agent Platform Model Garden. For supported models, deployments use this container when you use one-click deployments or the Colab Enterprise notebook examples.
 
-The following examples use the Flux.1-schnell model to demonstrate how to deploy a DiT model on a xDiT container.
+The following examples use the CogVideoX-2b model to demonstrate how to deploy a DiT model on a xDiT container.
 
 ### Use one-click deployment
 
 You can deploy a custom Agent Platform endpoint with the xDiT container by using a model card.
 
-1.  Navigate to the [model card page](https://console.cloud.google.com/agent-platform/publishers/black-forest-labs/model-garden/flux1-schnell) and click **Deploy** .
+1.  Navigate to the [model card page](https://console.cloud.google.com/agent-platform/publishers/thudm/model-garden/cogvideox) and click **Deploy** .
 
 2.  For the model variation to use, select a machine type to use for your deployment.
 
@@ -62,7 +62,7 @@ You can deploy a custom Agent Platform endpoint with the xDiT container by using
 
 For flexibility and customization, use the Colab Enterprise notebook examples to deploy an Agent Platform endpoint with the xDiT container by using the Agent Platform SDK for Python.
 
-1.  Navigate to the [model card page](https://console.cloud.google.com/agent-platform/publishers/black-forest-labs/model-garden/flux1-schnell) and click **Open notebook** .
+1.  Navigate to the [model card page](https://console.cloud.google.com/agent-platform/publishers/thudm/model-garden/cogvideox) and click **Open notebook** .
 
 2.  Select the Vertex Serving notebook. The notebook is opened in Colab Enterprise.
 
@@ -74,7 +74,7 @@ from vertexai import model_garden
 
 vertexai.init(project=<YOUR_PROJECT_ID>, location=<REGION>)
 
-model = model_garden.OpenModel("black-forest-labs/FLUX.1-schnell")
+model = model_garden.OpenModel("thudm/cogvideox@cogvideox-2b")
 endpoint = model.deploy()
 ```
 
@@ -153,7 +153,7 @@ xDiT offers a range of server arguments that can be configured to optimize perfo
 
 Model Garden provides default xDiT parallelization configurations for supported models. You can inspect these default settings using the [Agent Platform SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/use-models#deploy_a_model) for Python.
 
-To view the default deployment configuration for a model, such as "black-forest-labs/FLUX.1-schnell", you can run the following code snippet:
+To view the default deployment configuration for a model, such as "thudm/cogvideox@cogvideox-2b", you can run the following code snippet:
 
 ```
 import vertexai
@@ -161,26 +161,26 @@ from vertexai import model_garden
 
 vertexai.init(project=<YOUR_PROJECT_ID>, location=<REGION>)
 
-model = model_garden.OpenModel("black-forest-labs/FLUX.1-schnell")
+model = model_garden.OpenModel("thudm/cogvideox@cogvideox-2b")
 deploy_options = model.list_deploy_options()
 
 
 # Example Response
-# ['black-forest-labs/flux1-schnell@flux.1-schnell']
-# [model_display_name: "Flux1-schnell"
+# ['thudm/cogvideox@cogvideox-2b']
+# [model_display_name: "CogVideoX-2b"
 # container_spec {
-#   image_uri: "us-docker.pkg.dev/deeplearning-platform-release/vertex-model-garden/xdit-serve.cu125.0-2.ubuntu2204.py310"
+#   image_uri: "us-docker.pkg.dev/deeplearning-platform-release/vertex-model-garden/xdit-serve.cu125.0-2.ubuntu2204.py310:model-garden.xdit-0-2-release_20250803.00_p0"
 #  env {
 #    name: "DEPLOY_SOURCE"
 #    value: "UI_NATIVE_MODEL"
 #  }
 #  env {
 #    name: "MODEL_ID"
-#    value: "gs://vertex-model-garden-restricted-us/black-forest-labs/FLUX.1-schnell"
+#    value: "THUDM/CogVideoX-2b"
 #  }
 #  env {
 #    name: "TASK"
-#    value: "text-to-image"
+#    value: "text-to-video"
 #  }
 #  env {
 #    name: "N_GPUS"
@@ -191,8 +191,8 @@ deploy_options = model.list_deploy_options()
 #    value: "true"
 #  }
 #  env {
-#    name: "RING_DEGREE"
-#    value: "2"
+#    name: "USE_CFG_PARALLEL"
+#    value: "true"
 #  }
 # ..........]
 ```
@@ -208,14 +208,15 @@ from vertexai import model_garden
 # Replace with your project ID and region
 vertexai.init(project="<YOUR_PROJECT_ID>", location="<REGION>")
 
-model = model_garden.OpenModel("black-forest-labs/FLUX.1-schnell")
+model = model_garden.OpenModel("thudm/cogvideox@cogvideox-2b")
 
 # Custom environment variables to override default settings
 # This example sets N_GPUS as 2, so RING_DEGREE * ULYSSES_DEGREE must equal 2
 container_env_vars = {
     "N_GPUS": "2",
     "RING_DEGREE": "1",
-    "ULYSSES_DEGREE": "2"
+    "ULYSSES_DEGREE": "2",
+    "USE_CFG_PARALLEL": "false",
     # Add other environment variables to customize here
 }
 

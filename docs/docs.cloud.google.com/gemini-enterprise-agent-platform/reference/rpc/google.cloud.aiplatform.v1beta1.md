@@ -8813,6 +8813,15 @@ Requires one of the following OAuth scopes:
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
+<!-- -->
+
+IAM Permissions  
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `name` resource:
+
+- `aiplatform.responses.delete`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 **DirectPredict**
 
 `rpc DirectPredict( `[`DirectPredictRequest`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.DirectPredictRequest)` ) returns ( `[`DirectPredictResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.DirectPredictResponse)` )`
@@ -8955,6 +8964,15 @@ Requires one of the following OAuth scopes:
 - `https://www.googleapis.com/auth/aiplatform`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
+
+<!-- -->
+
+IAM Permissions  
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `name` resource:
+
+- `aiplatform.responses.get`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
 
 **Predict**
 
@@ -14077,7 +14095,7 @@ Response message for [`SandboxEnvironmentExecutionService.BidiExecuteSandboxEnvi
 
 Incremental update of the current conversation delivered from the client. All the content here is unconditionally appended to the conversation history and used as part of the prompt to the model to generate content.
 
-A message here will interrupt any current model generation.
+For conversational Live models, a message here interrupts any current model generation. For TTS models, `turn_complete = false` queues text, style, and speed without interrupting active audio generation, and `turn_complete = true` flushes the turn.
 
 | Fields          |                                                                                                                                                                                                                                                                                                                                                                                                          |
 |-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -21160,21 +21178,21 @@ Raw media bytes for function response.
 
 Text should not be sent as raw bytes, use the 'text' field.
 
-| Fields         |                                                                                                                                                                                                                                                                                                                               |
-|----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `mime_type`    | `string` Required. The IANA standard MIME type of the source data.                                                                                                                                                                                                                                                            |
-| `data`         | `bytes` Required. Raw bytes.                                                                                                                                                                                                                                                                                                  |
-| `display_name` | `string` Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled. |
+| Fields         |                                                                                                                                                                                                                     |
+|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `mime_type`    | `string` Required. The IANA standard MIME type of the source data.                                                                                                                                                  |
+| `data`         | `bytes` Required. Raw bytes.                                                                                                                                                                                        |
+| `display_name` | `string` Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs, and to reference the blob from `FunctionResponse.response` (for example, via `{"$ref": "<display_name>"}` ). |
 
 ## FunctionResponseFileData
 
 URI based data for function response.
 
-| Fields         |                                                                                                                                                                                                                                                                                                                                         |
-|----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `mime_type`    | `string` Required. The IANA standard MIME type of the source data.                                                                                                                                                                                                                                                                      |
-| `file_uri`     | `string` Required. URI.                                                                                                                                                                                                                                                                                                                 |
-| `display_name` | `string` Optional. Display name of the file data. Used to provide a label or filename to distinguish file datas. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled. |
+| Fields         |                                                                                                                                                                                                                         |
+|----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `mime_type`    | `string` Required. The IANA standard MIME type of the source data.                                                                                                                                                      |
+| `file_uri`     | `string` Required. URI.                                                                                                                                                                                                 |
+| `display_name` | `string` Optional. Display name of the file. Used to provide a label or filename to distinguish file data, and to reference the file from `FunctionResponse.response` (for example, via `{"$ref": "<display_name>"}` ). |
 
 ## FunctionResponsePart
 
@@ -21873,6 +21891,7 @@ The thinking level for the model.
 | `MEDIUM`                     | Medium thinking level.      |
 | `HIGH`                       | High thinking level.        |
 | `MINIMAL`                    | MINIMAL thinking level.     |
+| `XHIGH`                      | XHIGH thinking level.       |
 
 ## GenericOperationMetadata
 
@@ -28889,9 +28908,9 @@ Describes the machine learning model version checkpoint.
 
 Configuration for a multi-speaker text-to-speech request.
 
-| Fields                    |                                                                                                                                                                                                                                                                                                                       |
-|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `speaker_voice_configs[]` | [`SpeakerVoiceConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SpeakerVoiceConfig) Required. A list of configurations for the voices of the speakers. Exactly two speaker voice configurations must be provided. |
+| Fields                    |                                                                                                                                                                                                                                                                                                                               |
+|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `speaker_voice_configs[]` | [`SpeakerVoiceConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SpeakerVoiceConfig) Required. A list of configurations for the voices of the speakers. Between two and ten speaker voice configurations must be provided. |
 
 ## MutateDeployedIndexOperationMetadata
 

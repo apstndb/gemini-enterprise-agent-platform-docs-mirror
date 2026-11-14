@@ -45,23 +45,29 @@ To deploy a model in the Google Cloud console, do the following:
 The following sample shows you how to deploy a model by using the Agent Platform SDK for Python.
 
 ```
-import vertexai
-from vertexai import model_garden
+import agentplatform
+from agentplatform import types
 
-vertexai.init(project="PROJECT_ID", location="asia-south2")
+client = agentplatform.Client(project="PROJECT_ID", location="us-central1")
 
-model = model_garden.OpenModel("meta/llama3-3@llama-3.3-70b-instruct-fp8")
-endpoint = model.deploy(
-  accept_eula=True,
-  machine_type="a3-ultragpu-8g",
-  accelerator_type="NVIDIA_H200_141GB",
-  accelerator_count=8,
-  serving_container_image_uri="us-docker.pkg.dev/deeplearning-platform-release/vertex-model-garden/tensorrt-llm.cu128.0-18.ubuntu2404.py312:20250605-1800-rc0",
-  endpoint_display_name="llama-3-3-70b-instruct-fp8-mg-one-click-deploy",
-  model_display_name="llama-3-3-70b-instruct-fp8-1752269273562",
-  use_dedicated_endpoint=True,
+response = client.model_garden.deploy_publisher_model(
+  model="meta/llama3-3@llama-3.3-70b-instruct",
+  config=types.DeployPublisherModelConfig(
+    accept_eula=True,
+    machine_type="g4-standard-96",
+    accelerator_type="NVIDIA_RTX_PRO_6000",
+    accelerator_count=2,
+    serving_container_image_uri="us-docker.pkg.dev/vertex-ai/vertex-vision-model-garden-dockers/pytorch-vllm-serve:20251205_0916_RC01",
+    endpoint_display_name="llama-3-3-70b-instruct-mg-one-click-deploy",
+    model_display_name="llama-3-3-70b-instruct",
+  ),
 )
+print(f"Model deployed to endpoint: {response.endpoint}")
 ```
+
+The machine type, accelerator, and container image must come from the same verified deployment option. To list a model's options, call `client.model_garden.list_publisher_model_deploy_options(model=" `` MODEL_ID `` ")` .
+
+The model is served from a dedicated endpoint by default. To serve it from the shared regional DNS instead, set `dedicated_endpoint_disabled=True` .
 
 ### Deploy models with custom weights
 

@@ -180,9 +180,9 @@ This section demonstrates how to deploy your custom model.
 
 If you're using the command-line interface (CLI), Python, or JavaScript, replace the following variables with a value for your code samples to work:
 
-- **` REGION `** : Your region. For example, `uscentral1` .
+- **` REGION `** : Your region. For example, `us-central1` .
 
-- **` MODEL_GCS `** : Your Google Cloud model. For example, `gs://custom-weights-fishfooding/meta-llama/Llama-3.2-1B-Instruct` .
+- **` MODEL_GCS `** : Your Google Cloud model. For example, `gs://my-bucket/meta-llama/Llama-3.2-1B-Instruct` .
 
 - **` PROJECT_ID `** : Your project ID.
 
@@ -246,39 +246,56 @@ gcloud ai model-garden models deploy --model=${MODEL_GCS} --machine-type=${MACHI
 
 ### Python
 
-```
-import vertexai
-from google.cloud import aiplatform
-from vertexai.preview import model_garden
+These samples need `google-cloud-agentplatform` 2.7.0 or later, and `pandas` for `client.endpoints` : `pip install "google-cloud-agentplatform>=2.7.0" pandas` .
 
-vertexai.init(project=${PROJECT_ID}, location=${REGION})
-custom_model = model_garden.CustomModel(
-  gcs_uri=GCS_URI,
+The call waits until the model is serving, and returns the resource names of the endpoint and the deployed model. If you set a machine type, then you must also set the accelerator type and accelerator count.
+
+```
+import agentplatform
+from agentplatform import types
+
+client = agentplatform.Client(
+  project="PROJECT_ID",
+  location="REGION",
 )
-endpoint = custom_model.deploy(
-  machine_type="${MACHINE_TYPE}",
-  accelerator_type="${ACCELERATOR_TYPE}",
-  accelerator_count="${ACCELERATOR_COUNT}",
-  model_display_name="custom-model",
-  endpoint_display_name="custom-model-endpoint")
 
-endpoint.predict(instances=[{"prompt": "${PROMPT}"}], use_dedicated_endpoint=True)
-```
-
-Alternatively, you don't have to pass a parameter to the `custom_model.deploy()` method.
-
-```
-import vertexai
-from google.cloud import aiplatform
-from vertexai.preview import model_garden
-
-vertexai.init(project=${PROJECT_ID}, location=${REGION})
-custom_model = model_garden.CustomModel(
-  gcs_uri=GCS_URI,
+response = client.model_garden.deploy_custom_model(
+  src="MODEL_GCS",
+  config=types.DeployCustomModelConfig(
+    machine_type="MACHINE_TYPE",
+    accelerator_type="ACCELERATOR_TYPE",
+    accelerator_count=ACCELERATOR_COUNT,
+    model_display_name="custom-model",
+    endpoint_display_name="custom-model-endpoint",
+  ),
 )
-endpoint = custom_model.deploy()
 
-endpoint.predict(instances=[{"prompt": "${PROMPT}"}], use_dedicated_endpoint=True)
+prediction = client.endpoints.predict(
+  name=response.endpoint,
+  instances=[{"prompt": "PROMPT"}],
+)
+print(prediction.predictions)
+```
+
+Alternatively, you don't have to pass a config to the `deploy_custom_model()` method.
+
+```
+import agentplatform
+
+client = agentplatform.Client(
+  project="PROJECT_ID",
+  location="REGION",
+)
+
+response = client.model_garden.deploy_custom_model(
+  src="MODEL_GCS",
+)
+
+prediction = client.endpoints.predict(
+  name=response.endpoint,
+  instances=[{"prompt": "PROMPT"}],
+)
+print(prediction.predictions)
 ```
 
 ### curl
@@ -607,20 +624,19 @@ This request is a streaming version of the *Predict* request. By using the `:str
 This code sample uses the SDK to send a query to a model and get a response back from that model.
 
 ```
-  from google.cloud import aiplatform
+import agentplatform
 
-  project_id = ""
-  location = ""
-  endpoint_id = "" # Use the short ID here
+client = agentplatform.Client(
+  project="PROJECT_ID",
+  location="LOCATION",
+)
 
-  aiplatform.init(project=project_id, location=location)
-
-  endpoint = aiplatform.Endpoint(endpoint_id)
-
-  prompt = "How to tell the time by looking at the sky?"
-  instances=[{"text": prompt}]
-  response = endpoint.predict(instances=instances, use_dedicated_endpoint=True)
-  print(response.predictions)
+# Requests to a dedicated endpoint are sent to its dedicated DNS automatically.
+response = client.endpoints.predict(
+  name="projects/PROJECT_ID/locations/LOCATION/endpoints/ENDPOINT_ID",
+  instances=[{"prompt": "How to tell the time by looking at the sky?"}],
+)
+print(response.predictions)
 ```
 
 ### Make a query for a private endpoint
@@ -640,7 +656,7 @@ curl -X POST -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Co
 Predict
 
 ```
-$ curl -k -X POST -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json" 'https:/YOUR_IP/v1beta1/projects/YOUR_PROJECT_ID/locations/YOUR_LOCATION/endpoints/YOUR_ENDPOINT_ID:predict' -d '{
+curl -X POST -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json" 'https://YOUR_IP/v1beta1/projects/YOUR_PROJECT_ID/locations/YOUR_LOCATION/endpoints/YOUR_ENDPOINT_ID:predict' -d '{
   "instances": [
     {
       "prompt": "Summarize Goog stock performance",
@@ -652,8 +668,6 @@ $ curl -k -X POST -H "Authorization: Bearer $(gcloud auth print-access-token)" -
   ]
 }'
 ```
-
-For another example of how to use the API, see the [Import Custom Weights notebook](https://colab.sandbox.google.com/drive/1K58OnWTAeVEmDD_thffaAgm1u8eKY9-Q?usp=sharing) .
 
 ## Learn more about self-deployed models in Gemini Enterprise Agent Platform
 

@@ -88,6 +88,17 @@ To configure VPC connectivity for Agent Gateway, ensure that the identity used f
 
 In a standalone project where the gateway, network attachment, and VPC network reside in the same project, standard Agent Gateway permissions apply. For details, see [Required permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#required-roles) .
 
+If you configure a network attachment, the identity that creates or updates the gateway or agent connectivity template (your user account or deployment service account) must also hold the `compute.networkAttachments.use` permission on the network attachment, for example through the Compute Network Admin role ( `roles/compute.networkAdmin` ) on the project that contains the network attachment. Compute Network User isn't sufficient. Without this permission, the request fails with a `PERMISSION_DENIED` error that names the network attachment.
+
+In addition, if you configure DNS peering, Agent Gateway validates the DNS peering configuration (and the subnetwork of any network attachment) by using the Agent Gateway service agent ( `service- `` AGENT_GATEWAY_PROJECT_NUMBER `` @gcp-sa-agentgateway.iam.gserviceaccount.com` ). Grant the service agent the following roles on the project that contains the target VPC network and private DNS zones (your own project in a standalone deployment):
+
+- Compute Network Viewer ( `roles/compute.networkViewer` )
+- DNS Reader ( `roles/dns.reader` )
+
+These roles aren't granted automatically. Network attachments alone, without DNS peering, don't require them.
+
+Without these roles, creating or updating a gateway or agent connectivity template that configures DNS peering fails validation with an `INVALID_ARGUMENT` error that names the service agent and the missing role.
+
 ### Shared VPC or cross-project deployments
 
 In a [Shared VPC](https://docs.cloud.google.com/vpc/docs/shared-vpc) deployment, you can provision the Agent Gateway in either a service project or the host project. If you provision the gateway in the host project (where the Shared VPC network, subnet, and network attachment also reside), [standalone project permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#standalone-project-permissions) apply.
@@ -120,8 +131,9 @@ If you provision the Agent Gateway in a service project while the target VPC net
 <li>DNS Reader ( <code>roles/ dns. reader</code> )</li>
 <li>Network Connectivity Regional Endpoint Admin ( <code>roles/ networkconnectivity. regionalEndpointAdmin</code> )</li>
 <li>Network Connectivity Consumer Network Admin ( <code>roles/ networkconnectivity. consumerNetworkAdmin</code> )</li>
+<li>Compute Network Admin ( <code>roles/ compute. networkAdmin</code> ) on the project that contains the network attachment, for the <code>compute. networkAttachments. use</code> permission</li>
 </ul></td>
-<td>Allows backend validation of the target VPC network, subnets, network attachment, and private DNS zones during gateway creation or updates.</td>
+<td>Lets the provisioning identity view the host project network and private DNS resources, for example in the Google Cloud console, manage the regional endpoint, and use the network attachment. The Agent Gateway service agent, not the provisioning identity, validates the target VPC network, subnets, network attachment, and private DNS zones during gateway creation or updates.</td>
 </tr>
 <tr class="even">
 <td><strong>Network attachment creator</strong><br />
@@ -143,9 +155,11 @@ If you provision the Agent Gateway in a service project while the target VPC net
 <td>Host project ( <var translate="no"> TARGET_VPC_PROJECT_ID </var> )</td>
 <td><ul>
 <li>Compute Network User ( <code>roles/ compute. networkUser</code> )</li>
+<li>Compute Network Viewer ( <code>roles/ compute. networkViewer</code> )</li>
+<li>DNS Reader ( <code>roles/ dns. reader</code> )</li>
 <li>DNS peer ( <code>roles/ dns. peer</code> )</li>
 </ul></td>
-<td>Allows the Agent Gateway service agent to use the host project subnet for the network attachment, connect the Private Service Connect interface to route egress traffic, and peer with private Cloud DNS zones in the host project.</td>
+<td>Allows the Agent Gateway service agent to use the host project subnet for the network attachment, connect the Private Service Connect interface to route egress traffic, and peer with private Cloud DNS zones in the host project, and lets the service agent validate the target VPC network, subnets, network attachment, and private DNS zones during gateway creation or updates.</td>
 </tr>
 <tr class="odd">
 <td><strong>Network attachment in the host project</strong></td>
@@ -163,9 +177,11 @@ If you provision the Agent Gateway in a service project while the target VPC net
 <li><code>compute. networkAttachments. update</code></li>
 <li><code>compute. regionOperations. get</code></li>
 </ul></li>
+<li>Compute Network Viewer ( <code>roles/ compute. networkViewer</code> )</li>
+<li>DNS Reader ( <code>roles/ dns. reader</code> )</li>
 <li>DNS peer ( <code>roles/ dns. peer</code> )</li>
 </ul></td>
-<td>Allows the Agent Gateway service agent to update the host project network attachment to allow the connection from the Agent Gateway tenant project, to route egress traffic, and peer with private Cloud DNS zones in the host project.</td>
+<td>Allows the Agent Gateway service agent to update the host project network attachment to allow the connection from the Agent Gateway tenant project, to route egress traffic, and peer with private Cloud DNS zones in the host project, and lets the service agent validate the target VPC network, subnets, network attachment, and private DNS zones during gateway creation or updates.</td>
 </tr>
 </tbody>
 </table>

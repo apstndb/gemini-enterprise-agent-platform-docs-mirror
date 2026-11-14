@@ -28,21 +28,59 @@ The following models are available from Meta to use in Agent Platform. To find a
 
 ## Use Meta models
 
-Muse models from Meta are served through the stateless OpenAI-compatible [Responses API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.publishers.v1.responses) on the `global` endpoint. Stateful response storage ( `store: true` ) isn't supported. Send `POST` requests to `https://aiplatform.googleapis.com/v1/projects/ `` PROJECT_ID `` /locations/global/publishers/meta/v1/responses` and pass the bare model ID ( `muse-wonder-1.0` , `muse-ember-1.0` , or `muse-spark-1.3` ) in the `model` field.
+Muse models from Meta are served through the stateless OpenAI-compatible [Responses API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.publishers.v1.responses) on the `global` endpoint. Chat completions and stateful response storage ( `store: true` ) aren't supported. Send `POST` requests to `https://aiplatform.googleapis.com/v1/projects/ `` PROJECT_ID `` /locations/global/publishers/meta/v1/responses` and pass the bare model ID ( `muse-wonder-1.0` , `muse-ember-1.0` , or `muse-spark-1.3` ) in the `model` field.
 
-The following curl example sends a prompt request to Muse Wonder on the global endpoint:
+Keep the following parameter details in mind when sending requests:
+
+- **Inputs:** Text and image inputs are supported. Audio, video, and PDF inputs aren't supported.
+- **Reasoning effort:** Set `reasoning.effort` to `minimal` , `low` , `medium` , `high` , or `xhigh` ( `Muse Ember` also supports `max` ). `none` isn't supported.
+- **Tool calling:** `tool_choice` supports `auto` only ( `none` , `required` , and named-function choices aren't supported).
+
+The following examples send a prompt request to Muse Wonder on the global endpoint. Replace `PROJECT_ID` with your Google Cloud project ID.
+
+### REST (curl)
 
 ```sh
 curl -X POST \
-  -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
   -H "Content-Type: application/json" \
   "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/meta/v1/responses" \
   -d '{
     "model": "muse-wonder-1.0",
+    "reasoning": {"effort": "high"},
     "input": "Write a Python binary search function with type annotations.",
     "max_output_tokens": 4096,
     "stream": false
   }'
 ```
 
-Replace `PROJECT_ID` with your Google Cloud project ID.
+### Python (OpenAI SDK)
+
+Install the `openai` and `google-auth` libraries ( `pip install --upgrade openai google-auth` ), set up [Application Default Credentials](https://docs.cloud.google.com/docs/authentication/provide-credentials-adc#local-dev) ( `gcloud auth application-default login` ), and then send a request:
+
+```python
+import google.auth
+import google.auth.transport.requests
+from openai import OpenAI
+
+PROJECT_ID = "PROJECT_ID"
+LOCATION = "global"
+
+credentials, _ = google.auth.default(
+    scopes=["https://www.googleapis.com/auth/cloud-platform"]
+)
+credentials.refresh(google.auth.transport.requests.Request())
+
+client = OpenAI(
+    base_url=f"https://aiplatform.googleapis.com/v1/projects/{PROJECT_ID}/locations/{LOCATION}/publishers/meta/v1",
+    api_key=credentials.token,
+)
+
+response = client.responses.create(
+    model="muse-wonder-1.0",
+    reasoning={"effort": "high"},
+    input="Write a Python binary search function with type annotations.",
+    max_output_tokens=4096,
+)
+print(response.output_text)
+```

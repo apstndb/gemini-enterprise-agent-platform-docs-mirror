@@ -21,15 +21,16 @@ It supports two primary methods of operation:
 
 Gemini 3.5 Transcribe supports the following features across its two endpoints:
 
-| Feature                          | Live Streaming ( `gemini-3.5-transcribe-live` ) | Audio File Processing ( `gemini-3.5-transcribe` ) | Launch Stage | Notes / Limitations                                                                                                                                                                                                                                   |
-|----------------------------------|-------------------------------------------------|---------------------------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Language Auto-detection**      | Supported (85+ languages)                       | Supported (85+ languages)                         | Supported    | Includes mid-session code-mixing.                                                                                                                                                                                                                     |
-| **Utterance-level Timestamps**   | Supported                                       | Not Supported                                     | Supported    |                                                                                                                                                                                                                                                       |
-| **Word-level Timestamps**        | Not Supported                                   | Supported                                         | Experimental | Degrades transcription accuracy.                                                                                                                                                                                                                      |
-| **Custom Vocabulary Biasing**    | Supported (up to 1000 terms)                    | Supported (up to 1000 terms)                      | Supported    | Customers typically see best results with up to 100 terms.                                                                                                                                                                                            |
-| **Smart Dictation & Formatting** | Supported (with manual endpointing)             | Supported                                         | Experimental | Includes filler word removal and intent-aware alphanumeric formatting. For live streaming, use with [manual endpointing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-transcribe#smart-live-manual-endpointing) . |
-| **Speaker Diarization**          | Not Supported                                   | Supported (up to 8 speakers)                      | Experimental | Attribution for 3+ speakers is Experimental.                                                                                                                                                                                                          |
-| **Max Audio Duration**           | Up to 10 minutes                                | Up to 15 minutes                                  | Supported    | File processing is limited to 15 minutes when features like diarization or timestamps are enabled.                                                                                                                                                    |
+| Feature                            | Live Streaming ( `gemini-3.5-transcribe-live` ) | Audio File Processing ( `gemini-3.5-transcribe` ) | Launch Stage | Notes / Limitations                                                                                                                                                                                                                                   |
+|------------------------------------|-------------------------------------------------|---------------------------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Language Auto-detection**        | Supported (85+ languages)                       | Supported (85+ languages)                         | Supported    | Includes mid-session code-mixing.                                                                                                                                                                                                                     |
+| **Utterance-level Timestamps**     | Supported                                       | Not Supported                                     | Supported    |                                                                                                                                                                                                                                                       |
+| **Word-level Timestamps**          | Not Supported                                   | Supported                                         | Experimental | Degrades transcription accuracy.                                                                                                                                                                                                                      |
+| **Custom Vocabulary Biasing**      | Supported (up to 1000 terms)                    | Supported (up to 1000 terms)                      | Supported    | Customers typically see best results with up to 100 terms.                                                                                                                                                                                            |
+| **Smart Dictation & Formatting**   | Supported (with manual endpointing)             | Supported                                         | Experimental | Includes filler word removal and intent-aware alphanumeric formatting. For live streaming, use with [manual endpointing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-transcribe#smart-live-manual-endpointing) . |
+| **Endpointing Sensitivity Levels** | Supported                                       | Not Supported                                     | Supported    | Controls [start-of-speech and end-of-speech sensitivity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-transcribe#sensitivity_levels) for automatic Voice Activity Detection (VAD).                                |
+| **Speaker Diarization**            | Not Supported                                   | Supported (up to 8 speakers)                      | Experimental | Attribution for 3+ speakers is Experimental.                                                                                                                                                                                                          |
+| **Max Audio Duration**             | Up to 10 minutes                                | Up to 15 minutes                                  | Supported    | File processing is limited to 15 minutes when features like diarization or timestamps are enabled.                                                                                                                                                    |
 
 ## Live streaming transcription
 
@@ -76,6 +77,77 @@ async def streaming_main(audio_file, config):
 ```
 
 > **Note:** When establishing a Gemini Live API connection, clients must wait to receive the `setup_complete` message from the server before streaming audio data. Sending audio requests before `setup_complete` is received can cause the session to cancel unexpectedly and may result in empty transcriptions, particularly on short audio clips.
+
+### Adjust endpointing sensitivity
+
+Agent Platform lets you control the trade-off between latency and accuracy for streaming and real-time applications with `gemini-3.5-transcribe-live` . By default, the recognition model uses automatic Voice Activity Detection (VAD) and waits for a brief period of silence after detecting speech before committing the final `input_transcription` segment. This helps make sure that a user has finished a complete sentence or phrase, maximizing accuracy at the cost of a small delay in the final response.
+
+You can adjust `start_of_speech_sensitivity` , `end_of_speech_sensitivity` , `prefix_padding_ms` , and `silence_duration_ms` in `AutomaticActivityDetection` for time-sensitive applications—such as voice commands or voice bots—to detect speech onset, filter out background noise, or finalize transcripts more quickly. (If you need client-controlled turn boundaries instead of automatic VAD, use [manual endpointing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-transcribe#smart-live-manual-endpointing) .) Sensitivity levels apply only to live streaming transcription ( `gemini-3.5-transcribe-live` ) when you use automatic VAD, and aren't supported for synchronous audio file processing ( `gemini-3.5-transcribe` ).
+
+> **Note:** If the user pauses briefly while speaking, increasing end-of-speech sensitivity or lowering `silence_duration_ms` to minimize latency might result in the system "cutting off" a user and committing the transcript early.
+
+### Sensitivity levels
+
+When you use automatic VAD in `RealtimeInputConfig` , you can configure the following parameters in `AutomaticActivityDetection` based on your use case:
+
+- **Start-of-speech sensitivity ( `start_of_speech_sensitivity` ):** Controls how readily the model detects the start of speech.
+  - `START_SENSITIVITY_UNSPECIFIED` : Uses the default start-of-speech sensitivity.
+  - `START_SENSITIVITY_HIGH` : Detects the start of speech more often. Optimized for capturing quiet speech or brief utterances, such as single-word commands, as quickly as possible. This setting might increase false triggers in noisy environments.
+  - `START_SENSITIVITY_LOW` : Detects the start of speech less often. Optimized for noisy environments to reduce false triggers from background sounds.
+- **End-of-speech sensitivity ( `end_of_speech_sensitivity` ):** Controls how quickly the model ends detected speech and commits the final transcript.
+  - `END_SENSITIVITY_UNSPECIFIED` : Uses the default end-of-speech sensitivity.
+  - `END_SENSITIVITY_HIGH` : Ends detected speech more often. Optimized for short utterances, such as single sentences or commands like "Remind me to call the dentist tomorrow". This setting reduces the wait time after speech stops, providing a faster response while maintaining reasonable sentence-level accuracy.
+  - `END_SENSITIVITY_LOW` : Ends detected speech less often. Optimized for long-form dictation and speakers who take longer pauses between phrases, helping prevent premature utterance cutoffs at the cost of higher latency.
+- **Prefix padding ( `prefix_padding_ms` ):** The required duration of detected speech (in milliseconds) before the model commits start-of-speech. Lower values capture brief utterances faster, while higher values help filter out short noise spikes such as clicks or pops.
+- **Silence duration ( `silence_duration_ms` ):** The required duration of continuous silence (in milliseconds) before the model commits end-of-speech. Lower values finalize transcripts faster after speech stops, while higher values allow longer natural pauses mid-sentence without splitting the utterance.
+
+```
+import asyncio
+from google import genai
+from google.genai import types
+
+client = genai.Client(enterprise=True, project=PROJECT_ID, location=LOCATION)
+
+config = types.LiveConnectConfig(
+    response_modalities=["TEXT"],
+    realtime_input_config=types.RealtimeInputConfig(
+        automatic_activity_detection=types.AutomaticActivityDetection(
+            start_of_speech_sensitivity=types.StartSensitivity.START_SENSITIVITY_LOW,
+            end_of_speech_sensitivity=types.EndSensitivity.END_SENSITIVITY_HIGH,
+            prefix_padding_ms=200,
+            silence_duration_ms=500,
+        ),
+    ),
+    input_audio_transcription=types.AudioTranscriptionConfig(
+        language_codes=["en-US"],
+    ),
+)
+
+async def streaming_with_sensitivity(audio_file, config):
+    # Connect to the Live API session
+    async with client.aio.live.connect(
+        model="gemini-3.5-transcribe-live", config=config
+    ) as session:
+        # In a complete implementation, you would chunk the audio and send via:
+        # await session.send_realtime_input(
+        #     audio=types.Blob(data=data, mime_type="audio/pcm;rate=16000")
+        # )
+        # await session.send_realtime_input(audio_stream_end=True)
+
+        async for message in session.receive():
+            if message.server_content:
+                server_content = message.server_content
+
+                # Track the active interim segment
+                interim = server_content.interim_input_transcription
+                if interim and interim.text:
+                    print(f"Interim: {interim.text}")
+
+                # Save final transcript and clear the interim
+                final = server_content.input_transcription
+                if final and final.text:
+                    print(f"Final: {final.text}")
+```
 
 ## Synchronous transcription
 

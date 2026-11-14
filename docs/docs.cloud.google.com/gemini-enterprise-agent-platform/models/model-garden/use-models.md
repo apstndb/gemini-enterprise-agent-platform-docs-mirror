@@ -870,31 +870,41 @@ You can self-deploy a partner model with 1-click deployment.
 1.  View the deployment specifications for a model by using the model ID from the previous step. You can view the machine type, accelerator type, and container image URI that Model Garden has verified for a particular model.
 
     ```
-    import vertexai
-    from vertexai import model_garden
+    import agentplatform
 
-    vertexai.init(project=PROJECT_ID, location="us-central1")
+    client = agentplatform.Client(
+        project="PROJECT_ID",
+        location="us-central1",
+    )
 
-    model = model_garden.PartnerModel(model)
-    deploy_options = model.list_deploy_options()
+    deploy_options = client.model_garden.list_publisher_model_deploy_options(
+        model="PUBLISHER/MODEL@VERSION",
+    )
     print(deploy_options)
     ```
 
-2.  Deploy a model with 1-click deployment.
+2.  Deploy a model with 1-click deployment. The call waits until the model is serving, and returns the resource names of the endpoint and the deployed model.
 
     ```
-    from vertexai import model_garden
+    import agentplatform
+    from agentplatform import types
 
-    # Deploy model
-    model = model_garden.PartnerModel(f"{PUBLISHER}/{MODEL}@{VERSION}")
-
-    endpoint = model.deploy(
-        machine_type=MACHINE_TYPE,
-        accelerator_type=ACCELERATOR_TYPE,
-        accelerator_count=ACCELERATOR_COUNT,
-        min_replica_count=1,
-        max_replica_count=1,
+    client = agentplatform.Client(
+        project="PROJECT_ID",
+        location="us-central1",
     )
+
+    response = client.model_garden.deploy_publisher_model(
+        model="PUBLISHER/MODEL@VERSION",
+        config=types.DeployPublisherModelConfig(
+            machine_type="MACHINE_TYPE",
+            accelerator_type="ACCELERATOR_TYPE",
+            accelerator_count=ACCELERATOR_COUNT,
+            min_replica_count=1,
+            max_replica_count=1,
+        ),
+    )
+    print(response.endpoint)
     ```
 
 ### Multi-step deployment

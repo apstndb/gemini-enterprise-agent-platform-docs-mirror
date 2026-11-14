@@ -980,7 +980,7 @@ Fields
 
 `speakerVoiceConfigs[]` `object ( `[`SpeakerVoiceConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs#SpeakerVoiceConfig)` )`
 
-Required. A list of configurations for the voices of the speakers. Exactly two speaker voice configurations must be provided.
+Required. A list of configurations for the voices of the speakers. Between two and ten speaker voice configurations must be provided.
 
 **JSON representation**
 
@@ -1060,6 +1060,7 @@ The thinking level for the model.
 | `MEDIUM`                     | Medium thinking level.      |
 | `HIGH`                       | High thinking level.        |
 | `MINIMAL`                    | MINIMAL thinking level.     |
+| `XHIGH`                      | XHIGH thinking level.       |
 
 ## ImageConfig
 

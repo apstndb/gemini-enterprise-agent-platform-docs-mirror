@@ -15,3 +15,4 @@ The thinking level for the model.
 | `MEDIUM`                     | Medium thinking level.      |
 | `HIGH`                       | High thinking level.        |
 | `MINIMAL`                    | MINIMAL thinking level.     |
+| `XHIGH`                      | XHIGH thinking level.       |

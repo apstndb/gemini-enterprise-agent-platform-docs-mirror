@@ -103,6 +103,30 @@ In your `WorkerPoolSpec` , you must specify one of the following machine types i
 - `n4-highcpu-48`
 - `n4-highcpu-64`
 - `n4-highcpu-80`
+- `n4d-standard-4` <sup>†</sup>
+- `n4d-standard-8` <sup>†</sup>
+- `n4d-standard-16` <sup>†</sup>
+- `n4d-standard-32` <sup>†</sup>
+- `n4d-standard-48` <sup>†</sup>
+- `n4d-standard-64` <sup>†</sup>
+- `n4d-standard-80` <sup>†</sup>
+- `n4d-standard-96` <sup>†</sup>
+- `n4d-highmem-2` <sup>†</sup>
+- `n4d-highmem-4` <sup>†</sup>
+- `n4d-highmem-8` <sup>†</sup>
+- `n4d-highmem-16` <sup>†</sup>
+- `n4d-highmem-32` <sup>†</sup>
+- `n4d-highmem-48` <sup>†</sup>
+- `n4d-highmem-64` <sup>†</sup>
+- `n4d-highmem-80` <sup>†</sup>
+- `n4d-highmem-96` <sup>†</sup>
+- `n4d-highcpu-8` <sup>†</sup>
+- `n4d-highcpu-16` <sup>†</sup>
+- `n4d-highcpu-32` <sup>†</sup>
+- `n4d-highcpu-48` <sup>†</sup>
+- `n4d-highcpu-64` <sup>†</sup>
+- `n4d-highcpu-80` <sup>†</sup>
+- `n4d-highcpu-96` <sup>†</sup>
 - `n2-standard-4`
 - `n2-standard-8`
 - `n2-standard-16`
@@ -123,6 +147,33 @@ In your `WorkerPoolSpec` , you must specify one of the following machine types i
 - `n2-highcpu-48`
 - `n2-highcpu-64`
 - `n2-highcpu-80`
+- `n2d-standard-4` <sup>†</sup>
+- `n2d-standard-8` <sup>†</sup>
+- `n2d-standard-16` <sup>†</sup>
+- `n2d-standard-32` <sup>†</sup>
+- `n2d-standard-48` <sup>†</sup>
+- `n2d-standard-64` <sup>†</sup>
+- `n2d-standard-80` <sup>†</sup>
+- `n2d-standard-96` <sup>†</sup>
+- `n2d-standard-128` <sup>†</sup>
+- `n2d-standard-224` <sup>†</sup>
+- `n2d-highmem-2` <sup>†</sup>
+- `n2d-highmem-4` <sup>†</sup>
+- `n2d-highmem-8` <sup>†</sup>
+- `n2d-highmem-16` <sup>†</sup>
+- `n2d-highmem-32` <sup>†</sup>
+- `n2d-highmem-48` <sup>†</sup>
+- `n2d-highmem-64` <sup>†</sup>
+- `n2d-highmem-80` <sup>†</sup>
+- `n2d-highmem-96` <sup>†</sup>
+- `n2d-highcpu-16` <sup>†</sup>
+- `n2d-highcpu-32` <sup>†</sup>
+- `n2d-highcpu-48` <sup>†</sup>
+- `n2d-highcpu-64` <sup>†</sup>
+- `n2d-highcpu-80` <sup>†</sup>
+- `n2d-highcpu-96` <sup>†</sup>
+- `n2d-highcpu-128` <sup>†</sup>
+- `n2d-highcpu-224` <sup>†</sup>
 - `n1-standard-4`
 - `n1-standard-8`
 - `n1-standard-16`
@@ -140,6 +191,73 @@ In your `WorkerPoolSpec` , you must specify one of the following machine types i
 - `n1-highcpu-32`
 - `n1-highcpu-64`
 - `n1-highcpu-96`
+- `c4-standard-8` <sup>†</sup>
+- `c4-standard-16` <sup>†</sup>
+- `c4-standard-24` <sup>†</sup>
+- `c4-standard-32` <sup>†</sup>
+- `c4-standard-48` <sup>†</sup>
+- `c4-standard-96` <sup>†</sup>
+- `c4-standard-144` <sup>†</sup>
+- `c4-standard-192` <sup>†</sup>
+- `c4-standard-288` <sup>†</sup>
+- `c4-highmem-8` <sup>†</sup>
+- `c4-highmem-16` <sup>†</sup>
+- `c4-highmem-24` <sup>†</sup>
+- `c4-highmem-32` <sup>†</sup>
+- `c4-highmem-48` <sup>†</sup>
+- `c4-highmem-96` <sup>†</sup>
+- `c4-highmem-144` <sup>†</sup>
+- `c4-highmem-192` <sup>†</sup>
+- `c4-highmem-288` <sup>†</sup>
+- `c4-highcpu-8` <sup>†</sup>
+- `c4-highcpu-16` <sup>†</sup>
+- `c4-highcpu-24` <sup>†</sup>
+- `c4-highcpu-32` <sup>†</sup>
+- `c4-highcpu-48` <sup>†</sup>
+- `c4-highcpu-96` <sup>†</sup>
+- `c4-highcpu-144` <sup>†</sup>
+- `c4-highcpu-192` <sup>†</sup>
+- `c4-highcpu-288` <sup>†</sup>
+- `c4d-standard-8` <sup>†</sup>
+- `c4d-standard-16` <sup>†</sup>
+- `c4d-standard-32` <sup>†</sup>
+- `c4d-standard-48` <sup>†</sup>
+- `c4d-standard-64` <sup>†</sup>
+- `c4d-standard-96` <sup>†</sup>
+- `c4d-standard-192` <sup>†</sup>
+- `c4d-standard-384` <sup>†</sup>
+- `c4d-highmem-8` <sup>†</sup>
+- `c4d-highmem-16` <sup>†</sup>
+- `c4d-highmem-32` <sup>†</sup>
+- `c4d-highmem-48` <sup>†</sup>
+- `c4d-highmem-64` <sup>†</sup>
+- `c4d-highmem-96` <sup>†</sup>
+- `c4d-highmem-192` <sup>†</sup>
+- `c4d-highmem-384` <sup>†</sup>
+- `c4d-highcpu-16` <sup>†</sup>
+- `c4d-highcpu-32` <sup>†</sup>
+- `c4d-highcpu-48` <sup>†</sup>
+- `c4d-highcpu-64` <sup>†</sup>
+- `c4d-highcpu-96` <sup>†</sup>
+- `c4d-highcpu-192` <sup>†</sup>
+- `c4d-highcpu-384` <sup>†</sup>
+- `c3-standard-4` <sup>†</sup>
+- `c3-standard-8` <sup>†</sup>
+- `c3-standard-22` <sup>†</sup>
+- `c3-standard-44` <sup>†</sup>
+- `c3-standard-88` <sup>†</sup>
+- `c3-standard-176` <sup>†</sup>
+- `c3-highmem-4` <sup>†</sup>
+- `c3-highmem-8` <sup>†</sup>
+- `c3-highmem-22` <sup>†</sup>
+- `c3-highmem-44` <sup>†</sup>
+- `c3-highmem-88` <sup>†</sup>
+- `c3-highmem-176` <sup>†</sup>
+- `c3-highcpu-8` <sup>†</sup>
+- `c3-highcpu-22` <sup>†</sup>
+- `c3-highcpu-44` <sup>†</sup>
+- `c3-highcpu-88` <sup>†</sup>
+- `c3-highcpu-176` <sup>†</sup>
 - `c2-standard-4`
 - `c2-standard-8`
 - `c2-standard-16`
@@ -171,6 +289,8 @@ In your `WorkerPoolSpec` , you must specify one of the following machine types i
 - `g4-standard-384` <sup>\*</sup>
 
 \* Machine types marked with asterisks in the preceding list must be used with certain GPUs or TPUs. See the following sections of this guide.
+
+† Machine types marked with daggers in the preceding list are available only in the `us-central1` , `us-east1` , and `us-west1` regions.
 
 To learn about the technical specifications of each machine type, read the [Compute Engine documentation about machine types](https://docs.cloud.google.com/compute/docs/machine-resource) . To learn about the cost of using each machine type for serverless training, read [Pricing](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing) .
 
@@ -853,7 +973,7 @@ You can optionally customize the boot disks for your training VMs. All VMs in a 
   - `pd-ssd` to use an SSD persistent disk backed by a solid-state drive
   - [`hyperdisk-balanced`](https://docs.cloud.google.com/compute/docs/disks/hyperdisks) for higher IOPS and throughput rates.
 
-  The default value is `pd-ssd` ( `hyperdisk-balanced` is the default for `a3-ultragpu-8g` and `a4-highgpu-8g` ).
+  The default value is `pd-ssd` ( `hyperdisk-balanced` is the default for `a3-ultragpu-8g` , `a4-highgpu-8g` , and the N4D, C4, and C4D machine types).
 
   Using `pd-ssd` or [`hyperdisk-balanced`](https://docs.cloud.google.com/compute/docs/disks/hyperdisks#machine-type-support) might improve performance if your training code reads and writes to disk. Learn about [disk types](https://docs.cloud.google.com/compute/docs/disks#disk-types) . Also see [hyperdisk supported machines](https://docs.cloud.google.com/compute/docs/disks/hyperdisks#machine-type-support) .
 

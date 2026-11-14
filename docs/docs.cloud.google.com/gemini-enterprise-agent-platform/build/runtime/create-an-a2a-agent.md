@@ -64,7 +64,9 @@ agent_card = create_agent_card(
 
 ### Define an `AgentExecutor`
 
-The following code example defines an `AgentExecutor` that responds with the currency exchange rate. It takes a `CurrencyAgent` instance and initializes the ADK Runner to execute requests.
+The following code example defines a custom `AgentExecutor` that responds with the currency exchange rate. It takes a `CurrencyAgent` instance and initializes the ADK `Runner` to execute requests.
+
+> **Note:** For ADK agents, you can also use the built-in `A2aAgentExecutor` ( `from google.adk.a2a.executor.a2a_agent_executor import A2aAgentExecutor` ). You must use `A2aAgentExecutor` if your agent uses long-running tool interrupts, such as 3-legged OAuth (3LO) with [Agent Identity auth manager](https://docs.cloud.google.com/iam/docs/auth-with-3lo-v2) and [Gemini Enterprise](https://docs.cloud.google.com/gemini/enterprise/docs/register-and-manage-an-a2a-agent#configure-auth-manager) , because `A2aAgentExecutor` automatically converts `adk_request_credential` events into the `TASK_STATE_AUTH_REQUIRED` A2A task state.
 
 ```
 import requests

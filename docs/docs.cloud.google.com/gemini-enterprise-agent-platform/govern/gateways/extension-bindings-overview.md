@@ -309,6 +309,8 @@ This section provides sample YAML file configurations for common situations base
 
 As a custom (2P or 3P) producer, host your `ext_proc` based service extension implementation behind a Private Service Connect Attachment. Once your attachment is ready, create a `ProducerExtension` resource specifying the request processing phase where your extension operates, the authority to use, and the URI to the PSC attachment for your `ext_proc` service:
 
+Note that global access must be enabled for the PSC attachment.
+
 ```
 gcloud beta service-extensions producer-extensions create PRODUCER_EXTENSION_NAME \
   --phase authz \
@@ -326,7 +328,7 @@ Replace the following:
 
 For producers who want to run their custom `ext_proc` gRPC service without managing dedicated clusters or VMs, Cloud Run is an ideal, serverless alternative.
 
-To publish your serverless extension as a `ProducerExtension` , expose it using Private Service Connect (PSC). Because `ProducerExtension` resources require a PSC Service Attachment URI, and Service Attachments target load balancer forwarding rules rather than Cloud Run services directly, place an Application Load Balancer (using a Serverless NEG backend) in front of your Cloud Run service.
+To publish your serverless extension as a `ProducerExtension` , expose it using Private Service Connect (PSC). Because `ProducerExtension` resources require a global access-enabled PSC Service Attachment URI, and Service Attachments target load balancer forwarding rules rather than Cloud Run services directly, place an Application Load Balancer (using a Serverless NEG backend) in front of your Cloud Run service.
 
 ![Extension Bindings for 2P Services on Cloud Run .](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/images/2prundeployment.svg)
 
@@ -338,13 +340,15 @@ Here is the high-level deployment workflow for hosting your extension on Cloud R
 
 2.  **Create a Serverless NEG:** Deploy a Serverless Network Endpoint Group (NEG) that points to the extension running on Cloud Run.
 
-3.  **Set up a Load Balancer with the Serverless NEG backend:** Set up a regional Application Load Balancer inside your VPC network, with the Serverless NEG as its backend.
+3.  **Set up a Load Balancer with the Serverless NEG backend:** Set up a global access-enabled regional Application Load Balancer inside your VPC network, with the Serverless NEG as its backend.
 
-4.  **Publish your Service with PSC:** Create a Private Service Connect Service Attachment pointing directly at the load balancer forwarding rule. This generates a unique Service Attachment URI (for example, `projects/.../regions/.../serviceAttachments/...` ).
+4.  **Publish your Service with PSC:** Create a Private Service Connect Service Attachment pointing directly at the global access-enabled load balancer forwarding rule. This generates a unique Service Attachment URI (for example, `projects/.../regions/.../serviceAttachments/...` ).
 
 5.  **Create your Producer Extension:** Use this generated URI to instantiate your `ProducerExtension` resource.
 
-6.  **Bind consumer workloads:** Consumers can now bind their gateways to your extension by referencing the `ProducerExtension` resource URI.
+6.  **Authorize consumers to create PSC endpoints:** Grant your consumers access to create PSC endpoints to your Service Attachment.
+
+7.  **Bind consumer workloads:** Consumers can now bind their gateways to your extension by referencing the `ProducerExtension` resource URI.
 
 ## Appendix: Contextual metadata for custom extensions
 

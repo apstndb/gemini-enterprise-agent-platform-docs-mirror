@@ -10,9 +10,11 @@ data_source: docs.cloud.google.com
 >
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
-Muse Ember from Meta is an efficient reasoning model built for high-volume agent tasks, including tool calls, coding subtasks, routing, extraction, and long-document processing. It accepts text and image inputs with a 1M-token context window. Pair it with Muse Wonder or Muse Spark 1.3 for multi-step planning and reasoning.
+Muse Ember from Meta is an efficient reasoning model built for high-volume agent tasks, including tool calls, coding subtasks, routing, extraction, and long-document processing. It accepts text and image inputs with a 1M-token context window and up to 524,288 output tokens. Pair it with Muse Wonder or Muse Spark 1.3 for multi-step planning and reasoning.
 
 Requests on the global `/locations/global/publishers/meta/v1/responses` endpoint pass the bare model ID `muse-ember-1.0` in the `model` field. For an example request, see [Use Meta models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta#use-meta-models) .
+
+[View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/muse-ember-1.0)
 
 <table>
 <colgroup>
@@ -48,12 +50,14 @@ Text</li>
 <th>Capabilities</th>
 <td>Supported
 <ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta#use-meta-models">Responses API</a> preview Preview feature</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta#use-meta-models">Function calling</a> preview Preview feature</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta#use-meta-models">Structured output</a> preview Preview feature</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta#use-meta-models">Reasoning</a> preview Preview feature</li>
 </ul>
 Not supported
 <ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta#use-meta-models">Chat Completions API</a> preview Preview feature</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/batch-prediction">Batch predictions</a> preview Preview feature</li>
 </ul></td>
 </tr>
@@ -103,3 +107,21 @@ Not supported
 </tr>
 </tbody>
 </table>
+
+## Inference parameters and limitations
+
+Keep the following inference parameters and limitations in mind when sending requests:
+
+- **Reasoning effort:** Set `reasoning.effort` to `minimal` , `low` , `medium` , `high` , `xhigh` , or `max` (use `xhigh` or `max` for agentic and coding work). `none` isn't supported. Pricing is the same at every effort level.
+- **Reasoning output:** Reasoning content is returned in encrypted form for multi-turn replay. Reasoning summaries are returned at higher effort levels and might be absent at lower ones.
+- **Tool calling:** Supports built-in tool calling with Model Context Protocol (MCP) support. `tool_choice` supports `auto` only ( `none` , `required` , and named-function choices aren't supported).
+- **Recommended sampling:** `temperature` `1.0` , `top_p` `1.0` ( `top_k` disabled).
+- **Recommended pairing:** Pair Muse Ember with Muse Wonder for complex open-ended coding, or use retrieval for knowledge-heavy recall.
+- **Known limitations:** Audio, video, and PDF inputs, chat completions, and stateful response storage ( `store: true` ) aren't supported. For the full capability list, see the table earlier on this page.
+
+## What's next
+
+- Send requests using [Use Meta models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta#use-meta-models) .
+- View [Muse Ember on Google Cloud Marketplace](https://console.cloud.google.com/marketplace/product/meta/muse-ember-1-0) .
+- Explore the [Meta Model API documentation](https://dev.meta.ai/docs) .
+- Review the [Meta Model API Terms of Service](https://dev.meta.ai/legal/terms-of-service) and [Acceptable Use Policy](https://dev.meta.ai/legal/acceptable-use-policy) , which apply alongside the Google Cloud Marketplace Terms of Service.

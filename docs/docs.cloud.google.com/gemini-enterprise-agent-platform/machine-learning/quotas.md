@@ -223,6 +223,49 @@ The following quotas apply to Gemini Enterprise Agent Platform custom-trained mo
 | `europe-west12`                            | 450   |
 | `africa-south1`                            | 450   |
 
+| Number of N2D CPUs for training, per region |       |
+|---------------------------------------------|-------|
+| Region                                      | Value |
+| `us-west1`                                  | 90    |
+| `us-west2`                                  | 180   |
+| `us-west3`                                  | 90    |
+| `us-west4`                                  | 180   |
+| `us-central1`                               | 180   |
+| `us-east1`                                  | 180   |
+| `us-east4`                                  | 180   |
+| `us-east5`                                  | 180   |
+| `us-south1`                                 | 180   |
+| `northamerica-northeast1`                   | 180   |
+| `northamerica-northeast2`                   | 21    |
+| `southamerica-east1`                        | 90    |
+| `southamerica-west1`                        | 180   |
+| `europe-west2`                              | 180   |
+| `europe-west1`                              | 180   |
+| `europe-west4`                              | 180   |
+| `europe-west6`                              | 180   |
+| `europe-west3`                              | 180   |
+| `europe-north1`                             | 180   |
+| `europe-central2`                           | 90    |
+| `europe-west8`                              | 90    |
+| `europe-west9`                              | 90    |
+| `europe-southwest1`                         | 90    |
+| `asia-south1`                               | 180   |
+| `asia-south2`                               | 180   |
+| `asia-southeast1`                           | 180   |
+| `asia-southeast2`                           | 180   |
+| `asia-east2`                                | 90    |
+| `asia-east1`                                | 180   |
+| `asia-northeast1`                           | 180   |
+| `asia-northeast2`                           | 90    |
+| `australia-southeast1`                      | 90    |
+| `australia-southeast2`                      | 90    |
+| `asia-northeast3`                           | 180   |
+| `me-west1`                                  | 90    |
+| `me-central1`                               | 90    |
+| `me-central2`                               | 21    |
+| `europe-west12`                             | 90    |
+| `africa-south1`                             | 21    |
+
 | Number of N4 CPUs for training, per region |       |
 |--------------------------------------------|-------|
 | Region                                     | Value |
@@ -265,6 +308,49 @@ The following quotas apply to Gemini Enterprise Agent Platform custom-trained mo
 | `me-central2`                              | 450   |
 | `europe-west12`                            | 450   |
 | `africa-south1`                            | 450   |
+
+| Number of N4D CPUs for training, per region |       |
+|---------------------------------------------|-------|
+| Region                                      | Value |
+| `us-west1`                                  | 20    |
+| `us-west2`                                  | 20    |
+| `us-west3`                                  | 20    |
+| `us-west4`                                  | 20    |
+| `us-central1`                               | 180   |
+| `us-east1`                                  | 20    |
+| `us-east4`                                  | 20    |
+| `us-east5`                                  | 450   |
+| `us-south1`                                 | 20    |
+| `northamerica-northeast1`                   | 20    |
+| `northamerica-northeast2`                   | 20    |
+| `southamerica-east1`                        | 20    |
+| `southamerica-west1`                        | 450   |
+| `europe-west2`                              | 20    |
+| `europe-west1`                              | 20    |
+| `europe-west4`                              | 450   |
+| `europe-west6`                              | 20    |
+| `europe-west3`                              | 20    |
+| `europe-north1`                             | 450   |
+| `europe-central2`                           | 20    |
+| `europe-west8`                              | 450   |
+| `europe-west9`                              | 450   |
+| `europe-southwest1`                         | 450   |
+| `asia-south1`                               | 20    |
+| `asia-south2`                               | 20    |
+| `asia-southeast1`                           | 20    |
+| `asia-southeast2`                           | 20    |
+| `asia-east2`                                | 20    |
+| `asia-east1`                                | 450   |
+| `asia-northeast1`                           | 20    |
+| `asia-northeast2`                           | 180   |
+| `australia-southeast1`                      | 20    |
+| `australia-southeast2`                      | 450   |
+| `asia-northeast3`                           | 20    |
+| `me-west1`                                  | 20    |
+| `me-central1`                               | 450   |
+| `me-central2`                               | 450   |
+| `europe-west12`                             | 450   |
+| `africa-south1`                             | 450   |
 
 | Number of M1 CPUs for training, per region |       |
 |--------------------------------------------|-------|
@@ -351,6 +437,135 @@ The following quotas apply to Gemini Enterprise Agent Platform custom-trained mo
 | `me-central2`                              | 20    |
 | `europe-west12`                            | 20    |
 | `africa-south1`                            | 20    |
+
+| Number of C3 CPUs for training, per region |       |
+|--------------------------------------------|-------|
+| Region                                     | Value |
+| `us-west1`                                 | 21    |
+| `us-west2`                                 | 21    |
+| `us-west3`                                 | 21    |
+| `us-west4`                                 | 21    |
+| `us-central1`                              | 21    |
+| `us-east1`                                 | 21    |
+| `us-east4`                                 | 21    |
+| `us-east5`                                 | 21    |
+| `us-south1`                                | 21    |
+| `northamerica-northeast1`                  | 21    |
+| `northamerica-northeast2`                  | 21    |
+| `southamerica-east1`                       | 21    |
+| `southamerica-west1`                       | 21    |
+| `europe-west2`                             | 21    |
+| `europe-west1`                             | 21    |
+| `europe-west4`                             | 21    |
+| `europe-west6`                             | 21    |
+| `europe-west3`                             | 21    |
+| `europe-north1`                            | 21    |
+| `europe-central2`                          | 21    |
+| `europe-west8`                             | 21    |
+| `europe-west9`                             | 21    |
+| `europe-southwest1`                        | 21    |
+| `asia-south1`                              | 21    |
+| `asia-south2`                              | 21    |
+| `asia-southeast1`                          | 21    |
+| `asia-southeast2`                          | 21    |
+| `asia-east2`                               | 21    |
+| `asia-east1`                               | 21    |
+| `asia-northeast1`                          | 21    |
+| `asia-northeast2`                          | 21    |
+| `australia-southeast1`                     | 21    |
+| `australia-southeast2`                     | 21    |
+| `asia-northeast3`                          | 21    |
+| `me-west1`                                 | 21    |
+| `me-central1`                              | 21    |
+| `me-central2`                              | 21    |
+| `europe-west12`                            | 21    |
+| `africa-south1`                            | 21    |
+
+| Number of C4 CPUs for training, per region |       |
+|--------------------------------------------|-------|
+| Region                                     | Value |
+| `us-west1`                                 | 0     |
+| `us-west2`                                 | 21    |
+| `us-west3`                                 | 21    |
+| `us-west4`                                 | 21    |
+| `us-central1`                              | 21    |
+| `us-east1`                                 | 21    |
+| `us-east4`                                 | 21    |
+| `us-east5`                                 | 21    |
+| `us-south1`                                | 21    |
+| `northamerica-northeast1`                  | 21    |
+| `northamerica-northeast2`                  | 21    |
+| `southamerica-east1`                       | 21    |
+| `southamerica-west1`                       | 21    |
+| `europe-west2`                             | 21    |
+| `europe-west1`                             | 21    |
+| `europe-west4`                             | 21    |
+| `europe-west6`                             | 21    |
+| `europe-west3`                             | 21    |
+| `europe-north1`                            | 21    |
+| `europe-central2`                          | 21    |
+| `europe-west8`                             | 21    |
+| `europe-west9`                             | 21    |
+| `europe-southwest1`                        | 21    |
+| `asia-south1`                              | 21    |
+| `asia-south2`                              | 21    |
+| `asia-southeast1`                          | 21    |
+| `asia-southeast2`                          | 21    |
+| `asia-east2`                               | 21    |
+| `asia-east1`                               | 21    |
+| `asia-northeast1`                          | 21    |
+| `asia-northeast2`                          | 21    |
+| `australia-southeast1`                     | 21    |
+| `australia-southeast2`                     | 21    |
+| `asia-northeast3`                          | 21    |
+| `me-west1`                                 | 21    |
+| `me-central1`                              | 21    |
+| `me-central2`                              | 21    |
+| `europe-west12`                            | 21    |
+| `africa-south1`                            | 21    |
+
+| Number of C4D CPUs for training, per region |       |
+|---------------------------------------------|-------|
+| Region                                      | Value |
+| `us-west1`                                  | 0     |
+| `us-west2`                                  | 21    |
+| `us-west3`                                  | 21    |
+| `us-west4`                                  | 21    |
+| `us-central1`                               | 21    |
+| `us-east1`                                  | 21    |
+| `us-east4`                                  | 21    |
+| `us-east5`                                  | 21    |
+| `us-south1`                                 | 21    |
+| `northamerica-northeast1`                   | 21    |
+| `northamerica-northeast2`                   | 21    |
+| `southamerica-east1`                        | 21    |
+| `southamerica-west1`                        | 21    |
+| `europe-west2`                              | 21    |
+| `europe-west1`                              | 21    |
+| `europe-west4`                              | 21    |
+| `europe-west6`                              | 21    |
+| `europe-west3`                              | 21    |
+| `europe-north1`                             | 21    |
+| `europe-central2`                           | 21    |
+| `europe-west8`                              | 21    |
+| `europe-west9`                              | 21    |
+| `europe-southwest1`                         | 21    |
+| `asia-south1`                               | 21    |
+| `asia-south2`                               | 21    |
+| `asia-southeast1`                           | 21    |
+| `asia-southeast2`                           | 21    |
+| `asia-east2`                                | 21    |
+| `asia-east1`                                | 21    |
+| `asia-northeast1`                           | 21    |
+| `asia-northeast2`                           | 21    |
+| `australia-southeast1`                      | 21    |
+| `australia-southeast2`                      | 21    |
+| `asia-northeast3`                           | 21    |
+| `me-west1`                                  | 21    |
+| `me-central1`                               | 21    |
+| `me-central2`                               | 21    |
+| `europe-west12`                             | 21    |
+| `africa-south1`                             | 21    |
 
 | Number of A2 CPUs for training, per region |               |
 |--------------------------------------------|---------------|

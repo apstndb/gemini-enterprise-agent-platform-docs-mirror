@@ -53,25 +53,27 @@ To deploy a partner model in the Google Cloud console, do the following:
 The following sample shows how to deploy a partner model using the Agent Platform SDK for Python. Replace the placeholder values with your specific information.
 
 ```
-import vertexai
-from vertexai import model_garden
+import agentplatform
+from agentplatform import types
 
-vertexai.init(project="PROJECT_ID", location="LOCATION")
+client = agentplatform.Client(project="PROJECT_ID", location="LOCATION")
 
-# Replace with the actual partner model ID from Model Garden
-model = model_garden.OpenModel("PARTNER_MODEL_ID")
-endpoint = model.deploy(
-  accept_eula=True,
-  machine_type="MACHINE_TYPE",  # e.g., "a3-ultragpu-8g"
-  accelerator_type="ACCELERATOR_TYPE",  # e.g., "NVIDIA_H200_141GB"
-  accelerator_count=ACCELERATOR_COUNT,  # e.g., 8
-  serving_container_image_uri="SERVING_CONTAINER_IMAGE_URI",
-  endpoint_display_name="ENDPOINT_DISPLAY_NAME",
-  model_display_name="MODEL_DISPLAY_NAME",
-  use_dedicated_endpoint=True,
+response = client.model_garden.deploy_publisher_model(
+  # Replace with the actual partner model ID from Model Garden
+  model="PARTNER_MODEL_ID",
+  config=types.DeployPublisherModelConfig(
+    accept_eula=True,
+    machine_type="MACHINE_TYPE",  # e.g., "a3-ultragpu-8g"
+    accelerator_type="ACCELERATOR_TYPE",  # e.g., "NVIDIA_H200_141GB"
+    accelerator_count=ACCELERATOR_COUNT,  # e.g., 8
+    endpoint_display_name="ENDPOINT_DISPLAY_NAME",
+    model_display_name="MODEL_DISPLAY_NAME",
+  ),
 )
-print(f"Model deployed to endpoint: {endpoint.resource_name}")
+print(f"Model deployed to endpoint: {response.endpoint}")
 ```
+
+Use a machine type and accelerator from the model's verified deployment options. To list them, call `client.model_garden.list_publisher_model_deploy_options(model=" `` PARTNER_MODEL_ID `` ")` . Partner models use their publisher's serving container, so you can't override the container image.
 
 ## What's next
 
