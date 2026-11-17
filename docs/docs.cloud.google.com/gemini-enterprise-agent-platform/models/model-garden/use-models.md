@@ -1162,7 +1162,7 @@ Undeploy a model from its endpoint.
 
 3.  Click the endpoint name to open the details page.
 
-4.  On the row for the model, click more_vert **Actions** , and then select **Undeploy model from endpoint** .
+4.  On the row for the model, click **Actions** , and then select **Undeploy model from endpoint** .
 
 5.  In the **Undeploy model from endpoint** dialog, click **Undeploy** .
 
@@ -1263,7 +1263,7 @@ Delete the Gemini Enterprise Agent Platform endpoint that was associated with yo
 
 2.  In the **Region** drop-down list, choose the region your endpoint is located.
 
-3.  At the end of the endpoint's row, click more_vert **Actions** , and then select **Delete endpoint** .
+3.  At the end of the endpoint's row, click **Actions** , and then select **Delete endpoint** .
 
 4.  In the confirmation prompt, click **Confirm** .
 
@@ -1325,7 +1325,7 @@ Delete the model resource that was associated with your model deployment.
 
 2.  In the **Region** drop-down list, choose the region where you deployed your model.
 
-3.  On the row for your model, click more_vert **Actions** and then select **Delete model** .
+3.  On the row for your model, click **Actions** and then select **Delete model** .
 
     When you delete the model, all associated model versions and evaluations are deleted from your Google Cloud project.
 

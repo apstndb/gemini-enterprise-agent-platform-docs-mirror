@@ -13,7 +13,7 @@ data_source: docs.cloud.google.com
 > **Notice:** Flex PayGo is supported only in select Gemini 3.8 Flash and earlier models. It is not supported in newer Gemini models such as Gemini 4 Argon. Existing [supported models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/flex-paygo#supported-models) remain available. Consider moving to one of the following options:
 >
 > - **[Batch API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference)** : Best for latency-tolerant, high-volume offline jobs
-> - **[Deferred Agentic API](https://docs.google.com/document/d/19WXEk8FPD-QbHzHLfJIV3-cpbep_ZPZjmkrdZNoeXUE/edit?resourcekey=0-oDk0z1zbdv_gAuiQA_zgjg)** : Best for asynchronous agentic and tool-calling workloads for third-party and custom agents
+> - **[Deferred tier](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deferred-tier)** : Best for asynchronous agentic and tool-calling workloads for third-party and custom agents
 
 Flex pay-as-you-go (Flex PayGo), is a cost-effective option for accessing Gemini models for non-critical workloads that can tolerate longer response times and higher throttling. Flex PayGo offers a 50% discount compared to Standard PayGo.
 
@@ -31,7 +31,7 @@ Flex PayGo is ideal for the synchronous, latency-tolerant, and non-critical task
 
 - Building a product catalog
 
-> **Note:** For large workloads that can tolerate 24-hour turnaround times and process hundreds of billions of tokens daily, we recommend [Batch inference with Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference) for improved throughput and success rate.
+[Batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference) improves throughput and success rates for large, 24-hour workloads that process hundreds of billions of tokens daily.
 
 ## Supported models and locations
 

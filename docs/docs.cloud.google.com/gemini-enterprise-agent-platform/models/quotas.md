@@ -104,7 +104,7 @@ To view and edit generative media quotas in the Google Cloud console, do the fol
       - **Lyria** : `global_generate_content_requests_per_minute_per_project_per_base_model`
     - ` MODEL_NAME ` : The name of the model that you are using.
 
-4.  To adjust the quota, click more_vert **More** and then select **Edit quota** .
+4.  To adjust the quota, click **More** and then select **Edit quota** .
 
 5.  Enter a new quota value in the pane, and click **Submit request** .
 
@@ -136,6 +136,25 @@ To view and edit the quotas in the Google Cloud console, do the following:
 2.  To adjust the quota, copy and paste the property `aiplatform.googleapis.com/textembedding_gecko_concurrent_batch_prediction_jobs` in the **Filter** . Press **Enter** .
 3.  Click the three dots at the end of the row, and select **Edit quota** .
 4.  Enter a new quota value in the pane, and click **Submit request** .
+
+## Deferred tier quotas and limits
+
+The [Deferred tier](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deferred-tier) doesn't have its own model-call quota. Deferred model calls share the per-base-model request quota of Flex pay-as-you-go. The following table lists the quotas, payload limits, and retention limits that apply to deferred interactions:
+
+| Quota or limit                                                               | Default value                                                | Scope and enforcement                                                                                                                                  |
+|------------------------------------------------------------------------------|--------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Interaction creation rate ( `stateful_genai_interaction_creations` )         | 100 RPM or unlimited, depending on your project's quota tier | Per project. Checked when you call `interactions.create` .                                                                                             |
+| Model request rate ( `flex_requests_per_minute_per_project_per_base_model` ) | 3,000 RPM                                                    | Per project and base model, shared with Flex PayGo. Checked on each model call after the turn is queued.                                               |
+| Concurrent interaction generations ( `concurrent_interaction_generations` )  | Up to 500, depending on your project's quota tier            | Interactions that generate output at the same time in a project.                                                                                       |
+| Stateful creation throughput                                                 | 240 GiB per day                                              | Interaction data written per project per day. This limit is fixed and can't be increased.                                                              |
+| Stateful retrieval throughput                                                | 480 GiB per day                                              | Stored interaction data read per project per day through `interactions.get` or `previous_interaction_id` . This limit is fixed and can't be increased. |
+| Uncompressed HTTP request body                                               | 9.75 MiB                                                     | Per `interactions.create` call. Larger requests return HTTP `400` ( `"code": "invalid_request"` ).                                                     |
+| Cloud Storage ( `gs://` ) URI references                                     | 100 URIs, each up to 2 GiB minus 500 KiB                     | Counted across the current turn and its linked `previous_interaction_id` history.                                                                      |
+| Server-side state retention                                                  | 7 days                                                       | Time to live (TTL) for `store=true` interactions, starting at creation.                                                                                |
+
+Because the model request rate is checked after `interactions.create` returns `queued` , `interactions.create` doesn't return `429` for this quota. Errors for this quota include `Flex API request quota exceeded` .
+
+In the Google Cloud console, go to the **Quotas & System Limits** page to view your quota values, filter by the quota name, or request an adjustment for adjustable quotas.
 
 ## Semantic governance policy quotas
 

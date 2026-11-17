@@ -61,7 +61,7 @@ If you have permission to grant roles, then you can instead grant these roles wh
 
 ## Create a prompt with prompt variables
 
-Navigate to the [create prompt page](https://console.cloud.google.com/agent-platform/studio/multimodal) of Agent Studio, and then click data_object **Add variable** in the prompt input box.
+Navigate to the [create prompt page](https://console.cloud.google.com/agent-platform/studio/multimodal) of Agent Studio, and then click **Add variable** in the prompt input box.
 
 In the **Manage prompt variables** dialog, enter a variable name and give it a value. Then click **Apply** .
 
@@ -71,7 +71,7 @@ In the prompt input box, compose the prompt using the variable and then adjust o
 
 ## Deploy your prompt as a web application
 
-To deploy your prompt as a web application, click rocket_launch , and then click **Deploy as app** .
+To deploy your prompt as a web application, click , and then click **Deploy as app** .
 
 ![Click build with code button and click deploy as app](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/agent-studio/images/deploy/04-click-build-with-code-button.png)
 
@@ -113,7 +113,7 @@ Once the deployment is complete, the status column will change to **Ready** , an
 
 ### Access control and secret key
 
-Your web application is deployed with **Allow unauthenticated** access control enabled by default. You can turn it off by clicking the edit pencil icon button. See the [turn off public access section](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/deploy-vais-prompt#turn-off-public-access) for more information.
+Your web application is deployed with **Allow unauthenticated** access control enabled by default. You can turn it off by clicking the pencil icon button. See the [turn off public access section](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/deploy-vais-prompt#turn-off-public-access) for more information.
 
 To provide basic protection, the web application requires a secret key to be appended to the URL for submitting the prompt. You can find the secret key in the **Secret Key** column. If you open the web application from Agent Studio, the key will be appended to the URL for you.
 
@@ -175,7 +175,7 @@ Once you are familiar with the deployment process, you can consider the followin
 
 ### Edit source code in Cloud Run
 
-If you want to customize the web application, you can make changes to the source code in Cloud Run. Open the Cloud Run source code page from the **Manage web app** dialog by clicking the more_vert more icon button at the end of the row. ![open source code editor from the manage web app dialog](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/agent-studio/images/deploy/adv-edit-01-open-source-code.png)
+If you want to customize the web application, you can make changes to the source code in Cloud Run. Open the Cloud Run source code page from the **Manage web app** dialog by clicking the more icon button at the end of the row. ![open source code editor from the manage web app dialog](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/agent-studio/images/deploy/adv-edit-01-open-source-code.png)
 
 Alternatively, you can also navigate to the security page from the web application by clicking the **source code editor** link.
 
@@ -191,7 +191,7 @@ To grant users or groups access to the app, follow these steps:
 
 1.  Open the **Manage Web App** dialog.
 
-2.  Click the edit pencil icon in the **Access Control** column. The Cloud Run security page opens in a new tab.
+2.  Click the pencil icon in the **Access Control** column. The Cloud Run security page opens in a new tab.
 
 3.  On the Cloud Run security page, find the checkbox for Identity-Aware Proxy (IAP). Make sure it is checked, and then click **Edit Policy** .
 
@@ -209,7 +209,7 @@ To grant users or groups access to the app, follow these steps:
 
 ### Turn off public access
 
-When you don't need the web application to be publicly accessible, you can turn it off in Cloud Run. Open the **Manage Web App** dialog, and click the edit pencil icon in the **Access Control** column. The Cloud Run security page will open in a new tab.
+When you don't need the web application to be publicly accessible, you can turn it off in Cloud Run. Open the **Manage Web App** dialog, and click the pencil icon in the **Access Control** column. The Cloud Run security page will open in a new tab.
 
 You can also navigate to the security page from the web application by clicking the **Security settings** link.
 
@@ -223,9 +223,9 @@ If you want to turn back public access, clear the **Use Cloud IAM to authenticat
 
 ### Set up local access for development
 
-In the Public Preview, access control is not yet supported. Therefore, once you turn off public access, the only way you can access the web application is by setting up a local proxy. You can do this through gcloud commands. First, open Cloud Shell through the terminal terminal icon button in the top right corner of the Google Cloud console. It will ask you to authorize Cloud Shell. Click **Authorize** to continue.
+In the Public Preview, access control is not yet supported. Therefore, once you turn off public access, the only way you can access the web application is by setting up a local proxy. You can do this through gcloud commands. First, open Cloud Shell through the terminal icon button in the top right corner of the Google Cloud console. It will ask you to authorize Cloud Shell. Click **Authorize** to continue.
 
-Once it is done, open the **Manage web app** dialog and click the more_vert more icon button at the end of the row to see more actions. Click **Set up local access via Cloud Shell** . ![Get set up local access command from the manage web app dialog](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/agent-studio/images/deploy/adv-05-cloud-shell-command.png)
+Once it is done, open the **Manage web app** dialog and click the more icon button at the end of the row to see more actions. Click **Set up local access via Cloud Shell** . ![Get set up local access command from the manage web app dialog](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/agent-studio/images/deploy/adv-05-cloud-shell-command.png)
 
 A command will be added to your Cloud Shell. Press enter and wait for it to finish printing. Click the link in the line starting with `Click on the link to preview` . You will be able to view your application. This link only works when you have the gcloud command running. ![Local access link in Cloud Shell](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/agent-studio/images/deploy/adv-06-local-access.png)
 

@@ -55,7 +55,7 @@ You can create a Gemini Enterprise Agent Platform Workbench using third party cr
 
 2.  In the Google Cloud console, go to the **Instances** page.
 
-3.  Click add_box **Create new** .
+3.  Click **Create new** .
 
 4.  In the **New instance** dialog, click **Advanced options** .
 

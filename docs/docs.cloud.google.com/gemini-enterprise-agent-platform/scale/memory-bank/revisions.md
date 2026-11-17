@@ -198,7 +198,7 @@ Viewing memory revisions in the Google Cloud console requires the `aiplatform.me
 
 2.  Open the **Memories** tab:
 
-    - **Unstructured memories** : On a memory row, click the **more actions** menu ( more_vert ) \> **View revisions** .
+    - **Unstructured memories** : On a memory row, click the **more actions** menu ( ) \> **View revisions** .
     - **Structured profiles** (standalone instances): Select **Structured** , choose a complete scope, click **View** on a profile row to open **Memory details** , and click **View revisions** for a memory fact.
 
     The revisions panel lists each revision's **Created** , **Expires** , **Fact** , and **Context** fields.

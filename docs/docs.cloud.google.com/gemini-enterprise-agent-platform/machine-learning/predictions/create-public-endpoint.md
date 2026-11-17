@@ -19,7 +19,7 @@ The default request timeout for a dedicated public endpoint is 10 minutes. In th
 ### Google Cloud console
 
 1.  In the Google Cloud console, in the Agent Platform section, go to the **Online prediction** page.  
-2.  Click add **Create** .
+2.  Click **Create** .
 3.  In the **New endpoint** pane:
     1.  Enter the **Endpoint name** .
     2.  Select **Standard** for the access type.
@@ -181,7 +181,7 @@ Modifications to the request-response logging settings after endpoint creation c
 ### Google Cloud console
 
 1.  In the Google Cloud console, in the Agent Platform section, go to the **Online prediction** page.  
-2.  Click add **Create** .
+2.  Click **Create** .
 3.  In the **New endpoint** pane:
     1.  Enter the **Endpoint name** .
     2.  Select **Standard** for the access type.

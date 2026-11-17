@@ -89,7 +89,7 @@ Magic commands that use a single or double percentage character ( `%` or `%%` ) 
       num_regions DESC;
     ```
 
-4.  Click play_circle_filled **Run cell** .
+4.  Click **Run cell** .
 
     The output is similar to the following:
 
@@ -146,7 +146,7 @@ Magic commands that use a single or double percentage character ( `%` or `%%` ) 
 
     **Note:** For more information about available arguments for the `%%bigquery` command, see the [client library magics documentation](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/magics) .
 
-6.  Click play_circle_filled **Run cell** .
+6.  Click **Run cell** .
 
 7.  In the next cell, enter the following command to look at the first few rows of the query results that you just read in:
 
@@ -154,7 +154,7 @@ Magic commands that use a single or double percentage character ( `%` or `%%` ) 
     regions_by_country.head()
     ```
 
-8.  Click play_circle_filled **Run cell** .
+8.  Click **Run cell** .
 
     The pandas DataFrame `regions_by_country` is ready to plot.
 
@@ -176,7 +176,7 @@ The client library gives you more control over your queries and lets you use mor
 
     The BigQuery client is used to send and receive messages from the BigQuery API.
 
-2.  Click play_circle_filled **Run cell** .
+2.  Click **Run cell** .
 
 3.  In the next cell, enter the following code to retrieve the percentage of daily top terms in the US [`top_terms`](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_trends&t=top_terms&page=table) that overlap across time by number of days apart. The idea here is to look at each day's top terms and see what percentage of them overlap with the top terms from the day before, 2 days prior, 3 days prior, and so on (for all pairs of dates over about a month span).
 
@@ -227,7 +227,7 @@ The client library gives you more control over your queries and lets you use mor
 
     The SQL being used is encapsulated in a Python string and then passed to the [`query()` method](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client#google_cloud_bigquery_client_Client_query) to run a query. The [`to_dataframe` method](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.job.QueryJob#google_cloud_bigquery_job_QueryJob_to_dataframe) waits for the query to finish and downloads the results to a pandas DataFrame by using the BigQuery Storage API.
 
-4.  Click play_circle_filled **Run cell** .
+4.  Click **Run cell** .
 
     The first few rows of query results appear below the code cell.
 
@@ -258,7 +258,7 @@ To use the in-cell query editor to query data in a BigQuery table, complete the 
 
 1.  In JupyterLab, open a notebook (IPYNB) file or [create a new one](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-console-quickstart#open-a-new-notebook-file) .
 
-2.  To create an in-cell query editor, click the cell, and then to the right of the cell, click the ![](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/notebooks/workbench/images/icon-bigquery.png) **BigQuery Integration** button. Or in a markdown cell, enter `#@BigQuery` .
+2.  To create an in-cell query editor, click the cell, and then to the right of the cell, click the **BigQuery Integration** button. Or in a markdown cell, enter `#@BigQuery` .
 
     The BigQuery integration converts the cell into an in-cell query editor.
 
@@ -297,7 +297,7 @@ To view your query history as a tab in JupyterLab, perform the following steps:
     - To view the details of a query such as its Job ID, when the query was run, and how long it took, click the query.
     - To revise the query, run it again, or copy it into your notebook for future use, click **Open query in editor** .
 
-> **Note:** If you run queries after opening this tab, click refresh **Refresh** to show the most recent queries.
+> **Note:** If you run queries after opening this tab, click **Refresh** to show the most recent queries.
 
 ## What's next
 

@@ -43,7 +43,7 @@ Each finding has the following fields:
 - `title` , `message` , `analysis` , and `vuln_type` : a description of the finding. Each finding needs at least one of these fields.
 - `severity` : `CRITICAL` , `HIGH` , `MEDIUM` , or `LOW` . The default is `MEDIUM` .
 
-You can also import a SARIF 2.1.0 report. For the formats that your CLI release supports, run `cm report import --help` .
+You can also import a SARIF 2.1.0 report or a CSV file. A CSV file needs a header row that includes `file_path` and at least one of the other fields, such as a file that you exported with `cm report --format csv` . For the formats that your CLI release supports, run `cm report import --help` .
 
 Run the import command:
 

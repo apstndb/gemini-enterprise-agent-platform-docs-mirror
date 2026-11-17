@@ -24,7 +24,7 @@ To create a Agent Platform Workbench instance, do the following:
 
 3.  If the option to enable the **Notebooks API** appears, click **Enable** . It might take a few moments for the enabling process to complete.
 
-4.  Click add_box **Create new** .
+4.  Click **Create new** .
 
 5.  In the **New instance** dialog, for **Name** , enter a name for your instance.
 
@@ -77,11 +77,11 @@ To install the Agent Platform SDK for Python and its dependent SDKs, run the fol
 
 The `--quiet` flag suppresses output so that only errors display, if there are any. The exclamation mark ( `!` ) indicates that this is a shell command.
 
-Because this is the first code you're running in your new notebook, you enter it into the blank code cell at the top of your notebook. After you enter code in a code cell, click play_arrow **Run the selected cells and advance** or use the keyboard shortcut `Shift + Enter` to run the code.
+Because this is the first code you're running in your new notebook, you enter it into the blank code cell at the top of your notebook. After you enter code in a code cell, click **Run the selected cells and advance** or use the keyboard shortcut `Shift + Enter` to run the code.
 
 ![Run code to install the SDK.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-bq-prediction/images/run-code-to-install-sdks.png)
 
-As you proceed through this tutorial, run code in the empty code cell that automatically appears below the most recently run code. If you want to manually add a new code cell, click the notebook file's add **Insert a cell below** button.
+As you proceed through this tutorial, run code in the empty code cell that automatically appears below the most recently run code. If you want to manually add a new code cell, click the notebook file's **Insert a cell below** button.
 
 ![Add new code cell.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-bq-prediction/images/add-new-code-cell.png)
 

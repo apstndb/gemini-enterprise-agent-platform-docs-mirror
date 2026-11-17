@@ -232,7 +232,7 @@ Fast mode always uses [pay-as-you-go](https://docs.cloud.google.com/gemini-enter
 - **Tokens** : Priced at **2x the standard-speed token rates** across all token types (input, output, 5-minute and 1-hour cache write, and cache hit tokens).
 - **Web search** : [Web search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/web-search) tool calls are billed at the **standard (1x) rate** .
 
-Usage is billed under the base model's Google Cloud SKU with a fast-mode label. For regional and global token rates, see the [Agent Platform pricing page](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#partner-models) .
+Usage is billed under the base model's Google Cloud SKU with a fast-mode label. For regional and global token rates, see the [Agent Platform pricing page](https://cloud.google.com/model-garden/partner-models/pricing#anthropics-claude-models) .
 
 ## Limitations and error handling
 

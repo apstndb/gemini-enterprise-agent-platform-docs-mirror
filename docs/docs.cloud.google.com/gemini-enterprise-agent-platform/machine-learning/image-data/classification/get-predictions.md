@@ -40,7 +40,7 @@ Use one of the following methods to deploy a model:
 
 5.  Click **Deploy to endpoint** .
 
-6.  To deploy your model to a new endpoint, click radio_button_checked **Create new endpoint** and enter a name for the new endpoint. To deploy your model to an existing endpoint, click radio_button_checked **Add to existing endpoint** and select the endpoint **Endpoint name** .
+6.  To deploy your model to a new endpoint, click **Create new endpoint** and enter a name for the new endpoint. To deploy your model to an existing endpoint, click **Add to existing endpoint** and select the endpoint **Endpoint name** .
 
     You can add more than one model to an endpoint, and you can add a model to multiple endpoints. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment) .
 
@@ -62,7 +62,7 @@ Use one of the following methods to deploy a model:
 
     3.  Learn how to [change the default settings for inference logging](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/online-prediction-logging#enabling-and-disabling) .
 
-    4.  ***Classification** models only (optional)* : In the **Explainability options** section, select check_box **Enable feature attributions for this model** to enable [Vertex Explainable AI](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/overview) . Accept existing [visualization settings](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/visualization-settings-automl-icn) or choose new values and click **Done** .
+    4.  ***Classification** models only (optional)* : In the **Explainability options** section, select **Enable feature attributions for this model** to enable [Vertex Explainable AI](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/overview) . Accept existing [visualization settings](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/visualization-settings-automl-icn) or choose new values and click **Done** .
 
         Deploying AutoML image classification models with Vertex Explainable AI configured and performing inferences with explanations is optional. Enabling Vertex Explainable AI at deployment time incurs additional costs based on the deployed node count and deployment time. See [Pricing](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing) for more information.
 

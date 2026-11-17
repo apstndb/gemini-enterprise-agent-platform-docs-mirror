@@ -48,7 +48,7 @@ In accordance with the [OSS Ray best practice](https://docs.ray.io/en/latest/clu
 
     - Other actions (Optional): To open the Ray on Agent Platform cluster list page, click **Manage clusters** in the Ray on Agent Platform panel.
 
-      - Select a cluster and click more_vert **more actions** menu.  
+      - Select a cluster and click **more actions** menu.  
         More options appear:  
         ![more options](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/images/ray-more-options.png)
 

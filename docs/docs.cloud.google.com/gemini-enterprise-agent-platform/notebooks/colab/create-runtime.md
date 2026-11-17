@@ -34,7 +34,7 @@ To create a runtime:
 
 2.  In the **Region** menu, select the region where you want your runtime. It must be in the same region as the notebook that uses it.
 
-3.  Click add_box **Create** .
+3.  Click **Create** .
 
     The **Create Agent Platform runtime** dialog appears.
 
@@ -166,7 +166,7 @@ To delete a runtime:
 
 3.  Select the runtime that you want to delete.
 
-4.  Click delete **Delete** .
+4.  Click **Delete** .
 
 5.  Click **Confirm** .
 

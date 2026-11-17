@@ -171,7 +171,7 @@ Asia Pacific
 </tr>
 <tr class="even">
 <th>Pricing</th>
-<td>See <a href="https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing">Pricing</a> .</td>
+<td>See <a href="https://cloud.google.com/model-garden/partner-models/pricing">Pricing</a> .</td>
 </tr>
 </tbody>
 </table>
@@ -323,7 +323,7 @@ Asia Pacific
 </tr>
 <tr class="even">
 <th>Pricing</th>
-<td>See <a href="https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing">Pricing</a> .</td>
+<td>See <a href="https://cloud.google.com/model-garden/partner-models/pricing">Pricing</a> .</td>
 </tr>
 </tbody>
 </table>
@@ -463,7 +463,7 @@ Europe
 </tr>
 <tr class="even">
 <th>Pricing</th>
-<td>See <a href="https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing">Pricing</a> .</td>
+<td>See <a href="https://cloud.google.com/model-garden/partner-models/pricing">Pricing</a> .</td>
 </tr>
 </tbody>
 </table>
@@ -611,7 +611,7 @@ Europe
 </tr>
 <tr class="even">
 <th>Pricing</th>
-<td>See <a href="https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing">Pricing</a> .</td>
+<td>See <a href="https://cloud.google.com/model-garden/partner-models/pricing">Pricing</a> .</td>
 </tr>
 </tbody>
 </table>
@@ -761,7 +761,7 @@ Europe
 </tr>
 <tr class="even">
 <th>Pricing</th>
-<td>See <a href="https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing">Pricing</a> .</td>
+<td>See <a href="https://cloud.google.com/model-garden/partner-models/pricing">Pricing</a> .</td>
 </tr>
 </tbody>
 </table>
@@ -913,7 +913,7 @@ Asia Pacific
 </tr>
 <tr class="even">
 <th>Pricing</th>
-<td>See <a href="https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing">Pricing</a> .</td>
+<td>See <a href="https://cloud.google.com/model-garden/partner-models/pricing">Pricing</a> .</td>
 </tr>
 </tbody>
 </table>
@@ -1013,7 +1013,7 @@ Europe
 </tr>
 <tr class="odd">
 <th>Pricing</th>
-<td>See <a href="https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing">Pricing</a> .</td>
+<td>See <a href="https://cloud.google.com/model-garden/partner-models/pricing">Pricing</a> .</td>
 </tr>
 </tbody>
 </table>
@@ -1113,7 +1113,7 @@ Europe
 </tr>
 <tr class="odd">
 <th>Pricing</th>
-<td>See <a href="https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing">Pricing</a> .</td>
+<td>See <a href="https://cloud.google.com/model-garden/partner-models/pricing">Pricing</a> .</td>
 </tr>
 </tbody>
 </table>
@@ -1245,7 +1245,7 @@ Not supported</td>
 </tr>
 <tr class="even">
 <th>Pricing</th>
-<td>See <a href="https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing">Pricing</a> .</td>
+<td>See <a href="https://cloud.google.com/model-garden/partner-models/pricing">Pricing</a> .</td>
 </tr>
 </tbody>
 </table>

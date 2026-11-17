@@ -69,6 +69,14 @@ By default, CodeMender prompts you to confirm each file modification before writ
   cm fix FINDING_ID --no-cache
   ```
 
+- **Set an execution duration budget ( `--duration` / `--timeout` )** : Cap the wall-clock duration for patch generation and validation (for example, `15m` or `30m` ), or set `CM_DURATION` or `execution.duration` in `config.yaml` :
+
+  ```
+  cm fix FINDING_ID --duration 20m
+  ```
+
+  When the duration limit is reached, CodeMender gives the agent a short grace turn to finish its patch. If the agent finishes during the grace turn, `cm fix` runs your build validation (applying the patch and marking the finding `FIXED` if the build passes, or saving a `pending` patch and leaving edits in place if the build fails) and still exits with status `50` . If the session hits the hard cutoff before finishing, CodeMender reverts unvalidated working-tree edits, saves any in-progress diff as a `partial` patch that you can inspect with `cm report --patches` , and exits with status `50` .
+
 ## Inspect and manage local VCS diffs
 
 CodeMender includes built-in VCS commands to help you inspect, stage, and manage code changes that patches introduce before you commit them:

@@ -49,28 +49,28 @@ Text</li>
 <th>Capabilities</th>
 <td>Supported
 <ul>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/openai/responses">Responses API</a> preview Preview feature</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/openai#feature-availability">Function calling</a> preview Preview feature</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/openai#feature-availability">Structured outputs</a> preview Preview feature</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/openai#feature-availability">Configurable reasoning effort</a> preview Preview feature</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/openai/responses#compaction">Conversation compaction</a> preview Preview feature</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/openai/responses">Responses API</a> Preview feature</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/openai#feature-availability">Function calling</a> Preview feature</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/openai#feature-availability">Structured outputs</a> Preview feature</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/openai#feature-availability">Configurable reasoning effort</a> Preview feature</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/openai/responses#compaction">Conversation compaction</a> Preview feature</li>
 </ul>
 Not supported
 <ul>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/openai#feature-availability">Chat Completions API</a> preview Preview feature</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/openai#feature-availability">Batch API</a> preview Preview feature</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/openai#feature-availability">Chat Completions API</a> Preview feature</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/openai#feature-availability">Batch API</a> Preview feature</li>
 </ul></td>
 </tr>
 <tr class="even">
 <th>Usage types</th>
 <td>Supported
 <ul>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo">Standard pay-as-you-go</a> preview Preview feature</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas">Fixed quota</a> preview Preview feature</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo">Standard pay-as-you-go</a> Preview feature</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas">Fixed quota</a> Preview feature</li>
 </ul>
 Not supported
 <ul>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput">Provisioned Throughput</a> preview Preview feature</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput">Provisioned Throughput</a> Preview feature</li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -111,7 +111,7 @@ United States
 </tr>
 <tr class="odd">
 <th>Pricing</th>
-<td>See <a href="https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing">Pricing</a> .</td>
+<td>See <a href="https://cloud.google.com/model-garden/partner-models/pricing">Pricing</a> .</td>
 </tr>
 </tbody>
 </table>

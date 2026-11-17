@@ -149,7 +149,7 @@ Europe
 </tr>
 <tr class="odd">
 <th>Pricing</th>
-<td>See <a href="https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing">Pricing</a> .</td>
+<td>See <a href="https://cloud.google.com/model-garden/partner-models/pricing">Pricing</a> .</td>
 </tr>
 </tbody>
 </table>
@@ -158,7 +158,7 @@ Europe
 
 Anthropic's Claude Fable 5.2 on Google Cloud supports [fast mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/fast-mode) to accelerate output token generation for latency-sensitive, interactive workloads. Set `"speed": "fast"` in online prediction requests to `claude-fable-5-2` :
 
-- **Pricing** : Fast mode is priced at **2x the standard-speed token rates** across all token types (input, output, 5-minute and 1-hour cache write, and cache hit tokens). [Web search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/web-search) tool calls are billed at the standard rate. See the [Agent Platform pricing page](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#partner-models) .
+- **Pricing** : Fast mode is priced at **2x the standard-speed token rates** across all token types (input, output, 5-minute and 1-hour cache write, and cache hit tokens). [Web search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/web-search) tool calls are billed at the standard rate. See the [Agent Platform pricing page](https://cloud.google.com/model-garden/partner-models/pricing#anthropics-claude-models) .
 - **Quotas** : On global and multi-region endpoints, fast mode requests draw from a dedicated `anthropic-claude-fable-fast` [shared lineage quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/quotas#shared-lineage-quotas) bucket separate from standard `anthropic-claude-fable` quota.
 - **No Provisioned Throughput** : Fast mode doesn't support [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput) . Fast mode requests always use [pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo) , and fast mode requests sent with the `X-Vertex-AI-LLM-Request-Type: dedicated` header are throttled with an `HTTP 429` ( `RESOURCE_EXHAUSTED` ) error.
 

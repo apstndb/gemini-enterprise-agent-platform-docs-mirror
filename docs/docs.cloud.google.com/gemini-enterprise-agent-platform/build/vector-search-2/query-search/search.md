@@ -1119,4 +1119,155 @@ This search converts your text query into embeddings to find results based on se
 
 ## Searching using hybrid search
 
-Use `batch_search_data_objects` to execute multiple searches in parallel (vector search, text search, and semantic search). The results can optionally be combined and ranked using the **`ReciprocalRankFusion`** Ranker, which merges result sets using the Reciprocal Rank Fusion (RFF) algorithm.
+Use `batch_search_data_objects` to execute multiple searches in parallel (vector search, text search, and semantic search). The results can optionally be combined and ranked using the **`ReciprocalRankFusion`** Ranker, which merges result sets using the Reciprocal Rank Fusion (RRF) algorithm.
+
+### Sorting combined results
+
+> **Preview — Sorting combined results**
+>
+> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
+
+Use `combine.sorts` to reorder the combined results of a `batch_search_data_objects` request by fields from your Collection's data schema, for example, price ascending, year descending, or a status flag. `combine.sorts` is available in the v1beta [`batchSearch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/reference/rest/v1beta/projects.locations.collections.dataObjects/batchSearch) method.
+
+The sort is applied to the combined results after RRF and, if configured, [VertexRanker](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/query-search/reranking) , and before `combine.top_k` truncation. Only the candidates that the searches retrieve are sorted, not every Data Object in the Collection. For example, you can request the three most recent articles among the top semantic matches, with ties on publish time broken by view count, in a single request.
+
+The example in this section uses the following Data Objects. Publish time is stored both as an ISO 8601 string and as a Unix epoch number. Both formats sort chronologically.
+
+| ID  | title                     | published_at         | published_unix | views |
+|-----|---------------------------|----------------------|----------------|-------|
+| a1  | Fed holds rates steady    | 2026-09-29T14:00:00Z | 1790690400     | 5200  |
+| a2  | Markets rally on earnings | 2026-09-29T14:00:00Z | 1790690400     | 8100  |
+| a3  | Oil prices slip           | 2026-09-28T09:30:00Z | 1790587800     | 12000 |
+| a4  | Tech stocks rebound       | 2026-09-30T08:15:00Z | 1790756100     | 3000  |
+| a5  | Bond yields climb         | 2026-09-27T16:45:00Z | 1790527500     | 9000  |
+
+The following example demonstrates the body of a request to the v1beta `dataObjects:batchSearch` method that returns the three most recent articles, with ties broken by the highest view count:
+
+```
+{
+  "searches": [
+    {
+      "vector_search": {
+        "search_field": "embedding",
+        "vector": { "values": [0.7, 0.3, 0.1] },
+        "top_k": 5,
+        "output_fields": { "data_fields": ["title", "published_at", "views"] }
+      }
+    }
+  ],
+  "combine": {
+    "ranker": { "rrf": { "weights": [1.0] } },
+    "top_k": 3,
+    "sorts": [
+      { "field": "published_at", "direction": "DESC" },
+      { "field": "views", "direction": "DESC" }
+    ]
+  }
+}
+```
+
+The results of the request are shown in the following table. Sorting on `published_unix` instead of `published_at` returns the same order.
+
+| ID  | title                     | published_at         | views |
+|-----|---------------------------|----------------------|-------|
+| a4  | Tech stocks rebound       | 2026-09-30T08:15:00Z | 3000  |
+| a2  | Markets rally on earnings | 2026-09-29T14:00:00Z | 8100  |
+| a1  | Fed holds rates steady    | 2026-09-29T14:00:00Z | 5200  |
+
+Data Objects `a2` and `a1` have the same `published_at` value, so `views` decides their order. Data Object `a3` has the most views but is older, so `combine.top_k` excludes it.
+
+#### Include sort fields in `output_fields` for lower latency
+
+> **Key Point:** Add every `combine.sorts` field to the `output_fields` of every search in the request. Otherwise, the service makes an extra lookup to fetch the missing fields before it can sort, which adds latency to the request.
+
+To sort the combined results, the service needs the value of each sort field for every candidate Data Object. It reads these values from the data that each search returns, which is controlled by that search's `output_fields` . If any candidate is missing any sort field, the service fetches the missing fields from storage in an additional lookup before sorting.
+
+The service skips the lookup only when every search returns every sort field. This includes searches whose results the reranker doesn't keep, because sorting runs on candidates from all searches. If one search in the request omits a sort field, the request makes the lookup.
+
+For example, the following request sorts by `published_at` and `views` . The vector search returns both fields, but the text search returns only `title` , so the service makes the extra lookup:
+
+```
+{
+  "searches": [
+    {
+      "vector_search": {
+        "search_field": "embedding",
+        "vector": { "values": [0.7, 0.3, 0.1] },
+        "top_k": 5,
+        "output_fields": { "data_fields": ["title", "published_at", "views"] }
+      }
+    },
+    {
+      "text_search": {
+        "search_text": "rates",
+        "data_field_names": ["title"],
+        "top_k": 5,
+        "output_fields": { "data_fields": ["title"] }
+      }
+    }
+  ],
+  "combine": {
+    "ranker": { "rrf": { "weights": [1.0, 1.0] } },
+    "top_k": 3,
+    "sorts": [
+      { "field": "published_at", "direction": "DESC" },
+      { "field": "views", "direction": "DESC" }
+    ]
+  }
+}
+```
+
+To avoid the lookup, add `published_at` and `views` to the text search's `output_fields` as well:
+
+```
+"output_fields": { "data_fields": ["title", "published_at", "views"] }
+```
+
+Requesting all fields with `"data_fields": ["*"]` also avoids the lookup.
+
+If you don't want the sort fields in the response, you can still leave them out of `output_fields` . The request returns the same results in the same order, only more slowly. Sort fields that no search requests in `output_fields` are removed from the response.
+
+#### Sort specification
+
+Each entry in `combine.sorts` has the following fields:
+
+| Field       | Required | Description                                                                                                                               |
+|-------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| `field`     | Yes      | The data field to sort by. Use dot-paths for nested fields, for example, `product.price` . The field must exist in the Collection schema. |
+| `direction` | Optional | The sort direction: `ASC` or `DESC` . The default is `ASC` .                                                                              |
+
+Entries are applied in order. The first entry is the primary sort key, and each later entry only breaks ties left by the earlier entries. To make the order predictable when values often collide, add more entries, for example, `year` ascending and then `title` ascending.
+
+When Data Objects are equal on every sort entry, the Data Object with the higher ranker score comes first. The ranker score is the RRF score, or the VertexRanker score if a reranker is configured. If the scores are also equal, Data Objects are ordered by Data Object ID in ascending order, so the same request always returns results in the same order.
+
+#### Sortable field types
+
+You can sort by fields of the following schema types:
+
+- **Number** ( `number` or `integer` ): Values are compared as double-precision floating-point numbers, so integers larger than 2 <sup>53</sup> might compare as equal.
+
+- **Boolean** : In ascending order, `false` sorts before `true` .
+
+- **String** : Values are compared in UTF-8 byte order, which is case-sensitive. For example, `"Apple"` sorts before `"Zebra"` , which sorts before `"apple"` . For case-insensitive ordering, store a normalized copy of the field, such as a lowercase copy, and sort by that field.
+
+- **Dates and timestamps** : There is no dedicated date type. Store these values as ISO 8601 UTC strings in a consistent format, or as Unix epoch numbers.
+
+You can't sort by array or object fields.
+
+Data Objects that don't have a value for a sort field are placed after all Data Objects that do, for both `ASC` and `DESC` .
+
+#### Interaction with rankers
+
+- **RRF** : RRF merges the results of the searches, `combine.sorts` reorders the merged list, and then `combine.top_k` truncates it.
+
+- **VertexRanker** : `combine.sorts` reorders the reranker's `top_n` output before `combine.top_k` truncation. The final order follows the sort entries, not the reranker score. The response includes a warning in the `search_response_metadata.warnings` field with the code `FAILED_PRECONDITION` and the message `"Both sort and a Vertex reranker were configured. The final order reflects the sort, not the reranker score."` The request still succeeds.
+
+If the VertexRanker call fails, `combine.sorts` is applied to the RRF-fused results instead. For more information, see [Failure handling and warnings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/query-search/reranking#failure_handling_and_warnings) .
+
+#### Errors
+
+| Error code            | Cause                                                                                              |
+|-----------------------|----------------------------------------------------------------------------------------------------|
+| `INVALID_ARGUMENT`    | `combine.sorts[i].field` is empty, or the field isn't defined in the Collection schema.            |
+| `INVALID_ARGUMENT`    | `combine.sorts[i].direction` isn't a valid value.                                                  |
+| `FAILED_PRECONDITION` | `combine.sorts[i].field` refers to a field that can't be sorted, such as an array or object field. |

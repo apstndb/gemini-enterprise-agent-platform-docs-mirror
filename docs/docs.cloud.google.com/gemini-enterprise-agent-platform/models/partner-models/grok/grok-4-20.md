@@ -46,7 +46,7 @@ Text</li>
 </ul>
 Not supported
 <ul>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/batch-prediction">Batch predictions</a> preview Preview feature</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/batch-prediction">Batch predictions</a> Preview feature</li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -57,8 +57,8 @@ Not supported
 </ul>
 Not supported
 <ul>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo">Standard pay-as-you-go</a> preview Preview feature</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput">Provisioned Throughput</a> preview Preview feature</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo">Standard pay-as-you-go</a> Preview feature</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput">Provisioned Throughput</a> Preview feature</li>
 </ul></td>
 </tr>
 <tr class="even">
@@ -94,7 +94,7 @@ Not supported
 </tr>
 <tr class="even">
 <th>Pricing</th>
-<td>See <a href="https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing">Pricing</a> .</td>
+<td>See <a href="https://cloud.google.com/model-garden/partner-models/pricing">Pricing</a> .</td>
 </tr>
 </tbody>
 </table>
@@ -136,8 +136,8 @@ Text</li>
 </ul>
 Not supported
 <ul>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/batch-prediction">Batch predictions</a> preview Preview feature</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/reasoning">Reasoning</a> preview Preview feature</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/batch-prediction">Batch predictions</a> Preview feature</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/reasoning">Reasoning</a> Preview feature</li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -148,8 +148,8 @@ Not supported
 </ul>
 Not supported
 <ul>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/resources/throughput-quota">Standard pay-as-you-go</a> preview Preview feature</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput">Provisioned Throughput</a> preview Preview feature</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/resources/throughput-quota">Standard pay-as-you-go</a> Preview feature</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput">Provisioned Throughput</a> Preview feature</li>
 </ul></td>
 </tr>
 <tr class="even">
@@ -185,7 +185,7 @@ Not supported
 </tr>
 <tr class="even">
 <th>Pricing</th>
-<td>See <a href="https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing">Pricing</a> .</td>
+<td>See <a href="https://cloud.google.com/model-garden/partner-models/pricing">Pricing</a> .</td>
 </tr>
 </tbody>
 </table>

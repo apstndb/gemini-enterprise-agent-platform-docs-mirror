@@ -58,7 +58,7 @@ Text , Images</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-search">Grounding with Google Search</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/web-grounding-enterprise">Web Grounding for Enterprise</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-vertex-ai-search">Grounding with Agent Search</a></li>
-<li><a href="https://ai.google.dev/gemini-api/docs/interactions/deep-research#mcp-servers">Grounding on remote MCP servers</a> preview Preview feature</li>
+<li><a href="https://ai.google.dev/gemini-api/docs/interactions/deep-research#mcp-servers">Grounding on remote MCP servers</a> Preview feature</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking">Thought summaries</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview">Implicit context caching</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-search#inline-citations">Citations</a></li>
@@ -95,7 +95,7 @@ Not supported</td>
 <td></td>
 </tr>
 <tr class="odd">
-<th><strong>Documents</strong> description</th>
+<th><strong>Documents</strong></th>
 <td><ul>
 <li>Maximum number of files per prompt: 3,000</li>
 <li>Maximum number of pages per file: 3,000</li>

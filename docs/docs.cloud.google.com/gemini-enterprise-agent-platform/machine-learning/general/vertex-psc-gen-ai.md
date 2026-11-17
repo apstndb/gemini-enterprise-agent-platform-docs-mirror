@@ -405,7 +405,7 @@ In this section, you create a [custom advertised route](https://docs.cloud.googl
 
 2.  In the Cloud Router list, click `vertex-networking-vpc-router1` .
 
-3.  On the **Router details** page, click edit **Edit** .
+3.  On the **Router details** page, click **Edit** .
 
 4.  In the **Advertised routes** section, for **Routes** , select **Create custom routes** .
 
@@ -634,7 +634,7 @@ In this step, you add a line to the `/etc/hosts` file that causes requests sent 
 
 In this step you create a text file named `request.json` that contains the payload for a sample `curl` request that you send to the GenAI REST API. For more information about sample requests, see [Sample request](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/text-embeddings-api#sample_request) .
 
-1.  Keeping the `tcpdump` command running in Tab One, open a new Cloud Shell session (Tab Two) by clicking add **open a new tab** in Cloud Shell.
+1.  Keeping the `tcpdump` command running in Tab One, open a new Cloud Shell session (Tab Two) by clicking **open a new tab** in Cloud Shell.
 
 2.  In the new Cloud Shell session (Tab Two), run the following commands, replacing ` PROJECT_ID ` with your project ID:
 

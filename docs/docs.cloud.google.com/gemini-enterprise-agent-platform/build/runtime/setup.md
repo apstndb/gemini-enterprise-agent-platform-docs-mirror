@@ -140,11 +140,11 @@ Ask your administrator to grant you the [Storage Admin](https://docs.cloud.googl
 ### Google Cloud console
 
 1.  In the Google Cloud console, go to the Cloud Storage **Buckets** page.
-2.  Click add_box **Create** .
+2.  Click **Create** .
 3.  On the **Create a bucket** page, enter your bucket information. To go to the next step, click **Continue** .
     1.  In the **Get started** section, do the following:
         - Enter a globally unique name that meets the [bucket naming requirements](https://docs.cloud.google.com/storage/docs/bucket-naming#requirements) .
-        - To add a [bucket label](https://docs.cloud.google.com/storage/docs/tags-and-labels#bucket-labels) , expand the **Labels** section ( expand_more ), click *add_box* **Add label** , and specify a `key` and a `value` for your label.
+        - To add a [bucket label](https://docs.cloud.google.com/storage/docs/tags-and-labels#bucket-labels) , expand the **Labels** section ( ), click **Add label** , and specify a `key` and a `value` for your label.
 
     2.  In the **Choose where to store your data** section, do the following:
         1.  Select a [Location type](https://docs.cloud.google.com/storage/docs/locations) .
@@ -162,7 +162,7 @@ Ask your administrator to grant you the [Storage Admin](https://docs.cloud.googl
 
                 The **Configure cross-bucket replication** pane appears.
 
-                - To filter objects to replicate by object name prefix, enter a prefix that you want to include or exclude objects from, then click add **Add a prefix** .
+                - To filter objects to replicate by object name prefix, enter a prefix that you want to include or exclude objects from, then click **Add a prefix** .
                 - To set a storage class for the replicated objects, select a storage class from the **Storage class** menu. If you skip this step, the replicated objects will use the destination bucket's storage class by default.
                 - Click **Done** .
 
@@ -184,7 +184,7 @@ Ask your administrator to grant you the [Storage Admin](https://docs.cloud.googl
           - To enable the retention policy on objects and buckets, click the **Retention (For compliance)** checkbox, and then do the following:
             - To enable [Object Retention Lock](https://docs.cloud.google.com/storage/docs/object-lock) , click the **Enable object retention** checkbox.
             - To enable [Bucket Lock](https://docs.cloud.google.com/storage/docs/bucket-lock) , click the **Set bucket retention policy** checkbox, and choose a unit of time and a length of time for your retention period.
-        - To choose how your object data will be encrypted, expand the **Data encryption** section ( expand_more ), and select a [**Data encryption** method](https://docs.cloud.google.com/storage/docs/encryption) .
+        - To choose how your object data will be encrypted, expand the **Data encryption** section ( ), and select a [**Data encryption** method](https://docs.cloud.google.com/storage/docs/encryption) .
 4.  Click **Create** .
 
 ### Command line
@@ -278,7 +278,7 @@ where
 
 > To see an example of Bring your own container (BYOC), run the "Deploy your containerized agent on Agent Runtime" notebook in one of the following environments:
 >
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/agents/agent_engine/tutorial_deploy_your_containerised_agent.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fagents%2Fagent_engine%2Ftutorial_deploy_your_containerised_agent.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fagents%2Fagent_engine%2Ftutorial_deploy_your_containerised_agent.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/agents/agent_engine/tutorial_deploy_your_containerised_agent.ipynb)
+> [Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/agents/agent_engine/tutorial_deploy_your_containerised_agent.ipynb) \| [Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fagents%2Fagent_engine%2Ftutorial_deploy_your_containerised_agent.ipynb) \| [Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fagents%2Fagent_engine%2Ftutorial_deploy_your_containerised_agent.ipynb) \| [View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/agents/agent_engine/tutorial_deploy_your_containerised_agent.ipynb)
 
 By default, Agent Runtime builds a container for you as part of the deployment process. If you want to build a custom container for [deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#from-container-image) , follow the instructions in this section.
 

@@ -101,11 +101,11 @@ Not supported</td>
 <p>(Includes fixed quota &amp; Provisioned Throughput)</p></th>
 <td>United States
 <ul>
-<li><code>Multi-region</code></li>
+<li><code>us (US multi-region)</code></li>
 </ul>
 Europe
 <ul>
-<li><code>Multi-region</code></li>
+<li><code>eu (Europe multi-region)</code></li>
 </ul>
 Global
 <ul>
@@ -129,13 +129,13 @@ Asia Pacific
 </tr>
 <tr class="even">
 <th>Quota limits</th>
-<td><p>Multi-region:</p>
-<p>Multi-region:</p>
+<td><p>us (US multi-region):</p>
+<p>eu (Europe multi-region):</p>
 <p>global endpoint:</p></td>
 </tr>
 <tr class="odd">
 <th>Pricing</th>
-<td>See <a href="https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing">Pricing</a> .</td>
+<td>See <a href="https://cloud.google.com/model-garden/partner-models/pricing">Pricing</a> .</td>
 </tr>
 </tbody>
 </table>

@@ -21,11 +21,11 @@ Before you begin, you must prepare a supervised fine-tuning dataset. Depending o
 
 > To see an example of using the Google Gen AI SDK for Python to tune the text generation foundation model, run the "Supervised fine-tuning with Gemini for article summarization" notebook in one of the following environments:
 >
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/tuning/sft_gemini_summarization.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Ftuning%2Fsft_gemini_summarization.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Ftuning%2Fsft_gemini_summarization.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/tuning/sft_gemini_summarization.ipynb)
+> [Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/tuning/sft_gemini_summarization.ipynb) \| [Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Ftuning%2Fsft_gemini_summarization.ipynb) \| [Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Ftuning%2Fsft_gemini_summarization.ipynb) \| [View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/tuning/sft_gemini_summarization.ipynb)
 
 > To see an example of Supervised Fine-Tuning with integrated Gen AI evaluation service, run the "Supervised Fine-Tuning with integrated Gen AI Evaluation" notebook in one of the following environments:
 >
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/tuning/sft_gemini_automatic_evaluation.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Ftuning%2Fsft_gemini_automatic_evaluation.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Ftuning%2Fsft_gemini_automatic_evaluation.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/tuning/sft_gemini_automatic_evaluation.ipynb)
+> [Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/tuning/sft_gemini_automatic_evaluation.ipynb) \| [Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Ftuning%2Fsft_gemini_automatic_evaluation.ipynb) \| [Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Ftuning%2Fsft_gemini_automatic_evaluation.ipynb) \| [View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/tuning/sft_gemini_automatic_evaluation.ipynb)
 
 ## Supported models
 
@@ -474,7 +474,7 @@ You can create a model tuning job in Agent Platform by using the side panel in C
 
 3.  Click the notebook that you want to open. If you haven't created a notebook yet, [create a notebook](https://docs.cloud.google.com/colab/docs/create-console-quickstart#create) .
 
-4.  To the right of your notebook, in the side panel, click the ![](https://docs.cloud.google.com/static/colab/images/icon-tuning.png) **Tuning** button.
+4.  To the right of your notebook, in the side panel, click the **Tuning** button.
 
     The side panel expands the **Tuning** tab.
 
@@ -499,7 +499,7 @@ You can create a model tuning job in Agent Platform by using the side panel in C
 
 9.  Run the code cells that the side panel added to your notebook.
 
-10. After the last code cell runs, click the ![](https://docs.cloud.google.com/static/colab/images/icon-tuning.png) **View tuning job** button that appears.
+10. After the last code cell runs, click the **View tuning job** button that appears.
 
 11. The side panel shows information about your model tuning job.
 
@@ -867,7 +867,7 @@ You can cancel a tuning job in your current project by using the Google Cloud co
 
 1.  To cancel a tuning job in the Google Cloud console, go to the **Agent Studio** page.
 
-2.  In the **Tuned Models** table, click more_vert **Manage run** .
+2.  In the **Tuned Models** table, click **Manage run** .
 
 3.  Click **Cancel** .
 

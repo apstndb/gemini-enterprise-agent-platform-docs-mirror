@@ -256,7 +256,7 @@ The following instructions describe how to create a `TrainingPipeline` that crea
 
 1.  In the Google Cloud console, in the Agent Platform section, go to the **Training pipelines** page.
 
-2.  Click **add_box Create** to open the **Train new model** pane.
+2.  Click **Create** to open the **Train new model** pane.
 
 3.  On the **Training method** step, specify the following settings:
 

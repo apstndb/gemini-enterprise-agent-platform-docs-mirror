@@ -37,7 +37,7 @@ To open a notebook tutorial in Agent Platform Workbench, do the following:
 To download a notebook tutorial from GitHub, do the following:
 
 1.  Click the **GitHub** link in the [notebook list](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/jupyter-notebooks#notebook-list) .
-2.  In GitHub, click the download **Download raw file** button.
+2.  In GitHub, click the **Download raw file** button.
 3.  Complete the dialog to download the notebook.
 
 ## List of notebooks

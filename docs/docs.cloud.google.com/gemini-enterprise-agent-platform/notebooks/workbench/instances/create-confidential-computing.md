@@ -32,7 +32,7 @@ To create a Agent Platform Workbench instance with Confidential Computing enable
 
 1.  In the Google Cloud console, go to the **Instances** page.
 
-2.  Click add_box **Create new** .
+2.  Click **Create new** .
 
 3.  In the **New instance** dialog, click **Advanced options** .
 

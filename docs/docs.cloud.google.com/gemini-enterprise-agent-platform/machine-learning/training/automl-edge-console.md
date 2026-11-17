@@ -24,7 +24,7 @@ Training jobs can take several hours to complete. The Agent Platform page of the
 
 5.  In the **Train new model** page, complete the following steps:
 
-    1.  Select radio_button_checked **AutoML Edge** for the training method and click **Continue** .
+    1.  Select **AutoML Edge** for the training method and click **Continue** .
 
     2.  Enter the display name for your new model.
 

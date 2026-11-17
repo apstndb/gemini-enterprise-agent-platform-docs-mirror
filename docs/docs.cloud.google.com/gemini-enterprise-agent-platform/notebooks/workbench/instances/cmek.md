@@ -113,7 +113,7 @@ To find the specific accounts for your Agent Platform Workbench project, use the
 
     4.  Select the checkbox for the key that you created in [Create a key ring and key](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/cmek#creating-key-ring-and-key) . If an info panel labeled with the name of your key isn't already open, click **Show info panel** .
 
-    5.  In the info panel, click person_add **Add member** . The **Add members to " ` KEY_NAME ` "** dialog opens. In this dialog, do the following:
+    5.  In the info panel, click **Add member** . The **Add members to " ` KEY_NAME ` "** dialog opens. In this dialog, do the following:
 
         1.  In the **New members** field, enter your project's service agent's email address:
 
@@ -175,7 +175,7 @@ To create a Agent Platform Workbench instance with Customer-managed encryption k
 
 1.  In the Google Cloud console, go to the **Instances** page.
 
-2.  Click add_box **Create new** .
+2.  Click **Create new** .
 
 3.  In the **New instance** dialog, click **Advanced options** .
 

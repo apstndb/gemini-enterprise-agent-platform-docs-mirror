@@ -72,7 +72,7 @@ To create a UAP in the Google Cloud console, do the following:
 
 2.  In the project selector, select the project that contains the agent gateways that will use the UAP.
 
-3.  To add an IAM UAP for Agent Gateway egress, click add **Create** .
+3.  To add an IAM UAP for Agent Gateway egress, click **Create** .
 
 4.  In **Policy details** , do the following:
     1.  Click the **Policy** field.

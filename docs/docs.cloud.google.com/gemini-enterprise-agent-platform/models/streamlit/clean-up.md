@@ -16,7 +16,7 @@ This section describes how to delete the Google Cloud resources and the Git repo
 
 2.  Select the checkbox next to `gemini-streamlit-cloudrun` .
 
-3.  Click delete **Delete** .
+3.  Click **Delete** .
 
 4.  To confirm deletion, click **Delete** . This also deletes all revisions of the service.
 
@@ -26,7 +26,7 @@ This section describes how to delete the Google Cloud resources and the Git repo
 
 2.  Select the checkbox next to `gemini-streamlit-app-lb` .
 
-3.  Click delete **Delete** .
+3.  Click **Delete** .
 
 4.  Select the checkboxes next to all the additional resources, including backend services and SSL certificates.
 
@@ -46,7 +46,7 @@ This section describes how to delete the Google Cloud resources and the Git repo
 
 2.  Select the checkbox next to `streamlit-app-neg` .
 
-3.  Click delete **Delete** .
+3.  Click **Delete** .
 
 4.  To confirm deletion, click **Delete** .
 

@@ -26,6 +26,8 @@ The following table lists ranker configuration fields.
 | `combine.ranker.vertex_ranker.text_record_spec.content_template` | Yes      | The template string, for example, `{body.text}` , specifying how to extract (construct) the main content for each record. Use dot-paths to specify data fields.                                                                                                                                          |
 | `combine.top_k`                                                  | Optional | The final number of results to return after reranking. This must be less than or equal to `vertex_ranker.top_n` and less than or equal to 1000.                                                                                                                                                          |
 
+> **Note:** To reorder reranked results by Data Object fields, use `combine.sorts` (Preview). For more information, see [Sorting combined results](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/query-search/search#sort-combined) .
+
 The following example demonstrates the body of a request.
 
 ```

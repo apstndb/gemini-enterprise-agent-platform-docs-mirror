@@ -75,9 +75,9 @@ Supported</li>
 Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview#streaming">Streaming</a><br />
 Supported</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-design">Voice design</a> preview Preview feature<br />
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-design">Voice design</a> Preview feature<br />
 Supported</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-replication">Voice replication</a> preview Preview feature<br />
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-replication">Voice replication</a> Preview feature<br />
 Supported</li>
 </ul></th>
 <td></td>

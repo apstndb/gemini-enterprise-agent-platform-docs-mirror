@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 > To see an example of Edit images with Gemini, run the "Gemini Nano Banana 2.1 Image Generation in Gemini Enterprise Agent Platform" notebook in one of the following environments:
 >
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/vision/getting-started/gemini_nano_banana_2_1_image_gen.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fvision%2Fgetting-started%2Fgemini_nano_banana_2_1_image_gen.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fvision%2Fgetting-started%2Fgemini_nano_banana_2_1_image_gen.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/vision/getting-started/gemini_nano_banana_2_1_image_gen.ipynb)
+> [Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/vision/getting-started/gemini_nano_banana_2_1_image_gen.ipynb) \| [Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fvision%2Fgetting-started%2Fgemini_nano_banana_2_1_image_gen.ipynb) \| [Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fvision%2Fgetting-started%2Fgemini_nano_banana_2_1_image_gen.ipynb) \| [View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/vision/getting-started/gemini_nano_banana_2_1_image_gen.ipynb)
 
 Gemini supports improved editing of images and multi-turn editing, and supports updated safety filters that provide a more flexible and less restrictive experience.
 
@@ -33,9 +33,9 @@ To edit images, do the following:
 1.  Open [**Agent Studio \> Create prompt**](https://console.cloud.google.com/agent-platform/studio/multimodal;mode=prompt) .
 2.  Click **Switch model** and select one of the displayed models.
 3.  In the **Outputs** panel, select **Image and text** from the drop-down menu.
-4.  Click **Insert media** ( add_photo_alternate ) and select a source from the menu, then follow the dialog's instructions.
+4.  Click **Insert media** ( ) and select a source from the menu, then follow the dialog's instructions.
 5.  Write what edits you want to make to the image in the **Write a prompt** text area.
-6.  Click the **Prompt** ( send ) button.
+6.  Click the **Prompt** ( ) button.
 
 Gemini generates an edited version of the provided image based on your description. This process takes a few seconds, but can be comparatively slower depending on capacity.
 

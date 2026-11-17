@@ -47,7 +47,7 @@ This section shows you how to use Vertex AI Studio to rapidly translate text fro
 
 6.  Click **Submit** .
 
-7.  To get the code or curl command that demonstrate how to request translations, click code **Get code** .
+7.  To get the code or curl command that demonstrate how to request translations, click **Get code** .
 
 Note that in Vertex AI Studio, the Translation LLM lets you provide example translations to tailor model responses to more closely match your style, tone, and industry domain. The model uses your examples as few-shot context before translating your text.
 
@@ -419,7 +419,7 @@ To get the most accurate results, include specific examples from a wide variety 
 
     The output limit per request is 3,000 characters. Any text beyond this limit is dropped.
 
-6.  To get the code or curl command that demonstrate how to request translations, click code **Get code** .
+6.  To get the code or curl command that demonstrate how to request translations, click **Get code** .
 
 ### API
 

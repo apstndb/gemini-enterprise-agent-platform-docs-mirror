@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 > To see an example of getting started with Chat with the Gemini Pro model, run the "Getting Started with Chat with the Gemini Pro model" notebook in one of the following environments:
 >
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_gemini_chat.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fgetting-started%2Fintro_gemini_chat.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fgetting-started%2Fintro_gemini_chat.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_gemini_chat.ipynb)
+> [Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_gemini_chat.ipynb) \| [Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fgetting-started%2Fintro_gemini_chat.ipynb) \| [Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fgetting-started%2Fintro_gemini_chat.ipynb) \| [View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_gemini_chat.ipynb)
 
 This page shows you how to send chat prompts to a Gemini model by using the Google Cloud console, REST API, and supported SDKs.
 
@@ -91,11 +91,11 @@ To use the Agent Studio to send a chat prompt in the Google Cloud console, do th
 
 7.  Click **Submit** .
 
-8.  Optional: To save your prompt to **My prompts** , click save_alt **Save** .
+8.  Optional: To save your prompt to **My prompts** , click **Save** .
 
-9.  Optional: To get the Python code or a curl command for your prompt, click code **Get code** .
+9.  Optional: To get the Python code or a curl command for your prompt, click **Get code** .
 
-10. Optional: To clear all previous messages, click delete **Clear conversation**
+10. Optional: To clear all previous messages, click **Clear conversation**
 
 ### Python
 

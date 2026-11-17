@@ -34,7 +34,7 @@ Use the following instructions to run an ML pipeline using Google Cloud console.
 
 2.  In the **Region** drop-down list, select the region to create the pipeline run.
 
-3.  Click **add_box Create run** to open the **Create pipeline run** pane.
+3.  Click **Create run** to open the **Create pipeline run** pane.
 
 4.  In the **Run details** section, do the following:
 
@@ -176,7 +176,7 @@ To set up authentication, you must create a service account key, and set an envi
     5.  Click **Close** .
 
 3.  Grant your new service account access to the service account that you use to run pipelines.
-    1.  Click arrow_back to return to the list of service accounts.
+    1.  Click to return to the list of service accounts.
 
     2.  Click the name of the service account that you use to run pipelines. The **Service account details** page appears.
 

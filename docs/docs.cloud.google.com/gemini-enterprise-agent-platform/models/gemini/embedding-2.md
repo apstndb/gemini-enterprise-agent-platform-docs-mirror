@@ -92,7 +92,7 @@ Not supported</li>
 </tr>
 <tr class="even">
 <th>Technical specifications</th>
-<th><strong>Text</strong> description</th>
+<th><strong>Text</strong></th>
 <td><ul>
 <li>Maximum input tokens: 8,192</li>
 <li>Maximum number of files per prompt: 1</li>
@@ -104,7 +104,7 @@ Not supported</li>
 </ul></td>
 </tr>
 <tr class="odd">
-<th><strong>Image</strong> photo</th>
+<th><strong>Image</strong></th>
 <th><ul>
 <li>Maximum images per prompt: 6</li>
 <li>Maximum file size per file for inline data or direct uploads through the console: No limit</li>
@@ -116,7 +116,7 @@ Not supported</li>
 <td></td>
 </tr>
 <tr class="even">
-<th><strong>Video</strong> videocam</th>
+<th><strong>Video</strong></th>
 <th><ul>
 <li>Maximum video length (with audio): 80 seconds</li>
 <li>Maximum video length (without audio): 120 seconds</li>
@@ -127,7 +127,7 @@ Not supported</li>
 <td></td>
 </tr>
 <tr class="odd">
-<th><strong>Audio</strong> mic</th>
+<th><strong>Audio</strong></th>
 <th><ul>
 <li>Maximum audio length per prompt: 180 seconds</li>
 <li>Maximum number of audio files per prompt: 1</li>

@@ -32,13 +32,13 @@ You can use this deployment method with Python only.
 
 Similar to deploying from source files. You deploy your agent directly from local source code without needing a Cloud Storage bucket. This method is appropriate if you need to define and have control over the API server that is deployed. The deployed container must adhere to the [runtime contract](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/runtime-contract) .
 
-You can use this deployment method with any language. The examples on this page use Python.
+You can use this deployment method with any language.
 
 ### Container image
 
 Similar to deploying from Dockerfile. You deploy a container image hosted in Artifact Registry. Use this method if you require control over the build process for the container image and lower deployment latency. The container image must adhere to the [runtime contract](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/runtime-contract) .
 
-You can use this deployment method with any language. The examples on this page use Python.
+You can use this deployment method with any language.
 
 ### Agent Platform SDK
 
@@ -344,6 +344,62 @@ remote_agent = client.runtimes.create(
 ```
 
 For best practices on how to optimize runtime resources, see [Optimize and scale Agent Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/optimize-and-scale) .
+
+#### Configure a keep-alive probe
+
+> **Preview**
+>
+> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
+
+By default, idle Agent Runtime instances can scale down after 15 minutes ( `900` seconds) without active requests. If your agent runs background tasks or maintains warm in-memory state after returning a response, you can configure `keep_alive_probe` ( [`KeepAliveProbe`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ReasoningEngineSpec#KeepAliveProbe) ) to poll an HTTP `GET` endpoint on the container and keep an idle instance alive while it reports busy, up to `max_seconds` ( `[900, 3600]` seconds, or up to 1 hour) after the last request completes.
+
+> **Note:** Configuring `keep_alive_probe` allocates CPU continuously while an instance is running (disabling CPU throttling). You are billed for allocated CPU and memory until the instance scales down.
+
+### Custom container or Dockerfile
+
+When deploying from a prebuilt container image ( `image_uri` ) or a `Dockerfile` ( `image_spec` ), configure `http_get` to poll a custom endpoint implemented by your container (see [Keep-alive probe endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/runtime-contract#keep-alive-endpoint) in the runtime contract):
+
+- `http_get.path` : Required when specifying `http_get` (and always required for prebuilt container image deployments). Must start with `/` (for example, `"/is_busy"` ).
+- `http_get.port` : Optional container port in `[1, 65535]` . Defaults to the container port ( `8080` ). Cannot use reserved ports `15000` , `15001` , `15006` , `15007` , `15020` , or `15021` .
+- `max_seconds` : Optional maximum duration in `[900, 3600]` seconds to keep an idle instance alive using the probe after the last request completes. Defaults to `900` when `http_get` is specified.
+
+```
+remote_agent = client.runtimes.create(
+    config={
+        "source_packages": ["agent.py", "main.py", "requirements.txt", "Dockerfile"],
+        "image_spec": {},  # or set "image_uri" when deploying a prebuilt container image
+        "keep_alive_probe": {
+            "http_get": {
+                "path": "/is_busy",
+                "port": 8080,
+            },
+            "max_seconds": 3600,
+        },
+        # ... other configs
+    }
+)
+```
+
+If your `Dockerfile` ( `image_spec` ) deployment runs the ADK `AdkApp` server on port `8080` , you can also pass an empty dictionary ( `"keep_alive_probe": {}` ) to use the default keep-alive probe with `max_seconds=3600` .
+
+### Managed ADK agent
+
+When deploying a managed ADK agent ( `AdkApp` , where `agent_framework` is `"google-adk"` ) from an agent object, local source files, Developer Connect, or a public Git repository, pass an empty dictionary ( `"keep_alive_probe": {}` ) to opt into the managed default probe:
+
+```
+remote_agent = client.runtimes.create(
+    agent=local_agent,
+    config={
+        "requirements": ["google-cloud-aiplatform[agent_engines,adk]"],
+        "keep_alive_probe": {},
+        # ... other configs
+    }
+)
+```
+
+Passing `"keep_alive_probe": {}` enables the default keep-alive probe with `max_seconds=3600` (1 hour). On non-container deployments, custom `http_get` or `max_seconds` fields are rejected with `400 FAILED_PRECONDITION` .
+
+> **Note:** In managed Python deployments, only `AdkApp` ( `agent_framework="google-adk"` ) supports the default keep-alive probe, which reports busy for up to 1 hour after each query, streaming query, or bidirectional streaming request. Other managed agent frameworks don't support the default keep-alive probe; to use a keep-alive probe with another framework, deploy using a [custom container or Dockerfile](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#keep-alive-custom-container) and implement a custom probe endpoint.
 
 #### Define build options
 
@@ -795,11 +851,96 @@ The `remote_agent` object corresponds to an [`AgentRuntime`](https://docs.cloud.
 
 ### Dockerfile
 
-Deploying from Dockerfile on Agent Platform follows a similar approach to deploying from source files, except that you use `image_spec` in the configuration instead of `entrypoint_module` , `entrypoint_object` , and `requirements_file` . The container built from the Dockerfile must adhere to the [runtime contract](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/runtime-contract) .
+Deploying from Dockerfile on Agent Platform follows a similar approach to deploying from source files, except that you include a `Dockerfile` in your source files and specify `image_spec` in the configuration instead of `entrypoint_module` , `entrypoint_object` , and `requirements_file` . The container built from the Dockerfile must listen for HTTP requests on `0.0.0.0` on port `8080` and adhere to the [runtime contract](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/runtime-contract) .
 
-You can use this deployment method with any language. The example in this section uses Python.
+You can use this deployment method with any language.
 
-The following is an example of deploying an agent using a Dockerfile:
+First, create a `Dockerfile` at the root of your project directory that installs dependencies and starts your HTTP server on `0.0.0.0:8080` :
+
+#### Python
+
+```
+FROM python:3.13-slim
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+EXPOSE 8080
+
+# Start an ADK API server or custom FastAPI server on 0.0.0.0:8080:
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
+```
+
+#### Go
+
+```
+FROM golang:1.24 AS builder
+WORKDIR /app
+
+COPY go.mod go.sum ./
+RUN go mod download
+
+COPY . .
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o /app/server .
+
+FROM gcr.io/distroless/static-debian12
+WORKDIR /app
+COPY --from=builder /app/server /app/server
+
+EXPOSE 8080
+
+# For an ADK Go agent using the built-in launcher:
+# CMD ["/app/server", "web", "-host", "0.0.0.0", "-port", "8080", "agentengine"]
+# For a custom Go HTTP server listening on 0.0.0.0:8080:
+CMD ["/app/server"]
+```
+
+#### TypeScript
+
+```
+FROM node:22-slim
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm ci
+
+COPY . .
+RUN npm run build
+
+EXPOSE 8080
+
+# For an ADK TypeScript agent (with @google/adk-devtools in package.json):
+# CMD ["npx", "adk", "api_server", "/app/agents/my_agent", "--host=0.0.0.0", "--port=8080"]
+# For a custom Node.js HTTP server listening on 0.0.0.0:8080:
+CMD ["node", "dist/index.js"]
+```
+
+#### Java
+
+```
+FROM maven:3.9-eclipse-temurin-17
+WORKDIR /app
+
+COPY pom.xml .
+COPY src ./src
+RUN mvn package -DskipTests
+
+EXPOSE 8080
+
+# For an ADK Java agent using AdkWebServer (set --server.address=0.0.0.0):
+# CMD ["sh", "-c", "mvn exec:java -Dexec.mainClass=com.google.adk.web.AdkWebServer -Dexec.args='--server.address=0.0.0.0 --server.port=${PORT:-8080} --adk.agents.source-dir=.'"]
+# For a packaged Java HTTP server JAR listening on 0.0.0.0:8080:
+CMD ["java", "-jar", "target/app.jar"]
+```
+
+If your container implements the [runtime contract](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/runtime-contract) routing endpoints ( `/api/reasoning_engine` and `/api/stream_reasoning_engine` , which the ADK Go `agentengine` launcher also exposes), declare the supported operations in [`class_methods`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/runtime-contract#class-methods) (or `spec.classMethods` in REST) so you can invoke the agent through standard `query` and `streamQuery` requests. If your container runs the ADK API server (such as `npx adk api_server` for TypeScript or `AdkWebServer` for Java), invoke its `/run` and `/run_sse` endpoints through the [underlying API proxy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-agent#use_deployed_agents_through_their_underlying_api) ( `/api/run` and `/api/run_sse` ).
+
+Next, deploy the agent from your local source files and `Dockerfile` using the Agent Platform SDK, REST API, or [Terraform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-terraform#deploy-dockerfile) :
+
+#### Agent Platform SDK
 
 ```
 # Example file structure:
@@ -808,6 +949,11 @@ The following is an example of deploying an agent using a Dockerfile:
 #     ├── main.py
 #     ├── requirements.txt
 #     ├── Dockerfile
+#
+# For other languages, pass your project's source files and Dockerfile in source_packages:
+#   Go:         ["main.go", "go.mod", "go.sum", "Dockerfile"]
+#   TypeScript: ["src", "package.json", "package-lock.json", "tsconfig.json", "Dockerfile"]
+#   Java:       ["src", "pom.xml", "Dockerfile"]
 
 remote_agent = client.runtimes.create(
     config={
@@ -818,13 +964,15 @@ remote_agent = client.runtimes.create(
             "Dockerfile",
         ],
         "image_spec": {},  # tells Agent Runtime to use the Dockerfile
+        # Optional: declare class_methods if your container implements /api/reasoning_engine or /api/stream_reasoning_engine
+        # "class_methods": class_methods,
         # Other optional configs
         "display_name": "Dockerfile agent",
     }
 )
 ```
 
-Deployment latency depends on the total time it takes to install required packages. Once deployed, `remote_agent` corresponds to an instance of `local_agent` that is running on Agent Platform and can be queried or deleted.
+Deployment latency depends on the total time it takes to build the container image and install required packages. Once deployed, `remote_agent` corresponds to your agent running on Agent Platform and can be queried or deleted.
 
 The `remote_agent` object corresponds to an [`AgentRuntime`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.AgentRuntime) class that contains the following:
 
@@ -832,13 +980,126 @@ The `remote_agent` object corresponds to an [`AgentRuntime`](https://docs.cloud.
 - [`remote_agent.api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.Runtimes) that allows for synchronous service interactions.
 - [`remote_agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.AsyncRuntimes) that allows for asynchronous service interactions.
 
+#### REST
+
+Package your `Dockerfile` and application source files at the root level of a `.tar.gz` archive (maximum 8 MB), base64-encode the archive, and send a `POST` request to the [`reasoningEngines.create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines/create) method:
+
+```
+# Package your Dockerfile and source files at the root of a tar.gz archive
+# (replace main.py and requirements.txt with your project's source files):
+tar -czf /tmp/source.tar.gz Dockerfile main.py requirements.txt
+
+curl -X POST \
+  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  -H "Content-Type: application/json" \
+  "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines" \
+  -d "{
+    \"displayName\": \"Dockerfile agent\",
+    \"spec\": {
+      \"sourceCodeSpec\": {
+        \"inlineSource\": {
+          \"sourceArchive\": \"$(base64 < /tmp/source.tar.gz | tr -d '\n')\"
+        },
+        \"imageSpec\": {}
+      }
+    }
+  }"
+```
+
+The request returns a [long-running `Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.operations) that resolves to the deployed [`ReasoningEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines#ReasoningEngine) resource once the container build and deployment complete.
+
 ### Container image
 
-To deploy from a container image, first follow the setup instructions for [Bring your own container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#byoc) , making sure to install a version of `google-cloud-aiplatform` satisfying `>=1.144` . The container image must adhere to the [runtime contract](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/runtime-contract) .
+To deploy from a container image, first follow the setup instructions for [Bring your own container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#byoc) to build and push your image to Artifact Registry. If you use the Agent Platform SDK to create the Agent Platform instance, make sure to install a version of `google-cloud-aiplatform` satisfying `>=1.144` . The container image must listen for HTTP requests on `0.0.0.0` on port `8080` and adhere to the [runtime contract](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/runtime-contract) .
 
-You can use this deployment method with any language. The example in this section uses Python.
+You can use this deployment method with any language.
 
-The following is an example of deploying an agent using a container image:
+The following examples show a `Dockerfile` for building a container image that listens on `0.0.0.0:8080` :
+
+#### Python
+
+```
+FROM python:3.13-slim
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+EXPOSE 8080
+
+# Start an ADK API server or custom FastAPI server on 0.0.0.0:8080:
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
+```
+
+#### Go
+
+```
+FROM golang:1.24 AS builder
+WORKDIR /app
+
+COPY go.mod go.sum ./
+RUN go mod download
+
+COPY . .
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o /app/server .
+
+FROM gcr.io/distroless/static-debian12
+WORKDIR /app
+COPY --from=builder /app/server /app/server
+
+EXPOSE 8080
+
+# For an ADK Go agent using the built-in launcher:
+# CMD ["/app/server", "web", "-host", "0.0.0.0", "-port", "8080", "agentengine"]
+# For a custom Go HTTP server listening on 0.0.0.0:8080:
+CMD ["/app/server"]
+```
+
+#### TypeScript
+
+```
+FROM node:22-slim
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm ci
+
+COPY . .
+RUN npm run build
+
+EXPOSE 8080
+
+# For an ADK TypeScript agent (with @google/adk-devtools in package.json):
+# CMD ["npx", "adk", "api_server", "/app/agents/my_agent", "--host=0.0.0.0", "--port=8080"]
+# For a custom Node.js HTTP server listening on 0.0.0.0:8080:
+CMD ["node", "dist/index.js"]
+```
+
+#### Java
+
+```
+FROM maven:3.9-eclipse-temurin-17
+WORKDIR /app
+
+COPY pom.xml .
+COPY src ./src
+RUN mvn package -DskipTests
+
+EXPOSE 8080
+
+# For an ADK Java agent using AdkWebServer (set --server.address=0.0.0.0):
+# CMD ["sh", "-c", "mvn exec:java -Dexec.mainClass=com.google.adk.web.AdkWebServer -Dexec.args='--server.address=0.0.0.0 --server.port=${PORT:-8080} --adk.agents.source-dir=.'"]
+# For a packaged Java HTTP server JAR listening on 0.0.0.0:8080:
+CMD ["java", "-jar", "target/app.jar"]
+```
+
+If your container implements the [runtime contract](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/runtime-contract) routing endpoints ( `/api/reasoning_engine` and `/api/stream_reasoning_engine` , which the ADK Go `agentengine` launcher also exposes), declare the supported operations in [`class_methods`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/runtime-contract#class-methods) (or `spec.classMethods` in REST) so you can invoke the agent through standard `query` and `streamQuery` requests. If your container runs the ADK API server (such as `npx adk api_server` for TypeScript or `AdkWebServer` for Java), invoke its `/run` and `/run_sse` endpoints through the [underlying API proxy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-agent#use_deployed_agents_through_their_underlying_api) ( `/api/run` and `/api/run_sse` ).
+
+After building and pushing your container image to Artifact Registry, deploy the agent using the Agent Platform SDK, REST API, or [Terraform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-terraform#deploy-byoc-agent) :
+
+#### Agent Platform SDK
 
 ```
 remote_agent = client.runtimes.create(
@@ -846,6 +1107,8 @@ remote_agent = client.runtimes.create(
         "container_spec": {
             "image_uri": "CONTAINER_IMAGE_URI",
         },
+        # Optional: declare class_methods if your container implements /api/reasoning_engine or /api/stream_reasoning_engine
+        # "class_methods": class_methods,
         # Other optional configs
         "display_name": "Container image agent",
     },
@@ -854,13 +1117,34 @@ remote_agent = client.runtimes.create(
 
 Where `CONTAINER_IMAGE_URI` corresponds to the URI of the container image in Artifact Registry (such as `us-central1-docker.pkg.dev/my-project/my-repo/my-image:tag` ).
 
-Deployment latency depends on the total time it takes to install required packages. Once deployed, `remote_agent` corresponds to an instance of `local_agent` that is running on Agent Platform and can be queried or deleted.
+Once deployed, `remote_agent` corresponds to your agent running on Agent Platform and can be queried or deleted.
 
 The `remote_agent` object corresponds to an [`AgentRuntime`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.AgentRuntime) class that contains the following:
 
 - [`remote_agent.api_resource`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.ReasoningEngine) with information about the deployed agent. You can also call `remote_agent.operation_schemas()` to return the list of operations that the `remote_agent` supports. See [Supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#supported-operations) for details.
 - [`remote_agent.api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.Runtimes) that allows for synchronous service interactions.
 - [`remote_agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.AsyncRuntimes) that allows for asynchronous service interactions.
+
+#### REST
+
+Send a `POST` request to the [`reasoningEngines.create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines/create) method:
+
+```
+curl -X POST \
+  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  -H "Content-Type: application/json" \
+  "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines" \
+  -d '{
+    "displayName": "Container image agent",
+    "spec": {
+      "containerSpec": {
+        "imageUri": "CONTAINER_IMAGE_URI"
+      }
+    }
+  }'
+```
+
+Where `CONTAINER_IMAGE_URI` corresponds to the URI of the container image in Artifact Registry (such as `us-central1-docker.pkg.dev/my-project/my-repo/my-image:tag` ). The request returns a [long-running `Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.operations) that resolves to the deployed [`ReasoningEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines#ReasoningEngine) resource once deployment completes.
 
 ### Agent Platform SDK
 

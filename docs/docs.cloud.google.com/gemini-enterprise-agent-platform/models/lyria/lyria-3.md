@@ -81,7 +81,7 @@ Supported</li>
 </tr>
 <tr class="even">
 <th>Technical specifications</th>
-<td><strong>Audio</strong> mic</td>
+<td><strong>Audio</strong></td>
 <td><ul>
 <li>Maximum audio clip length: 184 seconds</li>
 <li>Maximum number of clips per prompt: 1</li>
@@ -189,7 +189,7 @@ Supported</li>
 </tr>
 <tr class="even">
 <th>Technical specifications</th>
-<td><strong>Audio</strong> mic</td>
+<td><strong>Audio</strong></td>
 <td><ul>
 <li>Maximum audio clip length: 30 seconds</li>
 <li>Maximum number of clips per prompt: 1</li>

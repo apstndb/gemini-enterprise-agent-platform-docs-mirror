@@ -20,9 +20,9 @@ This page shows you how to train an AutoML object detection model from an image 
 
 3.  Click **Train new model** .
 
-4.  For the training method, select radio_button_checked **AutoML** .
+4.  For the training method, select **AutoML** .
 
-5.  In the **Choose where to use the model** section, choose the model host location: radio_button_checked **Cloud** , radio_button_checked **Edge** , or radio_button_checked **Agent Platform Vision** .
+5.  In the **Choose where to use the model** section, choose the model host location: **Cloud** , **Edge** , or **Agent Platform Vision** .
 
 6.  Click **Continue** .
 

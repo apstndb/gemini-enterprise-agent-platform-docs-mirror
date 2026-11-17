@@ -20,7 +20,7 @@ You can view the open source Ray log files through the Ray OSS dashboard:
 
 1.  In the Google Cloud console, go to the Ray on Agent Platform page.
 
-2.  In the row for the cluster you created, select more_vert **more actions** menu.
+2.  In the row for the cluster you created, select **more actions** menu.
 
 3.  Select the Ray OSS dashboard link. The dashboard opens in another tab.
 

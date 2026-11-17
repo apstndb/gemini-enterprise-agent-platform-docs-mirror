@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 > To see an example of video understanding, run the "YouTube Video Analysis with Gemini" notebook in one of the following environments:
 >
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/use-cases/video-analysis/youtube_video_analysis.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fuse-cases%2Fvideo-analysis%2Fyoutube_video_analysis.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fuse-cases%2Fvideo-analysis%2Fyoutube_video_analysis.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/use-cases/video-analysis/youtube_video_analysis.ipynb)
+> [Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/use-cases/video-analysis/youtube_video_analysis.ipynb) \| [Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fuse-cases%2Fvideo-analysis%2Fyoutube_video_analysis.ipynb) \| [Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fuse-cases%2Fvideo-analysis%2Fyoutube_video_analysis.ipynb) \| [View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/use-cases/video-analysis/youtube_video_analysis.ipynb)
 
 You can add videos to Gemini requests to perform tasks that involve understanding the contents of the included videos. This page shows you how to add videos to your requests to Gemini in Gemini Enterprise Agent Platform by using the Google Cloud console and the Agent Platform API.
 
@@ -387,9 +387,9 @@ To send a multimodal prompt by using the Google Cloud console, do the following:
 
 8.  Click **Submit** .
 
-9.  Optional: To save your prompt to **My prompts** , click save_alt **Save** .
+9.  Optional: To save your prompt to **My prompts** , click **Save** .
 
-10. Optional: To get the Python code or a curl command for your prompt, click code **Build with code \> Get code** .
+10. Optional: To get the Python code or a curl command for your prompt, click **Build with code \> Get code** .
 
 ### Python
 
@@ -1515,9 +1515,9 @@ To send a multimodal prompt by using the Google Cloud console, do the following:
 
 8.  Click **Submit** .
 
-9.  Optional: To save your prompt to **My prompts** , click save_alt **Save** .
+9.  Optional: To save your prompt to **My prompts** , click **Save** .
 
-10. Optional: To get the Python code or a curl command for your prompt, click code **Build with code \> Get code** .
+10. Optional: To get the Python code or a curl command for your prompt, click **Build with code \> Get code** .
 
 ## Customize video processing
 

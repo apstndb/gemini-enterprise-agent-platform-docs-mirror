@@ -167,7 +167,7 @@ Follow these steps to delete an experiment run .
 2.  In the experiment details page, click the name of the experiment that is associated with the experiment run you want to delete. The **Experiment runs** page appears with the list of all the experiment runs for that experiment.
 3.  Select the checkbox associated with the run that you want to delete. The **Delete** button appears.
 4.  Click **Delete**
-    - Alternatively, you can go to the more_vert options menu that's in the same row as the experiment run and select **delete** .
+    - Alternatively, you can go to the options menu that's in the same row as the experiment run and select **delete** .
 
 ## View list of experiment runs and run details
 

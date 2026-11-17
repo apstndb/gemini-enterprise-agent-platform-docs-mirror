@@ -9289,7 +9289,7 @@ To grant additional roles to a service agent for Agent Platform in your home pro
 
 2.  Select the **Include Google-provided role grants** checkbox.
 
-3.  Determine the [service agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#service-agents) you want to grant the permissions to and click the edit pencil icon.
+3.  Determine the [service agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#service-agents) you want to grant the permissions to and click the pencil icon.
 
     You can filter for **Principal:@gcp-sa-aiplatform-cc.iam.gserviceaccount.com** to find the Agent Platform service agents.
 

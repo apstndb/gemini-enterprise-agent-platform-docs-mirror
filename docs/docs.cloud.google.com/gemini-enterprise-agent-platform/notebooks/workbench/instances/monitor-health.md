@@ -56,7 +56,7 @@ You can enable the system health report by using the Google Cloud console or the
 
 1.  In the Google Cloud console, go to the **Instances** page.
 
-2.  Click add_box **Create new** .
+2.  Click **Create new** .
 
 3.  In the **New instance** dialog, click **Advanced options** .
 
@@ -181,7 +181,7 @@ You can enable reporting custom metrics to Cloud Monitoring by using the Google 
 
 1.  In the Google Cloud console, go to the **Instances** page.
 
-2.  Click add_box **Create new** .
+2.  Click **Create new** .
 
 3.  In the **New instance** dialog, click **Advanced options** .
 
@@ -246,7 +246,7 @@ To install Monitoring on your Agent Platform Workbench instance, you can use the
 
 1.  In the Google Cloud console, go to the **Instances** page.
 
-2.  Click add_box **Create new** .
+2.  Click **Create new** .
 
 3.  In the **New instance** dialog, click **Advanced options** .
 

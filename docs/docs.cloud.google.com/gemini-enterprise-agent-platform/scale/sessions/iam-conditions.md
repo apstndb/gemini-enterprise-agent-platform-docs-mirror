@@ -66,13 +66,13 @@ To grant a single role to a principal, do the following:
 
 3.  Select a principal to grant a role to:
 
-    - To grant a role to a principal who already has other roles on the resource, find a row containing the principal, click edit **Edit principal** in that row, and click add **Add another role** .
+    - To grant a role to a principal who already has other roles on the resource, find a row containing the principal, click **Edit principal** in that row, and click **Add another role** .
 
       To grant a role to a [service agent](https://docs.cloud.google.com/iam/docs/service-account-types#service-agents) , select the **Include Google-provided role grants** checkbox to see its email address.
 
       > **Note:** You cannot edit inherited roles when managing access to a resource. To edit inherited roles, go to the resource where the role was granted.
 
-    - To grant a role to a principal who doesn't have any existing roles on the resource, click person_add **Grant Access** , then enter a [principal identifier](https://docs.cloud.google.com/iam/docs/principal-identifiers) . For example, `my-user@example.com` or `//iam.googleapis.com/locations/global/workforcePools/example-pool/group/example-group@example.com` .
+    - To grant a role to a principal who doesn't have any existing roles on the resource, click **Grant Access** , then enter a [principal identifier](https://docs.cloud.google.com/iam/docs/principal-identifiers) . For example, `my-user@example.com` or `//iam.googleapis.com/locations/global/workforcePools/example-pool/group/example-group@example.com` .
 
 4.  Select a role to grant from the drop-down list. For best security practices, choose a role that includes only the permissions that your principal needs. You can choose one of the [specialized Session IAM roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/iam-conditions#session-roles) .
 

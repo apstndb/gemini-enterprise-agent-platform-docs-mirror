@@ -118,7 +118,7 @@ To view the Model Armor insights for a specific agent in the list, go to Agent R
 To query and analyze telemetry data from Model Armor, use Observability Analytics, which provides a SQL-based query interface.
 
 1.  Go to the [top-level](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/monitor-content-security#view-security-insights-all-agents) **Security** tab.
-2.  For the view that you want to query, click more_vert **More chart options \> Explore in Observability Analytics** .
+2.  For the view that you want to query, click **More chart options \> Explore in Observability Analytics** .
 
 For general instructions on how to use Observability Analytics, see [Query and analyze telemetry with Observability Analytics](https://docs.cloud.google.com/stackdriver/docs/observability/analytics) .
 
@@ -127,7 +127,7 @@ For general instructions on how to use Observability Analytics, see [Query and a
 To download violations data to a PNG or CSV file, follow these steps:
 
 1.  In the **Violations over time** view on the **Security** tab, select the period for which you want to download data.
-2.  Click more_vert **More chart options \> Download** .
+2.  Click **More chart options \> Download** .
 3.  Click **Download PNG** or **Download CSV** to download the data in your preferred format.
 
 ## View unstructured security log entries in Logs Explorer

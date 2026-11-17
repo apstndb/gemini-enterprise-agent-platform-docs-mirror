@@ -53,9 +53,9 @@ The default request timeout for a Private Service Connect endpoint is 10 minutes
 
 3.  Provide a display name for the endpoint.
 
-4.  Select radio_button_checked **Private** .
+4.  Select **Private** .
 
-5.  Select radio_button_checked **Private Service Connect** .
+5.  Select **Private Service Connect** .
 
 6.  Click **Select project IDs** .
 

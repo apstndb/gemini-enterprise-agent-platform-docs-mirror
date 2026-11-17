@@ -111,6 +111,6 @@ If you want to delete the Vertex AI Workbench instance, do the following:
 
 2.  Select your Vertex AI Workbench instance.
 
-3.  In the upper menu, click delete **Delete** .
+3.  In the upper menu, click **Delete** .
 
 4.  In the **Delete instance** confirmation dialog, click **Confirm** . It takes a few minutes for the deletion to complete.

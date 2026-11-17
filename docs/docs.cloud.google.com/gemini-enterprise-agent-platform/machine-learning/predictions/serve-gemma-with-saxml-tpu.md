@@ -89,7 +89,7 @@ Follow these steps to generate a new token if you don't have one already:
 
 In Cloud Shell, you can upload the Kaggle API token to your Google Cloud project:
 
-1.  In Cloud Shell, click more_vert **More** \> **Upload** .
+1.  In Cloud Shell, click **More** \> **Upload** .
 2.  Select File and click **Choose Files** .
 3.  Open the `kaggle.json` file.
 4.  Click **Upload** .

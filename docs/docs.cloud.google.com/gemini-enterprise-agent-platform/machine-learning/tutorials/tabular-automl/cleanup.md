@@ -18,11 +18,11 @@ This section describes how delete the following project resources: endpoint, mod
 
 2.  Click your endpoint to open its details page.
 
-3.  On the row for your model, click **Undeploy model delete** .
+3.  On the row for your model, click **Undeploy model** .
 
 4.  In the **Undeploy model from endpoint** dialog, click **Undeploy** .
 
-5.  Return to the **Endpoints** tab, and find your endpoint. Click **View more more_vert** .
+5.  Return to the **Endpoints** tab, and find your endpoint. Click **View more** .
 
 6.  Click **Remove endpoint** and confirm the operation.
 
@@ -30,7 +30,7 @@ This section describes how delete the following project resources: endpoint, mod
 
 1.  In the Google Cloud console, in the Agent Platform section, go to the **Models** page.
 
-2.  Find your model. On that row, click **View more more_vert** .
+2.  Find your model. On that row, click **View more** .
 
 3.  Click **Delete model** and confirm the operation.
 
@@ -38,7 +38,7 @@ This section describes how delete the following project resources: endpoint, mod
 
 1.  In the Google Cloud console, in the Agent Platform section, go to the **Datasets** page.
 
-2.  Find your dataset. On that row, click **View more more_vert** .
+2.  Find your dataset. On that row, click **View more** .
 
 3.  Click **Delete dataset** .
 

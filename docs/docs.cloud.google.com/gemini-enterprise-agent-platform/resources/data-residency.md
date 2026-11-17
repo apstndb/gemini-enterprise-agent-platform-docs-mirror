@@ -123,6 +123,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 | Model                               | US multi-region | EU multi-region | Singapore (asia-southeast1) |
 |-------------------------------------|-----------------|-----------------|-----------------------------|
 | DeepSeek-V4.1-Flash                 |                 |                 |                             |
+| DeepSeek-V4.1-Flash-1017            |                 |                 |                             |
 | Gemma 4 26B A4B IT                  |                 |                 |                             |
 | GLM 5.2                             |                 |                 |                             |
 | gpt-oss 120B                        |                 |                 |                             |

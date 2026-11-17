@@ -44,7 +44,7 @@ Use the following steps to create an agent using prompts:
 
 3.  In the chat box, enter a prompt that describes the purpose and intended behavior of your agent.
 
-4.  Click send .
+4.  Click .
 
 5.  Depending on your prompt, one of the following happens:
 
@@ -139,7 +139,7 @@ Use the following steps to build an agent from the Studio prompt:
 
 4.  Enter a prompt that describes the purpose, workflow, and behavior of the agent you want to design.
 
-5.  Click send .
+5.  Click .
 
 Agent Studio directly launches the agent builder work in the agent designer canvas, pre-populating the agent flow and configuration based on your prompt. You can then continue editing instructions, selecting models, and adding tools or subagents.
 
@@ -186,7 +186,7 @@ Use the following steps to update an agent:
 
 1.  In the Google Cloud console, go to the **Agents** page.  
 
-2.  On the agent you want to update, click more_vert , and then click **Edit** .
+2.  On the agent you want to update, click , and then click **Edit** .
 
 3.  Update the agent using prompts or the flow builder.
 
@@ -345,7 +345,7 @@ The permissions dialog automatically grants required roles. However, if you pref
 
 3.  Search for the agent identity principal in the principal list. You can search using the specific `REASONING_ENGINE_ID` from the end of the principal string. To get the agent identity principal, you have one of the following options:
 
-    - If the agent identity principal is already listed, click edit **Edit principal** next to the agent identity.
+    - If the agent identity principal is already listed, click **Edit principal** next to the agent identity.
     - If the agent identity principal is not listed, click **Grant access** to add it as a new principal.
 
 4.  Add or modify the required roles for your configuration, such as `roles/storage.objectViewer` or `roles/mcp.toolUser` .

@@ -12,7 +12,7 @@ The Anthropic Claude models on Google Cloud offer fully managed and serverless m
 
 You can stream your Claude responses to reduce the end-user latency perception. A streamed response uses server-sent events (SSE) to incrementally stream the response.
 
-You pay for Claude models as you use them (pay as you go), or you pay a fixed fee when using [provisioned throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput) . For pay-as-you-go pricing, see [Anthropic Claude models on the Google Cloud pricing page](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#partner-models) .
+You pay for Claude models as you use them (pay as you go), or you pay a fixed fee when using [provisioned throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput) . For pay-as-you-go pricing, see [Anthropic Claude models on the Google Cloud pricing page](https://cloud.google.com/model-garden/partner-models/pricing#anthropics-claude-models) .
 
 ## Available Claude on Google Cloud models
 

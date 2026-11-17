@@ -20,13 +20,13 @@ The following roles and permissions are required to use open models:
 
 1.  To grant the Consumer Procurement Entitlement Manager IAM roles to a user, go to the **IAM** page.
 
-2.  In the **Principal** column, find the user [principal](https://docs.cloud.google.com/iam/docs/overview#concepts_related_identity) for which you want to enable access to open models, and then click edit **Edit principal** in that row.
+2.  In the **Principal** column, find the user [principal](https://docs.cloud.google.com/iam/docs/overview#concepts_related_identity) for which you want to enable access to open models, and then click **Edit principal** in that row.
 
-3.  In the **Edit access** pane, click add **Add another role** .
+3.  In the **Edit access** pane, click **Add another role** .
 
 4.  In **Select a role** , select **Consumer Procurement Entitlement Manager** .
 
-5.  In the **Edit access** pane, click add **Add another role** .
+5.  In the **Edit access** pane, click **Add another role** .
 
 6.  In **Select a role** , select **Agent Platform User** .
 

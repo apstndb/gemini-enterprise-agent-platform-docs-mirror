@@ -66,7 +66,7 @@ To get online predictions from the ML model that you trained when following the 
 
 6.  Click **Deploy** to create the endpoint and deploy your model to the endpoint.
 
-After a few minutes, check_circle appears next to the new endpoint in the **Endpoints** table. At the same time, you also receive an email indicating that you have successfully created the endpoint and deployed your model to the endpoint.
+After a few minutes, appears next to the new endpoint in the **Endpoints** table. At the same time, you also receive an email indicating that you have successfully created the endpoint and deployed your model to the endpoint.
 
 ## Deploy a Cloud Run function
 

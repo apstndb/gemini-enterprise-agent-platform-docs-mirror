@@ -67,6 +67,8 @@ Supported</li>
 Not supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options">Pay-as-you-go</a><br />
 Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deferred-tier">Deferred tier</a><br />
+Not supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas">Fixed quota</a><br />
 Supported</li>
 </ul></td>
@@ -74,7 +76,7 @@ Supported</li>
 </tr>
 <tr class="odd">
 <th>Technical specifications</th>
-<td><strong>Video</strong> videocam</td>
+<td><strong>Video</strong></td>
 <td><ul>
 <li>Video lengths: 4, 6, or 8 seconds; reference image to video only supports 8 seconds.</li>
 <li>Maximum number of output videos per prompt: 4</li>
@@ -199,6 +201,8 @@ Supported</li>
 Not supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options">Pay-as-you-go</a><br />
 Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deferred-tier">Deferred tier</a><br />
+Not supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas">Fixed quota</a><br />
 Supported</li>
 </ul></td>
@@ -206,7 +210,7 @@ Supported</li>
 </tr>
 <tr class="odd">
 <th>Technical specifications</th>
-<td><strong>Video</strong> videocam</td>
+<td><strong>Video</strong></td>
 <td><ul>
 <li>Video lengths: 4, 6, or 8 seconds.</li>
 <li>Maximum number of output videos per prompt: 4</li>
@@ -334,6 +338,8 @@ Supported</li>
 Not supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options">Pay-as-you-go</a><br />
 Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deferred-tier">Deferred tier</a><br />
+Not supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas">Fixed quota</a><br />
 Supported</li>
 </ul></td>
@@ -341,7 +347,7 @@ Supported</li>
 </tr>
 <tr class="odd">
 <th>Technical specifications</th>
-<td><strong>Video</strong> videocam</td>
+<td><strong>Video</strong></td>
 <td><ul>
 <li>Video lengths: 4, 6, or 8 seconds.</li>
 <li>Maximum number of output videos per prompt: 4</li>
@@ -357,7 +363,7 @@ Supported</li>
 <tr class="even">
 <th>Prompt languages</th>
 <td><ul>
-<li>English preview Preview feature</li>
+<li>English Preview feature</li>
 </ul></td>
 <td></td>
 </tr>

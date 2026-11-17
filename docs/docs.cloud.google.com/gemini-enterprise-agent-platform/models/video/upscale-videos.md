@@ -71,7 +71,11 @@ Video upscaling can take over a minute to complete. You can choose from several 
 
 Stored and asynchronous interactions are retained for up to 7 days.
 
-When you configure `"delivery": "uri"` with `gcs_uri` , unary responses return the Cloud Storage URI in `steps[].content[].uri` and streaming responses return it in `delta.uri` . When inline delivery is used ( `"delivery": "inline"` , or when both `"delivery"` and `"gcs_uri"` are omitted), video output is returned as a base64-encoded byte string alongside `"mime_type": "video/mp4"` in `steps[].content[].data` (unary `POST` and `GET` ) or `delta.data` (SSE `step.delta` ). Unlike text or audio deltas, inline video isn't chunked across multiple `step.delta` events—each upscaled video is delivered as a single, complete base64 payload in one `step.delta` event. For large or high-resolution videos, use `"delivery": "uri"` to avoid large HTTP or single-event SSE response payloads.
+When you configure `"delivery": "uri"` in `response_format` , you must also specify `gcs_uri` . Omitting `gcs_uri` when `"delivery"` is `"uri"` returns a `400 INVALID_ARGUMENT` error.
+
+Unary responses return the Cloud Storage URI in `steps[].content[].uri` and streaming responses return it in `delta.uri` . To return video bytes inline in the response instead, set `"delivery": "inline"` and omit `gcs_uri` ( `gcs_uri` isn't supported when `"delivery"` is `"inline"` ). When inline delivery is used, video output is returned as a base64-encoded byte string alongside `"mime_type": "video/mp4"` in `steps[].content[].data` (unary `POST` and `GET` ) or `delta.data` (SSE `step.delta` ). Unlike text or audio deltas, inline video isn't chunked across multiple `step.delta` events—each upscaled video is delivered as a single, complete base64 payload in one `step.delta` event.
+
+For large or high-resolution videos, use `"delivery": "uri"` with `gcs_uri` to avoid large HTTP or single-event SSE response payloads.
 
 For more information about using Gemini Omni models with the Interactions API, see [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api) .
 
@@ -91,7 +95,7 @@ Before using any of the request data, make the following replacements:
   - `video/webm`
   - `video/x-flv`
   - `video/x-ms-wmv`
-- `CLOUD_STORAGE_OUTPUT_URI` : Optional: A string representing the Cloud Storage bucket to store the upscaled video. If not provided, video bytes are returned in the response. For example: `"gs://video-bucket/output/"` .
+- `CLOUD_STORAGE_OUTPUT_URI` : A string representing the Cloud Storage bucket to store the upscaled video (for example, `"gs://video-bucket/output/"` ). Required when `delivery` is set to `"uri"` . To return video bytes inline in the response instead, set `"delivery": "inline"` and omit `gcs_uri` from `response_format` .
 - `OUTPUT_RESOLUTION` : Required: A string representing the target output resolution. Supported values depend on the input video resolution:
   - For 360p input videos: `"720p"` or `"1080p"`
   - For 720p input videos: `"1080p"` or `"4k"`
@@ -205,7 +209,7 @@ Before using any of the request data, make the following replacements:
 - `MODEL_ID` : A string representing the model ID to use. The following is the accepted value:
   - `"gemini-omni-1.2-flash"`
 - `PREVIOUS_INTERACTION_ID` : The interaction ID of the immediately preceding stateful turn that generated a 360p or 720p video (up to 15 seconds).
-- `CLOUD_STORAGE_OUTPUT_URI` : Optional: A string representing the Cloud Storage bucket to store the upscaled video. If not provided, video bytes are returned in the response. For example: `"gs://video-bucket/output/"` .
+- `CLOUD_STORAGE_OUTPUT_URI` : A string representing the Cloud Storage bucket to store the upscaled video (for example, `"gs://video-bucket/output/"` ). Required when `delivery` is set to `"uri"` . To return video bytes inline in the response instead, set `"delivery": "inline"` and omit `gcs_uri` from `response_format` .
 - `OUTPUT_RESOLUTION` : Required: A string representing the target output resolution. Supported values depend on the video resolution from the previous turn:
   - For 360p videos: `"720p"` or `"1080p"`
   - For 720p videos: `"1080p"` or `"4k"`
@@ -428,7 +432,7 @@ The response is in a format similar to the following:
 }
 ```
 
-When inline delivery is used ( `"delivery": "inline"` , or when both `"delivery"` and `"gcs_uri"` are omitted), the `model_output` step returns the complete video as a base64-encoded byte string in `steps[].content[].data` alongside `"mime_type": "video/mp4"` instead of `uri` :
+When inline delivery is used ( `"delivery": "inline"` with `gcs_uri` omitted), the `model_output` step returns the complete video as a base64-encoded byte string in `steps[].content[].data` alongside `"mime_type": "video/mp4"` instead of `uri` :
 
 ```
 {
@@ -459,7 +463,7 @@ Before using any of the request data, make the following replacements:
   - `video/webm`
   - `video/x-flv`
   - `video/x-ms-wmv`
-- `CLOUD_STORAGE_OUTPUT_URI` : Optional: A string representing the Cloud Storage bucket to store the upscaled video. If not provided, video bytes are returned in the response. For example: `"gs://video-bucket/output/"` .
+- `CLOUD_STORAGE_OUTPUT_URI` : A string representing the Cloud Storage bucket to store the upscaled video (for example, `"gs://video-bucket/output/"` ). Required when `delivery` is set to `"uri"` . To return video bytes inline in the response instead, set `"delivery": "inline"` and omit `gcs_uri` from `response_format` .
 - `OUTPUT_RESOLUTION` : Required: A string representing the target output resolution. Supported values depend on the input video resolution:
   - For 360p input videos: `"720p"` or `"1080p"`
   - For 720p input videos: `"1080p"` or `"4k"`
@@ -560,7 +564,7 @@ event: done
 data: [DONE]
 ```
 
-When inline delivery is used ( `"delivery": "inline"` , or when both `"delivery"` and `"gcs_uri"` are omitted), the video `step.delta` event returns the video bytes in `delta.data` as a base64-encoded string alongside `"mime_type": "video/mp4"` instead of `delta.uri` :
+When inline delivery is used ( `"delivery": "inline"` with `gcs_uri` omitted), the video `step.delta` event returns the video bytes in `delta.data` as a base64-encoded string alongside `"mime_type": "video/mp4"` instead of `delta.uri` :
 
 ```
 event: step.delta
@@ -647,7 +651,7 @@ event: done
 data: [DONE]
 ```
 
-When inline delivery is used ( `"delivery": "inline"` , or when both `"delivery"` and `"gcs_uri"` are omitted), the video `step.delta` event returns the video bytes in `delta.data` as a base64-encoded string alongside `"mime_type": "video/mp4"` instead of `delta.uri` :
+When inline delivery is used ( `"delivery": "inline"` with `gcs_uri` omitted), the video `step.delta` event returns the video bytes in `delta.data` as a base64-encoded string alongside `"mime_type": "video/mp4"` instead of `delta.uri` :
 
 ```
 event: step.delta
@@ -672,7 +676,7 @@ Before using any of the request data, make the following replacements:
   - `video/webm`
   - `video/x-flv`
   - `video/x-ms-wmv`
-- `CLOUD_STORAGE_OUTPUT_URI` : Optional: A string representing the Cloud Storage bucket to store the upscaled video. If not provided, video bytes are returned in the response. For example: `"gs://video-bucket/output/"` .
+- `CLOUD_STORAGE_OUTPUT_URI` : A string representing the Cloud Storage bucket to store the upscaled video (for example, `"gs://video-bucket/output/"` ). Required when `delivery` is set to `"uri"` . To return video bytes inline in the response instead, set `"delivery": "inline"` and omit `gcs_uri` from `response_format` .
 - `OUTPUT_RESOLUTION` : Required: A string representing the target output resolution. Supported values depend on the input video resolution:
   - For 360p input videos: `"720p"` or `"1080p"`
   - For 720p input videos: `"1080p"` or `"4k"`
@@ -860,7 +864,7 @@ The response is in a format similar to the following:
 }
 ```
 
-When inline delivery is used ( `"delivery": "inline"` , or when both `"delivery"` and `"gcs_uri"` are omitted), the `model_output` step returns the complete video as a base64-encoded byte string in `steps[].content[].data` alongside `"mime_type": "video/mp4"` instead of `uri` :
+When inline delivery is used ( `"delivery": "inline"` with `gcs_uri` omitted), the `model_output` step returns the complete video as a base64-encoded byte string in `steps[].content[].data` alongside `"mime_type": "video/mp4"` instead of `uri` :
 
 ```
 {

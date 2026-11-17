@@ -14,6 +14,23 @@ For more information about deployment methods, see [Deploy an agent](https://doc
 
 To deploy a custom container on Agent Runtime, the container must listen for HTTP requests on `0.0.0.0` on port `8080` .
 
+The following sequence diagram shows the request flow between the client, the Agent Runtime control plane, and your custom container:
+
+#### Text description: Request flow sequence diagram
+
+The diagram illustrates two request flows between the client (Client, SDK, or Console), the Agent Runtime control plane (Gemini platform API and control plane), and the user container listening on `0.0.0.0:8080` :
+
+1.  **Unary query flow** :
+    1.  The client sends `POST /v1/projects/.../reasoningEngines/...:query` to the Agent Runtime control plane.
+    2.  The Agent Runtime control plane forwards `POST /api/reasoning_engine` with a JSON envelope to the user container ( `0.0.0.0:8080` ).
+    3.  The user container returns `HTTP 200 OK` with a JSON envelope to the Agent Runtime control plane.
+    4.  The Agent Runtime control plane returns the result payload to the client.
+2.  **Streaming query flow** :
+    1.  The client sends `POST /v1/projects/.../reasoningEngines/...:streamQuery` to the Agent Runtime control plane.
+    2.  The Agent Runtime control plane forwards `POST /api/stream_reasoning_engine` with a JSON envelope to the user container ( `0.0.0.0:8080` ).
+    3.  The user container returns `HTTP 200 OK` with NDJSON stream chunks to the Agent Runtime control plane.
+    4.  The Agent Runtime control plane streams SSE response events to the client.
+
 ### Endpoints (Optional)
 
 Your container can expose any custom HTTP endpoints. You can invoke these custom endpoints by sending requests to the deployed agent's underlying API. For more information, see [Use deployed agents through their underlying API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-agent#use_deployed_agents_through_their_underlying_api) .
@@ -22,6 +39,7 @@ While these endpoints are optional at the API level, implementing them enables t
 
 - **Python SDK support** : Implementing both `/api/reasoning_engine` and `/api/stream_reasoning_engine` lets you use your deployed agent through the [Gemini Enterprise Agent Platform Python SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-agent#sdk) .
 - **Playground support** : Implementing `/api/stream_reasoning_engine` is required if you want to interact with your agent through the Google Cloud console playground. For more information, see [Playground support](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-agent#playground_support) .
+- **Health probes** : Ensuring your container binds to `0.0.0.0:8080` and responds with HTTP `200 OK` on health check requests (for example, `GET /` ) enables liveness and readiness probing by the control plane.
 
 If you want to use these features, you must implement the following endpoints:
 
@@ -72,6 +90,14 @@ Both `/api/reasoning_engine` and `/api/stream_reasoning_engine` receive HTTP `PO
 - **Request method** : `POST`
 - **Request body** : `json { "class_method": "stream_query", "input": { "message": "Tell me a short story." } }`
 - **Response** : A stream of line-delimited JSON (ndjson), where each line is a JSON-encoded chunk of the response. `json {"output": "Once"} {"output": " upon"} {"output": " a time..."}`
+
+### Keep-alive probe endpoint (Optional)
+
+If you configure [`keep_alive_probe`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#keep-alive-probe) on your deployment, Agent Runtime periodically polls your configured `http_get.path` endpoint while the instance has no active requests to check whether background tasks or in-memory state require keeping the container alive (up to `max_seconds` , maximum `3600` seconds after the last request completes).
+
+- **Request method** : `GET` on `http_get.path` (for example, `/is_busy` ) on `http_get.port` (defaulting to port `8080` ). Polled every 10 seconds with a 1-second request timeout while the instance is idle.
+- **Busy response ( `2xx` )** : Returning any HTTP `200` – `299` status code indicates that the container is still busy and prevents idle scale-down until `max_seconds` elapses after the last request completed. `json { "status": "busy" }`
+- **Idle response (non- `2xx` )** : Returning any non- `2xx` status code (for example, `412 Precondition Failed` or `503 Service Unavailable` ) or timing out for 3 consecutive probes marks the idle instance eligible for scale-down. Failing a keep-alive probe doesn't terminate active request processing. `json { "status": "idle" }`
 
 ## Example API server (Python)
 
@@ -129,6 +155,11 @@ async def _invoke_callable_or_raise(invocation_callable, invocation_payload):
     else:
         return invocation_callable(**invocation_payload)
 
+@app.get("/")
+def health_check():
+    """Health check endpoint for container readiness."""
+    return {"status": "ok"}
+
 @app.post("/api/reasoning_engine")
 async def query_endpoint(request: QueryRequest) -> responses.JSONResponse:
     try:
@@ -164,6 +195,13 @@ async def stream_query_endpoint(request: QueryRequest) -> responses.StreamingRes
         content=json_generator(output),
         media_type="application/json",
     )
+
+@app.get("/is_busy")
+def keep_alive_endpoint() -> responses.JSONResponse:
+    """Optional keep-alive probe endpoint for background tasks."""
+    if getattr(agent, "has_active_background_tasks", False):
+        return responses.JSONResponse(status_code=200, content={"status": "busy"})
+    return responses.JSONResponse(status_code=412, content={"status": "idle"})
 
 if __name__ == "__main__":
     # The container must listen on 0.0.0.0 and port 8080

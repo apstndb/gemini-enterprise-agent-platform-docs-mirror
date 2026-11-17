@@ -52,13 +52,13 @@ When prompted, make sure to select the project that you used for your Cloud Stor
 
 2.  Specify a name for this dataset (optional).
 
-3.  In the Image tab of the "Select a data type and objective" section, choose the radio_button_checked **Image classification (Single-label)** radio option. In the Region drop-down menu select **US Central** .
+3.  In the Image tab of the "Select a data type and objective" section, choose the **Image classification (Single-label)** radio option. In the Region drop-down menu select **US Central** .
 
     ![New dataset window](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-automl/images/create-dataset-objective.png)
 
 4.  Select **Create** to create the empty dataset. After selecting Create you will advance to the data import window.
 
-5.  Select the radio_button_checked **Select import files from Cloud Storage** and specify the Cloud Storage URI of the CSV file with the image location and label data. For this quickstart, the CSV file is at `gs://cloud-samples-data/ai-platform/flowers/flowers.csv` . Copy and paste the following into the "Import file path" field:
+5.  Select the **Select import files from Cloud Storage** and specify the Cloud Storage URI of the CSV file with the image location and label data. For this quickstart, the CSV file is at `gs://cloud-samples-data/ai-platform/flowers/flowers.csv` . Copy and paste the following into the "Import file path" field:
 
     - ```
       cloud-samples-data/ai-platform/flowers/flowers.csv

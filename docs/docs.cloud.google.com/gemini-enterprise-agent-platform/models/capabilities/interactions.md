@@ -71,7 +71,7 @@ By default, the Interactions API stores interactions on the server ( `store=true
 
 The Interactions API enforces the following request payload and multimodal input limits:
 
-- **Request payload limits** : The compressed HTTP request payload can't exceed 256 MiB for synchronous and streaming `interactions.create` requests. When `service_tier` is set to `deferred` (which requires both `background` and `store` to be `true` ), the uncompressed request can't exceed 9.75 MiB.
+- **Request payload limits** : The compressed HTTP request payload can't exceed 256 MiB for synchronous and streaming `interactions.create` requests. When you use the [Deferred tier](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deferred-tier) ( `service_tier="deferred"` , which requires `background=true` and `store=true` ), the uncompressed request can't exceed 9.75 MiB.
 - **URI limit for Cloud Storage files** : Standard Gemini model interaction requests support up to 100 distinct Cloud Storage ( `gs://` ) URIs per request, including URIs carried forward from earlier conversation turns through `previous_interaction_id` . Managed agent interactions, Gemini Omni models, and Lyria 3 models are excluded from this 100-URI limit. For permissions and multi-turn URI handling, see [Access uploaded Cloud Storage files](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/developer-guide#access-storage-files) .
 - **Multimodal item and token limits** : Standard Gemini models accept the same per-modality item counts as `generateContent` (up to 3,000 images and PDFs combined, 1,000 audio files, 10 videos, and up to 6,500 combined multimodal files when including plain-text files), bounded by the model's 1,048,576-token context window. Individual Cloud Storage files can't exceed 2 GiB minus 500 KiB, and public HTTP or HTTPS URLs can't exceed 15 MiB. To send more than 100 files in a single request, pass additional attachments inline within the request payload limit or call [`generateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference) .
 
@@ -98,6 +98,7 @@ Billing for interrupted or unfulfilled requests is handled as follows:
 
 - **Manual cancellations** : If an interaction is cancelled before completion (for example, by sending a cancellation request), you are charged for the tokens consumed up to the point of cancellation.
 - **Failed requests** : If an interaction request fails due to an internal system error or backend failure, you are not charged for the failed request.
+- **[Deferred tier](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deferred-tier) model calls** : Model calls with `service_tier="deferred"` are billed at a discounted rate. To learn how each turn outcome is billed, see [Pricing and billing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deferred-tier#pricing) .
 
 ### Security and compliance
 
@@ -127,3 +128,4 @@ Legacy SDKs ( `google-cloud-aiplatform` , `@google-cloud/vertexai` , and `google
 - Try the [Interactions API quickstart notebook](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_interactions_api.ipynb) .
 - Explore methods and resource schemas in the [Interactions API reference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api) .
 - Learn how to [interact with managed agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/interact-with-agents) and [use the Gemini Deep Research Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/use-deep-research) .
+- Run asynchronous background model calls at a discounted rate in [Use the Deferred tier](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deferred-tier) .

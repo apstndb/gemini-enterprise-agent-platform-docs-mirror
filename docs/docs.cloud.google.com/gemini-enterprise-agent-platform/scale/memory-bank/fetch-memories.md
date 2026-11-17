@@ -161,7 +161,7 @@ To view and filter memories in the Google Cloud console (requires `aiplatform.me
 
     - **Filter by scope** : Type a `key:value` pair (such as `user_id:123` ) in the filter bar, or click a scope chip in any row.
     - **View structured profiles** : Switch to **Structured** and select a complete scope, or apply a scope filter in **Unstructured** and click **Search structured memories** . For details, see [Memory Profiles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/profiles#inspect-profiles) .
-    - **Edit, inspect revisions, or delete** : Click the **more actions** menu ( more_vert ) on a memory row and select **Edit** , **View revisions** , or **Delete** .
+    - **Edit, inspect revisions, or delete** : Click the **more actions** menu ( ) on a memory row and select **Edit** , **View revisions** , or **Delete** .
 
 ### Agent Platform SDK
 

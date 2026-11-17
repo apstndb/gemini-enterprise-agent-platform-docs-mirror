@@ -211,7 +211,7 @@ The following table shows the default quotas and supported context length for ea
 
 <tr class="odd">
 <td>Anthropic's Claude Sonnet 5.5 on Google Cloud</td>
-<td><code>Multi-region</code></td>
+<td><code>us (US multi-region)</code></td>
 <td><ul>
 <li>QPM: 1,250</li>
 <li>Input TPM: 12,500,000 <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input">uncached and cache write</a></li>
@@ -220,7 +220,7 @@ The following table shows the default quotas and supported context length for ea
 <td>1,000,000</td>
 </tr>
 <tr class="even">
-<td><code>Multi-region</code></td>
+<td><code>eu (Europe multi-region)</code></td>
 <td><ul>
 <li>QPM: 1,250</li>
 <li>Input TPM: 12,500,000 <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input">uncached and cache write</a></li>
@@ -268,12 +268,12 @@ The following table shows the default quotas and supported context length for ea
 </tr>
 <tr class="odd">
 <td>Anthropic's Claude Fable 5.1 on Google Cloud</td>
-<td><code>Multi-region</code></td>
+<td><code>us (US multi-region)</code></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="even">
-<td><code>Multi-region</code></td>
+<td><code>eu (Europe multi-region)</code></td>
 <td></td>
 <td></td>
 <td></td>
@@ -286,7 +286,7 @@ The following table shows the default quotas and supported context length for ea
 </tr>
 <tr class="even">
 <td>Anthropic's Claude Sonnet 5 on Google Cloud</td>
-<td><code>Multi-region</code></td>
+<td><code>us (US multi-region)</code></td>
 <td><ul>
 <li>QPM: 1,250</li>
 <li>Input TPM: 12,500,000 <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input">uncached and cache write</a></li>
@@ -295,7 +295,7 @@ The following table shows the default quotas and supported context length for ea
 <td>1,000,000</td>
 </tr>
 <tr class="odd">
-<td><code>Multi-region</code></td>
+<td><code>eu (Europe multi-region)</code></td>
 <td><ul>
 <li>QPM: 1,250</li>
 <li>Input TPM: 12,500,000 <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input">uncached and cache write</a></li>
@@ -316,7 +316,7 @@ The following table shows the default quotas and supported context length for ea
 </tr>
 <tr class="odd">
 <td>Anthropic's Claude Opus 5.5 on Google Cloud</td>
-<td><code>Multi-region</code></td>
+<td><code>us (US multi-region)</code></td>
 <td><ul>
 <li>QPM: 1,000</li>
 <li>Input TPM: 10,000,000 <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input">uncached and cache write</a></li>
@@ -325,7 +325,7 @@ The following table shows the default quotas and supported context length for ea
 <td>1,000,000</td>
 </tr>
 <tr class="even">
-<td><code>Multi-region</code></td>
+<td><code>eu (Europe multi-region)</code></td>
 <td><ul>
 <li>QPM: 1,000</li>
 <li>Input TPM: 10,000,000 <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input">uncached and cache write</a></li>
@@ -346,7 +346,7 @@ The following table shows the default quotas and supported context length for ea
 </tr>
 <tr class="even">
 <td>Anthropic's Claude Opus 5 on Google Cloud</td>
-<td><code>Multi-region</code></td>
+<td><code>us (US multi-region)</code></td>
 <td><ul>
 <li>QPM: 1,000</li>
 <li>Input TPM: 10,000,000 <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input">uncached and cache write</a></li>
@@ -355,7 +355,7 @@ The following table shows the default quotas and supported context length for ea
 <td>1,000,000</td>
 </tr>
 <tr class="odd">
-<td><code>Multi-region</code></td>
+<td><code>eu (Europe multi-region)</code></td>
 <td><ul>
 <li>QPM: 1,000</li>
 <li>Input TPM: 10,000,000 <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input">uncached and cache write</a></li>
@@ -376,7 +376,7 @@ The following table shows the default quotas and supported context length for ea
 </tr>
 <tr class="odd">
 <td>Anthropic's Claude Fable 5 on Google Cloud</td>
-<td><code>Multi-region</code></td>
+<td><code>us (US multi-region)</code></td>
 <td><ul>
 <li>QPM: 1,000</li>
 <li>Input TPM: 10,000,000 <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input">uncached and cache write</a></li>
@@ -385,7 +385,7 @@ The following table shows the default quotas and supported context length for ea
 <td>1,000,000</td>
 </tr>
 <tr class="even">
-<td><code>Multi-region</code></td>
+<td><code>eu (Europe multi-region)</code></td>
 <td><ul>
 <li>QPM: 1,000</li>
 <li>Input TPM: 10,000,000 <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input">uncached and cache write</a></li>
@@ -406,7 +406,7 @@ The following table shows the default quotas and supported context length for ea
 </tr>
 <tr class="even">
 <td>Anthropic's Claude Opus 4.8 on Google Cloud</td>
-<td><code>Multi-region</code></td>
+<td><code>us (US multi-region)</code></td>
 <td><ul>
 <li>QPM: 1,000</li>
 <li>Input TPM: 10,000,000 <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input">uncached and cache write</a></li>
@@ -415,7 +415,7 @@ The following table shows the default quotas and supported context length for ea
 <td>1,000,000</td>
 </tr>
 <tr class="odd">
-<td><code>Multi-region</code></td>
+<td><code>eu (Europe multi-region)</code></td>
 <td><ul>
 <li>QPM: 1,000</li>
 <li>Input TPM: 10,000,000 <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input">uncached and cache write</a></li>
@@ -436,7 +436,7 @@ The following table shows the default quotas and supported context length for ea
 </tr>
 <tr class="odd">
 <td>Anthropic's Claude Opus 4.7 on Google Cloud</td>
-<td><code>Multi-region</code></td>
+<td><code>us (US multi-region)</code></td>
 <td><ul>
 <li>QPM: 400</li>
 <li>Input TPM: 4,000,000 <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input">uncached and cache write</a></li>
@@ -445,7 +445,7 @@ The following table shows the default quotas and supported context length for ea
 <td>1,000,000</td>
 </tr>
 <tr class="even">
-<td><code>Multi-region</code></td>
+<td><code>eu (Europe multi-region)</code></td>
 <td><ul>
 <li>QPM: 400</li>
 <li>Input TPM: 4,000,000 <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input">uncached and cache write</a></li>
@@ -680,7 +680,7 @@ The following table shows the default quotas and supported context length for ea
 </tr>
 <tr class="even">
 <td>Anthropic's Claude Haiku 5.5 on Google Cloud</td>
-<td><code>Multi-region</code></td>
+<td><code>us (US multi-region)</code></td>
 <td><ul>
 <li>QPM: 1,500</li>
 <li>Input TPM: 15,000,000 <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input">uncached and cache write</a></li>
@@ -689,7 +689,7 @@ The following table shows the default quotas and supported context length for ea
 <td>1,000,000</td>
 </tr>
 <tr class="odd">
-<td><code>Multi-region</code></td>
+<td><code>eu (Europe multi-region)</code></td>
 <td><ul>
 <li>QPM: 1,500</li>
 <li>Input TPM: 15,000,000 <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input">uncached and cache write</a></li>

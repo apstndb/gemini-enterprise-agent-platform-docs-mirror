@@ -12,6 +12,16 @@ data_source: docs.cloud.google.com
 
 The managed ingestion pipeline imports documents from data stores into Agent Retrieval into [Data Objects](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/data-objects/data-objects) and [Collections](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/collections/collections) you can search with text queries, and automatically handles parsing, segmentation, embedding, and indexing for you.
 
+> To see examples of importing and searching documents and videos in a data store, run the following notebooks in the environment of your choice:
+>
+> - "Search Your Documents with SearchDocuments in Agent Retrieval":
+>
+>   [Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/embeddings/agent-retrieval-search-documents.ipynb) \| [Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fembeddings%2Fagent-retrieval-search-documents.ipynb) \| [Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fembeddings%2Fagent-retrieval-search-documents.ipynb) \| [View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/embeddings/agent-retrieval-search-documents.ipynb)
+>
+> - "Search Inside Videos with Managed Video Ingestion in Agent Retrieval":
+>
+>   [Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/embeddings/agent-retrieval-video-search.ipynb) \| [Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fembeddings%2Fagent-retrieval-video-search.ipynb) \| [Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fembeddings%2Fagent-retrieval-video-search.ipynb) \| [View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/embeddings/agent-retrieval-video-search.ipynb)
+
 ## Supported document formats
 
 The following table lists the supported document file formats and file extensions.
@@ -35,7 +45,7 @@ Before you begin, you need:
 
 - A Cloud Storage [bucket](https://docs.cloud.google.com/storage/docs/buckets) containing the [files](https://docs.cloud.google.com/storage/docs/objects) you want to search..
 
-- The [`roles/vectorsearch.serviceAgent`](https://docs.cloud.google.com/iam/docs/roles-permissions/vectorsearch#vectorsearch.serviceAgent) permission granted to the service agent `service-PROJECT_NUMBER@gcp-sa-vectorsearch.iam.gserviceaccount.com` on the bucket's project.
+- The [`roles/vectorsearch.serviceAgent`](https://docs.cloud.google.com/iam/docs/roles-permissions/vectorsearch#vectorsearch.serviceAgent) permission granted to the service agent `service- `` PROJECT_NUMBER `` @gcp-sa-vectorsearch.iam.gserviceaccount.com` on the bucket's project.
 
 ## Examples
 

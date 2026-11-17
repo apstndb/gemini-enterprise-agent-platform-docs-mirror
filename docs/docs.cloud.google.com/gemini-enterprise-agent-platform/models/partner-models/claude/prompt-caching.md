@@ -43,4 +43,4 @@ Prompt caching can affect billing costs. Note that:
 - Cache read tokens are 90% cheaper than base input tokens.
 - Regular input and output tokens are priced at standard rates.
 
-For more information, see the [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#claude-models) page.
+For more information, see the [Pricing](https://cloud.google.com/model-garden/partner-models/pricing#anthropics-claude-models) page.

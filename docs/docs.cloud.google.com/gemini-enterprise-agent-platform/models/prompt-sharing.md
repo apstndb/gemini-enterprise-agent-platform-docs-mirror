@@ -26,7 +26,7 @@ To save a prompt for later use or sharing:
 
 2.  Write a new prompt or open an existing prompt and then click send **Submit** .
 
-3.  Click the save Save button.
+3.  Click the Save button.
 
 ## Share a saved prompt
 
@@ -34,7 +34,7 @@ To share a saved prompt:
 
 1.  In Agent Studio, go to either **Prompt management** or **Chat playground**
 
-2.  Open a saved prompt and click the share **Share** button.
+2.  Open a saved prompt and click the **Share** button.
 
     If prompt sharing was enabled successfully, you will see a window similar to the following:
 
@@ -48,7 +48,7 @@ To share a saved prompt:
 
 To revoke access to a prompt:
 
-1.  Open a saved prompt and click the share **Share** button.
+1.  Open a saved prompt and click the **Share** button.
 
 2.  Next to the principals, select **Remove** and then click **Save** .
 

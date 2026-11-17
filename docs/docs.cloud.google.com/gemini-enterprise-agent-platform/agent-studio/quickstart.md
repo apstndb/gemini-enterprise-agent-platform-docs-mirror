@@ -21,7 +21,7 @@ In this quickstart, you do the following:
 
 A prompt is a natural language request submitted to a language model that generates a response. Prompts can contain questions, instructions, contextual information, [few-shot examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/introduction-prompt-design#few_shot_examples) , and partial input for the model to complete. After the model receives a prompt, depending on the type of model used, it can generate text, embeddings, code, images, videos, music, and more.
 
-The sample prompts in [Agent Studio](https://console.cloud.google.com/agent-platform/studio/) [Prompt Gallery](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/prompt-gallery) are predesigned to help demonstrate model capabilities. Each prompt is preconfigured with specified model and parameter values so you can open the sample prompt and click **Submit** send to generate a response.
+The sample prompts in [Agent Studio](https://console.cloud.google.com/agent-platform/studio/) [Prompt Gallery](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/prompt-gallery) are predesigned to help demonstrate model capabilities. Each prompt is preconfigured with specified model and parameter values so you can open the sample prompt and click **Submit** to generate a response.
 
 ## Test the Gemini model using a summarization text prompt
 
@@ -37,7 +37,7 @@ Send a summarization text prompt to the Agent Platform API. A summarization task
 
 4.  Notice that in the settings panel, the model's default value is set to **gemini-3.7-flash** . You can choose a different Gemini model in the **Model settings** panel.
 
-5.  Click **Submit** send to generate the summary.
+5.  Click **Submit** to generate the summary.
 
     The output is displayed in the response.
 
@@ -59,7 +59,7 @@ Send a code generation prompt to the Agent Platform API. A code generation task 
 
 4.  Notice that in the settings panel, the model's default value is set to **gemini-3.7-flash** . You can choose a different Gemini model in the **Model settings** panel.
 
-5.  To complete each method by generating code in the areas marked `<WRITE CODE HERE>` , click **Submit** send .
+5.  To complete each method by generating code in the areas marked `<WRITE CODE HERE>` , click **Submit** .
 
     The output is displayed in the response.
 
@@ -111,7 +111,7 @@ To create an agent from a chat session using automatic intent detection:
 
     > **Note:** The banner only appears when you express a clear intent to build an agent.
 
-4.  Click **Submit** send .
+4.  Click **Submit** .
 
 5.  When the response begins, locate the intent detection banner above the prompt field.
 
@@ -139,13 +139,13 @@ To create an application from a chat session using automatic intent detection:
 
     > **Note:** The banner only appears when you express a clear intent to build an app.
 
-4.  Click **Submit** send .
+4.  Click **Submit** .
 
 5.  When the intent detection banner appears above the prompt field, click **Create app** . Agent Studio opens the **App Builder** workspace with your prompt pre-populated in the input field.
 
 6.  Review and edit the prompt text as needed.
 
-7.  Inside the prompt field, click **Submit** send to start the application build process.
+7.  Inside the prompt field, click **Submit** to start the application build process.
 
 ### Disable intent detection
 

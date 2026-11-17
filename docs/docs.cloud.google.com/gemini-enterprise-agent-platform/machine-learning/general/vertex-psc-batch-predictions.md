@@ -236,7 +236,7 @@ In each of the two VPC networks, you create two Cloud Routers: one general and o
 
 10. In the **Router details** page, verify that the `cloud-nat-us-central1` Cloud NAT gateway has been created.
 
-11. Click the arrow_back back arrow to return to the **Cloud Routers** page.
+11. Click the back arrow to return to the **Cloud Routers** page.
 
 12. In the router list, click `cloud-router-us-central1-onprem-nat` .
 
@@ -418,7 +418,7 @@ Once you've configured the interfaces and BGP peers between your routers, they w
 
 ### Validate the `onprem-vpc` learned routes
 
-1.  Click the arrow_back back arrow to return to the **VPC networks** page.
+1.  Click the back arrow to return to the **VPC networks** page.
 
 2.  In the list of VPC networks, click `onprem-vpc` .
 
@@ -458,7 +458,7 @@ In this section, you configure the Cloud Router custom advertisement mode to [Ad
 
 2.  In the Cloud Router list, click `vertex-networking-vpc-router1` .
 
-3.  On the **Router details** page, click edit **Edit** .
+3.  On the **Router details** page, click **Edit** .
 
 4.  In the **Advertised routes** section, for **Routes** , select **Create custom routes** .
 
@@ -757,13 +757,13 @@ In this section, to [control access to your Vertex AI Workbench instance](https:
 
 6.  When your new notebook opens, there is a default code cell where you can enter code. It looks like `[ ]:` followed by a text field. The text field is where you paste your code.
 
-    To install the Agent Platform SDK for Python, paste the following code into the cell and click play_arrow **Run the selected cells and advance** :
+    To install the Agent Platform SDK for Python, paste the following code into the cell and click **Run the selected cells and advance** :
 
     ```
     !pip3 install --upgrade google-cloud-bigquery scikit-learn==1.2
     ```
 
-7.  In this step and each of the following ones, add a new code cell (if necessary) by clicking add **Insert a cell below** , paste the code into the cell, and then click play_arrow **Run the selected cells and advance** .
+7.  In this step and each of the following ones, add a new code cell (if necessary) by clicking **Insert a cell below** , paste the code into the cell, and then click **Run the selected cells and advance** .
 
     To use the newly installed packages in this Jupyter runtime, you need to restart the runtime:
 
@@ -1179,7 +1179,7 @@ In this step, you use `ssh` to log into the `on-prem-client` VM instance. In the
 
 6.  Click the name of your batch inference job ( `income-classification-batch-job` ), and then click the **Export location** link in the details page to view the output files for your batch job in Cloud Storage.
 
-    Alternatively, you can click the storage **View prediction output on Cloud Storage** icon (between the **Last updated** column and the more_vert **Actions** menu).
+    Alternatively, you can click the **View prediction output on Cloud Storage** icon (between the **Last updated** column and the **Actions** menu).
 
 7.  Click the `prediction.results-00000-of-00002` or `prediction.results-00001-of-00002` file link, and then click the **Authenticated URL** link to open the file.
 
@@ -1208,25 +1208,25 @@ You can delete the individual resources in the Google Cloud console as follows:
 
     1.  In the Google Cloud console, in the Agent Platform section, go to the **Batch predictions** page.
 
-    2.  Next to the name of your batch inference job ( `income-classification-batch-job` ), click the more_vert **Actions** menu, and choose **Delete batch prediction job** .
+    2.  Next to the name of your batch inference job ( `income-classification-batch-job` ), click the **Actions** menu, and choose **Delete batch prediction job** .
 
 2.  Delete the model as follows:
 
     1.  In the Google Cloud console, in the Agent Platform section, go to the **Model Registry** page.
 
-    2.  Next to the name of your model ( `income-classifier-model` ), click the more_vert **Actions** menu, and choose **Delete model** .
+    2.  Next to the name of your model ( `income-classifier-model` ), click the **Actions** menu, and choose **Delete model** .
 
 3.  Delete the Agent Platform Workbench instance as follows:
 
     1.  In the Google Cloud console, in the **Gemini Enterprise Agent Platform** section, go to the **Instances** tab in the **Workbench** page.
 
-    2.  Select the `workbench-tutorial` Agent Platform Workbench instance and click delete **Delete** .
+    2.  Select the `workbench-tutorial` Agent Platform Workbench instance and click **Delete** .
 
 4.  Delete the Compute Engine VM instance as follows:
 
     1.  In the Google Cloud console, go to the **Compute Engine** page.
 
-    2.  Select the `on-prem-client` VM instance, and click delete **Delete** .
+    2.  Select the `on-prem-client` VM instance, and click **Delete** .
 
 5.  Delete the VPN tunnels as follows:
 
@@ -1234,7 +1234,7 @@ You can delete the individual resources in the Google Cloud console as follows:
 
     2.  On the **VPN** page, click the **Cloud VPN Tunnels** tab.
 
-    3.  In the list of VPN tunnels, select the four VPN tunnels you created in this tutorial and click delete **Delete** .
+    3.  In the list of VPN tunnels, select the four VPN tunnels you created in this tutorial and click **Delete** .
 
 6.  Delete the HA VPN gateways as follows:
 
@@ -1242,11 +1242,11 @@ You can delete the individual resources in the Google Cloud console as follows:
 
     2.  In the list of VPN gateways, click `onprem-vpn-gw1` .
 
-    3.  In the **Cloud VPN gateway details** page, click delete **Delete VPN Gateway** .
+    3.  In the **Cloud VPN gateway details** page, click **Delete VPN Gateway** .
 
-    4.  Click the arrow_back back arrow if necessary to return to the list of VPN gateways, and then click `vertex-networking-vpn-gw1` .
+    4.  Click the back arrow if necessary to return to the list of VPN gateways, and then click `vertex-networking-vpn-gw1` .
 
-    5.  In the **Cloud VPN gateway details** page, click delete **Delete VPN Gateway** .
+    5.  In the **Cloud VPN gateway details** page, click **Delete VPN Gateway** .
 
 7.  Delete the Cloud Routers as follows:
 
@@ -1254,7 +1254,7 @@ You can delete the individual resources in the Google Cloud console as follows:
 
     2.  In the list of Cloud Routers, select the four routers that you created in this tutorial.
 
-    3.  To delete the routers, click delete **Delete** .
+    3.  To delete the routers, click **Delete** .
 
         This will also delete the two Cloud NAT gateways that are connected to the Cloud Routers.
 
@@ -1264,7 +1264,7 @@ You can delete the individual resources in the Google Cloud console as follows:
 
     2.  In the list of forwarding rules, click `pscvertex` .
 
-    3.  In the **Forwarding rule details** page, click delete **Delete** .
+    3.  In the **Forwarding rule details** page, click **Delete** .
 
 9.  Delete the VPC networks as follows:
 
@@ -1272,25 +1272,25 @@ You can delete the individual resources in the Google Cloud console as follows:
 
     2.  In the list of VPC networks, click `onprem-vpc` .
 
-    3.  In the **VPC network details** page, click delete **Delete VPC Network** .
+    3.  In the **VPC network details** page, click **Delete VPC Network** .
 
         Deleting each network also deletes its subnetworks, routes, and firewall rules.
 
     4.  In the list of VPC networks, click `vertex-networking-vpc` .
 
-    5.  In the **VPC network details** page, click delete **Delete VPC Network** .
+    5.  In the **VPC network details** page, click **Delete VPC Network** .
 
 10. Delete the storage bucket as follows:
 
     1.  In the Google Cloud console, go to the **Cloud Storage** page.
 
-    2.  Select your storage bucket, and click delete **Delete** .
+    2.  Select your storage bucket, and click **Delete** .
 
 11. Delete the `workbench-sa` and `onprem-user-managed-sa` service accounts as follows:
 
     1.  Go to the **Service accounts** page.
 
-    2.  Select the `onprem-user-managed-sa` and `workbench-sa` service accounts, and click delete **Delete** .
+    2.  Select the `onprem-user-managed-sa` and `workbench-sa` service accounts, and click **Delete** .
 
 ## What's next
 

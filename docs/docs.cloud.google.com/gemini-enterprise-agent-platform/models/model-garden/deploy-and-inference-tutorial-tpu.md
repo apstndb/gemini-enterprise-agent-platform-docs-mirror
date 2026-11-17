@@ -556,13 +556,13 @@ Use one of the following methods to undeploy a model and delete the endpoint.
 
 3.  Click the endpoint name to open the details page. For example: `gemma2-2b-it-mg-one-click-deploy` .
 
-4.  On the row for the `Gemma 2 (Version 1)` model, click more_vert **Actions** , and then click **Undeploy model from endpoint** .
+4.  On the row for the `Gemma 2 (Version 1)` model, click **Actions** , and then click **Undeploy model from endpoint** .
 
 5.  In the **Undeploy model from endpoint** dialog, click **Undeploy** .
 
 6.  Click the **Back** button to return to the **Endpoints** page.
 
-7.  At the end of the `gemma2-2b-it-mg-one-click-deploy` row, click more_vert **Actions** , and then select **Delete endpoint** .
+7.  At the end of the `gemma2-2b-it-mg-one-click-deploy` row, click **Actions** , and then select **Delete endpoint** .
 
 8.  In the confirmation prompt, click **Confirm** .
 
@@ -651,7 +651,7 @@ In these commands, replace:
 
 2.  In the **Region** drop-down list, choose the region where you deployed your model.
 
-3.  At the end of the `gemma2-2b-it-1234567891234` row, click more_vert **Actions** .
+3.  At the end of the `gemma2-2b-it-1234567891234` row, click **Actions** .
 
 4.  Select **Delete model** .
 

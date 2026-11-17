@@ -91,8 +91,8 @@ Online Monitors run on a scheduled evaluation loop, typically every 10 minutes. 
 
 Once you create a monitor, you can manage it from the **Online monitors** list:
 
-- **Status Toggle:** Click **More options** *more_vert* and select **Enable** or **Disable** to pause evaluation without deleting the configuration.
-- **Pause and Resume:** Use **More options** *more_vert* to temporarily stop evaluation.
+- **Status Toggle:** Click **More options** and select **Enable** or **Disable** to pause evaluation without deleting the configuration.
+- **Pause and Resume:** Use **More options** to temporarily stop evaluation.
 - **Duplicate:** Create a new monitor with pre-filled settings from an existing one.
 - **View Traces:** Click the **View traces** link in the **Sampled traces** column for a monitor to navigate directly to the filtered traces in the agent's **Traces** tab.
 

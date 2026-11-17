@@ -228,7 +228,7 @@ In this section, you create the Agent Platform Workbench instance. When the inst
 
 1.  In the Google Cloud console, go to the **Instances** tab in the **Agent Platform Workbench** page.
 
-2.  Click add_box **Create new** , and then click **Advanced options** .
+2.  Click **Create new** , and then click **Advanced options** .
 
     The **New instance** page opens.
 
@@ -240,7 +240,7 @@ In this section, you create the Agent Platform Workbench instance. When the inst
 
 4.  In the **Environment** section, provide the following and then click **Continue** :
 
-    - **Post-startup script** : Click **Browse** , click navigate_next **View child resources** next to the bucket name, click `poststartup.sh` , and then click **Select** .
+    - **Post-startup script** : Click **Browse** , click **View child resources** next to the bucket name, click `poststartup.sh` , and then click **Select** .
 
 5.  In the **Machine type** section, provide the following and then click **Continue** :
 

@@ -28,7 +28,7 @@ You can create a Agent Platform Workbench instance by using the Google Cloud con
 
 1.  In the Google Cloud console, go to the **Instances** page.
 
-2.  Click add_box **Create new** .
+2.  Click **Create new** .
 
 3.  In the **New instance** dialog, click **Advanced options** .
 
@@ -255,7 +255,7 @@ To change the JupyterLab version on an existing instance, do the following:
 
 5.  Click **Submit** .
 
-6.  To restart your instance, select the instance and click arrow_right **Start** .
+6.  To restart your instance, select the instance and click **Start** .
 
 ### gcloud
 

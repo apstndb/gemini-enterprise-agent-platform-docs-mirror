@@ -106,7 +106,7 @@ You can specify auto-upgrade by using the Google Cloud console.
 
 1.  In the Google Cloud console, go to the **Instances** page.
 
-2.  Click add_box **Create new** .
+2.  Click **Create new** .
 
 3.  In the **New instance** dialog, click **Advanced options** .
 
@@ -165,7 +165,7 @@ You can manually upgrade a Agent Platform Workbench instance in the Google Cloud
 
 3.  Click the instance name that you want to upgrade.
 
-4.  On the **Instance details** page, click ![](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/notebooks/workbench/images/upgrade.png) **Upgrade** .
+4.  On the **Instance details** page, click **Upgrade** .
 
 5.  Make sure you have [made a copy of the data on your instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#copy-user-data) before continuing.
 

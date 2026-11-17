@@ -90,7 +90,7 @@ In a standalone project where the gateway, network attachment, and VPC network r
 
 If you configure a network attachment, the identity that creates or updates the gateway or agent connectivity template (your user account or deployment service account) must also hold the `compute.networkAttachments.use` permission on the network attachment, for example through the Compute Network Admin role ( `roles/compute.networkAdmin` ) on the project that contains the network attachment. Compute Network User isn't sufficient. Without this permission, the request fails with a `PERMISSION_DENIED` error that names the network attachment.
 
-In addition, if you configure DNS peering, Agent Gateway validates the DNS peering configuration (and the subnetwork of any network attachment) by using the Agent Gateway service agent ( `service- `` AGENT_GATEWAY_PROJECT_NUMBER `` @gcp-sa-agentgateway.iam.gserviceaccount.com` ). Grant the service agent the following roles on the project that contains the target VPC network and private DNS zones (your own project in a standalone deployment):
+In addition, if you configure DNS peering, Agent Gateway validates the DNS peering configuration (and any network attachment and its subnetwork) by using the Agent Gateway service agent ( `service- `` AGENT_GATEWAY_PROJECT_NUMBER `` @gcp-sa-agentgateway.iam.gserviceaccount.com` ). Grant the service agent the following roles on the project that contains the target VPC network, the network attachment, and the private DNS zones (your own project in a standalone deployment):
 
 - Compute Network Viewer ( `roles/compute.networkViewer` )
 - DNS Reader ( `roles/dns.reader` )
@@ -159,15 +159,23 @@ If you provision the Agent Gateway in a service project while the target VPC net
 <li>DNS Reader ( <code>roles/ dns. reader</code> )</li>
 <li>DNS peer ( <code>roles/ dns. peer</code> )</li>
 </ul></td>
-<td>Allows the Agent Gateway service agent to use the host project subnet for the network attachment, connect the Private Service Connect interface to route egress traffic, and peer with private Cloud DNS zones in the host project, and lets the service agent validate the target VPC network, subnets, network attachment, and private DNS zones during gateway creation or updates.</td>
+<td>Allows the Agent Gateway service agent to use the host project subnet for the network attachment, connect the Private Service Connect interface to route egress traffic, and peer with private Cloud DNS zones in the host project, and lets the service agent validate the target VPC network, subnets, and private DNS zones during gateway creation or updates.</td>
 </tr>
 <tr class="odd">
+<td><strong>Agent Gateway Service Agent <sup>2</sup></strong></td>
+<td>Service project ( <var translate="no"> AGENT_GATEWAY_PROJECT_ID </var> )</td>
+<td><ul>
+<li>Compute Network Viewer ( <code>roles/ compute. networkViewer</code> )</li>
+</ul></td>
+<td>Lets the service agent read the network attachment, which resides in the service project, when it validates a DNS peering configuration during gateway creation or updates. The service agent's default role doesn't include <code>compute. networkAttachments. get</code> .</td>
+</tr>
+<tr class="even">
 <td><strong>Network attachment in the host project</strong></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><strong>Agent Gateway Service Agent <sup>2</sup></strong></td>
 <td>Host project ( <var translate="no"> TARGET_VPC_PROJECT_ID </var> )</td>
 <td><ul>

@@ -29,3 +29,11 @@ The request body must be empty.
 ### Response body
 
 If successful, the response is a generic HTTP response whose format is defined by the method.
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `name` resource:
+
+- `aiplatform.responses.get`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

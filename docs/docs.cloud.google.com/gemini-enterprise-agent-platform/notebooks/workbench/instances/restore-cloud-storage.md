@@ -62,9 +62,9 @@ You must have access to at least one Cloud Storage bucket in the same project as
 
 To mount and then access a Cloud Storage bucket, do the following:
 
-1.  In JupyterLab, make sure the folder **File Browser** tab is selected.
+1.  In JupyterLab, make sure the **File Browser** tab is selected.
 
-2.  In the left sidebar, click the ![Mount shared storage button](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/notebooks/workbench/images/icon-mount-shared-storage.png) **Mount shared storage** button. If you don't see the button, drag the right side of the sidebar to expand the sidebar until you see the button.
+2.  In the left sidebar, click the **Mount shared storage** button. If you don't see the button, drag the right side of the sidebar to expand the sidebar until you see the button.
 
     ![The Mount shared storage button in the top right corner of the left sidebar](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/notebooks/workbench/instances/images/mount-shared-storage-button.png)
 
@@ -86,9 +86,9 @@ This section describes how to export files to Cloud Storage and restore files lo
 
     Your Agent Platform Workbench instance opens JupyterLab.
 
-3.  In JupyterLab, make sure the folder **File Browser** tab is selected.
+3.  In JupyterLab, make sure the **File Browser** tab is selected.
 
-4.  In the left sidebar, click the ![Export to Cloud Storage button](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/notebooks/workbench/images/icon-export-to-gcs.png) **Export to Cloud Storage** button. If you don't see the button, drag the right side of the sidebar to expand the sidebar until you see the button.
+4.  In the left sidebar, click the **Export to Cloud Storage** button. If you don't see the button, drag the right side of the sidebar to expand the sidebar until you see the button.
 
 5.  In the **Provide export location** dialog, enter a Cloud Storage bucket name that you want to export files to. If you need to create a Cloud Storage bucket, see [Create a bucket](https://docs.cloud.google.com/storage/docs/creating-buckets) .
 

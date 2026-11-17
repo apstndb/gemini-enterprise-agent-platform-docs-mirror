@@ -38,13 +38,13 @@ Use the following instructions to create an empty dataset and either import or a
 
     ### Upload an import file from your computer
 
-    1.  Click radio_button_checked **Upload an import file from your computer** .
+    1.  Click **Upload an import file from your computer** .
     2.  Click **Select files** and choose the local import file to upload to a Cloud Storage bucket.
     3.  In the **Select a Cloud Storage path** section click **Browse** to choose a Cloud Storage bucket location to upload your file to.
 
     ### Select an import file from Cloud Storage
 
-    1.  Click radio_button_checked **Select an import file from Cloud Storage** .
+    1.  Click **Select an import file from Cloud Storage** .
     2.  In the **Select a Cloud Storage path** section click **Browse** to choose the import file in Cloud Storage.
 
 9.  Click **Continue** .

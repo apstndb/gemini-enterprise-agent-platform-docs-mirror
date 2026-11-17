@@ -73,9 +73,9 @@ Consider the following limitation when scheduling a notebook run in a JupyterLab
 
     Your Agent Platform Workbench instance opens JupyterLab.
 
-3.  In the folder **File Browser** , double-click the example notebook file to open it.
+3.  In the **File Browser** , double-click the example notebook file to open it.
 
-4.  Click the ![](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/notebooks/workbench/images/icon-executor.png) **Execute** button.
+4.  Click the **Execute** button.
 
 5.  In the **Submit notebooks to Executor** dialog, in the **Type** field, select **Schedule-based recurring executions** .
 
@@ -99,7 +99,7 @@ By using your instance's JupyterLab interface, you can view your notebook output
 
 ### View the execution results
 
-1.  In JupyterLab's navigation menu, click the ![](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/notebooks/workbench/images/icon-executor.png) **Notebook Executor** button.
+1.  In JupyterLab's navigation menu, click the **Notebook Executor** button.
 
 2.  Click the **Executions** tab.
 
@@ -109,21 +109,21 @@ By using your instance's JupyterLab interface, you can view your notebook output
 
 ### Share the execution results
 
-1.  In your instance's JupyterLab user interface, in the navigation menu, click the ![](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/notebooks/workbench/images/icon-executor.png) **Notebook Executor** button.
+1.  In your instance's JupyterLab user interface, in the navigation menu, click the **Notebook Executor** button.
 
 2.  Click the **Executions** tab.
 
-3.  Next to the execution that you want to share, click the more_vert options menu, and select **Share execution result** .
+3.  Next to the execution that you want to share, click the options menu, and select **Share execution result** .
 
 4.  Follow the directions in the dialog to grant users access to the execution result.
 
 ### Import the executed notebook into JupyterLab
 
-1.  In your instance's JupyterLab user interface, in the navigation menu, click the ![](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/notebooks/workbench/images/icon-executor.png) **Notebook Executor** button.
+1.  In your instance's JupyterLab user interface, in the navigation menu, click the **Notebook Executor** button.
 
 2.  Click the **Executions** tab.
 
-3.  Next to the execution that you want to import, click the more_vert options menu, and select **Import executed notebook** .
+3.  Next to the execution that you want to import, click the options menu, and select **Import executed notebook** .
 
 4.  If the **Select Kernel** dialog appears, select the kernel that you want to open the notebook.
 
@@ -151,7 +151,7 @@ View a schedule to see the frequency settings of the schedule or to view the fiv
 
 ### JupyterLab
 
-1.  In your instance's JupyterLab user interface, in the navigation menu, click the ![](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/notebooks/workbench/images/icon-executor.png) **Notebook Executor** button.
+1.  In your instance's JupyterLab user interface, in the navigation menu, click the **Notebook Executor** button.
 
 2.  Click the **Schedules** tab.
 
@@ -169,17 +169,17 @@ Deleting a schedule doesn't delete the executions that were generated from that 
 
 2.  Select the schedule that you want to delete.
 
-3.  Click delete **Delete** .
+3.  Click **Delete** .
 
 ### JupyterLab
 
-1.  In your instance's JupyterLab user interface, in the navigation menu, click the ![](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/notebooks/workbench/images/icon-executor.png) **Notebook Executor** button.
+1.  In your instance's JupyterLab user interface, in the navigation menu, click the **Notebook Executor** button.
 
 2.  Click the **Schedules** tab.
 
 3.  Click the schedule name. The **Schedule details** page for that schedule opens in the Google Cloud console.
 
-4.  Click delete **Delete** .
+4.  Click **Delete** .
 
 ## Clean up
 
@@ -191,7 +191,7 @@ To avoid incurring charges to your Google Cloud account for the resources used o
 
 2.  Select the instance that you want to delete.
 
-3.  Click delete **Delete** .
+3.  Click **Delete** .
 
 ### Delete the project
 
@@ -212,4 +212,4 @@ If you used resources outside of your Agent Platform Workbench instance, such as
 
 > To see an example of how to schedule a notebooks run as part of a more comprehensive workflow, run the "Train a multi-class classification model for ads-targeting" notebook in one of the following environments:
 >
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/workbench/ads_targetting/training-multi-class-classification-model-for-ads-targeting-usecase.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fworkbench%2Fads_targetting%2Ftraining-multi-class-classification-model-for-ads-targeting-usecase.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fworkbench%2Fads_targetting%2Ftraining-multi-class-classification-model-for-ads-targeting-usecase.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/workbench/ads_targetting/training-multi-class-classification-model-for-ads-targeting-usecase.ipynb)
+> [Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/workbench/ads_targetting/training-multi-class-classification-model-for-ads-targeting-usecase.ipynb) \| [Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fworkbench%2Fads_targetting%2Ftraining-multi-class-classification-model-for-ads-targeting-usecase.ipynb) \| [Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fworkbench%2Fads_targetting%2Ftraining-multi-class-classification-model-for-ads-targeting-usecase.ipynb) \| [View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/workbench/ads_targetting/training-multi-class-classification-model-for-ads-targeting-usecase.ipynb)

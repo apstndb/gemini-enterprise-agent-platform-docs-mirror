@@ -124,6 +124,8 @@ Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options">Pay-as-you-go</a><br />
 Standard PayGo, Flex PayGo, Priority PayGo<br />
 Supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deferred-tier">Deferred tier</a><br />
+Not supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas">Fixed quota</a><br />
 Not supported</li>
 </ul></th>
@@ -136,7 +138,7 @@ Not supported</li>
 </tr>
 <tr class="even">
 <th>Technical specifications</th>
-<th><strong>Image</strong> photo</th>
+<th><strong>Image</strong></th>
 <td><ul>
 <li>Maximum images per prompt: 14</li>
 <li>Maximum inline part size: 256 MB</li>
@@ -152,7 +154,7 @@ Not supported</li>
 </ul></td>
 </tr>
 <tr class="odd">
-<th><strong>Text</strong> description</th>
+<th><strong>Text</strong></th>
 <th><ul>
 <li>Maximum number of files per prompt: As supported by the 65,536 token context window</li>
 <li>Maximum number of pages per file: As supported by the 65,536 token context window</li>
@@ -167,7 +169,7 @@ Not supported</li>
 <td></td>
 </tr>
 <tr class="even">
-<th><strong>Parameter defaults</strong> tune</th>
+<th><strong>Parameter defaults</strong></th>
 <th><ul>
 <li>Temperature: 0.0-2.0 (default 1.0)</li>
 <li>topP: 0.0-1.0 (default 0.95)</li>

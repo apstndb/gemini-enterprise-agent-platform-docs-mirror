@@ -32,11 +32,11 @@ Access your trained model to deploy it to a new or existing endpoint from the Mo
 
 2.  Select your trained AutoML model. This takes you to the **Evaluate** tab where you can view model performance metrics.
 
-3.  Choose the tab **Deploy & test** tab.
+3.  Choose the **Deploy & test** tab.
 
 4.  Click **Deploy to endpoint** .
 
-5.  Choose radio_button_checked **Create new endpoint** , set the endpoint name to `hello_automl_image` , then click **Continue** .
+5.  Choose **Create new endpoint** , set the endpoint name to `hello_automl_image` , then click **Continue** .
 
 6.  In **Model settings** , accept the **Traffic split** of **100%** , enter **1** in **Number of compute nodes** , then click **Done** .
 
@@ -48,7 +48,7 @@ It takes several minutes to create the endpoint and deploy the AutoML model to t
 
 After the endpoint creation process finishes you can send a single image annotation (prediction) request in the Google Cloud console.
 
-1.  Navigate to the "Test your model" section of the same **Deploy & test** tab you used to create an endpoint in the previous step ( **Models \> ` your_model ` \> tab Deploy & test** ).
+1.  Navigate to the "Test your model" section of the same **Deploy & test** tab you used to create an endpoint in the previous step ( **Models \> ` your_model ` \> Deploy & test** ).
 
 2.  Click **Upload image** and choose a locally saved image for prediction, and view its predicted label.
 

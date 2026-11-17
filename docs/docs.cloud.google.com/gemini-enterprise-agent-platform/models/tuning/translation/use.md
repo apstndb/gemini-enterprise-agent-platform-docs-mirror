@@ -479,7 +479,7 @@ def cancel_tuning_job(tuning_job_name: str) -> None:
 
 1.  To cancel a tuning job in the Google Cloud console, go to the **Agent Studio** page.
 
-2.  In the **Translation LLM tuned models** table, click more_vert **Manage run** .
+2.  In the **Translation LLM tuned models** table, click **Manage run** .
 
 3.  Click **Cancel** .
 

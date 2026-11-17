@@ -26,15 +26,15 @@ You can use the Google Cloud console or the Agent Platform API to export a `Data
 
 3.  Find the row of the `Dataset` . You can export metadata and annotations for all [annotation sets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/create-annotation-set) or for a specific annotation set:
 
-    - **If you want to export metadata and annotations for all of the `Dataset` 's annotation sets,** then click **View more more_vert** and then click **Export dataset** .
+    - **If you want to export metadata and annotations for all of the `Dataset` 's annotation sets,** then click **View more** and then click **Export dataset** .
 
       This tells Agent Platform to create a set of JSON Lines files for each annotation set.
 
     - **If you want to export metadata and annotations for a specific annotation set,** then do the following:
 
-      1.  Click **Expand node arrow_drop_down** to show rows for each of the `Dataset` 's annotation sets.
+      1.  Click **Expand node** to show rows for each of the `Dataset` 's annotation sets.
 
-      2.  In the row of the annotation set that you want to export, click **View more more_vert** and then click **Export annotation set** .
+      2.  In the row of the annotation set that you want to export, click **View more** and then click **Export annotation set** .
 
       This tells Agent Platform to create a set of JSON Lines files for the annotation set that you specified.
 

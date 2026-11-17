@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap
 title: IAM Unified Access Policies overview
-description: Learn about Identity and Access Management policies to securely govern agentic communication in Agent Platform.
+description: Learn about Identity and Access Management Unified Access Policies to securely govern agentic communication in Agent Platform.
 data_source: docs.cloud.google.com
 ---
 
@@ -26,9 +26,13 @@ We recommend that you configure Agent Gateway in dry-run mode ( `iamEnforcementM
 
 When you are satisfied that the policies are functioning correctly, you can enable active enforcement by selecting **Enforce policies** in the Google Cloud console (which writes `iamEnforcementMode: "ENFORCED"` when creating a gateway, or removes `iamEnforcementMode` when updating an existing gateway), or by removing `iamEnforcementMode` in your authorization extension metadata. In active enforcement mode, agentic communications that violate the policy are disallowed and communication to the resource is blocked.
 
-## UAPs overview
+## Unified Access Policies overview
 
 UAPs control whether one or more agent principals can access one or more destination resources. UAPs extend the IAM policy model by supporting multiple *rules* in a single policy. Unlike IAM allow policies and deny policies, each rule in a UAP can have both an allow effect and a deny effect. Learn more about [IAM policy types](https://docs.cloud.google.com/iam/docs/policy-types) .
+
+These rules specify the permissions that a user should be granted or denied. For example, to control egress, you add the permission `iap.googleapis.com/resources.egressViaIAP` to a UAP rule.
+
+> **Note:** UAPs as a feature are in [Preview](https://cloud.google.com/products/#product-launch-stages) . However, UAPs that include only the `iap.googleapis.com/resources.egressViaIAP` permission are in General Availability.
 
 Rules also contain *conditions* that are expressed in Common Expression Language (CEL). Conditions act as the primary mechanism to control access to post-gateway resources. Enforcing UAPs with Agent Gateway and IAP delivers strict behavioral control over agents deployed across your enterprise. You can represent real-world, fine-grained agent governance use cases in a single policy.
 
@@ -50,7 +54,7 @@ Follow these best practices when you configure agent egress policies:
 - **Use deny rules for guardrails:** Use explicit deny rules to implement critical guardrails, such as blocking destructive tools on production endpoints. Using deny rules for guardrails is effective because deny rules override allow rules.
 - **Perform regular audits:** Periodically review Cloud Audit Logs logs and policy configurations to verify that they comply with your organization's security policies.
 
-## UAP components
+## Unified Access Policy components
 
 UAPs contain one or more rules. Rules have the following components:
 
@@ -120,7 +124,7 @@ IAP and Context-Aware Access provide default end-to-end agent identity authentic
 
 Agent identities are provisioned with an X.509 certificate and a certificate-bound token. IAP enforces that agent identities use mutual TLS (mTLS) to authenticate to Agent Gateway. When the gateway allows the agent to egress and access Google Cloud APIs, MCP servers, other agents, and endpoints, the agent attempts access outside of the mTLS boundary. To help protect communication, Context-Aware Access enforces a Google-managed Context-Aware Access policy. The policy requires DPoP to validate the certificate-bound token that is bound to the agent identity. For more information about how Context-Aware Access uses mTLS and DPoP, see [Context-Aware Access agent security](https://docs.cloud.google.com/access-context-manager/docs/caa-agent-security) .
 
-## UAP CEL attributes
+## Unified Access Policy CEL attributes
 
 In your UAPs, you can define conditions with conditional expressions. The expressions can contain multiple sub-expressions. The destination resource type that you use in each relational sub-condition determines which attributes you can use.
 

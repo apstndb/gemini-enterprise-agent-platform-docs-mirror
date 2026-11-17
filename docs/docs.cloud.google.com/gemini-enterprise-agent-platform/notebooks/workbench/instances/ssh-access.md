@@ -38,7 +38,7 @@ To set up [SSH port forwarding](https://cloud.google.com/solutions/connecting-se
 
     - If you ran the command on your local machine, visit `https://localhost:8080` to access JupyterLab.
 
-    - If you ran the command using [Cloud Shell](https://console.cloud.google.com/?cloudshell=true) , access JupyterLab through the ![](https://docs.cloud.google.com/static/shell/docs/images/web_preview.svg) Web Preview on port 8080.
+    - If you ran the command using [Cloud Shell](https://console.cloud.google.com/?cloudshell=true) , access JupyterLab through the Web Preview on port 8080.
 
 ## Why you might need to access your instance by using SSH
 

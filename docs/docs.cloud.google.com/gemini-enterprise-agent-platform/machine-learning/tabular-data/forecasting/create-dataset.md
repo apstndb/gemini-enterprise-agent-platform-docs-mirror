@@ -40,18 +40,18 @@ When you create a dataset, you also associate it with its data source. The train
 
     ### CSV files on your computer
 
-    1.  Click radio_button_checked **Upload CSV files from your computer** .
+    1.  Click **Upload CSV files from your computer** .
     2.  Click **Select files** and choose all the local files to upload to a Cloud Storage bucket.
     3.  In the **Select a Cloud Storage path** section enter the path to the Cloud Storage bucket or click **Browse** to choose a bucket location.
 
     ### CSV files in Cloud Storage
 
-    1.  Click radio_button_checked **Select CSV files from Cloud Storage** .
+    1.  Click **Select CSV files from Cloud Storage** .
     2.  In the **Select CSV files from Cloud Storage** section enter the path to the Cloud Storage bucket or click **Browse** to choose the location of your CSV files.
 
     ### A table or view in BigQuery
 
-    1.  Click radio_button_checked **Select a table or view from BigQuery** .
+    1.  Click **Select a table or view from BigQuery** .
     2.  Enter the project, dataset, and table IDs for your input file.
 
 9.  Click **Continue** .

@@ -74,7 +74,7 @@ You might also be able to get these permissions with [custom roles](https://docs
     - Change the visualization by zooming in or out or repositioning nodes.
     - View the label for a connection by hovering over the connection line between two nodes.
     - Get information about a node or connection by selecting it.
-    - Hide or show the query panel by clicking **Toggle panel** first_page .
+    - Hide or show the query panel by clicking **Toggle panel** .
 
 To view additional data about the selected agent, view the dashboards in [Application Monitoring](https://docs.cloud.google.com/monitoring/docs/application-monitoring-ai-resources) .
 
@@ -102,7 +102,7 @@ To view additional data about the selected agent, view the dashboards in [Applic
     - Change the visualization by zooming in or out or repositioning nodes.
     - View the label for a connection by hovering over the connection line between two nodes.
     - Get information about a node or connection by selecting it.
-    - Hide or show the query panel by clicking **Toggle panel** first_page .
+    - Hide or show the query panel by clicking **Toggle panel** .
 
 To view additional data about the selected application, view the dashboards in [Application Monitoring](https://docs.cloud.google.com/monitoring/docs/application-monitoring-ai-resources) .
 

@@ -18,7 +18,7 @@ If you want to delete a model that is deployed to an endpoint, you need to undep
 
 1.  Go to the **Model Registry** page from the Agent Platform section in the Google Cloud console.
 
-2.  Select **More actions** from the model you want to delete. more_vert
+2.  Select **More actions** from the model you want to delete.
 
 3.  Select **Delete model** . When you delete the model, all associated model versions and evaluations are deleted from your Google Cloud project.
 
@@ -103,7 +103,7 @@ def delete_model_sample(model_id: str, project: str, location: str):
 
 2.  Expand the model to view its model versions. Select the version that you want to delete.
 
-3.  Select the **More actions** from the model version. menu more_vert .
+3.  Select the **More actions** from the model version. menu .
 
 4.  Select **Delete version** . All associated model evaluations are deleted when you delete your version.
 
@@ -184,7 +184,7 @@ def delete_model_version_sample(
 ### Console
 
 1.  From the Model Registry, select the model name to view its model versions.
-2.  Select the version that you want, and from the **Actions** button more_vert click **Delete** . A warning opens since you're attempting to delete the default alias version. Set another version as default first.
+2.  Select the version that you want, and from the **Actions** button click **Delete** . A warning opens since you're attempting to delete the default alias version. Set another version as default first.
 3.  Select what version you want to make default for the model from the drop-down.
 4.  On the confirmation screen, click **Set and delete.**
 

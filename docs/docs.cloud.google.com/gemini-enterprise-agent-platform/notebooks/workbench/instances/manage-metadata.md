@@ -371,7 +371,7 @@ To remove metadata from a Agent Platform Workbench instance, do the following:
 
 3.  On the **Instance details** page, click **Software and security** .
 
-4.  In the **Metadata** section, to the right of a key-value pair that you want to delete, click delete **Delete** .
+4.  In the **Metadata** section, to the right of a key-value pair that you want to delete, click **Delete** .
 
 5.  Click **Submit** .
 

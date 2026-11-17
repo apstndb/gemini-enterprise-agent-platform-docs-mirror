@@ -18,7 +18,7 @@ This page shows you how to train an AutoML classification model from an image da
 
 3.  Click **Train new model** .
 
-4.  For the training method, select radio_button_checked **AutoML** .
+4.  For the training method, select **AutoML** .
 
 5.  Click **Continue** .
 

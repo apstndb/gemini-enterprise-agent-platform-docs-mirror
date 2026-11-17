@@ -12,7 +12,7 @@ data_source: docs.cloud.google.com
 
 > To see an example of Image generation from videos with Gemini, run the "Gemini Nano Banana 2.1 Image Generation in Gemini Enterprise Agent Platform" notebook in one of the following environments:
 >
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/vision/getting-started/gemini_nano_banana_2_1_image_gen.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fvision%2Fgetting-started%2Fgemini_nano_banana_2_1_image_gen.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fvision%2Fgetting-started%2Fgemini_nano_banana_2_1_image_gen.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/vision/getting-started/gemini_nano_banana_2_1_image_gen.ipynb)
+> [Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/vision/getting-started/gemini_nano_banana_2_1_image_gen.ipynb) \| [Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fvision%2Fgetting-started%2Fgemini_nano_banana_2_1_image_gen.ipynb) \| [Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fvision%2Fgetting-started%2Fgemini_nano_banana_2_1_image_gen.ipynb) \| [View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/vision/getting-started/gemini_nano_banana_2_1_image_gen.ipynb)
 
 You can use Gemini to generate images from a video, which can be useful to create an image for a thumbnail for a video. Supported interfaces include the Google Cloud console and the Agent Platform API.
 
@@ -71,7 +71,7 @@ To generate images from video with Gemini, do the following:
 
 4.  Write a description of the image you want to generate in the text area of the **Prompt** text area.
 
-5.  Click the **Prompt** ( send ) button.
+5.  Click the **Prompt** ( ) button.
 
 Gemini generates an image based on your description. This process takes a few seconds, but can be comparatively slower depending on capacity.
 

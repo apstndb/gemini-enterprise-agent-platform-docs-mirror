@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 > To see an example of image generation with Gemini, run the "Gemini Nano Banana 2.1 in Gemini Enterprise Agent Platform" notebook in one of the following environments:
 >
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/vision/getting-started/gemini_nano_banana_2_1_image_gen.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fvision%2Fgetting-started%2Fgemini_nano_banana_2_1_image_gen.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fvision%2Fgetting-started%2Fgemini_nano_banana_2_1_image_gen.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/vision/getting-started/gemini_nano_banana_2_1_image_gen.ipynb)
+> [Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/vision/getting-started/gemini_nano_banana_2_1_image_gen.ipynb) \| [Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fvision%2Fgetting-started%2Fgemini_nano_banana_2_1_image_gen.ipynb) \| [Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fvision%2Fgetting-started%2Fgemini_nano_banana_2_1_image_gen.ipynb) \| [View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/vision/getting-started/gemini_nano_banana_2_1_image_gen.ipynb)
 
 You can use Gemini to generate images from a text prompt. Supported interfaces include the Google Cloud console and the Agent Platform API.
 
@@ -38,7 +38,7 @@ To generate images with Gemini, do the following:
 2.  Click **Switch model** and select one of the displayed models.
 3.  In the **Outputs** panel, select **Image and text** from the drop-down menu.
 4.  Write a description of the image you want to generate in the text area of the **Write a prompt** text area.
-5.  Click the **Prompt** ( send ) button.
+5.  Click the **Prompt** ( ) button.
 
 Gemini generates an image based on your description. This process takes a few seconds, but can be comparatively slower depending on capacity.
 
@@ -414,7 +414,7 @@ To generate interleaved images with text responses, do the following:
 2.  Click **Switch model** and select one of the displayed models.
 3.  In the **Outputs** panel, select **Image and text** from the drop-down menu.
 4.  Write a description of the image you want to generate in the text area of the **Write a prompt** text area. For example, "Create a tutorial explaining how to make a peanut butter and jelly sandwich in three steps. For each step, provide a title with the number of the step, an explanation, and also generate an image, generate each image in a 1:1 aspect ratio."
-5.  Click the **Prompt** ( send ) button.
+5.  Click the **Prompt** ( ) button.
 
 Gemini generates a response based on your description. This process takes a few seconds, but can be comparatively slower depending on capacity.
 

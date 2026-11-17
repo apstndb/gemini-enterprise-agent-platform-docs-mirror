@@ -150,7 +150,7 @@ Both the Google Cloud console and the Agent Platform API report a cluster's conf
 
     - **Observability** : prebuilt Cloud Monitoring dashboards covering CPU, memory, and network usage across the cluster, along with GPU utilization, NVIDIA Data Center GPU Manager (DCGM) metrics, GPU network, and GPU health.
 
-To reload the page with the current state of the cluster, click refresh **Refresh** . To delete the cluster, click delete **Delete** .
+To reload the page with the current state of the cluster, click **Refresh** . To delete the cluster, click **Delete** .
 
 > **Note:** You can't edit a cluster from the **Cluster details** page. To change a cluster, use the Agent Platform API, as described in [Manage cluster](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/manage-cluster) .
 

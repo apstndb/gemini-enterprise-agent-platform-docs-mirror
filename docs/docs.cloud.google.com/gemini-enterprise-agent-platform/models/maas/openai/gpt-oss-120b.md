@@ -12,7 +12,7 @@ The 120B model achieves near-parity with OpenAI o4-mini on core reasoning benchm
 
 ## Managed API (MaaS) specifications
 
-[Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Pricing](https://cloud.google.com/model-garden/partner-models/pricing)
 
 <table>
 <colgroup>
@@ -64,6 +64,8 @@ Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options">Pay-as-you-go</a><br />
 Standard PayGo<br />
 Supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deferred-tier">Deferred tier</a><br />
+Not supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas">Fixed quota</a><br />
 Not supported</li>
 </ul></td>

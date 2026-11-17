@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 > To learn more, run the "Use Gemini Enterprise Agent Platform Model Monitoring to detect drift and training-prediction skew." notebook in one of the following environments:
 >
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_monitoring/model_monitoring.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fmodel_monitoring%2Fmodel_monitoring.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fmodel_monitoring%2Fmodel_monitoring.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_monitoring/model_monitoring.ipynb)
+> [Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_monitoring/model_monitoring.ipynb) \| [Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fmodel_monitoring%2Fmodel_monitoring.ipynb) \| [Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fmodel_monitoring%2Fmodel_monitoring.ipynb) \| [View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_monitoring/model_monitoring.ipynb)
 
 This page describes how to create, manage, and interpret the results of Model Monitoring jobs for models deployed to online prediction endpoints. Gemini Enterprise Agent Platform Model Monitoring supports feature skew and drift detection for categorical and numerical input features.
 
@@ -73,13 +73,13 @@ To create a model deployment monitoring job using the Google Cloud console, crea
     1.  Select **Training-serving skew detection** .
     2.  Under **Training data source** , provide a training data source.
     3.  Under **Target column** , enter the column name from the training data that the model is trained to predict. This field is excluded from the monitoring analysis.
-    4.  Optional: Under **Alert thresholds** , specify thresholds at which to trigger alerts. For information about how to format the thresholds, hold the pointer over the help Help icon.
+    4.  Optional: Under **Alert thresholds** , specify thresholds at which to trigger alerts. For information about how to format the thresholds, hold the pointer over the Help icon.
     5.  Click **Create** .
 
     ### Drift detection
 
     1.  Select **Prediction drift detection** .
-    2.  Optional: Under **Alert thresholds** , specify thresholds at which to trigger alerts. For information about how to format the thresholds, hold the pointer over the help Help icon.
+    2.  Optional: Under **Alert thresholds** , specify thresholds at which to trigger alerts. For information about how to format the thresholds, hold the pointer over the Help icon.
     3.  Click **Create** .
 
 ### gcloud

@@ -28,7 +28,7 @@ To delete a persistent resource in the Google Cloud console, do the following:
 
 2.  Click the name of the persistent resource that you want to delete.
 
-3.  Click delete **Delete** .
+3.  Click **Delete** .
 
 4.  Click **Confirm** .
 

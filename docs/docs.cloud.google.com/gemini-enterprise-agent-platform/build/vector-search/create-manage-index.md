@@ -396,7 +396,7 @@ public class CreateIndexSample {
 Use these instructions to create an index for batch updates.
 
 1.  In the Agent Platform section of the Google Cloud console, go to the **Deploy and Use** section. Select **Vector Search**
-2.  Click **add_box Create new index** to open the **Index** pane. The **Create a new index** pane appears.
+2.  Click **Create new index** to open the **Index** pane. The **Create a new index** pane appears.
 3.  In the **Display name** field, provide a name to uniquely identify your index.
 4.  In the **Description** field, provide a description for what the index is for.
 5.  In the **Region** field, select a region from the drop-down.
@@ -712,7 +712,7 @@ Use these instructions to create an index for streaming updates in the Google Cl
 To [create an index](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexes/create) available for Streaming Updates requires similar steps to setting up a Batch Update index, except you need to set `indexUpdateMethod` to `STREAM_UPDATE` .
 
 1.  In the Agent Platform section of the Google Cloud console, go to the **Deploy and Use** section. Select **Vector Search**
-2.  Click **add_box Create new index** to open the **Index** pane. The **Create a new index** pane appears.
+2.  Click **Create new index** to open the **Index** pane. The **Create a new index** pane appears.
 3.  In the **Display name** field, provide a name to uniquely identify your index.
 4.  In the **Description** field, provide a description for what the index is for.
 5.  In the **Region** field, select a region from the drop-down.
@@ -1236,7 +1236,7 @@ Use these instructions to delete one or more indexes.
 
 1.  In the Agent Platform section of the Google Cloud console, go to the **Deploy and Use** section. Select **Vector Search**
 2.  A list of your active indexes is displayed.
-3.  To delete an index, go to the more_vert options menu that is in the same row as the index and select **Delete** .
+3.  To delete an index, go to the options menu that is in the same row as the index and select **Delete** .
 
 ## What's next
 

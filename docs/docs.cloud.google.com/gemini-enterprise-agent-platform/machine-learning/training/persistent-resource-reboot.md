@@ -26,7 +26,7 @@ To reboot a persistent resource in the Google Cloud console, do the following:
 
 1.  In the Google Cloud console, go to the **Persistent resources** page.
 
-2.  Next to the name of the persistent resource that you want to reboot, click the vertical ellipses ( more_vert ).
+2.  Next to the name of the persistent resource that you want to reboot, click the vertical ellipses ( ).
 
 3.  Click **Reboot** .
 

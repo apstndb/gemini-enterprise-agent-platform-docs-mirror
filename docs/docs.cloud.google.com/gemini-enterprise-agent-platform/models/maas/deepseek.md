@@ -16,6 +16,10 @@ DeepSeek models offer fully managed and serverless models as APIs. To use a Deep
 
 The following models are available from DeepSeek to use in Gemini Enterprise Agent Platform. To access a DeepSeek model, go to its Model Garden model card.
 
+### DeepSeek-V4.1-Flash-1017
+
+DeepSeek-V4.1-Flash-1017 is an update to DeepSeek-V4.1-Flash with improved reasoning, coding, agentic, and visual performance and shorter outputs. It accepts text and image input and has a context window of up to 1M tokens.
+
 ### DeepSeek-V4.1-Flash
 
 DeepSeek-V4.1-Flash is a multimodal Mixture-of-Experts (MoE) model from DeepSeek built for agentic and coding tasks. It accepts text and image input and has a context window of up to 1M tokens.
@@ -24,6 +28,7 @@ DeepSeek-V4.1-Flash is a multimodal Mixture-of-Experts (MoE) model from DeepSeek
 
 For managed models, you can use curl commands to send requests to the Gemini Enterprise Agent Platform endpoint using the following model names:
 
+- For DeepSeek-V4.1-Flash-1017, use `deepseek-v4.1-flash-1017-maas`
 - For DeepSeek-V4.1-Flash, use `deepseek-v4.1-flash-maas`
 
 To learn how to make streaming and non-streaming calls to DeepSeek models, see [Call open model APIs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/call-open-model-apis) .
@@ -53,6 +58,12 @@ DeepSeek models are available in the following regions:
 </thead>
 <tbody>
 <tr class="odd">
+<td>DeepSeek-V4.1-Flash-1017</td>
+<td><ul>
+<li><code>global</code></li>
+</ul></td>
+</tr>
+<tr class="even">
 <td>DeepSeek-V4.1-Flash</td>
 <td><ul>
 <li><code>global</code></li>

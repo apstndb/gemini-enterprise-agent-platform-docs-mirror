@@ -10,7 +10,7 @@ GLM 5.2 is a model from GLM built for long-horizon agentic and coding tasks, wit
 
 The `glm-5.2-maas` endpoint is available until at least November 30, 2026. Availability might be extended based on usage and demand. For more information, see [Minimum availability for Preview models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/open-models#minimum-availability) .
 
-[Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Pricing](https://cloud.google.com/model-garden/partner-models/pricing)
 
 <table>
 <colgroup>
@@ -62,6 +62,8 @@ Not supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options">Pay-as-you-go</a><br />
 Standard PayGo<br />
 Supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deferred-tier">Deferred tier</a><br />
+Not supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas">Fixed quota</a><br />
 Not supported</li>
 </ul></td>

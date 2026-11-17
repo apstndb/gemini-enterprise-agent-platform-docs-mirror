@@ -14,7 +14,7 @@ Use the following instructions to run an ML pipeline and associate the pipeline 
 
 1.  In the Google Cloud console, in the Agent Platform section, go to the **Pipelines** page.  
 2.  In the **Region** drop-down list, select the region that you want to create a pipeline run in.
-3.  Click **add_box Create run** to open the **Create pipeline run** pane.
+3.  Click **Create run** to open the **Create pipeline run** pane.
 4.  Specify the following **Run** details.
     - In the **File** field, click **Choose** to open the file selector. Navigate to the compiled pipeline JSON file that you want to run, select the pipeline, and click **Open** .
     - The **Pipeline name** defaults to the name that you specified in the pipeline definition. Optionally, specify a different **Pipeline name** .
@@ -32,7 +32,7 @@ Use the following instructions to run an ML pipeline and associate the pipeline 
     - Optional: Specify the parameters that you want to use for this pipeline run.
 7.  Click **Submit** to create your pipeline run.
 8.  After the Pipeline is submitted, it appears in the Pipeline's Google Cloud console table.
-9.  In the row associated with your pipeline click more_vert **View more \> Add to Experiment**
+9.  In the row associated with your pipeline click **View more \> Add to Experiment**
     - Select an existing Experiment or create a new one.
     - Optional: If Experiment runs are associated with the Experiment, they show up in the drop-down. Select an existing Experiment run.
 10. Click **Save** .

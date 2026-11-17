@@ -343,6 +343,14 @@ Here is what the core default parameters mean:
 
   - **What it means:** Enables interactive terminal prompts during tool execution. Set this to `false` (or pass `-y` / `--yes` ) in headless CI/CD environments where no terminal is attached.
 
+- **`execution.duration: ""`**
+
+  - **What it means:** Sets a default maximum wall-clock duration per command invocation (for example, `"15m"` or `"1h"` ) across `cm find` , `cm verify` , `cm fix` , and `cm session resume` . Leave this empty or set it to `"0"` for no time limit. You can override this setting with the `CM_DURATION` environment variable or the `--duration` (or `--timeout` ) flag. When a command stops at its duration limit, it saves any completed results and exits with status `1` if a `cm find --diff` scan matches `--fail-on` , or status `50` otherwise.
+
+- **`execution.stall_detection: false`**
+
+  - **What it means:** When set to `true` (or when `CM_STALL_DETECTION=on` ), stops an agent session that makes no forward progress across consecutive tool turns. Single-session commands (single-pass `cm find --quick` , `cm verify` , `cm fix` , and `cm session resume` ) exit with status `50` ; in multi-session `--deep` , `--diff` , and `--parallel` scans, a stalled session is recorded as failed and the scan continues.
+
 - **`scan.extensions.include: [".py", ".java", ".go", ".js", ".jsx", ".mjs", ".cjs", ".ts", ".tsx", ".c", ".cc", ".cpp", ".cxx", ".h", ".hh", ".hpp", ".hxx", ".inl", ".ipp", ".cs", ".rs", ".kt", ".kts", ".rb", ".php", ".sol", ".tf", ".hcl"]`**
 
   - **What it means:** Defines the explicit list of file extensions that you authorize CodeMender to ingest and analyze when scanning your workspace. CodeMender automatically skips any file in your repository with an extension not specified in this list.

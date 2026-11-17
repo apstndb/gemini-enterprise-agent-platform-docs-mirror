@@ -32,7 +32,7 @@ To evaluate your model:
 
 4.  Generate and evaluate responses based on your prompts:
 
-    1.  In the **Evaluation candidates** section, click **Add evaluation candidate** , or if a candidate already exists, click edit **Edit** to define the prompts and responses to evaluate. For example, you can specify prompts or responses from your uploaded file or from generated data.
+    1.  In the **Evaluation candidates** section, click **Add evaluation candidate** , or if a candidate already exists, click **Edit** to define the prompts and responses to evaluate. For example, you can specify prompts or responses from your uploaded file or from generated data.
 
     2.  To compare multiple candidates, click **Add comparison candidate** .
 

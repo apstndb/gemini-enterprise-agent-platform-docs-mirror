@@ -371,7 +371,7 @@ Make note of the email address for this service account, and use it in the follo
 
 3.  Select the checkbox for the key that you created in [a preceding section of this guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#creating-key-ring-and-key) . If an info panel labeled with the name of your key is not already open, click **Show info panel** .
 
-4.  In the info panel, click **person_add Add member** to open the **Add members to " ` KEY_NAME ` "** dialog. In this dialog, do the following:
+4.  In the info panel, click **Add member** to open the **Add members to " ` KEY_NAME ` "** dialog. In this dialog, do the following:
 
     1.  In the **New members** box, enter the service account email address that you made a note of in the preceding section: `service- `` AI_PLATFORM_PROJECT_NUMBER `` @gcp-sa-aiplatform.iam.gserviceaccount.com`
 

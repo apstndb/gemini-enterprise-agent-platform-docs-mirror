@@ -167,7 +167,7 @@ Your Google AI Studio prompt data is saved in a Drive folder. This section shows
 
 5.  In the **Gemini Enterprise Agent Platform** menu, click **Recents \> View all** to open the **Prompt management** menu.
 
-6.  Click download **Import prompt** .
+6.  Click **Import prompt** .
 
 7.  Next to the **Prompt file** field, click **Browse** and select a prompt from your local directory.
 

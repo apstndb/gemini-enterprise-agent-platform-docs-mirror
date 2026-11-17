@@ -40,7 +40,7 @@ The following feature was added to Agent Anomaly Detection (Preview) on **Novemb
 
 The following features were added to the Agent Anomaly Detection preview functionality on **October 22, 2026** :
 
-- **Support for ADK on Google Kubernetes Engine** : Monitor agents built with Agent Development Kit (ADK) (version 2.1.0 or later) and deployed on your [GKE](https://docs.cloud.google.com/gke/docs/overview) clusters ( `GKE_WORKLOAD` ).
+- **Support for ADK on Google Kubernetes Engine** : Monitor agents built with Agent Development Kit (ADK) (version 2.1.0 or later) and deployed on your [GKE](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/kubernetes-engine-overview) clusters ( `GKE_WORKLOAD` ).
 - **Support for Cloud Run** : Monitor agents deployed as [Cloud Run](https://docs.cloud.google.com/run/docs/overview/what-is-cloud-run) services ( `CLOUD_RUN_SERVICE` ). By exporting OpenTelemetry traces to Cloud Trace and logs to Cloud Logging, Cloud Run services are automatically discovered and listed on the Settings page, where you can enable them for Agent Anomaly Detection.
 
 ## Multi-layered detection system

@@ -12,7 +12,7 @@ This guide details the available consumption options, helps you map them to your
 
 ## Consumption options
 
-Gemini Enterprise Agent Platform provides five consumption options tailored to different traffic patterns and business needs:
+Gemini Enterprise Agent Platform provides six consumption options tailored to different traffic patterns and business needs:
 
 | Consumption option                                                                                                     | Description                                                                                            | Ideal for                                                                                         | Pricing                                                                            |                           |
 |------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|---------------------------|
@@ -20,6 +20,7 @@ Gemini Enterprise Agent Platform provides five consumption options tailored to d
 | PayGo                                                                                                                  | [Standard PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo) | Flexible, pay-per-use option with no upfront commitment                                           | Default option for everyday use cases with flexibility for variable traffic demand | Per-token (standard rate) |
 | [Priority](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/priority-paygo)                       | Delivers higher reliability through priority processing while maintaining PayGo flexibility            | Important workloads that require higher reliability and limits than Standard PayGo                | Per-token (premium rate)                                                           |                           |
 | [Flex](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/flex-paygo)                               | Cost-effective option for latency-tolerant workloads                                                   | Tasks that can tolerate slower response times and higher throttling in exchange for lower pricing | Per-token (discounted rate)                                                        |                           |
+| [Deferred tier](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deferred-tier)                   | Stateful, asynchronous execution on the Interactions API                                               | Multi-turn custom and third-party agent loops that tolerate up to a 24-hour turnaround            | Per-token (discounted rate)                                                        |                           |
 | [Batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference)  | Cost-optimized for high-volume, asynchronous processing                                                | Large-scale jobs where results are needed within a longer timeframe                               | Per-token (discounted rate)                                                        |                           |
 
 For information on pricing, see the [pricing page](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
@@ -46,6 +47,10 @@ This is the most cost-effective option for high-volume inference.
 ### Latency-tolerant, cost-sensitive workloads
 
 If you need to process requests where the application can wait for a response but cost reduction is a priority, you should use [Flex pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/flex-paygo) . Flex PayGo offers reduced per-token pricing for requests that don't require immediate execution. This option is useful for use cases such as offline analysis, data annotation, product catalog building, or translation.
+
+### Asynchronous, multi-turn agentic workloads
+
+Choose the [Deferred tier](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deferred-tier) when custom or third-party agents run multi-step workflows that tolerate up to 24 hours of turnaround time. Unlike batch inference, this tier doesn't require input files, and it supports `previous_interaction_id` state chaining on the [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) . Unlike Flex PayGo, it supports Gemini 4 models. For billing details, see [Pricing and billing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deferred-tier#pricing) .
 
 ## Optimization strategies
 
@@ -88,5 +93,6 @@ To optimize for cost:
 - **Purchase longer-term Provisioned Throughput** : A 1-year PT commitment is priced at a 26% discount compared to 1-month PT, leading to significant cost savings. You can always change the model associated with your purchased Provisioned Throughput GSUs to take advantage of our latest model capabilities.
 - **Use Flex PayGo** : Identify any part of your pipeline that is not latency sensitive (e.g., background summarization, data extraction) and move it to Flex PayGo to cut costs by \~50%.
 - **Use batch processing** : For asynchronous jobs such as processing large datasets, batch processing is significantly cheaper (50%) than processing requests sequentially using Standard PayGo.
+- **Use the Deferred tier** : Route asynchronous, multi-turn agent and background calls to the [Deferred tier](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deferred-tier) to reduce token costs without preparing batch input files.
 - **Use context caching** : [Context caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview) helps reduce the cost and latency of requests that contain repeated content. Increase cache hit rates by placing large and common content at the beginning of your prompt, and sending requests with a similar prefix in a short amount of time.
 - **Select a lower-priced model** : If your use case allows for it, use one of our smaller models like Gemini Flash-Lite, which has a lower per-token price point than our heavy-duty, full-featured models.

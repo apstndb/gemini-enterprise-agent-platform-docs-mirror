@@ -82,7 +82,7 @@ result.show()
 
 4.  **Define rubrics:** For LLM metrics, use the **Sample** buttons to quickly populate instructions, criteria (for example, **Clarity** or **Excitement** ), and rating scores.
 
-5.  **View and edit:** Click any metric name to view its definition in read-only mode, or use the **More options** *more_vert* icon to **Duplicate** or **Delete** the resource.
+5.  **View and edit:** Click any metric name to view its definition in read-only mode, or use the **More options** icon to **Duplicate** or **Delete** the resource.
 
 ## Manage metrics with the SDK
 

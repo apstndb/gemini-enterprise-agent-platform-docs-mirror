@@ -241,7 +241,7 @@ Use these instructions to create an index endpoint.
 1.  In the Agent Platform section of the Google Cloud console, go to the **Deploy and Use** section. Select **Vector Search**
 2.  A list of your active indexes is displayed.
 3.  On the top of the page, select the **Index endpoints** tab. Your index endpoints are displayed.
-4.  Click **add_box Create new index endpoint** . The Create a new index endpoint panel opens.
+4.  Click **Create new index endpoint** . The Create a new index endpoint panel opens.
 5.  Enter a display name for the index endpoint.
 6.  In the **Region** field, select a region from the drop-down.
 7.  In the **Access** field, select **Standard** .
@@ -517,7 +517,7 @@ Use these instructions to deploy your index to an endpoint.
 1.  In the Agent Platform section of the Google Cloud console, go to the **Deploy and Use** section. Select **Vector Search**
 2.  A list of your active indexes is displayed.
 3.  Select the name of the index you want to deploy. The index details page opens.
-4.  From the index details page, click **add_box Deploy to endpoint** . The index deployment panel opens.
+4.  From the index details page, click **Deploy to endpoint** . The index deployment panel opens.
 5.  Enter a display name - this name acts as an ID and can't be updated.
 6.  From the **Endpoint** drop-down, select the endpoint you want to deploy this index to. Note: The endpoint is unavailable if the index is already deployed to it.
 7.  Optional: In the **Machine type** field, select either standard or high-memory.
@@ -775,7 +775,7 @@ You can only enable autoscaling from the console during index deployment.
 1.  In the Agent Platform section of the Google Cloud console, go to the **Deploy and Use** section. Select **Vector Search**
 2.  A list of your active indexes is displayed.
 3.  Select the name of the index you want to deploy. The index details page opens.
-4.  From the index details page, click **add_box Deploy to endpoint** . The index deployment panel opens.
+4.  From the index details page, click **Deploy to endpoint** . The index deployment panel opens.
 5.  Enter a display name - this name acts as an ID and can't be updated.
 6.  From the **Endpoint** drop-down, select the endpoint you want to deploy this index to. Note: The endpoint is unavailable if the index is already deployed to it.
 7.  Optional: In the **Machine type** field, select either standard or high-memory.
@@ -1419,7 +1419,7 @@ Use these instructions to undeploy an index from an endpoint.
 2.  A list of your active indexes is displayed.
 3.  Select the index you want to undeploy. The index details page opens.
 4.  Under the **Deployed indexes** section, identify the index version you want to undeploy.
-5.  Click the more_vert options menu that is in the same row as the index and select **Undeploy** .
+5.  Click the options menu that is in the same row as the index and select **Undeploy** .
 6.  A confirmation screen opens. Click **Undeploy** . Note: It can take up to 30 minutes to be undeployed.
 
 > **Note:** It takes 10 to 20 minutes for Google backend jobs to clean up the deployment. You can't reuse the `DeployedIndex` ID until after the deployment is cleaned up.
@@ -1571,7 +1571,7 @@ Use these instructions to delete an index endpoint.
 1.  In the Agent Platform section of the Google Cloud console, go to the **Deploy and Use** section. Select **Vector Search**
 2.  On the top of the page, select the **Index endpoint** tab.
 3.  All of the existing index endpoints are displayed.
-4.  Click the more_vert options menu that is in the same row as the index you want to delete and select **Delete** .
+4.  Click the options menu that is in the same row as the index you want to delete and select **Delete** .
 5.  A confirmation screen opens. Click **Delete** . Your index endpoint is now deleted.
 
 > **Note:** It takes 10 to 20 minutes for Google backend jobs to clean up the deployment. You can't reuse the `DeployedIndex` ID until after the deployment is cleaned up.

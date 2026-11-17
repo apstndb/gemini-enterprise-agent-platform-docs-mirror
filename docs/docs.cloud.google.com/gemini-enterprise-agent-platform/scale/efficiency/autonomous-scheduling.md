@@ -38,6 +38,8 @@ The deferred tier is a good fit for use cases that can tolerate hours of turnaro
 
 You can configure autonomous agent scheduling for the [Deep Research Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/use-deep-research) .
 
+To run custom or third-party agent loops directly on Gemini models, see [Use the Deferred tier](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deferred-tier) .
+
 ## Create a deferred task
 
 The following example shows how to [start a Deep Research task](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/use-deep-research#start-research-task) using the deferred tier with `client.interactions.create()` :
@@ -223,3 +225,11 @@ if final.usage:
       f"  Total tokens:  {final.usage.total_tokens}"
   )
 ```
+
+## What's next
+
+Explore related guides for asynchronous model calls, stateful interactions, and managed research agents:
+
+- Run asynchronous model calls for custom and third-party agents in [Use the Deferred tier](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deferred-tier) .
+- Review core session, tool, and state concepts in the [Interactions API overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) .
+- Plan and synthesize multi-step research workflows in [Use the Gemini Deep Research Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/use-deep-research) .

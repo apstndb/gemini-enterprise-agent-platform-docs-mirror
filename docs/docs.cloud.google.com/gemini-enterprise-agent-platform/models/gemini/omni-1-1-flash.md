@@ -142,6 +142,8 @@ Supported</li>
 Not supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options">Pay-as-you-go</a><br />
 Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deferred-tier">Deferred tier</a><br />
+Not supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas">Fixed quota</a><br />
 Supported</li>
 </ul></th>
@@ -149,7 +151,7 @@ Supported</li>
 </tr>
 <tr class="odd">
 <th>Technical specifications</th>
-<th><strong>Image</strong> photo</th>
+<th><strong>Image</strong></th>
 <td><ul>
 <li>Maximum images per prompt: 10</li>
 <li>Maximum file size per file for inline data or direct uploads through the console: 20 MB</li>
@@ -159,7 +161,7 @@ Supported</li>
 </ul></td>
 </tr>
 <tr class="even">
-<th><strong>Text</strong> description</th>
+<th><strong>Text</strong></th>
 <th><ul>
 <li>Maximum file size per file for the API or Cloud Storage imports: 50 MB</li>
 <li>Maximum file size per file for direct uploads through the console: 7 MB</li>
@@ -169,7 +171,7 @@ Supported</li>
 <td></td>
 </tr>
 <tr class="odd">
-<th><strong>Video</strong> videocam</th>
+<th><strong>Video</strong></th>
 <th><ul>
 <li>Maximum video length (with audio): 10 seconds</li>
 <li>Maximum video length (without audio): 10 seconds</li>
@@ -182,7 +184,7 @@ Supported</li>
 <td></td>
 </tr>
 <tr class="even">
-<th><strong>Parameter defaults</strong> tune</th>
+<th><strong>Parameter defaults</strong></th>
 <th><ul>
 <li>Temperature: 0.0-2.0 (default 1.0)</li>
 <li>topP: 0.0-1.0 (default 0.95)</li>

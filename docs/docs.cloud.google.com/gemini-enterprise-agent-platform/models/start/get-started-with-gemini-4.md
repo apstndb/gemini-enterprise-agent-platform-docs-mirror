@@ -156,6 +156,6 @@ Gemini 4 Carbon for cyber and Gemini 4 Argon Cyber Permissive are versions of Ge
 
 - See the [Gemini 4 Hydrogen model page](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen) , the [Gemini 4 Carbon model page](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon) , and the [Gemini 4 Argon model page](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon) for specifications, supported features, and locations.
 
-- Try the [Intro to Gemini 4 Carbon](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_gemini_4_carbon.ipynb) and [Intro to Gemini 4 Argon](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_gemini_4_argon.ipynb) notebook tutorials.
+- Try the [Intro to Gemini 4 Hydrogen](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_gemini_4_hydrogen.ipynb) , [Intro to Gemini 4 Carbon](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_gemini_4_carbon.ipynb) , and [Intro to Gemini 4 Argon](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_gemini_4_argon.ipynb) notebook tutorials.
 
 - Learn more about [thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking) .

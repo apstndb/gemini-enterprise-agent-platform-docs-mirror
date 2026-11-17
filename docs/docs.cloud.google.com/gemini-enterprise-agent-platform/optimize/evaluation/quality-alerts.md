@@ -22,7 +22,7 @@ You can create targeted alerting policies for a specific monitor:
 
 2.  In the left navigation menu, select **Evaluation** .
 
-3.  Select the **Online monitors** tab. Click **More options** *more_vert* for a monitor and select **Create alerting policy** .
+3.  Select the **Online monitors** tab. Click **More options** for a monitor and select **Create alerting policy** .
 
 4.  Review the **Alerting policy templates** available for that monitor.
 

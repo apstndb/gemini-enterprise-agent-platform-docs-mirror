@@ -67,7 +67,7 @@ Magic commands that use a single or double percentage character ( `%` or `%%` ) 
       num_regions DESC;
     ```
 
-4.  Click play_circle_filled **Run cell** .
+4.  Click **Run cell** .
 
     The output is similar to the following:
 
@@ -124,7 +124,7 @@ Magic commands that use a single or double percentage character ( `%` or `%%` ) 
 
     **Note:** For more information about available arguments for the `%%bigquery` command, see the [client library magics documentation](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/magics) .
 
-6.  Click play_circle_filled **Run cell** .
+6.  Click **Run cell** .
 
 7.  In the next cell, enter the following command to look at the first few rows of the query results that you just read in:
 
@@ -132,7 +132,7 @@ Magic commands that use a single or double percentage character ( `%` or `%%` ) 
     regions_by_country.head()
     ```
 
-8.  Click play_circle_filled **Run cell** .
+8.  Click **Run cell** .
 
     The pandas DataFrame `regions_by_country` is ready to plot.
 
@@ -154,7 +154,7 @@ The client library gives you more control over your queries and lets you use mor
 
     The BigQuery client is used to send and receive messages from the BigQuery API.
 
-2.  Click play_circle_filled **Run cell** .
+2.  Click **Run cell** .
 
 3.  In the next cell, enter the following code to retrieve the percentage of daily top terms in the US [`top_terms`](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_trends&t=top_terms&page=table) that overlap across time by number of days apart. The idea here is to look at each day's top terms and see what percentage of them overlap with the top terms from the day before, 2 days prior, 3 days prior, and so on (for all pairs of dates over about a month span).
 
@@ -205,7 +205,7 @@ The client library gives you more control over your queries and lets you use mor
 
     The SQL being used is encapsulated in a Python string and then passed to the [`query()` method](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client#google_cloud_bigquery_client_Client_query) to run a query. The [`to_dataframe` method](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.job.QueryJob#google_cloud_bigquery_job_QueryJob_to_dataframe) waits for the query to finish and downloads the results to a pandas DataFrame by using the BigQuery Storage API.
 
-4.  Click play_circle_filled **Run cell** .
+4.  Click **Run cell** .
 
     The first few rows of query results appear below the code cell.
 
@@ -234,7 +234,7 @@ The BigQuery client library provides a magic command, `%bigquery_stats` , that y
     %bigquery_stats bigquery-public-data.google_trends.top_terms
     ```
 
-2.  Click play_circle_filled **Run cell** .
+2.  Click **Run cell** .
 
     After running for some time, an image appears with various statistics on each of the 7 variables in the `top_terms` table. The following image shows part of some example output:
 
@@ -252,7 +252,7 @@ In this section, you use plotting capabilities to visualize the results from the
     regions_by_country.plot(kind="bar", x="country_name", y="num_regions", figsize=(15, 10))
     ```
 
-2.  Click play_circle_filled **Run cell** .
+2.  Click **Run cell** .
 
     The chart is similar to the following:
 
@@ -270,7 +270,7 @@ In this section, you use plotting capabilities to visualize the results from the
       )
     ```
 
-4.  Click play_circle_filled **Run cell** .
+4.  Click **Run cell** .
 
     The chart is similar to the following. The size of each point reflects the number of date pairs that are that many days apart in the data. For example, there are more pairs that are 1 day apart than 30 days apart because the top search terms are surfaced daily over about a month's time.
 
@@ -282,4 +282,4 @@ For more information about data visualization, see the [pandas documentation](ht
 
 > To see an example of exploring and visualizing BigQuery data as part of a comprehensive workflow in Agent Platform Workbench, run the "Interactive exploratory analysis of BigQuery data in a notebook" notebook in one of the following environments:
 >
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/workbench/exploratory_data_analysis/explore_data_in_bigquery_with_workbench.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fworkbench%2Fexploratory_data_analysis%2Fexplore_data_in_bigquery_with_workbench.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fworkbench%2Fexploratory_data_analysis%2Fexplore_data_in_bigquery_with_workbench.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/workbench/exploratory_data_analysis/explore_data_in_bigquery_with_workbench.ipynb)
+> [Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/workbench/exploratory_data_analysis/explore_data_in_bigquery_with_workbench.ipynb) \| [Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fworkbench%2Fexploratory_data_analysis%2Fexplore_data_in_bigquery_with_workbench.ipynb) \| [Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fworkbench%2Fexploratory_data_analysis%2Fexplore_data_in_bigquery_with_workbench.ipynb) \| [View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/workbench/exploratory_data_analysis/explore_data_in_bigquery_with_workbench.ipynb)

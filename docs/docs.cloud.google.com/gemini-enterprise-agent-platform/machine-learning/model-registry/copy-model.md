@@ -137,7 +137,7 @@ You should receive a JSON response similar to the following:
 Use the following instructions to copy a models to a different project.
 
 1.  In the Google Cloud console, go to the **Gemini Enterprise Agent Platform Model Registry** page.
-2.  From the Model Registry, select the **More actions** menu more_vert for the model you want to copy.  
+2.  From the Model Registry, select the **More actions** menu for the model you want to copy.  
 3.  Click **Copy model** .
 4.  Choose either **To another project** or **To another region** .
 
@@ -231,7 +231,7 @@ With a cross-region copy, you can copy a model over as a new model within the ta
 Use the following instructions to copy models.
 
 1.  In the Google Cloud console, go to the **Gemini Enterprise Agent Platform Model Registry** page.
-2.  From the Model Registry, select the **More actions** menu more_vert for the model you want to copy.  
+2.  From the Model Registry, select the **More actions** menu for the model you want to copy.  
 3.  Click **Copy model**
 4.  Choose either **To another project** or **To another region** .
 

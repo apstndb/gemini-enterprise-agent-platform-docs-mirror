@@ -112,11 +112,11 @@ App Topology provides query suggestions that you can use without any changes, or
 
 5.  To make changes to the query, add, edit, or remove components.
 
-    - To add a component to the query, click the plus icon ( add ) next to the node.
-    - To remove a component, click the close icon close .
+    - To add a component to the query, click the plus icon ( ) next to the node.
+    - To remove a component, click the close icon .
     - To change the value of a `Where` clause, click the value.
 
-    You can click **Undo** undo to revert a change or **Redo** redo to re-apply changes you reverted with **Undo** .
+    You can click **Undo** to revert a change or **Redo** to re-apply changes you reverted with **Undo** .
 
     As you build your query, the available nodes, filters, and connections are updated.
 
@@ -138,7 +138,7 @@ App Topology provides query suggestions that you can use without any changes, or
     - Change the visualization by zooming in or out or repositioning nodes.
     - View the label for a connection by hovering over the connection line between two nodes.
     - Get information about a node or connection by selecting it.
-    - Hide or show the query panel by clicking **Toggle panel** first_page .
+    - Hide or show the query panel by clicking **Toggle panel** .
 
 If there are no results, try [refining your query](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/topology/troubleshoot#no-data) .
 
@@ -150,7 +150,7 @@ To create a custom query, either start a new query or [customize an existing sug
 
 2.  In the project picker, select the project that contains your agents.
 
-3.  In the query builder, click add and select a resource or finding as the primary node for your query, and then click **Continue** .
+3.  In the query builder, click and select a resource or finding as the primary node for your query, and then click **Continue** .
 
 4.  To refine your query, click the toggle for any filter or connection to enable it for the selected node. Define the value for each filter you enable.
 
@@ -158,11 +158,11 @@ To create a custom query, either start a new query or [customize an existing sug
 
 5.  To make changes to the query, add, edit, or remove components.
 
-    - To add a component to the query, click the plus icon ( add ) next to the node.
-    - To remove a component, click the close icon close .
+    - To add a component to the query, click the plus icon ( ) next to the node.
+    - To remove a component, click the close icon .
     - To change the value of a `Where` clause, click the value.
 
-    You can click **Undo** undo to revert a change or **Redo** redo to re-apply changes you reverted with **Undo** .
+    You can click **Undo** to revert a change or **Redo** to re-apply changes you reverted with **Undo** .
 
     As you build your query, the available nodes, filters, and connections are updated.
 
@@ -184,7 +184,7 @@ To create a custom query, either start a new query or [customize an existing sug
     - Change the visualization by zooming in or out or repositioning nodes.
     - View the label for a connection by hovering over the connection line between two nodes.
     - Get information about a node or connection by selecting it.
-    - Hide or show the query panel by clicking **Toggle panel** first_page .
+    - Hide or show the query panel by clicking **Toggle panel** .
 
 Some [limitations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/topology#limitations) apply to queries. If there are no results, try [refining your query](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/topology/troubleshoot#no-data) .
 

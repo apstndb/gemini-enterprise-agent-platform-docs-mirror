@@ -54,9 +54,9 @@ You must have access to at least one Cloud Storage bucket in the same project as
 
 To mount and then access a Cloud Storage bucket, do the following:
 
-1.  In JupyterLab, make sure the folder **File Browser** tab is selected.
+1.  In JupyterLab, make sure the **File Browser** tab is selected.
 
-2.  In the left sidebar, click the ![Mount shared storage button](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/notebooks/workbench/images/icon-mount-shared-storage.png) **Mount shared storage** button. If you don't see the button, drag the right side of the sidebar to expand the sidebar until you see the button.
+2.  In the left sidebar, click the **Mount shared storage** button. If you don't see the button, drag the right side of the sidebar to expand the sidebar until you see the button.
 
     ![The Mount shared storage button in the top right corner of the left sidebar](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/notebooks/workbench/instances/images/mount-shared-storage-button.png)
 

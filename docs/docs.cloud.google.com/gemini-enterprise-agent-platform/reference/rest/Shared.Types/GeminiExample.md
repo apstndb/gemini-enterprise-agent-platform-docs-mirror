@@ -1225,7 +1225,7 @@ Fields
 
 `speakerVoiceConfigs[]` `object ( `[`SpeakerVoiceConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#SpeakerVoiceConfig)` )`
 
-Required. A list of configurations for the voices of the speakers. Exactly two speaker voice configurations must be provided.
+Required. A list of configurations for the voices of the speakers. Between two and ten speaker voice configurations must be provided.
 
 **JSON representation**
 

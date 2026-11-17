@@ -44,8 +44,8 @@ Use one of the following methods to deploy a model:
 
     1.  You can choose to deploy your model to a new endpoint or an existing endpoint.
 
-        - To deploy your model to a new endpoint, select radio_button_checked **Create new endpoint** and provide a name for the new endpoint.
-        - To deploy your model to an existing endpoint, select radio_button_checked **Add to existing endpoint** and select the endpoint from the drop-down list.
+        - To deploy your model to a new endpoint, select **Create new endpoint** and provide a name for the new endpoint.
+        - To deploy your model to an existing endpoint, select **Add to existing endpoint** and select the endpoint from the drop-down list.
         - You can add more than one model to an endpoint, and you can add a model to more than one endpoint. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment) .
 
     2.  Click **Continue** .

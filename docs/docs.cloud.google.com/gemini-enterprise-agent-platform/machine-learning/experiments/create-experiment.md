@@ -53,7 +53,7 @@ Use these instructions to create an experiment.
 1.  In the Google Cloud console, go to the **Experiments** page.  
 2.  Be sure you're in the project you want to create the experiment in.  
     ![Agent Platform select project](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/project-select.png)
-3.  Click **add_box Create** to open the **Experiment** pane. The **Create experiment** pane appears.
+3.  Click **Create** to open the **Experiment** pane. The **Create experiment** pane appears.
 4.  In the **Experiment name** field, provide a name to uniquely identify your experiment.
 5.  Optional. In the **TensorBoard instance** field, select an instance from the drop-down or provide a name for your new TensorBoard instance.
 6.  Click **Create** to create your experiment.
@@ -131,7 +131,7 @@ Use the following instructions to delete an experiment.
 1.  In the Google Cloud console, go to the **Experiments** page.  
 2.  Select the checkbox associated with the experiment you want to delete. The **Delete** option appears.
 3.  Click **Delete** .
-    - Alternatively, you can go to the more_vert options menu that is in the same row as the experiment and select **delete** .
+    - Alternatively, you can go to the options menu that is in the same row as the experiment and select **delete** .
 
 ## View list of experiments in Google Cloud console
 

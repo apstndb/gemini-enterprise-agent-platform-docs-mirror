@@ -63,7 +63,7 @@ We use a [Colab Enterprise notebook](https://docs.cloud.google.com/colab/docs/cr
 
 4.  Click **Create a new notebook** .
 
-Your new notebook appears on the **My notebooks** tab. To run code in your notebook, add a code cell, and click the ![](https://docs.cloud.google.com/static/colab/images/icon-run-cell.png) **Run cell** button.
+Your new notebook appears on the **My notebooks** tab. To run code in your notebook, add a code cell, and click the **Run cell** button.
 
 ### Set up development environment
 
@@ -150,7 +150,7 @@ For more information, check out [Chicago Taxi Trips on Marketplace](https://cons
 
 1.  In the Google Cloud console, go to BigQuery Studio.
 
-2.  In the **Explorer** panel, locate your project, click more_vert Actions, and then click **Create dataset** .
+2.  In the **Explorer** panel, locate your project, click Actions, and then click **Create dataset** .
 
 3.  On the **Create dataset** page:
 
@@ -168,7 +168,7 @@ In this section, you create the table and import one year's worth of data from t
 
 1.  Go to BigQuery Studio
 
-2.  Click **Create SQL Query** and run the following SQL query by clicking play_circle **Run** .
+2.  Click **Create SQL Query** and run the following SQL query by clicking **Run** .
 
     ```
     CREATE OR REPLACE TABLE `PROJECT_ID.mlops.chicago`
@@ -266,7 +266,7 @@ In this section, you create a Python package that contains the code that reads t
     !mkdir -p training_package/trainer
     ```
 
-    > **Tip:** If you've opened your notebook in another tab in the BigQuery Explorer page, you can view its TOC by clicking the list icon ( list ) and clicking the folder icon below it ( folder ).
+    > **Tip:** If you've opened your notebook in another tab in the BigQuery Explorer page, you can view its TOC by clicking the list icon ( ) and clicking the folder icon below it ( folder ).
 
 2.  Create an [`__init__.py` file](https://docs.python.org/3/reference/import.html#regular-packages) in each folder to make it a package using the following command:
 
@@ -279,7 +279,7 @@ In this section, you create a Python package that contains the code that reads t
 
 3.  In the **Files** panel, create a file called `task.py` in the **training_package/trainer** folder with the following contents.
 
-    > **Tip:** To create and edit a file, click the `training_package/trainer` folder, click more_vert Actions, and then click **New file** . Name the file and double-click the file to open it.
+    > **Tip:** To create and edit a file, click the `training_package/trainer` folder, click Actions, and then click **New file** . Name the file and double-click the file to open it.
 
     ```
     # Import the libraries
@@ -975,7 +975,7 @@ For more information, see [Eventarc triggers](https://docs.cloud.google.com/func
 
 1.  In the Google Cloud console, go to BigQuery Studio.
 
-2.  Click **Create SQL Query** and run the following SQL query by clicking play_circle **Run** .
+2.  Click **Create SQL Query** and run the following SQL query by clicking **Run** .
 
     ```
     INSERT INTO `PROJECT_ID.mlops.chicago`
@@ -1083,25 +1083,25 @@ Else, you can delete the individual resources you created for this tutorial.
 
     1.  In the Agent Platform section, go to the **Model Registry** page.
 
-    2.  Next to the name of your model, click the more_vert **Actions** menu, and choose **Delete model** .
+    2.  Next to the name of your model, click the **Actions** menu, and choose **Delete model** .
 
 5.  Delete the pipeline runs:
 
     1.  Go to the **Pipeline runs** page.
 
-    2.  Next to the name of each pipeline run, click the more_vert **Actions** menu, and choose **Delete pipeline run** .
+    2.  Next to the name of each pipeline run, click the **Actions** menu, and choose **Delete pipeline run** .
 
 6.  Delete the custom training jobs:
 
     1.  
 
-    2.  Next to the name of each custom training job, click the more_vert **Actions** menu, and choose **Delete custom training job** .
+    2.  Next to the name of each custom training job, click the **Actions** menu, and choose **Delete custom training job** .
 
 7.  Delete the batch prediction jobs as follows:
 
     1.  
 
-    2.  Next to the name of each batch prediction job, click the more_vert **Actions** menu, and choose **Delete batch prediction job** .
+    2.  Next to the name of each batch prediction job, click the **Actions** menu, and choose **Delete batch prediction job** .
 
 8.  [Delete the repository from Artifact Registry](https://docs.cloud.google.com/artifact-registry/docs/repositories/delete-repos) .
 

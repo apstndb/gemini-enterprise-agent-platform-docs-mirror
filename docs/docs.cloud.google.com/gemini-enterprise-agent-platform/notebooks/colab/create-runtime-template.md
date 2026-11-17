@@ -32,7 +32,7 @@ To create a runtime template:
 
 1.  In the Google Cloud console, go to the Colab Enterprise **Runtime templates** page.
 
-2.  Click add_box **New template** .
+2.  Click **New template** .
 
     The **Create new runtime template** dialog appears.
 
@@ -44,7 +44,7 @@ To create a runtime template:
 
 3.  Optional: Add a **Description** of your runtime template.
 
-4.  Optional: To add a label, click add **Add label** , and then enter a **Key** and **Value** pair. To add more labels, repeat this step.
+4.  Optional: To add a label, click **Add label** , and then enter a **Key** and **Value** pair. To add more labels, repeat this step.
 
 5.  Click **Continue** .
 
@@ -74,7 +74,7 @@ To create a runtime template:
 
 3.  Optional: Under the post-startup script URL, select your post-startup script's behavior. The default behavior is **Run once** . For more information, see [Post-startup script behavior](https://docs.cloud.google.com/colab/docs/post-startup-script#behavior) .
 
-4.  Optional: To add an environment variable, click add **Add env variable** , and then enter a **Key** and **Value** pair. To add more environment variables, repeat this step.
+4.  Optional: To add an environment variable, click **Add env variable** , and then enter a **Key** and **Value** pair. To add more environment variables, repeat this step.
 
 5.  Click **Continue** .
 

@@ -16,7 +16,7 @@ In the Online prediction page, you can create an endpoint and deploy one or more
 
 1.  In the Google Cloud console, in the Agent Platform section, go to the **Online prediction** page.
 
-2.  Click add **Create** .
+2.  Click **Create** .
 
 3.  In the **New endpoint** pane:
 
@@ -56,14 +56,14 @@ In the Model Registry page, you can deploy a model to one or more new or existin
 
 5.  To deploy your model to a new endpoint:
 
-    1.  Select radio_button_checked **Create new endpoint**
+    1.  Select **Create new endpoint**
     2.  Provide a name for the new endpoint.
     3.  To create a dedicated (not shared) public endpoint, select the **Enable dedicated DNS** checkbox.
     4.  Click **Continue** .
 
     To deploy your model to an existing endpoint:
 
-    1.  Select radio_button_checked **Add to existing endpoint** .
+    1.  Select **Add to existing endpoint** .
     2.  Select the endpoint from the drop-down list.
     3.  Click **Continue** .
 

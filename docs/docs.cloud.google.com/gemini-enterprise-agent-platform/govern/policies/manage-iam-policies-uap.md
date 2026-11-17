@@ -34,7 +34,7 @@ For more information about creating UAPs, see [Create IAM UAPs](https://docs.clo
 
 2.  In the project selector, select the project that contains the agent gateways that will use the UAP.
 
-3.  To add an IAM UAP for Agent Gateway egress, click add **Create** .
+3.  To add an IAM UAP for Agent Gateway egress, click **Create** .
 
 4.  In the **Policy details** pane, do the following:
     1.  Click the **Policy** field.
@@ -241,7 +241,7 @@ You can retrieve the detailed configuration and rules of a specific UAP or polic
 
 3.  In the **Agent policies** table in the UAPs tab, locate the policy that you want to describe.
 
-4.  In the row for the policy, click more_vert **More actions** , and then click **View rule** .
+4.  In the row for the policy, click **More actions** , and then click **View rule** .
 
 ### gcloud
 
@@ -303,7 +303,7 @@ You can update the rules inside an existing UAP or update the target or policy r
 
 3.  In the **Agent policies** table in the UAPs tab, locate the policy row that you want to edit.
 
-4.  Click more_vert **More actions** , and then click **Edit rule** .
+4.  Click **More actions** , and then click **Edit rule** .
 
 5.  Modify the rules, effect, principals, or CEL conditions.
 
@@ -420,9 +420,9 @@ To delete a UAP, you must delete all of the rules in the policy.
 
 2.  In the project selector, select the project that contains the agent gateways that will use the UAP.
 
-3.  In the **Agent Policies** table of the **Unified Access Policies** tab, filter filter_list **Filter** or locate the policy that you want to delete.
+3.  In the **Agent Policies** table of the **Unified Access Policies** tab, filter **Filter** or locate the policy that you want to delete.
 
-4.  Click more_vert **More actions** , and then click **Delete rule** .
+4.  Click **More actions** , and then click **Delete rule** .
 
 ### gcloud
 

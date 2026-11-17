@@ -28,7 +28,7 @@ To create a Colab Enterprise notebook by using the Google Cloud console:
 
 2.  In the **Region** menu, select the region where you want to create your notebook.
 
-3.  Click add_box **New notebook** .
+3.  Click **New notebook** .
 
     Agent Platform creates and opens your notebook.
 
@@ -44,7 +44,7 @@ To run a Colab Enterprise notebook's code on the default runtime, do the followi
 
 3.  Click the notebook that you want to open.
 
-4.  Hold the pointer over the code cell that you want to run, and then click the ![](https://docs.cloud.google.com/static/colab/images/icon-run-cell.png) **Run cell** button.
+4.  Hold the pointer over the code cell that you want to run, and then click the **Run cell** button.
 
 5.  If this is your first time connecting to a runtime with end-user credentials enabled, a **Sign in** dialog appears.
 
@@ -70,7 +70,7 @@ To rename a Colab Enterprise notebook:
 
 2.  In the **Region** menu, select the region that contains your notebook.
 
-3.  Next to the notebook that you want to rename, click the more_vert **Actions** menu, and then select **Rename** .
+3.  Next to the notebook that you want to rename, click the **Actions** menu, and then select **Rename** .
 
 4.  In the **Rename notebook** dialog, change the name of the notebook, and then click **Rename** .
 
@@ -82,7 +82,7 @@ To import a notebook into Colab Enterprise:
 
 2.  In the **Region** menu, select the region where you want to import your notebook.
 
-3.  Click upload **Import** .
+3.  Click **Import** .
 
 4.  In the **Import notebooks** dialog, select an **Import source** .
 
@@ -94,7 +94,7 @@ To import a notebook into Colab Enterprise:
 
     > The notebook must be fewer than 20 MB.
 
-6.  To add another notebook, click add_box **Add notebook** .
+6.  To add another notebook, click **Add notebook** .
 
 7.  After you've added the notebooks that you want to import, click **Import** .
 
@@ -127,7 +127,7 @@ To delete a Colab Enterprise notebook:
 
 2.  In the **Region** menu, select the region that contains the notebook that you want to delete.
 
-3.  Next to the notebook that you want to delete, click the more_vert **Actions** menu, and then select delete **Delete notebook** .
+3.  Next to the notebook that you want to delete, click the **Actions** menu, and then select **Delete notebook** .
 
 4.  In the **Delete notebook** dialog, click **Confirm** .
 

@@ -532,7 +532,7 @@ Use the following instructions to pause a schedule:
 
 1.  In the Google Cloud console, in the Agent Platform section, go to the **Schedules** tab on the **Pipelines** page.
 
-2.  Go to the more_vert options menu that's in the same row as the schedule you want to pause, and then click **Pause** . You can pause any schedule where the **Status** column shows **Active** .  
+2.  Go to the options menu that's in the same row as the schedule you want to pause, and then click **Pause** . You can pause any schedule where the **Status** column shows **Active** .  
 
 ### REST
 
@@ -698,7 +698,7 @@ Use the following instructions to resume a schedule:
 
 1.  In the Google Cloud console, in the Agent Platform section, go to the **Schedules** tab on the **Pipelines** page.
 
-2.  Go to the more_vert options menu that's in the same row as the schedule you want to resume, and then click **Resume** . You can resume any schedule where the **Status** column shows **Paused** .  
+2.  Go to the options menu that's in the same row as the schedule you want to resume, and then click **Resume** . You can resume any schedule where the **Status** column shows **Paused** .  
 
 ### REST
 
@@ -780,7 +780,7 @@ Use the following instructions to delete a schedule:
 
 1.  In the Google Cloud console, in the Agent Platform section, go to the **Schedules** tab on the **Pipelines** page.
 
-2.  Go to the more_vert options menu that's in the same row as the schedule you want to delete, and then click **Delete** .
+2.  Go to the options menu that's in the same row as the schedule you want to delete, and then click **Delete** .
 
 3.  To confirm deletion, click **Delete** .
 

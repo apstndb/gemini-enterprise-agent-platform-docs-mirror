@@ -44,7 +44,7 @@ You must follow this section before you can [delete your endpoint](https://docs.
 
 2.  Click `hello_custom` to go to the endpoint details page.
 
-3.  On the row for your model, `hello_custom` , click **Undeploy model delete** .
+3.  On the row for your model, `hello_custom` , click **Undeploy model** .
 
 4.  In the **Undeploy model from endpoint** dialog, click **Undeploy** .
 
@@ -56,7 +56,7 @@ After you've undeployed your model from the endpoint, do the following to delete
 
 1.  In the Google Cloud console, in the Agent Platform section, go to the **Endpoints** page.
 
-2.  Find your the row of your endpoint, `hello_custom` , again. On that row, click **View more more_vert** . Then click **Remove endpoint** .
+2.  Find your the row of your endpoint, `hello_custom` , again. On that row, click **View more** . Then click **Remove endpoint** .
 
 3.  In the **Remove endpoint** dialog, click **Confirm** .
 
@@ -66,7 +66,7 @@ Before you follow this section, you must [undeploy your model from your endpoint
 
 1.  In the Google Cloud console, in the Agent Platform section, go to the **Models** page.
 
-2.  Find your the row of your model, `hello_custom` . On that row, click **View more more_vert** . Then click **Delete model** .
+2.  Find your the row of your model, `hello_custom` . On that row, click **View more** . Then click **Delete model** .
 
 3.  In the **Delete model** dialog, click **Delete** .
 
@@ -76,13 +76,13 @@ Your training pipeline and custom job are just records of the training that happ
 
 1.  In the Google Cloud console, in the Agent Platform section, go to the **Training pipelines** page.
 
-2.  Find your the row of your training pipeline, `hello_custom` . On that row, click **View more more_vert** . Then click **Delete training pipeline** .
+2.  Find your the row of your training pipeline, `hello_custom` . On that row, click **View more** . Then click **Delete training pipeline** .
 
 3.  In the **Delete training job** dialog, click **Delete** .
 
 4.  To go to the **Custom jobs** page, click **Custom job** in the Google Cloud console, or click the following link:
 
-5.  Find your the row of your custom job, `hello_custom-custom-job` . On that row, click **View more more_vert** . Then click **Delete custom job** .
+5.  Find your the row of your custom job, `hello_custom-custom-job` . On that row, click **View more** . Then click **Delete custom job** .
 
 6.  In the **Delete training job** dialog, click **Delete** .
 

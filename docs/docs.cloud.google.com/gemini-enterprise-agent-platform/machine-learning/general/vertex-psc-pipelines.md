@@ -255,7 +255,7 @@ In each of the two VPC networks, you create two Cloud Routers: one to use with C
 
 10. In the **Router details** page, verify that the `cloud-nat-us-central1` Cloud NAT gateway has been created.
 
-11. Click the arrow_back back arrow to return to the **Cloud Routers** page.
+11. Click the back arrow to return to the **Cloud Routers** page.
 
 12. In the Cloud Routers list, click `cloud-router-us-central1-onprem-nat` .
 
@@ -439,7 +439,7 @@ After you've configured the interfaces and BGP peers between your routers, they 
 
 ### Validate the `vertex-networking-vpc` learned routes
 
-1.  Click the arrow_back back arrow to return to the **VPC networks** page.
+1.  Click the back arrow to return to the **VPC networks** page.
 
 2.  In the list of VPC networks, click `vertex-networking-vpc` .
 
@@ -481,7 +481,7 @@ In this section, you create a [custom route advertisement](https://docs.cloud.go
 
 2.  In the Cloud Router list, click `vertex-networking-vpc-router1` .
 
-3.  On the **Router details** page, click edit **Edit** .
+3.  On the **Router details** page, click **Edit** .
 
 4.  In the **Advertised routes** section, for **Routes** , select **Create custom routes** .
 
@@ -745,7 +745,7 @@ In this section, you create a Service Networking connection and use it to enable
 
 2.  In the Cloud Router list, click `onprem-dataservice-vpc-router1` .
 
-3.  On the **Router details** page, click edit **Edit** .
+3.  On the **Router details** page, click **Edit** .
 
 4.  In the **Advertised routes** section, for **Routes** , select **Create custom routes** .
 
@@ -952,7 +952,7 @@ In this section, you create a Vertex AI Workbench instance and use it to create 
 
 1.  In the Google Cloud console, go to the **Instances** tab in the **Vertex AI Workbench** page.
 
-2.  Click add_box **Create new** , and then click **Advanced options** .
+2.  Click **Create new** , and then click **Advanced options** .
 
     The **New instance** page opens.
 
@@ -1064,9 +1064,9 @@ In this section, you create a Vertex AI Workbench instance and use it to create 
     mkdir fungi_training_package/trainer
     ```
 
-6.  In the folder **File Browser** , double-click the `fungi_training_package` folder, and then double-click the `trainer` folder.
+6.  In the **File Browser** , double-click the `fungi_training_package` folder, and then double-click the `trainer` folder.
 
-7.  In the folder **File Browser** , right-click the empty file list (under the **Name** heading) and select **New file** .
+7.  In the **File Browser** , right-click the empty file list (under the **Name** heading) and select **New file** .
 
 8.  Right-click the new file and select **Rename file** .
 
@@ -1197,7 +1197,7 @@ In this section, you create a Vertex AI Workbench instance and use it to create 
     touch fungi_training_package/trainer/__init__.py
     ```
 
-14. In the folder **File Browser** , double-click the `fungi_training_package` folder.
+14. In the **File Browser** , double-click the `fungi_training_package` folder.
 
 15. Select **File \> New \> Python file** .
 
@@ -1318,7 +1318,7 @@ In this section, you create a Service Networking connection that is used to esta
 
 2.  In the Cloud Router list, click `vertex-networking-vpc-router1` .
 
-3.  On the **Router details** page, click edit **Edit** .
+3.  On the **Router details** page, click **Edit** .
 
 4.  Click **Add a custom route** .
 
@@ -1344,7 +1344,7 @@ In this section, you create and upload a Kubeflow Pipelines (KFP) [pipeline temp
 
 ### Define and compile the pipeline
 
-1.  In Jupyterlab, in the folder **File Browser** , double-click the top-level folder.
+1.  In Jupyterlab, in the **File Browser** , double-click the top-level folder.
 
 2.  Select **File \> New \> Notebook** .
 
@@ -1445,7 +1445,7 @@ In this section, you create and upload a Kubeflow Pipelines (KFP) [pipeline temp
     )
     ```
 
-    In the folder **File Browser** , a file named `pipeline_config.yaml` appears in the file list.
+    In the **File Browser** , a file named `pipeline_config.yaml` appears in the file list.
 
 ### Create an Artifact Registry repository
 
@@ -1631,19 +1631,19 @@ You can delete the individual resources in the project as follows:
 
     1.  In the Google Cloud console, in the **Gemini Enterprise Agent Platform** section, go to the **Runs** tab in the **Pipelines** page.
 
-    2.  Select the pipeline runs to delete and click delete **Delete** .
+    2.  Select the pipeline runs to delete and click **Delete** .
 
 2.  Delete the pipeline template as follows:
 
     1.  In the **Gemini Enterprise Agent Platform** section, go to the **Your templates** tab in the **Pipelines** page.
 
-    2.  Next to the `custom-image-classification-pipeline` pipeline template, click more_vert **Actions** and select **Delete** .
+    2.  Next to the `custom-image-classification-pipeline` pipeline template, click **Actions** and select **Delete** .
 
 3.  Delete the repository from Artifact Registry as follows:
 
     1.  In the **Artifact Registry** page, go to the **Repositories** tab.
 
-    2.  Select the `fungi-repo` repository and click delete **Delete** .
+    2.  Select the `fungi-repo` repository and click **Delete** .
 
 4.  Undeploy the model from the endpoint as follows:
 
@@ -1651,7 +1651,7 @@ You can delete the individual resources in the project as follows:
 
     2.  Click `fungi-image-endpoint` to go to the endpoint details page.
 
-    3.  On the row for your model, `fungi-image-model` , click more_vert **Actions** and select **Undeploy model from endpoint** .
+    3.  On the row for your model, `fungi-image-model` , click **Actions** and select **Undeploy model from endpoint** .
 
     4.  In the **Undeploy model from endpoint** dialog, click **Undeploy** .
 
@@ -1665,25 +1665,25 @@ You can delete the individual resources in the project as follows:
 
     1.  Go to the **Model Registry** page.
 
-    2.  On the row for your model, `fungi-image-model` , click more_vert **Actions** and select **Delete model** .
+    2.  On the row for your model, `fungi-image-model` , click **Actions** and select **Delete model** .
 
 7.  Delete the staging bucket as follows:
 
     1.  Go to the **Cloud Storage** page.
 
-    2.  Select `pipelines-staging-bucket- `` PROJECT_ID` , where ` PROJECT_ID ` is the project ID, and click delete **Delete** .
+    2.  Select `pipelines-staging-bucket- `` PROJECT_ID` , where ` PROJECT_ID ` is the project ID, and click **Delete** .
 
 8.  Delete the Agent Platform Workbench instance as follows:
 
     1.  In the **Gemini Enterprise Agent Platform** section, go to the **Instances** tab in the **Workbench** page.
 
-    2.  Select the `pipeline-tutorial- `` PROJECT_ID` Agent Platform Workbench instance, where ` PROJECT_ID ` is the project ID, and click delete **Delete** .
+    2.  Select the `pipeline-tutorial- `` PROJECT_ID` Agent Platform Workbench instance, where ` PROJECT_ID ` is the project ID, and click **Delete** .
 
 9.  Delete the Compute Engine VM instance as follows:
 
     1.  Go to the **Compute Engine** page.
 
-    2.  Select the `on-prem-dataservice-host` VM instance, and click delete **Delete** .
+    2.  Select the `on-prem-dataservice-host` VM instance, and click **Delete** .
 
 10. Delete the VPN tunnels as follows:
 
@@ -1691,7 +1691,7 @@ You can delete the individual resources in the project as follows:
 
     2.  On the **VPN** page, click the **Cloud VPN Tunnels** tab.
 
-    3.  In the list of VPN tunnels, select the four VPN tunnels you created in this tutorial and click delete **Delete** .
+    3.  In the list of VPN tunnels, select the four VPN tunnels you created in this tutorial and click **Delete** .
 
 11. Delete the HA VPN gateways as follows:
 
@@ -1699,11 +1699,11 @@ You can delete the individual resources in the project as follows:
 
     2.  In the list of VPN gateways, click `onprem-vpn-gw1` .
 
-    3.  In the **Cloud VPN gateway details** page, click delete **Delete VPN Gateway** .
+    3.  In the **Cloud VPN gateway details** page, click **Delete VPN Gateway** .
 
-    4.  Click the arrow_back back arrow if necessary to return to the list of VPN gateways, and then click `vertex-networking-vpn-gw1` .
+    4.  Click the back arrow if necessary to return to the list of VPN gateways, and then click `vertex-networking-vpn-gw1` .
 
-    5.  In the **Cloud VPN gateway details** page, click delete **Delete VPN Gateway** .
+    5.  In the **Cloud VPN gateway details** page, click **Delete VPN Gateway** .
 
 12. Delete the Cloud Routers as follows:
 
@@ -1711,7 +1711,7 @@ You can delete the individual resources in the project as follows:
 
     2.  In the list of Cloud Routers, select the four routers that you created in this tutorial.
 
-    3.  To delete the routers, click delete **Delete** .
+    3.  To delete the routers, click **Delete** .
 
         This will also delete the two Cloud NAT gateways that are connected to the Cloud Routers.
 
@@ -1721,7 +1721,7 @@ You can delete the individual resources in the project as follows:
 
     2.  Select `servicenetworking-googleapis-com` .
 
-    3.  To delete the connections, click delete **Delete** .
+    3.  To delete the connections, click **Delete** .
 
 14. Delete the `pscvertex` forwarding rule for the `vertex-networking-vpc` VPC network as follows:
 
@@ -1729,7 +1729,7 @@ You can delete the individual resources in the project as follows:
 
     2.  In the list of forwarding rules, click `pscvertex` .
 
-    3.  In the **Global forwarding rule details** page, click delete **Delete** .
+    3.  In the **Global forwarding rule details** page, click **Delete** .
 
 15. Delete the Filestore instance as follows:
 
@@ -1737,7 +1737,7 @@ You can delete the individual resources in the project as follows:
 
     2.  Select the `image-data-instance` instance.
 
-    3.  To delete the instance, click more_vert **Actions** , and then click **Delete instance** .
+    3.  To delete the instance, click **Actions** , and then click **Delete instance** .
 
 16. Delete the VPC networks as follows:
 
@@ -1745,19 +1745,19 @@ You can delete the individual resources in the project as follows:
 
     2.  In the list of VPC networks, click `onprem-dataservice-vpc` .
 
-    3.  In the **VPC network details** page, click delete **Delete VPC Network** .
+    3.  In the **VPC network details** page, click **Delete VPC Network** .
 
         Deleting each network also deletes its subnetworks, routes, and firewall rules.
 
     4.  In the list of VPC networks, click `vertex-networking-vpc` .
 
-    5.  In the **VPC network details** page, click delete **Delete VPC Network** .
+    5.  In the **VPC network details** page, click **Delete VPC Network** .
 
 17. Delete the `workbench-sa` and `onprem-user-managed-sa` service accounts as follows:
 
     1.  Go to the **Service accounts** page.
 
-    2.  Select the `onprem-user-managed-sa` and `workbench-sa` service accounts, and click delete **Delete** .
+    2.  Select the `onprem-user-managed-sa` and `workbench-sa` service accounts, and click **Delete** .
 
 ## What's next
 

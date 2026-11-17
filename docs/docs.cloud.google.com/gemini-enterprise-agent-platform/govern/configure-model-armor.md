@@ -71,7 +71,7 @@ To configure Model Armor on a gateway, follow these steps:
 
 2.  [Create one or more Model Armor templates](https://docs.cloud.google.com/model-armor/manage-templates#create-ma-template) in the same region where you plan to add the gateway. You can use the same template for both ingress and egress traffic.
 
-    Take note of the template names. To copy the name of a template in the Google Cloud console, [view the template's details](https://docs.cloud.google.com/model-armor/manage-templates#view-ma-template) and click content_copy **Copy to clipboard** next to the template name.
+    Take note of the template names. To copy the name of a template in the Google Cloud console, [view the template's details](https://docs.cloud.google.com/model-armor/manage-templates#view-ma-template) and click **Copy to clipboard** next to the template name.
 
     If you create the Model Armor templates in a different project from the project that contains the AI agent or Agent Gateway and you use VPC Service Controls, both projects must be in the same [VPC Service Controls service perimeter](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#vpc-sc-compliance) .
 

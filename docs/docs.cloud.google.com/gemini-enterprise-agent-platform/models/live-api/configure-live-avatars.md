@@ -16,7 +16,7 @@ Do the following:
 
 1.  In the Google Cloud console, go to the **[Agent Platform \> Studio \> Stream realtime](https://console.cloud.google.com/agent-platform/studio/multimodal-live)** page.
 
-2.  Click mic **Switch model** .
+2.  Click **Switch model** .
 
 3.  From the models list, select `gemini-3.8-live` .
 

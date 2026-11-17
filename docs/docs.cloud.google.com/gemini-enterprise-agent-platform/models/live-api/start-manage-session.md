@@ -40,9 +40,9 @@ The following tabs show how to start a live conversation session using Agent Stu
 ### Console
 
 1.  Open [**Agent Studio \> Stream realtime**](https://console.cloud.google.com/agent-platform/studio/multimodal-live) .
-2.  Click **mic Start session** to initiate the conversation.
+2.  Click **Start session** to initiate the conversation.
 
-To end the session, click **stop_circle Stop session** .
+To end the session, click **Stop session** .
 
 ### Python
 

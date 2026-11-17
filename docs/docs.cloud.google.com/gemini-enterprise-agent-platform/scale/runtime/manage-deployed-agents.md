@@ -185,7 +185,7 @@ The amount of time it takes to update the deployed agent depends on the update b
 
 1.  In the Google Cloud console, go to the Agent Platform **Deployments** page.  
 
-2.  For your specified agent, click **more actions** menu ( more_vert ).
+2.  For your specified agent, click **more actions** menu ( ).
 
 3.  Click **Edit** . The **Edit** pane for the agent opens.
 
@@ -382,7 +382,7 @@ Delete a deployed agent from the Agent Runtime managed runtime. Deleting the age
 
 1.  In the Google Cloud console, go to the Agent Platform **Deployments** page.  
 
-2.  For your specified agent, click **more actions** menu ( more_vert ).
+2.  For your specified agent, click **more actions** menu ( ).
 
 3.  Click **Delete** .
 

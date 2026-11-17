@@ -366,6 +366,7 @@ async for event in adk_app.async_stream_query(
 ```
 from google import auth as google_auth
 from google.auth.transport import requests as google_requests
+import json
 import requests
 
 def get_identity_token():
@@ -375,7 +376,7 @@ def get_identity_token():
     return credentials.token
 
 requests.post(
-    f"https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID:streamQuery",
+    f"https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID:streamQuery?alt=sse",
     headers={
         "Content-Type": "application/json",
         "Authorization": f"Bearer {get_identity_token()}",
@@ -402,8 +403,7 @@ https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCA
   "class_method": "async_stream_query",
   "input": {
     "user_id": "USER_ID",
-    #"session_id": "SESSION_ID",
-    "message": "What is the exchange rate from US dollars to SEK today?",
+    "message": "What is the exchange rate from US dollars to SEK today?"
   }
 }'
 ```
@@ -442,6 +442,116 @@ If you are using the Agent Platform SDK, you should receive a continuation of th
  # ...
 }
 ```
+
+### Query the agent with multimodal content
+
+To send non-text or multimodal content (such as images, video, audio, or documents) to the agent, pass a dictionary representing a [`types.Content`](https://googleapis.github.io/python-genai/genai.html#google.genai.types.Content) object to the `message=` parameter of `async_stream_query` (or call `content.model_dump(exclude_none=True, mode="json")` on a `types.Content` instance). For files stored in Cloud Storage, specify `file_data` with the `file_uri` and `mime_type` in `parts` :
+
+### Agent Platform SDK
+
+```
+video_message = {
+    "role": "user",
+    "parts": [
+        {
+            "file_data": {
+                "file_uri": "gs://cloud-samples-data/generative-ai/video/pixel8.mp4",
+                "mime_type": "video/mp4",
+            },
+        },
+        {
+            "text": "Describe the attached media in 5 words!",
+        },
+    ],
+}
+
+async for event in adk_app.async_stream_query(
+    user_id="USER_ID",
+    #session_id="SESSION_ID",  # Optional
+    message=video_message,
+):
+  print(event)
+```
+
+### Python requests library
+
+```
+from google import auth as google_auth
+from google.auth.transport import requests as google_requests
+import json
+import requests
+
+def get_identity_token():
+    credentials, _ = google_auth.default()
+    auth_request = google_requests.Request()
+    credentials.refresh(auth_request)
+    return credentials.token
+
+requests.post(
+    f"https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID:streamQuery?alt=sse",
+    headers={
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {get_identity_token()}",
+    },
+    data=json.dumps({
+        "class_method": "async_stream_query",
+        "input": {
+            "user_id": "USER_ID",
+            #"session_id": "SESSION_ID",
+            "message": {
+                "role": "user",
+                "parts": [
+                    {
+                        "file_data": {
+                            "file_uri": "gs://cloud-samples-data/generative-ai/video/pixel8.mp4",
+                            "mime_type": "video/mp4",
+                        },
+                    },
+                    {
+                        "text": "Describe the attached media in 5 words!",
+                    },
+                ],
+            },
+        },
+    }),
+    stream=True,
+)
+```
+
+### REST API
+
+```
+curl \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID:streamQuery?alt=sse -d '{
+  "class_method": "async_stream_query",
+  "input": {
+    "user_id": "USER_ID",
+    "message": {
+      "role": "user",
+      "parts": [
+        {
+          "file_data": {
+            "file_uri": "gs://cloud-samples-data/generative-ai/video/pixel8.mp4",
+            "mime_type": "video/mp4"
+          }
+        },
+        {
+          "text": "Describe the attached media in 5 words!"
+        }
+      ]
+    }
+  }
+}'
+```
+
+For the list of MIME types supported by Gemini, see the documentation on:
+
+- [Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-understanding#supported-models)
+- [Video](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding#supported-models)
+- [Audio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/audio-understanding#supported-models)
+- [Documents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/document-understanding)
 
 ## Long-running query jobs
 

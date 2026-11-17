@@ -379,9 +379,7 @@ A base64-encoded string.
 
 Optional. Display name of the blob.
 
-Used to provide a label or filename to distinguish blobs.
-
-This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (codeExecution, googleSearch, and urlContext) are enabled.
+Used to provide a label or filename to distinguish blobs, and to reference the blob from `FunctionResponse.response` (for example, via `{"$ref": "<displayName>"}` ).
 
 **JSON representation**
 
@@ -409,11 +407,9 @@ Required. URI.
 
 `displayName` `string`
 
-Optional. Display name of the file data.
+Optional. Display name of the file.
 
-Used to provide a label or filename to distinguish file datas.
-
-This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (codeExecution, googleSearch, and urlContext) are enabled.
+Used to provide a label or filename to distinguish file data, and to reference the file from `FunctionResponse.response` (for example, via `{"$ref": "<displayName>"}` ).
 
 **JSON representation**
 

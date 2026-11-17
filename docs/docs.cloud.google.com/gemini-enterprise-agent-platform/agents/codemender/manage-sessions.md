@@ -18,7 +18,7 @@ The CodeMender CLI maintains stateful execution sessions locally, allowing you t
 
 ### List active and past sessions
 
-Run the following command to list all sessions, their statuses ( `RUNNING` , `WAITING_FOR_TOOL` , `COMPLETED` , `FAILED` , `CANCELLED` ), and target paths:
+Run the following command to list all sessions, their statuses ( `RUNNING` , `WAITING_FOR_TOOL` , `COMPLETED` , `FAILED` , `CANCELLED` , `BUDGET_EXCEEDED` ), and target paths:
 
 ```
 cm session list
@@ -32,7 +32,7 @@ If a session pauses due to a network interruption or step failure, resume it fro
 cm session resume SESSION_ID
 ```
 
-You can pass `--yes` ( `-y` ), `--sandbox` , `--allow-all-paths` , `--allow-all-commands` , and `--bypass-warning` to `cm session resume` to control confirmation prompts, sandboxing, and policy boundaries for the resumed run.
+You can pass `--yes` ( `-y` ), `--duration` ( `--timeout` ), `--sandbox` , `--allow-all-paths` , `--allow-all-commands` , and `--bypass-warning` to `cm session resume` to control confirmation prompts, execution duration limits, sandboxing, and policy boundaries for the resumed run. Sessions that finished with `COMPLETED` , `FAILED` , `CANCELLED` , or `BUDGET_EXCEEDED` are terminal and can't be resumed.
 
 ### Cancel a running session
 
@@ -86,6 +86,14 @@ Export findings in standard SARIF format (v2.1.0) for integration with other sec
 
 ```
 cm report --format sarif
+```
+
+### CSV
+
+Export findings as comma-separated values (CSV) for use in spreadsheets. To prevent a spreadsheet from running a cell as a formula, cells that start with `=` , `+` , `-` , or `@` are prefixed with a single quote.
+
+```
+cm report --format csv
 ```
 
 ### Filtering and sorting flags

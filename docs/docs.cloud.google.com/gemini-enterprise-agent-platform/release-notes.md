@@ -10,6 +10,35 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## November 16, 2026
+
+Feature
+
+**DeepSeek-V4.1-Flash-1017 is available in Public Preview**
+
+DeepSeek-V4.1-Flash-1017 from DeepSeek is available as a fully managed model (MaaS) in Model Garden. It's an update to DeepSeek-V4.1-Flash with improved reasoning, coding, agentic, and visual performance. The model accepts text and image input and supports a context window of up to 1M tokens.
+
+For more information, see [DeepSeek-V4.1-Flash-1017](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/deepseek/deepseek-v41-flash-1017) .
+
+Fixed
+
+**CodeMender updates (v0.22.0)**
+
+This release introduces updates to CodeMender:
+
+- **Execution time limits** : Added the `--duration` flag (alias `--timeout` ) to `cm find` , `cm fix` , `cm verify` , and `cm session resume` . You can also set the limit with the `CM_DURATION` environment variable. When the limit is reached, CodeMender stops the run, reports the results found so far, and exits with code `50` . On `cm find --diff` , the `--fail-on` gate is evaluated first, so a blocking finding still exits with code `1` .
+- **CSV export and import** : `cm find` and `cm report` now support `--format csv` and `.csv` output files, and `cm report import` accepts CSV files.
+- **Exit codes** : `cm` now exits with code `2` for general failures and for sessions that the prompt injection filter stops. Exit code `1` is reserved for CI gate failures.
+- **Bug fixes** :
+  - Fixed an issue in file discovery where comments or strings that matched test patterns or generated-code markers caused source files to be skipped by `cm find` .
+  - `cm report import` no longer creates duplicate findings when you import the same report more than once.
+  - `cm` no longer sends Application Default Credentials (ADC) tokens to endpoints outside `googleapis.com` .
+  - `cm` now warns when commands run outside the OS sandbox, for example with `--sandbox=false` .
+  - The sandbox blocks hash-based Python bytecode ( `.pyc` ) files and removes bytecode created during a session.
+  - `cm` removes bidirectional text controls and invisible characters from untrusted text before it displays the text.
+
+For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender) .
+
 ## November 12, 2026
 
 Feature
@@ -29,7 +58,7 @@ Feature
 
 **Gemini 4 Hydrogen (GA)**
 
-[Gemini 4 Hydrogen](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen) ( `gemini-4-hydrogen` ) is generally available (GA) in Gemini Enterprise Agent Platform as a short-term release (subject to a minimum 45-day retirement notice policy). Gemini 4 Hydrogen is built for speed and efficiency across everyday coding and agentic workflows, multimodal analysis, and tool use:
+[Gemini 4 Hydrogen](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen) ( `gemini-4-hydrogen` ) is generally available (GA) in Gemini Enterprise Agent Platform. Gemini 4 Hydrogen is built for speed and efficiency across everyday coding and agentic workflows, multimodal analysis, and tool use:
 
 - **Unified 1,048,576-token limit and long decodes** : Supports a unified 1,048,576-token input and output limit (where output includes thinking, function calls, and the final response). Single foreground segments generate up to 65,536 output tokens (streaming or non-streaming) and can be extended up to 1,048,576 tokens (minus input tokens) using long decodes ( `continuation_token` ) on both the [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) and the `GenerateContent` API ( `v1beta1` ), including asynchronous server-managed background execution ( `background=true` ) on the Interactions API.
 

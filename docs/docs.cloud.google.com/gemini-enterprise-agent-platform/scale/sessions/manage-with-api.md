@@ -361,7 +361,7 @@ For deployed agents, you can use the Google Cloud console to delete sessions ass
 
 3.  Click the **Sessions** tab. A list of sessions displays by ID.
 
-4.  Click the **more actions** menu ( more_vert ) of the session you want to delete.
+4.  Click the **more actions** menu ( ) of the session you want to delete.
 
 5.  Click **Delete** .
 

@@ -20,7 +20,7 @@ As a best practice, when replacing a model on an endpoint after shifting traffic
 
     2.  Click the name and version ID of the model you want to undeploy to open its details page.
 
-    3.  On the row for your model, click more_vert **Actions** , and then click **Undeploy model from endpoint** .
+    3.  On the row for your model, click **Actions** , and then click **Undeploy model from endpoint** .
 
     4.  In the **Undeploy model from endpoint** dialog, click **Undeploy** .
 
@@ -32,7 +32,7 @@ As a best practice, when replacing a model on an endpoint after shifting traffic
 
     2.  Select the endpoint.
 
-    3.  To delete the endpoint, click more_vert **Actions** , and then click **Delete endpoint** .
+    3.  To delete the endpoint, click **Actions** , and then click **Delete endpoint** .
 
 ### gcloud
 

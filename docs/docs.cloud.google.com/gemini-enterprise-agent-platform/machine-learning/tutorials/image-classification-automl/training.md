@@ -44,7 +44,7 @@ Choose one of the following options to begin training:
 
 2.  Select **Create** to open the **Train new model** window.
 
-3.  Select **Select Training method** , and select the **target Dataset** if they are not automatically selected. Make sure the radio_button_checked **AutoML** radio button is selected, and then choose **CONTINUE** .
+3.  Select **Select Training method** , and select the **target Dataset** if they are not automatically selected. Make sure the **AutoML** radio button is selected, and then choose **CONTINUE** .
 
     ![Train new model window step 1](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-automl/images/train-training-method.png)
 

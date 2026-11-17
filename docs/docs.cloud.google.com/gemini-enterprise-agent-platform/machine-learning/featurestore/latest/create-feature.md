@@ -68,7 +68,7 @@ Use the following instructions to add features to an existing feature group usin
 
 1.  In the Agent Platform section of the Google Cloud console, go to the **Feature Store** page.
 
-2.  In the **Feature groups** section, click more_vert in the row corresponding to the feature group where you want to add a feature, and then click **Add features** .
+2.  In the **Feature groups** section, click in the row corresponding to the feature group where you want to add a feature, and then click **Add features** .
 
 3.  For each feature, enter a **Feature name** and click the corresponding BigQuery source column name in the list. To add more features, click **Add another feature** .
 

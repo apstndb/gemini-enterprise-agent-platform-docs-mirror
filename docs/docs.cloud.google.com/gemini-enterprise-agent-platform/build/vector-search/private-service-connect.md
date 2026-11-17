@@ -55,7 +55,7 @@ To create your endpoint:
 
 2.  Select the **Index endpoints** tab. Your index endpoints appear.
 
-3.  Click add_box **Create new endpoint** . The **Create a new index endpoint** panel opens.
+3.  Click **Create new endpoint** . The **Create a new index endpoint** panel opens.
 
 4.  In **Display name** , enter a display name for the index endpoint. This name is used to create an ID for the endpoint and cannot be updated later.
 
@@ -170,13 +170,13 @@ To deploy your endpoint:
 
 You now need to add Private Service Connect automation configurations. To do so:
 
-1.  In the **PSC automation configs** section, click add_box **Add new config** .
+1.  In the **PSC automation configs** section, click **Add new config** .
 
 2.  Enter the name of the VPC project to connect with.
 
 3.  Enter the network name of the VPC project to connect. It must be in the format `projects/` **`<project_number>`** `/global/networks/` **`<network_name>`** .
 
-4.  Optionally, click add_box **Add new config** and continue adding Private Service Connect automation configurations.
+4.  Optionally, click **Add new config** and continue adding Private Service Connect automation configurations.
 
 5.  Click **Deploy** to finish.
 
@@ -474,7 +474,7 @@ Use these instructions to deploy your index.
 
 2.  Select the name of the index you want to deploy. The index details page opens.
 
-3.  From the index details page, click **add_box Deploy to endpoint** . The index deployment panel opens.
+3.  From the index details page, click **Deploy to endpoint** . The index deployment panel opens.
 
 4.  Enter a display name - this name acts as an ID and can't be updated.
 

@@ -316,7 +316,7 @@ The tuning job endpoint is updated if you update a default checkpoint, and you c
 
 2.  In the **Tuning** tab, find your model and click **Monitor** .
 
-3.  In the checkpoint table in the **Monitor** pane, next to the target checkpoint, click more_vert **Actions** and select **Set as default** .
+3.  In the checkpoint table in the **Monitor** pane, next to the target checkpoint, click **Actions** and select **Set as default** .
 
 4.  Click **Confirm** .
 

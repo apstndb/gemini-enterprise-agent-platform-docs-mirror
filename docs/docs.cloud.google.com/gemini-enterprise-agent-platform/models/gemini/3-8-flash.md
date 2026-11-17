@@ -118,6 +118,8 @@ Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options">Pay-as-you-go</a><br />
 Standard PayGo with Usage Tiers, Flex PayGo, Priority PayGo<br />
 Supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deferred-tier">Deferred tier</a><br />
+Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas">Fixed quota</a><br />
 Not supported</li>
 </ul></th>
@@ -138,7 +140,7 @@ Not supported</li>
 </tr>
 <tr class="odd">
 <th>Technical specifications</th>
-<th><strong>Image</strong> photo</th>
+<th><strong>Image</strong></th>
 <td><ul>
 <li>Maximum images per prompt: 3,000 (images and PDFs combined)</li>
 <li>Maximum inline part size (GenerateContent API): 256 MB</li>
@@ -152,7 +154,7 @@ Not supported</li>
 </ul></td>
 </tr>
 <tr class="even">
-<th><strong>Text</strong> description</th>
+<th><strong>Text</strong></th>
 <th><ul>
 <li>Maximum number of files per prompt: 3,000 PDFs (shared with images; up to 6,500 total files when including plain text)</li>
 <li>Maximum number of pages per file: 3,000</li>
@@ -169,7 +171,7 @@ Not supported</li>
 <td></td>
 </tr>
 <tr class="odd">
-<th><strong>Video</strong> videocam</th>
+<th><strong>Video</strong></th>
 <th><ul>
 <li>Maximum video length (with audio): Approximately 45 minutes</li>
 <li>Maximum video length (without audio): Approximately 1 hour</li>
@@ -184,7 +186,7 @@ Not supported</li>
 <td></td>
 </tr>
 <tr class="even">
-<th><strong>Audio</strong> mic</th>
+<th><strong>Audio</strong></th>
 <th><ul>
 <li>Maximum audio length per prompt: Approximately 8.4 hours, or up to 1 million tokens</li>
 <li>Maximum number of audio files per prompt: 1,000</li>
@@ -198,7 +200,7 @@ Not supported</li>
 <td></td>
 </tr>
 <tr class="odd">
-<th><strong>Parameter defaults</strong> tune</th>
+<th><strong>Parameter defaults</strong></th>
 <th><ul>
 <li>Temperature: 1.0</li>
 <li>topP: 0.95</li>

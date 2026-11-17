@@ -131,6 +131,8 @@ Not supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options">Pay-as-you-go</a><br />
 Standard PayGo<br />
 Supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deferred-tier">Deferred tier</a><br />
+Not supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas">Fixed quota</a><br />
 Not supported</li>
 </ul></th>
@@ -138,7 +140,7 @@ Not supported</li>
 </tr>
 <tr class="even">
 <th>Technical specifications</th>
-<th><strong>Image</strong> photo</th>
+<th><strong>Image</strong></th>
 <td><ul>
 <li>Maximum images per prompt: 3,000</li>
 <li>Maximum file size per file for inline data or direct uploads through the console: 7 MB</li>
@@ -148,7 +150,7 @@ Not supported</li>
 </ul></td>
 </tr>
 <tr class="odd">
-<th><strong>Video</strong> videocam</th>
+<th><strong>Video</strong></th>
 <th><ul>
 <li>Standard resolution: 768 x 768</li>
 <li>Supported MIME types:
@@ -157,7 +159,7 @@ Not supported</li>
 <td></td>
 </tr>
 <tr class="even">
-<th><strong>Audio</strong> mic</th>
+<th><strong>Audio</strong></th>
 <th><ul>
 <li>Maximum conversation length: Default 10 minutes that can <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session#session-extension">be extended.</a></li>
 <li>Required audio input format: Raw 16-bit PCM audio at 16kHz, little-endian</li>
@@ -168,7 +170,7 @@ Not supported</li>
 <td></td>
 </tr>
 <tr class="odd">
-<th><strong>Parameter defaults</strong> tune</th>
+<th><strong>Parameter defaults</strong></th>
 <th><ul>
 <li>Start of speech sensitivity: Low</li>
 <li>End of speech sensitivity: High</li>

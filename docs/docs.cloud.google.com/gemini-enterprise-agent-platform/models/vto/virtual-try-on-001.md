@@ -88,6 +88,8 @@ Not supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options">Pay-as-you-go</a><br />
 Standard PayGo<br />
 Supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deferred-tier">Deferred tier</a><br />
+Not supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas">Fixed quota</a><br />
 Not supported</li>
 </ul></td>
@@ -95,7 +97,7 @@ Not supported</li>
 </tr>
 <tr class="even">
 <th>Technical specifications</th>
-<td><strong>Image</strong> photo</td>
+<td><strong>Image</strong></td>
 <td><ul>
 <li>Maximum images per prompt: 2</li>
 <li>Maximum file size per file for inline data or direct uploads through the console: 7 MB</li>
@@ -107,7 +109,7 @@ Not supported</li>
 </ul></td>
 </tr>
 <tr class="odd">
-<th><strong>Parameter defaults</strong> tune</th>
+<th><strong>Parameter defaults</strong></th>
 <td><ul>
 <li>candidateCount: 1-4</li>
 </ul></td>

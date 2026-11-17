@@ -103,7 +103,7 @@ Launch Spaces to test and experiment with a model from a sample Gradio applicati
 
     You can share the URL so that others can try the app too.
 
-    1.  To close access to the app, click edit **Edit** in the **Access control** field.
+    1.  To close access to the app, click **Edit** in the **Access control** field.
 
     In the **Security** tab for your Cloud Run application, select **Require authentication** and then click **Save** . The application is no longer available through the URL. Visits to the URL result in a 403 error (forbidden).
 

@@ -30,7 +30,7 @@ To clone your GitHub repository in your Agent Platform Workbench instance, compl
 
 4.  Click **Open JupyterLab** to open your Agent Platform Workbench instance.
 
-5.  In the JupyterLab folder **File Browser** , select the folder where you want to clone the GitHub repository. For example, the home folder.
+5.  In the JupyterLab **File Browser** , select the folder where you want to clone the GitHub repository. For example, the home folder.
 
     ![The JupyterLab file browser in Gemini Enterprise Agent Platform Workbench, highlighting the home folder where a GitHub repository can be cloned.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/notebooks/workbench/instances/images/github-04.png)
 

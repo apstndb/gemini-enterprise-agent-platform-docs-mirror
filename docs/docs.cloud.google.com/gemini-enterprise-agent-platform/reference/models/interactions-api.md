@@ -30,7 +30,7 @@ Possible values:
 
 - `gemini-4-hydrogen`
 
-  Google's near-frontier model built for speed and efficiency across everyday coding and agentic workflows, multimodal analysis, and tool use.
+  Google's model built for speed and efficiency across everyday coding and agentic workflows, multimodal analysis, and tool use.
 
 - `gemini-4-carbon`
 
@@ -684,7 +684,7 @@ Possible values:
 
 - `gemini-4-hydrogen`
 
-  Google's near-frontier model built for speed and efficiency across everyday coding and agentic workflows, multimodal analysis, and tool use.
+  Google's model built for speed and efficiency across everyday coding and agentic workflows, multimodal analysis, and tool use.
 
 - `gemini-4-carbon`
 

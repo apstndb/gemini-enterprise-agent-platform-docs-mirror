@@ -24,7 +24,7 @@ You might also be able to get the required permissions through [custom roles](ht
 
 1.  In the Google Cloud console, go to the **Instances** page.
 
-2.  Click add_box **Create new** .
+2.  Click **Create new** .
 
 3.  For **Name** , enter `my-instance` .
 
@@ -54,7 +54,7 @@ Your Agent Platform Workbench instance opens JupyterLab.
 
 2.  Select the instance that you want to stop.
 
-3.  Click square **Stop** .
+3.  Click **Stop** .
 
 ## Start your instance
 
@@ -62,7 +62,7 @@ Your Agent Platform Workbench instance opens JupyterLab.
 
 2.  Select the instance that you want to start.
 
-3.  Click arrow_right **Start** .
+3.  Click **Start** .
 
 ## Reset your instance
 
@@ -72,7 +72,7 @@ Resetting an instance forcibly wipes the memory contents of your instance and re
 
 2.  Select the instance that you want to reset.
 
-3.  Click ![Reset icon](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/notebooks/workbench/images/reset.png) **Reset** , and then click **Reset** to confirm.
+3.  Click **Reset** , and then click **Reset** to confirm.
 
 ## Clean up
 
@@ -86,7 +86,7 @@ If you used an existing Google Cloud project, then delete the resources you crea
 
 2.  Select the row containing the instance that you want to delete.
 
-3.  Click delete **Delete** . (Depending on the size of your window, the **Delete** button might be in the more_vert options menu.)
+3.  Click **Delete** . (Depending on the size of your window, the **Delete** button might be in the options menu.)
 
 4.  To confirm, click **Confirm** .
 

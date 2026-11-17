@@ -76,6 +76,14 @@ Required. The name of the tool to call.
 
 Required. The arguments to pass to the function.
 
+`interaction.stepList.steps[].toolCall.codeExecutionCall.arguments.language` `enum ( `[`Language`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Step#Language)` )`
+
+Programming language of the `code` .
+
+`interaction.stepList.steps[].toolCall.codeExecutionCall.arguments.code` `string`
+
+The code to be executed.
+
 `interaction.usage` `object ( `[`Usage`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Usage)` )`
 
 Output only. Statistics on the interaction request's token usage.
