@@ -369,7 +369,6 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account	2026-10-01T19:22:24Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment	2026-10-01T19:22:43Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/developer-tools-overview	2026-10-01T19:22:43Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/endpoint-access-control	2026-10-26T23:02:41Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/googleapi-access-methods	2026-10-01T19:23:10Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/hybrid-connectivity	2026-10-14T17:28:36Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/iam-permissions	2026-10-01T19:23:03Z
