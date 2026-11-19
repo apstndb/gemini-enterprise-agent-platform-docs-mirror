@@ -36,9 +36,17 @@ This section describes issues with enforcement.
 
 2.  **Verify gateway authorization policy delegation** : Verify that your gateway authorization policy ( `policyProfile: REQUEST_AUTHZ` ) is bound to the correct Agent Gateway instance ( `target.resources` ).
 
-3.  **Check policy binding scope** : Verify that the IAM UAP is bound to the target resource scope where the traffic is arriving.
+3.  **Check policy binding scope** : Verify that the IAM UAP is bound to either the project or the specific Agent Gateway instance that governs the traffic (see [List policy bindings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/manage-iam-policies-uap#list-policy-bindings) ).
 
-4.  **Inspect rule precedence** : In a combination policy, deny rules explicitly override allow rules at the same scope. However, check whether a UAP with a broader allow rule that is bound at the registry or project level is granting access without condition restrictions.
+4.  **Inspect rule precedence** : When evaluating applicable policies, IAP evaluates deny rules before allow rules:
+
+    - **Deny rules override allow rules at the same scope** : If both a deny rule and an allow rule apply to the same request, the deny rule takes precedence and blocks access. For example, if a UAP bound to `gateway-1` has an allow rule that grants an agent access to a registered MCP server and a deny rule that blocks the `deleteRecord` tool on that same MCP server, calls to `deleteRecord` through `gateway-1` are blocked.
+
+    - **Broader allow rules override restrictive allow rules** : Unlike deny rules, a restrictive allow rule doesn't block access if another applicable allow rule grants broader access. If you configured a restrictive allow rule (expecting other requests to be blocked by default) instead of an explicit deny rule, check whether a broader allow rule permits the request across either of the following scopes:
+
+      - **Project-level versus gateway-level policy bindings** : A UAP bound to the project applies to all Agent Gateway instances in that project. For example, if a policy bound to `gateway-1` allows only the `getRecord` tool on an MCP server, but another policy bound to the project allows all tools on that MCP server without tool conditions, agents routing through `gateway-1` can still call every tool on that server.
+
+      - **Registry-wide versus per-resource destination rules** : Allow rules within or across bound policies are additive. For example, if one allow rule restricts an agent to the `getRecord` tool on a specific MCP server, but another allow rule grants registry-wide access ( `destination.is_registered == true` ) without tool restrictions, the registry-wide allow rule permits the agent to call any tool on that MCP server. To block specific tools or destinations when a broader allow rule exists, use an explicit deny rule.
 
 ### Enforced policy blocks agent access
 
@@ -97,12 +105,12 @@ This section describes issues with enforcement.
     - If you rely on registered targets, make sure that every exact hostname variation is registered in Agent Registry.
     - If the agent accesses unregistered endpoints, verify that an [unregistered endpoint policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap) grants `iap.resources.egressViaIAP` for that host and path.
 
-4.  **Verify policy binding coverage across scopes** : Check whether a policy binding exists at one of the three supported scopes:
+4.  **Verify policy binding coverage across scopes** : Verify that your UAP is bound to either the project or the specific Agent Gateway instance that handles the traffic, and check whether a rule that grants the `iap.resources.egressViaIAP` permission exists at one of the three supported destination scopes:
 
     - **Registry-wide** : Grants access across all agents, MCP servers, and endpoints in the registry.
     - **Per-resource** : Grants access to a specific registered MCP server, endpoint, or agent.
     - **Unregistered endpoints** : Grants access to destinations outside Agent Registry.
-    - *Note* : When describing policy bindings for a target resource, if the returned output contains an `"etag"` field but no bindings, no IAM policy exists for that target.
+    - *Note* : When [listing or searching policy bindings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/manage-iam-policies-uap#list-policy-bindings) for a target project or Agent Gateway instance, if the returned output is an empty list with no bindings, no IAM UAP is bound to that target.
 
 5.  **Verify CEL condition attribute values** : Compare the request attribute values logged in Cloud Audit Logs with the literal values in your UAP condition expressions:
 
@@ -133,9 +141,9 @@ This section describes error messages and how to resolve them.
 - **Console UI** : *"The selected target has reached its limit for access policy bindings. Delete an existing binding before adding a new one."*
 - **API / gcloud** : `TOO_MANY_ACCESS_POLICY_BINDINGS_PER_TARGET`
 
-**Cause** : You attempted to attach more policy bindings to a target resource (such as an MCP server or registry) than the maximum allowed limit per target.
+**Cause** : You attempted to attach more policy bindings to a target resource (such as a project or an Agent Gateway instance) than the maximum allowed limit per target.
 
-**Solution** : Instead of creating a separate UAP and binding for each individual rule, consolidate multiple allow or deny rules into a single UAP. Remove unused bindings using `gcloud iam policy-bindings delete` .
+**Solution** : Instead of creating a separate UAP and binding for each individual rule, consolidate multiple allow or deny rules into a single UAP bound to the project or Agent Gateway instance. Remove unused bindings using `gcloud iam policy-bindings delete` .
 
 ### Policy binding limit exceeded
 
@@ -146,7 +154,7 @@ This section describes error messages and how to resolve them.
 
 **Cause** : A single UAP is attached to too many distinct target resources across your project.
 
-**Solution** : Bind the policy at a broader scope—such as registry-wide scope ( `AgentRegistry` ) or project scope—and use CEL attribute conditions (such as `destination.agent_registry.mcp_server.name` ) to govern access to individual tools within the policy rules.
+**Solution** : Bind the policy at the project scope ( `//cloudresourcemanager.googleapis.com/projects/<var>PROJECT_ID</var>` ) so that all Agent Gateway instances in the project enforce it instead of creating separate bindings for each individual Agent Gateway instance. Then, use CEL attribute conditions (such as `destination.agent_registry.mcp_server.name` ) to govern access to individual tools within the policy rules.
 
 ### Condition limit exceeded
 

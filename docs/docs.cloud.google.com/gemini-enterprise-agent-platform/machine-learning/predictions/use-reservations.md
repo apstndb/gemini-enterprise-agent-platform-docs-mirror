@@ -212,7 +212,7 @@ Before running any of the following scripts, make the following replacements:
 - ` DEPLOYED_NAME ` : a name for the deployed model.
 - ` TRAFFIC_SPLIT ` : the traffic split percentage value for the deployed model ID key.
 - ` MACHINE_TYPE ` : the machine used for each node of this deployment. Its default setting is `n1-standard-2` . Learn more about [machine types](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute) .
-- ` ACCELERATOR_TYPE ` : the type of accelerator to attach to the machine. For more information about the type of GPU that each machine type supports, see [GPUs for compute workloads](https://docs.cloud.google.com/compute/docs/gpus#gpus_for_compute_workloads) .
+- ` ACCELERATOR_TYPE ` : the type of accelerator to attach to the machine. For more information about the type of GPU that each machine type supports, see [GPUs for compute workloads](https://docs.cloud.google.com/compute/docs/gpus#gpu-models) .
 - ` ACCELERATOR_COUNT ` : the number of accelerators to attach to the machine.
 - ` PROJECT_ID ` : the project where the reservation was created in. To consume a shared reservation from another project, you must share the reservation with that project. For more information, see [Modify the consumer projects in a shared reservation](https://docs.cloud.google.com/compute/docs/instances/reservations-modify#modifying-consumer-projects-shared-reservation) .
 - ` ZONE ` : the zone where the reservation is located.

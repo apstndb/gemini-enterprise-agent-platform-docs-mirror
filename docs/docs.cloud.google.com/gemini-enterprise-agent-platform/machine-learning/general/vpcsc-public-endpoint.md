@@ -42,7 +42,7 @@ In this reference architecture, a public IP subnetwork access level is used to b
 
 ## Build the VPC Service Controls service perimeter
 
-When you [create a service perimeter](https://docs.cloud.google.com/vpc-service-controls/docs/create-service-perimeters#external-access) , allow access to protected services from outside the perimeter by specifying access level (IP address) when creating the VPC Service Controls perimeter in addition to the protected projects. When using VPC Service Controls with Shared VPC, best practice dictates creating one large perimeter that includes the host and service projects; solely selecting service projects in a perimeter would mean that network endpoints belonging to service projects appear to be outside the perimeter, because the subnets are associated with the host project.
+When you [create a service perimeter](https://docs.cloud.google.com/vpc-service-controls/docs/create-service-perimeters#create-perimeter) , allow access to protected services from outside the perimeter by specifying access level (IP address) when creating the VPC Service Controls perimeter in addition to the protected projects. When using VPC Service Controls with Shared VPC, best practice dictates creating one large perimeter that includes the host and service projects; solely selecting service projects in a perimeter would mean that network endpoints belonging to service projects appear to be outside the perimeter, because the subnets are associated with the host project.
 
 ### Select the configuration type for the new perimeter
 

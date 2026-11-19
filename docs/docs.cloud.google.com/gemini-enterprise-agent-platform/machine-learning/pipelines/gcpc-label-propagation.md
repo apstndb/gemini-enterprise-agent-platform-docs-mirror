@@ -42,7 +42,7 @@ Agent Platform Pipelines automatically propagates labels from your pipeline run 
 
 ### Gemini Enterprise API dataset resources
 
-Agent Platform Pipelines automatically propagates labels from your pipeline run to Gemini Enterprise API dataset resources generated from the following [Gemini Enterprise API components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/vertex-automl-component#dataset_operators) if you use v1.0.31 or later of the Google Cloud Pipeline Components SDK:
+Agent Platform Pipelines automatically propagates labels from your pipeline run to Gemini Enterprise API dataset resources generated from the following [Gemini Enterprise API components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/dataset-component) if you use v1.0.31 or later of the Google Cloud Pipeline Components SDK:
 
 - [`ImageDatasetCreateOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.23.0/api/v1/dataset.html#v1.dataset.ImageDatasetCreateOp)
 

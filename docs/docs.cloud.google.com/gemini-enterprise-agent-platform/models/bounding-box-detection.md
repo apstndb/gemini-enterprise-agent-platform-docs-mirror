@@ -135,7 +135,7 @@ config = GenerateContentConfig(
 image_uri = "https://storage.googleapis.com/generativeai-downloads/images/socks.jpg"
 
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.8-flash",
     contents=[
         Part.from_uri(
             file_uri=image_uri,

@@ -26,7 +26,7 @@ To help manage costs or ensure availability of VM resources, Agent Platform prov
 
 ## Where to specify compute resources
 
-Specify configuration details within a [`WorkerPoolSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#workerpoolspec) . Depending on how you perform serverless training, put this `WorkerPoolSpec` in one of the following API fields:
+Specify configuration details within a [`WorkerPoolSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#WorkerPoolSpec) . Depending on how you perform serverless training, put this `WorkerPoolSpec` in one of the following API fields:
 
 - **If you are creating a [`CustomJob` resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.customJobs) ,** specify the `WorkerPoolSpec` in `CustomJob.jobSpec.workerPoolSpecs` .
 
@@ -50,7 +50,7 @@ If you are performing [distributed training](https://docs.cloud.google.com/gemin
 
 ## Machine types
 
-In your `WorkerPoolSpec` , you must specify one of the following machine types in the [`machineSpec.machineType` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/MachineSpec) . Each replica in the worker pool runs on a separate VM that has the specified machine type.
+In your `WorkerPoolSpec` , you must specify one of the following machine types in the [`machineSpec.machineType` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#MachineSpec) . Each replica in the worker pool runs on a separate VM that has the specified machine type.
 
 - `a4x-highgpu-4g` <sup>\*</sup>
 - `a4-highgpu-8g` <sup>\*</sup>
@@ -522,9 +522,9 @@ Agent Platform supports the following types of GPU for serverless training:
 
 <sup>+</sup> Requires obtaining capacity using [shared reservations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/use-reservations) .
 
-To learn more about the technical specification for each type of GPU, read the [Compute Engine short documentation about GPUs for compute workloads](https://docs.cloud.google.com/compute/docs/gpus#gpus-list) . To learn about the cost of using each machine type for serverless training, read [Pricing](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing) .
+To learn more about the technical specification for each type of GPU, read the [Compute Engine documentation about GPUs for compute workloads](https://docs.cloud.google.com/compute/docs/gpus#gpu-models) . To learn about the cost of using each machine type for serverless training, read [Pricing](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing) .
 
-In your `WorkerPoolSpec` , specify the type of GPU that you want to use in the [`machineSpec.acceleratorType` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/MachineSpec) and number of GPUs that you want each VM in the worker pool to use in the [`machineSpec.acceleratorCount` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/MachineSpec) . However, your choices for these fields must meet the following restrictions:
+In your `WorkerPoolSpec` , specify the type of GPU that you want to use in the [`machineSpec.acceleratorType` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#MachineSpec) and number of GPUs that you want each VM in the worker pool to use in the [`machineSpec.acceleratorCount` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#MachineSpec) . However, your choices for these fields must meet the following restrictions:
 
 - The type of GPU that you choose must be available in the location where you are performing serverless training. Not all types of GPU are available in all regions. [Learn about regional availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#accelerators) .
 
@@ -965,7 +965,7 @@ For more information about creating a custom training job, see [Create custom tr
 
 You can optionally customize the boot disks for your training VMs. All VMs in a worker pool use the same type and size of boot disk.
 
-- **To customize the type of boot disk that each training VM uses,** specify the [`diskSpec.bootDiskType` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#diskspec) in your `WorkerPoolSpec` .
+- **To customize the type of boot disk that each training VM uses,** specify the [`diskSpec.bootDiskType` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#DiskSpec.FIELDS.boot_disk_type) in your `WorkerPoolSpec` .
 
   You can set this field to one of the following:
 
@@ -977,7 +977,7 @@ You can optionally customize the boot disks for your training VMs. All VMs in a 
 
   Using `pd-ssd` or [`hyperdisk-balanced`](https://docs.cloud.google.com/compute/docs/disks/hyperdisks#machine-type-support) might improve performance if your training code reads and writes to disk. Learn about [disk types](https://docs.cloud.google.com/compute/docs/disks#disk-types) . Also see [hyperdisk supported machines](https://docs.cloud.google.com/compute/docs/disks/hyperdisks#machine-type-support) .
 
-- **To customize the size (in GB) of the boot disk that each training VM uses,** specify the [`diskSpec.bootDiskSizeGb` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#diskspec) in your `WorkerPoolSpec` .
+- **To customize the size (in GB) of the boot disk that each training VM uses,** specify the [`diskSpec.bootDiskSizeGb` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#DiskSpec.FIELDS.boot_disk_size_gb) in your `WorkerPoolSpec` .
 
   You can set this field to an integer between 100 and 64,000, inclusive. The default value is `100` .
 

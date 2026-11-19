@@ -148,4 +148,4 @@ Your new Gemini Enterprise Agent Platform Workbench instance creates two separat
 
 ## What's next
 
-- To learn more about third party principals to use for provisioning notebooks, see [Workforce Identity Federation](https://docs.cloud.google.com/iam/docs/workforce-identity-federation#what_is_workforce_identity_federation) .
+- To learn more about third party principals to use for provisioning notebooks, see [Workforce Identity Federation](https://docs.cloud.google.com/iam/docs/workforce-identity-federation#what-is-wfif) .

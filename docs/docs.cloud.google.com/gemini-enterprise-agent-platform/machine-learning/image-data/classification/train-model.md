@@ -973,7 +973,7 @@ You can control how your training data is split between the training, validation
   - ` VALIDATION_FILTER ` : Data items that match this filter are used for the validation set. Must be "-" for video data.
   - ` TEST_FILTER ` : Data items that match this filter are used for the test set.
 
-These filters can be used with the `ml_use` label, or with any labels you apply to your data. Learn more about using [the ml-use label](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/ml-use#ml-use) and [other labels](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/ml-use#filter) to filter your data.
+These filters can be used with the `ml_use` label, or with any labels you apply to your data. Learn more about using [the ml-use label](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/ml-use#use-ml-use-label) and [other labels](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/ml-use#filter) to filter your data.
 
 The following example shows how to use the `filterSplit` object with the `ml_use` label, with the validation set included:
 

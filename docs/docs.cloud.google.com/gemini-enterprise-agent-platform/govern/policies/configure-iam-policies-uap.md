@@ -12,7 +12,7 @@ You can create [Identity and Access Management (IAM) Unified Access Policies (UA
 
 In the Google Cloud console, you can use the **Policies** page to create Agent Gateway IAM UAPs. UAPs can contain allow rules, deny rules, or both.
 
-You can use the Google Cloud CLI, the REST API, or Terraform to create IAM UAPs and bind them to projects that contain your Agent Gateway instances.
+You can use the Google Cloud CLI, the REST API, or Terraform to create IAM UAPs and bind them to projects or directly to Agent Gateway instances.
 
 To learn how to update and delete UAPs, see [Manage IAM UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/manage-iam-policies-uap) .
 
@@ -48,7 +48,8 @@ To get the permissions that you need to configure Agent Platform for AI agents, 
 
 - Create Agent Gateway instances: IAP Policy Admin ( `roles/iap.admin` ) or Network Security Admin ( `roles/networksecurity.admin` )
 - Create and bind UAPs: [Access Policy Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.accessPolicyAdmin) ( `roles/iam.accessPolicyAdmin` )
-- Bind policy to a project: [Project IAM Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.projectIamAdmin) ( `roles/resourcemanager.projectIamAdmin` )
+- Bind a policy to a project: [Project IAM Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.projectIamAdmin) ( `roles/resourcemanager.projectIamAdmin` )
+- Bind a policy to an Agent Gateway instance: [Network Services Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/networkservices#networkservices.admin) ( `roles/networkservices.admin` )
 
 For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 
@@ -81,13 +82,13 @@ To create a UAP in the Google Cloud console, do the following:
     4.  Optional: Click **Edit** to edit the policy ID. In the **Policy ID** field, you can change the name of the policy ID.
     5.  In **Add Rules** , expand the default rule, **Rule 1** or click **Add a rule** .
 
-5.  Create one or more [rules](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#rules) for your [UAP](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#create-ag-iam-policy) . View [examples of different policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#example-policies) .
+5.  Create one or more [rules](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#rules) for your UAP, and then click **Save** . View [examples of different policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#example-policies) .
 
 6.  To create your policy, click **Create** .
 
 After you save your policy, the following happens:
 
-- The IAM `iap.resources.egressViaIAP` permission is granted to the principals in your policy.
+- Your policy rules allow or deny the IAM `iap.googleapis.com/resources.egressViaIAP` permission for the principals in your policy.
 
 - The policy is automatically bound to the selected project.
 
@@ -141,7 +142,7 @@ To create a UAP in the gcloud CLI, do the following:
         - `TRUST_DOMAIN` : the trust domain of the project or organization that contains the agent principal (for example, `agents.global.org- `` ORGANIZATION_ID `` .system.id.goog` or `agents.global.proj- `` PROJECT_NUMBER `` .system.id.goog` )
         - `AGENT_UNIQUE_IDENTIFIER` : the resource URI path of the agent instance
 
-      - **Workload Identity Federation (custom or external agents):** `principal://iam.googleapis.com/projects/ `` PROJECT_NUMBER `` /locations/global/workloadIdentityPools/ `` POOL_ID `` /subject/ `` SUBJECT` —for example, `principal://iam.googleapis.com/projects/1234567890/locations/global/workloadIdentityPools/my-agent-identity/subject/ns/default/sa/my-agent`
+      - **Workload Identity Federation (custom or external agents)** : `principal://iam.googleapis.com/projects/ `` PROJECT_NUMBER `` /locations/global/workloadIdentityPools/ `` POOL_ID `` /subject/ `` SUBJECT` —for example, `principal://iam.googleapis.com/projects/1234567890/locations/global/workloadIdentityPools/my-agent-identity/subject/ns/default/sa/my-agent`
 
         Replace the following:
 
@@ -167,7 +168,7 @@ To create a UAP in the gcloud CLI, do the following:
 
       This expression must be a valid CEL expression. It must evaluate to `true` for access to be allowed.
 
-    In all agent egress policies, you must set the permission to `iap.resources.egressViaIAP` .
+    In all agent egress policies, you must set the permission to `iap.googleapis.com/resources.egressViaIAP` .
 
     For more information, see [UAP rules](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#rules) and [Example policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#example-policies) .
 
@@ -183,12 +184,14 @@ To create a UAP in the gcloud CLI, do the following:
     Replace the following:
 
     - `POLICY_NAME` : the name of the policy
-    - `POLICY_FILE` : the path to the policy file—for example: `my-policy.json`
+    - `POLICY_FILE` : the path to the policy file—for example, `my-policy.json`
     - `PROJECT_ID` : the project ID that contains the policy
+
+3.  To activate the policy, [bind the UAP to a target resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#bind-uap) .
 
 ### REST API
 
-To create and bind a policy using the REST API, do the following:
+To create a UAP using the REST API, do the following:
 
 1.  Save the JSON-formatted policy details to a file named `agent-access-policy.json` :
 
@@ -219,9 +222,11 @@ To create and bind a policy using the REST API, do the following:
     - `PROJECT_ID` : the project ID
     - `POLICY_NAME` : the policy name
 
+3.  To activate the policy, [bind the UAP to a target resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#bind-uap) .
+
 ### Terraform
 
-To declaratively create a UAP and bind it to the project hosting your Agent Gateway, configure the `google_iam_project_access_policy` and `google_iam_projects_policy_binding` resources:
+To declaratively create a UAP and bind it to a target resource, configure the `google_iam_project_access_policy` and `google_iam_projects_policy_binding` resources:
 
 ```
 resource "google_iam_project_access_policy" "agent_egress_policy" {
@@ -259,7 +264,7 @@ policy_kind       = "ACCESS"
 policy            = "projects/PROJECT_ID/locations/global/accessPolicies/${google_iam_project_access_policy.agent_egress_policy.access_policy_id}"
 
 target {
-  resource = "//cloudresourcemanager.googleapis.com/projects/PROJECT_ID"
+  resource = "TARGET_RESOURCE"
 }
 }
 ```
@@ -282,7 +287,18 @@ Replace the following:
 
 - `TOOL_NAME` : the name of the allowed MCP tool
 
-- `POLICY_BINDING_ID` : the ID for the project policy binding
+- `POLICY_BINDING_ID` : the ID for the policy binding
+
+- `TARGET_RESOURCE` : the full resource URI for the binding target, formatted as follows:
+
+- **Project** : `//cloudresourcemanager.googleapis.com/projects/ `` PROJECT_ID` —for example, `//cloudresourcemanager.googleapis.com/projects/my-project`
+
+- **Agent Gateway** : `//networkservices.googleapis.com/projects/ `` PROJECT_ID `` /locations/ `` LOCATION `` /agentGateways/ `` GATEWAY_NAME` —for example, `//networkservices.googleapis.com/projects/my-project/locations/us-central1/agentGateways/my-agent-gateway`
+
+  Replace the following:
+
+  - `LOCATION` : the location of the Agent Gateway instance—for example, `us-central1`
+  - `GATEWAY_NAME` : the name of the Agent Gateway instance—for example, `my-agent-gateway`
 
 ### Create a combination allow and deny UAP
 
@@ -368,10 +384,10 @@ To create a UAP file containing both allow and deny rules, do the following:
     Replace the following:
 
     - `POLICY_NAME` : the name of the policy
-    - `POLICY_FILE` : the path to the policy file—for example: `my-policy.json`
+    - `POLICY_FILE` : the path to the policy file—for example, `my-policy.json`
     - `PROJECT_ID` : the project ID that contains the policy
 
-3.  To activate the policy, [bind the UAP to your project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#bind-uap) .
+3.  To activate the policy, [bind the UAP to a target resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#bind-uap) .
 
 ### REST API
 
@@ -442,15 +458,19 @@ To create a UAP containing both allow and deny rules using the REST API, do the 
     - `PROJECT_ID` : the project ID
     - `POLICY_NAME` : the policy name
 
-3.  To activate the policy, [bind the UAP to your project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#bind-uap) .
+3.  To activate the policy, [bind the UAP to a target resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#bind-uap) .
 
-### Bind a UAP to a project
+### Bind a UAP to a target resource
+
+To enforce a UAP, bind it to a target resource, such as a project or an Agent Gateway instance. If you use Terraform, configure the `google_iam_projects_policy_binding` resource as shown in [Create a UAP with an allow rule](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#create-ag-iam-policy-allow) .
+
+Select one of the following options:
 
 ### Console
 
 After you save your policy, the following happens:
 
-- The IAM `iap.resources.egressViaIAP` permission is granted to the principals in your policy.
+- Your policy rules allow or deny the IAM `iap.googleapis.com/resources.egressViaIAP` permission for the principals in your policy.
 
 - The policy is automatically bound to the selected project.
 
@@ -470,17 +490,18 @@ gcloud iam policy-bindings create BINDING_NAME \
 
 Replace the following:
 
-- `BINDING_NAME` : the name for your policy binding
+- `BINDING_NAME` : the name for your policy binding—for example, `my-policy-binding`
+- `PROJECT_ID` : your Google Cloud project ID—for example, `my-project`
+- `POLICY_NAME` : the name of your UAP—for example, `my-access-policy`
+- `TARGET_RESOURCE` : the full resource URI for the binding target, formatted as follows:
+  - **Project** : `//cloudresourcemanager.googleapis.com/projects/ `` PROJECT_ID` —for example, `//cloudresourcemanager.googleapis.com/projects/my-project`
 
-- `PROJECT_ID` : your Google Cloud project ID
+  - **Agent Gateway** : `//networkservices.googleapis.com/projects/ `` PROJECT_ID `` /locations/ `` LOCATION `` /agentGateways/ `` GATEWAY_NAME` —for example, `//networkservices.googleapis.com/projects/my-project/locations/us-central1/agentGateways/my-agent-gateway`
 
-- `POLICY_NAME` : the name of your access policy
+    Replace the following:
 
-- `TARGET_RESOURCE` : the full resource URI for the project, formatted as follows:
-
-  ```html
-      //cloudresourcemanager.googleapis.com/projects/PROJECT_ID
-  ```
+    - `LOCATION` : the location of the Agent Gateway instance—for example, `us-central1`
+    - `GATEWAY_NAME` : the name of the Agent Gateway instance—for example, `my-agent-gateway`
 
 ### REST API
 
@@ -501,12 +522,22 @@ curl -X POST \
 
 Replace the following:
 
-- `PROJECT_ID` : the project ID
-- `BINDING_NAME` : a name for the binding
-- `POLICY_NAME` : the name of the policy that you created earlier in this document
-- `TARGET_RESOURCE` : the full resource URI for the binding target, which can be one of the following:
-  - Project: `//cloudresourcemanager.googleapis.com/projects/ `` PROJECT_ID`
-  - Agent Gateway: `//networkservices.googleapis.com/projects/ `` PROJECT_ID `` /locations/ `` LOCATION `` /agentGateways/ `` GATEWAY_NAME`
+- `PROJECT_ID` : your Google Cloud project ID—for example, `my-project`
+
+- `BINDING_NAME` : a name for the policy binding—for example, `my-policy-binding`
+
+- `POLICY_NAME` : the name of the UAP that you created earlier in this document—for example, `my-access-policy`
+
+- `TARGET_RESOURCE` : the full resource URI for the binding target, formatted as follows:
+
+- **Project** : `//cloudresourcemanager.googleapis.com/projects/ `` PROJECT_ID` —for example, `//cloudresourcemanager.googleapis.com/projects/my-project`
+
+- **Agent Gateway** : `//networkservices.googleapis.com/projects/ `` PROJECT_ID `` /locations/ `` LOCATION `` /agentGateways/ `` GATEWAY_NAME` —for example, `//networkservices.googleapis.com/projects/my-project/locations/us-central1/agentGateways/my-agent-gateway`
+
+  Replace the following:
+
+  - `LOCATION` : the location of the Agent Gateway instance—for example, `us-central1`
+  - `GATEWAY_NAME` : the name of the Agent Gateway instance—for example, `my-agent-gateway`
 
 ### Create rules
 
@@ -659,10 +690,22 @@ To create and bind a policy using the REST API, do the following:
 
     Replace the following:
 
-    - `PROJECT_ID` : the project ID
-    - `BINDING_NAME` : a name for the binding
-    - `POLICY_NAME` : the name of the policy that you created earlier in this document
-    - `TARGET_RESOURCE` : the full resource URI for the project formatted as follows: `//cloudresourcemanager.googleapis.com/projects/ `` PROJECT_ID`
+    - `PROJECT_ID` : your Google Cloud project ID—for example, `my-project`
+
+    - `BINDING_NAME` : a name for the policy binding—for example, `my-policy-binding`
+
+    - `POLICY_NAME` : the name of the UAP that you created earlier in this document—for example, `my-access-policy`
+
+    - `TARGET_RESOURCE` : the full resource URI for the binding target, formatted as follows:
+
+    - **Project** : `//cloudresourcemanager.googleapis.com/projects/ `` PROJECT_ID` —for example, `//cloudresourcemanager.googleapis.com/projects/my-project`
+
+    - **Agent Gateway** : `//networkservices.googleapis.com/projects/ `` PROJECT_ID `` /locations/ `` LOCATION `` /agentGateways/ `` GATEWAY_NAME` —for example, `//networkservices.googleapis.com/projects/my-project/locations/us-central1/agentGateways/my-agent-gateway`
+
+      Replace the following:
+
+      - `LOCATION` : the location of the Agent Gateway instance—for example, `us-central1`
+      - `GATEWAY_NAME` : the name of the Agent Gateway instance—for example, `my-agent-gateway`
 
 ### Create conditions
 
@@ -798,7 +841,7 @@ The following example policy shows a UAP rule that allows all agents in a projec
 ]
 ```
 
-To activate the policy, [bind the UAP to your project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#bind-uap) .
+To activate the policy, [bind the UAP to a target resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#bind-uap) .
 
 ### REST API
 
@@ -845,7 +888,7 @@ To create a UAP that allows all agents in a project access to all destination re
     - `PROJECT_ID` : the project ID
     - `POLICY_NAME` : the policy name
 
-To activate the policy, [bind the UAP to your project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#bind-uap) .
+To activate the policy, [bind the UAP to a target resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#bind-uap) .
 
 #### Agent-to-registry CEL attributes
 
@@ -966,7 +1009,7 @@ To create an agent-to-agent policy in the Google Cloud console, do the following
 
 6.  To create the policy, click **Create** .
 
-To activate the policy, [bind the UAP to your project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#bind-uap) .
+When you click **Create** , IAM automatically binds the policy to the selected project.
 
 ### gcloud
 
@@ -1039,7 +1082,7 @@ To create an IAM policy with an allow rule that allows an orchestrator agent to 
     - `PROJECT_ID` : the project ID
     - `POLICY_NAME` : the policy name
 
-To activate the policy, [bind the UAP to your project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#bind-uap) .
+To activate the policy, [bind the UAP to a target resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#bind-uap) .
 
 #### Agent-to-agent CEL attributes
 
@@ -1112,7 +1155,7 @@ To create an agent-to-MCP server policy in the Google Cloud console, do the foll
 
 6.  To create the policy, click **Create** .
 
-To activate the policy, [bind the UAP to your project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#bind-uap) .
+When you click **Create** , IAM automatically binds the policy to the selected project.
 
 ### gcloud
 
@@ -1419,7 +1462,7 @@ To create an agent-to-endpoint policy in the Google Cloud console, do the follow
 
 6.  To create the policy, click **Create** .
 
-To activate the policy, [bind the UAP to your project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#bind-uap) .
+When you click **Create** , IAM automatically binds the policy to the selected project.
 
 ### gcloud
 
@@ -1445,7 +1488,7 @@ The following example shows an IAM allow policy that allows an agent to access a
 ]
 ```
 
-To activate the policy, [bind the UAP to your project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#bind-uap) .
+To activate the policy, [bind the UAP to a target resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#bind-uap) .
 
 ### REST API
 
@@ -1492,7 +1535,7 @@ To create an IAM allow policy that allows an agent to access a registered servic
     - `PROJECT_ID` : the project ID
     - `POLICY_NAME` : the policy name
 
-To activate the policy, [bind the UAP to your project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#bind-uap) .
+To activate the policy, [bind the UAP to a target resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#bind-uap) .
 
 #### Agent-to-endpoint CEL attributes
 
@@ -1571,7 +1614,7 @@ To create an agent-to-unregistered endpoint policy with a scoped domain allowlis
 
 6.  To create the policy, click **Create** .
 
-To activate the policy, [bind the UAP to your project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#bind-uap) .
+When you click **Create** , IAM automatically binds the policy to the selected project.
 
 ### gcloud
 
@@ -1603,7 +1646,7 @@ Replace the following:
 - **Google-managed pool:** `PROJECT_ID `` .svc.id.goog`
 - **Self-managed pool:** `POOL_NAME `` .global. `` POOL_HOST_PROJECT_NUMBER `` .workload.id.goog`
 
-To activate the policy, [bind the UAP to your project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#bind-uap) .
+To activate the policy, [bind the UAP to a target resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#bind-uap) .
 
 ### REST API
 
@@ -1653,7 +1696,7 @@ To create a UAP that allows an agent to send `POST` requests only to an explicit
     - `PROJECT_ID` : the project ID
     - `POLICY_NAME` : the policy name
 
-To activate the policy, [bind the UAP to your project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#bind-uap) .
+To activate the policy, [bind the UAP to a target resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#bind-uap) .
 
 #### Agent-to-unregistered endpoint CEL attributes
 
@@ -1754,6 +1797,6 @@ Learn how to configure content and business policies.
 
 Guide
 
-### [Test policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/test-policies)
+### [Test policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#config-agent-to-anywhere)
 
 Learn how to test policies.

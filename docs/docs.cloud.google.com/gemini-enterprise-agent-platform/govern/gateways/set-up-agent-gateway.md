@@ -38,10 +38,14 @@ The following permissions are required to create and manage Agent Gateways. You 
 - `networkservices.agentConnectivityTemplates.list`
 - `networkservices.agentConnectivityTemplates.update`
 - `networkservices.agentGateways.create`
+- `networkservices.agentGateways.createPolicyBinding`
 - `networkservices.agentGateways.delete`
+- `networkservices.agentGateways.deletePolicyBinding`
 - `networkservices.agentGateways.get`
 - `networkservices.agentGateways.list`
+- `networkservices.agentGateways.searchPolicyBindings`
 - `networkservices.agentGateways.update`
+- `networkservices.agentGateways.updatePolicyBinding`
 - `networkservices.agentGateways.use`
 - `networkservices.authzExtensions.create`
 - `networkservices.authzExtensions.delete`
@@ -185,7 +189,7 @@ To enable secure communication, you must identify your Agent Registry instance a
 
 2.  Register your agents with Agent Registry. If you haven't already created the agent, you must complete this step later. For instructions, see [Register agents](https://docs.cloud.google.com/agent-registry/register-agents) .
 
-3.  Recommended: Identify and register all tools, MCP servers, and API endpoints your agents will call (including [essential platform APIs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy) ). Agent access to destinations always requires an IAM Access policy granting the `iap.resources.egressViaIAP` permission to the agent identity. We recommend registering resources in Agent Registry so that you can enforce granular, per-resource policies and tool-level controls. For destinations that are not registered, you must grant this permission to the agent by configuring policies for [unregistered endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap#unregistered-resources) .
+3.  Recommended: Identify and register all tools, MCP servers, and API endpoints your agents will call (including [essential platform APIs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy) ). Agent access to destinations always requires an IAM access policy that grants the `iap.resources.egressViaIAP` permission to the agent identity. We recommend registering destinations in Agent Registry because it lets you scope policies to specific resources and apply fine-grained tool controls. If destinations are not registered in Agent Registry, you must grant the `iap.resources.egressViaIAP` permission to the agent by configuring a policy for [unregistered endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap#unregistered-resources) . Ensure that any registry-wide rule matches the regional Agent Registry instance configured for your Agent Gateway.
 
     Destinations in a different project than the gateway must be registered with the Agent Registry in the gateway project. Such destinations are only valid for Runtime agents in Agent-to-Anywhere mode.
 
@@ -201,19 +205,16 @@ Every Agent-to-Anywhere Agent Gateway requires an attached authorization policy 
 Client-to-Agent Agent Gateway deployments don't adopt a default-deny policy. For these gateways, attaching a `CONTENT_AUTHZ` authorization policy, such as Model Armor or a semantic governance policy, is optional, and inbound requests pass through if no authorization policy is attached.
 
 IAM (Agent-to-Anywhere mode only)  
-Configure an IAM policy that assigns the `iap.resources.egressViaIAP` permission to your agent identity principal for each of the destination resources that you registered in Agent Registry.
+Configure an IAM UAP that assigns the `iap.resources.egressViaIAP` permission to your agent identity principal for each of the [destination resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap#destination-resources) or [unregistered endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap#unregistered-resources) that the agent calls. Note that Agent Gateway blocks all outbound traffic unless an IAM UAP explicitly authorizes agent access.
 
-Note that Agent Gateway blocks all outbound traffic unless an IAM access policy explicitly authorizes agent access to [destination resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap#destination-resources) by granting the `iap.resources.egressViaIAP` permission to the agent identity.
+You can [bind an IAM UAP](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#bind-uap) at either of the following scopes:
 
-Registering destinations in Agent Registry is recommended because it lets you scope policies to specific resources and apply fine-grained tool controls. If destinations are not registered in Agent Registry, you must grant the `iap.resources.egressViaIAP` permission to the agent by configuring a policy for [unregistered endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap#unregistered-resources) .
+- **A project** : All Agent Gateway instances in the project enforce the policy.
+- **An Agent Gateway instance** : Only that specific Agent Gateway instance enforces the policy.
 
-Ensure that any registry-wide binding matches the regional Agent Registry instance configured for your Agent Gateway.
+To validate your configuration without blocking traffic, we recommend that you deploy IAP in dry-run mode initially. For instructions, see [Create IAM UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap) .
 
-For instructions, see [Create IAM agent policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap) .
-
-To validate your configuration without blocking traffic, we recommend that you deploy IAP in dry-run mode initially.
-
-> **Note:** Turn off enforcement for the **Disable binding access policy to resource** ( `constraints/iam.managed.disableAccessPolicyBindings` ) managed organization policy constraint. By default, this boolean constraint is enabled for new organizations, and will prevent you from binding an IAM Unified Access Policy to a resource. For more information, see [Updating policies with boolean rules](https://docs.cloud.google.com/organization-policy/apply-policies#boolean_constraints) .
+> **Note:** Turn off enforcement for the **Disable binding access policy to resource** ( `constraints/iam.managed.disableAccessPolicyBindings` ) managed organization policy constraint. By default, this boolean constraint is enabled for new organizations, and prevents you from binding an IAM UAP to a resource. For more information, see [Updating policies with boolean rules](https://docs.cloud.google.com/organization-policy/apply-policies#boolean_constraints) .
 
 Model Armor  
 (Optional) If your deployment requires safeguarding against prompt injection attacks, jailbreaks, toxic content, or sensitive data leakage, you should plan your Model Armor guardrail integration and create templates with the safety filters you require.

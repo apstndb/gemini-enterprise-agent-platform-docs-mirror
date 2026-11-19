@@ -22,7 +22,7 @@ Using few-shot examples is a form of in-context learning. An example demonstrate
 
 By collecting relevant examples that are representative of your user queries, you help the model maintain attention, demonstrate the expected pattern, and also rectify incorrect or unexpected behavior. This doesn't affect other requests that result in the expected responses.
 
-Like all prompt engineering strategies, using few-shot examples is additive to other LLM optimization techniques, such as [fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models) or [RAG](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) .
+Like all prompt engineering strategies, using few-shot examples is additive to other LLM optimization techniques, such as [fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning) or [RAG](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) .
 
 ## How to use Example Store
 

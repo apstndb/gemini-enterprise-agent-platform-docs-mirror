@@ -85,12 +85,47 @@ Live Translation is configured by attaching a `TranslationConfig` to your `LiveC
 
 ### Configuration parameters
 
-- **`target_language_code`** *(string)* : The [BCP-47 language code](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-live-translate#supported-languages) for the desired output language (e.g., `"pl"` , `"es"` , `"ja"` ). Defaults to `"en"` .
+- **`target_language_code`** *(string)* : The [BCP-47 language code](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-live-translate#supported-languages) for the desired output language (such as `"pl"` , `"es"` , `"ja"` ). Defaults to `"en"` .
 - **`echo_target_language`** *(boolean)* : Controls behavior when spoken input is already in the target language:
   - `True` : The model reproduces and echoes the input speech in the output stream.
   - `False` : The model remains silent when input matches the target language. Defaults to `False` .
 - **`input_audio_transcription`** *(AudioTranscriptionConfig)* : Optional. Enables synchronized text transcription for the incoming source audio.
 - **`output_audio_transcription`** *(AudioTranscriptionConfig)* : Optional. Enables synchronized text transcription for the outgoing translated audio.
+
+### System instructions
+
+You can use the `system_instruction` field ( `systemInstruction` in raw WebSocket setup messages) during initial session setup to guide how the model translates speech. Use system instructions to specify:
+
+- **Domain vocabulary and glossaries** : Define how specialized terms, acronyms, or proper nouns should be translated or preserved untranslated.
+- **Formality and register** : Specify the target tone, pronoun form, or audience setting (for example, using formal singular or plural address in a presentation).
+- **Speaker and addressee context** : Provide context about the setting and participants so the model preserves direct address accurately.
+
+```
+config = types.LiveConnectConfig(
+    response_modalities=["AUDIO"],
+    system_instruction=(
+        "You are translating a live conference presentation into Spanish. "
+        "Use formal Spanish (usted/ustedes). Always translate 'deployment pipeline' "
+        "as 'canalización de despliegue' and keep product names like 'Cloud Run' untranslated."
+    ),
+    translation_config=types.TranslationConfig(
+        target_language_code="es",
+    ),
+)
+```
+
+## Limitations
+
+- **Input modalities** : Only audio input is supported for translation. Text input is not supported.
+- **System instructions** : System instructions can only be set in the initial `setup` message. Updating system instructions mid-session (including via `clientContent` or `realtimeInput` text messages) is not supported; start a new session to change instructions. Only instructions that guide translation behavior and match `target_language_code` are supported—instructions that conflict with `target_language_code` , alter output formatting, or request non-translation tasks are unsupported and may be ignored or degrade translation output.
+- **Voice replication** : Voice replication can be inconsistent. Voices might shift after long pauses, assign the wrong gender based on how the speech starts, or get stuck on one voice during rapid multi-speaker conversations.
+
+> **Note:** **Developer responsibility** : Developers are responsible for obtaining consent from all parties, where required, and cannot use the API in a manner that violates applicable law, regulation, or third-party rights.
+
+- **Language detection** : Language detection struggles with heavy accents, similar languages (such as Spanish vs. Portuguese), or rapid language switches.
+  - **Note** : This only impacts the input transcript; language codes and the final translation remain accurate.
+- **Background audio** : The model is designed to filter out noise and music to produce clean speech, but not all background audio may be ignored.
+- **Echo target language** : When `echo_target_language` is set to `True` ( `echoTargetLanguage: true` ), background noise or music may introduce artifacts in the translated audio when the input audio is already in the target language.
 
 ## Language support
 
@@ -138,13 +173,25 @@ The following languages and BCP-47 language codes are supported for Gemini 3.5 L
 | Javanese              | `jv`        | Vietnamese            | `vi`        |
 | Kannada               | `kn`        | Zulu                  | `zu`        |
 
+## Live Agent vs. Live Translation
+
+While both use Gemini Live API, the mental model for Live Translation differs from conversational real-time agent interactions:
+
+| Live Agent                                                                                                | Live Translation                                                                                                                                |
+|-----------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Acts as an assistant** : Listens, reasons, and takes actions on your behalf.                            | **Acts as an interpreter** : Behaves as a real-time translator pipeline.                                                                        |
+| **Turn-based interactions** : Relies on pauses, intent detection, and interruption handling.              | **Continuous stream processing** : Translates as the speaker talks without waiting for turns.                                                   |
+| **Supports tools and agents** : Native support for function calling, grounding, and general instructions. | **Supports translation only** : Optimized for low-latency translation; supports system instructions to guide translation, with no tool support. |
+| **Multimodal input** : Supports text, audio, video, and image inputs.                                     | **Audio-only input** : Input is restricted to audio to maintain strict real-time latency thresholds.                                            |
+| **Granular configuration** : Configures generation, speech, tools, and system instructions.               | **Simplified configuration** : Configures `target_language_code` , `echo_target_language` , and optional `system_instruction` .                 |
+
 ## Best practices
 
 - Maintain consistent sampling: Ensure audio input strictly adheres to 16kHz mono PCM to prevent pitch shifts and audio artifacts.
 
 - Handle acoustic environments: While the model filters moderate ambient noise, strong background chatter or overlapping speakers can introduce translation ambiguity.
 
-- Evaluate echo mode per use case: Set echo_target_language=False for one-way interpreter setups to suppress unnecessary rebroadcasting when speakers already use the target language.
+- Evaluate echo mode per use case: Set `echo_target_language=False` for one-way interpreter setups to suppress unnecessary rebroadcasting when speakers already use the target language.
 
 [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 

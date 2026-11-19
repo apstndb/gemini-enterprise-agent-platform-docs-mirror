@@ -22,6 +22,7 @@ The following models provide support for the Chat Completions API:
 
 #### Click to expand supported models
 
+- [Gemini 4 Neon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon)
 - [Gemini 4 Hydrogen](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen)
 - [Gemini 4 Carbon for cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon#cyber)
 - [Gemini 4 Carbon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon)
@@ -101,7 +102,7 @@ For Google models, the Chat Completions API supports the following OpenAI parame
 </tr>
 <tr class="odd">
 <td><code>detail</code></td>
-<td>For models earlier than Gemini 3, the <code>detail</code> field must be consistent across all messages and contents (it is request-level). For Gemini 3 and later, this corresponds to a part-level `media_resolution`. For more information, see <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GenerationConfig#MediaResolution">Media Resolution</a> .</td>
+<td>For models earlier than Gemini 3, the <code>detail</code> field must be consistent across all messages and contents (it is request-level). For Gemini 3 and later, this corresponds to a part-level `media_resolution`. For more information, see <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Content#MediaResolution">Media Resolution</a> .</td>
 </tr>
 <tr class="even">
 <td><code>max_completion_tokens</code></td>
@@ -264,7 +265,7 @@ Include a `google` field to contain any Gemini-specific `extra_body` features.
 | `thought_tag_marker`             | Used to separate a model's thoughts from its responses for models with Thinking available. If not specified, no tags will be returned around the model's thoughts. If present, subsequent queries will strip the thought tags and mark the thoughts appropriately for context. This helps preserve the appropriate context for subsequent queries. |
 | `stream_function_call_arguments` | Streams function call arguments back as segments of JSON. For more information, see [Streaming function call arguments](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling#streaming-fc) .                                                                                                               |
 | `tools`                          | Specify tools similar to \`GenerateContent\`. For more information, see [`Tool`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#Tool) .                                                                                                                                                  |
-| `media_resolution`               | Specify a request-level media resolution similar to \`GenerateContent\`. For more information, see [`MediaResolution`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GenerationConfig#MediaResolution) .                                                                                                        |
+| `media_resolution`               | Specify a request-level media resolution similar to \`GenerateContent\`. For more information, see [`MediaResolution`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Content#MediaResolution) .                                                                                                       |
 
 ### `extra_content` features
 

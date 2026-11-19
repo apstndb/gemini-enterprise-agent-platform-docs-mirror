@@ -123,7 +123,7 @@ class MyAgent:
         )
 ```
 
-When the agent is [deployed](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent) and [queried](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-agent#query-agent) , it will generate log entries. For example, the following code:
+When the agent is [deployed](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent) and [queried](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-agent#sdk) , it will generate log entries. For example, the following code:
 
 ```
 remote_agent = agent_engines.create(

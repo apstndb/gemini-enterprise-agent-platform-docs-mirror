@@ -44,7 +44,7 @@ To learn more about audio sample requirements, see the [Audio understanding (spe
 
 The `fileUri` for your dataset can be the URI for a file in a Cloud Storage bucket, or it can be a publicly available HTTP or HTTPS URL.
 
-To see the generic format example, see [Dataset example for Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning-prepare#dataset-example) .
+To see the generic format example, see [Dataset example for Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/prepare-data#dataset-example) .
 
 The following is an example of an audio dataset.
 
@@ -80,4 +80,4 @@ The following is an example of an audio dataset.
 ## What's next
 
 - To learn more about the Gemini audio understanding model, see [Audio understanding (speech only)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/audio-understanding) .
-- To start tuning, see [Tune Gemini models by using supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning) .
+- To start tuning, see [Tune Gemini models by using supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use) .

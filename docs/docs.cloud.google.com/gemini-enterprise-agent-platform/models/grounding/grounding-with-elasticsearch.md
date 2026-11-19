@@ -20,12 +20,13 @@ You can ground an answer on up to 10 data sources at one time. You can combine g
 
 ## Supported models
 
-The following [models support grounding with Elasticsearch](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/overview) with text input only:
+The following [models support grounding with Elasticsearch](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models) with text input only:
 
 #### Click to expand supported models
 
 - [Gemini Robotics ER 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/robotics-er-2) preview
 - [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1)
+- [Gemini 4 Neon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon)
 - [Gemini 4 Hydrogen](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen)
 - [Gemini 4 Carbon for cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon#cyber)
 - [Gemini 4 Carbon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon)

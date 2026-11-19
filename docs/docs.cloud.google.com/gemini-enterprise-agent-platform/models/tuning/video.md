@@ -50,7 +50,7 @@ The `mediaResolution` field is used to specify the token count per frame for the
 
 When a video segment is used for training and validation, the video segment is in the `videoMetadata` field. During tuning, this data point is decoded to contain information from the segment extracted from the specified video file, starting from timestamp `startOffset` (the start offset, in seconds) until `endOffset` .
 
-To see the generic format example, see [Dataset example for Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning-prepare#dataset-example) .
+To see the generic format example, see [Dataset example for Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/prepare-data#dataset-example) .
 
 The following sections present video dataset format examples.
 
@@ -197,4 +197,4 @@ This schema is added as a single line in the JSONL file.
 
 - To learn more about the image understanding capability of Gemini, see our [Image understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-understanding) documentation.
 
-- To start tuning, see [Tune Gemini models by using supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning)
+- To start tuning, see [Tune Gemini models by using supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use)

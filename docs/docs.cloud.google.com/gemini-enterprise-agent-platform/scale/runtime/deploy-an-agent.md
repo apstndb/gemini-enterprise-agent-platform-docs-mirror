@@ -1230,7 +1230,7 @@ The schema for each operation is a dictionary that documents the information of 
 - [LangGraph](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-a-langgraph-agent#supported-operations)
 - [AG2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-ag2-agent#supported-operations)
 - [LlamaIndex](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-a-llamaindex-agent#supported-operations)
-- [Custom](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-a-custom-agent#custom-methods)
+- [Custom](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-a-custom-agent#query-operations)
 
 ## Optional: Grant the deployed agent permissions
 

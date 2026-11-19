@@ -90,6 +90,7 @@ Both `/api/reasoning_engine` and `/api/stream_reasoning_engine` receive HTTP `PO
 - **Request method** : `POST`
 - **Request body** : `json { "class_method": "stream_query", "input": { "message": "Tell me a short story." } }`
 - **Response** : A stream of line-delimited JSON (ndjson), where each line is a JSON-encoded chunk of the response. `json {"output": "Once"} {"output": " upon"} {"output": " a time..."}`
+- **Error handling** : If an error occurs before your container sends the first chunk, return a non- `200` HTTP status code. Once streaming starts, the HTTP `200 OK` status header is already sent and can't change. To report a mid-stream failure, write a final JSON error chunk with `errorCode` and `errorMessage` (for example, `{"errorCode": "500", "errorMessage": "Internal error"}` ) and close the stream so that clients and the Google Cloud console playground can detect the error.
 
 ### Keep-alive probe endpoint (Optional)
 

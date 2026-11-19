@@ -273,6 +273,7 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <li><code>aiplatform. evaluationExperiments. list</code></li>
 <li><code>aiplatform. evaluationExperiments. update</code></li>
 </ul>
+<p><code>aiplatform. evaluationItemRevisions. get</code></p>
 <p><code>aiplatform.evaluationItems.*</code></p>
 <ul>
 <li><code>aiplatform. evaluationItems. create</code></li>
@@ -297,6 +298,11 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <li><code>aiplatform.evaluationRuns.get</code></li>
 <li><code>aiplatform.evaluationRuns.list</code></li>
 <li><code>aiplatform. evaluationRuns. update</code></li>
+</ul>
+<p><code>aiplatform. evaluationSetRevisions.*</code></p>
+<ul>
+<li><code>aiplatform. evaluationSetRevisions. delete</code></li>
+<li><code>aiplatform. evaluationSetRevisions. get</code></li>
 </ul>
 <p><code>aiplatform.evaluationSets.*</code></p>
 <ul>
@@ -1027,6 +1033,7 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <li><code>aiplatform. evaluationExperiments. list</code></li>
 <li><code>aiplatform. evaluationExperiments. update</code></li>
 </ul>
+<p><code>aiplatform. evaluationItemRevisions. get</code></p>
 <p><code>aiplatform.evaluationItems.*</code></p>
 <ul>
 <li><code>aiplatform. evaluationItems. create</code></li>
@@ -1051,6 +1058,11 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <li><code>aiplatform.evaluationRuns.get</code></li>
 <li><code>aiplatform.evaluationRuns.list</code></li>
 <li><code>aiplatform. evaluationRuns. update</code></li>
+</ul>
+<p><code>aiplatform. evaluationSetRevisions.*</code></p>
+<ul>
+<li><code>aiplatform. evaluationSetRevisions. delete</code></li>
+<li><code>aiplatform. evaluationSetRevisions. get</code></li>
 </ul>
 <p><code>aiplatform.evaluationSets.*</code></p>
 <ul>
@@ -1799,6 +1811,7 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <li><code>aiplatform. evaluationExperiments. list</code></li>
 <li><code>aiplatform. evaluationExperiments. update</code></li>
 </ul>
+<p><code>aiplatform. evaluationItemRevisions. get</code></p>
 <p><code>aiplatform.evaluationItems.*</code></p>
 <ul>
 <li><code>aiplatform. evaluationItems. create</code></li>
@@ -1823,6 +1836,11 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <li><code>aiplatform.evaluationRuns.get</code></li>
 <li><code>aiplatform.evaluationRuns.list</code></li>
 <li><code>aiplatform. evaluationRuns. update</code></li>
+</ul>
+<p><code>aiplatform. evaluationSetRevisions.*</code></p>
+<ul>
+<li><code>aiplatform. evaluationSetRevisions. delete</code></li>
+<li><code>aiplatform. evaluationSetRevisions. get</code></li>
 </ul>
 <p><code>aiplatform.evaluationSets.*</code></p>
 <ul>
@@ -2355,12 +2373,14 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <p><code>aiplatform. entityTypes. streamingReadFeatureValues</code></p>
 <p><code>aiplatform. evaluationExperiments. get</code></p>
 <p><code>aiplatform. evaluationExperiments. list</code></p>
+<p><code>aiplatform. evaluationItemRevisions. get</code></p>
 <p><code>aiplatform.evaluationItems.get</code></p>
 <p><code>aiplatform. evaluationItems. list</code></p>
 <p><code>aiplatform. evaluationMetrics. get</code></p>
 <p><code>aiplatform. evaluationMetrics. list</code></p>
 <p><code>aiplatform.evaluationRuns.get</code></p>
 <p><code>aiplatform.evaluationRuns.list</code></p>
+<p><code>aiplatform. evaluationSetRevisions. get</code></p>
 <p><code>aiplatform.evaluationSets.get</code></p>
 <p><code>aiplatform.evaluationSets.list</code></p>
 <p><code>aiplatform.exampleStores.get</code></p>
@@ -3703,6 +3723,7 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <li><code>aiplatform. evaluationExperiments. list</code></li>
 <li><code>aiplatform. evaluationExperiments. update</code></li>
 </ul>
+<p><code>aiplatform. evaluationItemRevisions. get</code></p>
 <p><code>aiplatform.evaluationItems.*</code></p>
 <ul>
 <li><code>aiplatform. evaluationItems. create</code></li>
@@ -3727,6 +3748,11 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <li><code>aiplatform.evaluationRuns.get</code></li>
 <li><code>aiplatform.evaluationRuns.list</code></li>
 <li><code>aiplatform. evaluationRuns. update</code></li>
+</ul>
+<p><code>aiplatform. evaluationSetRevisions.*</code></p>
+<ul>
+<li><code>aiplatform. evaluationSetRevisions. delete</code></li>
+<li><code>aiplatform. evaluationSetRevisions. get</code></li>
 </ul>
 <p><code>aiplatform.evaluationSets.*</code></p>
 <ul>
@@ -4597,6 +4623,10 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <li><code>agentregistry.operations.get</code></li>
 <li><code>agentregistry.operations.list</code></li>
 </ul>
+<p><code>agentregistry.services.create</code></p>
+<p><code>agentregistry.services.delete</code></p>
+<p><code>agentregistry.services.get</code></p>
+<p><code>agentregistry.services.update</code></p>
 <p><code>agentregistry.skills.create</code></p>
 <p><code>agentregistry.skills.delete</code></p>
 <p><code>agentregistry.skills.get</code></p>
@@ -4800,6 +4830,7 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <li><code>aiplatform. evaluationExperiments. list</code></li>
 <li><code>aiplatform. evaluationExperiments. update</code></li>
 </ul>
+<p><code>aiplatform. evaluationItemRevisions. get</code></p>
 <p><code>aiplatform.evaluationItems.*</code></p>
 <ul>
 <li><code>aiplatform. evaluationItems. create</code></li>
@@ -4824,6 +4855,11 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <li><code>aiplatform.evaluationRuns.get</code></li>
 <li><code>aiplatform.evaluationRuns.list</code></li>
 <li><code>aiplatform. evaluationRuns. update</code></li>
+</ul>
+<p><code>aiplatform. evaluationSetRevisions.*</code></p>
+<ul>
+<li><code>aiplatform. evaluationSetRevisions. delete</code></li>
+<li><code>aiplatform. evaluationSetRevisions. get</code></li>
 </ul>
 <p><code>aiplatform.evaluationSets.*</code></p>
 <ul>
@@ -5340,6 +5376,7 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <p><code>compute.instances.create</code></p>
 <p><code>compute. instances. createTagBinding</code></p>
 <p><code>compute.instances.delete</code></p>
+<p><code>compute. instances. deleteTagBinding</code></p>
 <p><code>compute.instances.detachDisk</code></p>
 <p><code>compute.instances.get</code></p>
 <p><code>compute. instances. getGuestAttributes</code></p>
@@ -5444,6 +5481,13 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <p><code>observability.operations.list</code></p>
 <p><code>resourcemanager.projects.get</code></p>
 <p><code>resourcemanager.projects.list</code></p>
+<p><code>resourcemanager.tagKeys.get</code></p>
+<p><code>resourcemanager. tagValueBindings.*</code></p>
+<ul>
+<li><code>resourcemanager. tagValueBindings. create</code></li>
+<li><code>resourcemanager. tagValueBindings. delete</code></li>
+</ul>
+<p><code>resourcemanager.tagValues.get</code></p>
 <p><code>run.executions.delete</code></p>
 <p><code>run.executions.get</code></p>
 <p><code>run.jobs.create</code></p>
@@ -5648,7 +5692,7 @@ The older Google Cloud [basic roles](https://docs.cloud.google.com/iam/docs/role
 
 You can manage access at the project level or resource level. You might also have the ability to manage access at a folder or organization level.
 
-For most Agent Platform resources, access can only be controlled by the project, folder, and organization. Access to individual resources can be granted only for specific resource types, for example, an endpoint or a featurestore.
+For most Agent Platform resources, access can only be controlled by the project, folder, and organization. Access to individual resources can be granted only for specific resource types, for example, a featurestore.
 
 Users share control of all resources they can access. For example, if a user registers a model, all other authorized users in the project can access, change, and delete the model.
 
@@ -5993,6 +6037,8 @@ Gives Vertex AI the permissions it needs to function.
 - `aiplatform. evaluationExperiments. list`
 - `aiplatform. evaluationExperiments. update`
 
+`aiplatform. evaluationItemRevisions. get`
+
 `aiplatform.evaluationItems.*`
 
 - `aiplatform. evaluationItems. create`
@@ -6017,6 +6063,11 @@ Gives Vertex AI the permissions it needs to function.
 - `aiplatform.evaluationRuns.get`
 - `aiplatform.evaluationRuns.list`
 - `aiplatform. evaluationRuns. update`
+
+`aiplatform. evaluationSetRevisions.*`
+
+- `aiplatform. evaluationSetRevisions. delete`
+- `aiplatform. evaluationSetRevisions. get`
 
 `aiplatform.evaluationSets.*`
 
@@ -7286,6 +7337,8 @@ Gives Vertex AI Custom Code the proper permissions. The aiplatform.customJobs.cr
 - `aiplatform. evaluationExperiments. list`
 - `aiplatform. evaluationExperiments. update`
 
+`aiplatform. evaluationItemRevisions. get`
+
 `aiplatform.evaluationItems.*`
 
 - `aiplatform. evaluationItems. create`
@@ -7310,6 +7363,11 @@ Gives Vertex AI Custom Code the proper permissions. The aiplatform.customJobs.cr
 - `aiplatform.evaluationRuns.get`
 - `aiplatform.evaluationRuns.list`
 - `aiplatform. evaluationRuns. update`
+
+`aiplatform. evaluationSetRevisions.*`
+
+- `aiplatform. evaluationSetRevisions. delete`
+- `aiplatform. evaluationSetRevisions. get`
 
 `aiplatform.evaluationSets.*`
 
@@ -8035,6 +8093,10 @@ Provide access for notebooks service agent to manage notebook instances in user 
 `compute. acceleratorInterconnects. list`
 
 `compute. acceleratorInterconnects. queryFormability`
+
+`compute. acceleratorPodControllers. get`
+
+`compute. acceleratorPodControllers. list`
 
 `compute.acceleratorTypes.*`
 

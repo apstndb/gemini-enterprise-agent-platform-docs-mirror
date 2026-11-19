@@ -22,7 +22,7 @@ Your training application, implemented in the ML framework of your choice, is th
 
 5.  Submit your serverless training job by [creating a custom job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-job) or [creating a serverless training pipeline](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-training-pipeline) .
 
-6.  Agent Platform sets up resources for your job. It allocates one or more virtual machines (called *training instances* ) based on your job configuration. You set up a training instance by using the custom container you specify as part of the [`WorkerPoolSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#workerpoolspec) object when you [submit your serverless training job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-job) .
+6.  Agent Platform sets up resources for your job. It allocates one or more virtual machines (called *training instances* ) based on your job configuration. You set up a training instance by using the custom container you specify as part of the [`WorkerPoolSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#WorkerPoolSpec) object when you [submit your serverless training job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-job) .
 
 7.  Agent Platform runs your Docker image, passing through any command-line arguments you specify when you create the training job.
 

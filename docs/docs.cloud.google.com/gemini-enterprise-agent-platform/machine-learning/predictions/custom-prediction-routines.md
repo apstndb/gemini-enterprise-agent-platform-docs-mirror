@@ -127,7 +127,7 @@ Once your model is uploaded to Model Registry, it may be used to [get batch infe
 endpoint = model.deploy(machine_type="n1-standard-4")
 ```
 
-Once your model is deployed, you can [get online inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-predictions#get_online_predictions) .
+Once your model is deployed, you can [get online inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions) .
 
 ## Notebook Samples
 

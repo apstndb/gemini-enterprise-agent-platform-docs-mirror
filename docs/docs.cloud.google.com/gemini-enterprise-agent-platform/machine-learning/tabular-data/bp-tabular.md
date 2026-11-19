@@ -51,7 +51,7 @@ Similarly, if you want your model to be tuned to make generalized inferences abo
 
 For classification and regression models, if the underlying pattern in your data is likely to shift over time (it is not randomly distributed in time), provide that information to Agent Platform. You can provide a time signal in several ways:
 
-- If each row of data has a timestamp, make sure that column is included, has a transformation type of `Timestamp` , and is set as the **Time** column when you train your model. This ordering is used to split the data, with the most recent data as the test data, and the earliest data as the training data. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/prepare-data#time) .
+- If each row of data has a timestamp, make sure that column is included, has a transformation type of `Timestamp` , and is set as the **Time** column when you train your model. This ordering is used to split the data, with the most recent data as the test data, and the earliest data as the training data. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/data-splits#classification-time) .
 
 - If your time column doesn't have many distinct values, use a manual split instead of using the Time column to split your data. Otherwise, you might not get enough rows in each dataset, which can cause training to fail.
 

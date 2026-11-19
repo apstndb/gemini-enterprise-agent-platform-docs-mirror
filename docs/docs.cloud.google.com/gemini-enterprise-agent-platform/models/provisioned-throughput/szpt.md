@@ -30,7 +30,7 @@ Single Zone Provisioned Throughput has the following limitations:
 
 - Single Zone Provisioned Throughput is **not** a Covered Service under the Monthly Latency Target Attainment Percentage SLO in the [Gemini Online Inference API on Gemini Enterprise Agent Platform Service Level Agreement](https://cloud.google.com/vertex-ai/generative-ai/sla) .
 
-- Single Zone Provisioned Throughput doesn't integrate with or support [fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models) .
+- Single Zone Provisioned Throughput doesn't integrate with or support [fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning) .
 
 - In regions without ML processing, latency for Single Zone Provisioned Throughput might be higher than standard Provisioned Throughput or pay-as-you-go.
 

@@ -95,7 +95,7 @@ The process of configuring Agent Platform to use a specific service account for 
 
 #### Attach a service account to a custom training resource
 
-To configure Agent Platform to use your [new service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account#setup) during custom training, specify the service account's email address in the `serviceAccount` field of a [`CustomJobSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec) message when you start custom training. Depending on [which type of custom training resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/custom-training-methods) you are creating, the placement of this field in your API request differs:
+To configure Agent Platform to use your [new service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account#setup) during custom training, specify the service account's email address in the `serviceAccount` field of a [`CustomJobSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec) message when you start custom training. Depending on [which type of custom training resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/custom-training-methods) you are creating, the placement of this field in your API request differs:
 
 - **If you are creating a `CustomJob`** , specify the service account's email address in `CustomJob.jobSpec.serviceAccount` .
 

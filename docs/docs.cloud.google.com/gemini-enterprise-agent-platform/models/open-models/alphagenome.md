@@ -14,8 +14,6 @@ data_source: docs.cloud.google.com
 
 This document describes the hardware and deployment requirements for AlphaGenome, and shows how to deploy and query the model on Gemini Enterprise Agent Platform.
 
-> **GA with allowlist:** To access AlphaGenome, complete the [AlphaGenome request form](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/alphagenome-request) .
-
 ## Hardware and deployment requirements
 
 Because of AlphaGenome's deep architecture and 1 MB context window, the model has strict hardware and memory requirements. This section covers the following topics:
@@ -66,8 +64,6 @@ Model Garden provides the following serving versions for AlphaGenome:
 ## Use AlphaGenome
 
 You can interact with a deployed AlphaGenome endpoint programmatically by using the Python SDK (over gRPC on shared endpoints or HTTP on dedicated endpoints).
-
-> **Note:** Access to the SDK wheel file is restricted. Work with your Google Cloud account team to get your service account added to the allowlist for access to the Google Cloud-specific Python SDK.
 
 For the complete API reference, parameter definitions, and detailed schemas, see the [official AlphaGenome documentation](https://www.alphagenomedocs.com) .
 

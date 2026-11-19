@@ -532,7 +532,7 @@ job = genai_client.batches.create(
 )
 ```
 
-For more information, see [Request a batch prediction job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-prediction-gemini#request_a_batch_prediction_job) .
+For more information, see [Request a batch prediction job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference/new-job-from-bigquery#submit) .
 
 ## Limitations
 

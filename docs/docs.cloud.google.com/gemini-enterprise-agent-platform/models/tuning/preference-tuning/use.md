@@ -170,14 +170,19 @@ $'{
 import time
 
 from google import genai
-from google.genai.types import CreateTuningJobConfig, HttpOptions, TuningDataset
+from google.genai.types import (
+    CreateTuningJobConfig,
+    HttpOptions,
+    TuningDataset,
+    TuningValidationDataset,
+)
 
 client = genai.Client(http_options=HttpOptions(api_version="v1"))
 
 training_dataset = TuningDataset(
     gcs_uri="gs://mybucket/preference_tuning/data/train_data.jsonl",
 )
-validation_dataset = TuningDataset(
+validation_dataset = TuningValidationDataset(
     gcs_uri="gs://mybucket/preference_tuning/data/validation_data.jsonl",
 )
 
@@ -193,10 +198,12 @@ tuning_job = client.tunings.tune(
     ),
 )
 
-running_states = set([
-    "JOB_STATE_PENDING",
-    "JOB_STATE_RUNNING",
-])
+running_states = set(
+    [
+        "JOB_STATE_PENDING",
+        "JOB_STATE_RUNNING",
+    ]
+)
 
 while tuning_job.state in running_states:
     print(tuning_job.state)
@@ -253,4 +260,4 @@ The metrics visualizations are available after the tuning job starts running. Th
 
 ## What's next
 
-- Learn about [deploying a tuned Gemini model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/overview#deploy_a_tuned_model) .
+- Learn about [deploying a tuned Gemini model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/overview#deploy-a-tuned-model) .

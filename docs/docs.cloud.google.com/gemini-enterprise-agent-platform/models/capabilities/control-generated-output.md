@@ -21,6 +21,7 @@ You can control generated output when using the following models:
 #### Click to expand supported models
 
 - [Gemini Robotics ER 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/robotics-er-2) preview
+- [Gemini 4 Neon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon)
 - [Gemini 4 Hydrogen](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen)
 - [Gemini 4 Carbon for cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon#cyber)
 - [Gemini 4 Carbon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon)
@@ -200,7 +201,7 @@ prompt = """
 
 client = genai.Client(http_options=HttpOptions(api_version="v1"))
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.8-flash",
     contents=prompt,
     config={
         "response_mime_type": "application/json",
@@ -846,7 +847,7 @@ prompt = """
 
 client = genai.Client(http_options=HttpOptions(api_version="v1"))
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.8-flash",
     contents=prompt,
     config=GenerateContentConfig(
         response_mime_type="application/json",
@@ -1207,7 +1208,7 @@ from google.genai.types import GenerateContentConfig, HttpOptions
 
 client = genai.Client(http_options=HttpOptions(api_version="v1"))
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.8-flash",
     contents="What type of instrument is an oboe?",
     config=GenerateContentConfig(
         response_mime_type="text/x.enum",

@@ -37,41 +37,40 @@ Gemini Enterprise Agent Platform supports web search for the following Anthropic
 
 ## Control access to web search
 
-The web search feature requires public internet access. By default, web search is disabled by the organization policy constraint `constraints/vertexai.allowedPartnerModelFeatures` . To enable web search, you must configure this constraint to explicitly allow it.
+The web search feature requires public internet access. For projects that belong to an organization, the `constraints/vertexai.allowedPartnerModelFeatures` organization policy constraint disables web search by default. When web search is disallowed, requests that include the `web_search_20250305` tool fail with an `HTTP 400 FAILED_PRECONDITION` error, while requests that don't use web search aren't affected.
 
-Additionally, you can configure the organization policy constraint `constraints/vertexai.allowedModels` to restrict access to Claude models.
+To enable web search, an administrator with the Organization Policy Administrator role ( `roles/orgpolicy.policyAdmin` ) must add `publishers/anthropic:web_search` or `publishers/anthropic/models/ `` MODEL_NAME `` :web_search` to `allowedValues` on the constraint.
 
-> **Important:** For the following model versions, the default denial for web search will not be enforced until July 2026:
+Additionally, you can configure the `constraints/vertexai.allowedModels` organization policy constraint to restrict access to Claude models.
+
+> **Important:** For the following model versions, the default denial for web search will be enforced starting December 2, 2026:
 >
-> - Sonnet 4.0
-> - Sonnet 4.5
-> - Opus 4.0
-> - Opus 4.1
-> - Opus 4.5
-> - Haiku 4.5
+> - Claude Opus 4.5 ( `claude-opus-4-5` )
+> - Claude Sonnet 4.5 ( `claude-sonnet-4-5` )
+> - Claude Haiku 4.5 ( `claude-haiku-4-5` )
 
-To ensure continued access to web search for these specific model versions after June 2026, configure the `constraints/vertexai.allowedPartnerModelFeatures` organization policy to allow web search by the end of June 2026.
+To ensure continued access to web search for these model versions on or after December 2, 2026, configure the `constraints/vertexai.allowedPartnerModelFeatures` organization policy to allow web search before December 2, 2026.
 
-For detailed instructions on configuring organization policy constraints, see [Control access to Model Garden models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/control-model-access) .
+For detailed instructions on configuring organization policy constraints, see [Control access to Model Garden models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/control-model-access#enable-web-search) .
 
 ## Use web search
 
-> **Important:** The web search feature is invoked by using the `web_search_tool` . If [VPC-SC](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls) is configured, any requests that use the `web_search_tool` are blocked.
+> **Important:** You invoke the web search feature by using the `web_search_20250305` tool. If [VPC-SC](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls) is configured, any requests that use the `web_search_20250305` tool are blocked.
 
-Enable web search by providing a new Anthropic tool definition ( `web_search` ) in the API request.
+Enable web search by providing the Anthropic web search tool definition ( `web_search_20250305` ) in the API request.
 
 For example, the following code snippet uses web search to retrieve real-time weather information:
 
 ```
 response = await client.messages.create(
-    model="claude-4-sonnet-latest",
+    model="claude-sonnet-5-5",
     max_tokens=1024,
     messages=[{
         "role": "user",
         "content": "What is the weather in San Francisco?"
     }],
     tools=[{
-        "type": "web_search",
+        "type": "web_search_20250305",
         "name": "web_search",
         "max_uses": 5
     }]

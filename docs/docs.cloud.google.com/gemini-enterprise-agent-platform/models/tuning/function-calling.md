@@ -8,13 +8,13 @@ data_source: docs.cloud.google.com
 
 [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling) lets you create Gemini-based applications and agents that can interact with real-time information and services like databases, customer relationship management systems, and document repositories. This enhances your application's ability to provide relevant and contextual responses.
 
-With supervised fine-tuning, you can use [your own tuning dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning-prepare) to improve the overall accuracy of your application's function calling-based responses.
+With supervised fine-tuning, you can use [your own tuning dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/prepare-data) to improve the overall accuracy of your application's function calling-based responses.
 
 ## Tuning dataset format
 
 The `fileUri` for your fine-tuning dataset can be the URI for a file in a Cloud Storage bucket, or it can be a publicly available HTTP or HTTPS URL.
 
-To see the generic format example, see the [dataset example for Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning-prepare#dataset-example) .
+To see the generic format example, see the [dataset example for Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/prepare-data#dataset-example) .
 
 The following sections present examples of function calling datasets for use in creating a tuning job for function calling.
 
@@ -282,6 +282,6 @@ The following is an example of a dataset for tuning [parallel function calling](
 
 ## What's next
 
-- To learn how to create a tuning job and how to test the tuned model, see [Tune Gemini models by using supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning) .
-- To learn about Gemini model tuning, see [Introduction to tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models) .
+- To learn how to create a tuning job and how to test the tuned model, see [Tune Gemini models by using supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use) .
+- To learn about Gemini model tuning, see [Introduction to tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning) .
 - To learn about function calling, see [Introduction to function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling) .

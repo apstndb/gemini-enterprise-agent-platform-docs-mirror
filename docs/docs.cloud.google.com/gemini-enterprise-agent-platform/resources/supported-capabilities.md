@@ -93,7 +93,7 @@ The following features are either out of scope or involve global infrastructure 
 
 ## What's next
 
-- To improve model performance by customizing models, see [Tune models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models) .
+- To improve model performance by customizing models, see [Tune models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning) .
 - To learn about regional data handling, see [Data residency](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency) .
 - To understand how to secure your generative AI applications, see [Security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) .
 - To discover and explore various models, see [Explore models in Gemini Enterprise Agent Platform Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models) .

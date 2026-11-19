@@ -122,6 +122,4 @@ Models, prediction containers, and training containers are code. It's important 
 
 ## What's next
 
-- To learn more about endpoint access control, see [Control access to Agent Platform endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/endpoint-access-control) .
-
 - To learn more about using a custom service account to control access to specific resources, see [Use a custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account) .

@@ -188,6 +188,30 @@ You sent an A2A request, such as a request for the Agent Card or a message, to a
 - To serve A2A requests, deploy an A2A agent. See [Create an A2A agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-a2a-agent) .
 - To query an agent that isn't an A2A agent, see [Use an agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-agent) .
 
+### Request payload is too large
+
+**Issue** :
+
+The request fails with a `400` , `FAILED_PRECONDITION` status ( `REASONING_ENGINE_REQUEST_TOO_LARGE` ) or an HTTP `413 Request Entity Too Large` error, and a message similar to the following:
+
+```
+The request to the Reasoning Engine `projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID` exceeds the 32 MiB maximum HTTP payload size (about 24 MiB for Base64-encoded files).
+```
+
+**Possible causes** :
+
+- Agent Runtime enforces a fixed 32 MiB maximum HTTP request body size.
+- Inline file attachments that are Base64-encoded in JSON expand by roughly 33%, so files larger than about 24 MiB exceed the 32 MiB payload limit.
+- In multi-turn conversations, accumulated conversation history and prior attachments sent in the request payload push the total request body past 32 MiB.
+
+> **Note:** Adjusting instance counts, CPU, or memory scaling settings doesn't increase the 32 MiB HTTP request payload limit, and rejected requests don't reach your agent container or produce container logs.
+
+**Recommended solutions** :
+
+- Upload large files to Cloud Storage and pass `gs://` URIs in your request instead of inline Base64-encoded bytes.
+- Compress, split, or downscale large attachments before sending them so the total serialized HTTP request body stays under 32 MiB (about 24 MiB of raw files).
+- Start a new conversation or trim earlier attachments from the conversation history when multi-turn context grows near the limit.
+
 ## Reasoning Engine Execution failed
 
 If you receive the error message "Reasoning Engine Execution failed" when querying your agent, it might be due to one of the issues that's described in this section.

@@ -48,11 +48,11 @@ When you perform serverless training using a prebuilt container, you must specif
 
 - Provide the code as one or more Python source distributions.
 
-  If you use the Agent Platform API to start serverless training, specify these in the [`packageUris` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#PythonPackageSpec) .
+  If you use the Agent Platform API to start serverless training, specify these in the [`packageUris` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#PythonPackageSpec) .
 
 - Create a module in one of these source distributions that acts as the entrypoint for training.
 
-  If you use the Agent Platform API to start custom training, specify this in the [`pythonModule` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#PythonPackageSpec) .
+  If you use the Agent Platform API to start custom training, specify this in the [`pythonModule` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#PythonPackageSpec) .
 
 As long as you meet these requirements, you can structure your training application in any way you like. However, we recommend that you build a single Python source distribution by organizing your code in the following structure (which is frequently used in Agent Platform samples):
 
@@ -150,13 +150,13 @@ You can specify your application's custom dependencies by passing their paths as
 
 Each URI you include is the path to a source distribution, formatted as a tar file ( `.tar.gz` ) or as a wheel ( `.whl` ). Agent Platform installs each dependency using [`pip install`](https://pip.pypa.io/en/stable/user_guide/#installing-packages) on each replica that it allocates for your training job.
 
-If you use the Agent Platform API to start serverless training, specify the Cloud Storage URIs to these dependencies along with your training application in the [`packageUris` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#PythonPackageSpec) .
+If you use the Agent Platform API to start serverless training, specify the Cloud Storage URIs to these dependencies along with your training application in the [`packageUris` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#PythonPackageSpec) .
 
 ## Python modules
 
 Your application can contain multiple modules (Python files). You must identify the module that contains your application entry point. The training service runs that module by invoking Python, just as you would run it locally.
 
-For example, if you follow the recommended structure from a preceding section, your main module is `task.py` . Since it's inside an import package (directory with an `__init__.py` file) named `trainer` , the fully qualified name of this module is `trainer.task` . So if you use the Agent Platform API to start custom training, set the [`moduleName` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#PythonPackageSpec) to `trainer.task` .
+For example, if you follow the recommended structure from a preceding section, your main module is `task.py` . Since it's inside an import package (directory with an `__init__.py` file) named `trainer` , the fully qualified name of this module is `trainer.task` . So if you use the Agent Platform API to start custom training, set the [`moduleName` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#PythonPackageSpec) to `trainer.task` .
 
 Refer to the [Python guide to packages](https://docs.python.org/3/tutorial/modules.html#packages) for more information about modules.
 
@@ -174,7 +174,7 @@ To learn about other ways to upload your source distribution to Cloud Storage, r
 
 ## Migrate from python_package_spec to container_spec
 
-The [`PythonPackageSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#PythonPackageSpec) configuration ( `executorImageUri` ) only accepts officially supported [prebuilt training containers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/pre-built-containers) . If your framework or runtime has reached end-of-availability (EOA), such as scikit-learn or XGBoost, or if you require newer Python versions (such as Python 3.11+) and external system libraries, migrate your training workload to use [`ContainerSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#ContainerSpec) .
+The [`PythonPackageSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#PythonPackageSpec) configuration ( `executorImageUri` ) only accepts officially supported [prebuilt training containers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/pre-built-containers) . If your framework or runtime has reached end-of-availability (EOA), such as scikit-learn or XGBoost, or if you require newer Python versions (such as Python 3.11+) and external system libraries, migrate your training workload to use [`ContainerSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ContainerSpec) .
 
 Unlike `python_package_spec` , `ContainerSpec` has no `package_uris` or `python_module` fields.
 

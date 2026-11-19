@@ -6,7 +6,7 @@ description: Deploy an agent on Gemini Enterprise and route traffic through Agen
 data_source: docs.cloud.google.com
 ---
 
-This page describes how to route Gemini Enterprise traffic through Agent Gateway. Agent Gateway is a central networking and security component of the Gemini Enterprise Agent Platform ecosystem. It provides secure and governed connectivity for all agentic interactions, whether they occur between users and agents, agents and tools, or among agents themselves.
+This page describes how to route Gemini Enterprise traffic through Agent Gateway. Agent Gateway is a central networking and security component of the Gemini Enterprise Agent Platform ecosystem. It provides secure and governed connectivity for all agentic interactions, whether they occur between agents and tools or among agents themselves.
 
 ## Before you begin
 
@@ -32,7 +32,21 @@ Before you deploy your Agent Gateway, pick the region where you deploy the gatew
 
 ## Route Gemini Enterprise traffic through Agent Gateway
 
-> **Important:** Enabling Agent Gateway routes all Gemini Enterprise traffic, including LLM calls, through the gateway. You can then secure this traffic using authorization policies.
+> **Important:** Setting a default egress Agent Gateway on your app doesn't route all Gemini Enterprise traffic through the gateway.
+
+The gateway routes query-time traffic from your app to the following resources:
+
+- MCP servers and A2A agents that you import from Agent Registry, as described later in this procedure.
+- Custom MCP servers that you configure to use Agent Gateway VPC egress. For more information, see [Prerequisites to set up a custom MCP server data store with VPC connectivity](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/custom-mcp-server/set-up-vpc-custom-mcp-server) .
+- Action connectors that are backed by Agent Registry.
+
+The gateway doesn't route the following traffic:
+
+- Traffic to custom MCP servers that you connect by URL without Agent Gateway VPC egress.
+- Traffic to A2A agents that you didn't import from Agent Registry.
+- Generative model inference calls, data store retrieval, built-in assistant tools, and connector ingestion traffic.
+
+You can secure the traffic that the gateway routes by using authorization policies.
 
 To route Gemini Enterprise traffic through Agent Gateway, perform the following steps:
 

@@ -24,6 +24,7 @@ For more information about grounding, see [Grounding overview](https://docs.clou
 
 - [Gemini Robotics ER 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/robotics-er-2) preview
 - [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1)
+- [Gemini 4 Neon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon)
 - [Gemini 4 Hydrogen](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen)
 - [Gemini 4 Carbon for cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon#cyber)
 - [Gemini 4 Carbon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon)
@@ -159,7 +160,7 @@ from google.genai.types import (
 client = genai.Client(http_options=HttpOptions(api_version="v1"))
 
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.8-flash",
     contents="When is the next total solar eclipse in the United States?",
     config=GenerateContentConfig(
         tools=[
@@ -389,7 +390,7 @@ client = genai.Client(http_options=HttpOptions(api_version="v1"))
 # datastore = "projects/111111111111/locations/global/collections/default_collection/dataStores/data-store-id"
 
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.8-flash",
     contents="How do I make an appointment to renew my driver's license?",
     config=GenerateContentConfig(
         tools=[

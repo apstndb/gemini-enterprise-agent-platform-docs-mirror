@@ -87,7 +87,7 @@ In your AI application, look for a way to add or connect to a remote MCP server.
 
 - **Server URL** or **Endpoint** : `https://aiplatform.googleapis.com/ `` TOOLSET_ENDPOINT`
 
-  Replace ` TOOLSET_ENDPOINT ` with the toolset endpoint, for example: `/mcp/generate` . See [Toolsets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp#toolsets) .
+  Replace ` TOOLSET_ENDPOINT ` with the toolset endpoint, for example: `/mcp/generate` . See [Toolsets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp#toolsetsSection) .
 
 - **Transport** : [Streamable HTTP](https://modelcontextprotocol.io/specification/latest/basic/transports/streamable-http)
 

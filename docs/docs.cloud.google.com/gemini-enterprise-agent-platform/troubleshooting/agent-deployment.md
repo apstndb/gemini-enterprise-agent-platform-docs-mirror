@@ -504,7 +504,11 @@ The Reasoning Engine could not access `projects/PROJECT_NUMBER/secrets/SECRET_ID
   - **Default service account** : Grant the role to the AI Platform Reasoning Engine Service Agent ( `service- `` PROJECT_NUMBER `` @gcp-sa-aiplatform-re.iam.gserviceaccount.com` ).
   - **Custom service account** : Grant the role to the [custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#custom-service-account) configured on the agent.
 
-## Agent Gateway binding timed out
+## Agent Gateway binding errors
+
+If you [route traffic through Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy) and deploying or updating your agent fails before the agent starts, one of the following issues might be the cause:
+
+### Agent Gateway binding timed out
 
 **Issue** :
 
@@ -534,6 +538,54 @@ Agent Runtime agents in the same project and region share one binding to each co
 - Changing your agent's code, `requirements` , or `resource_limits` doesn't reduce shared binding setup time.
 
 If the gateway binding succeeds but the container then fails to start, see [Errors during Agent Runtime startup](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-agent-gateway#bootstrap-errors) .
+
+### Agent Gateway binding aborted
+
+**Issue** :
+
+Deploying or updating an agent fails with a `409` , `ABORTED` status ( `REASONING_ENGINE_AGENT_GATEWAY_CONCURRENT_PROVISION_ABORTED` ) and a message similar to the following:
+
+```
+The Reasoning Engine could not be bound to Agent Gateway `projects/PROJECT_NUMBER/locations/LOCATION/agentGateways/AGENT_GATEWAY_ID` because a concurrent shared gateway provisioning operation failed and rolled back. Try again.
+```
+
+**Possible cause** :
+
+Agent Runtime agents in the same project and region share one binding to each configured Agent Gateway. When you bind multiple agents to the same gateway before its shared binding is set up, one deployment or update sets up the binding and the others wait for it. If that deployment or update fails before the binding is ready, Agent Runtime rolls back the binding, and every deployment or update that was waiting on it fails with this error. The deployment or update that set up the binding reports its own error, which might not be related to Agent Gateway.
+
+**Recommended solutions** :
+
+- Wait at least 10 minutes for Agent Runtime to finish rolling back the failed setup, and then retry the deployment or update. A retry that starts before the rollback finishes can fail with a `504` , `DEADLINE_EXCEEDED` status. See [Agent Gateway binding timed out](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#agent-gateway-provision-timeout) .
+- To retry multiple deployments or updates, retry one first and wait for that operation to succeed, and then retry the rest concurrently. If that first operation fails, it returns the underlying error instead of `409` , `ABORTED` (for example, [Agent Gateway binding temporarily unavailable](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#agent-gateway-provision-unavailable) or [Container image build failed](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#build-failed) ), which you can look up in the [error catalog](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting#error-catalog) .
+
+**Solutions that don't apply** :
+
+- Checking container logs or Agent Gateway traffic logs doesn't show an error for this failure, because the failure occurs before Agent Runtime starts your agent's container.
+- Changing your agent's code, `requirements` , or `resource_limits` doesn't help, because another deployment or update caused this error, not your agent.
+
+### Agent Gateway binding temporarily unavailable
+
+**Issue** :
+
+Deploying or updating an agent fails with a `503` , `UNAVAILABLE` status ( `REASONING_ENGINE_AGENT_GATEWAY_PROVISION_UNAVAILABLE` ) and a message similar to the following:
+
+```
+The Reasoning Engine could not be bound to Agent Gateway `projects/PROJECT_NUMBER/locations/LOCATION/agentGateways/AGENT_GATEWAY_ID` because network provisioning encountered a transient upstream service error. Try again.
+```
+
+**Possible cause** :
+
+When the first agent in a project and region binds to an Agent Gateway, Agent Runtime sets up shared Google-managed networking resources that connect agents to the gateway. If a Google Cloud service that this setup depends on keeps returning temporary errors after several automatic retries, Agent Runtime rolls back the setup and the deployment or update fails with this error. Other deployments or updates that were waiting on the same setup fail with a `409` , `ABORTED` status. See [Agent Gateway binding aborted](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#agent-gateway-concurrent-provision-aborted) .
+
+**Recommended solutions** :
+
+- Wait at least 10 minutes for Agent Runtime to finish rolling back the failed setup, and then retry the deployment or update. A retry that starts before the rollback finishes can fail with a `504` , `DEADLINE_EXCEEDED` status. See [Agent Gateway binding timed out](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#agent-gateway-provision-timeout) .
+- If the error persists after several retries, [contact support](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-support) and include the failed operation's name in the format `projects/ `` PROJECT_ID `` /locations/ `` LOCATION `` /operations/ `` OPERATION_ID` .
+
+**Solutions that don't apply** :
+
+- Changing your agent's code, `requirements` , or `resource_limits` doesn't help, because the failure occurs before Agent Runtime deploys your agent.
+- Requesting a quota increase for your project has no effect, because Google manages these networking resources.
 
 ## Support resources
 

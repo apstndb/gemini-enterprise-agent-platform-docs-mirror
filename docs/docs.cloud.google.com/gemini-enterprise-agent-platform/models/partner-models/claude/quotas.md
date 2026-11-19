@@ -12,8 +12,15 @@ This page describes how Gemini Enterprise Agent Platform manages quotas for Anth
 
 Anthropic Claude models on Agent Platform use one of the following quota systems:
 
-- **Models launched after May 26, 2026:** [Shared lineage quotas](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/quotas#shared-lineage-quotas) .
-- **Models launched before May 26, 2026:** [Per-model quotas](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/quotas#per-model-quotas) .
+- **[Shared lineage quotas](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/quotas#shared-lineage-quotas)** (global and multi-region endpoints for models launched after May 26, 2026):
+  - **Claude Fable 5 and later** ( `anthropic-claude-fable` , and `anthropic-claude-fable-fast` for fast mode)
+  - **Claude Opus 4.8 and later** ( `anthropic-claude-opus` )
+  - **Claude Sonnet 5 and later** ( `anthropic-claude-sonnet` )
+  - **Claude Haiku 5.5 and later** ( `anthropic-claude-haiku` )
+- **[Per-model quotas](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/quotas#per-model-quotas)** (models launched before May 26, 2026, and any direct regional endpoints):
+  - **Claude Opus 4.7, 4.6, and 4.5** : `claude-opus-4-7` , `claude-opus-4-6` , `claude-opus-4-5`
+  - **Claude Sonnet 4.6** : `claude-sonnet-4-6`
+  - **Claude Haiku 4.5** : `claude-haiku-4-5`
 
 ## Shared lineage quotas
 

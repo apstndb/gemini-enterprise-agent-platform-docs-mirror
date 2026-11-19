@@ -39,7 +39,7 @@ print(adk_app)
 
 where
 
-- `PROJECT_ID` is the Google Cloud [project ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-adk-agent#project) under which you [create](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-agent) and [deploy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent) agents,
+- `PROJECT_ID` is the Google Cloud [project ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#project) under which you [create](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-agent) and [deploy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent) agents,
 - `LOCATION` is one of the [supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) , and
 - `RESOURCE_ID` is the ID of the deployed agent as a [`reasoningEngine` resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines) .
 
@@ -442,6 +442,26 @@ If you are using the Agent Platform SDK, you should receive a continuation of th
  # ...
 }
 ```
+
+### Handle streaming errors
+
+If an error occurs before streaming starts, `:streamQuery` returns a standard non- `200` HTTP error response. Once Agent Platform begins streaming events, the HTTP `200 OK` status header is already sent and can't change. If an error occurs mid-stream (such as an unhandled exception, a downstream rate limit, or an unauthorized outbound request), Agent Platform writes a final JSON error chunk (a terminal error frame) and closes the stream:
+
+```
+{
+  "code": 429,
+  "message": "429 RESOURCE_EXHAUSTED...",
+  "errorCode": "429",
+  "errorMessage": "429 RESOURCE_EXHAUSTED..."
+}
+```
+
+When parsing responses, distinguish between the two types of errors that can appear in the stream:
+
+- **Terminal runtime error frame** : Contains only error fields using `camelCase` ( `errorCode` and `errorMessage` , and optionally `code` and `message` ) with no event metadata. After this frame, the stream closes.
+- **ADK event error** : Uses `snake_case` ( `error_code` and `error_message` ) inside a standard ADK event object alongside metadata fields such as `id` , `invocation_id` , and `author` .
+
+If you call `:streamQuery` directly with `requests` or `curl` , check each parsed chunk for terminal error frames instead of assuming HTTP `200 OK` means the query succeeded. For more information about terminal error frame formats and retry guidance, see [Handle streaming errors](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-a-custom-agent#handle-streaming-errors) .
 
 ### Query the agent with multimodal content
 

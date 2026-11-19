@@ -411,5 +411,5 @@ To learn more about Vector Search, see [Overview of Vector Search](https://docs.
 - To learn more about rate limits, see [Agent Platform quotas and system limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas) .
 - To get batch predictions for embeddings, see [Get batch text embeddings inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/batch-prediction-genai-embeddings)
   - To learn more about multimodal embeddings, see [Get multimodal embeddings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-multimodal-embeddings)
-- To tune an embedding, see [Tune text embeddings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-embeddings)
+- To tune an embedding, see [Tune text embeddings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/embeddings)
 - To learn more about the research behind `text-embedding-005` and `text-multilingual-embedding-002` , see the research paper [Gecko: Versatile Text Embeddings Distilled from Large Language Models](https://arxiv.org/abs/2403.20327) .

@@ -312,6 +312,7 @@ Agent Gateway enforces strict reference tracking to prevent orphaned security po
 
 - One or more Agent Runtime agents or Gemini Enterprise apps still reference the gateway.
 - Any `AuthzPolicy` (for IAP, Model Armor, or a custom provider) or `TelemetryPolicy` still targets the gateway.
+- Any [IAM Unified Access Policy (UAP)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/manage-iam-policies-uap#delete-policy-binding) is still bound directly to the gateway instance.
 - A VPC configuration update operation is still running on the gateway.
 
 Complete the following steps in sequence to delete an Agent Gateway and clean up its associated resources:
@@ -340,7 +341,9 @@ Complete the following steps in sequence to delete an Agent Gateway and clean up
 
 1.  Ensure that no Gemini Enterprise apps or Agent Runtime agents reference the gateway. Follow the instructions in [Disassociate workloads from an Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/manage-agent-gateways#disassociate-workloads) .
 
-2.  Remove authorization policies and authorization extensions:
+2.  If you bound any IAM UAPs directly to the Agent Gateway instance, [delete those policy bindings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/manage-iam-policies-uap#delete-policy-binding) .
+
+3.  Remove authorization policies and authorization extensions:
 
     > **Important:** Always delete each `AuthzPolicy` **before** deleting the `AuthzExtension` that it references. Deleting an `AuthzExtension` first fails because the `AuthzPolicy` holds an active reference to the extension.
 
@@ -375,7 +378,7 @@ Complete the following steps in sequence to delete an Agent Gateway and clean up
 
         Replace `AUTHZ_EXTENSION_NAME` with the ID of the unused authorization extension.
 
-3.  Delete the Agent Gateway:
+4.  Delete the Agent Gateway:
 
     ```
     gcloud network-services agent-gateways delete AGENT_GATEWAY_NAME \
@@ -385,7 +388,7 @@ Complete the following steps in sequence to delete an Agent Gateway and clean up
 
     Replace `AGENT_GATEWAY_NAME` with the name of the gateway to delete.
 
-4.  Confirm that the gateway no longer appears in the regional gateway list:
+5.  Confirm that the gateway no longer appears in the regional gateway list:
 
     ```
     gcloud network-services agent-gateways list \
@@ -393,7 +396,7 @@ Complete the following steps in sequence to delete an Agent Gateway and clean up
      --project=PROJECT_ID
     ```
 
-5.  Optional: You can't delete an `AgentConnectivityTemplate` while an Agent Gateway references it. After you delete the gateway, delete any unused connectivity templates:
+6.  Optional: You can't delete an `AgentConnectivityTemplate` while an Agent Gateway references it. After you delete the gateway, delete any unused connectivity templates:
 
     ```
     gcloud network-services agent-connectivity-templates delete CONNECTIVITY_TEMPLATE_NAME \

@@ -6,7 +6,7 @@ description: Learn how to create, list, view, update, and delete Identity and Ac
 data_source: docs.cloud.google.com
 ---
 
-You can create, list, view, update, and delete IAM Unified Access Policies (UAPs) and policy bindings using the Google Cloud console, the gcloud CLI, or the REST API.
+You can create, list, view, update, and delete Identity and Access Management (IAM) Unified Access Policies (UAPs) and policy bindings in Google Cloud by using the Google Cloud console, the Google Cloud CLI, or the REST API.
 
 Agent Gateway uses Identity-Aware Proxy (IAP) to enforce these egress policies across your agents, MCP servers, and endpoints. For an overview of how policies work, see [IAM UAPs overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap) . For detailed rule examples and CEL attributes, see [Create IAM UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap) .
 
@@ -14,9 +14,10 @@ Agent Gateway uses Identity-Aware Proxy (IAP) to enforce these egress policies a
 
 To get the permissions that you need to manage UAPs and policy bindings, ask your administrator to grant you the following IAM roles on your project:
 
-- View UAPs and bindings: [Access Policy Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.accessPolicyViewer) ( `roles/iam.accessPolicyViewer` )
+- View UAPs: [Access Policy Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.accessPolicyViewer) ( `roles/iam.accessPolicyViewer` )
 - Create, update, and delete UAPs and bindings: [Access Policy Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.accessPolicyAdmin) ( `roles/iam.accessPolicyAdmin` )
-- Bind policies to a project: [Project IAM Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.projectIamAdmin) ( `roles/resourcemanager.projectIamAdmin` )
+- View or manage policy bindings on a project: [Project IAM Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.projectIamAdmin) ( `roles/resourcemanager.projectIamAdmin` )
+- View or manage policy bindings on an Agent Gateway instance: [Network Services Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/networkservices#networkservices.admin) ( `roles/networkservices.admin` )
 
 For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 
@@ -41,7 +42,9 @@ For more information about creating UAPs, see [Create IAM UAPs](https://docs.clo
     2.  In the drop-down list, select **Create new policy** .
     3.  In the **Policy name** field, enter a descriptive name for the policy.
     4.  In **Add Rules** , configure your allow or deny rules and CEL conditions. For UAP configuration steps and examples, see [Create IAM UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap) .
-    5.  To save the rule, click **Create** .
+    5.  To save the rule, click **Save** .
+
+5.  To create the policy, click **Create** .
 
 ### gcloud
 
@@ -57,7 +60,7 @@ gcloud iam access-policies create POLICY_NAME \
 Replace the following:
 
 - `POLICY_NAME` : the name of the policy
-- `POLICY_FILE` : the path to the policy file—for example: `my-policy.json`
+- `POLICY_FILE` : the path to the policy file—for example, `my-policy.json`
 - `PROJECT_ID` : the project ID that contains the policy
 
 ### API
@@ -125,17 +128,18 @@ gcloud iam policy-bindings create BINDING_NAME \
 
 Replace the following:
 
-- `BINDING_NAME` : the name for your policy binding
+- `BINDING_NAME` : the name for your policy binding—for example, `my-policy-binding`
+- `PROJECT_ID` : your Google Cloud project ID—for example, `my-project`
+- `POLICY_NAME` : the name of your UAP—for example, `my-access-policy`
+- `TARGET_RESOURCE` : the full resource URI for the binding target, formatted as follows:
+  - **Project** : `//cloudresourcemanager.googleapis.com/projects/ `` PROJECT_ID` —for example, `//cloudresourcemanager.googleapis.com/projects/my-project`
 
-- `PROJECT_ID` : your Google Cloud project ID
+  - **Agent Gateway** : `//networkservices.googleapis.com/projects/ `` PROJECT_ID `` /locations/ `` LOCATION `` /agentGateways/ `` GATEWAY_NAME` —for example, `//networkservices.googleapis.com/projects/my-project/locations/us-central1/agentGateways/my-agent-gateway`
 
-- `POLICY_NAME` : the name of your access policy
+    Replace the following:
 
-- `TARGET_RESOURCE` : the full resource URI for the project, formatted as follows:
-
-  ```html
-      //cloudresourcemanager.googleapis.com/projects/PROJECT_ID
-  ```
+    - `LOCATION` : the location of the Agent Gateway instance—for example, `us-central1`
+    - `GATEWAY_NAME` : the name of the Agent Gateway instance—for example, `my-agent-gateway`
 
 ### API
 
@@ -156,10 +160,22 @@ curl -X POST \
 
 Replace the following:
 
-- `PROJECT_ID` : your project ID
-- `BINDING_NAME` : a name for your policy binding
-- `POLICY_NAME` : the name of the UAP
-- `TARGET_RESOURCE` : the full resource URI for the project, formatted as follows: `//cloudresourcemanager.googleapis.com/projects/ `` PROJECT_ID`
+- `PROJECT_ID` : your Google Cloud project ID—for example, `my-project`
+
+- `BINDING_NAME` : a name for your policy binding—for example, `my-policy-binding`
+
+- `POLICY_NAME` : the name of the UAP—for example, `my-access-policy`
+
+- `TARGET_RESOURCE` : the full resource URI for the binding target, formatted as follows:
+
+- **Project** : `//cloudresourcemanager.googleapis.com/projects/ `` PROJECT_ID` —for example, `//cloudresourcemanager.googleapis.com/projects/my-project`
+
+- **Agent Gateway** : `//networkservices.googleapis.com/projects/ `` PROJECT_ID `` /locations/ `` LOCATION `` /agentGateways/ `` GATEWAY_NAME` —for example, `//networkservices.googleapis.com/projects/my-project/locations/us-central1/agentGateways/my-agent-gateway`
+
+  Replace the following:
+
+  - `LOCATION` : the location of the Agent Gateway instance—for example, `us-central1`
+  - `GATEWAY_NAME` : the name of the Agent Gateway instance—for example, `my-agent-gateway`
 
 ## List policies and policy bindings
 
@@ -208,14 +224,19 @@ gcloud iam policy-bindings list \
   --location=global
 ```
 
-To filter policy bindings by a specific target resource, specify the `--target-resource` flag:
+To filter policy bindings by a specific target resource, run the `search-target-policy-bindings` command:
 
 ```sh
-gcloud iam policy-bindings list \
-  --target-resource="TARGET_RESOURCE" \
+gcloud iam policy-bindings search-target-policy-bindings \
+  --target="TARGET_RESOURCE" \
   --project=PROJECT_ID \
   --location=global
 ```
+
+Replace the following:
+
+- `TARGET_RESOURCE` : the full resource URI of the target resource—for example, `//cloudresourcemanager.googleapis.com/projects/my-project` for a project, or `//networkservices.googleapis.com/projects/my-project/locations/us-central1/agentGateways/my-agent-gateway` for an Agent Gateway instance
+- `PROJECT_ID` : your Google Cloud project ID—for example, `my-project`
 
 ### API
 
@@ -464,6 +485,6 @@ Learn how to configure content and business policies.
 
 Guide
 
-### [Test policies](https://docs.cloud.google.com/iap/govern/policies/test-policies)
+### [Test policies](https://docs.cloud.google.com/iap/govern/gateways/set-up-agent-gateway#config-agent-to-anywhere)
 
 Learn how to test policies.

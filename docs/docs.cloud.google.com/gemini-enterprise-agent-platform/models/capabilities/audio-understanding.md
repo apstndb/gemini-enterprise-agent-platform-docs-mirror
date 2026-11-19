@@ -32,6 +32,7 @@ The following table lists the models that support audio understanding:
 <tbody>
 <tr class="odd">
 <td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon">Gemini 4 Neon</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen">Gemini 4 Hydrogen</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon#cyber">Gemini 4 Carbon for cyber</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon">Gemini 4 Carbon</a></li>
@@ -297,7 +298,7 @@ prompt = """
 Provide a concise summary of the main points in the audio file.
 """
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.8-flash",
     contents=[
         prompt,
         Part.from_uri(
@@ -836,7 +837,7 @@ Transcribe the interview, in the format of timecode, speaker, caption.
 Use speaker A, speaker B, etc. to identify speakers.
 """
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.8-flash",
     contents=[
         prompt,
         Part.from_uri(

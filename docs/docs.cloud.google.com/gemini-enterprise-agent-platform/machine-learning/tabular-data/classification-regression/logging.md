@@ -45,13 +45,13 @@ You can use the Google Cloud console to access the hyperparameter logs of the fi
 
 6.  To see the hyperparameter log of the final model, go to the **Model hyperparameters** row and click **Model** .
 
-    1.  There is just one log entry. Expand the payload as shown below. For details, see [Log fields](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/logging#reading-logs) .
+    1.  There is just one log entry. Expand the payload as shown below. For details, see [Log fields](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/logging#log-fields) .
 
         ![Expanded Models logs](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/images/model-logs-expanded.png)
 
 7.  To see the hyperparameter log of the tuning trials, go to the **Model hyperparameters** row and click **Trials** .
 
-    1.  There is one entry for each of the tuning trials. Expand the payload as shown below. For details, see [Log fields](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/logging#reading-logs) .
+    1.  There is one entry for each of the tuning trials. Expand the payload as shown below. For details, see [Log fields](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/logging#log-fields) .
 
         ![Expanded Trials logs](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/images/trials-logs-expanded.png)
 

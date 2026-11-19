@@ -34,7 +34,7 @@ Agent Anomaly Detection includes these features:
 
 ## What's new
 
-The following feature was added to Agent Anomaly Detection (Preview) on **November 12, 2026** : support for agents built with ADK for Python 2.12.0 or later that run outside Google Cloud, such as on Amazon Web Services (AWS) or Microsoft Azure. The agent exports its traces and logs to your Google Cloud project and authenticates with Workload Identity Federation. For details, see [Agent Anomaly Detection: Safeguarding Agents Across Any Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/audit/agent-anomalies-other-clouds) .
+The following feature was added to Agent Anomaly Detection (Preview) on **November 12, 2026** : support for agents built with ADK for Python 2.12.0 or later that run outside Google Cloud, such as on Amazon Web Services (AWS) or Microsoft Azure. The agent exports its traces and logs to your Google Cloud project and authenticates with Workload Identity Federation. For details, see [Agent Anomaly Detection: Safeguarding agents across other clouds](https://docs.cloud.google.com/gemini-enterprise-agent-platform/audit/agent-anomalies-other-clouds) .
 
 The following feature was added to Agent Anomaly Detection (Preview) on **November 2, 2026** : support for automatic agent enrollment, which automatically enables monitoring for eligible agents discovered in your project.
 
@@ -55,7 +55,7 @@ To balance assessment coverage and cost, Agent Anomaly Detection uses a multi-la
 
 Agent Anomaly Detection is available for agents meeting the following criteria. Agents that meet the criteria are automatically recognized as **monitored agents** by Agent Anomaly Detection (the service is aware of the agent's existence, but nothing is run on the agent's logs and no costs are incurred unless the agent is enabled). Monitored agents can be **enabled** for active anomaly analysis either automatically upon discovery (when automatic agent enrollment is enabled on the regional `AgentAnomalyDetectionScope` ) or manually per agent in the Google Cloud console or through the API.
 
-- **Compatible runtime** : Deployed on Agent Runtime (Reasoning Engine), Cloud Run ( `CLOUD_RUN_SERVICE` ), Google Kubernetes Engine ( `GKE_WORKLOAD` ), or another cloud platform such as Amazon Web Services (AWS) or Microsoft Azure ( `AGENT_TYPE_OTHER` ). For agents on other cloud platforms, see [Agent Anomaly Detection: Safeguarding Agents Across Any Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/audit/agent-anomalies-other-clouds) .
+- **Compatible runtime** : Deployed on Agent Runtime (Reasoning Engine), Cloud Run ( `CLOUD_RUN_SERVICE` ), Google Kubernetes Engine ( `GKE_WORKLOAD` ), or another cloud platform such as Amazon Web Services (AWS) or Microsoft Azure ( `AGENT_TYPE_OTHER` ). For agents on other cloud platforms, see [Agent Anomaly Detection: Safeguarding agents across other clouds](https://docs.cloud.google.com/gemini-enterprise-agent-platform/audit/agent-anomalies-other-clouds) .
 - **ADK version** : Built using ADK for Python, version 2.1.0 or later (2.12.0 or later for agents outside Google Cloud).
 - **Logging and observability buckets** : Both buckets must be in the same location as your Agent Anomaly Detection scope (such as the US or EU multi-region). For a scope in the US multi-region, they can also be in the `global` location (such as the default `_Default` logging bucket). For a scope in the EU multi-region, use a logging bucket in the `eu` location.
 - **Telemetry capture** : OpenTelemetry tracing and logging are enabled using the ADK. Agents outside Google Cloud must export spans and logs through the Telemetry API ( `telemetry.googleapis.com` ).
@@ -83,3 +83,5 @@ To opt-in to try Agent Anomaly Detection, complete this form: [Agent Anomaly Det
 ## Use Agent Anomaly Detection
 
 If you're already opted in to use Agent Anomaly Detection, see [Agent Anomaly Detection](https://docs.cloud.google.com/gemini-enterprise-agent-platform/audit/agent-anomalies) for usage instructions.
+
+For a hands-on walkthrough that deploys a sample agent, enables Agent Anomaly Detection, and produces a first anomaly finding, see the blog post [Securing Your Agents: A Hands-On Guide to Agent Anomaly Detection](https://developers.googleblog.com/securing-your-agents-a-hands-on-guide-to-agent-anomaly-detection/) and its [companion notebook](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/agents/agent_engine/tutorial_agent_anomaly_detection.ipynb) .

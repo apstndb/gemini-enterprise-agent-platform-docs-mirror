@@ -763,7 +763,7 @@ The following behavior is different from `gemini-3.8-flash` and earlier Gemini 3
 - The default `thinking_level` is `HIGH` (changed from `MEDIUM` on `gemini-3.8-flash` ), and `XHIGH` is supported for deep reasoning tasks (leave context-compaction headroom for `HIGH` and `XHIGH` reasoning traces in multi-turn coding harnesses, or set `MEDIUM` on latency-sensitive turns). `thinking_budget` and `thinking_level="MINIMAL"` return an HTTP `400` error.
 - Explicit context caching ( `cached_content` ) isn't supported. Implicit caching applies automatically at a 4,096-token minimum (reduced from 6,144 tokens on `gemini-3.8-flash` ), with durable caching enabled by default.
 - Microsoft Office ( `.docx` , `.dotx` , `.doc` , `.pptx` , `.ppt` , `.xlsx` , `.xls` ) and OpenDocument ( `.odt` , `.odp` , `.ods` ) files are supported inline or by Cloud Storage URI ( `gs://` ), including inside [multimodal `FunctionResponse` parts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling#mm-fr) .
-- Parallel function-calling turns enforce strict `thought_signature` placement (only the first `functionCall` part in a parallel turn carries `thought_signature` ; omitting it in the active turn or duplicating it onto subsequent sibling `functionCall` parts returns an HTTP `400` error), and same-model prompt-prefix edits fail with HTTP `400` by default unless `prefix_mismatch_behavior="DROP"` is set in `ThinkingConfig` . Preserve `thought_signature` parts across all previous turns as well (both `functionCall` and final `text` parts) to maintain reasoning quality and avoid `MALFORMED_FUNCTION_CALL` finish reasons.
+- Parallel function-calling turns enforce strict `thought_signature` placement (only the first `functionCall` part in a parallel turn carries `thought_signature` ; omitting it in the active turn or duplicating it onto subsequent sibling `functionCall` parts returns an HTTP `400` error). Preserve `thought_signature` parts across all previous turns as well (both `functionCall` and final `text` parts) to maintain reasoning quality and avoid `MALFORMED_FUNCTION_CALL` finish reasons.
 - Every token the model processes is billed, including internal tool system instructions and function declarations when using grounding.
 
 For a side-by-side comparison, see [Migrate from Gemini 3 models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/get-started-with-gemini-4#migrate) .
@@ -786,7 +786,6 @@ For a side-by-side comparison, see [Migrate from Gemini 3 models](https://docs.c
 -            thinking_budget=16384, # Returns HTTP 400 instead of mapping silently
 -            thinking_level="MINIMAL", # MINIMAL unsupported on Gemini 4 Hydrogen
 +            thinking_level="HIGH", # Valid: "LOW", "MEDIUM", "HIGH" (default), "XHIGH"
-+            # prefix_mismatch_behavior="DROP", # Optional: set if compacting or editing prior history
          ),
      ),
  )
@@ -798,7 +797,7 @@ To migrate from `gemini-3.8-flash` or earlier Gemini 3 Flash models, do the foll
 2.  **Upgrade to the latest Google Gen AI SDK and account for the unified input and output token limit** : Upgrade to `google-genai >= 2.34.0` (Python), `@google/genai >= 2.32.0` (JavaScript/TypeScript), Go `>= 1.77.0` , or Java `>= 1.80.0` for Interactions API automatic continuation (or `>= 2.30.1` Python / `>= 2.29.1` JavaScript on `GenerateContent` ). Input and output tokens (including thinking and function calls) share the unified 1,048,576-token limit. For outputs exceeding 65,536 tokens (up to 1,048,576 tokens) on the Interactions API or `GenerateContent` , set `max_output_tokens` greater than 65,536 so the Google Gen AI SDK continues automatically across segments (or use `background=true` or a custom `continuation_token` loop).
 3.  **Update `thinking_level` configuration** : Replace `thinking_budget` and `MINIMAL` with `thinking_level` set to `LOW` , `MEDIUM` , `HIGH` (default on `gemini-4-hydrogen` ), or `XHIGH` (use lowercase `"low"` , `"medium"` , `"high"` , or `"xhigh"` on the Interactions API). If your workload relied on `MEDIUM` as the default on `gemini-3.8-flash` , explicitly set `thinking_level="MEDIUM"` to keep equivalent reasoning latency.
 4.  **Remove explicit caching** and front-load static prompt content (4,096 tokens or more) for automatic implicit caching.
-5.  **Verify multi-turn and parallel `thought_signature` preservation and prefix compaction** : Preserve `thought_signature` across all previous turns (both `functionCall` and final `text` parts) rather than stripping signatures between turns, keep `thought_signature` only on the first `functionCall` part of a parallel tool-calling turn, and set `prefix_mismatch_behavior="DROP"` in `ThinkingConfig` if your application modifies or compacts earlier turns in multi-turn chat history.
+5.  **Verify multi-turn and parallel `thought_signature` preservation** : Preserve `thought_signature` across all previous turns (both `functionCall` and final `text` parts) rather than stripping signatures between turns, and keep `thought_signature` only on the first `functionCall` part of a parallel tool-calling turn.
 6.  **Remove parameters that have no effect or aren't supported** : Remove ignored and rejected generation fields as follows:
     - Remove `temperature` , `top_p` , and `top_k` , which are ignored.
     - Remove `frequency_penalty` , `presence_penalty` , and any `candidate_count` value greater than `1` .
@@ -816,7 +815,7 @@ Budget for a unified 1,048,576-token input and output limit and a 65,536-token s
 
 Use `thinking_level` ( `HIGH` by default on `gemini-4-hydrogen` ; valid values: `LOW` , `MEDIUM` , `HIGH` , `XHIGH` on `GenerateContent` , or `low` , `medium` , `high` , `xhigh` on the Interactions API). Remove `thinking_budget` and `MINIMAL` .
 
-Preserve `thought_signature` across all previous turns (both `functionCall` and final `text` parts), keep it only on the first `functionCall` part in parallel tool calls, and set `prefix_mismatch_behavior="DROP"` if your harness edits or compacts prior conversation turns.
+Preserve `thought_signature` across all previous turns (both `functionCall` and final `text` parts) and keep it only on the first `functionCall` part in parallel tool calls.
 
 Remove `frequency_penalty` , `presence_penalty` , `candidate_count` (values greater than `1` ), `temperature` , `top_p` , and `top_k` .
 

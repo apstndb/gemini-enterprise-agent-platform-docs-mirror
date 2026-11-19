@@ -74,7 +74,7 @@ This training pipeline encapsulates a custom job with an added convenience step 
 
 There are two different ways to set the location for your model artifacts:
 
-- If you set a [`baseOutputDirectory`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#FIELDS.base_output_directory) for your training job, make sure your training code saves your model artifacts to that location, using the [`$AIP_MODEL_DIR` environment variable](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/code-requirements#environment-variables) set by Agent Platform. After the training job is completed, Agent Platform searches for the resulting model artifacts in `gs:// `` BASE_OUTPUT_DIRECTORY `` /model` .
+- If you set a [`baseOutputDirectory`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#FIELDS.base_output_directory) for your training job, make sure your training code saves your model artifacts to that location, using the [`$AIP_MODEL_DIR` environment variable](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/code-requirements#environment-variables) set by Agent Platform. After the training job is completed, Agent Platform searches for the resulting model artifacts in `gs:// `` BASE_OUTPUT_DIRECTORY `` /model` .
 
   > **Note** : If you're using the Agent Platform SDK for Python, you can omit the `base_output_dir` attribute. In this case, Gemini Enterprise Agent Platform outputs your model artifacts to a timestamped directory in the staging directory. For details, see:
   >
@@ -84,7 +84,7 @@ There are two different ways to set the location for your model artifacts:
   >
   > - [`CustomPythonPackageTrainingJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.CustomPythonPackageTrainingJob#google_cloud_aiplatform_CustomPythonPackageTrainingJob_run)
 
-- If you set the [`modelToUpload.artifactUri` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models#Model.FIELDS.artifact_uri) , the training pipeline uploads the model artifacts from that URI. You must set this field if you didn't set [`baseOutputDirectory`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#FIELDS.base_output_directory) .
+- If you set the [`modelToUpload.artifactUri` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models#Model.FIELDS.artifact_uri) , the training pipeline uploads the model artifacts from that URI. You must set this field if you didn't set [`baseOutputDirectory`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#FIELDS.base_output_directory) .
 
 If you specify both `baseOutputDirectory` and `modelToUpload.artifactUri` , Agent Platform uses `modelToUpload.artifactUri` .
 
@@ -126,7 +126,7 @@ To create this type of training pipeline:
 
     3.  In the **Model output directory** field, specify the Cloud Storage URI of a directory in a bucket that you have access to. The directory does not need to exist yet.
 
-        This value gets passed to Agent Platform in the [`baseOutputDirectory` API field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#FIELDS.base_output_directory) , which sets [several environment variables that your training application can access when it runs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/code-requirements#environment-variables) .
+        This value gets passed to Agent Platform in the [`baseOutputDirectory` API field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#FIELDS.base_output_directory) , which sets [several environment variables that your training application can access when it runs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/code-requirements#environment-variables) .
 
         At the end of training, Agent Platform looks for [model artifacts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/exporting-model-artifacts) in a subdirectory of this URI in order to create a `Model` . (This subdirectory is available to your training code as the `AIP_MODEL_DIR` environment variable.)
 
@@ -735,9 +735,9 @@ This training pipeline encapsulates a hyperparameter tuning job with an added co
 
 1.  The training pipeline creates a *hyperparameter tuning job* resource. The hyperparameter tuning job creates multiple trials. For each trial, a custom job runs your training application using the computing resources and hyperparameters that you specify.
 
-2.  After the hyperparameter tuning job completes, the training pipeline finds the model artifacts from the best trial, within the output directory ( [`baseOutputDirectory`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#FIELDS.base_output_directory) ) you specified for your Cloud Storage bucket. The training pipeline uses these artifacts to create a *model* resource, which sets you up for [model deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api) .
+2.  After the hyperparameter tuning job completes, the training pipeline finds the model artifacts from the best trial, within the output directory ( [`baseOutputDirectory`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#FIELDS.base_output_directory) ) you specified for your Cloud Storage bucket. The training pipeline uses these artifacts to create a *model* resource, which sets you up for [model deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api) .
 
-For this training pipeline, you must specify a [`baseOutputDirectory`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#FIELDS.base_output_directory) where Agent Platform searches for the model artifacts from the best trial.
+For this training pipeline, you must specify a [`baseOutputDirectory`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#FIELDS.base_output_directory) where Agent Platform searches for the model artifacts from the best trial.
 
 [Hyperparameter tuning jobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-hyperparameter-tuning) have additional settings to configure. Learn more about the settings for a [`HyperparameterTuningJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.hyperparameterTuningJobs) .
 

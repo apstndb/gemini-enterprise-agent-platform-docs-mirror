@@ -14,7 +14,7 @@ This document describes the fields of the Agent Platform API that you must speci
 
 ## Where to specify container settings
 
-Specify configuration details within a [`WorkerPoolSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#workerpoolspec) . Depending on how you perform serverless training, put this `WorkerPoolSpec` in one of the following API fields:
+Specify configuration details within a [`WorkerPoolSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#WorkerPoolSpec) . Depending on how you perform serverless training, put this `WorkerPoolSpec` in one of the following API fields:
 
 - **If you are creating a [`CustomJob` resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.customJobs) ,** specify the `WorkerPoolSpec` in `CustomJob.jobSpec.workerPoolSpecs` .
 
@@ -42,13 +42,13 @@ Depending on whether you are using a prebuilt container or a custom container, y
 
 ### Prebuilt container
 
-1.  Select a [prebuilt container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/pre-built-containers) that supports the ML framework you plan to use for training. Specify one of the container image's URIs in the [`pythonPackageSpec.executorImageUri` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#PythonPackageSpec.FIELDS.executor_image_uri) .
+1.  Select a [prebuilt container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/pre-built-containers) that supports the ML framework you plan to use for training. Specify one of the container image's URIs in the [`pythonPackageSpec.executorImageUri` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#PythonPackageSpec.FIELDS.executor_image_uri) .
 
-2.  Specify the Cloud Storage URIs of your [Python training application](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-python-pre-built-container) in the [`pythonPackageSpec.packageUris` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#PythonPackageSpec.FIELDS.package_uris) .
+2.  Specify the Cloud Storage URIs of your [Python training application](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-python-pre-built-container) in the [`pythonPackageSpec.packageUris` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#PythonPackageSpec.FIELDS.package_uris) .
 
-3.  Specify your training application's entry point module in the [`pythonPackageSpec.pythonModule` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#PythonPackageSpec.FIELDS.python_module) .
+3.  Specify your training application's entry point module in the [`pythonPackageSpec.pythonModule` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#PythonPackageSpec.FIELDS.python_module) .
 
-4.  Optionally, specify a list of command-line arguments to pass to your training application's entry point module in the [`pythonPackageSpec.args` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#PythonPackageSpec.FIELDS.args) .
+4.  Optionally, specify a list of command-line arguments to pass to your training application's entry point module in the [`pythonPackageSpec.args` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#PythonPackageSpec.FIELDS.args) .
 
 The following examples highlight where you specify these container settings when you create a `CustomJob` :
 
@@ -78,9 +78,9 @@ For more context, read the [guide to creating a `CustomJob`](https://docs.cloud.
 
 ### Custom container
 
-1.  Specify the Artifact Registry or Docker Hub URI of your [custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-container) in the [`containerSpec.imageUri` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#ContainerSpec.FIELDS.image_uri) .
+1.  Specify the Artifact Registry or Docker Hub URI of your [custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-container) in the [`containerSpec.imageUri` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ContainerSpec#FIELDS.image_uri) .
 
-2.  Optionally, if you want to override the [`ENTRYPOINT`](https://docs.docker.com/engine/reference/builder/#entrypoint) or [`CMD`](https://docs.docker.com/engine/reference/builder/#cmd) instructions in your container, specify the [`containerSpec.command` or `containerSpec.args` fields](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#containerspec) . These fields affect how your container runs according to the following rules:
+2.  Optionally, if you want to override the [`ENTRYPOINT`](https://docs.docker.com/engine/reference/builder/#entrypoint) or [`CMD`](https://docs.docker.com/engine/reference/builder/#cmd) instructions in your container, specify the [`containerSpec.command` or `containerSpec.args` fields](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ContainerSpec) . These fields affect how your container runs according to the following rules:
 
     - **If you specify neither field:** Your container runs according to its `ENTRYPOINT` instruction and `CMD` instruction (if it exists). Refer to the [Docker documentation about how `CMD` and `ENTRYPOINT` interact](https://docs.docker.com/engine/reference/builder/#understand-how-cmd-and-entrypoint-interact) .
 

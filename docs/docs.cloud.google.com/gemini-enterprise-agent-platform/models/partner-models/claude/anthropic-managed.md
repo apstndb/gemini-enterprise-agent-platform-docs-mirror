@@ -94,6 +94,8 @@ The following table compares the support level for various API features for both
 
 > **Note:** To use Claude models on Google Cloud (Anthropic managed), you must have a Claude Platform account.
 
+> **Note:** To maintain overall service performance and acceptable use, availability of Claude models on Google Cloud (Anthropic managed) and the Claude Console might vary by account and, in some cases, access might be restricted.
+
 To get started with Claude models on Google Cloud (Anthropic managed), follow these steps to enable Claude models on Google Cloud (Anthropic managed) for your project:
 
 1.  In the Google Cloud console, go to the **Claude models** page:

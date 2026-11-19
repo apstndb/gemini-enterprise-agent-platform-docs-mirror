@@ -22,7 +22,7 @@ For sample code that shows you how to use [`AutoMLForecastingTrainingJob`](https
 
 ### [`AutoMLTabularTrainingJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.AutoMLTabularTrainingJob)
 
-The [`AutoMLTabularTrainingJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.AutoMLTabularTrainingJob) class represents a job that creates, trains, and returns an `AutoML` tabular model. For more information about training tabular models and Gemini Enterprise Agent Platform, see [Tabular data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training-overview#tabular_data) and [Tabular data overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/overview) .
+The [`AutoMLTabularTrainingJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.AutoMLTabularTrainingJob) class represents a job that creates, trains, and returns an `AutoML` tabular model. For more information about training tabular models and Gemini Enterprise Agent Platform, see [Tabular data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training-overview#automl-models) and [Tabular data overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/overview) .
 
 The following sample code snippet shows how you might use the Agent Platform SDK to create and run an `AutoML` tabular model:
 
@@ -69,7 +69,7 @@ The Agent Platform SDK includes the following classes to train unstructured imag
 
 ### [`AutoMLImageTrainingJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.AutoMLImageTrainingJob)
 
-Use the [`AutoMLImageTrainingJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.AutoMLImageTrainingJob) class to create, train, and return an image model. For more information about working with image data models in Gemini Enterprise Agent Platform, see [Image data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training-overview#image_data) .
+Use the [`AutoMLImageTrainingJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.AutoMLImageTrainingJob) class to create, train, and return an image model. For more information about working with image data models in Gemini Enterprise Agent Platform, see [Image data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training-overview#automl-models) .
 
 For an example of how to use the [`AutoMLImageTrainingJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.AutoMLImageTrainingJob) class, see the tutorial in the [AutoML image classification](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/migration/sdk-automl-text-classification-batch-prediction.ipynb) notebook.
 

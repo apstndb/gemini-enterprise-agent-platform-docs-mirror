@@ -71,14 +71,16 @@ You can set a policy for Model Garden by using the Google Cloud console or the G
 
 ### Partner model features
 
-For partner models, you can allow or deny the following actions:
+For partner models, you can control access to the following features:
 
 - `web_search` : Specifies whether users can use web search for partner models. For projects that belong to an organization, this feature is denied by default and must be explicitly allowed.
 - `structured_outputs` : Specifies whether users can use structured outputs for partner models. For projects that belong to an organization, this feature is denied by default and must be explicitly allowed.
 
 #### Set a policy for partner model features
 
-You can allow or deny `web_search` and `structured_outputs` for partner models by using the `vertexai.allowedPartnerModelFeatures` constraint.
+You can allow `web_search` and `structured_outputs` for partner models by using the `vertexai.allowedPartnerModelFeatures` constraint. Because partner model features are denied by default, this constraint supports only `allowedValues` , `allowAll` , and `denyAll` rules, and doesn't support `deniedValues` lists. To set or update an organization policy, you must have the Organization Policy Administrator role ( `roles/orgpolicy.policyAdmin` ).
+
+When `vertexai.allowedPartnerModelFeatures` disallows a feature, only requests that invoke that feature fail and return an `HTTP 400 FAILED_PRECONDITION` error. Standard inference requests that don't invoke the feature aren't affected, and projects that don't belong to an organization aren't affected.
 
 ## Example policies
 
@@ -121,10 +123,11 @@ spec:
 To enable the `web_search` feature for partner models, you can specify the following:
 
 - All features for all models from a specific publisher, for example: `publishers/anthropic`
+- The `web_search` feature for all models from a specific publisher, for example: `publishers/anthropic:web_search`
 - All features for a specific model, for example: `publishers/anthropic/models/ `` MODEL_NAME`
 - The `web_search` feature for a specific model, for example: `publishers/anthropic/models/ `` MODEL_NAME `` :web_search`
 
-The following example enables `web_search` for all models from Anthropic:
+The following example shows the supported formats for `allowedValues` . Include only the minimum level of access that you want to grant:
 
 ```
 name: organizations/ORGANIZATION_ID/policies/vertexai.allowedPartnerModelFeatures
@@ -134,9 +137,11 @@ spec:
       allowedValues:
       # Allow all features of this publisher
       - publishers/anthropic
+      # Allow web_search across all models of this publisher
+      - publishers/anthropic:web_search
       # Allow all features of this model
       - publishers/anthropic/models/MODEL_NAME
-      # Allow this feature
+      # Allow web_search for this specific model
       - publishers/anthropic/models/MODEL_NAME:web_search
 ```
 
@@ -145,10 +150,11 @@ spec:
 To enable the `structured_outputs` feature for partner models, you can specify the following:
 
 - All features for all models from a specific publisher, for example: `publishers/anthropic`
+- The `structured_outputs` feature for all models from a specific publisher, for example: `publishers/anthropic:structured_outputs`
 - All features for a specific model, for example: `publishers/anthropic/models/ `` MODEL_NAME`
 - The `structured_outputs` feature for a specific model, for example: `publishers/anthropic/models/ `` MODEL_NAME `` :structured_outputs`
 
-The following example enables `structured_outputs` for all models from Anthropic:
+The following example shows the supported formats for `allowedValues` . Include only the minimum level of access that you want to grant:
 
 ```
 name: organizations/ORGANIZATION_ID/policies/vertexai.allowedPartnerModelFeatures
@@ -158,9 +164,11 @@ spec:
       allowedValues:
       # Allow all features of this publisher
       - publishers/anthropic
+      # Allow structured_outputs across all models of this publisher
+      - publishers/anthropic:structured_outputs
       # Allow all features of this model
       - publishers/anthropic/models/MODEL_NAME
-      # Allow this feature
+      # Allow structured_outputs for this specific model
       - publishers/anthropic/models/MODEL_NAME:structured_outputs
 ```
 

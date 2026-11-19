@@ -18,7 +18,7 @@ Google Cloud offers a pipeline for training a Prophet model and a pipeline for g
 
 Integration of Prophet with Agent Platform means that you can do the following:
 
-- Use Agent Platform [data splitting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/prepare-data#split) and [windowing strategies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/train-model#forecast-window) .
+- Use Agent Platform [data splitting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/data-splits#forecasting) and [windowing strategies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/train-model#forecast-window) .
 - Read data from either BigQuery tables or CSVs stored in Cloud Storage. Agent Platform expects each row to have the same format as [Agent Platform Forecasting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/prepare-data) .
 
 Although Prophet is a multivariate model, Agent Platform supports only a univariate version of it.

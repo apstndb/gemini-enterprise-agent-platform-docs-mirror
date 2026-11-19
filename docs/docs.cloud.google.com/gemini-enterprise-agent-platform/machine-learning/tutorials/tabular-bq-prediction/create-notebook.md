@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 In this tutorial, you use the Agent Platform SDK in a [Jupyter](https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html) notebook to get predictions by using a Gemini Enterprise Agent Platform Workbench instance.
 
-This section shows you how to create a Jupyter notebook in a Agent Platform Workbench instance. Agent Platform Workbench instances are Jupyter notebook-based development environments for the entire data science workflow. Agent Platform Workbench instances are prepackaged with JupyterLab and have a preinstalled suite of deep learning packages, including support for the TensorFlow and PyTorch frameworks. For more information, see [Introduction to Agent Platform Workbench instances](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/introduction) .
+This section shows you how to create a Jupyter notebook in a Agent Platform Workbench instance. Agent Platform Workbench instances are Jupyter notebook-based development environments for the entire data science workflow. Agent Platform Workbench instances are prepackaged with JupyterLab and have a preinstalled suite of deep learning packages, including support for the TensorFlow and PyTorch frameworks. For more information, see [Introduction to Agent Platform Workbench instances](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/introduction) .
 
 After you create a notebook in Agent Platform Workbench, you run sequential portions of Python code to do most of the work to generate your predictions.
 

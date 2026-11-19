@@ -29,7 +29,7 @@ In addition, when using reservations with Agent Platform Workbench instances, th
   - In the same project as your Agent Platform Workbench instance.
   - Shared with the same project as your Agent Platform Workbench instance.
 
-- A reservation's VM properties must match exactly with your Agent Platform Workbench instance to consume the reservation. For example, if a reservation specifies an `e2-standard-8` machine type, then the Agent Platform Workbench instance can only consume the reservation if it also uses an `e2-standard-8` machine type. See [Requirements](https://docs.cloud.google.com/compute/docs/instances/reservations-overview#requirements%22) .
+- A reservation's VM properties must match exactly with your Agent Platform Workbench instance to consume the reservation. For example, if a reservation specifies an `e2-standard-8` machine type, then the Agent Platform Workbench instance can only consume the reservation if it also uses an `e2-standard-8` machine type. See [Requirements](https://docs.cloud.google.com/compute/docs/instances/reservations-overview#requirements) .
 
 ## Before you begin
 

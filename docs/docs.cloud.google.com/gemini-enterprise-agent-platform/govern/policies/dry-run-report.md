@@ -243,7 +243,7 @@ After you confirm that only unauthorized or unsafe requests appear in the dry-ru
 
 3.  **Model Armor content security** : On your Model Armor template, update `template_metadata.enforcement_type` from `"INSPECT_ONLY"` to `"INSPECT_AND_BLOCK"` . For instructions, see [Configure Model Armor on a gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/configure-model-armor) .
 
-4.  **VPC Service Controls service perimeters** : Enforce your dry-run perimeter configuration by following the instructions in [Manage dry-run configurations](https://docs.cloud.google.com/vpc-service-controls/docs/manage-dry-run-configurations#enforce) .
+4.  **VPC Service Controls service perimeters** : Enforce your dry-run perimeter configuration by following the instructions in [Manage dry-run configurations](https://docs.cloud.google.com/vpc-service-controls/docs/manage-dry-run-configurations#enforce-configuration) .
 
 ## What's next
 

@@ -40,5 +40,5 @@ To view metrics for your endpoint in Metrics Explorer, do the following:
 
 - Learn how to [View and customize Google Cloud dashboards](https://docs.cloud.google.com/monitoring/charts/predefined-dashboards) .
 - Learn how to [Create and manage custom dashboards](https://docs.cloud.google.com/monitoring/charts/dashboards) .
-- Learn more about the [Metrics Explorer](https://docs.cloud.google.com/monitoring/charts/metrics-selector#basic-advanced-mode) .
+- Learn more about the [Metrics Explorer](https://docs.cloud.google.com/monitoring/charts/metrics-selector) .
 - Learn more about [logs-based metrics](https://docs.cloud.google.com/stackdriver/docs/solutions/slo-monitoring/sli-metrics/logs-based-metrics) .

@@ -24,7 +24,7 @@ When you create a serverless training job that mounts an NFS share, you must spe
 
 - The name of the network for Gemini Enterprise Agent Platform to access. The way that you specify the network name differs depending on the type of serverless training job. For details, see [Perform serverless training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-private-ip#perform-serverless-training) .
 
-- Your NFS configuration in the [WorkerPoolSpec field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#workerpoolspec) . Include the following fields:
+- Your NFS configuration in the [WorkerPoolSpec field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#WorkerPoolSpec) . Include the following fields:
 
   | Field                  | Description                                                                                                                                                                                          |
   |------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -168,4 +168,4 @@ Replace the following:
 
   To secure your data, set permissions on your NFS share. If you are using Filestore, see [access control](https://docs.cloud.google.com/filestore/docs/access-control) in the Filestore documentation.
 
-- You can't run two training jobs that mount NFS shares from different VPC networks at the same time. This is due to the [network peering restriction](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-private-ip#run_jobs_on_different_networks) .
+- You can't run two training jobs that mount NFS shares from different VPC networks at the same time. This is due to the [network peering restriction](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-private-ip#run-jobs-networks) .

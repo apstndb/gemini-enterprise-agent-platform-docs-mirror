@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 >
 > [Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/open-models/fine-tuning/get_started_with_oss_tuning_on_vertexai.ipynb) \| [Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fopen-models%2Ffine-tuning%2Fget_started_with_oss_tuning_on_vertexai.ipynb) \| [Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fopen-models%2Ffine-tuning%2Fget_started_with_oss_tuning_on_vertexai.ipynb) \| [View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/open-models/fine-tuning/get_started_with_oss_tuning_on_vertexai.ipynb)
 
-This page describes how to perform [supervised and distillation fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models) on open models such as Llama 3.1. Unless stated otherwise, the instructions on this page apply to both supervised fine-tuning and distillation fine-tuning. Distillation lets you tune a smaller student model using the outputs of a larger teacher model.
+This page describes how to perform [supervised and distillation fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning) on open models such as Llama 3.1. Unless stated otherwise, the instructions on this page apply to both supervised fine-tuning and distillation fine-tuning. Distillation lets you tune a smaller student model using the outputs of a larger teacher model.
 
 ## Supported tuning modes
 

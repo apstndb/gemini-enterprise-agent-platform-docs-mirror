@@ -8,13 +8,14 @@ data_source: docs.cloud.google.com
 
 Batch predictions let you send a large number of multimodal prompts in a single batch request.
 
-For more information about the batch workflow and how to format your input data, see [Batch inference with Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-prediction-gemini) .
+For more information about the batch workflow and how to format your input data, see [Batch inference with Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference) .
 
 ## Supported models
 
 #### Click to expand supported models
 
 - [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1)
+- [Gemini 4 Neon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon)
 - [Gemini 4 Hydrogen](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen)
 - [Gemini 4 Carbon for cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon#cyber)
 - [Gemini 4 Carbon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon)
@@ -98,8 +99,8 @@ See [examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/re
 
 Batch requests for multimodal models accept Cloud Storage storage and BigQuery storage sources. To learn more, see the following:
 
-- [Cloud Storage input format details](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-prediction-from-cloud-storage#prepare)
-- [BigQuery input format details](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-prediction-from-bigquery#prepare)
+- [Cloud Storage input format details](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference/new-job-from-cloud-storage#prepare)
+- [BigQuery input format details](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference/new-job-from-bigquery#prepare)
 
 Depending on the number of input items that you submitted, a batch generation task can take some time to complete.
 
@@ -341,7 +342,7 @@ client = genai.Client(http_options=HttpOptions(api_version="v1"))
 job = client.batches.create(
     # To use a tuned model, set the model param to your tuned model using the following format:
     # model="projects/{PROJECT_ID}/locations/{LOCATION}/models/{MODEL_ID}
-    model="gemini-3.5-flash",
+    model="gemini-3.8-flash",
     # Source link: https://storage.cloud.google.com/cloud-samples-data/batch/prompt_for_batch_gemini_predict.jsonl
     src="gs://cloud-samples-data/batch/prompt_for_batch_gemini_predict.jsonl",
     config=CreateBatchJobConfig(dest=output_uri),
@@ -388,7 +389,7 @@ client = genai.Client(http_options=HttpOptions(api_version="v1"))
 job = client.batches.create(
     # To use a tuned model, set the model param to your tuned model using the following format:
     # model="projects/{PROJECT_ID}/locations/{LOCATION}/models/{MODEL_ID}
-    model="gemini-3.5-flash",
+    model="gemini-3.8-flash",
     src="bq://storage-samples.generative_ai.batch_requests_for_multimodal_input",
     config=CreateBatchJobConfig(dest=output_uri),
 )
@@ -948,5 +949,5 @@ When a batch prediction task completes, the output is stored in the Cloud Storag
 
 ## What's next
 
-- Learn how to tune a Gemini model in [Overview of model tuning for Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models) .
-- Learn more about how to [Batch inference with Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-prediction-gemini) .
+- Learn how to tune a Gemini model in [Overview of model tuning for Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning) .
+- Learn more about how to [Batch inference with Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference) .

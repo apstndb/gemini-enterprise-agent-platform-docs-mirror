@@ -222,7 +222,7 @@ You should receive a response similar to the following:
 }
 ```
 
-See [`projects.timeSeries.list`](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list#ListTimeSeriesResponse) for more details on the response format.
+See [`projects.timeSeries.list`](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list#body.response_body) for more details on the response format.
 
 ## Create custom metrics for an agent
 
@@ -431,7 +431,7 @@ The following steps demonstrate how to create and use a user-defined metric ( `t
       }
       ```
 
-      > **Note:** Each combination of the label values forms a time-series, which needs to be reported individually in the `projects.timeSeries.create` request. This step needs to be performed periodically from your code. The count `value` is non-decreasing until reset to zero upon application restart. See `CUMULATIVE` metrics at [`TimeInterval`](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.snoozes#timeinterval) for the specific requirement on the `startTime` and `endTime` .
+      > **Note:** Each combination of the label values forms a time-series, which needs to be reported individually in the `projects.timeSeries.create` request. This step needs to be performed periodically from your code. The count `value` is non-decreasing until reset to zero upon application restart. See `CUMULATIVE` metrics at [`TimeInterval`](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.snoozes#TimeInterval) for the specific requirement on the `startTime` and `endTime` .
 
 3.  Once the data points are uploaded through the Cloud Monitoring API, you can view the new metric `token_count` through the Google Cloud console:
 

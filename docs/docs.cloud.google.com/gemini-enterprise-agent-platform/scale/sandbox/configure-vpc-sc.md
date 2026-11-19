@@ -173,11 +173,11 @@ To restrict which destinations the sandbox may reach as its traffic transits you
 
 #### Set up for private-only egress
 
-If the sandbox only needs private services in your VPC or on-premises, make sure your VPC has a route to the destination, allow it with an egress firewall rule from the PSC subnet ( `10.0.0.0/28` ), and [resolve the service name through DNS peering](https://docs.cloud.google.com/dns/docs/zones/zones-overview#peering-zones) .
+If the sandbox only needs private services in your VPC or on-premises, make sure your VPC has a route to the destination, allow it with an egress firewall rule from the PSC subnet ( `10.0.0.0/28` ), and [resolve the service name through DNS peering](https://docs.cloud.google.com/dns/docs/zones/zones-overview#peering_zones) .
 
 ### Set up DNS peering
 
-Give the sandbox name resolution through your VPC instead of public resolvers (this also blocks DNS-tunnel exfiltration). Create a Cloud DNS private zone in your VPC with the records the sandbox needs, then configure [DNS peering](https://docs.cloud.google.com/dns/docs/zones/zones-overview#peering-zones) so the sandbox resolves names from that zone.
+Give the sandbox name resolution through your VPC instead of public resolvers (this also blocks DNS-tunnel exfiltration). Create a Cloud DNS private zone in your VPC with the records the sandbox needs, then configure [DNS peering](https://docs.cloud.google.com/dns/docs/zones/zones-overview#peering_zones) so the sandbox resolves names from that zone.
 
 ### Grant the service agent access (Shared VPC)
 

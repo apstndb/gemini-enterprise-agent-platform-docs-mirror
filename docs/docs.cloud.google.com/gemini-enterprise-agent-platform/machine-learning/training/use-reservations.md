@@ -82,10 +82,17 @@ Use the REST API to create a serverless training job that consumes a Compute Eng
 When you submit a custom training job that specifies a `reservationAffinity` configuration, Agent Platform validates your reservation configuration before queuing the job:
 
 - **For `ANY_RESERVATION`** :
+
   - At least one automatically consumed reservation must exist in your job's region and be shared with Agent Platform (and shared with your project, if the reservation is in a different host project).
+
   - The `key` and `values` fields in `reservationAffinity` must be omitted or empty.
+
+  When using `ANY_RESERVATION` , the regional scheduler might select a zone outside of your reservation. If this occurs, the job may fail with the error "Resources are insufficient" even if you have unused capacity in another zone. To ensure that Agent Platform deterministically uses your specific reservation, apply a strict handshake. Recreate your Compute Engine reservation with the `--require-specific-reservation` flag (and if applicable `--reservation-sharing-policy=ALLOW_ALL` ), and set your Agent Platform pipeline's `reservationAffinityType` to `SPECIFIC_RESERVATION` .
+
 - **For `SPECIFIC_RESERVATION`** :
+
   - The `key` field must be set to `compute.googleapis.com/reservation-name` , and the `values` field must specify a single existing reservation in a zone within the job's region.
+
   - The specified reservation must be configured for specific targeting (not automatic consumption) and must be shared with Agent Platform (and with your project, if the reservation is in a different host project).
 
 If any of these validation checks fail, the API immediately rejects the request with an `INVALID_ARGUMENT` error. Upfront validation doesn't verify machine type compatibility or available reservation capacity at the time of job submission.

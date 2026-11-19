@@ -56,7 +56,7 @@ curl -X POST \
 
 ### Python (OpenAI SDK)
 
-Install the `openai` and `google-auth` libraries ( `pip install --upgrade openai google-auth` ), set up [Application Default Credentials](https://docs.cloud.google.com/docs/authentication/provide-credentials-adc#local-dev) ( `gcloud auth application-default login` ), and then send a request:
+Install the `openai` and `google-auth` libraries ( `pip install --upgrade openai google-auth` ), set up [Application Default Credentials](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) ( `gcloud auth application-default login` ), and then send a request:
 
 ```python
 import google.auth

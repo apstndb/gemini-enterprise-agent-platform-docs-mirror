@@ -284,7 +284,7 @@ Under these conditions, the workload tries to connect to the IP within its own n
 
 **Solution**
 
-Craft your workload to return its local namespace IP addresses and confirm that this doesn't conflict with any routes you are exporting over the peering connection. If there is a conflict, pass a list of [`reservedIpRanges[]`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec) in the job parameters that don't overlap with any ranges in your VPC network. The job uses these ranges for the workload's internal IP addresses.
+Craft your workload to return its local namespace IP addresses and confirm that this doesn't conflict with any routes you are exporting over the peering connection. If there is a conflict, pass a list of [`reservedIpRanges[]`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec) in the job parameters that don't overlap with any ranges in your VPC network. The job uses these ranges for the workload's internal IP addresses.
 
 ### `RANGES_EXHAUSTED` , `RANGES_NOT_RESERVED`
 
@@ -630,7 +630,7 @@ If you encounter a permission error when accessing another Google Cloud service 
 
 **Solution**
 
-See "Performance optimization guidelines" in [Use Cloud Storage as a mounted file system](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/cloud-storage-file-system#performance_optimization_guidelines) .
+See "Performance optimization guidelines" in [Use Cloud Storage as a mounted file system](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/cloud-storage-file-system#perf-guidelines) .
 
 #### `pip install` fails when using KFP with VPC Service Controls
 
@@ -644,7 +644,7 @@ ModuleNotFoundError: No module named MODULE_NAME. WARNING: Retrying (Retry(total
 
 **Solution**
 
-The VPC Service Controls service perimeter blocks access from Agent Platform to third-party APIs and services on the internet. To install the packages, use [packageUris](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#pythonpackagespec) to install the dependencies from Cloud Storage buckets. For a general discussion of using this technique, see "Use custom containers" in [VPC Service Controls with Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls#custom-containers) .
+The VPC Service Controls service perimeter blocks access from Agent Platform to third-party APIs and services on the internet. To install the packages, use [packageUris](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#PythonPackageSpec.FIELDS.package_uris) to install the dependencies from Cloud Storage buckets. For a general discussion of using this technique, see "Use custom containers" in [VPC Service Controls with Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls#use-custom-containers) .
 
 #### Internal error
 

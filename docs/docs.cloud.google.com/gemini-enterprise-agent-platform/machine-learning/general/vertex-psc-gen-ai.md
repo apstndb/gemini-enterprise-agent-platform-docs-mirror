@@ -10,7 +10,7 @@ On-premises hosts can reach Agent Platform either through the public internet or
 
 In this tutorial, you use [High-Availability VPN (HA VPN)](https://docs.cloud.google.com/network-connectivity/docs/vpn/concepts/overview#ha-vpn) to access Agent Platform both publicly, through Cloud NAT; and privately, between two Virtual Private Cloud (VPC) networks that can serve as a basis for multi-cloud and on-premises private connectivity.
 
-This tutorial is intended for enterprise network administrators, data scientists, and researchers who are familiar with Gemini Enterprise Agent Platform, VPC, the Google Cloud console, and the [Cloud Shell](https://docs.cloud.google.com/shell/docs/how-cloud-shell-works) . Familiarity with [Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/overview) is helpful but not required.
+This tutorial is intended for enterprise network administrators, data scientists, and researchers who are familiar with Gemini Enterprise Agent Platform, VPC, the Google Cloud console, and the [Cloud Shell](https://docs.cloud.google.com/shell/docs/how-cloud-shell-works) . Familiarity with [Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models) is helpful but not required.
 
 ![Architectural diagram of using Private Service Connect to access Agent Platform.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/images/vertex-psc-gen-ai1.png)
 

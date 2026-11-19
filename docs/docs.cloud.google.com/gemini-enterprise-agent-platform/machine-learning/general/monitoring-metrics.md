@@ -85,7 +85,7 @@ Resource usage metrics can help you track your model's CPU usage, memory usage, 
 
 ## Vertex AI Feature Store (Legacy) monitoring metrics
 
-After you [build a feature store using Vertex AI Feature Store (Legacy)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore#vaifs_legacy) , you can monitor its performance and resource utilization, such as the online storage serving latencies or the number of online storage nodes. For example, you might want to monitor the changes to the online storage serving metrics after updating the number of online storage nodes of a featurestore.
+After you [build a feature store using Vertex AI Feature Store (Legacy)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore#vaifs) , you can monitor its performance and resource utilization, such as the online storage serving latencies or the number of online storage nodes. For example, you might want to monitor the changes to the online storage serving metrics after updating the number of online storage nodes of a featurestore.
 
 In Cloud Monitoring, the monitored resource type for a featurestore is [`aiplatform.googleapis.com/Featurestore`](https://docs.cloud.google.com/monitoring/api/resources#tag_aiplatform.googleapis.com/Featurestore) .
 
@@ -100,8 +100,8 @@ In Cloud Monitoring, the monitored resource type for a featurestore is [`aiplatf
 - **Errors percentage** : The percentage of errors that your featurestore produces when handling online serving or streaming ingestion requests.
 - **CPU utilization** : The fraction of CPU allocated by the featurestore that's being utilized by the online storage. This number can exceed 100% if the online serving storage is overloaded. Consider increasing the featurestore's number of online serving nodes to reduce CPU utilization.
 - **CPU utilization - hottest node** : The CPU load for the hottest node in the featurestore's online storage.
-- **Total offline storage** : Amount of data stored in the featurestore's [offline storage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/overview#offline_store) .
-- **Total online storage** : Amount of data stored in the featurestore's [online storage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/overview#online_store) .
+- **Total offline storage** : Amount of data stored in the featurestore's [offline storage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/overview#offline_serving_for_batch_predictions_or_model_training) .
+- **Total online storage** : Amount of data stored in the featurestore's [online storage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/overview#online_serving) .
 - **Online serving throughput** : In MBps, the throughput for online serving requests.
 
 ### View featurestore monitoring metric charts

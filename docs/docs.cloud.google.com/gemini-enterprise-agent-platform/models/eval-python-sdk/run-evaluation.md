@@ -249,7 +249,7 @@ eval_result = eval_task.evaluate(
 
 ## Evaluate a translation model
 
-To evaluate your translation model, you can specify [BLEU](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/determine-eval#text-gen) , [MetricX](https://github.com/google-research/metricx) , or [COMET](https://huggingface.co/Unbabel/wmt22-comet-da) as evaluation metrics when using the Agent Platform SDK.
+To evaluate your translation model, you can specify [BLEU](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/determine-eval#computation-metrics) , [MetricX](https://github.com/google-research/metricx) , or [COMET](https://huggingface.co/Unbabel/wmt22-comet-da) as evaluation metrics when using the Agent Platform SDK.
 
 ```
 #Prepare the dataset for evaluation.
@@ -291,7 +291,7 @@ eval_result = eval_task.evaluate()
 
 ## Run evaluation with computation-based metrics
 
-You can use [computation-based metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/determine-eval#computation-based-metrics) standalone, or together with model-based metrics.
+You can use [computation-based metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/determine-eval#computation-metrics) standalone, or together with model-based metrics.
 
 ```
 # Combine computation-based metrics "ROUGE" and "BLEU" with model-based metrics

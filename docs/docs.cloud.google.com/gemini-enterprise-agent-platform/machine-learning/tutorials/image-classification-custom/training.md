@@ -82,7 +82,7 @@ This section describes using the training package that you uploaded to Cloud Sto
 
         Confirm that field has the value `gs:// `` BUCKET_NAME `` /output` , where ` BUCKET_NAME ` is the name of your Cloud Storage bucket.
 
-        This value gets passed to Agent Platform in the [`baseOutputDirectory` API field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#FIELDS.base_output_directory) , which sets several environment variables that your training application can access when it runs.
+        This value gets passed to Agent Platform in the [`baseOutputDirectory` API field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#FIELDS.base_output_directory) , which sets several environment variables that your training application can access when it runs.
 
         For example, when you set this field to `gs:// `` BUCKET_NAME `` /output` , Agent Platform sets the `AIP_MODEL_DIR` environment variable to `gs:// `` BUCKET_NAME `` /output/model` . At the end of training, Agent Platform uses any artifacts in the `AIP_MODEL_DIR` directory to create a model resource.
 

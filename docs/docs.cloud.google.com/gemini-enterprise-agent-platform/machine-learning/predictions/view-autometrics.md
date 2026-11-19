@@ -58,4 +58,4 @@ For easier filtering and grouping, AI AutoMetrics automatically attaches the fol
 
 ## What's next
 
-- Learn more about the [Metrics Explorer](https://docs.cloud.google.com/monitoring/charts/metrics-selector#basic-advanced-mode) .
+- Learn more about the [Metrics Explorer](https://docs.cloud.google.com/monitoring/charts/metrics-selector) .

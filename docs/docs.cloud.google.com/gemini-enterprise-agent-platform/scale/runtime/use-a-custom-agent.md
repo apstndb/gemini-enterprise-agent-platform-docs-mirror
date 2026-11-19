@@ -303,6 +303,36 @@ Agent Platform streams responses as a sequence of iteratively generated objects.
 {'output': 'The exchange rate is 11.0117 SEK per USD as of 2024-12-03.'}  # final response
 ```
 
+#### Handle streaming errors
+
+If an error occurs before streaming starts, `:streamQuery` returns a standard non- `200` HTTP error response.
+
+Once Agent Platform begins streaming chunks, the HTTP `200 OK` response header is already sent and can't change. If an error occurs mid-stream, Agent Platform writes a final JSON error chunk (a terminal error frame) to the stream and closes it.
+
+The fields in the terminal error frame depend on the source of the failure:
+
+- **Unhandled agent exceptions or downstream errors** (such as rate limits) include `code` , `message` , `errorCode` , and `errorMessage` :
+
+  ```
+  {
+    "code": 429,
+    "message": "429 RESOURCE_EXHAUSTED...",
+    "errorCode": "429",
+    "errorMessage": "429 RESOURCE_EXHAUSTED..."
+  }
+  ```
+
+- **Unauthorized outbound (egress) requests** include `errorCode` (set to a canonical status string) and `errorMessage` :
+
+  ```
+  {
+    "errorCode": "PERMISSION_DENIED",
+    "errorMessage": "Egress request is not authorized."
+  }
+  ```
+
+If you call `:streamQuery` directly over HTTP (for example, with `requests` or `curl` ), inspect each parsed chunk for `errorCode` and `errorMessage` (or `code` and `message` on older deployments) instead of relying only on the HTTP status code. For transient errors such as `429` or `503` , retry the request with exponential backoff.
+
 ### Asynchronously query the agent
 
 If you defined an `async_query` operation when [creating the agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-a-custom-agent#async-query) , there is support for client-side async querying of the agent in the Agent Platform SDK for Python:
@@ -349,7 +379,7 @@ The `async_stream_query` operation calls the same [`streamQuery` endpoint](https
 {'output': 'The exchange rate is 11.0117 SEK per USD as of 2024-12-03.'}  # final response
 ```
 
-The responses should be the same as those generated during [local testing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-a-custom-agent#test-async-stream-query) .
+The responses should be the same as those generated during [local testing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-a-custom-agent#test-async-stream-query) . For mid-stream error handling, see [Handle streaming errors](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-a-custom-agent#handle-streaming-errors) .
 
 ## Long-running query jobs
 

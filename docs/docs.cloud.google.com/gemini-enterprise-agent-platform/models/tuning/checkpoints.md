@@ -80,6 +80,7 @@ from google.genai.types import (
     Metric,
     OutputConfig,
     TuningDataset,
+    TuningValidationDataset,
 )
 
 # TODO(developer): Update and un-comment below line
@@ -90,16 +91,13 @@ client = genai.Client(http_options=HttpOptions(api_version="v1beta1"))
 training_dataset = TuningDataset(
     gcs_uri="gs://cloud-samples-data/ai-platform/generative_ai/gemini/text/sft_train_data.jsonl",
 )
-validation_dataset = TuningDataset(
+validation_dataset = TuningValidationDataset(
     gcs_uri="gs://cloud-samples-data/ai-platform/generative_ai/gemini/text/sft_validation_data.jsonl",
 )
 
 evaluation_config = EvaluationConfig(
     metrics=[
-        Metric(
-            name="FLUENCY",
-            prompt_template="""Evaluate this {prediction}"""
-        )
+        Metric(name="FLUENCY", prompt_template="""Evaluate this {prediction}""")
     ],
     output_config=OutputConfig(
         gcs_destination=GcsDestination(
@@ -120,10 +118,12 @@ tuning_job = client.tunings.tune(
     ),
 )
 
-running_states = set([
-    "JOB_STATE_PENDING",
-    "JOB_STATE_RUNNING",
-])
+running_states = set(
+    [
+        "JOB_STATE_PENDING",
+        "JOB_STATE_RUNNING",
+    ]
+)
 
 while tuning_job.state in running_states:
     print(tuning_job.state)

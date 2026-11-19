@@ -63,4 +63,4 @@ For pricing purposes, the number of tokens for each tuning example is calculated
 ## What's next
 
 - Prepare a [preference tuning dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/preference-tuning/prepare-data) .
-- [Learn about deploying a tuned Gemini model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/overview#deploy_a_tuned_model) .
+- [Learn about deploying a tuned Gemini model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/overview#deploy-a-tuned-model) .

@@ -22,7 +22,7 @@ You can use a prebuilt container if your model meets the following requirements:
 
 - Trained in Python 3.7 or later
 - Trained using TensorFlow, PyTorch, scikit-learn, or XGBoost
-- Exported to meet [framework-specific requirements for one of the prebuilt inference containers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/exporting-model-artifacts#framework-specific_requirements)
+- Exported to meet [framework-specific requirements for one of the prebuilt inference containers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/exporting-model-artifacts#framework-requirements)
 
 If you are importing a tabular AutoML model that you previously [exported](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/export/export-model-tabular) , you must use a specific custom container provided by Agent Platform.
 

@@ -28,6 +28,10 @@ The name of the \`Model\` used for generating the interaction.
 
 Possible values:
 
+- `gemini-4-neon`
+
+  Google's model built for high-performance coding, multi-step reasoning, and multimodal understanding at low latency across agentic workflows.
+
 - `gemini-4-hydrogen`
 
   Google's model built for speed and efficiency across everyday coding and agentic workflows, multimodal analysis, and tool use.
@@ -681,6 +685,10 @@ model ModelOption (optional)
 The name of the \`Model\` used for generating the interaction.
 
 Possible values:
+
+- `gemini-4-neon`
+
+  Google's model built for high-performance coding, multi-step reasoning, and multimodal understanding at low latency across agentic workflows.
 
 - `gemini-4-hydrogen`
 

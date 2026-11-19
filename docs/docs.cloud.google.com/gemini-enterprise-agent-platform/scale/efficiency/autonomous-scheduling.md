@@ -6,10 +6,6 @@ description: Optimize your agentic workflows using the Gemini Enterprise Agent P
 data_source: docs.cloud.google.com
 ---
 
-> **Preview**
->
-> This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-
 When deploying multi-step agentic workflows (such as large-scale document synthesis and long-running research), running background agents on real-time models can create unnecessary infrastructure pressure and trigger resource exhaustion (429) errors.
 
 Gemini Enterprise Agent Platform offers a *deferred tier* , a throughput-optimized scheduler designed specifically for latency-tolerant workloads. Instead of treating long-running autonomous tasks with the same immediate urgency as a live chat query, the scheduler queues your complex multi-step agent workflows to off-peak hours to target high success rates and overall throughput.
@@ -36,11 +32,314 @@ The deferred tier is a good fit for use cases that can tolerate hours of turnaro
 
 ## Supported agents
 
-You can configure autonomous agent scheduling for the [Deep Research Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/use-deep-research) .
+You can configure autonomous agent scheduling for the following agents. Select an agent to jump to its setup instructions:
+
+- [Agent Development Kit (ADK) agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/efficiency/autonomous-scheduling#schedule-adk-agent)
+- [Gemini Deep Research Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/efficiency/autonomous-scheduling#schedule-deep-research)
 
 To run custom or third-party agent loops directly on Gemini models, see [Use the Deferred tier](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deferred-tier) .
 
-## Create a deferred task
+## Schedule an ADK agent
+
+In [ADK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/adk) , you set the `service_tier` parameter on `RunConfig` per invocation instead of configuring a fixed tier on the agent or model. Setting `service_tier=ServiceTier.DEFERRED` queues each model call in an off-peak capacity pool, whereas the default `ServiceTier.STANDARD` runs synchronously. This per-run setting lets one agent definition serve both interactive requests and offline batch workflows.
+
+When you send a deferred request for an ADK agent, ADK automates background submission, polling, and retrieval for you:
+
+1.  ADK submits the model request with background execution enabled, and the backend returns an interaction ID with `queued` or `in_progress` status.
+2.  While the interaction remains pending, ADK polls the backend with exponential backoff.
+3.  When the interaction reaches a final status, ADK converts the completed interaction into standard model response events that you consume through the runner interface.
+
+This section covers the following tasks for scheduling ADK agents:
+
+- [Review requirements and limitations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/efficiency/autonomous-scheduling#adk-limitations) before enabling the deferred tier.
+- [Run an ADK agent on the deferred tier](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/efficiency/autonomous-scheduling#run-adk-deferred) using `RunConfig(service_tier=ServiceTier.DEFERRED)` .
+- [Deploy deferred ADK agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/efficiency/autonomous-scheduling#deploy-adk-deferred) on Agent Runtime, Cloud Run, or Google Kubernetes Engine (GKE).
+- [Enforce a client deadline](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/efficiency/autonomous-scheduling#adk-client-deadline) to bound client-side wait time.
+
+For more information about `ServiceTier` configuration in ADK, see [Deferred scheduling](https://adk.dev/agents/models/google-gemini/deferred-schedule/) in the ADK documentation.
+
+### Limitations for ADK agents
+
+Consider the following requirements and limitations when scheduling ADK agents on the deferred tier:
+
+- **Requires the Interactions API** : Serving tiers apply only to models configured for the [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) , such as `Gemini(use_interactions_api=True)` . Standard content generation models and `ManagedAgent` ignore `service_tier` .
+- **Incompatible with token streaming** : Deferred execution can't be combined with `StreamingMode.SSE` in `RunConfig` . When calling `/run_sse` , omit `streaming` or set `"streaming": false` . Passing `"streaming": true` with `"service_tier": "deferred"` returns HTTP `422 Unprocessable Entity` .
+- **HTTP connection limits** : On `adk api_server` , `/run` and `/run_sse` hold the HTTP connection open during the queue wait. If a proxy or platform timeout closes the connection (such as Cloud Run's 60-minute limit), client polling stops. The backend interaction still runs to completion and incurs charges.
+- **Per-turn queue latency** : In multi-turn or tool-calling workflows, each model turn submits a separate interaction request. Every turn incurs its own off-peak queue wait.
+- **No in-flight resumption across restarts** : ADK doesn't persist in-flight interaction IDs in session storage or reattach to disconnected interactions. Stopping a client process abandons the pending poll loop, and a subsequent invocation starts a new interaction.
+
+### Run an ADK agent on the deferred tier
+
+To schedule an ADK agent on the deferred tier, configure your Gemini model with `use_interactions_api=True` and pass `RunConfig(service_tier=ServiceTier.DEFERRED)` when invoking the runner:
+
+```
+import asyncio
+
+from google.adk.agents import LlmAgent
+from google.adk.agents import RunConfig
+from google.adk.apps import App
+from google.adk.models import ServiceTier
+from google.adk.models.google_llm import Gemini
+from google.adk.runners import InMemoryRunner
+from google.genai import types
+
+root_agent = LlmAgent(
+    name="batch_agent",
+    model=Gemini(
+        model="gemini-3.5-flash",
+        use_interactions_api=True,
+        client_kwargs={
+            "enterprise": True,
+            "project": "PROJECT_ID",
+            "location": "global",
+        },
+    ),
+    instruction="Process input documents and produce summaries.",
+)
+
+app = App(
+    name="batch_app",
+    root_agent=root_agent,
+)
+
+runner = InMemoryRunner(app=app)
+
+
+async def main() -> None:
+  session = await runner.session_service.create_session(
+      app_name=app.name,
+      user_id="user_123",
+      session_id="session_456",
+  )
+
+  run_config = RunConfig(service_tier=ServiceTier.DEFERRED)
+
+  async for event in runner.run_async(
+      user_id="user_123",
+      session_id=session.id,
+      new_message=types.Content(
+          role="user",
+          parts=[
+              types.Part.from_text(
+                  text="Summarize quarterly performance metrics."
+              )
+          ],
+      ),
+      run_config=run_config,
+  ):
+    if event.content and event.content.parts:
+      for part in event.content.parts:
+        if part.text:
+          print(part.text)
+
+
+asyncio.run(main())
+```
+
+Replace `PROJECT_ID` with your Google Cloud project ID.
+
+While the interaction status is `queued` or `in_progress` , `runner.run_async()` yields no events until the interaction completes. Verify that the deferred tier is active by checking for the following messages in your application logs:
+
+- At `INFO` level, the interactions transport logs `Interaction `` INTERACTION_ID `` is queued; waiting for the result.` and `Interaction `` INTERACTION_ID `` reached status completed.` When debug logging is enabled, the request processor also logs `Using service_tier from run_config: ServiceTier.DEFERRED` .
+- If `use_interactions_api=True` isn't set on the model, ADK ignores `service_tier` , proceeds with standard generation, and logs a warning that the model doesn't use the Interactions API.
+
+### Deploy deferred ADK agents
+
+You configure `service_tier` per request rather than on the agent definition, so one ADK agent package ( `use_interactions_api=True` ) can serve both real-time and deferred workloads. You can deploy this package to Agent Runtime, Cloud Run, or GKE.
+
+The following table compares the deployment options for deferred ADK workloads:
+
+| Deployment option                                                                                             | When to use                                                                                                                                                    | Execution model                                   | Maximum timeout                             | How to request the deferred tier                                                                   |
+|---------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------|---------------------------------------------|----------------------------------------------------------------------------------------------------|
+| [Agent Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent) | Asynchronous background jobs where Agent Platform manages sessions, runs without keeping an HTTP connection open, and writes results directly to Cloud Storage | Managed background job ( `run_query_job` )        | 168 hours (7 days; 24 hours per model turn) | `"run_config": {"service_tier": "deferred"}` inside `input`                                        |
+| [Cloud Run service](https://docs.cloud.google.com/run/docs/deploying)                                         | Serverless HTTPS endpoints that serve both interactive requests and deferred workloads completing within 60 minutes                                            | Serverless HTTP or SSE ( `adk deploy cloud_run` ) | 60 minutes (3,600 seconds)                  | `"service_tier": "deferred"` in the `/run` or `/run_sse` (with `"streaming": false` ) request body |
+| [Cloud Run job](https://docs.cloud.google.com/run/docs/create-jobs)                                           | Serverless batch workloads without an HTTP connection that might wait longer than 60 minutes (up to 24 hours per model turn)                                   | Serverless batch container ( `gcloud run jobs` )  | 168 hours (7 days)                          | `RunConfig(service_tier=ServiceTier.DEFERRED)`                                                     |
+| [GKE](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/kubernetes-engine-overview)               | Kubernetes workloads requiring custom networking, pod lifecycle control, or no serverless request timeout limits                                               | Kubernetes pods ( `adk deploy gke` )              | Unlimited (pod and ingress configured)      | `"service_tier": "deferred"` in the `/run` or `/run_sse` (with `"streaming": false` ) request body |
+
+If your model uses the `global` endpoint while your deployment runs in a regional endpoint (such as `us-central1` ), pass `client_kwargs={"location": "global"}` to `Gemini(...)` . Make sure your runtime service account has the Agent Platform User ( `roles/aiplatform.user` ) role on your project.
+
+Select a deployment target to view configuration instructions:
+
+### Agent Runtime
+
+When deploying your agent to [Agent Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent) , set `agent_framework="google-adk"` and include `google-adk>=2.10.0` in `requirements` . Grant the Reasoning Engine service agent ( `service- `` PROJECT_NUMBER `` @gcp-sa-aiplatform-re.iam.gserviceaccount.com` ) the Storage Object Creator ( `roles/storage.objectCreator` ) role on the output bucket.
+
+To submit an asynchronous deferred [long-running query job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-adk-agent#start-long-running-query-job) , call `client.runtimes.run_query_job()` and pass `"run_config": {"service_tier": "deferred"}` inside `input` :
+
+```
+import json
+import agentplatform
+
+client = agentplatform.Client(
+    project="PROJECT_ID",
+    location="LOCATION",
+)
+
+job = client.runtimes.run_query_job(
+    name=(
+        "projects/PROJECT_ID"
+        "/locations/LOCATION"
+        "/reasoningEngines/RESOURCE_ID"
+    ),
+    config={
+        "query": json.dumps({
+            "class_method": "async_stream_query",
+            "input": {
+                "user_id": "USER_ID",
+                "session_id": "SESSION_ID",
+                "message": "Summarize quarterly performance metrics.",
+                "run_config": {"service_tier": "deferred"},
+            },
+        }),
+        "output_gcs_uri": (
+            "gs://BUCKET_NAME"
+            "/OUTPUT_FILE.jsonl"
+        ),
+    },
+)
+```
+
+Replace the following:
+
+- `PROJECT_ID` : your Google Cloud project ID.
+- `LOCATION` : the supported region where your agent is deployed, such as `us-central1` .
+- `RESOURCE_ID` : the numeric ID of your deployed `reasoningEngine` resource.
+- `USER_ID` and `SESSION_ID` : the user and session identifiers for the invocation.
+- `BUCKET_NAME` and `OUTPUT_FILE` : the Cloud Storage bucket and object prefix where Agent Runtime writes streamed events as newline-delimited JSON ( `application/x-ndjson` , one JSON object per line).
+
+> **Caution:** On Agent Runtime, place `service_tier` inside `input.run_config` ( `"run_config": {"service_tier": "deferred"}` ). Placing `service_tier` at the top level of the job payload is ignored and runs on the `standard` tier.
+
+### Cloud Run
+
+Configure either a Cloud Run service or a Cloud Run job based on expected queue duration:
+
+- **Cloud Run service ( `adk deploy cloud_run` )** : Deploys `adk api_server` behind an HTTPS endpoint ( `/run` and `/run_sse` ). Pass `-- --timeout=3600` when deploying so Cloud Run doesn't close the HTTP connection after the default 5-minute timeout:
+
+  ```
+  adk deploy cloud_run \
+    --project=PROJECT_ID \
+    --region=LOCATION \
+    --service_name=SERVICE_NAME \
+    AGENT_DIR \
+    -- --no-allow-unauthenticated --timeout=3600
+  ```
+
+  Replace the following:
+
+  - `PROJECT_ID` : your Google Cloud project ID.
+  - `LOCATION` : the Cloud Run region, such as `us-central1` .
+  - `SERVICE_NAME` : your Cloud Run service name.
+  - `AGENT_DIR` : the path to your agent source directory.
+
+  Before calling `/run` or `/run_sse` , create a session with `POST /apps/ `` APP_NAME `` /users/ `` USER_ID `` /sessions` , where `APP_NAME` defaults to your agent directory name. To request deferred execution, include `"service_tier": "deferred"` as a top-level field in the JSON request body. When calling `/run_sse` , omit `streaming` or set `"streaming": false` (passing `"streaming": true` returns HTTP `422 Unprocessable Entity` ):
+
+  ```
+  {
+    "app_name": "batch_app",
+    "user_id": "user_123",
+    "session_id": "session_456",
+    "new_message": {
+      "role": "user",
+      "parts": [{"text": "Summarize batch results."}]
+    },
+    "service_tier": "deferred",
+    "streaming": false
+  }
+  ```
+
+- **Cloud Run job ( `gcloud run jobs deploy` )** : Runs a container to completion without an HTTP request lifecycle and supports `--task-timeout` up to 168 hours (7 days). Pass `RunConfig(service_tier=ServiceTier.DEFERRED)` to `runner.run_async()` in your job entrypoint and deploy with `--task-timeout=86400s` (24 hours).
+
+### GKE
+
+Package and deploy your ADK agent to a GKE cluster using `adk deploy gke` :
+
+```
+adk deploy gke \
+  --project=PROJECT_ID \
+  --region=LOCATION \
+  --cluster_name=CLUSTER_NAME \
+  --service_name=SERVICE_NAME \
+  AGENT_DIR
+```
+
+Replace the following:
+
+- `PROJECT_ID` : your Google Cloud project ID.
+- `LOCATION` : the region of your regional GKE cluster, such as `us-central1` .
+- `CLUSTER_NAME` : the name of your GKE cluster.
+- `SERVICE_NAME` : the Kubernetes service name for your agent.
+- `AGENT_DIR` : the path to your agent source directory.
+
+Before calling `/run` or `/run_sse` , create a session with `POST /apps/ `` APP_NAME `` /users/ `` USER_ID `` /sessions` , where `APP_NAME` defaults to your agent directory name. To request deferred execution, include `"service_tier": "deferred"` as a top-level field in the JSON request body. When calling `/run_sse` , omit `streaming` or set `"streaming": false` (passing `"streaming": true` returns HTTP `422 Unprocessable Entity` ):
+
+```
+{
+  "app_name": "batch_app",
+  "user_id": "user_123",
+  "session_id": "session_456",
+  "new_message": {
+    "role": "user",
+    "parts": [{"text": "Summarize batch results."}]
+  },
+  "service_tier": "deferred",
+  "streaming": false
+}
+```
+
+Requests to `/run` and `/run_sse` hold the HTTP connection open during the queue wait and model execution. Increase your GKE ingress and load balancer backend timeouts to accommodate expected queue delays. If the client connection closes or times out, the server cancels local polling. The backend interaction still runs and incurs charges without returning an output.
+
+### Enforce a client deadline
+
+ADK doesn't apply a client-side timeout to the queue wait, relying instead on the backend's 24-hour completion timeout. To bound total elapsed wait time in your application, wrap `runner.run_async()` in `asyncio.timeout()` :
+
+```
+import asyncio
+import logging
+
+from google.adk.agents import RunConfig
+from google.adk.models import ServiceTier
+from google.genai import types
+
+logger = logging.getLogger(__name__)
+
+
+# Continues from the earlier example using existing runner and session objects:
+async def run_with_deadline(runner, session) -> None:
+  message = types.Content(
+      role="user",
+      parts=[
+          types.Part.from_text(text="Generate quarterly financial summary.")
+      ],
+  )
+  run_config = RunConfig(service_tier=ServiceTier.DEFERRED)
+
+  try:
+    async with asyncio.timeout(300):
+      async for event in runner.run_async(
+          user_id="user_123",
+          session_id=session.id,
+          new_message=message,
+          run_config=run_config,
+      ):
+        if event.content and event.content.parts:
+          for part in event.content.parts:
+            if part.text:
+              print(part.text)
+  except TimeoutError:
+    logger.error(
+        "Client timeout exceeded after 300 seconds. The deferred interaction"
+        " continues to run and incur billing on the backend, so its output"
+        " cannot be retrieved."
+    )
+```
+
+Enforcing a client timeout stops the client-side polling loop at the next sleep interval, but doesn't cancel work on the backend. Even after a client timeout, the interaction continues running to completion and incurring charges on the server.
+
+## Schedule the Gemini Deep Research Agent
+
+Use the [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) to create, monitor, cancel, and retrieve results from a deferred Deep Research task.
+
+### Create a deferred task
 
 The following example shows how to [start a Deep Research task](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/use-deep-research#start-research-task) using the deferred tier with `client.interactions.create()` :
 
@@ -71,20 +370,22 @@ print(f"Status:         {interaction.status}")
 print(f"Service tier:   {interaction.service_tier}")
 ```
 
-The method returns immediately with `status="in_progress"` and `service_tier="deferred"` .
+Replace `PROJECT_ID` with your Google Cloud project ID.
 
-## Monitor task progress
+The method returns immediately with `status="queued"` or `status="in_progress"` and `service_tier="deferred"` .
 
-While awaiting off-peak capacity and actively running, the interaction `status` remains `in_progress` . As the agent executes planning, search, and analysis steps, new items append to the `steps` list.
+### Monitor task progress
+
+While awaiting off-peak capacity and actively running, the interaction `status` is `queued` or `in_progress` . As the agent executes planning, search, and analysis steps, new items append to the `steps` list.
 
 You can track the task status programmatically by polling the interaction periodically or streaming updates.
 
 ### Polling
 
-Poll the interaction periodically (such as every 15–30 seconds) until the interaction reaches one of the terminal states: `completed` , `failed` , or `cancelled` .
+Poll the interaction periodically (such as every 15–30 seconds) until the interaction reaches one of the terminal states: `completed` , `failed` , `cancelled` , or `incomplete` .
 
 ```
-TERMINAL_STATES = ("completed", "failed", "cancelled")
+TERMINAL_STATES = ("completed", "failed", "cancelled", "incomplete")
 POLL_INTERVAL_SECONDS = 15
 TIMEOUT_MINUTES = 60
 
@@ -111,9 +412,9 @@ print(f"\nFinished in {int(time.time() - started)}s with status={current.status}
 
 ### Streaming
 
-You can stream updates in real time once the interaction enters `in_progress` status by setting `stream=True` alongside `background=True` and `store=True` . The stream pushes events such as intermediate thoughts, text deltas, and status updates as they occur.
+You can subscribe to real-time updates by calling `client.interactions.get()` with `stream=True` . Once the interaction enters `in_progress` status, the stream pushes events such as intermediate thoughts, text deltas, and status updates as they occur.
 
-If the connection drops while the task is still `in_progress` , you can reconnect to the stream using `client.interactions.get()` with `stream=True` and pass the last received event ID to `last_event_id` . If you omit `last_event_id` , the API replays every event from the beginning.
+If the connection drops while the task is still `queued` or `in_progress` , reconnect to the stream using `client.interactions.get()` with `stream=True` and pass the last received event ID to `last_event_id` . If you omit `last_event_id` , the API replays every event from the beginning.
 
 ```
 INTERACTION_ID = interaction.id  # from the create step
@@ -173,10 +474,9 @@ for attempt in range(MAX_RECONNECTS):
   if finished:
     break
   # The server also closes the stream when the run ends, without an error.
-  if (
-      client.interactions.get(INTERACTION_ID, timeout=STREAM_TIMEOUT).status
-      != "in_progress"
-  ):
+  if client.interactions.get(
+      INTERACTION_ID, timeout=STREAM_TIMEOUT
+  ).status not in ("queued", "in_progress"):
     break
 else:
   print(f"\n[gave up after {MAX_RECONNECTS} reconnects]")
@@ -184,28 +484,31 @@ else:
 print(f"\n\nStreamed interaction: {INTERACTION_ID}")
 ```
 
-## Cancel a task
+### Cancel a task
 
 You can cancel a task while its status is `queued` , `in_progress` , or `requires_action` . When you cancel a task, its status transitions to `cancelled` .
 
 To cancel a task, use `client.interactions.cancel()` :
 
 ```
-client.interactions.cancel(INTERACTION_ID)
+client.interactions.cancel(interaction.id)
 ```
 
-## Retrieve the final output and token usage
+### Retrieve the final output and token usage
 
-When the interaction reaches the `completed` state, the full transcript is available in the `steps` list. The final answer is the text content of the last step that produced output.
+When the interaction reaches the `completed` state, the full transcript is available in the `steps` list. The final answer is the text content of the last `model_output` step.
 
 Because the interaction is stored ( `store=True` ), you can fetch the result at any time using the interaction ID from any session:
 
 ```
 def get_final_text(completed_interaction):
-  """Returns the text of the last step that produced output."""
+  """Returns the text of the last model_output step."""
   for step in reversed(getattr(completed_interaction, "steps", None) or []):
+    if getattr(step, "type", None) != "model_output":
+      continue
     text = "".join(
-        part.text for part in (getattr(step, "content", None) or [])
+        part.text
+        for part in (getattr(step, "content", None) or [])
         if getattr(part, "text", None)
     )
     if text:

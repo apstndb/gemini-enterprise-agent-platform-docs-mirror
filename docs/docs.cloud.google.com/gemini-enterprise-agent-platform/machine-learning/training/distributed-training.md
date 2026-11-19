@@ -32,7 +32,7 @@ Each replica in the training cluster is given a single role or task in distribut
 
 You can configure any Gemini Enterprise Agent Platform serverless training job as a distributed training job by defining multiple worker pools. You can also run distributed training within a training pipeline or a hyperparameter tuning job.
 
-To configure a distributed training job, define your list of worker pools ( [`workerPoolSpecs[]`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#FIELDS.worker_pool_specs) ), designating one `WorkerPoolSpec` for each type of task:
+To configure a distributed training job, define your list of worker pools ( [`workerPoolSpecs[]`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#FIELDS.worker_pool_specs) ), designating one `WorkerPoolSpec` for each type of task:
 
 | Position in `workerPoolSpecs[]` | Task performed in cluster              |
 |---------------------------------|----------------------------------------|
@@ -41,7 +41,7 @@ To configure a distributed training job, define your list of worker pools ( [`wo
 | Third ( `workerPoolSpecs[2]` )  | Parameter servers, Reduction Server    |
 | Fourth ( `workerPoolSpecs[3]` ) | Evaluators                             |
 
-You must specify a primary replica, which coordinates the work done by all the other replicas. Use the first worker pool specification only for your primary replica, and set its [`replicaCount`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#WorkerPoolSpec.FIELDS.replica_count) to `1` :
+You must specify a primary replica, which coordinates the work done by all the other replicas. Use the first worker pool specification only for your primary replica, and set its [`replicaCount`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#WorkerPoolSpec.FIELDS.replica_count) to `1` :
 
 ```
 {
@@ -130,7 +130,7 @@ You can use Reduction Server if you meet the following requirements:
 
 To use Reduction Server, do the following when you create a serverless training resource:
 
-1.  Specify one of the following URIs in the [`containerSpec.imageUri` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#ContainerSpec) of the third worker pool ( `workerPoolSpecs[2]` ):
+1.  Specify one of the following URIs in the [`containerSpec.imageUri` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ContainerSpec#FIELDS.image_uri) of the third worker pool ( `workerPoolSpecs[2]` ):
 
     - `us-docker.pkg.dev/vertex-ai-restricted/training/reductionserver:latest`
     - `europe-docker.pkg.dev/vertex-ai-restricted/training/reductionserver:latest`

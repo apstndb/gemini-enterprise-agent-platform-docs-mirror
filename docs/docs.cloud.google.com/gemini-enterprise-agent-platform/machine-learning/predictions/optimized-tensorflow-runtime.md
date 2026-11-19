@@ -374,7 +374,7 @@ XLA precompilation takes between several seconds and several minutes to complete
 
 - If you expect your model to receive requests with different batch sizes, you might want to enable server-side batching with a set of fixed values for `allow_batch_sizes` . For more information about how to enable server-side
 
-  batching, see [Enable server-side request batching for TensorFlow](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/exporting-model-artifacts#enable_server-side_request_batching_for_tensorflow) in the TensorFlow documentation.
+  batching, see [Enable server-side request batching for TensorFlow](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/exporting-model-artifacts#tensorflow-batching) in the TensorFlow documentation.
 
 - Because XLA precompilation adds memory overhead, some large models might fail with an *out of memory* error on the GPU.
 

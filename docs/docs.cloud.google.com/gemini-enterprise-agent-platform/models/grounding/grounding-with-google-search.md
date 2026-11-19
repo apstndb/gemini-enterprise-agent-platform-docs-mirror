@@ -26,6 +26,7 @@ This section lists the models that support grounding with Search.
 
 - [Gemini Robotics ER 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/robotics-er-2) preview
 - [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1)
+- [Gemini 4 Neon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon)
 - [Gemini 4 Hydrogen](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen)
 - [Gemini 4 Carbon for cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon#cyber)
 - [Gemini 4 Carbon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon)
@@ -112,7 +113,7 @@ from google.genai.types import (
 client = genai.Client(http_options=HttpOptions(api_version="v1"))
 
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.8-flash",
     contents="When is the next total solar eclipse in the United States?",
     config=GenerateContentConfig(
         tools=[
@@ -816,6 +817,6 @@ In this example, these three search queries are charged.
 
 ## What's next
 
-- To learn more about grounding, see [Grounding overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/overview) .
+- To learn more about grounding, see [Grounding overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/overview) .
 - Learn how to [send chat prompt requests](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/send-chat-prompts-gemini) .
 - Learn about [responsible AI best practices and Gemini Enterprise Agent Platform safety filters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai) .

@@ -22,6 +22,7 @@ This section lists the models that support grounding with your data.
 
 - [Gemini Robotics ER 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/robotics-er-2) preview
 - [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1)
+- [Gemini 4 Neon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon)
 - [Gemini 4 Hydrogen](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen)
 - [Gemini 4 Carbon for cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon#cyber)
 - [Gemini 4 Carbon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon)
@@ -72,7 +73,7 @@ To use Agent Search to ground your responses, you must activate the Agent Search
 
 2.  Optional: Review the [terms for data use](https://cloud.google.com/retail/data-use-terms) .
 
-AI Applications is available in the `global` location or the `eu` and `us` multi-region. To learn more, see [AI Applications locations](https://docs.cloud.google.com/generative-ai-app-builder/docs/locations#multi-regions) .
+AI Applications is available in the `global` location or the `eu` and `us` multi-region. To learn more, see [AI Applications locations](https://docs.cloud.google.com/generative-ai-app-builder/docs/locations#multi_regions) .
 
 ### Create a data store in AI Applications
 

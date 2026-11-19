@@ -97,7 +97,7 @@ The following instructions describe how to create a `TrainingPipeline` that crea
 
     3.  In the **Model output directory** field, you may specify the Cloud Storage URI of a directory in a bucket that you have access to. The directory does not need to exist yet.
 
-        This value gets passed to Agent Platform in the [`baseOutputDirectory` API field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#FIELDS.base_output_directory) , which sets [several environment variables that your training application can access when it runs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/code-requirements#environment-variables) .
+        This value gets passed to Agent Platform in the [`baseOutputDirectory` API field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#FIELDS.base_output_directory) , which sets [several environment variables that your training application can access when it runs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/code-requirements#environment-variables) .
 
     4.  **Optional** : In the **Arguments** field, you can specify arguments for Agent Platform to use when it starts running your training code. The maximum length for all arguments combined is 100,000 characters. The behavior of these arguments differs depending on what type of container you are using:
 

@@ -33,6 +33,7 @@ The following Gemini models support supervised tuning:
 
 #### Click to expand supported models
 
+- [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
 - [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
 - [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
 - [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
@@ -120,6 +121,7 @@ from google.genai.types import (
     Metric,
     OutputConfig,
     TuningDataset,
+    TuningValidationDataset,
 )
 
 # TODO(developer): Update and un-comment below line
@@ -130,16 +132,13 @@ client = genai.Client(http_options=HttpOptions(api_version="v1beta1"))
 training_dataset = TuningDataset(
     gcs_uri="gs://cloud-samples-data/ai-platform/generative_ai/gemini/text/sft_train_data.jsonl",
 )
-validation_dataset = TuningDataset(
+validation_dataset = TuningValidationDataset(
     gcs_uri="gs://cloud-samples-data/ai-platform/generative_ai/gemini/text/sft_validation_data.jsonl",
 )
 
 evaluation_config = EvaluationConfig(
     metrics=[
-        Metric(
-            name="FLUENCY",
-            prompt_template="""Evaluate this {prediction}"""
-        )
+        Metric(name="FLUENCY", prompt_template="""Evaluate this {prediction}""")
     ],
     output_config=OutputConfig(
         gcs_destination=GcsDestination(
@@ -158,10 +157,12 @@ tuning_job = client.tunings.tune(
     ),
 )
 
-running_states = set([
-    "JOB_STATE_PENDING",
-    "JOB_STATE_RUNNING",
-])
+running_states = set(
+    [
+        "JOB_STATE_PENDING",
+        "JOB_STATE_RUNNING",
+    ]
+)
 
 while tuning_job.state in running_states:
     print(tuning_job.state)
@@ -1540,4 +1541,4 @@ The metrics visualizations are available after the tuning job starts running. It
 
 ## What's next
 
-- Learn about [deploying a tuned Gemini model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/overview#deploy_a_tuned_model) .
+- Learn about [deploying a tuned Gemini model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/overview#deploy-a-tuned-model) .

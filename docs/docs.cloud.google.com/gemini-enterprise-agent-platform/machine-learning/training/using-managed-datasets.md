@@ -197,7 +197,7 @@ Each data item in your exported dataset uses the following format. This example 
 
 ### Tabular datasets
 
-Agent Platform passes tabular data to your training application in CSV format or as a URI to a BigQuery table or view. For more information about the data source format and requirements, see [Preparing your import source](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/overview#tabular_data) . Refer to the dataset in Google Cloud console for more information about the dataset schema.
+Agent Platform passes tabular data to your training application in CSV format or as a URI to a BigQuery table or view. For more information about the data source format and requirements, see [Preparing your import source](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/overview#tabular) . Refer to the dataset in Google Cloud console for more information about the dataset schema.
 
 ### Text datasets
 

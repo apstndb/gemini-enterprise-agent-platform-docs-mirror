@@ -31,6 +31,7 @@ The following table shows you the models that support token listing and token co
 - [Gemini Omni 1.2 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-2-flash)
 - [Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash) preview
 - [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1)
+- [Gemini 4 Neon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon)
 - [Gemini 4 Hydrogen](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen)
 - [Gemini 4 Carbon for cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon#cyber)
 - [Gemini 4 Carbon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon)
@@ -83,7 +84,7 @@ from google.genai.types import HttpOptions
 
 client = genai.Client(http_options=HttpOptions(api_version="v1"))
 response = client.models.compute_tokens(
-    model="gemini-3.5-flash",
+    model="gemini-3.8-flash",
     contents="What's the longest word in the English language?",
 )
 
@@ -343,9 +344,7 @@ client = genai.Client(http_options=HttpOptions(api_version="v1"))
 prompt = "Why is the sky blue?"
 
 # Send text to Gemini
-response = client.models.generate_content(
-    model="gemini-3.5-flash", contents=prompt
-)
+response = client.models.generate_content(model="gemini-3.8-flash", contents=prompt)
 
 # Prompt and response tokens count
 print(response.usage_metadata)

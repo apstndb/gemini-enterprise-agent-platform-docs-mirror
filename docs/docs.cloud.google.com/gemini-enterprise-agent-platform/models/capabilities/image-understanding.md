@@ -84,6 +84,7 @@ The following table lists the models that support image understanding:
 </tr>
 <tr class="even">
 <td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon">Gemini 4 Neon</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen">Gemini 4 Hydrogen</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon#cyber">Gemini 4 Carbon for cyber</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon">Gemini 4 Carbon</a></li>
@@ -415,7 +416,7 @@ from google.genai.types import HttpOptions, Part
 
 client = genai.Client(http_options=HttpOptions(api_version="v1"))
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.8-flash",
     contents=[
         "What is shown in this image?",
         Part.from_uri(
@@ -1115,7 +1116,7 @@ with open("test_data/latte.jpg", "rb") as f:
     local_file_img_bytes = f.read()
 
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.8-flash",
     contents=[
         "Generate a list of all the objects contained in both images.",
         Part.from_uri(file_uri=gcs_file_img_path, mime_type="image/jpeg"),

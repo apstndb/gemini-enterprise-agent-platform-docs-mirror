@@ -10,7 +10,38 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## November 17, 2026
+
+Change
+
+**AlphaGenome available without an allowlist**
+
+AlphaGenome ( `alphagenome-003` and `alphagenome-004` ) no longer requires project allowlisting. Any Google Cloud project can view and deploy AlphaGenome from Model Garden without submitting an access request. For deployment requirements, see [AlphaGenome](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/alphagenome) .
+
 ## November 16, 2026
+
+Feature
+
+**Deferred tier for autonomous agent scheduling is generally available**
+
+Autonomous agent scheduling (the *deferred tier* ) is available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages) and now supports [Agent Development Kit (ADK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/adk) agents ( `google-adk` v2.10.0 and later) in addition to the [Gemini Deep Research Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/use-deep-research) . Pass `ServiceTier.DEFERRED` to `RunConfig` on models configured with `use_interactions_api=True` to queue latency-tolerant agent workloads during off-peak hours with a 50% discount on model inference pricing across Agent Runtime, Cloud Run, and Google Kubernetes Engine (GKE).
+
+For more information, see [Autonomous agent scheduling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/efficiency/autonomous-scheduling) and [Deferred scheduling](https://adk.dev/agents/models/google-gemini/deferred-schedule/) in the ADK documentation.
+
+Feature
+
+**Deferred tier for asynchronous model calls on the Interactions API**
+
+The [Deferred tier](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deferred-tier) ( `service_tier="deferred"` ) is available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages) on Gemini Enterprise Agent Platform. You can run asynchronous Gemini model calls on the global [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) endpoint for custom and third-party agents.
+
+The Deferred tier includes the following capabilities:
+
+- **Discounted token pricing** : Deferred model calls are billed at a 50% discount compared to Standard PayGo rates, and deferred requests don't fall back to Standard PayGo. For billing details, see [Pricing and billing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deferred-tier#pricing) .
+- **24-hour target and 7-day state retention** : Enqueue requests ( `background=true` , `store=true` ) that target a 24-hour completion window. Interactions retain server-side state for 7 days to support `previous_interaction_id` chaining. Deferred model calls use the Flex PayGo per-base-model request quota.
+- **Google Gen AI SDK and REST support** : Create, poll, stream, and cancel deferred calls using REST or the Google Gen AI SDK for Python and Node.js. To schedule Agent Development Kit (ADK) agents on the Deferred tier, see [Autonomous agent scheduling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/efficiency/autonomous-scheduling) .
+- **Supported Gemini 4 and Gemini 3 models** : Supports `gemini-4-carbon` , `gemini-4-argon` , `gemini-3.8-flash` , `gemini-3.7-flash` , `gemini-3.6-flash` , `gemini-3.5-flash` , `gemini-3.5-flash-lite` , `gemini-3.1-flash-lite` , and `gemini-3.1-pro-preview` on the `global` endpoint. Projects with allowlist access can also run `gemini-4-carbon-cyber-permissive` and `gemini-4-argon-cyber-permissive` .
+
+For more information, see [Use the Deferred tier](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deferred-tier) and [Interactions API overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) .
 
 Feature
 

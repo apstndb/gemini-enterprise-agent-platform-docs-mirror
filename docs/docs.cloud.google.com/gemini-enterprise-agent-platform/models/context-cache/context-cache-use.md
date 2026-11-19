@@ -70,7 +70,7 @@ client = genai.Client(http_options=HttpOptions(api_version="v1"))
 # Use content cache to generate text response
 # E.g cache_name = 'projects/.../locations/.../cachedContents/1111111111111111111'
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.8-flash",
     contents="Summarize the pdfs",
     config=GenerateContentConfig(
         cached_content=cache_name,

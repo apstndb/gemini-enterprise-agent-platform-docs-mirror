@@ -43,7 +43,7 @@ If this is the organization's first time using Access Context Manager, then admi
 
 ## Build the VPC Service Controls service perimeter
 
-When you [create a service perimeter](https://docs.cloud.google.com/vpc-service-controls/docs/create-service-perimeters#external-access) , you allow access to protected services from outside the perimeter by specifying the protected projects. When using VPC Service Controls with Shared VPC, you create one large perimeter including both the host and service projects. (If you only select the service project in your perimeter, network endpoints belonging to service projects appear to be outside the perimeter, because the subnets are associated only with the host project.)
+When you [create a service perimeter](https://docs.cloud.google.com/vpc-service-controls/docs/create-service-perimeters#create-perimeter) , you allow access to protected services from outside the perimeter by specifying the protected projects. When using VPC Service Controls with Shared VPC, you create one large perimeter including both the host and service projects. (If you only select the service project in your perimeter, network endpoints belonging to service projects appear to be outside the perimeter, because the subnets are associated only with the host project.)
 
 ### Select the configuration type for the new perimeter
 

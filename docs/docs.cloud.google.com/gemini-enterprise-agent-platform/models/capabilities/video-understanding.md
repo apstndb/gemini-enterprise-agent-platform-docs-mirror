@@ -130,6 +130,7 @@ The following table lists the models that support video understanding:
 </tr>
 <tr class="odd">
 <td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon">Gemini 4 Neon</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen">Gemini 4 Hydrogen</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon#cyber">Gemini 4 Carbon for cyber</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon">Gemini 4 Carbon</a></li>
@@ -417,7 +418,7 @@ from google.genai.types import HttpOptions, Part
 
 client = genai.Client(http_options=HttpOptions(api_version="v1"))
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.8-flash",
     contents=[
         Part.from_uri(
             file_uri="gs://cloud-samples-data/generative-ai/video/ad_copy_from_video.mp4",
@@ -1019,7 +1020,7 @@ from google.genai.types import HttpOptions, Part
 
 client = genai.Client(http_options=HttpOptions(api_version="v1"))
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.8-flash",
     contents=[
         Part.from_uri(
             file_uri="gs://cloud-samples-data/generative-ai/video/ad_copy_from_video.mp4",
@@ -1554,6 +1555,7 @@ Agentic video understanding is supported in the following models:
 
 #### Click to expand supported models
 
+- [Gemini 4 Neon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon)
 - [Gemini 4 Hydrogen](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen)
 - [Gemini 4 Carbon for cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon#cyber)
 - [Gemini 4 Carbon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon)

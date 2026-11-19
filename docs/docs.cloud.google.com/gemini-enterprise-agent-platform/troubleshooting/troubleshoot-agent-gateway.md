@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 This guide helps you debug and troubleshoot connectivity issues with the Gemini Enterprise Agent Platform, especially when you use Agent Gateway, agent identity, Identity and Access Management (IAM) policies, and delegated authorization with Service Extensions.
 
-If deploying or updating your agent fails before it starts, see [Troubleshoot deploying an agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment) . If binding a gateway fails with a `504` , `DEADLINE_EXCEEDED` status ( `REASONING_ENGINE_AGENT_GATEWAY_PROVISION_TIMEOUT` ), see [Agent Gateway binding timed out](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#agent-gateway-provision-timeout) .
+If deploying or updating your agent fails before it starts, see [Troubleshoot deploying an agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment) . If binding a gateway fails, see [Agent Gateway binding errors](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#agent-gateway-binding-errors) .
 
 ## Troubleshoot using the Agent Platform Troubleshooting skill
 
@@ -395,6 +395,31 @@ If the target destination doesn't have a matching policy binding granting egress
 - **Registry-level policy (recommended)** : [Configure an agent-to-registry policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#agent-to-registry) to grant access to all resources registered in Agent Registry.
 - **Per-resource policy (MCP server or endpoint)** : [Register the MCP server](https://docs.cloud.google.com/agent-registry/register-mcp-servers) or [register the endpoint](https://docs.cloud.google.com/agent-registry/register-endpoints) in Agent Registry, and create an [agent-to-MCP server policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#agent-to-mcp-server) or [agent-to-endpoint policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#agent-to-endpoint) .
 - **Scoped domain allowlist for unregistered endpoints** : [Configure a policy for unregistered endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#example-unregistered-endpoints) to grant access to an explicit list of hostnames without registering the resource.
+
+### Verify policy binding scope
+
+Even if an [IAM UAP](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap) grants `iap.resources.egressViaIAP` for the destination resource, the policy is only evaluated if it is bound to the project or the specific Agent Gateway instance that handles the request:
+
+- **Project binding** : Enforced by all Agent Gateway instances in the project.
+- **Agent Gateway instance binding** : Enforced only by that specific Agent Gateway instance.
+
+To verify which policies are bound to your project or Agent Gateway instance, run the following command:
+
+```
+gcloud iam policy-bindings search-target-policy-bindings \
+    --project=PROJECT_ID \
+    --location=global \
+    --target=TARGET_RESOURCE
+```
+
+Replace the following:
+
+- `PROJECT_ID` : your Google Cloud project ID.
+- `TARGET_RESOURCE` : the full resource URI of the project ( `//cloudresourcemanager.googleapis.com/projects/ `` PROJECT_ID` ) or the Agent Gateway instance ( `//networkservices.googleapis.com/projects/ `` PROJECT_ID `` /locations/ `` LOCATION `` /agentGateways/ `` GATEWAY_NAME` ). For an Agent Gateway target, replace the following:
+  - `LOCATION` : the region of the Agent Gateway instance, such as `us-central1` .
+  - `GATEWAY_NAME` : the name of the Agent Gateway instance.
+
+For detailed troubleshooting of UAP rules, CEL conditions, and binding errors, see [Troubleshoot IAM UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-iam-policies-uap) .
 
 ### Inspect the authorization policy and extension
 

@@ -24,6 +24,7 @@ In general, Priority PayGo is supported on the `global` , `us` , and `eu` endpoi
 
 The following models support Priority PayGo:
 
+- [`gemini-4-neon`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon)
 - [`gemini-4-hydrogen`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen)
 - [`gemini-4-carbon`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon)
 - [`gemini-4-carbon-cyber-permissive`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon#cyber)

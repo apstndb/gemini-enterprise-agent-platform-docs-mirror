@@ -225,7 +225,12 @@ The following example shows how to configure continuous tuning by using the Goog
 import time
 
 from google import genai
-from google.genai.types import HttpOptions, TuningDataset, CreateTuningJobConfig
+from google.genai.types import (
+    HttpOptions,
+    TuningDataset,
+    TuningValidationDataset,
+    CreateTuningJobConfig,
+)
 
 # TODO(developer): Update and un-comment below line
 # tuned_model_name = "projects/123456789012/locations/us-central1/models/1234567890@1"
@@ -236,7 +241,7 @@ client = genai.Client(http_options=HttpOptions(api_version="v1beta1"))
 training_dataset = TuningDataset(
     gcs_uri="gs://cloud-samples-data/ai-platform/generative_ai/gemini/text/sft_train_data.jsonl",
 )
-validation_dataset = TuningDataset(
+validation_dataset = TuningValidationDataset(
     gcs_uri="gs://cloud-samples-data/ai-platform/generative_ai/gemini/text/sft_validation_data.jsonl",
 )
 
@@ -250,10 +255,12 @@ tuning_job = client.tunings.tune(
     ),
 )
 
-running_states = set([
-    "JOB_STATE_PENDING",
-    "JOB_STATE_RUNNING",
-])
+running_states = set(
+    [
+        "JOB_STATE_PENDING",
+        "JOB_STATE_RUNNING",
+    ]
+)
 
 while tuning_job.state in running_states:
     print(tuning_job.state)

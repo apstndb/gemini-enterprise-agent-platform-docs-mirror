@@ -107,11 +107,11 @@ Gemini Enterprise Agent Platform labels:
 
 All NVIDIA GPUs are supported, except the following, due to resource constraints:
 
-1.  [NVIDIA P100](https://docs.cloud.google.com/compute/docs/gpus#p100-gpus)
+1.  [NVIDIA P100](https://docs.cloud.google.com/compute/docs/eol/p100-eos)
 2.  [NVIDIA V100](https://docs.cloud.google.com/compute/docs/gpus#v100-gpus)
 3.  [NVIDIA P4](https://docs.cloud.google.com/compute/docs/gpus#p4-gpus)
 4.  [NVIDIA T4](https://docs.cloud.google.com/compute/docs/gpus#t4-gpus)
 
 ## What's next
 
-- Learn more about the [Metrics Explorer](https://docs.cloud.google.com/monitoring/charts/metrics-selector#basic-advanced-mode) .
+- Learn more about the [Metrics Explorer](https://docs.cloud.google.com/monitoring/charts/metrics-selector) .

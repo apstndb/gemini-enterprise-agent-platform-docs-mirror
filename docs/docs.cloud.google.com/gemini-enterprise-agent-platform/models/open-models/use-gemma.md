@@ -6,7 +6,7 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-Gemma is a set of lightweight, generative artificial intelligence (AI) open models. Gemma models are available to run in your applications and on your hardware, mobile devices, or hosted services. You can also customize these models using tuning techniques so that they excel at performing tasks that matter to you and your users. Gemma models are based on [Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/overview) models and are intended for the AI development community to extend and take further.
+Gemma is a set of lightweight, generative artificial intelligence (AI) open models. Gemma models are available to run in your applications and on your hardware, mobile devices, or hosted services. You can also customize these models using tuning techniques so that they excel at performing tasks that matter to you and your users. Gemma models are based on [Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models) models and are intended for the AI development community to extend and take further.
 
 Fine-tuning can help improve a model's performance in specific tasks. Because models in the Gemma model family are open weight, you can tune any of them using the AI framework of your choice and the Vertex AI SDK. You can open a notebook example to fine-tune the Gemma model using a link available on the Gemma model card in Model Garden.
 

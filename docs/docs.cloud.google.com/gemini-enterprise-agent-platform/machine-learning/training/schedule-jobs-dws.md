@@ -171,4 +171,4 @@ When using DWS flex start, you're billed according to [Dynamic Workload Schedule
 
 - Learn more about [configuring compute resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute) for serverless training jobs.
 - Learn more about [using distributed training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/distributed-training) for serverless training jobs.
-- Learn more about [other scheduling options](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#scheduling) .
+- Learn more about [other scheduling options](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#Scheduling) .

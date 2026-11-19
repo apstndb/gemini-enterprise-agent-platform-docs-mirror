@@ -82,6 +82,8 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code>compute. acceleratorInterconnects. get</code></p>
 <p><code>compute. acceleratorInterconnects. list</code></p>
 <p><code>compute. acceleratorInterconnects. queryFormability</code></p>
+<p><code>compute. acceleratorPodControllers. get</code></p>
+<p><code>compute. acceleratorPodControllers. list</code></p>
 <p><code>compute.acceleratorTypes.*</code></p>
 <ul>
 <li><code>compute.acceleratorTypes.get</code></li>
@@ -656,6 +658,8 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code>compute. acceleratorInterconnects. get</code></p>
 <p><code>compute. acceleratorInterconnects. list</code></p>
 <p><code>compute. acceleratorInterconnects. queryFormability</code></p>
+<p><code>compute. acceleratorPodControllers. get</code></p>
+<p><code>compute. acceleratorPodControllers. list</code></p>
 <p><code>compute.acceleratorTypes.*</code></p>
 <ul>
 <li><code>compute.acceleratorTypes.get</code></li>
@@ -1230,6 +1234,8 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code>compute. acceleratorInterconnects. get</code></p>
 <p><code>compute. acceleratorInterconnects. list</code></p>
 <p><code>compute. acceleratorInterconnects. queryFormability</code></p>
+<p><code>compute. acceleratorPodControllers. get</code></p>
+<p><code>compute. acceleratorPodControllers. list</code></p>
 <p><code>compute.acceleratorTypes.*</code></p>
 <ul>
 <li><code>compute.acceleratorTypes.get</code></li>
@@ -1795,6 +1801,11 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <li><code>compute. acceleratorInterconnects. get</code></li>
 <li><code>compute. acceleratorInterconnects. list</code></li>
 <li><code>compute. acceleratorInterconnects. queryFormability</code></li>
+<li><code>compute. acceleratorPodControllers. create</code></li>
+<li><code>compute. acceleratorPodControllers. delete</code></li>
+<li><code>compute. acceleratorPodControllers. get</code></li>
+<li><code>compute. acceleratorPodControllers. list</code></li>
+<li><code>compute. acceleratorPodControllers. update</code></li>
 <li><code>compute.acceleratorTypes.get</code></li>
 <li><code>compute.acceleratorTypes.list</code></li>
 <li><code>compute.addresses.create</code></li>
@@ -2988,6 +2999,8 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code>compute. acceleratorInterconnects. get</code></p>
 <p><code>compute. acceleratorInterconnects. list</code></p>
 <p><code>compute. acceleratorInterconnects. queryFormability</code></p>
+<p><code>compute. acceleratorPodControllers. get</code></p>
+<p><code>compute. acceleratorPodControllers. list</code></p>
 <p><code>compute.acceleratorTypes.*</code></p>
 <ul>
 <li><code>compute.acceleratorTypes.get</code></li>
@@ -3537,6 +3550,8 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code>compute. acceleratorInterconnects. get</code></p>
 <p><code>compute. acceleratorInterconnects. list</code></p>
 <p><code>compute. acceleratorInterconnects. queryFormability</code></p>
+<p><code>compute. acceleratorPodControllers. get</code></p>
+<p><code>compute. acceleratorPodControllers. list</code></p>
 <p><code>compute.acceleratorTypes.*</code></p>
 <ul>
 <li><code>compute.acceleratorTypes.get</code></li>
@@ -4138,6 +4153,8 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <p><code>compute. acceleratorInterconnects. get</code></p>
 <p><code>compute. acceleratorInterconnects. list</code></p>
 <p><code>compute. acceleratorInterconnects. queryFormability</code></p>
+<p><code>compute. acceleratorPodControllers. get</code></p>
+<p><code>compute. acceleratorPodControllers. list</code></p>
 <p><code>compute.acceleratorTypes.*</code></p>
 <ul>
 <li><code>compute.acceleratorTypes.get</code></li>

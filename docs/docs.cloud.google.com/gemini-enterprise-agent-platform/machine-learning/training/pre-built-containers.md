@@ -2433,7 +2433,7 @@ Included dependencies
 
 To use a prebuilt container, read the [guide to configuring container settings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-container-settings) .
 
-If you're using a container image that supports GPUs, make sure to specify the [`machineSpec.acceleratorType` and `machineSpec.acceleratorCount`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/MachineSpec) fields when you create your `CustomJob` , `HyperparameterTuningJob` , or `TrainingPipeline` resource.
+If you're using a container image that supports GPUs, make sure to specify the [`machineSpec.acceleratorType` and `machineSpec.acceleratorCount`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#MachineSpec) fields when you create your `CustomJob` , `HyperparameterTuningJob` , or `TrainingPipeline` resource.
 
 ## What's next
 

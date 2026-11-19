@@ -73,7 +73,7 @@ API_KEY = "YOUR_API_KEY"
 client = genai.Client(vertexai=True, api_key=API_KEY)
 
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.8-flash",
     contents="Explain bubble sort to me.",
 )
 

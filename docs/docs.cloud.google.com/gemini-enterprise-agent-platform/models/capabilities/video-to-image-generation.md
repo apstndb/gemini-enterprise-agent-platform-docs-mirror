@@ -97,7 +97,7 @@ export GOOGLE_GENAI_USE_ENTERPRISE=True
 
 ```
 from google import genai
-from google.genai.types import GenerateContentConfig, Modality, Part
+from google.genai.types import GenerateContentConfig, Part
 from PIL import Image
 from io import BytesIO
 
@@ -107,7 +107,7 @@ client = genai.Client()
 video = "https://www.youtube.com/watch?v=rjoMZyxncUI"
 
 response = client.models.generate_content(
-    model="gemini-3.1-flash-image",
+    model="gemini-nano-banana-2.1",
     contents=[
         Part.from_uri(
             file_uri=video,
@@ -115,12 +115,10 @@ response = client.models.generate_content(
         ), 
         "Generate an infographic of the topics covered in this video."
     ],
-    config=GenerateContentConfig(response_modalities=[Modality.TEXT, Modality.IMAGE]),
+    config=GenerateContentConfig(response_modalities=["IMAGE"]),
 )
 for part in response.candidates[0].content.parts:
-    if part.text:
-        print(part.text)
-    elif part.inline_data:
+    if part.inline_data:
         image = Image.open(BytesIO((part.inline_data.data)))
         image.save("output_folder/video-image.png")
 ```

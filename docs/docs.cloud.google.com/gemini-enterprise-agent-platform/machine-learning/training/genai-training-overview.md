@@ -10,7 +10,7 @@ Generative AI often relies on large-scale machine learning (ML) models that are 
 
 - Tuning: Tuning involves providing a model with a training dataset of specific examples relevant to the chosen downstream task.
 
-  - [Supervised tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models#how-tuning-works) : This technique uses labeled examples to fine-tune a model. Each example demonstrates the chosen output for a given input during inference. Supervised tuning is effective for tasks where the expected output isn't overly complex and can be clearly defined, such as classification, sentiment analysis, entity extraction, summarization of less complex content, and generating domain-specific queries. You can tune text, image, audio, and document data types using supervised learning.
+  - [Supervised tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning#how-tuning-works) : This technique uses labeled examples to fine-tune a model. Each example demonstrates the chosen output for a given input during inference. Supervised tuning is effective for tasks where the expected output isn't overly complex and can be clearly defined, such as classification, sentiment analysis, entity extraction, summarization of less complex content, and generating domain-specific queries. You can tune text, image, audio, and document data types using supervised learning.
   - Reinforcement Learning from Human Feedback (RLHF) tuning: This method is suitable when the selected model output is more complex. RLHF tuning works well for objectives that aren't easily differentiated through supervised tuning, such as question answering, summarization of complex content, and creative content generation.
 
 - Distillation: Distillation often involves training a smaller "student" model to mimic the behavior of a larger, more capable "teacher" model.
@@ -21,4 +21,4 @@ Generative AI often relies on large-scale machine learning (ML) models that are 
 
 ## What's next
 
-- [Overview of Generative AI on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/overview)
+- [Overview of Generative AI on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models)

@@ -120,4 +120,4 @@ For more information, see [Grounding overview](https://docs.cloud.google.com/gem
 - Learn how to send chat requests by using [Gemini API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/send-chat-prompts-gemini) .
 - Learn general prompt design strategies in [Introduction to prompt design](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/introduction-prompt-design) .
 - Learn task-specific prompt design strategies for multimodal input in [Design multimodal prompts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/design-multimodal-prompts) .
-- Learn how to [tune a model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models) .
+- Learn how to [tune a model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning) .

@@ -219,7 +219,7 @@ To install the control plane, do the following:
     ```
     helm upgrade --install agent-governance-cross-cloud \
         oci://gcr.io/gke-release/agent-governance-cross-cloud \
-        --version 0.1.0-preview \
+        --version 0.1.1-preview \
         --namespace geap-system \
         --create-namespace \
         --set gcp.projectId=PROJECT_ID \

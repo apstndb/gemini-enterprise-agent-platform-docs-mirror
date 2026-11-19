@@ -43,7 +43,7 @@ Skip this section if you are not running an augmentation only search and are onl
 
 ### Proxy task based on scaled-down model
 
-You can also scale down the model relative to the baseline model to create a proxy task. This can also be useful when you want to separate [block-design-search from scaling-search.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/proxy-task-design#search_space_design)
+You can also scale down the model relative to the baseline model to create a proxy task. This can also be useful when you want to separate [block-design-search from scaling-search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/suggested-workflow#search_space_design) .
 
 However, when you scale down the model and want to use a latency constraint, use a tighter latency constraint for the scaled-down model. **Hint:** You can scale down the baseline model and measure its latency to set this tighter latency constraint.
 

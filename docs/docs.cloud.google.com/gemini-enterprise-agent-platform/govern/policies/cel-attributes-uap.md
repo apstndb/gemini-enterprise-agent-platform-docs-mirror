@@ -422,6 +422,6 @@ Learn how to configure content and business policies.
 
 Guide
 
-### [Test policies](https://docs.cloud.google.com/iap/govern/policies/test-policies)
+### [Test policies](https://docs.cloud.google.com/iap/govern/gateways/set-up-agent-gateway#config-agent-to-anywhere)
 
 Learn how to test policies.

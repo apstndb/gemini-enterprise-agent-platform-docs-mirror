@@ -65,6 +65,7 @@ The following table lists the models that support document understanding:
 </tr>
 <tr class="odd">
 <td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon">Gemini 4 Neon</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen">Gemini 4 Hydrogen</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon#cyber">Gemini 4 Carbon for cyber</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon">Gemini 4 Carbon</a></li>
@@ -251,7 +252,7 @@ from google import genai
 from google.genai.types import HttpOptions, Part
 
 client = genai.Client(http_options=HttpOptions(api_version="v1"))
-model_id = "gemini-3.5-flash"
+model_id = "gemini-3.8-flash"
 
 prompt = """
 You are a highly skilled document summarization specialist.

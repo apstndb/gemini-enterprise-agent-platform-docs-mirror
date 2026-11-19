@@ -142,7 +142,20 @@ Follow these steps to purchase standard Provisioned Throughput. For assistance w
           - **Output response text tokens per query**
           - **Output image tokens per query**
 
-        - For the [Gemini 2.5 Flash with Gemini Live API native audio)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-live-api) model, enter the following:
+        - For the [Gemini 3.8 Live](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live) model, enter the following:
+
+          - **Expected number of concurrent sessions**
+          - **Expected session duration (seconds)**
+          - **Average number of turns per session**
+          - **Maximum context length (tokens)**
+          - **Average input text tokens per turn**
+          - **Average input audio tokens per turn**
+          - **Average input image/video tokens per turn**
+          - **Average output text tokens per turn**
+          - **Average output audio tokens per turn**
+          - **Output video avatar enabled**
+
+        - For the [Gemini 2.5 Flash with Gemini Live API native audio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-live-api) model, enter the following:
 
           - **Estimated queries per second requiring assurance**
           - **Input tokens per query**

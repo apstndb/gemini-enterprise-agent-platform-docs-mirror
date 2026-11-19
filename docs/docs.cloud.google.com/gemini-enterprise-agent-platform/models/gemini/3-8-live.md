@@ -170,6 +170,7 @@ Not supported</li>
 <td><ul>
 <li>Multi-region: <code>us</code> , <code>eu</code></li>
 <li>United States: <code>us-central1</code></li>
+<li>Asia Pacific: <code>asia-south1</code></li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -184,6 +185,7 @@ Not supported</li>
 <th><ul>
 <li>Multi-region: <code>us</code> , <code>eu</code></li>
 <li>United States: <code>us-central1</code></li>
+<li>Asia Pacific: <code>asia-south1</code></li>
 </ul></th>
 <td></td>
 </tr>
@@ -192,6 +194,7 @@ Not supported</li>
 <th><ul>
 <li>Multi-region: <code>us</code> , <code>eu</code></li>
 <li>United States: <code>us-central1</code></li>
+<li>Asia Pacific: <code>asia-south1</code></li>
 </ul></th>
 <td></td>
 </tr>

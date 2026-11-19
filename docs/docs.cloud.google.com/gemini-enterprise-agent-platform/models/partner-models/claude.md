@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude
 title: Anthropic's Claude on Google Cloud models
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Explore Anthropic's Claude models on {{dynamic_data.site_values.cloud_name}}, verify model enablement in Model Garden, and view available Claude model cards.
 data_source: docs.cloud.google.com
 ---
 
@@ -23,6 +23,18 @@ The following models are available from Anthropic to use in Gemini Enterprise Ag
 Anthropic's Claude models support Agent Platform request-response logging. Enable 30-day request-response logging of your prompt and completion activity to track any model misuse by your users. For more information, see [Log requests and responses](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/request-response-logging) .
 
 To log token counts, latency and errors for every Claude request without storing prompts or responses, see [Log inference request metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/inference-metadata-logging) . For Claude field names, see [Token counts for Claude models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/inference-metadata-logging#claude-models) .
+
+### Verify model enablement status
+
+Partner model enablement is project-specific and managed through Google Cloud Marketplace entitlements rather than a project-wide Agent Platform API setting. For required roles and organization policies, see [Grant user access to partner models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-partner-models#grant-permissions) .
+
+To verify whether a Claude model is enabled, select your project in the Google Cloud console and open the model card in Model Garden:
+
+- If the model is enabled for the project, the model card displays usage actions such as **View code** or **Open notebook** .
+
+- If the model isn't enabled for the project, the model card displays **Enable** or **Request access** .
+
+Listing enabled partner models for a project by using the Google Cloud CLI or the Agent Platform API isn't supported. The `gcloud ai model-garden models list` command lists the public Model Garden catalog rather than filtering by Cloud Marketplace entitlements for your project.
 
 ## Claude Fable models
 

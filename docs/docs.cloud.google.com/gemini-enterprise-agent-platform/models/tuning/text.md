@@ -26,7 +26,7 @@ The `fileUri` for your dataset can be the URI for a file in a Cloud Storage buck
 
 The following is an example of a text dataset.
 
-To see the generic format example, see [Dataset example for Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning-prepare#dataset-example) .
+To see the generic format example, see [Dataset example for Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/prepare-data#dataset-example) .
 
 ```
 {
@@ -93,4 +93,4 @@ To use the sample validation dataset, specify its location as follows:
 
 ## What's next
 
-- To start tuning, see [Tune Gemini models by using supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning) .
+- To start tuning, see [Tune Gemini models by using supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use) .

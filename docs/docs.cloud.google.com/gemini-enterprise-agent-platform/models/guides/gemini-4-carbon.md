@@ -8,17 +8,17 @@ data_source: docs.cloud.google.com
 
 **Gemini 4 Carbon** is Google's frontier model that excels at deep work in complex, real-world tasks across domains including coding, finance, legal, cybersecurity, and science. It's part of the Gemini 4 family. Gemini 4 Carbon is a Google Frontier Model subject to Section 34 of the [Service Specific Terms](https://cloud.google.com/terms/service-terms) (for details, see [Abuse monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring#google-frontier-models) ).
 
-This document covers the key capabilities of 4 Carbon, the API conventions it enforces, how to migrate to it, and a quickstart. For an overview of the Gemini 4 family, see [Get started with Gemini 4](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/get-started-with-gemini-4) .
+This document covers the key capabilities of Carbon, the API conventions it enforces, how to migrate to it, and a quickstart. For an overview of the Gemini 4 family, see [Get started with Gemini 4](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/get-started-with-gemini-4) .
 
 ## Key capabilities in Gemini 4 Carbon
 
 Gemini 4 Carbon includes the following capabilities:
 
-- **Unified input and output token limit** : 4 Carbon has a unified 1,048,576-token limit that includes both input and output tokens (where output includes thinking, function calls, and the final response).
-- **Long decodes up to 1,048,576 tokens** : 4 Carbon extends generation beyond a single foreground segment (65,536 tokens when streaming, or 32,768 tokens when non-streaming) up to 1,048,576 tokens (minus your input tokens) on both the [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) and `GenerateContent` ( `v1beta1` ). The Google Gen AI SDK handles `continuation_token` automatically across segments, or you can run asynchronous server-managed background decodes ( `background=true` ) or manage `continuation_token` in a custom continuation loop.
-- **Thinking levels** : 4 Carbon supports `LOW` , `MEDIUM` (default on `gemini-4-carbon` ), and `HIGH` (default on `gemini-4-carbon-cyber-permissive` ).
+- **Unified input and output token limit** : Carbon has a unified 1,048,576-token limit that includes both input and output tokens (where output includes thinking, function calls, and the final response).
+- **Long decodes up to 1,048,576 tokens** : Carbon extends generation beyond a single foreground segment (65,536 tokens when streaming, or 32,768 tokens when non-streaming) up to 1,048,576 tokens (minus your input tokens) on both the [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) and `GenerateContent` ( `v1beta1` ). The Google Gen AI SDK handles `continuation_token` automatically across segments, or you can run asynchronous server-managed background decodes ( `background=true` ) or manage `continuation_token` in a custom continuation loop.
+- **Thinking levels** : Carbon supports `LOW` , `MEDIUM` (default on `gemini-4-carbon` ), and `HIGH` (default on `gemini-4-carbon-cyber-permissive` ).
 - **Implicit caching with durable caching** : Implicit caching applies automatically to shared prompt prefixes of 4,096 tokens or more, with durable caching enabled by default. Explicit context caching isn't supported.
-- **Office and OpenDocument file inputs** : In addition to PDF and plain text, 4 Carbon accepts Microsoft Office ( `.docx` , `.dotx` , `.doc` , `.pptx` , `.ppt` , `.xlsx` , `.xls` ) and OpenDocument ( `.odt` , `.odp` , `.ods` ) files inline or from Cloud Storage on both `GenerateContent` and the [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) .
+- **Office and OpenDocument file inputs** : In addition to PDF and plain text, Carbon accepts Microsoft Office ( `.docx` , `.dotx` , `.doc` , `.pptx` , `.ppt` , `.xlsx` , `.xls` ) and OpenDocument ( `.odt` , `.odp` , `.ods` ) files inline or from Cloud Storage on both `GenerateContent` and the [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) .
 - **Agentic video understanding** : Agentic video understanding is generally available and off by default.
 
 > **Note:** To maintain platform reliability, capacity, and security, Gemini 4 Carbon is available to verified enterprise customers in select regions.
@@ -609,11 +609,11 @@ curl -s -X POST \
 
 > **Important:** Setting `thinking_budget` or `thinking_level="MINIMAL"` returns an HTTP `400` error. Valid values for `thinking_level` are `LOW` , `MEDIUM` (default on `gemini-4-carbon` ), and `HIGH` (default on `gemini-4-carbon-cyber-permissive` ).
 
-4 Carbon enforces the conventions in the following sections for thinking levels, token limits, caching, generation parameters, and multi-turn tool execution.
+Carbon enforces the conventions in the following sections for thinking levels, token limits, caching, generation parameters, and multi-turn tool execution.
 
 ### Thinking levels
 
-4 Carbon supports three `thinking_level` values ( `thinking_budget` and `MINIMAL` return an HTTP `400` validation error). Pass uppercase values ( `"LOW"` , `"MEDIUM"` , `"HIGH"` ) on `GenerateContent` and lowercase values ( `"low"` , `"medium"` , `"high"` ) on the Interactions API. The following table lists each thinking level and its recommended workloads:
+Carbon supports three `thinking_level` values ( `thinking_budget` and `MINIMAL` return an HTTP `400` validation error). Pass uppercase values ( `"LOW"` , `"MEDIUM"` , `"HIGH"` ) on `GenerateContent` and lowercase values ( `"low"` , `"medium"` , `"high"` ) on the Interactions API. The following table lists each thinking level and its recommended workloads:
 
 | Thinking level                                          | Recommended workloads                                                                             |
 |---------------------------------------------------------|---------------------------------------------------------------------------------------------------|
@@ -623,7 +623,7 @@ curl -s -X POST \
 
 ### Token limits, caching, and billing
 
-4 Carbon applies the following token, caching, media, and billing rules:
+Carbon applies the following token, caching, media, and billing rules:
 
 - **Unified input and output token limit and default output budgets** : Token budgets and foreground segment limits work as follows:
   - The overall token limit of the model is `1,048,576` tokens and includes both input and output tokens (where output includes thinking, function calls, and the final response). `max_output_tokens` controls the output token cap for the generation (up to `1,048,576` minus your input tokens); setting `max_output_tokens` greater than `1,048,576` returns an HTTP `400` error.
@@ -636,7 +636,7 @@ curl -s -X POST \
 
 ### Parameters, function calling, and chat validation
 
-4 Carbon enforces the following rules for generation parameters, tool calls, and chat history:
+Carbon enforces the following rules for generation parameters, tool calls, and chat history:
 
 - **Ignored sampling parameters ( `temperature` , `top_k` , `top_p` )** : The backend ignores custom values. Control reasoning depth with `thinking_level` , and output format with `response_schema` .
 
@@ -752,11 +752,11 @@ Token accounting and caching across continuation segments work as follows:
 - Because each foreground continuation segment re-prefills the conversation and previously generated tokens as input, `usage.total_input_tokens` (on the Interactions API) and `prompt_token_count` (on `GenerateContent` ) increase across segments. Don't use cumulative input counts to trigger context compaction in agent harnesses; instead, check `usage.initial_input_tokens` (or `initial_prompt_token_count` on `GenerateContent` ) and compact only after the turn finishes ( `status="completed"` or no `continuation_token` ).
 - Each continuation segment re-prefills the prompt plus previously decoded tokens and automatically qualifies for [implicit context caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview) (4,096-token minimum, with durable caching enabled by default) when segments run back-to-back. Completed segments are billed at the end of each segment even if a later segment fails or is cancelled.
 
-## Migrate to 4 Carbon from 3.1 Pro
+## Migrate to Carbon from 3.1 Pro
 
 The following behavior is different from `gemini-3.1-pro-preview` :
 
-- 4 Carbon has a unified 1,048,576-token limit across input and output (where output includes thinking, function calls, and the final response), instead of separate input and output limits. A single foreground segment is capped at 65,536 tokens when streaming (or 32,768 tokens when non-streaming), and output can be extended up to 1,048,576 tokens using [long decodes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-carbon#long-decodes) on the [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) or `GenerateContent` (handled automatically in the Google Gen AI SDK, with `background=true` on the Interactions API, or using `continuation_token` in custom loops).
+- Carbon has a unified 1,048,576-token limit across input and output (where output includes thinking, function calls, and the final response), instead of separate input and output limits. A single foreground segment is capped at 65,536 tokens when streaming (or 32,768 tokens when non-streaming), and output can be extended up to 1,048,576 tokens using [long decodes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-carbon#long-decodes) on the [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) or `GenerateContent` (handled automatically in the Google Gen AI SDK, with `background=true` on the Interactions API, or using `continuation_token` in custom loops).
 - `thinking_budget` returns an HTTP `400` error instead of being mapped to a thinking level. `MINIMAL` also returns an error.
 - Explicit context caching isn't supported.
 - Every token the model processes is billed, including internal tool system instructions and function declarations when using grounding.
@@ -799,7 +799,7 @@ To migrate from `gemini-3.1-pro-preview` , do the following:
 
 ## Summary checklist for developers
 
-Use the following checklist to verify your 4 Carbon integration:
+Use the following checklist to verify your Carbon integration:
 
 Target model ID: `gemini-4-carbon` (or `gemini-4-carbon-cyber-permissive` for projects approved through the [Fairwind Program](https://deepmind.google/fairwind-program/) ), and upgrade to the latest Google Gen AI SDK (Python `google-genai >= 2.34.0` , JS/TS `@google/genai >= 2.32.0` , Go `>= 1.77.0` , Java `>= 1.80.0` for Interactions API automatic continuation; .NET `>= 1.26.0` and Kotlin `>= 1.6.0` for `GenerateContent` )
 
@@ -817,14 +817,14 @@ Remove explicit caching calls, and put static prompt content (4,096 tokens or mo
 
 ## Known issues
 
-The following known issues apply to 4 Carbon long decodes:
+The following known issues apply to Carbon long decodes:
 
 - **Long decodes require `v1beta1`** : Long decoding ( `continuation_token` ) on both the Interactions API and the `GenerateContent` API ( `generateContent` and `streamGenerateContent` ) is supported only in the `v1beta1` API (not `v1` ) on Agent Platform. The Google Gen AI SDK uses `v1beta1` by default unless `api_version='v1'` is set in `http_options` (or `api_version="v1"` on `interactions.create` ); for direct REST calls, use the `/v1beta1/` endpoint path.
 - **Parameter changes across Interactions API continuation segments** : Changing `model` , `system_instruction` , or function declarations across continuation segments returns an HTTP `400` error, whereas mid-decode changes to `generation_config.thinking_level` or built-in tools ( `google_search` , `code_execution` , `url_context` ) aren't rejected by server validation. Keep `thinking_level` and built-in tools unchanged across all segments of a continuation loop.
 
 ## Additional resources
 
-For more information about 4 Carbon, see the following resources:
+For more information about Carbon, see the following resources:
 
 - [Gemini 4 Carbon model page](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon)
 - [Get started with Gemini 4](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/get-started-with-gemini-4)

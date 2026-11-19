@@ -71,7 +71,7 @@ Before you train a forecast model, complete the following:
         - **Stride** : Set the value of the stride length in the textbox provided.
         - **Column** : Select the appropriate column name from the dropdown provided.
 
-        To learn more, see [Rolling window strategies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#rolling_window_strategies) .
+        To learn more, see [Rolling window strategies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#rolling-window-strategies) .
 
     11. Click **Continue** .
 

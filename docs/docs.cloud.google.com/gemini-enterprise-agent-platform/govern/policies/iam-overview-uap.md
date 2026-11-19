@@ -6,11 +6,16 @@ description: Learn about Identity and Access Management Unified Access Policies 
 data_source: docs.cloud.google.com
 ---
 
-You can create Identity and Access Management (IAM) Unified Access Policies (UAPs) to help securely govern communication between *agent principals* and *destination resources* , such as destination agents, MCP servers, and endpoints. These policies are bound to the project that contains your Agent Gateway instances.
+You can create Identity and Access Management (IAM) Unified Access Policies (UAPs) to help securely govern communication between *agent principals* and *destination resources* , such as destination agents, MCP servers, and endpoints. You can bind these policies to a project that contains your Agent Gateway instances or directly to individual Agent Gateway instances.
 
 Agent Gateway uses Identity-Aware Proxy (IAP) to evaluate and enforce the UAPs.
 
 IAP also integrates with Context-Aware Access to [provide end-to-end agent identity authentication and authorization](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap#end-to-end-security) .
+
+You can bind UAPs to the following resource types:
+
+- **Project** : when you bind a policy to a project, all Agent Gateway instances in the project enforce the policy.
+- **Agent Gateway** : when you bind a policy directly to an Agent Gateway instance, only that gateway instance enforces the policy.
 
 To set up UAPs for Agent Gateway, see [Configure IAM UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap) .
 

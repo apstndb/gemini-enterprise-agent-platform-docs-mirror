@@ -58,7 +58,7 @@ If you are using certain advanced features, meet the following additional requir
 
 ## Enable interactive shells
 
-To enable interactive shells for a serverless training resource, set the [`enableWebAccess` API field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#FIELDS.enable_web_access) to `true` when you create a `CustomJob` , `HyperparameterTuningJob` , or custom `TrainingPipeline` .
+To enable interactive shells for a serverless training resource, set the [`enableWebAccess` API field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#FIELDS.enable_web_access) to `true` when you create a `CustomJob` , `HyperparameterTuningJob` , or custom `TrainingPipeline` .
 
 The following examples show how to do this using several different tools:
 

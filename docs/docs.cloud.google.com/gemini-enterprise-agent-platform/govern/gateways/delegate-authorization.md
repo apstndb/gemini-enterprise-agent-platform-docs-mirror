@@ -104,7 +104,7 @@ The following steps show you how to configure an authorization extension with an
 
         Remove the `iamEnforcementMode: "DRY_RUN"` field from the `metadata` block (or select **Enforce policies** in the Google Cloud console) when you're ready to start enforcing policies. For instructions on auditing dry-run violations before enabling enforcement, see [Audit dry-run policy violations across controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/dry-run-report) .
 
-        > **Note:** We strongly recommend using Unified Access Policy ( `iapPolicyVersion: "V2"` ) for advanced, expressive, and fine-grained access control. To replace a legacy Allow policy ( `iapPolicyVersion: "V1"` ) on an existing gateway, navigate to the Policies UI and manually redefine your rules under the UAP tab. For more information, see [Create IAM agent policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap) .
+        > **Note:** We strongly recommend using a Unified Access Policy (UAP) ( `iapPolicyVersion: "V2"` ) for advanced, expressive, and fine-grained access control. You can bind a UAP to a project so that all Agent Gateway instances in the project enforce the policy, or use the gcloud CLI or REST API to bind a UAP directly to a specific Agent Gateway instance. To replace a legacy Allow policy ( `iapPolicyVersion: "V1"` ) on an existing gateway, go to the **Policies** page in the Google Cloud console and manually redefine your rules under the **Unified Access Policies** tab. For more information, see [Create IAM UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap) .
 
     2.  Import the authorization extension. Use the [`gcloud service-extensions authz-extensions import` command](https://docs.cloud.google.com/sdk/gcloud/reference/service-extensions/authz-extensions/import) with the following sample values.
 
@@ -446,7 +446,7 @@ You can configure custom authorization extensions to delegate decisions to custo
 
 When you use FQDN targets, the extension uses the HTTP2 protocol with TLS encryption to communicate with endpoints on port 443. However, the extension doesn't validate the server certificate. Therefore, for better security, you must ensure that the resolved endpoints are within the VPC network. Also ensure that you have DNS peering set up between the Agent Gateway project and your VPC network.
 
-1.  To configure an authorization extension with an authorization policy for a specific FQDN, such as `mycustomauthz.internal.net` , specify it as the value for `service` in the extension YAML file as the following example shows. This example assumes that you have deployed a server in your VPC network implementing the [`ext_proc`](https://docs.cloud.google.com/service-extensions/docs/callouts-overview#ext_proc) protocol in `FULL_DUPLEX_STREAMED` body processing mode.
+1.  To configure an authorization extension with an authorization policy for a specific FQDN, such as `mycustomauthz.internal.net` , specify it as the value for `service` in the extension YAML file as the following example shows. This example assumes that you have deployed a server in your VPC network implementing the [`ext_proc`](https://docs.cloud.google.com/service-extensions/docs/callouts-overview#ext-proc) protocol in `FULL_DUPLEX_STREAMED` body processing mode.
 
     ```
     cat >custom-authz-extension.yaml <<EOF
