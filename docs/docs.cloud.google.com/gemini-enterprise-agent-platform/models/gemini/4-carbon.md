@@ -18,7 +18,7 @@ Carbon differs from earlier Gemini models in the following ways:
 
 > **Note:** To maintain platform reliability, capacity, and security, Gemini 4 Carbon is available to verified enterprise customers in select regions.
 
-[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/chat?model=gemini-4-carbon) [Deploy example app](https://console.cloud.google.com/agent-platform/studio/chat?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-4-carbon) [Developer guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-carbon) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/chat?model=gemini-4-carbon) [Deploy example app](https://console.cloud.google.com/agent-platform/studio/chat?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-4-carbon) [Developer guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-carbon) [Pricing](https://cloud.google.com/model-garden/pricing)
 
 Note: "Deploy example app" requires a Google Cloud project with billing and Agent Platform API enabled.
 

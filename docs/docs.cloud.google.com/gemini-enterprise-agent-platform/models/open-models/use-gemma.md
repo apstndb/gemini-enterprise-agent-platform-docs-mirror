@@ -75,7 +75,6 @@ Google Kubernetes Engine (GKE) is the Google Cloud solution for managed Kubernet
 
 - [Serve Gemma with vLLM](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/serve-gemma-gpu-vllm)
 - [Serve Gemma with TGI](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/serve-gemma-gpu-tgi)
-- [Serve Gemma with Triton and TensorRT-LLM](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/serve-gemma-gpu-tensortllm)
 - [Serve Gemma with JetStream](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/serve-gemma-tpu-jetstream)
 
 ### Use Gemma with Dataflow

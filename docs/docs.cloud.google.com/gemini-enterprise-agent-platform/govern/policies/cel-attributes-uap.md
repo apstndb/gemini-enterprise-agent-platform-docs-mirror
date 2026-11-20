@@ -407,21 +407,5 @@ The attributes described in the following table are available for each resource 
 - [Create IAM UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap)
 - [Manage IAM UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/manage-iam-policies-uap)
 - [Troubleshoot IAM UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-iam-policies-uap)
-
-Overview
-
-### [Agent Gateway overview](https://docs.cloud.google.com/iap/govern/gateways/agent-gateway-overview)
-
-Get an overview of Agent Gateway.
-
-Guide
-
-### [Configure content and business policies](https://docs.cloud.google.com/iap/govern/policies/configure-semantic-governance)
-
-Learn how to configure content and business policies.
-
-Guide
-
-### [Test policies](https://docs.cloud.google.com/iap/govern/gateways/set-up-agent-gateway#config-agent-to-anywhere)
-
-Learn how to test policies.
+- [Configure Agent Gateway in Agent-to-Anywhere (egress) mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#config-agent-to-anywhere)
+- [Agent Gateway overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview)

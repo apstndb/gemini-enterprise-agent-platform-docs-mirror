@@ -198,11 +198,11 @@ If you configure the [Gen AI evaluation service](https://docs.cloud.google.com/g
 
 ## Pricing
 
-Pricing for Gemini supervised fine-tuning can be found here: [Gemini Enterprise Agent Platform pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#model-tuning) .
+Pricing for Gemini supervised fine-tuning can be found here: [Gemini Enterprise Agent Platform pricing](https://cloud.google.com/model-garden/pricing#model-tuning) .
 
 The number of training tokens is calculated by multiplying the number of tokens in your training dataset by the number of epochs. After tuning, inference (prediction request) costs for the tuned model still apply. Inference pricing is the same for each stable version of Gemini. For more information, see [Available Gemini stable model versions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions#stable-versions-available) .
 
-If you configure the Gen AI evaluation service to run automatically during tuning, evaluations are charged as batch prediction jobs. For more information, see [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#prediction-prices) .
+If you configure the Gen AI evaluation service to run automatically during tuning, evaluations are charged as batch prediction jobs. For more information, see [Pricing](https://cloud.google.com/model-garden/pricing#prediction-prices) .
 
 ## What's next
 

@@ -483,7 +483,7 @@ In addition to the tuning job quota, distillation fine-tuning uses the teacher m
 
 ## Pricing
 
-You are billed for tuning based on [pricing for Model tuning](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#model-tuning) . The number of training tokens is calculated by multiplying the number of tokens in your training dataset by the number of epochs. For distillation tuning, you are also billed for the API calls made to the teacher model to generate responses, based on [pricing for managed models](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing) .
+You are billed for tuning based on [pricing for Model tuning](https://cloud.google.com/model-garden/pricing#model-tuning) . The number of training tokens is calculated by multiplying the number of tokens in your training dataset by the number of epochs. For distillation tuning, you are also billed for the API calls made to the teacher model to generate responses, based on [pricing for managed models](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing) .
 
 You are also billed for related services, such as Cloud Storage and Gemini Enterprise Agent Platform Prediction.
 

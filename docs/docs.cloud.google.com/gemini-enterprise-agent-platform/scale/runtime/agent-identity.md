@@ -170,7 +170,9 @@ We recommend the following roles:
 
 - `roles/browser` : Grant access to basic Google Cloud functionalities.
 
-- `roles/secretmanager.secretAccessor` : Grant the agent access to secrets in Secret Manager. If you reference secrets as [environment variables](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#environment-variables) , you must also grant `roles/secretmanager.secretAccessor` to the Agent Platform Service Agent ( `service- `` PROJECT_NUMBER `` @gcp-sa-aiplatform.iam.gserviceaccount.com` ) so it can retrieve the secret values during deployment.
+- `roles/secretmanager.secretAccessor` : Grant the agent identity access to specific secrets in Secret Manager using secret-level bindings (for example, with `gcloud secrets add-iam-policy-binding` ; see [Manage access to secrets](https://docs.cloud.google.com/secret-manager/docs/manage-access-to-secrets) ) rather than project-level bindings. When referencing secrets as [environment variables](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#environment-variables) , the agent identity retrieves the referenced secrets at container startup. Because an agent identity principal is generated when the agent is created, create the agent with `AGENT_IDENTITY` first (without `secret_env` ), grant `roles/secretmanager.secretAccessor` on the specific secret to its provisioned identity (prepend `principal://` to `spec.effective_identity` when binding IAM policies—for example, `--member="principal:// `` EFFECTIVE_IDENTITY `` "` ), and then update the agent to attach `secret_env` . Don't grant `roles/secretmanager.secretAccessor` to the shared Agent Platform Service Agent ( `service- `` PROJECT_NUMBER `` @gcp-sa-aiplatform.iam.gserviceaccount.com` ) or default AI Platform Reasoning Engine Service Agent ( `service- `` PROJECT_NUMBER `` @gcp-sa-aiplatform-re.iam.gserviceaccount.com` ).
+
+> **Caution:** Any principal with `aiplatform.reasoningEngines.update` permission on an agent configured with `AGENT_IDENTITY` can update its code and run as that agent's identity. Restrict `aiplatform.reasoningEngines.update` permissions on agents that have access to sensitive resources such as Secret Manager secrets.
 
 Additional permissions might be needed if you use logging, metrics, and Cloud API registry, and for any other resource you want to expose to your agent. See later for more examples.
 
@@ -256,6 +258,8 @@ gcloud RESOURCE_TYPE add-iam-policy-binding RESOURCE_ID \
 ```
 
 It can be easier to grant common permissions such as quota, logging, or access to models to all agents in the project to simplify deployments. Then grant specific narrow permissions to individual agents for more sensitive permissions such as access to data. Granting such permissions is possible at any time after the first usage of the agent identity feature within an organization or project, so it can be performed before the deployment of the agent.
+
+> **Caution:** Don't grant `roles/secretmanager.secretAccessor` or other sensitive-data roles to project-wide or organization-wide `principalSet://` principals. Doing so allows any principal with `aiplatform.reasoningEngines.create` permission in the project or organization to deploy a new `AGENT_IDENTITY` agent and access every secret bound to that `principalSet://` . Instead, grant secret access only on individual secrets to an individual agent identity (using the two-step create-then-grant workflow) or a dedicated [custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#custom-service-account) .
 
 For example, the following commands grant basic roles to all agents in a project:
 

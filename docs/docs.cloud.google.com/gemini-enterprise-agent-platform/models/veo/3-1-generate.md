@@ -10,7 +10,7 @@ Veo 3.1 is our latest line of video generation models. This page documents the c
 
 ## 3.1 Generate
 
-[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/video) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/video) [Pricing](https://cloud.google.com/model-garden/pricing)
 
 <table>
 <colgroup>
@@ -144,7 +144,7 @@ Supported</li>
 
 ## 3.1 Fast Generate
 
-[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/video) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/video) [Pricing](https://cloud.google.com/model-garden/pricing)
 
 <table>
 <colgroup>
@@ -282,7 +282,7 @@ Supported</li>
 
 ## 3.1 Lite Generate
 
-[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/video) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/video) [Pricing](https://cloud.google.com/model-garden/pricing)
 
 <table>
 <colgroup>

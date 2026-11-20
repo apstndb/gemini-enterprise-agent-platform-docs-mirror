@@ -264,13 +264,19 @@ Because the CodeMender CLI interacts with the cloud-hosted reasoning engine over
 
 After configuring your credentials and target project, your next step is to initialize CodeMender in your local environment. Initializing CodeMender prepares your local workspace by creating state-tracking files and establishing connection settings to the cloud-hosted reasoning engine.
 
-Run `cm init` from the root directory of your codebase to create local state tracking files and establish baseline configurations:
+Run `cm init` from the root directory of your codebase to create local state tracking files and establish baseline configurations in `~/.codemender/config.yaml` :
 
 ```
 cm init
 ```
 
-Use the `--verify` flag to test connectivity to the cloud-hosted reasoning engine and verify workspace settings:
+To create a repository-scoped `.codemender/config.yaml` file in your [project root](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment#project-root) that you can commit to version control and share with your team, run `cm init --project` :
+
+```
+cm init --project
+```
+
+Use the `--verify` flag to test connectivity to the cloud-hosted reasoning engine and verify workspace and project configuration settings:
 
 ```
 cm init --verify
@@ -321,8 +327,8 @@ Since the hosted AI agent executes local commands (like building code, running t
 
 ### Usage
 
-- **Location:** By default, the CLI reads this file from `~/.codemender/config.yaml` . You can override the workspace and configuration directory by setting the `CM_HOME` environment variable (for example, `CM_HOME=/path/to/custom/dir` , which reads `/path/to/custom/dir/config.yaml` ).
-- **Execution:** When you run commands such as `cm find` , `cm verify` , or `cm fix` , the local client reads this file to set up safety parameters, apply system bypasses, and specify which files or directories to ignore.
+- **Location:** By default, the CLI reads your user-level configuration from `~/.codemender/config.yaml` . You can override the workspace and configuration directory by setting the `CM_HOME` environment variable (for example, `CM_HOME=/path/to/custom/dir` , which reads `/path/to/custom/dir/config.yaml` ). In addition, when you run CodeMender inside a repository that contains a `.codemender/config.yaml` file at its project root, the CLI overlays that [project-scoped configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment#project-configuration) onto your user configuration using directional security merge rules.
+- **Execution:** When you run commands such as `cm find` , `cm verify` , or `cm fix` , the local client reads these files to set up safety parameters, apply system bypasses, and specify which files or directories to ignore. To ignore `.codemender/config.yaml` for a run, pass `--no-project-config` or set `CM_IGNORE_PROJECT_CONFIG=true` .
 
 ### Core default settings
 
@@ -418,9 +424,60 @@ If none of these settings applies and no one can answer the prompt, for example 
 
 Separately from these prompts, the CLI warns you that the agent can modify files and run commands on your system, and asks you to acknowledge the warning. `-y` doesn't skip this warning. To skip it, pass `--bypass-warning` . In a non-interactive environment without `--bypass-warning` , `cm` fails with `warning not acknowledged` . `cm find` skips the warning when the sandbox is enabled with the default `permissive-closed` network profile.
 
+### How CodeMender finds your project root
+
+CodeMender starts at the target path (or the current directory) and walks up toward your home directory. It uses the first match from the following list:
+
+1.  The nearest directory that contains `.git` , `.hg` , `.svn` , `MODULE.bazel` , `WORKSPACE.bazel` , or `WORKSPACE` .
+2.  If there is no such marker, the highest directory that contains a build file, such as `go.mod` , `package.json` , `pom.xml` , `Makefile` , or `.gitignore` .
+3.  If neither exists, the nearest directory that contains `.cm_project` , `.codemender/config.yaml` , or `.codemender/command_policy.yaml` .
+4.  If nothing matches, the target directory.
+
+If a path in `project_paths` in `~/.codemender/config.yaml` contains the target, CodeMender uses that path instead.
+
+In a Git or Mercurial repository, the project root is always the repository root.
+
+### Project-scoped configuration ( `.codemender/config.yaml` )
+
+To share repository-specific scan rules, build commands, and tighter security settings across a team without overwriting each developer's `~/.codemender/config.yaml` file, you can check a `.codemender/config.yaml` file into your repository root.
+
+Generate a starter `.codemender/config.yaml` template at the enclosing [project root](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment#project-root) :
+
+```
+cm init --project
+```
+
+When you run `cm find` , `cm verify` , `cm fix` , `cm build` , `cm session resume` , `cm report` , or `cm vcs` subcommands, CodeMender resolves the [project root](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment#project-root) . If that project root contains `.codemender/config.yaml` , CodeMender overlays it onto your `~/.codemender/config.yaml` file before applying environment variables and CLI flags.
+
+Because `.codemender/config.yaml` lives inside a cloned repository, CodeMender enforces directional merge rules so that a repository configuration file can tighten security boundaries or customize scan scope, but can't weaken your local sandbox or confirmation settings. The following table describes how CodeMender merges each field in a project `.codemender/config.yaml` file with your user `~/.codemender/config.yaml` file:
+
+| Merge rule                             | Configuration fields                                                                                                                                                                       | Behavior                                                                                                                                                                                                                                                                                                                                                                                              |
+|----------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Replace ( `replace` )**              | `output.format` , `output.plain` , `vcs.type` , `tools.cleanup_candidate_branches` , `scan.incremental`                                                                                    | Replaces the user configuration value with the project value when set. `vcs.type` only allows `"git"` or `"mercurial"` ( `"custom"` is blocked with a warning, and any other unknown `output.format` or `vcs.type` value fails the command).                                                                                                                                                          |
+| **Default ( `default` )**              | `team_id`                                                                                                                                                                                  | Applies the project value only when `team_id` isn't explicitly set in `~/.codemender/config.yaml` , environment variables, or CLI flags. An invalid `team_id` fails the command.                                                                                                                                                                                                                      |
+| **Additive union ( `union` )**         | `scan.extensions.include` , `scan.extensions.exclude` , `scan.exclude_dirs` , `security.protected_files`                                                                                   | Appends unique entries from `.codemender/config.yaml` to the user list. Sensitive secret extensions ( `.env` , `.pem` , `.key` , `.p12` , `.pfx` , `.crt` , and `.credentials` ) are blocked from `scan.extensions.include` . `security.protected_files` accepts only relative paths inside the project root; other entries are ignored with a warning.                                               |
+| **Tighten boolean ( `tighten_bool` )** | `tools.confirm_commands` , `tools.confirm_writes` , `execution.interactive_mode` , `execution.stall_detection` , `sandbox.enabled` , `sandbox.read_only_workspace` , `scan.include_hidden` | Allows a project file to turn safety settings on ( `true` ), but blocks and logs a warning if set to `false` . `scan.include_hidden` can only be set to `false` (can't enable hidden scanning if disabled globally). Project tightening sets the configuration default; your CLI flags and environment variables (such as `--yes` and `CM_STALL_DETECTION` ) still take precedence.                   |
+| **Tighten maximum ( `tighten_max` )**  | `execution.duration` , `scan.max_file_size_kb`                                                                                                                                             | Sets a limit when the user value is unset or `0` , or lowers an existing user limit ( `min(user, project)` ). Values above a positive user limit are ignored with a warning. Out-of-range values ( `execution.duration` `<= 0` or `> 24h` , or `scan.max_file_size_kb` `<= 0` ) fail the command. Your `--duration` flag and `CM_DURATION` environment variable still override `execution.duration` . |
+| **Interactive consent ( `consent` )**  | `build.command`                                                                                                                                                                            | Requires confirmation before executing an unsandboxed project-supplied `build.command` on the host OS. When the sandbox is disabled, CodeMender prompts for confirmation in an interactive terminal ( `--yes` and `--force` don't skip this prompt), and refuses execution when `execution.interactive_mode` is `false` . Commands containing control characters or newlines are rejected.            |
+| **Blocked ( `block` )**                | `vcs.commands` , `server.endpoint` , `location` , `kms_key` , `project_paths` , `sandbox.mounts.target_dir` , `sandbox.network.profile`                                                    | Ignores these fields (and any unknown keys) in `.codemender/config.yaml` and logs a warning on `stderr` . A repository file can't supply arbitrary shell commands for VCS operations, redirect endpoints, mount host paths, or alter sandbox network isolation.                                                                                                                                       |
+
+To inspect which project overrides are active and whether any fields in `.codemender/config.yaml` were blocked, run `cm init --verify` :
+
+```
+cm init --verify
+```
+
+When you run `cm support-bundle` inside a project, it also collects a redacted copy of `.codemender/config.yaml` , `.codemender/command_policy.yaml` , and `project/overrides.json` .
+
+To ignore `.codemender/config.yaml` for a single command invocation, pass `--no-project-config` or set the `CM_IGNORE_PROJECT_CONFIG=true` environment variable:
+
+```
+cm --no-project-config find .
+```
+
 ### Command policy ( `command_policy.yaml` )
 
-In addition to the OS-level sandbox, you can define a command denylist in `~/.codemender/command_policy.yaml` (global) and `<project>/.codemender/command_policy.yaml` (project-specific). When both files are present, CodeMender merges their rules.
+In addition to the OS-level sandbox, you can define a command denylist in `~/.codemender/command_policy.yaml` (global) and `<project>/.codemender/command_policy.yaml` in the [project root](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment#project-root) . When both files are present, CodeMender merges their rules.
 
 On first run, CodeMender creates a commented-out template at `~/.codemender/command_policy.yaml` . You can uncomment or add rules under two keys:
 

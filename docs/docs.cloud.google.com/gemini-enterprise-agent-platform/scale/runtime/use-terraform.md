@@ -56,11 +56,13 @@ Before using Terraform to deploy an agent, ensure that you have completed the fo
       - **Storage Object Admin** ( `roles/storage.objectAdmin` ) or **Storage Object Viewer** ( `roles/storage.objectViewer` ): Required when using Python package staging ( `package_spec` ) to upload or read serialized agent pickles ( `agent.pkl` ) and dependency manifests in Cloud Storage.
       - **Artifact Registry Writer** ( `roles/artifactregistry.writer` ): Required when prebuilding and pushing custom container images ( `docker push` ) to Artifact Registry repositories.
 
-    - System-managed Agent Runtime Service Agent ( `service-<var>PROJECT_NUMBER</var>@gcp-sa-aiplatform-re.iam.gserviceaccount.com` ).
+    - System-managed AI Platform Reasoning Engine Service Agent ( `service- `` PROJECT_NUMBER `` @gcp-sa-aiplatform-re.iam.gserviceaccount.com` ).
 
       #### Click to see required permissions
 
       - **Artifact Registry Reader** ( `roles/artifactregistry.reader` ): Grants the background Agent Runtime platform infrastructure permission to authenticate with Artifact Registry and pull your custom container image during pod deployment and container cold starts.
+
+      This service agent is shared across all agents in the project that don't configure an [agent identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) or a dedicated [custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#custom-service-account) , so any principal permitted to deploy or update agents in the project can access resources granted to it. Grant it only the minimum platform roles required (such as `roles/artifactregistry.reader` ), and use a dedicated custom service account or isolated agent identity for sensitive resources like Secret Manager secrets.
 
       > **Important:** In Terraform, you must explicitly manage the IAM binding for the service agent and ensure the `google_vertex_ai_reasoning_engine` resource includes a `depends_on` reference to the IAM binding. Otherwise, pod provisioning may fail with `IMAGE_PULL_BACKOFF` due to a race condition.
 
@@ -410,6 +412,8 @@ For more details about how deployment works, see [Deploy from Python object](htt
 ## Configure environment variables and secrets
 
 Before deployment, you can attach a custom runtime service account to your agent and pass environment variables ( `env` ) or Secret Manager references ( `secret_env` ).
+
+> **Caution:** Grant `roles/secretmanager.secretAccessor` on the specific secret to a dedicated [custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#custom-service-account) (such as `agent_runtime_sa` below) or an isolated [agent identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) rather than the shared default AI Platform Reasoning Engine Service Agent ( `service- `` PROJECT_NUMBER `` @gcp-sa-aiplatform-re.iam.gserviceaccount.com` ). That service agent is shared across all agents in the project that don't configure an agent identity or custom service account, so any principal permitted to deploy or update agents in the project can access secrets granted to it (even without using `secret_env` , by calling Secret Manager directly from agent code). For single-step `terraform apply` deployments that include `secret_env` , use a dedicated custom service account (like `agent_runtime_sa` below); because `AGENT_IDENTITY` principals are provisioned when the agent is created, using `AGENT_IDENTITY` with `secret_env` requires a two-step apply (create the engine without `secret_env` , bind secret access to its provisioned `spec[0].effective_identity` with the `principal://` prefix—for example, `"principal://${google_vertex_ai_reasoning_engine. `` ENGINE_NAME `` .spec[0].effective_identity}"` —then apply `secret_env` ) and restricting `aiplatform.reasoningEngines.update` permissions on the engine.
 
 The following example configures environment variables ( `LOCATION` , `MODEL` , `MODEL_REGION` ) and passes an API key securely from Secret Manager to the runtime service account through the `terraform/main.tf` file:
 

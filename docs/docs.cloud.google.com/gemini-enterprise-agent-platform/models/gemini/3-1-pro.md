@@ -28,7 +28,7 @@ For those building with a mix of bash and custom tools, Gemini 3.1 Pro supports 
 
 Pricing for `gemini-3.1-pro-preview-customtools` is identical to Gemini 3.1 Pro. Provisioned Throughput (PT) isn't supported on `gemini-3.1-pro-preview-customtools` , and multimodal requests on `gemini-3.1-pro-preview-customtools` enforce legacy input limits (up to 30 MiB per image and 10 HTTP or HTTPS image URLs, 50 MiB and 1,000 pages per PDF, 7 MiB per plain-text file, and 1 HTTP or HTTPS audio or video URL per request).
 
-[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-3.1-pro-preview) [View in Model Garden](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemini-3.1-pro-preview) [Deploy example app](https://console.cloud.google.com/agent-platform/studio/multimodal?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-3.1-pro-preview) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-3.1-pro-preview) [View in Model Garden](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemini-3.1-pro-preview) [Deploy example app](https://console.cloud.google.com/agent-platform/studio/multimodal?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-3.1-pro-preview) [Pricing](https://cloud.google.com/model-garden/pricing)
 
 Note: "Deploy example app" requires a Google Cloud project with billing and Agent Platform API enabled.
 

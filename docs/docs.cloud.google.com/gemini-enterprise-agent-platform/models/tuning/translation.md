@@ -60,11 +60,11 @@ Quota is enforced on the number of concurrent tuning jobs. Every project comes w
 
 ## Pricing
 
-You are billed for tuning based on [pricing for Translation Model tuning](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#model-tuning) .
+You are billed for tuning based on [pricing for Translation Model tuning](https://cloud.google.com/model-garden/pricing#model-tuning) .
 
 You are also billed for related services, such as Cloud Storage and Translation LLM Prediction.
 
-Learn about [Translation LLM pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#translation-text) , [Cloud Storage pricing](http://cloud.google.com/storage/pricing) .
+Learn about [Translation LLM pricing](https://cloud.google.com/model-garden/pricing#translation-text) , [Cloud Storage pricing](http://cloud.google.com/storage/pricing) .
 
 ## What's next
 

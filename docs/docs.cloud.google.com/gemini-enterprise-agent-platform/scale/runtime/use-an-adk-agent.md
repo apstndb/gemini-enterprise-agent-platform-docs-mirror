@@ -593,7 +593,9 @@ If you use a custom API endpoint by building your own container image, you must 
 
 ### Start a long-running query job
 
-As a prerequisite, you must grant the service agent `service- `` PROJECT_NUMBER `` @gcp-sa-aiplatform-re.iam.gserviceaccount.com` the `roles/storage.objectCreator` role to the storage bucket for output files.
+As a prerequisite, grant the agent's configured runtime identity (preferring an isolated [agent identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) or a dedicated [custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#custom-service-account) ; use the default AI Platform Reasoning Engine Service Agent `service- `` PROJECT_NUMBER `` @gcp-sa-aiplatform-re.iam.gserviceaccount.com` only if the agent runs with the default service agent) both `roles/storage.objectCreator` (to write output) and `roles/storage.objectViewer` (to read the staged input query) on the storage bucket when input and output share a bucket, or `roles/storage.objectViewer` on the input bucket and `roles/storage.objectCreator` on the output bucket when separate. ( `roles/storage.objectCreator` alone suffices on a same-bucket setup only when using the default `gcp-sa-aiplatform-re` service agent, which already has `storage.objects.get` in the agent's project.)
+
+> **Caution:** If your agent uses the default `service- `` PROJECT_NUMBER `` @gcp-sa-aiplatform-re.iam.gserviceaccount.com` service agent, note that it is shared across all agents in the project that don't configure an agent identity or custom service account. Any principal with permission to deploy or update agents in the project can access resources granted to it, so grant bucket roles only on dedicated buckets rather than at the project level.
 
 To start a long-running query job:
 
@@ -632,7 +634,7 @@ https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations
 }'
 ```
 
-For the REST API call, the `input_gcs_uri` field must point to a file that contains the query. The content of the file must be a JSON object with an `input` field that matches the `input` field of `QueryReasoningEngineRequest` (such as `{ "input": { "user_id": "hello", "message":"$QUERY"} }` ). If this input file is in a different bucket from the output location, you must also grant the service agent `service- `` PROJECT_NUMBER `` @gcp-sa-aiplatform-re.iam.gserviceaccount.com` the `roles/storage.objectReader` role to the storage bucket where the input files are located.
+For the REST API call, the `input_gcs_uri` field must point to a file that contains the query. The content of the file must be a JSON object with an `input` field that matches the `input` field of `QueryReasoningEngineRequest` (such as `{ "input": { "user_id": "hello", "message":"$QUERY"} }` ). If this input file is in a different bucket from the output location (or if your agent uses an isolated [agent identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) or dedicated [custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#custom-service-account) rather than the default `service- `` PROJECT_NUMBER `` @gcp-sa-aiplatform-re.iam.gserviceaccount.com` service agent), make sure the agent's configured runtime identity has the `roles/storage.objectViewer` role on the storage bucket where the input files are located.
 
 The `output_gcs_uri` must be a filename.
 

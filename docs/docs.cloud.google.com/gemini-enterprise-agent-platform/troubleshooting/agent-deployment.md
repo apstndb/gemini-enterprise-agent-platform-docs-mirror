@@ -358,15 +358,15 @@ Compute Engine Metadata server unavailable due to : Could not fetch URI /compute
 
 **Possible cause** :
 
-This can happen if the custom service account and your agent are in different projects and the [AI Platform Reasoning Engine Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents#service-agent) does not have the `iam.serviceAccounts.getAccessToken` permission on the custom service account.
+This can happen if the custom service account and your agent are in different projects and the Agent Platform Service Agent ( `service- `` PROJECT_NUMBER `` @gcp-sa-aiplatform.iam.gserviceaccount.com` ) does not have the `iam.serviceAccounts.getAccessToken` permission on the custom service account.
 
 See [Cross-project custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#cross-project-custom-service-account) for the full list of required configurations for this scenario.
 
 **Recommended solution** :
 
-Ask your administrator to grant the AI Platform Reasoning Engine Service Agent of the agent project the *Service Account Token Creator* ( `roles/iam.serviceAccountTokenCreator` ) role on the custom service account.
+Ask your administrator to grant the Agent Platform Service Agent ( `service- `` PROJECT_NUMBER `` @gcp-sa-aiplatform.iam.gserviceaccount.com` ) of the agent project the *Service Account Token Creator* ( `roles/iam.serviceAccountTokenCreator` ) role on the custom service account.
 
-The AI Platform Reasoning Engine Service Agent should be located in the same project you use to deploy your agent. The IAM binding of the role grant should be in the project where the custom service account resides.
+The Agent Platform Service Agent should be located in the same project you use to deploy your agent. The IAM binding of the role grant should be in the project where the custom service account resides.
 
 ## Environment provisioning failed
 
@@ -493,16 +493,33 @@ The Reasoning Engine could not access `projects/PROJECT_NUMBER/secrets/SECRET_ID
 
 - **`NOT_FOUND`** : The secret ID or version ID specified in `secret_env` doesn't exist in Secret Manager in the same project as the deployed agent, or contains a typo.
 - **`DESTROYED`** or **`DISABLED`** : The referenced secret version in Secret Manager is in a destroyed or disabled state.
-- **`PERMISSION_DENIED`** : The service account used by the agent doesn't have the Secret Manager Secret Accessor role ( `roles/secretmanager.secretAccessor` ) on the referenced secret.
+- **`PERMISSION_DENIED`** : On a service-account-based deployment (custom `service_account` or default AI Platform Reasoning Engine Service Agent), the configured service account doesn't have the Secret Manager Secret Accessor role ( `roles/secretmanager.secretAccessor` ) on the referenced secret during deployment validation.
 
 **Recommended solutions** :
 
 - **For `NOT_FOUND` , `DESTROYED` , or `DISABLED`** :
   1.  In the [Secret Manager page](https://console.cloud.google.com/security/secret-manager) of the project where you are deploying the agent, verify that each `SECRET_ID` and `VERSION_ID` referenced in `secret_env` exists and is in the **Enabled** state.
   2.  If a referenced version was disabled or destroyed, enable a valid version or update `secret_env` to reference an enabled version.
-- **For `PERMISSION_DENIED`** : Grant the **Secret Manager Secret Accessor** role ( `roles/secretmanager.secretAccessor` ) on the secret (or the project containing the secret) to the service account that fetches the secret:
-  - **Default service account** : Grant the role to the AI Platform Reasoning Engine Service Agent ( `service- `` PROJECT_NUMBER `` @gcp-sa-aiplatform-re.iam.gserviceaccount.com` ).
-  - **Custom service account** : Grant the role to the [custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#custom-service-account) configured on the agent.
+
+- **For `PERMISSION_DENIED`** : Follow [Manage access to secrets](https://docs.cloud.google.com/secret-manager/docs/manage-access-to-secrets) to grant the **Secret Manager Secret Accessor** role ( `roles/secretmanager.secretAccessor` ) on the specific secret to the dedicated [custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#custom-service-account) configured on the agent (or switch to an isolated [agent identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#secret-access-agent-identity) ).
+
+  > **Caution:** Avoid granting `roles/secretmanager.secretAccessor` to the shared default AI Platform Reasoning Engine Service Agent ( `service- `` PROJECT_NUMBER `` @gcp-sa-aiplatform-re.iam.gserviceaccount.com` ). That service agent is shared across all agents in the project that don't configure an agent identity or custom service account, so any principal with permission to deploy or update agents in the project can access secrets granted to it (even without using `secret_env` , by calling Secret Manager directly from agent code).
+
+### Container startup failure when using `secret_env` with `AGENT_IDENTITY`
+
+**Issue** :
+
+An agent configured with `identity_type = AGENT_IDENTITY` and `secret_env` fails or times out during container startup (rather than returning `REASONING_ENGINE_SECRET_ACCESS_DENIED` during deployment validation).
+
+**Possible causes** :
+
+For `AGENT_IDENTITY` deployments, Agent Runtime skips deployment-time secret access validation and fetches referenced secrets at container startup. If you pass `secret_env` during initial creation (before the provisioned agent identity exists and has been granted access), if the provisioned agent identity lacks `roles/secretmanager.secretAccessor` on a referenced secret, or if a referenced secret version is missing ( `NOT_FOUND` ), disabled ( `DISABLED` ), or destroyed ( `DESTROYED` ), container startup repeatedly fails to fetch the secret.
+
+**Recommended solutions** :
+
+1.  Create the agent with `AGENT_IDENTITY` first without `secret_env` .
+2.  Follow [Manage access to secrets](https://docs.cloud.google.com/secret-manager/docs/manage-access-to-secrets) to grant `roles/secretmanager.secretAccessor` on the specific secret to the agent's provisioned [agent identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity#grant-access-agent) (prepend `principal://` to `spec.effective_identity` when specifying the IAM member—for example, `--member="principal:// `` EFFECTIVE_IDENTITY `` "` ).
+3.  Verify that each referenced secret version exists and is enabled, and update the agent to attach `secret_env` . Restrict `aiplatform.reasoningEngines.update` permissions on the agent so only authorized principals can modify code running as its identity.
 
 ## Agent Gateway binding errors
 

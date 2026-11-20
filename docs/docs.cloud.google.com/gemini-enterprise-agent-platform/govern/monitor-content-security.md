@@ -99,7 +99,7 @@ The violations detected are categorized into the following areas:
 
 - **Responsible AI** : Content violations that are detected by safety filters, such as harassment and hate speech. For a complete list of responsible AI categories, see [Responsible AI safety filter](https://docs.cloud.google.com/model-armor/overview#ma-responsible-ai-safety-categories) .
 
-- **Sensitive data** : Content violations involving the presence of [sensitive information types](https://docs.cloud.google.com/sensitive-data-protection/docs/infotypes-reference) or [custom information types](https://docs.cloud.google.com/sensitive-data-protection/docs/creating-custom-infotypes) that you define. For more information, see [Sensitive Data Protection](https://docs.cloud.google.com/model-armor/overview#ma-sensitive-data-prot) .
+- **Sensitive data** : Content violations involving the presence of [sensitive information types](https://docs.cloud.google.com/sensitive-data-protection/docs/infotypes-reference) or [custom information types](https://docs.cloud.google.com/sensitive-data-protection/docs/creating-custom-infotypes) that you define. For more information, see [Sensitive Data Protection](https://docs.cloud.google.com/model-armor/overview#ma-sensitive-data-protection) .
 
   > **Note:** Counts for sensitive data content violations are included in the total violations count but aren't displayed in a separate category.
 

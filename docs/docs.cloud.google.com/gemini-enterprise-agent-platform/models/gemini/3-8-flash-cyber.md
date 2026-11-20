@@ -10,7 +10,7 @@ Gemini 3.8 Flash Cyber is a post-training version of the Gemini 3.8 Flash model 
 
 Gemini 3.8 Flash Cyber is available in GA behind an allowlist. To request access, contact your Google team or apply for access at [Fairwind Program](https://deepmind.google/fairwind-program/) .
 
-[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/chat?model=gemini-3.8-flash-cyber) [Deploy example app](https://console.cloud.google.com/agent-platform/studio/chat?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-3.8-flash-cyber) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/chat?model=gemini-3.8-flash-cyber) [Deploy example app](https://console.cloud.google.com/agent-platform/studio/chat?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-3.8-flash-cyber) [Pricing](https://cloud.google.com/model-garden/pricing)
 
 Note: "Deploy example app" requires a Google Cloud project with billing and Agent Platform API enabled.
 

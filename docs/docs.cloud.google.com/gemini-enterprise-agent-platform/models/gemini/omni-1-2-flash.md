@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 Gemini Omni 1.2 Flash is a multimodal model designed for video, image, and text tasks. Omni 1.2 Flash is optimized for video generation, editing, extension, and standalone video upscaling, generating or editing video output with synchronized audio up to 15 seconds at 360p, 720p, 1080p, or 4K resolution alongside text responses in a single model.
 
-[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-omni-1.2-flash) [View in Model Garden](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemini-omni-1.2-flash) [Deploy example app](https://console.cloud.google.com/agent-platform/studio/multimodal?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-omni-1.2-flash) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-omni-1.2-flash) [View in Model Garden](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemini-omni-1.2-flash) [Deploy example app](https://console.cloud.google.com/agent-platform/studio/multimodal?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-omni-1.2-flash) [Pricing](https://cloud.google.com/model-garden/pricing)
 
 Note: "Deploy example app" requires a Google Cloud project with billing and Agent Platform API enabled.
 

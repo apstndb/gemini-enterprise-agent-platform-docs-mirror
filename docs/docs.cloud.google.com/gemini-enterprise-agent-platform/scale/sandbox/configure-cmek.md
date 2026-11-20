@@ -85,6 +85,8 @@ Replace the following:
 
 - `PROJECT_NUMBER` : Your Google Cloud project number.
 
+> **Caution:** Because `service- `` PROJECT_NUMBER `` @gcp-sa-aiplatform-re.iam.gserviceaccount.com` is shared across default-identity agents in the project, grant `roles/cloudkms.cryptoKeyEncrypterDecrypter` on the specific CMEK key rather than at the project level.
+
 ## Enable CMEK on the Agent Platform instance
 
 Set `encryption_spec.kms_key_name` when you create the Gemini Enterprise Agent Platform instance. Every sandbox template and sandbox you create under it inherits this key.

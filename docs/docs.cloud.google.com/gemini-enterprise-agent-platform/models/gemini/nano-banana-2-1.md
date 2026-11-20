@@ -10,7 +10,7 @@ Gemini Nano Banana 2.1 is optimized for multimodal image generation and editing 
 
 > **Note:** The `seed` , `topK` , `logprobs` , `temperature` , and `topP` parameters aren't supported for Nano Banana 2.1. Setting any of these parameters returns an API error.
 
-[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-nano-banana-2.1) [View in Model Garden](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemini-nano-banana-2.1) [Deploy example app](https://console.cloud.google.com/agent-platform/studio/multimodal?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-nano-banana-2.1) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-nano-banana-2.1) [View in Model Garden](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemini-nano-banana-2.1) [Deploy example app](https://console.cloud.google.com/agent-platform/studio/multimodal?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-nano-banana-2.1) [Pricing](https://cloud.google.com/model-garden/pricing)
 
 Note: "Deploy example app" requires a Google Cloud project with billing and Agent Platform API enabled.
 
@@ -265,6 +265,6 @@ Output image token consumption varies based on the generated image resolution:
 | 2K                | 4                      | 1,680               |
 | 4K                | 16                     | 3,780               |
 
-> **Note:** Additional charges apply for input and output tokens for other modalities, such as text and video. Refer to the [pricing page](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) for the latest.
+> **Note:** Additional charges apply for input and output tokens for other modalities, such as text and video. Refer to the [pricing page](https://cloud.google.com/model-garden/pricing) for the latest.
 
 For more information about image generation using Nano Banana 2.1, see [Generate and edit images with Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation) .

@@ -528,21 +528,6 @@ The attributes described in the following table are available for each resource 
 - [Manage IAM UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/manage-iam-policies-uap)
 - [Audit dry-run policy violations across controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/dry-run-report)
 - [Troubleshoot IAM UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-iam-policies-uap)
-
-Codelab
-
-### [Codelab: Secure cross-cloud agentic AI applications](https://codelabs.developers.google.com/next26/aiinfra-learning-pod/screen1-securing-cross-cloud-agentic)
-
-Learn how to secure your agentic applications in the Securing Cross-Cloud Agentic AI Applications codelab.
-
-Overview
-
-### [Agent Gateway overview](https://docs.cloud.google.com/iap/govern/gateways/agent-gateway-overview)
-
-Get an overview of Agent Gateway.
-
-Guide
-
-### [Security controls](https://docs.cloud.google.com/iap/models/security-controls)
-
-Learn about security controls for Google Agent Platform.
+- [Codelab: Secure cross-cloud agentic AI applications](https://codelabs.developers.google.com/next26/aiinfra-learning-pod/screen1-securing-cross-cloud-agentic)
+- [Agent Gateway overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview)
+- [Security controls for Generative AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls)

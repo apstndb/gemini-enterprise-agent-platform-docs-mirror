@@ -45,7 +45,7 @@ The response contains the following fields:
 
 - `id` : The ID of the new voice.
 
-- `sample_audio` : A sample of the voice. The `data` field holds the base64-encoded audio, and the `mime_type` field names its encoding. For example, `audio/l16; rate=24000; channels=1` is headerless 16-bit PCM at 24 kHz, mono.
+- `sample_audio` : A sample of the voice. The `data` field holds the base64-encoded audio, and the `mime_type` field names its encoding. By default, the sample is a complete WAV file ( `audio/wav` ) with a RIFF header: 16-bit PCM, 24 kHz, mono. Some voices can return headerless 16-bit PCM ( `audio/l16; rate=24000; channels=1` ) instead, so check `mime_type` before you save the audio.
 
 - `usage` : The number of tokens that the request used. For more information, see [Pricing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-design#pricing) .
 
@@ -79,7 +79,9 @@ voice = client.voices.create(
 print(f"Created voice ID: {voice.id}")
 
 # Save the voice sample. The SDK returns sample_audio.data as a base64
-# string. Raw 16-bit PCM (audio/l16) needs a WAV header.
+# string. By default, it's a complete WAV file (audio/wav). For
+# compatibility, add a WAV header if the sample is raw 16-bit PCM
+# (audio/l16).
 sample = base64.b64decode(voice.sample_audio.data)
 if voice.sample_audio.mime_type.lower().startswith("audio/l16"):
     with wave.open("voice_sample.wav", "wb") as wf:
@@ -116,12 +118,12 @@ curl -X POST \
 jq -r '.id, .sample_audio.mime_type' created_voice.json
 
 # Decode the voice sample.
-jq -r '.sample_audio.data' created_voice.json | base64 --decode > voice_sample.pcm
+jq -r '.sample_audio.data' created_voice.json | base64 --decode > voice_sample.wav
 ```
 
-If `sample_audio.mime_type` is `audio/l16` , the `voice_sample.pcm` file contains headerless 16-bit PCM audio at 24 kHz, mono.
+By default, `sample_audio.mime_type` is `audio/wav` , and the `voice_sample.wav` file is a complete WAV file. If `mime_type` is `audio/l16` , the file contains headerless 16-bit PCM audio at 24 kHz, mono, and needs a WAV header before most players can open it.
 
-To hear the voice with your own text, generate speech with it as shown in the next section.
+To hear the voice with your own text, generate speech with it as shown in the next section. To change some traits of the voice later without describing it again, remix it with [voice remixing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-remixing) .
 
 ## Generate speech with a designed voice
 
@@ -186,7 +188,7 @@ Replace ` VOICE_ID ` with the voice ID that the `create` method returned.
 
 ## Manage stored voices
 
-You can list, get, and delete the voices stored in your project, including designed voices and [stored replicated voices](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-replication#create-stored) . The `list` method returns the voices stored in your project, followed by the prebuilt and [Extended Voice Library](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview#voice-library) voices. To list only the voices stored in your project, set the `type` filter to `prompted` and `replicated` , as the following samples do. The `get` method also returns the sample of a designed voice in the `sample_audio` field.
+You can list, get, and delete the voices stored in your project, including designed voices, [remixed voices](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-remixing) , and [stored replicated voices](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-replication#create-stored) . The `list` method returns the voices stored in your project, followed by the prebuilt and [Extended Voice Library](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview#voice-library) voices. To list only the voices stored in your project, set the `type` filter to `prompted` and `replicated` , as the following samples do. The `prompted` type includes both designed and remixed voices. The `get` method also returns the sample of a designed or remixed voice in the `sample_audio` field.
 
 ### Python
 
@@ -228,7 +230,7 @@ curl -X DELETE \
 
 ### Limits
 
-- Stored voices expire one year after they were last used. Generating speech with a voice restarts this period, so a voice that you use regularly doesn't expire. Delete voices that you no longer need.
+- Stored voices expire one year after they were last used. Generating speech with a voice, or using it as the base voice of a [remix](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-remixing) , restarts this period, so a voice that you use regularly doesn't expire. Delete voices that you no longer need.
 - Voice creation requests are subject to a per-project, per-minute quota. If you exceed it, the `create` method returns a `RESOURCE_EXHAUSTED` error. Wait and retry. For more information, see [Quotas and system limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas) .
 
 ## Pricing
@@ -247,5 +249,6 @@ For token rates, see [Gemini Enterprise pricing](https://cloud.google.com/gemini
 
 ## What's next
 
+- Edit a designed or prebuilt voice with [Voice remixing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-remixing) .
 - Replicate an existing speaker's voice with [Voice replication](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-replication) .
 - Learn about turn-level styling, inline tags, and multi-speaker dialogue in [Generate speech with Gemini TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview) .

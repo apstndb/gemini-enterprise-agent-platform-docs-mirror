@@ -23,7 +23,7 @@ In many real-world scenarios, you don't need an immediate response from a langua
   - **Gemini 3 and later models** : For supported models, the cache and batch discounts stack, providing a 95% total discount on cached input tokens compared to standard input tokens.
   - **Gemini 2.5 models** : The discounts for cache and batch don't stack. The 90% cache hit discount takes precedence over the batch discount.
 
-  For model-specific rates, see [Gemini Enterprise Agent Platform pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
+  For model-specific rates, see [Gemini Enterprise Agent Platform pricing](https://cloud.google.com/model-garden/pricing) .
 
 - **High rate limits** : Process hundreds of thousands of requests in a single batch with a higher rate limit compared to the real-time Gemini API.
 

@@ -25,13 +25,13 @@ To try single-speaker speech generation without writing code, open Gemini 3.8 Fl
 
 ## Supported models
 
-| Model                                                                                                                                                        | Single speaker | Multi-speaker | Streaming | [Voice design](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-design) (Preview) | [Voice replication](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-replication) (Preview) |
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|---------------|-----------|-----------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
-| [Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts) ( `gemini-3.8-flash-tts` )                |                |               |           |                                                                                                                             |                                                                                                                                       |
-| [Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts) ( `gemini-3.8-flash-lite-tts` ) |                |               |           |                                                                                                                             |                                                                                                                                       |
-| [Gemini 3.1 Flash TTS Preview](https://docs.cloud.google.com/text-to-speech/docs/gemini-tts#gemini-3-1-flash-tts-preview) ( `gemini-3.1-flash-tts-preview` ) |                |               |           |                                                                                                                             |                                                                                                                                       |
-| [Gemini 2.5 Pro TTS](https://docs.cloud.google.com/text-to-speech/docs/gemini-tts#gemini-2-5-pro-tts) ( `gemini-2.5-pro-tts` )                               |                |               |           |                                                                                                                             |                                                                                                                                       |
-| [Gemini 2.5 Flash TTS](https://docs.cloud.google.com/text-to-speech/docs/gemini-tts#gemini-2-5-flash-tts) ( `gemini-2.5-flash-tts` )                         |                |               |           |                                                                                                                             |                                                                                                                                       |
+| Model                                                                                                                                                        | Single speaker | Multi-speaker | Streaming | [Voice design](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-design) (Preview) | [Voice remixing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-remixing) (Preview) | [Voice replication](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-replication) (Preview) |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|---------------|-----------|-----------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+| [Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts) ( `gemini-3.8-flash-tts` )                |                |               |           |                                                                                                                             |                                                                                                                                 |                                                                                                                                       |
+| [Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts) ( `gemini-3.8-flash-lite-tts` ) |                |               |           |                                                                                                                             |                                                                                                                                 |                                                                                                                                       |
+| [Gemini 3.1 Flash TTS Preview](https://docs.cloud.google.com/text-to-speech/docs/gemini-tts#gemini-3-1-flash-tts-preview) ( `gemini-3.1-flash-tts-preview` ) |                |               |           |                                                                                                                             |                                                                                                                                 |                                                                                                                                       |
+| [Gemini 2.5 Pro TTS](https://docs.cloud.google.com/text-to-speech/docs/gemini-tts#gemini-2-5-pro-tts) ( `gemini-2.5-pro-tts` )                               |                |               |           |                                                                                                                             |                                                                                                                                 |                                                                                                                                       |
+| [Gemini 2.5 Flash TTS](https://docs.cloud.google.com/text-to-speech/docs/gemini-tts#gemini-2-5-flash-tts) ( `gemini-2.5-flash-tts` )                         |                |               |           |                                                                                                                             |                                                                                                                                 |                                                                                                                                       |
 
 The samples and features on this page apply to the Gemini 3.8 TTS models. For the earlier models, see [Gemini-TTS](https://docs.cloud.google.com/text-to-speech/docs/gemini-tts) in the Google Cloud Text-to-Speech documentation.
 
@@ -66,7 +66,7 @@ The Gemini 3.8 TTS models are available in the `global` location and in the `us`
 
 For lower time to first audio (TTFA) on streaming requests, use the `us` or `eu` multi-region endpoint instead of the `global` endpoint. The `global` endpoint routes requests across regions worldwide, which can increase network latency before the first audio chunk arrives.
 
-> **Note:** User-owned custom voices (voices created with voice design or voice replication) are only available in the `global` location.
+> **Note:** User-owned custom voices (voices created with voice design, voice remixing, or voice replication) are only available in the `global` location.
 
 To direct requests to a regional endpoint, set `location="us"` (or `location="eu"` ) when initializing the client in the SDK, or send requests to the corresponding multi-region hostname ( `https://aiplatform.us.rep.googleapis.com` or `https://aiplatform.eu.rep.googleapis.com` ) with the matching location path in the REST URL:
 
@@ -127,7 +127,7 @@ curl -X POST \
 
 ## Single-speaker TTS
 
-To convert text to single-speaker audio, pass the verbatim transcript in `parts[].text` , add optional turn-level styling in `parts[].speech_metadata` , and set the voice in `speechConfig.voiceConfig.voice` . The `voice` field accepts a [prebuilt voice](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview#prebuilt-voices) name, an [Extended Voice Library](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview#voice-library) voice ID, or the ID ( `voice_...` ) of a [designed](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-design) or [replicated](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-replication) voice (or an optional stateless `voicekey_...` key).
+To convert text to single-speaker audio, pass the verbatim transcript in `parts[].text` , add optional turn-level styling in `parts[].speech_metadata` , and set the voice in `speechConfig.voiceConfig.voice` . The `voice` field accepts a [prebuilt voice](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview#prebuilt-voices) name, an [Extended Voice Library](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview#voice-library) voice ID, or the ID ( `voice_...` ) of a [designed](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-design) , [remixed](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-remixing) , or [replicated](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-replication) voice (or an optional stateless `voicekey_...` key).
 
 By default, unary requests return a complete WAV file (16-bit PCM, 24 kHz, mono), so you can write the audio bytes directly to a `.wav` file. Streaming requests return raw PCM chunks instead. For details and other encodings, see [Audio output formats](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview#audio-output-formats) .
 
@@ -446,21 +446,22 @@ For more guidance, see the [prompting guide](https://docs.cloud.google.com/gemin
 
 ## Voice options
 
-The Gemini 3.8 TTS models support four ways to select or create voices:
+The Gemini 3.8 TTS models support five ways to select or create voices:
 
 1.  **[Prebuilt voices](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview#prebuilt-voices)** : 30 curated voices.
 2.  **[Extended Voice Library](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview#voice-library)** : More than 2,000 curated preset voices across languages, regional accents, and character personas.
 3.  **[Voice design](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-design)** (Preview): Create a custom voice from a natural-language description with the Voices API `create` method ( `client.voices.create()` in the Google Gen AI SDK, or `POST https://aiplatform.googleapis.com/v1beta1/projects/ `` PROJECT_ID `` /locations/global/voices` ). Set `type` to `VOICE_TYPE_PROMPTED` and `store` to `true` . The response returns a stored `voice_...` ID and a sample of the voice.
-4.  **[Voice replication](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-replication)** (Preview): Replicate a speaker's voice from reference and consent audio with the same `create` method. Set `type` to `VOICE_TYPE_REPLICATED` . With `store: true` , the response returns a stored `voice_...` ID. With `store: false` , it returns a stateless `voicekey_...` key.
+4.  **[Voice remixing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-remixing)** (Preview): Create a new custom voice by editing an existing voice with the same `create` method. Set `type` to `VOICE_TYPE_PROMPTED` , `store` to `true` , `prompted.base_voice` to a prebuilt, Extended Voice Library, designed, or remixed voice, and `prompted.input` to a description of the changes. The response returns a new stored `voice_...` ID and a sample of the voice.
+5.  **[Voice replication](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-replication)** (Preview): Replicate a speaker's voice from reference and consent audio with the same `create` method. Set `type` to `VOICE_TYPE_REPLICATED` . With `store: true` , the response returns a stored `voice_...` ID. With `store: false` , it returns a stateless `voicekey_...` key.
 
 ### Custom voice limits and TTL
 
-| Voice type                                                | Storage mode   | Management                                                  | Expiration                |
-|-----------------------------------------------------------|----------------|-------------------------------------------------------------|---------------------------|
-| **Stored voices** ( `voice_...` , designed or replicated) | `store: true`  | Voices API `list` , `get` , and `delete` methods            | **1 year after last use** |
-| **Voice replication keys** ( `voicekey_...` )             | `store: false` | Managed by your application. Google doesn't retain the key. | **7 days after creation** |
+| Voice type                                                          | Storage mode   | Management                                                  | Expiration                |
+|---------------------------------------------------------------------|----------------|-------------------------------------------------------------|---------------------------|
+| **Stored voices** ( `voice_...` , designed, remixed, or replicated) | `store: true`  | Voices API `list` , `get` , and `delete` methods            | **1 year after last use** |
+| **Voice replication keys** ( `voicekey_...` )                       | `store: false` | Managed by your application. Google doesn't retain the key. | **7 days after creation** |
 
-Generating speech with a stored voice restarts its one-year retention period, so a voice that you use regularly doesn't expire. Voice creation requests are subject to a per-project, per-minute quota. If you exceed it, the `create` method returns a `RESOURCE_EXHAUSTED` error. For more information, see [Quotas and system limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas) .
+Generating speech with a stored voice, or using it as the base voice of a remix, restarts its one-year retention period, so a voice that you use regularly doesn't expire. Voice creation requests are subject to a per-project, per-minute quota. If you exceed it, the `create` method returns a `RESOURCE_EXHAUSTED` error. For more information, see [Quotas and system limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas) .
 
 ### Data storage and retention
 
@@ -476,7 +477,12 @@ When you create a *designed voice* using a text description of a voice in a prom
 - The text prompt that you wrote to describe the voice.
 - The voice audio generated from that prompt, which the model uses as the reference for the voice.
 
-A designed voice has no consent audio, because it is generated from a description rather than from a recording of a person.
+When you create a *remixed voice* from a base voice and a text prompt, it stores the following:
+
+- The text prompt that you wrote to describe the changes.
+- The voice audio generated from the base voice and the prompt, which the model uses as the reference for the voice.
+
+A designed or remixed voice has no consent audio, because it is generated from a description rather than from a recording of a person.
 
 Voice inputs are stored so that your voice keeps working across model updates. Voice artifacts are regenerated from stored inputs when the underlying model is updated. If no stored inputs are found for a voice, its artifacts can't be regenerated, and the voice stops working after a model update. You must then create the voice again.
 
@@ -484,7 +490,7 @@ The stored inputs are used only to regenerate the voice when models are updated.
 
 #### Retention period
 
-Voices and all associated stored data are retained for up to one year (365 days) from the last time that you used the voice to synthesize speech. The period starts when you create the voice, and resets each time that you send a synthesis request that uses the voice. If a voice isn't used for 365 days, the voice, its stored inputs, and its derived artifacts are deleted.
+Voices and all associated stored data are retained for up to one year (365 days) from the last time that you used the voice to synthesize speech. The period starts when you create the voice, and resets each time that you send a synthesis request that uses the voice or use the voice as the base voice of a remix. If a voice isn't used for 365 days, the voice, its stored inputs, and its derived artifacts are deleted.
 
 #### Deletion by customer
 
@@ -531,7 +537,7 @@ Beyond the 30 prebuilt voices, the Extended Voice Library provides more than 2,0
 
 To browse the library, call the Voices API `list` method ( `ListVoices` ). It returns the custom voices stored in your project, followed by the prebuilt and Extended Voice Library voices. Each library voice includes its `id` and metadata such as `language_code` , `accent` , `gender` , `pitch` , `persona` , and `description` . To narrow the results, use the following filters:
 
-- `type` : The voice source: `prebuilt` for prebuilt and library voices, `prompted` for designed voices, or `replicated` for replicated voices. If you pass more than one value, the method returns voices that match any of them.
+- `type` : The voice source: `prebuilt` for prebuilt and library voices, `prompted` for designed and remixed voices, or `replicated` for replicated voices. If you pass more than one value, the method returns voices that match any of them.
 - `search` : Text to match, case-insensitively, against each voice's display name and description.
 
 The following example searches the library for narrator voices:

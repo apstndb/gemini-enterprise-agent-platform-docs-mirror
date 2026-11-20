@@ -773,7 +773,7 @@ Deferred model calls are billed at a 50% discount compared to [Standard pay-as-y
 - **Failed turns** : Single-call turns that end as `failed` , including turns that exceed the 24-hour completion window, aren't billed. In a multi-step server-side tool loop, completed model calls before a failure are billed, but the failed call isn't.
 - **Chained turns** : Each turn in a `previous_interaction_id` chain is billed on its own. Cancelling a later turn, or a later turn failing, doesn't change the charges for earlier turns.
 
-For per-model token rates, see the [Agent Platform pricing page](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
+For per-model token rates, see the [Agent Platform pricing page](https://cloud.google.com/model-garden/pricing) .
 
 ### Quotas, payload limits, and retention
 

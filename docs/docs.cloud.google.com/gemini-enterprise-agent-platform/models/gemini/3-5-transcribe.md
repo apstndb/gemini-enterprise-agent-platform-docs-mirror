@@ -453,7 +453,7 @@ Gemini 3.5 Transcribe is available in the following Google Cloud locations:
 - **Target custom vocabulary** : Include only distinct domain terms, brand names, or proper nouns in `custom_vocabulary` rather than common everyday words.
 - **Use manual endpointing with `SMART` mode in live transcription** : Disable automatic VAD ( `automatic_activity_detection` ) and explicitly send `activity_start` and `activity_end` signals so the model can apply disfluency removal, self-corrections, and formatting across complete utterances.
 
-[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal-live?model=gemini-3.5-transcribe-live-preview) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal-live?model=gemini-3.5-transcribe-live-preview) [Pricing](https://cloud.google.com/model-garden/pricing)
 
 <table>
 <colgroup>

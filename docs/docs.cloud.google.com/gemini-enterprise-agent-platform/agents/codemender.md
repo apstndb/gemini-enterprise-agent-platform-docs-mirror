@@ -109,6 +109,7 @@ CodeMender supports the following models:
 
 #### Click to expand supported models
 
+- [Gemini 4 Hydrogen](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen)
 - [Gemini 4 Carbon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon)
 - [Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon)
 - [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
@@ -119,7 +120,7 @@ CodeMender supports the following models:
 
 CodeMender also supports [Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber) , Gemini 4 Argon Cyber Permissive, and Gemini 4 Carbon for cyber for customers with access through the [Fairwind Program](https://deepmind.google/fairwind-program/) .
 
-Gemini 4 Argon ( `gemini-4-argon` ) and Gemini 4 Carbon ( `gemini-4-carbon` ) include built-in cyber safety capabilities that may block requests involving exploit generation or vulnerability verification. Any safety block on `gemini-4-argon` or `gemini-4-carbon` automatically triggers a retry against Gemini 3.8 Flash Cyber ( `gemini-3.8-flash-cyber` ), and then falls back to Gemini 3.8 Flash ( `gemini-3.8-flash` ) if your project does not have access to Gemini 3.8 Flash Cyber.
+Gemini 4 Argon ( `gemini-4-argon` ), Gemini 4 Carbon ( `gemini-4-carbon` ), and Gemini 4 Hydrogen ( `gemini-4-hydrogen` ) include built-in cyber safety capabilities that may block requests involving exploit generation or vulnerability verification. Any safety block on `gemini-4-argon` , `gemini-4-carbon` , or `gemini-4-hydrogen` automatically triggers a retry against Gemini 3.8 Flash Cyber ( `gemini-3.8-flash-cyber` ), and then falls back to Gemini 3.8 Flash ( `gemini-3.8-flash` ) if your project does not have access to Gemini 3.8 Flash Cyber.
 
 `cm verify` works best with a cyber model. If your project has access through the Fairwind Program, pass one with the `--model` flag, for example `--model gemini-3.8-flash-cyber` .
 
@@ -187,6 +188,7 @@ By default, CodeMender uses Gemini 3.8 Flash. To override the default model, pas
 - Gemini 4 Argon Cyber Permissive: `--model gemini-4-argon-cyber-permissive`
 - Gemini 4 Carbon: `--model gemini-4-carbon`
 - Gemini 4 Carbon for cyber: `--model gemini-4-carbon-cyber-permissive`
+- Gemini 4 Hydrogen: `--model gemini-4-hydrogen`
 - Gemini 3.7 Flash: `--model gemini-3.7-flash` (retires on January 28, 2027)
 - Gemini 3.6 Flash: `--model gemini-3.6-flash` (deprecated; retires on November 19, 2026)
 - Gemini 3.5 Flash: `--model gemini-3.5-flash`

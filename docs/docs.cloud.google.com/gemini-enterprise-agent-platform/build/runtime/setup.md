@@ -61,7 +61,9 @@ Once you create the Agent Platform instance with the agent identity, you can do 
 
 The *AI Platform Reasoning Engine Service Agent* is used by default. You can view the full list of default permissions in the [IAM documentation](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.reasoningEngineServiceAgent) .
 
-If your agent requires permissions beyond the default set, you can grant this Service Agent additional roles:
+> **Caution:** The default *AI Platform Reasoning Engine Service Agent* is shared across all agents in the project that don't configure an agent identity or custom service account. Any permissions or secrets granted to it can be accessed by any principal with permission to deploy or update agents in the project (even without using `secret_env` , by calling APIs directly from agent code). For sensitive resources such as Secret Manager secrets, use an isolated [agent identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) (restricting `aiplatform.reasoningEngines.update` access to that agent) or a dedicated [custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#custom-service-account) instead.
+
+If your agent requires non-sensitive permissions beyond the default set, you can grant this Service Agent additional roles:
 
 1.  Go to the **IAM** page and check the "Include Google-provided role grants" checkbox.
 

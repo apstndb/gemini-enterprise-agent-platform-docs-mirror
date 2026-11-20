@@ -101,6 +101,8 @@ Optional. The OSS agent framework used to develop the agent. Currently supported
 
 Optional. The identity type to use for the Reasoning Engine. If not specified, the `serviceAccount` field will be used if set, otherwise the default Agent Platform Reasoning Engine service Agent in the project will be used.
 
+WARNING: The default Agent Platform Reasoning Engine service Agent ( `service-{projectNumber}@gcp-sa-aiplatform-re.iam.gserviceaccount.com` ) is shared across all Reasoning Engines in the project that do not specify an isolated identity or custom service account. Any permissions or secrets granted to it can be accessed by any principal permitted to deploy or update agents in the project (even without using `secretEnv` , by calling APIs directly from agent code). Prefer `AGENT_IDENTITY` (and restrict `aiplatform.reasoningEngines.update` permissions on the engine) or a dedicated custom `serviceAccount` when granting access to sensitive resources such as Secret Manager secrets.
+
 `deployment_source` `Union type`
 
 Defines the source for the deployment. The `package_spec` field should not be set if `deployment_source` is specified. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
@@ -117,7 +119,9 @@ End of mutually exclusive fields.
 
 `serviceAccount` `string`
 
-Optional. The service account that the Reasoning Engine artifact runs as. It should have "roles/storage.objectViewer" for reading the user project's Cloud Storage and "roles/aiplatform.user" for using Vertex extensions. If not specified, the Agent Platform Reasoning Engine service Agent in the project will be used.
+Optional. The service account that the Reasoning Engine artifact runs as. It should have "roles/storage.objectViewer" for reading the user project's Cloud Storage and "roles/aiplatform.user" for using Vertex extensions. If not specified and `identityType` is not `AGENT_IDENTITY` , the default Agent Platform Reasoning Engine service Agent in the project will be used.
+
+WARNING: The default Agent Platform Reasoning Engine service Agent ( `service-{projectNumber}@gcp-sa-aiplatform-re.iam.gserviceaccount.com` ) is shared across all Reasoning Engines in the project that do not specify an isolated identity or custom service account. Any permissions or secrets granted to it can be accessed by any principal permitted to deploy or update agents in the project (even without using `secretEnv` , by calling APIs directly from agent code). For sensitive resources such as Secret Manager secrets, use `identityType = AGENT_IDENTITY` (restricting `aiplatform.reasoningEngines.update` access to that engine) or a dedicated custom `serviceAccount` .
 
 **JSON representation**
 
@@ -458,7 +462,11 @@ Optional. Environment variables to be set with the Reasoning Engine deployment. 
 
 `secretEnv[]` `object ( `[`SecretEnvVar`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines#SecretEnvVar)` )`
 
-Optional. Environment variables where the value is a secret in Cloud Secret Manager. To use this feature, add 'Secret Manager Secret Accessor' role (roles/secretmanager.secretAccessor) to AI Platform Reasoning Engine service Agent.
+Optional. Environment variables where the value is a secret in Secret Manager. Secrets must be global secrets in the same project as the Reasoning Engine.
+
+At startup (and during deployment validation for service-account-based deployments), the Reasoning Engine accesses the referenced secrets using its configured runtime identity. Grant the Secret Manager Secret Accessor role ( `roles/secretmanager.secretAccessor` ) on the specific secret to an isolated per-agent identity ( `identityType = AGENT_IDENTITY` ) or a dedicated custom `serviceAccount` . When using `AGENT_IDENTITY` , create the Reasoning Engine first without `secretEnv` , grant access to its provisioned agent identity (prepend `principal://` to the `effectiveIdentity` value returned by the SDK/CLI, e.g., `principal://agents.global...` ), and then update the Reasoning Engine to add `secretEnv` .
+
+WARNING: Avoid granting secret access to the default Agent Platform Reasoning Engine service Agent ( `service-{projectNumber}@gcp-sa-aiplatform-re.iam.gserviceaccount.com` ). That service agent is shared across all Reasoning Engines in the project that do not specify an isolated identity or custom service account, so any principal with permission to deploy or update agents in the project can access secrets granted to it (including without `secretEnv` , by calling Secret Manager directly from agent code). Note also that any principal with `aiplatform.reasoningEngines.update` permission on an `AGENT_IDENTITY` engine can run code as that agent's identity; restrict update permissions accordingly.
 
 `pscInterfaceConfig` `object ( `[`PscInterfaceConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#PscInterfaceConfig)` )`
 
@@ -620,11 +628,11 @@ Optional. Specifies the port number on the container to which the request is sen
 
 The identity type to use for the Reasoning Engine.
 
-| Enums                       |                                                                                                                                                                                                             |
-|-----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `IDENTITY_TYPE_UNSPECIFIED` | Default value. Use a custom service account if the `serviceAccount` field is set, otherwise use the default Agent Platform Reasoning Engine service Agent in the project. Same behavior as SERVICE_ACCOUNT. |
-| `SERVICE_ACCOUNT`           | Use a custom service account if the `serviceAccount` field is set, otherwise use the default Agent Platform Reasoning Engine service Agent in the project.                                                  |
-| `AGENT_IDENTITY`            | Use Agent Identity. The `serviceAccount` field must not be set.                                                                                                                                             |
+| Enums                       |                                                                                                                                                                                                                                                                                                                                                                                                                       |
+|-----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `IDENTITY_TYPE_UNSPECIFIED` | Default value. Use a custom service account if the `serviceAccount` field is set, otherwise use the default Agent Platform Reasoning Engine service Agent in the project. Same behavior as `SERVICE_ACCOUNT` . WARNING: The default service agent is shared across all Reasoning Engines in the project that do not specify an isolated identity or custom service account; see `identityType` for security guidance. |
+| `SERVICE_ACCOUNT`           | Use a custom service account if the `serviceAccount` field is set, otherwise use the default Agent Platform Reasoning Engine service Agent in the project. WARNING: The default service agent is shared across all Reasoning Engines in the project that do not specify an isolated identity or custom service account; see `identityType` for security guidance.                                                     |
+| `AGENT_IDENTITY`            | Use Agent Identity. The `serviceAccount` field must not be set. Restrict `aiplatform.reasoningEngines.update` permissions on the engine because any principal permitted to update it can run code as its identity.                                                                                                                                                                                                    |
 
 | Methods                                                                                                                                                         |                                                                  |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|

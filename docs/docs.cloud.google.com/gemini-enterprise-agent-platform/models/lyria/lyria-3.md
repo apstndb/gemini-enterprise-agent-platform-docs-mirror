@@ -14,7 +14,7 @@ Lyria is a music generation model from Google. This page documents the capabilit
 
 ## 3 Pro Preview
 
-[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/music) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/music) [Pricing](https://cloud.google.com/model-garden/pricing)
 
 <table>
 <colgroup>
@@ -122,7 +122,7 @@ Supported</li>
 
 ## 3 Clip Preview
 
-[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/music) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/music) [Pricing](https://cloud.google.com/model-garden/pricing)
 
 <table>
 <colgroup>

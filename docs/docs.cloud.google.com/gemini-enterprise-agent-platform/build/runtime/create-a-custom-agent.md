@@ -458,7 +458,7 @@ To integrate with Secret Manager:
     pip install google-cloud-secret-manager
     ```
 
-2.  Follow the instructions in [Grant roles for a deployed agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-agent-access#grant-role) to grant the [service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#identity-and-permissions) the "Secret Manager Secret Accessor" role ( `roles/secretmanager.secretAccessor` ) through the Google Cloud console.
+2.  Follow [Manage access to secrets](https://docs.cloud.google.com/secret-manager/docs/manage-access-to-secrets) to grant the Secret Manager Secret Accessor role ( `roles/secretmanager.secretAccessor` ) on the specific secret to your agent's isolated [agent identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) (and restrict `aiplatform.reasoningEngines.update` permissions on the agent so only authorized principals can modify code running as its identity) or a dedicated [custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#custom-service-account) . Because direct runtime `SecretManagerServiceClient` reads execute using the agent's configured identity, avoid granting secret access to the shared default AI Platform Reasoning Engine Service Agent ( `service- `` PROJECT_NUMBER `` @gcp-sa-aiplatform-re.iam.gserviceaccount.com` ): any principal permitted to deploy or update agents in the project can read secrets granted to it (even without using `secret_env` ).
 
 3.  Import and initialize the client in the `.set_up` method and get the corresponding secret when needed. As an example, the following template is a modification of the [basic example](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-a-custom-agent#basic-example) to use an API key for `ChatAnthropic` that was [stored in Secret Manager](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-agent-access#create-secret) :
 
@@ -574,7 +574,7 @@ credentials = google.oauth2.credentials.Credentials(
 
 Here, the `TOKEN_URI` , `CLIENT_ID` and `CLIENT_SECRET` are based on [Create an OAuth client credential](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-agent-access#create-oauth-client-credential) .
 
-If you don't have an access token, you can use `google_auth_oauthlib.flow` to perform the [OAuth 2.0 Authorization Grant Flow](https://developers.google.com/identity/protocols/oauth2/web-server) to obtain a corresponding `google.oauth2.credentials.Credentials` instance:
+If you don't have an access token, you can use `google_auth_oauthlib.flow` to perform the [OAuth 2.0 Authorization Grant Flow](https://developers.google.com/identity/protocols/oauth2/web-server) to obtain a corresponding `google.oauth2.credentials.Credentials` instance (follow [Integrating with Secret Manager](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-a-custom-agent#secret-manager) to grant secret access to an isolated agent identity or dedicated custom service account rather than the shared default service agent):
 
 ```
 from google.cloud import secretmanager
@@ -583,7 +583,7 @@ import json
 
 # Get the client config from Secret Manager here.
 secret_manager_client = secretmanager.SecretManagerServiceClient()
-secret_version = client.access_secret_version(request={
+secret_version = secret_manager_client.access_secret_version(request={
     "name": "projects/PROJECT_ID/secrets/SECRET_ID/versions/SECRET_VERSION",
 })
 client_config = json.loads(secret_version.payload.data.decode())

@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 Gemini 3 Pro Image (Nano Banana Pro), is designed to tackle the most challenging image generation by incorporating state-of-the-art reasoning capabilities. It's the best model for complex and multi-turn image generation and editing, having improved accuracy and enhanced image quality.
 
-[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-3-pro-image) [View in Model Garden](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemini-3-pro-image) [Deploy example app](https://console.cloud.google.com/agent-platform/studio/multimodal?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-3-pro-image) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-3-pro-image) [View in Model Garden](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemini-3-pro-image) [Deploy example app](https://console.cloud.google.com/agent-platform/studio/multimodal?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-3-pro-image) [Pricing](https://cloud.google.com/model-garden/pricing)
 
 Note: "Deploy example app" requires a Google Cloud project with billing and Agent Platform API enabled.
 
@@ -274,7 +274,7 @@ Output image token consumption varies based on the generated image resolution:
 | 2K                | 4                      | 1,120               |
 | 4K                | 16                     | 2,000               |
 
-> **Note:** Additional charges apply for input and output tokens for other modalities, such as text and video. Refer to the [pricing page](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) for the latest.
+> **Note:** Additional charges apply for input and output tokens for other modalities, such as text and video. Refer to the [pricing page](https://cloud.google.com/model-garden/pricing) for the latest.
 
 Prompts support up to 14 input images. When you pass images by using HTTP or HTTPS URLs in the `Part.from_uri` method, requests are limited to a maximum of 10 image links. To include up to 14 images, pass images as Cloud Storage URIs ( `gs://` ) or as inline data.
 

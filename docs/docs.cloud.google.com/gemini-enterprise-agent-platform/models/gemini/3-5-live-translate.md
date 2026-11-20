@@ -193,7 +193,7 @@ While both use Gemini Live API, the mental model for Live Translation differs fr
 
 - Evaluate echo mode per use case: Set `echo_target_language=False` for one-way interpreter setups to suppress unnecessary rebroadcasting when speakers already use the target language.
 
-[Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Pricing](https://cloud.google.com/model-garden/pricing)
 
 <table>
 <colgroup>

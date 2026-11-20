@@ -233,11 +233,9 @@ If there are environment variables that your agent depends on, you can specify t
 env_vars = None
 ```
 
-If you are using secrets as environment variables with an agent that is configured to use [agent identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) , grant the `secretmanager.versions.access` permission (included in the `roles/secretmanager.secretAccessor` role) to the [Agent Platform Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.serviceAgent) , which has the following format:
+When referencing secrets from Secret Manager as environment variables, the agent accesses the referenced secrets at container startup (and during deployment validation for service-account-based deployments) using its configured runtime identity. Follow [Manage access to secrets](https://docs.cloud.google.com/secret-manager/docs/manage-access-to-secrets) to grant the Secret Manager Secret Accessor role ( `roles/secretmanager.secretAccessor` ) on the specific secret to an isolated [agent identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) ( `AGENT_IDENTITY` ) or a dedicated [custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#custom-service-account) configured on the agent.
 
-`service- `` PROJECT_NUMBER `` @gcp-sa-aiplatform.iam.gserviceaccount.com`
-
-Your configured agent identity is used at runtime, but the Agent Platform Service Agent is used to fetch secrets during deployment. The added permission allows the service agent to retrieve the secret values from Secret Manager during the deployment process.
+Because an [agent identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) principal is generated when the agent is created, referencing secrets with `AGENT_IDENTITY` (configured using `env_vars` in the Python SDK, which maps to `secret_env` in the API alongside `identity_type` and `spec.effective_identity` ) requires a two-step workflow: create the agent with `identity_type` set to `AGENT_IDENTITY` first (without secret environment variables), grant `roles/secretmanager.secretAccessor` on the specific secret to its provisioned principal (prepend `principal://` to `spec.effective_identity` in IAM policy bindings—for example, `--member="principal:// `` EFFECTIVE_IDENTITY `` "` ), and then update the agent to attach the secret environment variables. Restrict `aiplatform.reasoningEngines.update` permissions on the agent, because any principal permitted to update it can run code as its identity.
 
 > **Warning:** You shouldn't set the following environment variables: `GOOGLE_CLOUD_PROJECT` , `GOOGLE_CLOUD_QUOTA_PROJECT` , `GOOGLE_CLOUD_LOCATION` , `PORT` , `K_SERVICE` , `K_REVISION` , `K_CONFIGURATION` , and `GOOGLE_APPLICATION_CREDENTIALS` . Also, you should avoid the prefix `GOOGLE_CLOUD_AGENT_ENGINE` to avoid naming conflicts with Agent Runtime environment variables.
 
@@ -304,7 +302,9 @@ env_vars = ["VARIABLE_1", "VARIABLE_2"]
 #   }
 ```
 
-You also need to follow the instructions in [Set up the identity and permissions for your agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#identity-and-permissions) to grant your agent the Secret Manager Secret Accessor ( `roles/secretmanager.secretAccessor` ) permission.
+Follow [Manage access to secrets](https://docs.cloud.google.com/secret-manager/docs/manage-access-to-secrets) to grant the Secret Manager Secret Accessor role ( `roles/secretmanager.secretAccessor` ) on the specific secret to your agent's [agent identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) or dedicated [custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#custom-service-account) rather than the shared default service agent.
+
+> **Caution:** Avoid granting `roles/secretmanager.secretAccessor` to the shared default AI Platform Reasoning Engine Service Agent ( `service- `` PROJECT_NUMBER `` @gcp-sa-aiplatform-re.iam.gserviceaccount.com` ) or the Agent Platform Service Agent ( `service- `` PROJECT_NUMBER `` @gcp-sa-aiplatform.iam.gserviceaccount.com` ). The default AI Platform Reasoning Engine Service Agent is shared across all agents in the project that don't configure an agent identity or custom service account, so any principal with permission to deploy or update agents in the project can access secrets granted to it (even without using `secret_env` , by calling Secret Manager directly from agent code).
 
 #### Define customized resource controls
 

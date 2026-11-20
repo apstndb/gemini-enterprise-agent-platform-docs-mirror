@@ -31,6 +31,8 @@ The *AI Platform Reasoning Engine Service Agent* service account uses the format
 
 The service account has a *Vertex AI Reasoning Engine Service Agent* **role** ( `roles/aiplatform.reasoningEngineServiceAgent` ) that grants the default permissions required for deployed agents. You can view the full list of default permissions in the [IAM documentation](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.reasoningEngineServiceAgent) .
 
+> **Caution:** The *AI Platform Reasoning Engine Service Agent* is shared across all agents in the project that don't specify an agent identity or a custom service account. Any roles or secrets granted to this service agent can be accessed by any principal permitted to deploy or update agents in the project (even without using `secret_env` , by calling APIs directly from agent code). For sensitive resources such as Secret Manager secrets, use an isolated [agent identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) (restricting `aiplatform.reasoningEngines.update` access to that agent) or a dedicated [custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#custom-service-account) .
+
 ### List the roles of a deployed agent
 
 ### Console
@@ -160,7 +162,9 @@ We don't recommend writing your own Python code to grant or revoke roles for dep
 
 ## API keys
 
-API keys use secrets, which contain one or more secret versions, along with metadata such as labels and replication information. The actual payload of a secret is stored in a [secret version](https://docs.cloud.google.com/secret-manager/docs/add-secret-version) . Secrets are managed (via Secret Manager) at the [project level](https://docs.cloud.google.com/secret-manager/docs/access-control#principle-of-least-privilege) , and can be shared across deployed agents. To list the secrets corresponding to an agent in Secret Manager, you can add labels and use them for filtering.
+API keys use secrets, which contain one or more secret versions, along with metadata such as labels and replication information. The actual payload of a secret is stored in a [secret version](https://docs.cloud.google.com/secret-manager/docs/add-secret-version) . Secrets are stored in a project (via Secret Manager) and can be shared across deployed agents, though IAM access should be bound at the individual secret level rather than the project level to follow the [principle of least privilege](https://docs.cloud.google.com/secret-manager/docs/access-control#principle-of-least-privilege) . To list the secrets corresponding to an agent in Secret Manager, you can add labels and use them for filtering.
+
+Follow [Manage access to secrets](https://docs.cloud.google.com/secret-manager/docs/manage-access-to-secrets) (for example, using `gcloud secrets add-iam-policy-binding` ) to grant `roles/secretmanager.secretAccessor` on individual secrets to an isolated [agent identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) or a dedicated [custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#custom-service-account) rather than the shared default [*AI Platform Reasoning Engine Service Agent*](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-agent-access#service-agent) . When using `AGENT_IDENTITY` , restrict `aiplatform.reasoningEngines.update` permissions on the agent so only authorized principals can modify code running as that identity.
 
 ### Create a secret
 

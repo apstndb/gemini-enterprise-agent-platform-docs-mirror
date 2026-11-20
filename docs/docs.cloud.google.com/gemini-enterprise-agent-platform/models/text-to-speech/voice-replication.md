@@ -352,4 +352,5 @@ The Voices API verifies consent by matching the transcript of `consent_audio` ag
 ## What's next
 
 - Create a custom voice from a text description with [Voice design](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-design) .
+- Edit a designed or prebuilt voice with [Voice remixing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-remixing) .
 - Learn about turn-level styling, inline tags, and multi-speaker dialogue in [Generate speech with Gemini TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview) .

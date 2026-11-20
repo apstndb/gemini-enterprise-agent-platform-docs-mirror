@@ -19,9 +19,9 @@ For both implicit and explicit caching, the [`cachedContentTokenCount`](https://
 
 ## Caching storage costs
 
-Unless cache write pricing applies (see the following note), you're billed for the input tokens used to create an implicit or explicit cache at the standard input token price. For explicit caching, there are also storage costs based on how long caches are stored. There are no separate storage costs for implicit caching. For more information, see [Agent Platform pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#context-caching) .
+Unless cache write pricing applies (see the following note), you're billed for the input tokens used to create an implicit or explicit cache at the standard input token price. For explicit caching, there are also storage costs based on how long caches are stored. There are no separate storage costs for implicit caching. For more information, see [Agent Platform pricing](https://cloud.google.com/model-garden/pricing#context-caching) .
 
-> **Note:** Starting on January 12, 2027, [Gemini 4 Hydrogen](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen) and later models support cache control features with TTL configuration. You choose what to cache and how long cached content stays valid through TTL configuration. For these models, cache writes are billed at 1.25x the standard input token price by default, and longer retention costs more. For details, see [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#gemini-4) .
+> **Note:** Starting on January 12, 2027, [Gemini 4 Hydrogen](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen) and later models support cache control features with TTL configuration. You choose what to cache and how long cached content stays valid through TTL configuration. For these models, cache writes are billed at 1.25x the standard input token price by default, and longer retention costs more. For details, see [Pricing](https://cloud.google.com/model-garden/pricing#gemini-4) .
 
 ## Implicit caching
 

@@ -20,7 +20,7 @@ Gemini Robotics ER 2 is an update to our reasoning model that delivers precise r
 
 The following model is available in Preview:
 
-- **[`gemini-robotics-er-2-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/robotics-er-2)** : Builds on Gemini 3.5 Flash with improved spatial reasoning, video moment finding, video progress classification, multi-robot orchestration, and multi-step tool use. For technical specifications, token and quota limits, supported capabilities, regional availability, and [pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#gemini-robotics) , see the [Gemini Robotics ER 2 model information](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/robotics-er-2) page.
+- **[`gemini-robotics-er-2-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/robotics-er-2)** : Builds on Gemini 3.5 Flash with improved spatial reasoning, video moment finding, video progress classification, multi-robot orchestration, and multi-step tool use. For technical specifications, token and quota limits, supported capabilities, regional availability, and [pricing](https://cloud.google.com/model-garden/pricing#gemini-robotics) , see the [Gemini Robotics ER 2 model information](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/robotics-er-2) page.
 
 This guide uses the Google Gen AI SDK with Gemini Enterprise Agent Platform. Every example initializes the client with `enterprise=True` and authenticates with Google Cloud credentials, so you can call the model using your own Google Cloud project.
 
@@ -235,7 +235,7 @@ You acknowledge that the models referenced in this document (the "Robotics Model
 To learn more about Gemini Robotics ER 2, see the following resources:
 
 - [Gemini Robotics ER 2 model information](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/robotics-er-2) : technical specifications, token limits, and supported capabilities.
-- [Gemini Robotics ER pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#gemini-robotics) : pricing details on Agent Platform.
+- [Gemini Robotics ER pricing](https://cloud.google.com/model-garden/pricing#gemini-robotics) : pricing details on Agent Platform.
 - [Spatial reasoning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er/spatial) : pointing, tracking, bounding boxes, and trajectories.
 - [Agentic capabilities](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er/agentic) : code execution, instrument reading, and image annotation.
 - [Task orchestration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er/orchestration) : long-horizon tasks with custom robot APIs.

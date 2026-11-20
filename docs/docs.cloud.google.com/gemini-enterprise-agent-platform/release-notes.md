@@ -10,6 +10,51 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## November 19, 2026
+
+Feature
+
+**Gemini 4 Hydrogen in CodeMender (Preview)**
+
+CodeMender now supports Gemini 4 Hydrogen. To use it, pass `--model gemini-4-hydrogen` to `cm find` , `cm verify` , or `cm fix` . Gemini 3.8 Flash remains the default model.
+
+Starting January 12, 2027, CodeMender sessions on Gemini 4 Hydrogen also bill cache writes. For prices, see the [CodeMender pricing](https://cloud.google.com/model-garden/pricing#codemender) .
+
+For more information, see [Specifying the model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender#specifying-the-model) .
+
+Fixed
+
+**CodeMender updates (v0.23.0)**
+
+This release introduces updates to CodeMender:
+
+- **Bug fixes** :
+  - Fixed an issue where `cm find --diff` exited with code 0 when scan jobs failed, ensuring non-zero exit codes are properly returned to CI environments for incomplete runs.
+
+For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender) .
+
+## November 18, 2026
+
+Feature
+
+**Gemini 4 Neon (GA)**
+
+[Gemini 4 Neon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon) ( `gemini-4-neon` ) is generally available (GA) in Gemini Enterprise Agent Platform. Gemini 4 Neon is a Google Frontier Model subject to Section 34 of the [Service Specific Terms](https://cloud.google.com/terms/service-terms) (for details, see [Abuse monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring#google-frontier-models) ) and delivers high-performance coding, multi-step reasoning, and multimodal understanding at low latency for agentic enterprise workflows:
+
+- **Unified 1,048,576-token limit and long decodes** : Supports a unified 1,048,576-token input and output limit, where output includes thinking, function calls, and the final response. Single foreground segments generate up to 65,536 output tokens for streaming and non-streaming requests. Long decodes ( `continuation_token` ) extend output up to 1,048,576 tokens (minus input tokens) on the [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) and `GenerateContent` ( `v1beta1` ). The Interactions API also supports asynchronous server-managed background execution ( `background=true` ).
+
+- **Thinking levels ( `LOW` , `MEDIUM` , `HIGH` , and `XHIGH` )** : Supports four [thinking levels](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking) , with `HIGH` as the default and `XHIGH` for deep reasoning workloads. Setting `thinking_budget` or `thinking_level="MINIMAL"` returns an HTTP `400` validation error.
+
+- **Implicit context caching with durable caching** : Supports automatic [implicit context caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview) with durable caching enabled by default for shared prompt prefixes of 4,096 tokens or more (explicit context caching isn't supported).
+
+- **Cache write control and pricing** : Starting on January 12, 2027, Gemini 4 Hydrogen and later models support cache control features with TTL configuration. You choose what to cache and how long cached content stays valid through TTL configuration. Cache writes are billed at 1.25x the standard input token price by default, and longer retention costs more. For details, see [Gemini 4 pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#gemini-4) .
+
+- **Office and OpenDocument file inputs** : Supports Microsoft Office ( `.docx` , `.dotx` , `.doc` , `.pptx` , `.ppt` , `.xlsx` , `.xls` ) and OpenDocument ( `.odt` , `.odp` , `.ods` ) files inline or from Cloud Storage ( `gs://` ), including inside multimodal `FunctionResponse` parts.
+
+- **Capabilities, consumption options, and endpoints** : Available on the `global` endpoint and in the `us` and `eu` multi-regions across `GenerateContent` , the Interactions API, and the OpenAI compatibility Chat Completions API. Supports function calling, code execution, computer use, URL context, and Agentic video understanding. Grounding options include Grounding with Google Search, Google Maps, Web Grounding for Enterprise, and Parallel and Exa Web Search. Consumption options include Standard PayGo with Usage Tiers, Priority PayGo, Off-peak PayGo, batch inference, and [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/supported-models) .
+
+For model specifications, code examples, and migration guidance from Gemini 3 models, see [Gemini 4 Neon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon) , the [developer's guide to Gemini 4 Neon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-neon) , and [Get started with Gemini 4](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/get-started-with-gemini-4) .
+
 ## November 17, 2026
 
 Change
@@ -69,6 +114,16 @@ This release introduces updates to CodeMender:
   - `cm` removes bidirectional text controls and invisible characters from untrusted text before it displays the text.
 
 For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender) .
+
+## November 13, 2026
+
+Feature
+
+**Voice remixing for Gemini 3.8 TTS models in Preview**
+
+[Voice remixing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-remixing) is available in [Preview](https://cloud.google.com/products#product-launch-stages) for [Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts) and [Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts) . Voice remixing creates a new custom voice from an existing prebuilt, Extended Voice Library, designed, or remixed voice. You provide a natural-language description of the changes to make, such as a different age, pitch, energy, or accent. To remix a voice, set `prompted.base_voice` in a Voices API `create` request.
+
+For more information, see [Create a custom voice with voice remixing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-remixing) .
 
 ## November 12, 2026
 
