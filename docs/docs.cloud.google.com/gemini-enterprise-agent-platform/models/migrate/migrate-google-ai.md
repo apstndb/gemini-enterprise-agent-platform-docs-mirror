@@ -61,51 +61,46 @@ The following table summarizes the main differences between the Gemini API and G
 </ul></td>
 </tr>
 <tr class="even">
-<th>No-cost usage of API &amp; SDK</th>
-<td>Yes, <a href="https://ai.google.dev/gemini-api/docs/billing#is-Gemini-free-in-EEA-UK-CH">where applicable</a></td>
-<td>$300 Google Cloud credit for new users</td>
-</tr>
-<tr class="odd">
 <th>Quota (requests per minute)</th>
 <td>Varies based on model and pricing plan (see <a href="https://ai.google.dev/pricing">detailed information</a> )</td>
 <td>Varies based on model and region (see <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas">detailed information</a> )</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>Commercial terms</th>
 <td>Standard Terms of Service. Doesn't count toward Google Cloud commitments. All customers pay the same price.</td>
 <td>Enterprise-ready terms for data processing, security, and privacy. Counts toward Google Cloud commitments. Custom contracts and discounts available for large volume workloads (contact sales).</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th>Enterprise support and SLA</th>
 <td>No enterprise-level support or Service Level Agreements (SLAs).</td>
 <td>24/7 enterprise-level support and SLAs for service availability.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>Compliance and governance</th>
 <td>No compliance certifications (for example, HIPAA, SOC2). Regulated customers should use Gemini Enterprise Agent Platform instead.</td>
 <td>Supports compliance with certifications like HIPAA and SOC2. Provides data residency, Customer-managed encryption keys, and Access Transparency.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th>Security</th>
 <td>API key authentication.</td>
 <td>Authentication using IAM (service accounts, OAuth) for increased security. Enhanced security through Virtual Private Cloud.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>Infrastructure</th>
 <td>Global endpoint.</td>
 <td>Global endpoint and regional endpoints.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th>Dedicated capacity</th>
 <td>No access to dedicated capacity.</td>
 <td>Access to Provisioned Throughput for dedicated capacity.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>Model access</th>
 <td>Access to Google's models.</td>
 <td>Access to a broad selection of Google and third-party models in the Model Garden.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th>Google model improvement</th>
 <td><ul>
 <li><strong>Free tier</strong> : Your prompts and responses may be used to improve Google products.</li>
@@ -113,12 +108,12 @@ The following table summarizes the main differences between the Gemini API and G
 </ul></td>
 <td>Your prompts, responses, and data are never used to improve Google products.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>Advanced features</th>
 <td>Standard feature set.</td>
 <td>Full support for features like model tuning and a wider variety of embedding models.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th>MLOps</th>
 <td>No</td>
 <td>Full MLOps on Gemini Enterprise Agent Platform (examples: model evaluation, Gemini Enterprise Agent Platform Model Monitoring, Model Registry)</td>

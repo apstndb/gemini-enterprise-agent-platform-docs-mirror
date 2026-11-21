@@ -1286,6 +1286,5 @@ While Gemini multimodal models are powerful in many multimodal use cases, it's i
 
 ## What's next
 
-- Start building with Gemini multimodal models - new customers [get \$300 in free Google Cloud credits](https://console.cloud.google.com/freetrial) to explore what they can do with Gemini.
 - Learn how to [send chat prompt requests](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/send-chat-prompts-gemini) .
 - Learn about [responsible AI best practices and Agent Platform's safety filters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai) .

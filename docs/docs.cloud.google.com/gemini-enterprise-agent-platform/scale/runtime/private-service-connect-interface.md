@@ -80,6 +80,8 @@ Complete the following steps:
           - `compute.networkAttachments.update`
           - `compute.regionOperations.get`
 
+      4.  Grant the Compute Network User ( `roles/compute.networkUser` ) role on the host project to the Agent Platform Service Agent of the service project where you deploy your agent. If you don't want to use the Compute Network User role, you can instead create a [custom role](https://docs.cloud.google.com/iam/docs/creating-custom-roles) with the `compute.networkAttachments.get` permission and grant that role on the host project to the service project's Agent Platform Service Agent. This requirement applies whenever the network attachment is in a different project from the project where you deploy your agent.
+
 ### DNS peering
 
 While Private Service Connect interface provides the secure network path, DNS peering provides the service discovery mechanism. With PSC interface, you need to know the specific IP address of the service in the VPC network. And while you can connect to services using their internal IP addresses, this is not recommended for production systems where IPs can change. With DNS peering, the deployed agent can connect to services in the your VPC network using stable, human-readable DNS names instead of IP addresses. DNS peering enables the deployed agents to resolve DNS names using the records from a Cloud DNS private zone in your VPC. See [Set up a private DNS peering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-psc-i-setup#set-up-private-dns-peering) for more information.

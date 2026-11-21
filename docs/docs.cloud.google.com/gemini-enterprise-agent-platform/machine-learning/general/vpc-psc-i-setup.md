@@ -121,6 +121,8 @@ Depending on your network configuration, grant the following roles to the servic
 
     If you are using a [Shared VPC](https://docs.cloud.google.com/vpc/docs/provisioning-shared-vpc#setting_up) and you create the network attachment in a service project, grant the service agent (located in the service project) the `roles/compute.networkUser` role on the VPC host project.
 
+    If the network attachment is in a different project from the project where you deploy the Agent Platform resource (for example, in a Shared VPC host project), grant the service agent of the project where you deploy the resource the `roles/compute.networkUser` role on the project that contains the network attachment. If you don't want to grant the `roles/compute.networkUser` role, you can create a [custom role](https://docs.cloud.google.com/iam/docs/creating-custom-roles) with the `compute.networkAttachments.get` permission and grant it to that service agent on the project that contains the network attachment.
+
 3.  **DNS Peer ( `roles/dns.peer` )**
 
     To enable resources like Agent Platform Managed Training or Agent Runtime to resolve private DNS records, grant the `roles/dns.peer` role to the service agent. Grant this role in the project where you are using the services. If using a Shared VPC, you must also grant the `roles/dns.peer` role to the service agent in the VPC host project.
