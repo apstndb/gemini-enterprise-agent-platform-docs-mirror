@@ -6,7 +6,7 @@ description: Learn about Gemini 3.7 Flash, our model optimized for multi-step or
 data_source: docs.cloud.google.com
 ---
 
-> **Important:** Gemini 3.7 Flash will be retired on January 28, 2027. Upgrade to [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash) to avoid service disruptions.
+> **Important:** Gemini 3.7 Flash will be retired on January 28, 2027. Upgrade to [Gemini 4 Hydrogen](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen) to avoid service disruptions.
 
 Gemini 3.7 Flash is our intelligent everyday driver for developers, and delivers a step forward in software engineering, feeling distinctly better to build with. This model brings better intelligence for complex tasks, instruction following, and tool calling into your daily workflows.
 
@@ -66,7 +66,7 @@ Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output">Structured output</a><br />
 Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview">Context caching</a><br />
-Implicit context caching, explicit context caching<br />
+Implicit context caching (in-memory), explicit context caching<br />
 Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview">RAG Engine</a><br />
 Supported</li>

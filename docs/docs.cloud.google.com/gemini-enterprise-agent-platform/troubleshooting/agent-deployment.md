@@ -604,6 +604,49 @@ When the first agent in a project and region binds to an Agent Gateway, Agent Ru
 - Changing your agent's code, `requirements` , or `resource_limits` doesn't help, because the failure occurs before Agent Runtime deploys your agent.
 - Requesting a quota increase for your project has no effect, because Google manages these networking resources.
 
+## Network attachment project missing Agent Platform Service Agent
+
+**Issue** :
+
+Deploying or updating an agent configured with a [Private Service Connect interface](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/private-service-connect-interface) fails with a `400` , `FAILED_PRECONDITION` status ( `REASONING_ENGINE_PSC_INTERFACE_SERVICE_AGENT_NOT_FOUND` ) and a message similar to the following:
+
+```
+The Reasoning Engine could not configure Private Service Connect interface network attachment `projects/ATTACHMENT_PROJECT_ID/regions/LOCATION/networkAttachments/NETWORK_ATTACHMENT_NAME` because the Vertex AI service agent `service-ATTACHMENT_PROJECT_NUMBER@gcp-sa-aiplatform.iam.gserviceaccount.com` does not exist in project `ATTACHMENT_PROJECT_ID`.
+```
+
+**Possible cause** :
+
+When `spec.deployment_spec.psc_interface_config.network_attachment` references a network attachment, Agent Runtime updates that network attachment's [accept list](https://docs.cloud.google.com/vpc/docs/about-network-attachments#connection-policies) to accept connections from Agent Runtime, by using the Agent Platform Service Agent of the project that owns the network attachment. When the network attachment is in a different project (for example, a Shared VPC host project), deploying an agent in your service project doesn't create the Agent Platform Service Agent in the network attachment's project. If the Agent Platform API was never enabled in the network attachment's project or its service agent wasn't created, Agent Runtime can't update the network attachment.
+
+**Recommended solution** :
+
+Complete the following steps in the project that owns the network attachment ( ` ATTACHMENT_PROJECT_ID ` ):
+
+1.  Enable the Agent Platform API:
+
+    ```
+    gcloud services enable aiplatform.googleapis.com --project=ATTACHMENT_PROJECT_ID
+    ```
+
+2.  Create the Agent Platform Service Agent:
+
+    ```
+    gcloud beta services identity create --service=aiplatform.googleapis.com --project=ATTACHMENT_PROJECT_ID
+    ```
+
+3.  Grant the Compute Network Admin role ( `roles/compute.networkAdmin` ) on ` ATTACHMENT_PROJECT_ID ` to the Agent Platform Service Agent ( `service- `` ATTACHMENT_PROJECT_NUMBER `` @gcp-sa-aiplatform.iam.gserviceaccount.com` ).
+
+4.  If the network attachment is in a Shared VPC host project, grant the Compute Network User role ( `roles/compute.networkUser` ) on the host project to the Agent Platform Service Agent of the service project where you deploy the agent.
+
+5.  Retry deploying or updating your agent with the same network attachment.
+
+Alternatively, create the network attachment in the service project where you deploy the agent. See [Using Private Service Connect interface with Shared VPC](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/private-service-connect-interface#using-with-vpc-shared-vpc) .
+
+**Solutions that don't apply** :
+
+- Creating a new network attachment under a different name in the same project without creating the Agent Platform Service Agent fails the same way.
+- Checking container logs doesn't show an error for this failure, because the failure occurs before Agent Runtime starts your agent's container.
+
 ## Support resources
 
 If your problem is still not resolved, refer to our [support guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-support) to get help.

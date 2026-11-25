@@ -109,8 +109,8 @@ The following models support Gemini Live API. Select the appropriate model based
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-transcribe"><code>gemini-3.5-transcribe-live-preview</code></a></td>
-<td>Preview</td>
+<td><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-transcribe"><code>gemini-3.5-transcribe-live</code></a></td>
+<td>Generally available</td>
 <td>Speech-to-text only. Real-time captioning, dictation, and call transcription. Returns text, not audio, so it does not hold a conversation.</td>
 <td><ul>
 <li>Interim and final transcripts</li>

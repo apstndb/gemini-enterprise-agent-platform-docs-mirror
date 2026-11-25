@@ -121,6 +121,8 @@ You can use the following frameworks to try your agent:
 | ADK               | Supported                                                                                                                                                        | Supported. Requires agent to implement [Agent Platform Sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions) for persistency.                                                                                                                                                                                                                                                                 |
 | Agent2Agent (A2A) | Supported. Requires agent to implement [Agent Platform Sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions) for persistency. | Supported. Requires agent to use Agent Platform Sessions, and the agent must send the `user_id` value as part of the context object. For an example on how to pass the `user_id` value as part of the agent executor, see the [Get started with A2A](https://colab.sandbox.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/agents/agent_engine/tutorial_a2a_on_agent_engine.ipynb#scrollTo=R-d-VhZi7RIM) notebook. |
 
+> **Note:** Uploading local files isn't supported in the Playground. To send files (such as documents, images, or audio) to an ADK agent, use the Agent Platform SDK or API instead. For more information, see [Query the agent with multimodal content](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-adk-agent#multimodal-content) .
+
 ## What's next
 
 - [Evaluate an agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/agent-evaluation) .

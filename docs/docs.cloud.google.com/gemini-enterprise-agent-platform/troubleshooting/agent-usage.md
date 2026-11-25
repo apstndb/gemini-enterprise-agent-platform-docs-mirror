@@ -212,6 +212,83 @@ The request to the Reasoning Engine `projects/PROJECT_ID/locations/LOCATION/reas
 - Compress, split, or downscale large attachments before sending them so the total serialized HTTP request body stays under 32 MiB (about 24 MiB of raw files).
 - Start a new conversation or trim earlier attachments from the conversation history when multi-turn context grows near the limit.
 
+## Request fails while calling your agent
+
+If your request fails while Agent Runtime calls your agent, one of the following issues might be the cause:
+
+### Agent didn't finish responding in time
+
+**Issue** :
+
+The request fails with a `400` , `FAILED_PRECONDITION` status ( `REASONING_ENGINE_AGENT_TIMEOUT` ) and a message similar to the following:
+
+```
+The agent deployed to the Reasoning Engine `projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID` did not finish responding before the request timed out.
+```
+
+Agent Runtime called your agent, but the agent didn't finish responding within the request's time limit.
+
+**Possible causes** :
+
+The agent's work for this request takes too long. Common causes can include the following:
+
+- Slow model or tool calls.
+- Waiting on an external service.
+- Long-running code in the agent.
+
+**Recommended solutions** :
+
+- Check the logs linked in the error metadata's `logs_url` field to see where the request spent its time.
+- Reduce the agent's work for each request, or speed up the slow dependency. For the maximum timeout of streaming queries, see [Streaming responses](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-a-custom-agent#streaming-responses) .
+- Retry the request.
+
+### Agent failed to respond
+
+**Issue** :
+
+The request fails with a `400` , `FAILED_PRECONDITION` status ( `REASONING_ENGINE_AGENT_UNAVAILABLE` ) and a message similar to the following:
+
+```
+The agent deployed to the Reasoning Engine `projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID`, or the environment that runs it, failed to respond: the connection failed or closed early, or it returned a server error (HTTP 5xx).
+```
+
+The connection to your agent failed or closed before a full response arrived, or your agent or its Google-managed environment returned an HTTP `5xx` status.
+
+> **Note:** If your agent returns an HTTP `5xx` status with a JSON object as the response body, you receive that body in a `Reasoning Engine Execution failed` error instead. See [Reasoning Engine Execution failed](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-usage#execution-failed) .
+
+**Possible causes** :
+
+- An uncaught exception in the agent's code.
+- The agent's container crashed or restarted while handling the request. For example, the container ran out of memory.
+- The agent's container wasn't accepting connections.
+- No instance of the agent was available to serve the request.
+
+**Recommended solutions** :
+
+- Check the logs linked in the error metadata's `logs_url` field for an uncaught exception, crash, or restart around the time of the request.
+- Fix the error and deploy the agent again. See [Update a deployed agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents#update) .
+- If the container ran out of memory, reduce the agent's memory use or raise its memory limit. See [Define customized resource controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#customized-resource-controls) .
+- Retry the request.
+
+### Internal timeout while calling the agent
+
+**Issue** :
+
+The request fails with a `500` , `INTERNAL` status ( `REASONING_ENGINE_INTERNAL_TIMEOUT` ) and a message similar to the following:
+
+```
+An internal timeout occurred while calling the agent deployed to the Reasoning Engine `projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID`. The agent did not cause this error.
+```
+
+**Possible cause** :
+
+A timeout occurred inside Agent Runtime. Your agent didn't cause this error.
+
+**Recommended solutions** :
+
+- Retry the request.
+- If the error persists, see [Getting help for agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-support) .
+
 ## Reasoning Engine Execution failed
 
 If you receive the error message "Reasoning Engine Execution failed" when querying your agent, it might be due to one of the issues that's described in this section.

@@ -260,7 +260,7 @@ Use the following steps to create an Agent Gateway resource for [Agent-to-Anywhe
 
 5.  For **Deployment mode** , verify that **Google-managed** is selected.
 
-6.  For **Agent registries** , select the regional registry that matches your Agent Gateway region. For guidance, see [Plan your Agent Gateway deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#plan-agw) .
+6.  The **Agent registry** field is automatically populated with the URI of the regional registry that matches your Agent Gateway region.
 
 7.  From the **Governed Access Path** list, select **Agent-to-Anywhere (Agent Egress)** .
 

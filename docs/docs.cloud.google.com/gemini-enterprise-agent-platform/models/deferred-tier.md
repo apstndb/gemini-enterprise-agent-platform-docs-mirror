@@ -22,6 +22,8 @@ The Deferred tier is supported exclusively on the `global` endpoint ( `locations
 
 The following mainline Gemini models support the Deferred tier on the `global` endpoint:
 
+- [Gemini 4 Neon ( `gemini-4-neon` )](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon)
+- [Gemini 4 Hydrogen ( `gemini-4-hydrogen` )](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen)
 - [Gemini 4 Carbon ( `gemini-4-carbon` )](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon)
 - [Gemini 4 Argon ( `gemini-4-argon` )](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon)
 - [Gemini 3.8 Flash ( `gemini-3.8-flash` )](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)

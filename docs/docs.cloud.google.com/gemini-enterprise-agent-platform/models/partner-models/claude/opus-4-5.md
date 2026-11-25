@@ -6,9 +6,11 @@ description: Anthropic's Claude Opus 4.5 on Google Cloud is optimized for coding
 data_source: docs.cloud.google.com
 ---
 
+> **Caution:** As of November 23, 2026, Anthropic's Claude Opus 4.5 on Google Cloud ( `claude-opus-4-5` ) is deprecated and will be shut down on January 22, 2027. Anthropic's Claude Opus 4.5 on Google Cloud is available to existing customers only. For more information, see [Partner model deprecations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/partner-models#opus-4-5) .
+
 Anthropic's Claude Opus 4.5 on Google Cloud is optimized for coding, agents, computer use, and enterprise workflows.
 
-**Retirement Date:** Not sooner than Nov 24, 2026.
+**Retirement Date:** January 22, 2027.
 
 - **Agents** : Anthropic's Claude Opus 4.5 on Google Cloud, paired with our advanced tool use capabilities, enables more capable agents with new behaviors.
 - **Coding** : Anthropic's Claude Opus 4.5 on Google Cloud can confidently deliver multi-day software development projects in hours, working independently with the technical depth and taste to create efficient and straightforward solutions. It has improved performance across coding languages, with better planning and architecture choices—making it the ideal model for enterprise developers.
@@ -31,7 +33,7 @@ Anthropic's Claude Opus 4.5 on Google Cloud is optimized for coding, agents, com
 </tr>
 <tr class="even">
 <th>Launch stage</th>
-<td>GA</td>
+<td>deprecated</td>
 </tr>
 <tr class="odd">
 <th>Supported inputs &amp; outputs</th>
@@ -92,9 +94,8 @@ Not supported</td>
 <td><ul>
 <li><code>claude-opus-4-5</code>
 <ul>
-<li><strong>Launch stage:</strong> Generally available</li>
+<li><strong>Launch stage:</strong> Deprecated</li>
 <li><strong>Release date:</strong> November 24, 2025</li>
-<li><strong>Retirement date not sooner than:</strong> November 24, 2026</li>
 </ul></li>
 </ul></td>
 </tr>

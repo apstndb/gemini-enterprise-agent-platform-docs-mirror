@@ -8,6 +8,169 @@ data_source: docs.cloud.google.com
 
 After a period of time, [MaaS models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-partner-models) are deprecated and typically replaced with newer model versions. This page lists deprecated MaaS models and their shutdown dates to help you plan and migrate to newer model versions.
 
+## Anthropic's Claude Opus 4.5 on Google Cloud
+
+Anthropic's Claude Opus 4.5 on Google Cloud is **deprecated as of November 23, 2026** and will be **shut down on January 22, 2027** . Anthropic's Claude Opus 4.5 on Google Cloud is available to existing customers only.
+
+Anthropic's Claude Opus 4.5 on Google Cloud is optimized for coding, agents, computer use, and enterprise workflows.
+
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/generative/multimodal/create/text?model=claude-opus-4-5) [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-5)
+
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<th>Model ID</th>
+<td><code>claude-opus-4-5</code></td>
+</tr>
+<tr class="even">
+<th>Launch stage</th>
+<td>deprecated</td>
+</tr>
+<tr class="odd">
+<th>Supported inputs &amp; outputs</th>
+<td><ul>
+<li>Inputs:
+Text , Code , Images , Documents</li>
+<li>Outputs:
+Text</li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Token limits</th>
+<td><ul>
+<li>Maximum input tokens: 200,000</li>
+<li>Maximum output tokens: 64,000</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Capabilities</th>
+<td>Supported
+<ul>
+<li><a href="https://docs.anthropic.com/en/docs/build-with-claude/computer-use">Computer use</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/web-search">Web search</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/batch">Batch predictions</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/prompt-caching">Prompt caching</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#tool_use_function_calling">Function calling</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/count-tokens">Count tokens</a></li>
+</ul>
+Not supported</td>
+</tr>
+<tr class="even">
+<th>Usage types</th>
+<td>Supported
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas">Fixed quota</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput">Provisioned Throughput</a></li>
+</ul>
+Not supported</td>
+</tr>
+<tr class="odd">
+<th>Technical specifications</th>
+<td></td>
+</tr>
+<tr class="even">
+<th>Images</th>
+<td><ul>
+<li><strong>Limitation and specifications:</strong> See <a href="https://docs.anthropic.com/en/docs/build-with-claude/vision">Vision</a> in Anthropic's documentation</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Documents</th>
+<td><ul>
+<li><strong>Limitation and specifications:</strong> See <a href="https://docs.anthropic.com/en/docs/build-with-claude/pdf-support">PDF support</a> in Anthropic's documentation</li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Versions</th>
+<td><ul>
+<li><code>claude-opus-4-5</code>
+<ul>
+<li><strong>Launch stage:</strong> Deprecated</li>
+<li><strong>Release date:</strong> November 24, 2025</li>
+</ul></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Supported regions</th>
+<td></td>
+</tr>
+<tr class="even">
+<th><p>Model availability</p>
+<p>(Includes fixed quota &amp; Provisioned Throughput)</p></th>
+<td>United States
+<ul>
+<li><code>us-east5</code></li>
+</ul>
+Europe
+<ul>
+<li><code>europe-west1</code></li>
+</ul>
+Asia Pacific
+<ul>
+<li><code>asia-southeast1</code></li>
+</ul>
+Global
+<ul>
+<li><code>global endpoint</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th><p>ML processing</p></th>
+<td>United States
+<ul>
+<li><code>Multi-region</code></li>
+</ul>
+Europe
+<ul>
+<li><code>Multi-region</code></li>
+</ul>
+Asia Pacific
+<ul>
+<li><code>asia-southeast1</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Quota limits</th>
+<td><p>us-east5:</p>
+<ul>
+<li>QPM: 200</li>
+<li>Input TPM: 2,000,000 <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input">uncached and cache write</a></li>
+<li>Output TPM: 200,000</li>
+<li>Context length: 200,000</li>
+</ul>
+<p>europe-west1:</p>
+<ul>
+<li>QPM: 200</li>
+<li>Input TPM: 2,000,000 <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input">uncached and cache write</a></li>
+<li>Output TPM: 200,000</li>
+<li>Context length: 200,000</li>
+</ul>
+<p>asia-southeast1:</p>
+<ul>
+<li>QPM: 200</li>
+<li>Input TPM: 2,000,000 <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input">uncached and cache write</a></li>
+<li>Output TPM: 200,000</li>
+<li>Context length: 200,000</li>
+</ul>
+<p>global endpoint:</p>
+<ul>
+<li>QPM: 400</li>
+<li>Input TPM: 4,000,000 <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input">uncached and cache write</a></li>
+<li>Output TPM: 400,000</li>
+<li>Context length: 200,000</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Pricing</th>
+<td>See <a href="https://cloud.google.com/model-garden/partner-models/pricing">Pricing</a> .</td>
+</tr>
+</tbody>
+</table>
+
 ## Anthropic's Claude Sonnet 4.5 on Google Cloud
 
 Anthropic's Claude Sonnet 4.5 on Google Cloud is **deprecated as of September 29, 2026** and will be **shut down on November 30, 2026** . Anthropic's Claude Sonnet 4.5 on Google Cloud is available to existing customers only.

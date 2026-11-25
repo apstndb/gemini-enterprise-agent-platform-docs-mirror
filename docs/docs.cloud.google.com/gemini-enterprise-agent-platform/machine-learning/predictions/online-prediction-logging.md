@@ -20,6 +20,8 @@ There are several types of inference logs that you can use to get information fr
 
   > **Note:** The default logging behavior in Python sends outputs to `stderr` , which will appear at the `ERROR` level in Cloud Logging. If you'd like for container logs to appear at the `INFO` level, configure your container logging to send outputs to `stdout` . For more information, see the Python [Logging handlers](https://docs.python.org/3/library/logging.handlers.html) tutorials and the Python [Logging Cookbook](https://docs.python.org/3/howto/logging-cookbook.html) .
 
+  Container `stdout` and `stderr` collection runs asynchronously so that log writing doesn't delay or block inference requests. If an inference replica generates a high volume of logs, or experiences temporary delays sending logs to Cloud Logging, then some `stdout` and `stderr` entries might be dropped while the replica continues serving predictions. If your workload requires every inference log entry to be recorded, [write logs directly to Cloud Logging](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/online-prediction-logging#direct-cloud-logging) .
+
 - **Access logging** , which logs information like timestamp and latency for each request to Cloud Logging.
 
   On both the `v1` and `v1beta1` service endpoints, access logging is disabled by default. You can enable access logging when you deploy a model to an endpoint.
@@ -220,6 +222,32 @@ Request-response logging and [Model Monitoring v1](https://docs.cloud.google.com
 - If an endpoint has Model Monitoring enabled, you can't enable request-response logging for the same endpoint.
 
 - If you enable request-response logging and then Model Monitoring on the same endpoint, you won't be able to change the request-response logging configuration.
+
+## Write logs directly to Cloud Logging
+
+Standard container `stdout` and `stderr` logging is designed for operational debugging. If an inference replica generates a high volume of logs, or experiences temporary delays sending logs to Cloud Logging, then it might drop some `stdout` and `stderr` entries rather than delaying or blocking inference requests. If your [custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/custom-container-requirements) workload requires every per-request log entry to be recorded without gaps, configure your deployed model to use a [custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account) and send the log entries directly to Cloud Logging.
+
+To ensure that your deployed model's custom service account has the necessary permissions to write log entries directly to Cloud Logging, ask your administrator to grant the [Logs Writer](https://docs.cloud.google.com/iam/docs/roles-permissions/logging#logging.logWriter) ( `roles/logging.logWriter` ) IAM role to your deployed model's custom service account on your project.
+
+> **Important:** You must grant this role to your deployed model's custom service account, *not* to your user account. Failure to grant the role to the correct principal might result in permission errors.
+
+For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
+
+Your administrator might also be able to give your deployed model's custom service account the required permissions through [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined) .
+
+After you attach the custom service account to your deployed model, use a background thread or asynchronous task in your custom container to write structured log entries using the [`entries.write`](https://docs.cloud.google.com/logging/docs/reference/v2/rest/v2/entries/write) method in the Cloud Logging API.
+
+Standard Cloud Logging client libraries don't detect [Agent Platform `AIP_*` environment variables](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/custom-container-requirements#aip-variables) automatically, so they record a generic resource type such as `global` . As a result, those entries don't match queries or [log sinks](https://docs.cloud.google.com/logging/docs/routing/overview#sinks) , which route matching logs to supported destinations, when filtering on `resource.type="aiplatform.googleapis.com/Endpoint"` .
+
+In your `entries.write` requests, pass an explicit [`aiplatform.googleapis.com/Endpoint`](https://docs.cloud.google.com/monitoring/api/resources#tag_aiplatform.googleapis.com/Endpoint) monitored resource and set the following `resource.labels` fields:
+
+- Set `endpoint_id` to the value of `AIP_ENDPOINT_ID` .
+- Set `resource_container` to `projects/ `` PROJECT_NUMBER` using `AIP_PROJECT_NUMBER` .
+- Set `location` to the endpoint's region, such as `us-central1` .
+
+Because Agent Platform doesn't automatically set an `AIP_*` environment variable for the region, pass the region to your container explicitly, such as through [`containerSpec.env`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/ModelContainerSpec#FIELDS.env) when you upload the model. To match standard Agent Platform container log filters, also set the `LogEntry` `labels` field with the key `deployed_model_id` set to the value of `AIP_DEPLOYED_MODEL_ID` and the key `replica_id` set to the value of `HOSTNAME` .
+
+If your custom container pins specific `protobuf` or `grpcio` versions, or runs an asynchronous HTTP stack, you can avoid client library package conflicts by sending batched JSON requests over HTTPS to `https://logging.googleapis.com/v2/entries:write` . Authenticate these requests using your container's existing HTTP and authentication libraries with the `https://www.googleapis.com/auth/logging.write` OAuth 2.0 scope, or configure the Cloud Logging client library to use REST transport by setting `GOOGLE_CLOUD_DISABLE_GRPC=true` .
 
 ## What's next
 

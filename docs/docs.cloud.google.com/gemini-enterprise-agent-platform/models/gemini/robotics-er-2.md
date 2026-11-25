@@ -68,7 +68,7 @@ Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output">Structured output</a><br />
 Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview">Context caching</a><br />
-Implicit context caching, explicit context caching<br />
+Implicit context caching (in-memory)<br />
 Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview">RAG Engine</a><br />
 Not supported</li>
@@ -92,7 +92,7 @@ Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/url-context">URL context</a><br />
 Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use">Computer use</a><br />
-Supported</li>
+Not supported</li>
 </ul></th>
 <td></td>
 </tr>

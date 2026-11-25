@@ -38,13 +38,13 @@ Agent Platform captures dashboard metrics only for API calls to a model's endpoi
 
 ### View the dashboard
 
-1.  In the Agent Platform section of the Google Cloud console, go to the **Dashboard** page.
+1.  In the Agent Platform section of the Google Cloud console, go to the **Overview** page.
 
-1\. In the dashboard, under Model observability, click **Show all metrics** to view the model observability dashboard in the Google Cloud Observability console.
+2.  On the **Overview** page, under **Model observability** , click **Show all metrics** to view the model observability dashboard in the Google Cloud Observability console.
 
-> **Note:** The observability section is available only if you or another user has made API calls to a MaaS model in your project.
+    > **Note:** The observability section is available only if you or another user has made API calls to a MaaS model in your project.
 
-1.  To view metrics for a specific model or in a particular location, set one or more filters at the top of the dashboard page.
+3.  To view metrics for a specific model or in a particular location, set one or more filters at the top of the dashboard page.
 
     For descriptions of each metric, see the " `aiplatform` " section on the [Google Cloud metrics](https://docs.cloud.google.com/monitoring/api/metrics_gcp_a_b#gcp-aiplatform) page.
 

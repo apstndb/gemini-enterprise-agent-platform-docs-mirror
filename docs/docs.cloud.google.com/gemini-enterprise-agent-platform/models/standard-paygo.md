@@ -86,6 +86,7 @@ The following [generally available (GA)](https://cloud.google.com/products#produ
 
 #### Click to expand supported models
 
+- [Gemini 4 Neon for cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon#cyber)
 - [Gemini 4 Neon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon)
 - [Gemini 4 Hydrogen](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen)
 - [Gemini 4 Carbon for cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon#cyber)
@@ -111,6 +112,7 @@ The following [GA](https://cloud.google.com/products#product-launch-stages) Gemi
 - [Gemini 3.1 Flash-Lite Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image)
 - [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
 - [Gemini 2.5 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-image)
+- [Gemini 3.5 Transcribe](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-transcribe)
 
 These tiers don't apply to preview models. Refer to the specific official documentation of each model for the most accurate and up-to-date information.
 

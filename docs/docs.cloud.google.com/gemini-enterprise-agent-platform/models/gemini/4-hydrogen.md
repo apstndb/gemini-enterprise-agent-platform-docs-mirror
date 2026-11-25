@@ -68,10 +68,10 @@ Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output">Structured output</a><br />
 Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview">Context caching</a><br />
-Implicit context caching<br />
+Implicit context caching (in-memory), implicit context caching (durable)<br />
 Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview">RAG Engine</a><br />
-Not supported</li>
+Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning">Tuning</a><br />
 Not supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding#agentic-video-processing">Agentic video understanding</a><br />
@@ -123,7 +123,7 @@ Supported</li>
 Standard PayGo with Usage Tiers, Priority PayGo<br />
 Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deferred-tier">Deferred tier</a><br />
-Not supported</li>
+Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas">Fixed quota</a><br />
 Not supported</li>
 </ul></th>

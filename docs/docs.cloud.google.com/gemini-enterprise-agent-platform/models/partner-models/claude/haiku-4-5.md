@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 Anthropic's Claude Haiku 4.5 on Google Cloud is a high-performance model for a wide range of use cases and coding tasks, with the speed and cost efficiency to power free products and high-volume user experiences.
 
-**Retirement Date:** Not sooner than December 7, 2026.
+**Retirement Date:** February 28, 2027.
 
 - **Free tier user experiences** : Anthropic's Claude Haiku 4.5 on Google Cloud delivers near-frontier performance at a cost and speed that makes free agent products and agentic use cases economically viable at scale.
 - **Latency-sensitive experiences** : Anthropic's Claude Haiku 4.5 on Google Cloud's speed is ideal for real-time applications like customer service agents and chatbots where response time is critical.
@@ -94,7 +94,7 @@ Not supported</td>
 <ul>
 <li><strong>Launch stage:</strong> Generally available</li>
 <li><strong>Release date:</strong> October 15, 2025</li>
-<li><strong>Retirement date not sooner than:</strong> December 7, 2026</li>
+<li><strong>Discontinuation date:</strong> February 28, 2027</li>
 </ul></li>
 </ul></td>
 </tr>

@@ -164,6 +164,29 @@ For information about TPU accelerator types, see [Deploy a model to Cloud TPU VM
 | `n2d-highcpu-128`  | 128   | 128         |
 | `n2d-highcpu-224`  | 224   | 224         |
 
+### N4 Series
+
+| Name             | vCPUs | Memory (GB) |
+|------------------|-------|-------------|
+| `n4-standard-8`  | 8     | 32          |
+| `n4-standard-16` | 16    | 64          |
+| `n4-standard-32` | 32    | 128         |
+| `n4-standard-48` | 48    | 192         |
+| `n4-standard-64` | 64    | 256         |
+| `n4-standard-80` | 80    | 320         |
+| `n4-highcpu-8`   | 8     | 16          |
+| `n4-highcpu-16`  | 16    | 32          |
+| `n4-highcpu-32`  | 32    | 64          |
+| `n4-highcpu-48`  | 48    | 96          |
+| `n4-highcpu-64`  | 64    | 128         |
+| `n4-highcpu-80`  | 80    | 160         |
+| `n4-highmem-8`   | 8     | 64          |
+| `n4-highmem-16`  | 16    | 128         |
+| `n4-highmem-32`  | 32    | 256         |
+| `n4-highmem-48`  | 48    | 384         |
+| `n4-highmem-64`  | 64    | 512         |
+| `n4-highmem-80`  | 80    | 640         |
+
 ### C2 Series
 
 | Name             | vCPUs | Memory (GB) |

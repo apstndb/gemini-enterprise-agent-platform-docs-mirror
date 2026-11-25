@@ -22,6 +22,7 @@ The following models provide support for the Chat Completions API:
 
 #### Click to expand supported models
 
+- [Gemini 4 Neon for cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon#cyber)
 - [Gemini 4 Neon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon)
 - [Gemini 4 Hydrogen](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen)
 - [Gemini 4 Carbon for cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon#cyber)
@@ -38,6 +39,7 @@ The following models provide support for the Chat Completions API:
 - [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
 - [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) preview
 - [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
+- [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
 - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
 
 ### Self-deployed models from Model Garden

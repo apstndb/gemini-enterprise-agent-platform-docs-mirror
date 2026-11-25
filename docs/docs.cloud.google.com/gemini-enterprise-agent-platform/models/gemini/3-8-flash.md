@@ -64,12 +64,12 @@ Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output">Structured output</a><br />
 Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview">Context caching</a><br />
-Implicit context caching, explicit context caching<br />
+Implicit context caching (in-memory), implicit context caching (durable), explicit context caching<br />
 Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview">RAG Engine</a><br />
 Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning">Tuning</a><br />
-Supervised fine-tuning<br />
+Supervised fine-tuning, continuous tuning, tuning checkpoints<br />
 Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding#agentic-video-processing">Agentic video understanding</a><br />
 Supported</li>
@@ -281,7 +281,7 @@ Not supported</li>
 <td></td>
 </tr>
 <tr class="odd">
-<th><strong>Context caching</strong></th>
+<th><strong>Tuning</strong></th>
 <th><ul>
 <li>Data residency</li>
 <li>CMEK</li>
@@ -291,6 +291,16 @@ Not supported</li>
 <td></td>
 </tr>
 <tr class="even">
+<th><strong>Context caching</strong></th>
+<th><ul>
+<li>Data residency</li>
+<li>CMEK</li>
+<li>VPC-SC</li>
+<li>AXT</li>
+</ul></th>
+<td></td>
+</tr>
+<tr class="odd">
 <th>See <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls">Security controls</a> for more information.</th>
 <th></th>
 <td></td>

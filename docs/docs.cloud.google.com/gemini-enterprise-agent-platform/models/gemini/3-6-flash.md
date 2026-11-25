@@ -6,7 +6,7 @@ description: Learn about Gemini 3.6 Flash, our model optimized for multi-step or
 data_source: docs.cloud.google.com
 ---
 
-> **Important:** Gemini 3.6 Flash will be retired on November 19, 2026. Upgrade to [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash) to avoid service disruptions.
+> **Important:** New and inactive projects are blocked from using Gemini 3.6 Flash as of November 19, 2026. Existing active projects retain access until permanent shutdown on January 28, 2027. Upgrade to [Gemini 4 Hydrogen](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen) to avoid service disruptions.
 
 Gemini 3.6 Flash is optimized for multi-step orchestration, full-stack code refactoring, and general reasoning. It improves on many key areas critical to the Flash line of models.
 
@@ -77,7 +77,7 @@ Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output">Structured output</a><br />
 Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview">Context caching</a><br />
-Implicit context caching, explicit context caching<br />
+Implicit context caching (in-memory), explicit context caching<br />
 Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview">RAG Engine</a><br />
 Supported</li>
@@ -261,7 +261,7 @@ Not supported</li>
 <ul>
 <li>Launch stage: GA</li>
 <li>Release date: July 21, 2026</li>
-<li>Retirement date <sup><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash#retirement-date">†</a></sup> : November 19, 2026</li>
+<li>Retirement date <sup><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash#retirement-date">†</a></sup> : January 28, 2027</li>
 </ul></li>
 </ul></th>
 <td></td>

@@ -45,6 +45,7 @@ The following models provide support for code execution:
 #### Click to expand supported models
 
 - [Gemini Robotics ER 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/robotics-er-2) preview
+- [Gemini 4 Neon for cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon#cyber)
 - [Gemini 4 Neon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon)
 - [Gemini 4 Hydrogen](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen)
 - [Gemini 4 Carbon for cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon#cyber)

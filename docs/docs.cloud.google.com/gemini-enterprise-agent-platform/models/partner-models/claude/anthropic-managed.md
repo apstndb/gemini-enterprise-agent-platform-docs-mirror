@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 > **Important:** Claude models on Google Cloud (Anthropic managed) allows you to access Claude developer platform on Anthropic-managed infrastructure, with billing and access through Google Cloud. Google Cloud and Anthropic act as separate, independent data processors for their respective parts of the service. The Google Cloud and Google Cloud Marketplace Terms of Service (as applicable) govern Google Cloud's integration layer (IAM authentication, API routing, Cloud Audit Logs, and Google Cloud Marketplace billing). Anthropic's Commercial Terms of Service, Data Processing Addendum, and Usage Policy govern use of the Anthropic-managed Claude API and Console.
 >
-> Data storage and inference occur on Anthropic-managed infrastructure (which may route outside Google Cloud), and subservices may change without notice. Set the `inference_geo` parameter per request to pin inference to a specific geography. See [Data residency](https://docs.cloud.google.com/gemini-enterprise-agent-platform//resources/data-residency) for details.
+> Data storage and inference occur on Anthropic-managed infrastructure (which may route outside Google Cloud), and subservices may change without notice. Set the `inference_geo` parameter per request to pin inference to a specific geography. See [Data residency](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency) for details.
 >
 > Claude models on Google Cloud (Anthropic managed) follows the same data retention policy as Anthropic's 1st party Claude API. Zero Data Retention (ZDR) may be available on request. Contact your Google Cloud or Anthropic account representative to enable it for your account.
 
@@ -20,6 +20,7 @@ This page covers the following topics:
 - A [comparison of Anthropic-managed and Google-managed Claude models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/anthropic-managed#compare)
 - How to [get started](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/anthropic-managed#get-started)
 - How to [make API calls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/anthropic-managed#use-claude-platform)
+- How to [view audit logs and monitor activity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/anthropic-managed#monitoring-and-logging)
 
 ## Key benefits
 
@@ -44,22 +45,30 @@ You should use a Google-managed Claude model if you need any of the following:
 - Built-in Google Cloud quotas and billing
 - Built-in integrations with Google Cloud services such as BigQuery, Model Armor, and Agent Engine.
 
+Use Claude models on Google Cloud (Anthropic managed) if you need any of the following:
+
+- Immediate access to Anthropic's Claude models, features, research previews, and betas upon release
+- Capabilities available only on Anthropic-managed infrastructure: Managed Agents (beta), Skills, the Files API, Code Execution, Web Fetch, Remote MCP (beta), and the Advisor tool (beta)
+- The Claude Console for managing workspaces, usage, and costs
+- Google Cloud IAM, Cloud Audit Logs, and Cloud Billing, with Anthropic acting as the data processor
+
 ### Comparison at a glance
 
 The following table outlines the key differences between the Anthropic-managed and Google-managed Claude models:
 
-| Model type             | Anthropic-managed                                                                                                                 | Google-managed                                                 |
-|------------------------|-----------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
-| Who operates the stack | Anthropic                                                                                                                         | Google                                                         |
-| API surface            | `/v1/messages` using `claude.googleapis.com`                                                                                      | Agent Platform prediction endpoints, `/v1/messages`            |
-| Feature availability   | Intended to match the first-party Claude API                                                                                      | Per Agent Platform and Model Garden release schedule           |
-| Beta features          | Pass through with `anthropic-beta` headers                                                                                        | `anthropic-beta` header support varies by Model Garden release |
-| Authentication         | Google Cloud IAM. Application Default Credentials, a service account, or `gcloud auth print-access-token` . No `x-api-key`        | Google Cloud IAM (same credential model)                       |
-| Billing                | Google Cloud Marketplace (in CCUs)                                                                                                | Google Cloud (Agent Platform billing)                          |
-| Base URL               | `claude.googleapis.com`                                                                                                           | `REGION `` -aiplatform.googleapis.com`                         |
-| SDK client             | Platform-specific client class ( `AnthropicGoogleCloud` )                                                                         | Agent Platform client                                          |
-| Console                | Google Cloud console for IAM, metrics and monitoring, and Claude Console ( `platform.claude.com` , accessed through Google Cloud) | Google Cloud console (Agent Platform and Model Garden)         |
-| Rate limits and quotas | Quota requests can be submitted directly using the console, but rate limits and quotas are managed by Anthropic                   | Managed by Google Cloud (Agent Platform quotas)                |
+| Model type             | Anthropic-managed                                                                                                                                      | Google-managed                                                                                                                                                         |
+|------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Who operates the stack | Anthropic                                                                                                                                              | Google                                                                                                                                                                 |
+| Where inference runs   | Configured per request with `inference_geo` . Responses report where inference ran in `usage.inference_geo` .                                          | Regional and multi-region endpoints, including the EU. See [Data residency](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency) . |
+| API surface            | `/v1/messages` using `claude.googleapis.com`                                                                                                           | Agent Platform prediction endpoints, `/v1/messages`                                                                                                                    |
+| Feature availability   | Intended to match the first-party Claude API                                                                                                           | Per Agent Platform and Model Garden release schedule                                                                                                                   |
+| Beta features          | Pass through with `anthropic-beta` headers                                                                                                             | `anthropic-beta` header support varies by Model Garden release                                                                                                         |
+| Authentication         | Google Cloud IAM. Application Default Credentials, a service account, or `gcloud auth print-access-token` . No `x-api-key`                             | Google Cloud IAM (same credential model)                                                                                                                               |
+| Billing                | Google Cloud Marketplace (in CCUs)                                                                                                                     | Google Cloud (Agent Platform billing)                                                                                                                                  |
+| Base URL               | `claude.googleapis.com`                                                                                                                                | `REGION `` -aiplatform.googleapis.com`                                                                                                                                 |
+| SDK client             | Platform-specific client class ( `AnthropicGoogleCloud` )                                                                                              | Agent Platform client                                                                                                                                                  |
+| Console                | Google Cloud console for IAM, metrics and monitoring, and Claude Console ( `platform.claude.com` , accessed through Google Cloud)                      | Google Cloud console (Agent Platform and Model Garden)                                                                                                                 |
+| Rate limits and quotas | Managed by Anthropic, not by Agent Platform quotas. To view your limits and request higher limits, use the **Rate limits** page in the Claude Console. | Managed by Google Cloud (Agent Platform quotas)                                                                                                                        |
 
 ### Compare supported API features
 
@@ -104,6 +113,14 @@ To get started with Claude models on Google Cloud (Anthropic managed), follow th
 
 3.  If you haven't already enabled the Claude API for your project, in the **Enable the Claude API** section, click **Enable API** , and then follow the instructions.
 
+    To enable both required services ( `claude.googleapis.com` and the Google Cloud Marketplace service `anthropic-managed-claude.cloudpartnerservices.goog` ) from the command line for additional projects, run the following Google Cloud CLI command:
+
+    ```
+    gcloud services enable claude.googleapis.com \
+        anthropic-managed-claude.cloudpartnerservices.goog \
+        --project=PROJECT_ID
+    ```
+
 4.  In the **Purchase the product** section, click **Purchase via Marketplace** . You will be redirected to the Marketplace page. You can choose to purchase the product at list price or through negotiated discount or private offer. Once you have successfully purchased the product, click **Manage on Console** to return to the Model Garden page.
 
 5.  In the **Activate Claude Console** section, click **Activate** to provision a new Anthropic organization for your Google Cloud project. Enter a one-time contact email address to receive the setup link, open the link from that inbox, complete the organization details form (organization name, entity type, country, and intended use), and accept Anthropic's Commercial Terms of Service and Usage Policy. Note that this creates a separate Anthropic organization: API keys, workspaces, HIPAA controls, Zero Data Retention (ZDR), and settings from an existing first-party Anthropic organization don't carry over.
@@ -124,17 +141,25 @@ To use the Claude Console:
 
 ### Claude API
 
-You can interact with Claude models on Google Cloud (Anthropic managed) using standard Google Cloud authentication. The API endpoint is `https://claude.googleapis.com/` .
+You can interact with Claude models on Google Cloud (Anthropic managed) using standard Google Cloud authentication. The API base URL for workspace-scoped endpoints is `https://claude.googleapis.com/v1/projects/ `` PROJECT_ID `` /locations/global/workspaces/ `` ANTHROPIC_WORKSPACE_ID `` /invoke` (see [API reference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/anthropic-managed#api-reference) for organization-level endpoints). This domain serves API requests only, so opening `https://claude.googleapis.com/` in a browser returns a `404` error. To work with Claude in a browser, open the Claude Console.
 
 1.  **Grant the `roles/claude.user` (Claude Platform User) role** : To make API calls, you must first [grant the `roles/claude.user` (Claude Platform User) Identity and Access Management (IAM) role for the project](https://docs.cloud.google.com/iam/docs/grant-role-console) .
 
-2.  **Authenticate with Google Cloud** : If you are using a client library or the [Google Cloud CLI](https://docs.cloud.google.com/sdk/gcloud) , authentication is handled automatically. For direct API calls, ensure you have authenticated and can obtain an OAuth 2.0 token. You can get a token using the Google Cloud CLI:
+    To grant the role to a service account using the gcloud CLI, run the following command:
+
+    ```
+    gcloud projects add-iam-policy-binding PROJECT_ID \
+        --member="serviceAccount:SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com" \
+        --role="roles/claude.user"
+    ```
+
+2.  **Authenticate with Google Cloud** : If you are using a client library or the [gcloud CLI](https://docs.cloud.google.com/sdk/gcloud) , authentication is handled automatically. For direct API calls, ensure you have authenticated and can obtain an OAuth 2.0 token. You can get a token using the gcloud CLI:
 
     ```
     gcloud auth print-access-token
     ```
 
-3.  **Call the Messages API** : The API structure mirrors the Anthropic Messages API. You can make requests using Anthropic's Google Cloud client SDKs ( `AnthropicGoogleCloud` ) or directly to workspace-scoped endpoints under `https://claude.googleapis.com/v1/projects/PROJECT_ID/locations/global/workspaces/ANTHROPIC_WORKSPACE_ID/invoke/v1/messages` .
+3.  **Call the Messages API** : The API structure mirrors the Anthropic Messages API. You can make requests using Anthropic's Google Cloud client SDKs ( `AnthropicGoogleCloud` ) or directly to workspace-scoped endpoints under `https://claude.googleapis.com/v1/projects/ `` PROJECT_ID `` /locations/global/workspaces/ `` ANTHROPIC_WORKSPACE_ID `` /invoke/v1/messages` .
 
     Here is an example using curl:
 
@@ -152,8 +177,28 @@ You can interact with Claude models on Google Cloud (Anthropic managed) using st
     }'
     ```
 
+## Monitoring and logging
+
+Cloud Audit Logs records API activity for the `claude.googleapis.com` service:
+
+- **Data Access audit logs** : Cover inference and workspace-scoped resource operations (including messages, batches, files, skills, models, sessions, agents, environments, and vaults), plus workspace, organization, and operation read calls. These logs are disabled by default. To record requests, [enable Data Access audit logs](https://docs.cloud.google.com/logging/docs/audit/configure-data-access) for `claude.googleapis.com` in your project's audit log settings.
+- **Admin Activity audit logs** : Cover organization management, external key ( `externalKeys.*` ), external storage ( `externalStorages.*` ), and telemetry destination ( `telemetryDestinations.*` ) operations, workspace writes, and long-running operation cancellations or deletions. These logs are always enabled.
+
+To filter audit logs for a specific service account in the Logs Explorer, use the following query:
+
+```
+protoPayload.serviceName="claude.googleapis.com"
+protoPayload.authenticationInfo.principalEmail:"SERVICE_ACCOUNT_NAME@"
+```
+
+Each audit log entry identifies the caller and the IAM permission checked for the request, such as `claude.googleapis.com/sessions.create` . To view usage and cost metrics, open the Claude Console. To export OpenTelemetry traces (beta), see the Anthropic documentation.
+
+For the list of audited service methods, see [Anthropic managed Claude API audit logging](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/audit-logging) .
+
 ## API reference
 
 For detailed API reference for messages, files, and skills, see the [Anthropic API documentation](https://platform.claude.com/docs/en/api/overview) .
 
-For direct REST calls to workspace-scoped endpoints (such as `/v1/messages` , `/v1/files` , or `/v1/skills` ), use `https://claude.googleapis.com/v1/projects/PROJECT_ID/locations/global/workspaces/ANTHROPIC_WORKSPACE_ID/invoke` as the base URL before the Anthropic API path (for example, `.../invoke/v1/files` ). For organization-level endpoints (such as `/v1/organizations/workspaces` ), use `https://claude.googleapis.com/v1/projects/PROJECT_ID/locations/global/claudeOrganization/invoke` as the base URL.
+For direct REST calls to workspace-scoped endpoints (such as `/v1/messages` , `/v1/files` , or `/v1/skills` ), use `https://claude.googleapis.com/v1/projects/ `` PROJECT_ID `` /locations/global/workspaces/ `` ANTHROPIC_WORKSPACE_ID `` /invoke` as the base URL before the Anthropic API path (for example, `.../invoke/v1/files` ).
+
+For organization-level endpoints (such as `/v1/organizations/workspaces` ), use `https://claude.googleapis.com/v1/projects/ `` PROJECT_ID `` /locations/global/claudeOrganization/invoke` as the base URL.

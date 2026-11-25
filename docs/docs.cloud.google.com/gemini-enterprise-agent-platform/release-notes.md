@@ -10,6 +10,40 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## November 23, 2026
+
+Feature
+
+**Gemini 4 Neon in CodeMender (Preview)**
+
+CodeMender now supports Gemini 4 Neon. To use it, pass `--model gemini-4-neon` to `cm find` , `cm verify` , or `cm fix` . Gemini 3.8 Flash remains the default model.
+
+Starting January 12, 2027, CodeMender sessions on Gemini 4 Neon also bill cache writes. For prices, see the [CodeMender pricing](https://cloud.google.com/model-garden/pricing#codemender) .
+
+For more information, see [Specifying the model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender#specifying-the-model) .
+
+Feature
+
+**Gemini 4 Neon for cyber (GA)**
+
+[Gemini 4 Neon for cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon#cyber) ( `gemini-4-neon-cyber-permissive` ) is [generally available (GA)](https://cloud.google.com/products#product-launch-stages) in Gemini Enterprise Agent Platform for defensive cybersecurity workloads approved through the [Fairwind Program](https://deepmind.google/fairwind-program/) allowlist. Gemini 4 Neon for cyber is a Google Frontier Cyber Model subject to Section 31 of the [Service Specific Terms](https://cloud.google.com/terms/service-terms) (for details, see [Abuse monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring#google-frontier-models) ) and supports the following capabilities and consumption options:
+
+- **Capabilities and endpoints** : Available on the `global` endpoint and in the `us` and `eu` multi-regions across `GenerateContent` , the [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) (including `background=true` ), and the OpenAI compatibility Chat Completions API. Shares the unified 1,048,576-token input and output limit, long decodes up to 1,048,576 tokens ( `continuation_token` ), thinking levels `LOW` , `MEDIUM` , `HIGH` (default), and `XHIGH` , automatic [implicit context caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview) with durable caching (4,096-token minimum), [Computer use](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use) , and Microsoft Office and OpenDocument file inputs.
+
+- **Consumption options and Provisioned Throughput** : Supports Standard PayGo with Usage Tiers, Priority PayGo, Off-peak PayGo, batch inference, and [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/supported-models#google-models) (345 tokens per second per GSU, 1-GSU minimum purchase increment). Starting on January 12, 2027, cache writes are billed at 1.25x the standard input token rate by default.
+
+For model specifications, differences from `gemini-4-neon` , and migration guidance, see [Gemini 4 Neon for cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon#cyber) and the [developer's guide to Gemini 4 Neon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-neon#migration-guide) .
+
+## November 20, 2026
+
+Feature
+
+**Supervised fine-tuning for Gemini 3.8 Flash is available in General Availability**
+
+Supervised fine-tuning, [continuous tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/continuous-tuning) , and [tuning checkpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/checkpoints) for [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash) ( `gemini-3.8-flash` ) are available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages) . You can run tuning jobs on the `us` and `eu` multi-region endpoints, and serve tuned models on the `us` and `eu` multi-region endpoints or the `global` endpoint.
+
+For more information, see [About supervised fine-tuning for Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning) and [Tune Gemini models with supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use) .
+
 ## November 19, 2026
 
 Feature
@@ -367,6 +401,12 @@ For more information, see [About supervised fine-tuning for Gemini models](https
 
 Feature
 
+**Computer use tool is available in General Availability**
+
+The [Computer use tool](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/computer-use) is available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages) . This release introduces comprehensive Human-in-the-Loop (HITL) safety governance, enabling developers to selectively configure or override specific confirmation policies (such as financial transactions or data modification) while allowing administrators to mandate organization-wide guardrails using the `configurableComputerUseToolSafetyPolicies` constraint.
+
+Feature
+
 **Inference request metadata logging (GA)**
 
 Inference request metadata logging is generally available. Gemini Enterprise Agent Platform can write one Cloud Logging entry for every inference request your project serves. Each entry records the model, region, consumption option, token counts, Provisioned Throughput usage, latency and error code. Entries record metadata only and never contain prompts or responses. Logging is supported for Gemini models that use `generateContent` and `streamGenerateContent` , and for Claude models that use `rawPredict` and `streamRawPredict` .
@@ -374,12 +414,6 @@ Inference request metadata logging is generally available. Gemini Enterprise Age
 You can turn on logging in the Google Cloud console, from the Provisioned Throughput page, or with the REST API. Turning on logging in the console also turns on detailed metrics, which chart Provisioned Throughput traffic at one-second resolution. With logging on, the model observability dashboard adds 1-second resolution options to its charts for pay-as-you-go traffic. To attribute usage to a team, application or tenant, add request headers with the `x-goog-agent-platform-observability-label-` prefix, and query the entries with SQL in Observability Analytics.
 
 For more information, see [Log inference request metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/inference-metadata-logging) .
-
-Feature
-
-**Computer use tool is available in General Availability**
-
-The [Computer use tool](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/tools/computer-use) is available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages) . This release introduces comprehensive Human-in-the-Loop (HITL) safety governance, enabling developers to selectively configure or override specific confirmation policies (such as financial transactions or data modification) while allowing administrators to mandate organization-wide guardrails using the `configurableComputerUseToolSafetyPolicies` constraint.
 
 ## October 28, 2026
 

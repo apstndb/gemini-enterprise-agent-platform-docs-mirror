@@ -130,6 +130,7 @@ The following table lists the models that support video understanding:
 </tr>
 <tr class="odd">
 <td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon#cyber">Gemini 4 Neon for cyber</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon">Gemini 4 Neon</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen">Gemini 4 Hydrogen</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon#cyber">Gemini 4 Carbon for cyber</a></li>
@@ -1555,6 +1556,7 @@ Agentic video understanding is supported in the following models:
 
 #### Click to expand supported models
 
+- [Gemini 4 Neon for cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon#cyber)
 - [Gemini 4 Neon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon)
 - [Gemini 4 Hydrogen](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen)
 - [Gemini 4 Carbon for cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon#cyber)

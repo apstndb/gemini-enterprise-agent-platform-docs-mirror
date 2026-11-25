@@ -535,7 +535,7 @@ Deploy the model.
 Before using any of the request data, make the following replacements:
 
 - ` LOCATION_ID ` : The region where you are using Agent Platform.
-- ` PROJECT_ID ` : .
+- ` PROJECT_ID ` :
 - ` ENDPOINT_ID ` : The ID for the endpoint.
 - ` MODEL_ID ` : The ID for the model to be deployed.
 - ` DEPLOYED_MODEL_NAME ` : A name for the `DeployedModel` . You can use the display name of the `Model` for the `DeployedModel` as well.
@@ -564,21 +564,21 @@ Request JSON body:
     "model": "projects/PROJECT/locations/us-central1/models/MODEL_ID",
     "displayName": "DEPLOYED_MODEL_NAME",
     "dedicatedResources": {
-       "machineSpec": {
-         "machineType": "MACHINE_TYPE",
-         "acceleratorType": "ACCELERATOR_TYPE",
-         "acceleratorCount": "ACCELERATOR_COUNT"
-       },
-       "minReplicaCount": MIN_REPLICA_COUNT,
-       "maxReplicaCount": MAX_REPLICA_COUNT,
-       "requiredReplicaCount": REQUIRED_REPLICA_COUNT
-     },
+      "machineSpec": {
+        "machineType": "MACHINE_TYPE",
+        "acceleratorType": "ACCELERATOR_TYPE",
+        "acceleratorCount": "ACCELERATOR_COUNT"
+      },
+      "minReplicaCount": MIN_REPLICA_COUNT,
+      "maxReplicaCount": MAX_REPLICA_COUNT,
+      "requiredReplicaCount": REQUIRED_REPLICA_COUNT
+    }
   },
   "trafficSplit": {
     "0": TRAFFIC_SPLIT_THIS_MODEL,
     "DEPLOYED_MODEL_ID_1": TRAFFIC_SPLIT_MODEL_1,
     "DEPLOYED_MODEL_ID_2": TRAFFIC_SPLIT_MODEL_2
-  },
+  }
 }
 ```
 

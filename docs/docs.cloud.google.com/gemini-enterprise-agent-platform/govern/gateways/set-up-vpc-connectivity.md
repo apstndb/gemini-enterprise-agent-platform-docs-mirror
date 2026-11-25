@@ -20,11 +20,17 @@ To configure VPC connectivity, you create an *Agent Gateway connectivity templat
 
 ## How VPC connectivity works
 
-When you deploy an Agent Gateway with a connectivity template, the gateway uses a Private Service Connect interface to route outbound agent traffic into your designated VPC network.
+Agent Gateway runs in a Google-managed environment. To let agents privately access internal resources such as databases, enterprise tools, or on-premises systems without exposing them to the public internet, you can establish private VPC connectivity.
+
+To connect Agent Gateway to your VPC network, you create a Private Service Connect network attachment in a dedicated subnet within your network. You then define an Agent Gateway connectivity template ( `AgentConnectivityTemplate` ) that references this network attachment and apply the template to your gateway.
+
+When you deploy an Agent Gateway instance with a connectivity template, Google provisions a Private Service Connect interface that connects the gateway to your network attachment. Outbound traffic from your agents flows through this interface into your VPC network, using source IP addresses allocated from your network attachment subnet. This configuration lets your existing VPC routing rules, firewall policies, Cloud NAT gateways, and VPC Service Controls service perimeters govern and secure all egress traffic from your agents.
 
 ### VPC egress modes
 
-You configure how the gateway routes traffic through your network attachment using the `vpcEgress` setting in your connectivity template.
+The `vpcEgress` setting in your connectivity template controls which outbound traffic from your agents routes through your network attachment into your VPC network, and which traffic exits directly through Google-managed network paths.
+
+Depending on your organization's security posture and routing requirements, you can configure one of two egress modes:
 
 - **Traffic to private IP address ranges ( `PRIVATE_RANGES_ONLY` )** : Routes traffic destined only for private IP address ranges into your VPC network. Outbound traffic is routed into your VPC network only if the destination IP address falls into one of the following ranges:
 
@@ -43,15 +49,30 @@ You configure how the gateway routes traffic through your network attachment usi
   - **Public internet egress** : The Agent Gateway sends outbound traffic into your VPC network, where it exits to the public internet through a [Cloud NAT gateway](https://docs.cloud.google.com/nat/docs/overview) on the Private Service Connect network attachment subnet. If you assign [static external IP addresses](https://docs.cloud.google.com/nat/docs/ports-and-addresses#addresses) to the Cloud NAT gateway, remote services can allowlist your agents' egress traffic based on these source IP addresses.
   - **VPC Service Controls** : Egress mode must be set to `ALL_TRAFFIC` to support VPC Service Controls service perimeters.
 
-### DNS resolution and traffic routing
+### Private DNS resolution and traffic routing
 
-By default, Agent Gateway resolves domain names using public recursive DNS. If your agents need to access internal workloads, private tools, or Google APIs hosted on private domain names in your VPC network (such as `corp.internal.` or PSC endpoints), you can configure Cloud DNS peering to forward DNS queries to your network's private Cloud DNS managed zones.
+By default, Agent Gateway resolves domain names using public recursive DNS. If your agents need to access internal workloads, private tools, or Google APIs hosted on private domain names in your VPC network (such as `corp.internal.` or PSC endpoints), you can configure Cloud DNS peering in your connectivity template.
+
+When you configure Cloud DNS peering, DNS resolution and outbound packet routing operate independently:
+
+- **DNS resolution path ( `dnsPeeringConfig.targetNetwork` )** : Agent Gateway uses Cloud DNS peering to forward DNS queries for your configured `domains` to your target VPC network ( `targetNetwork` ). Depending on your network architecture, you configure `targetNetwork` using one of two options relative to the network attachment subnet:
+
+  - **Same VPC network** : The target network is the same VPC network that contains your network attachment subnet. Use this option for standalone (single-project) or Shared VPC deployments.
+
+  - **Separate VPC network (such as a central DNS hub)** : The target network is in another project, such as a central DNS hub network (bypassing spoke Cloud DNS). Use this option in hub-and-spoke architectures where your organization centralizes DNS resolution in a dedicated hub project separate from the spoke network that hosts your network attachment.
+
+  With either option, `targetNetwork` can resolve DNS queries in one of two ways:
+
+  - **Direct resolution (one peering hop)** : `targetNetwork` answers queries using authoritative private zones, [cross-project bound zones](https://docs.cloud.google.com/dns/docs/zones/cross-project-binding) , or forwarding zones authorized for `targetNetwork` .
+  - **Transitive Cloud DNS peering (two peering hops)** : `targetNetwork` matches a Cloud DNS peering zone that forwards queries to another VPC network. Because Agent Gateway supports [transitive DNS peering](https://docs.cloud.google.com/dns/docs/zones/zones-overview#dns_peering_limitations_and_key_points) up to a single transitive hop (a maximum of two Cloud DNS peering hops across three VPC networks), the peering connection from Agent Gateway to `targetNetwork` uses the first hop (hop 1), and the peering zone from `targetNetwork` to the destination network uses the second hop (hop 2). That destination network must answer queries using authoritative private zones or forwarding zones, and can't forward queries across a third peering hop.
+
+- **Traffic egress path ( `networkAttachment` )** : Regardless of which network you specify in `targetNetwork` , outbound packets enter the VPC network of your Private Service Connect network attachment subnet. If your destination workloads reside in another network (for example, behind a central hub connected with VPC Network Peering and HA VPN or Cloud Interconnect with Cloud Router), ensure that IP routing and firewall rules allow traffic between the network attachment subnet and the resolved destination IP addresses.
 
 The following table summarizes Cloud DNS peering requirements and traffic routing behavior for different destinations when VPC connectivity is configured in `ALL_TRAFFIC` mode:
 
 | Traffic destination                                            | Cloud DNS peering required?              | DNS resolution                                                                                                                                  | Egress path                                                                                                                                                                                                                                                 |
 |----------------------------------------------------------------|------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Private IP services** (RFC 1918 / internal)                  | **Yes** (for example, `corp.internal.` ) | Resolves using Cloud DNS peering with your target VPC network's private Cloud DNS managed zone.                                                 | Traffic enters your VPC network through the network attachment to connect to internal workloads.                                                                                                                                                            |
+| **Private IP services** (RFC 1918 / internal)                  | **Yes** (for example, `corp.internal.` ) | Resolves using Cloud DNS peering with your target VPC network, either directly or across one transitive Cloud DNS peering hop.                  | Traffic enters the network attachment's VPC network and follows its routes to internal or peered workloads.                                                                                                                                                 |
 | **Public hostnames with private IPs** (Split-horizon DNS)      | **No**                                   | Resolves using standard public recursive DNS at the gateway proxy without requiring Cloud DNS peering.                                          | Traffic enters your VPC network through the network attachment to connect to internal workloads.                                                                                                                                                            |
 | **Public internet & SaaS APIs** (External domains)             | **No**                                   | Resolves using standard public recursive DNS at the gateway proxy without requiring Cloud DNS peering.                                          | Traffic enters your VPC network through the network attachment and exits to the public internet using Cloud NAT configured on the subnet.                                                                                                                   |
 | **Google Cloud APIs** (standard, without VPC Service Controls) | **No**                                   | Resolves using standard public recursive DNS at the gateway proxy without requiring Cloud DNS peering.                                          | Traffic enters your VPC network through the network attachment and is routed privately using Private Google Access enabled on the subnet, without using Cloud NAT or DNS peering.                                                                           |
@@ -90,7 +111,7 @@ In a standalone project where the gateway, network attachment, and VPC network r
 
 If you configure a network attachment, the identity that creates or updates the gateway or agent connectivity template (your user account or deployment service account) must also hold the `compute.networkAttachments.use` permission on the network attachment, for example through the Compute Network Admin role ( `roles/compute.networkAdmin` ) on the project that contains the network attachment. Compute Network User isn't sufficient. Without this permission, the request fails with a `PERMISSION_DENIED` error that names the network attachment.
 
-In addition, if you configure DNS peering, Agent Gateway validates the DNS peering configuration (and any network attachment and its subnetwork) by using the Agent Gateway service agent ( `service- `` AGENT_GATEWAY_PROJECT_NUMBER `` @gcp-sa-agentgateway.iam.gserviceaccount.com` ). Grant the service agent the following roles on the project that contains the target VPC network, the network attachment, and the private DNS zones (your own project in a standalone deployment):
+In addition, if you configure DNS peering, Agent Gateway validates the DNS peering configuration (and any network attachment and its subnetwork) by using the Agent Gateway service agent ( `service- `` AGENT_GATEWAY_PROJECT_NUMBER `` @gcp-sa-agentgateway.iam.gserviceaccount.com` ). Grant the service agent the following roles on your project:
 
 - Compute Network Viewer ( `roles/compute.networkViewer` )
 - DNS Reader ( `roles/dns.reader` )
@@ -101,9 +122,9 @@ Without these roles, creating or updating a gateway or agent connectivity templa
 
 ### Shared VPC or cross-project deployments
 
-In a [Shared VPC](https://docs.cloud.google.com/vpc/docs/shared-vpc) deployment, you can provision the Agent Gateway in either a service project or the host project. If you provision the gateway in the host project (where the Shared VPC network, subnet, and network attachment also reside), [standalone project permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#standalone-project-permissions) apply.
+In a [Shared VPC](https://docs.cloud.google.com/vpc/docs/shared-vpc) deployment, you can provision the Agent Gateway in either a service project or the host project. If you provision the gateway in the host project (where the Shared VPC network, subnet, and network attachment also reside), [standalone project permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#standalone-project-permissions) apply (unless `targetNetwork` resides in a separate DNS hub project).
 
-If you provision the Agent Gateway in a service project while the target VPC network, network attachment, or private DNS zones reside in the host project ( `TARGET_VPC_PROJECT_ID` ), identities in the service project don't automatically have permissions to validate, attach to, or peer with networking and DNS resources in the host project. Grant the following roles on the host project in addition to [standard Agent Gateway permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#required-roles) :
+If you provision the Agent Gateway in a service project while the Shared VPC network, subnet, network attachment, or private DNS zones reside in the host project ( `HOST_PROJECT_ID` ), or if `targetNetwork` resides in a separate central DNS hub project ( `DNS_HUB_PROJECT_ID` ), identities in the service project don't automatically have permissions to validate, attach to, or peer with networking and DNS resources in those projects. Grant the following roles in addition to [standard Agent Gateway permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#required-roles) :
 
 <table>
 <caption><strong>Table:</strong> Permissions needed for Shared VPC and cross-project deployments</caption>
@@ -125,7 +146,7 @@ If you provision the Agent Gateway in a service project while the target VPC net
 <tr class="odd">
 <td><strong>Provisioning identity <sup>1</sup></strong><br />
 (User account or deployment service account)</td>
-<td>Host project ( <var translate="no"> TARGET_VPC_PROJECT_ID </var> )</td>
+<td>Host project ( <var translate="no">HOST_PROJECT_ID</var> )</td>
 <td><ul>
 <li>Compute Network Viewer ( <code>roles/ compute. networkViewer</code> )</li>
 <li>DNS Reader ( <code>roles/ dns. reader</code> )</li>
@@ -138,7 +159,7 @@ If you provision the Agent Gateway in a service project while the target VPC net
 <tr class="even">
 <td><strong>Network attachment creator</strong><br />
 (Administrator creating the PSC attachment)</td>
-<td>Host project ( <var translate="no"> TARGET_VPC_PROJECT_ID </var> )</td>
+<td>Host project ( <var translate="no">HOST_PROJECT_ID</var> )</td>
 <td><ul>
 <li>Compute Network User ( <code>roles/ compute. networkUser</code> )</li>
 </ul></td>
@@ -152,18 +173,18 @@ If you provision the Agent Gateway in a service project while the target VPC net
 </tr>
 <tr class="even">
 <td><strong>Agent Gateway Service Agent <sup>2</sup></strong></td>
-<td>Host project ( <var translate="no"> TARGET_VPC_PROJECT_ID </var> )</td>
+<td>Host project ( <var translate="no">HOST_PROJECT_ID</var> )</td>
 <td><ul>
 <li>Compute Network User ( <code>roles/ compute. networkUser</code> )</li>
-<li>Compute Network Viewer ( <code>roles/ compute. networkViewer</code> )</li>
-<li>DNS Reader ( <code>roles/ dns. reader</code> )</li>
-<li>DNS peer ( <code>roles/ dns. peer</code> )</li>
+<li>Compute Network Viewer ( <code>roles/ compute. networkViewer</code> ), when using DNS peering</li>
+<li>DNS Reader ( <code>roles/ dns. reader</code> ), when using DNS peering</li>
+<li>DNS Peer ( <code>roles/ dns. peer</code> ), when using DNS peering</li>
 </ul></td>
 <td>Allows the Agent Gateway service agent to use the host project subnet for the network attachment, connect the Private Service Connect interface to route egress traffic, and peer with private Cloud DNS zones in the host project, and lets the service agent validate the target VPC network, subnets, and private DNS zones during gateway creation or updates.</td>
 </tr>
 <tr class="odd">
 <td><strong>Agent Gateway Service Agent <sup>2</sup></strong></td>
-<td>Service project ( <var translate="no"> AGENT_GATEWAY_PROJECT_ID </var> )</td>
+<td>Service project ( <var translate="no">AGENT_GATEWAY_PROJECT_ID</var> )</td>
 <td><ul>
 <li>Compute Network Viewer ( <code>roles/ compute. networkViewer</code> )</li>
 </ul></td>
@@ -177,19 +198,36 @@ If you provision the Agent Gateway in a service project while the target VPC net
 </tr>
 <tr class="odd">
 <td><strong>Agent Gateway Service Agent <sup>2</sup></strong></td>
-<td>Host project ( <var translate="no"> TARGET_VPC_PROJECT_ID </var> )</td>
+<td>Host project ( <var translate="no">HOST_PROJECT_ID</var> )</td>
 <td><ul>
 <li>Compute Network Admin ( <code>roles/ compute. networkAdmin</code> ), or a custom role with:
 <ul>
 <li><code>compute. networkAttachments. get</code></li>
 <li><code>compute. networkAttachments. update</code></li>
 <li><code>compute. regionOperations. get</code></li>
+<li><code>compute. networks. get</code> , when using DNS peering</li>
+<li><code>compute. subnetworks. get</code> , when using DNS peering</li>
 </ul></li>
-<li>Compute Network Viewer ( <code>roles/ compute. networkViewer</code> )</li>
-<li>DNS Reader ( <code>roles/ dns. reader</code> )</li>
-<li>DNS peer ( <code>roles/ dns. peer</code> )</li>
+<li>DNS Reader ( <code>roles/ dns. reader</code> ), when using DNS peering</li>
+<li>DNS Peer ( <code>roles/ dns. peer</code> ), when using DNS peering</li>
 </ul></td>
 <td>Allows the Agent Gateway service agent to update the host project network attachment to allow the connection from the Agent Gateway tenant project, to route egress traffic, and peer with private Cloud DNS zones in the host project, and lets the service agent validate the target VPC network, subnets, network attachment, and private DNS zones during gateway creation or updates.</td>
+</tr>
+<tr class="even">
+<td><strong>Cross-project DNS hub topology ( <code>targetNetwork</code> in a separate project)</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Agent Gateway Service Agent <sup>2</sup></strong></td>
+<td>DNS hub project ( <var translate="no">DNS_HUB_PROJECT_ID</var> )</td>
+<td><ul>
+<li>Compute Network Viewer ( <code>roles/ compute. networkViewer</code> )</li>
+<li>DNS Reader ( <code>roles/ dns. reader</code> )</li>
+<li>DNS Peer ( <code>roles/ dns. peer</code> )</li>
+</ul></td>
+<td>Lets the Agent Gateway service agent validate the hub VPC network and its private Cloud DNS zones (including peering hop distance), and peer with private Cloud DNS zones in the hub network. Grant these DNS roles on the hub project instead of the standalone or host project when <code>targetNetwork</code> is in a separate project. For setup steps, see <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#set-up-dns-peering">Set up DNS peering</a> .</td>
 </tr>
 </tbody>
 </table>
@@ -215,7 +253,6 @@ Create a Private Service Connect network attachment in your target VPC network.
 Ensure that your network attachment meets the following requirements:
 
 - **Connection preference** : Configure the network attachment to [automatically accept connections](https://docs.cloud.google.com/vpc/docs/about-network-attachments#connection-policies) ( `--connection-preference=ACCEPT_AUTOMATIC` ) .
-- **Same VPC network requirement** : The network attachment subnet and the target network configured for DNS peering ( `targetNetwork` ) *must be in the exact same VPC network* . If the network attachment's subnet belongs to a different network than the DNS peering target network, configuration validation fails.
 - **VPC network MTU support** : Agent Gateway supports a [maximum transmission unit (MTU)](https://docs.cloud.google.com/vpc/docs/mtu) of up to 1,500 bytes for the VPC network that contains the network attachment's subnet. If that VPC network uses a larger MTU, such as jumbo frames, then [contact Cloud Customer Care](https://docs.cloud.google.com/support/docs/customer-care-procedures) to align the Agent Gateway producer service with your custom VPC MTU.
 - **Subnet requirements** : Note the following requirements for the network attachment subnet:
   - **Subnet range** : The network attachment subnet supports all [valid ranges](https://docs.cloud.google.com/vpc/docs/subnets#valid-ranges) .
@@ -227,21 +264,33 @@ Note the complete resource URI of the network attachment (for example, `projects
 
 ### Optional: Set up DNS peering
 
-DNS peering lets Agent Gateway resolve DNS names using records from a Cloud DNS private managed zone in your VPC network. DNS peering is required only when your agents need to resolve private internal domain names (such as `corp.internal.` ) or enforce VPC Service Controls for Google APIs ( `googleapis.com.` ). It is not required for public internet domains or standard Google APIs without VPC Service Controls.
-
-Agent Gateway supports [transitive DNS peering](https://docs.cloud.google.com/dns/docs/zones/zones-overview#dns_peering_limitations_and_key_points) only up to a single transitive hop, which means a maximum of three VPC networks. For example, `vpc-net-a` (the Agent Gateway tenant network) can peer to `vpc-net-b` (attached network), which in turn peers to `vpc-net-c` (remote network) to resolve DNS queries across the chain.
+Complete this section only if your agents need to resolve private internal domain names (such as `corp.internal.` ) or enforce VPC Service Controls for Google APIs ( `googleapis.com.` ). If you're configuring cross-project DNS peering, read [Private DNS resolution and traffic routing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#dns-resolution-traffic-routing) and grant the cross-project service agent roles in [Shared VPC or cross-project deployments](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#shared-vpc-permissions) .
 
 To set up DNS peering, perform the following steps:
 
-1.  [Set up your private DNS zone](https://docs.cloud.google.com/dns/docs/zones/zones-overview) in your target VPC network. To add DNS records to your private DNS zone, see [Add a resource record set](https://docs.cloud.google.com/dns/docs/records#add-rrset) .
+1.  Choose your target VPC network ( `targetNetwork` ), which is either the VPC network that contains your network attachment subnet or a separate network such as a central DNS hub, and configure private Cloud DNS zones using one of the following options:
 
-2.  Gather the following information to configure the connectivity template to enable peering:
+    - **Direct resolution on `targetNetwork` (one peering hop)** : Use this option when `targetNetwork` resolves queries directly in standalone, Shared VPC, or single-hub deployments. Authorize [private managed zones](https://docs.cloud.google.com/dns/docs/zones#create-private-zone) (and [add your DNS records](https://docs.cloud.google.com/dns/docs/records#add-rrset) ) or [forwarding zones](https://docs.cloud.google.com/dns/docs/zones/forwarding-zones) for `targetNetwork` , either in the same project as `targetNetwork` or in a separate DNS project using [cross-project binding](https://docs.cloud.google.com/dns/docs/zones/cross-project-binding) .
 
-    - **Target network URI ( `targetNetwork` )** : Note the full resource URI of the target VPC network in the following format: `projects/ `` TARGET_VPC_PROJECT_ID `` /global/networks/ `` TARGET_VPC_NETWORK_NAME` . The target network is always the VPC network that *contains the subnet referenced by the network attachment* . If the target network is a Shared VPC network, then make sure to use the corresponding Shared VPC host project ID.
+    - **Transitive peering from `targetNetwork` to another VPC network (two peering hops)** : Use this option when `targetNetwork` (your attached network or a central DNS hub network) forwards queries to a destination VPC network that hosts or forwards DNS records:
 
-    - **Domain names** : One or more domain suffixes for DNS peering. Each domain must end with a trailing dot ( `.` ) (for example, `corp.internal.` or `googleapis.com.` ).
+      1.  In the destination project, authorize [authoritative private zones](https://docs.cloud.google.com/dns/docs/zones#create-private-zone) (and [add your DNS records](https://docs.cloud.google.com/dns/docs/records#add-rrset) ) or [forwarding zones](https://docs.cloud.google.com/dns/docs/zones/forwarding-zones) for the destination VPC network.
 
-      For additional guidance on how to configure the `domains` field, see [DNS peering domain patterns](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#dns-peering-domain-patterns) . For cross-project deployments such as Shared VPC, see [Cross-project DNS zone and peering requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#dns-zone-type) .
+      2.  In the `targetNetwork` project, verify that `targetNetwork` has no conflicting zone for the same DNS name, and then [create a peering zone](https://docs.cloud.google.com/dns/docs/zones/peering-zones) authorized for `targetNetwork` that targets the destination VPC network (for example, for a specific private domain suffix or the root `.` domain).
+
+          > **Caution:** A root ( `.` ) peering zone affects *every* workload in `targetNetwork` , not only Agent Gateway. All DNS queries in `targetNetwork` , including Google Cloud API names ( `*.googleapis.com` ), resolve in the destination VPC network's DNS view. Make sure that the destination network can resolve public names, or scope both the peering zone and the connectivity template `domains` list to a specific private domain suffix instead of `.` .
+
+2.  Gather the following information to configure the connectivity template in [Deploy the Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#deploy-agent-gateway) :
+
+    - **Target network URI ( `targetNetwork` )** : Note the full resource URI of the target VPC network in the following format: `projects/ `` TARGET_VPC_PROJECT_ID `` /global/networks/ `` TARGET_VPC_NETWORK_NAME` . Depending on your deployment topology, `TARGET_VPC_PROJECT_ID` is one of the following project IDs:
+
+      - `AGENT_GATEWAY_PROJECT_ID` for standalone deployments where `targetNetwork` is in the same project.
+      - `HOST_PROJECT_ID` for Shared VPC deployments where `targetNetwork` is the host network.
+      - `DNS_HUB_PROJECT_ID` when `targetNetwork` is in a separate central DNS hub project.
+
+    - **Domain names ( `domains` )** : One or more domain suffixes ending with a trailing dot ( `.` ), such as `corp.internal.` , `googleapis.com.` , or `.` (when forwarding all queries to a root forwarding or root peering zone in `targetNetwork` ).
+
+      For peering domain patterns and validation rules, see [DNS peering domain patterns](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#dns-peering-domain-patterns) and [Cross-project DNS zone and peering requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#dns-zone-type) .
 
 ### Optional: Set up TLS trust configuration
 
@@ -271,6 +320,67 @@ If your target destination uses a private CA or self-signed certificate, you nee
     For more information on managing trust configs, see [Create and manage trust configs](https://docs.cloud.google.com/certificate-manager/docs/trust-configs) .
 
 ### Deploy the Agent Gateway
+
+Deploy the Agent Gateway with your VPC connectivity settings:
+
+### Console
+
+1.  In the Google Cloud console, go to the **Gateways** page.
+
+2.  Click **Add gateway** .
+
+3.  In the **Name** field, enter a name for the gateway.
+
+4.  In the **Region** list, select a region.
+
+5.  For **Deployment mode** , verify that **Google-managed** is selected.
+
+6.  The **Agent registry** field is automatically populated with the URI of the regional registry that matches your Agent Gateway region.
+
+7.  In the **Governed Access Path** list, select **Agent-to-Anywhere (egress)** .
+
+8.  In the **Access Authorization** section, configure how traffic is handled by Identity-Aware Proxy (IAP):
+
+    - To deploy the gateway in a dry-run mode where the gateway permits all traffic through and only generates [audit logs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/monitor-agent-gateway) , select **Audit-only** .
+
+    - To block requests that don't have an explicit `Allow` IAM policy, select **Enforce policies** . This option is recommended for production environments.
+
+    - For **Policy model** , select **Unified Access Policy** .
+
+9.  Optional: In the **AI Security** section, configure additional security:
+
+    1.  To protect AI model interactions with Model Armor, click the **Enable Model Armor** toggle to the on position.
+    2.  Select a [template](https://docs.cloud.google.com/model-armor/manage-templates) for incoming requests to the gateway.
+    3.  To use a different template for responses, clear the **Use same template for requests and responses** checkbox, and then select a template from the list.
+
+10. In the **Connectivity template** section, make the following changes:
+
+    1.  To route outbound gateway traffic through a private VPC network, click the **Route egress traffic through a VPC network** toggle to the on position, and then do the following:
+
+        1.  For **Network attachment** , enter the full URI of the network attachment you created in the target VPC network: `projects/ `` TARGET_VPC_PROJECT_ID `` /regions/ `` REGION `` /networkAttachments/ `` ATTACHMENT_NAME`
+
+        2.  For **VPC egress** , select one of the following:
+
+            - **Private ranges only** : Allow only private IP traffic.
+            - **All traffic** : Allow both private and public IP traffic. This option is required for VPC Service Controls compliance.
+
+    2.  Optional: To set up DNS peering, select the **Enable DNS peering** checkbox, and then do the following:
+
+        1.  For **Domains** , enter one or more domain suffixes for DNS peering. Each domain must end with a trailing dot ( `.` ), for example, `corp.internal.` or `googleapis.com.` .
+        2.  For **Target network** , enter the full URI of the target VPC network where you created the network attachment: `projects/ `` TARGET_VPC_PROJECT_ID `` /global/networks/ `` TARGET_VPC_NETWORK_NAME` .
+
+    3.  Optional: To connect to destinations that use private CAs or self-signed certificates, click the **Use a custom TLS trust config** toggle to the on position, and then do the following:
+
+        1.  In the **Trust config** field, enter the URI of the trust config that you created earlier, using the following format: `projects/ `` AGENT_GATEWAY_PROJECT_NUMBER `` /locations/ `` REGION `` /trustConfigs/ `` TRUST_CONFIG_NAME` .
+
+        2.  For **Additional roots** , select one of the following:
+
+            - **Publicly trusted roots** : Trust certificates validated by the **Trust config** setting and all publicly trusted CAs.
+            - **No additional roots** : Trust only certificates validated by the **Trust config** setting.
+
+11. Click **Add Gateway** .
+
+### gcloud
 
 1.  **Create the connectivity template configuration file** :
 
@@ -316,9 +426,9 @@ If your target destination uses a private CA or self-signed certificate, you nee
 
       For additional guidance on how to configure the `domains` field, see [DNS peering domain patterns](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#dns-peering-domain-patterns) .
 
-    - `targetNetwork` : (Optional) The full resource URI of the target VPC network for DNS peering. The target network is always the VPC network that contains the subnet referenced by the network attachment:
+    - `targetNetwork` : (Optional) The full resource URI of the target VPC network for DNS peering. Depending on your deployment topology, this is either the VPC network that contains the network attachment subnet, or a VPC network in a separate DNS hub project:
 
-      - `TARGET_VPC_PROJECT_ID` : The project ID of the project that owns the target VPC network. If the network that contains the subnet referenced by the network attachment is a Shared VPC network, then `TARGET_VPC_PROJECT_ID` is the Shared VPC host project ID. Always specify `targetNetwork` using the project ID rather than the project number.
+      - `TARGET_VPC_PROJECT_ID` : The project ID of the project that owns the target VPC network: `AGENT_GATEWAY_PROJECT_ID` for standalone deployments, `HOST_PROJECT_ID` for Shared VPC host networks, or `DNS_HUB_PROJECT_ID` for a separate DNS hub network. Always specify `targetNetwork` using the project ID rather than the project number.
       - `TARGET_VPC_NETWORK_NAME` : The name of the target VPC network.
 
     - `VPC_EGRESS_MODE` : Set the [egress routing mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#how-it-works) . Set to either `PRIVATE_RANGES_ONLY` or `ALL_TRAFFIC` .
@@ -394,9 +504,9 @@ This section provides architectural guidance and advanced networking patterns fo
 
 A connectivity template can't be modified in place while it is referenced by an Agent Gateway, and Agent Gateway doesn't automatically pick up changes made to an attached connectivity template:
 
-- **Updating DNS peering, VPC egress mode, or TLS settings ( `tlsConfig` )** : On a connectivity template, the `tlsConfig.trustConfig` field is immutable once configured, and in-place updates to `tlsConfig` (such as adding or changing `additionalRoots` ) aren't picked up by an attached Agent Gateway. To update the DNS peering configuration, VPC egress mode, or `tlsConfig` settings on an existing gateway, create a new connectivity template that uses the *same* `networkAttachment` with the updated settings, and update the Agent Gateway to reference the new template (or unbind and rebind the connectivity template).
+- **Updating DNS peering, VPC egress mode, or TLS settings ( `tlsConfig` )** : On a connectivity template, the `tlsConfig.trustConfig` field is immutable once configured, and in-place updates to `tlsConfig` (such as adding or changing `additionalRoots` ) aren't picked up by an attached Agent Gateway. To update the DNS peering configuration (including switching `targetNetwork` to a different VPC network or project), VPC egress mode, or `tlsConfig` settings on an existing gateway, create a new connectivity template that references the *same* `networkAttachment` with the updated settings, and run `gcloud network-services agent-gateways import` to point the Agent Gateway at the new template. This update completes in place without recreating the gateway or redeploying connected agents.
 
-- **Changing the network attachment** : The `networkAttachment` itself is immutable once configured on both the connectivity template and the Agent Gateway. To switch to a different network attachment (or target VPC network), you must create a new connectivity template and a new Agent Gateway.
+- **Changing the network attachment** : The `networkAttachment` itself is immutable once configured on both the connectivity template and the Agent Gateway. To switch to a different network attachment, you must create a new connectivity template and a new Agent Gateway.
 
 ### Shared VPC deployment topologies
 
@@ -421,7 +531,7 @@ To enforce VPC Service Controls perimeters for agent communications, ensure the 
 
   For more details about DNS configuration, see [Configure DNS for googleapis.com](https://docs.cloud.google.com/vpc/docs/configure-private-google-access#dns-config-google-apis) in the Private Google Access documentation.
 
-- For Shared VPC deployments, the host project that owns the network attachment's subnet and the `dnsPeeringConfig.targetNetwork` must be in the same service perimeter as the project where you deploy the Agent Gateway. This applies even when you create the network attachment in the service project, because the subnet and VPC network still belong to the host project. If your private DNS zones are hosted in a separate DNS project, include that project in the perimeter too.
+- For Shared VPC and cross-project DNS hub-and-spoke deployments, every project in the egress and DNS resolution path, including the project that owns the network attachment's subnet, the project that owns the `targetNetwork` , and any separate project that hosts cross-project or peered private Cloud DNS zones, must be in the same service perimeter as the project where you deploy the Agent Gateway. This applies even when you create the network attachment in a Shared VPC service project, because the subnet and VPC network still belong to the host project.
 
 ### DNS peering domain patterns
 
@@ -429,7 +539,7 @@ This section describes domain resolution patterns and options for configuring th
 
 **Domain name configuration** : Configure the `domains` field in the connectivity template based on the following considerations:
 
-- **Private internal domains** : To resolve private internal services hosted in your VPC network (for example, `service.corp.internal` ), specify your internal domain suffix (such as `corp.internal.` ). An exact-match private Cloud DNS managed zone for this domain must be authorized for the target VPC network.
+- **Private internal domains** : To resolve private internal services hosted in your VPC network (for example, `service.corp.internal` ), specify your internal domain suffix (such as `corp.internal.` ). A matching private Cloud DNS managed zone (exact match or parent suffix) must be authorized for or reachable within one DNS peering hop from the target VPC network.
 
 - **Split-horizon DNS (Public domain with RFC 1918 IP)** : If you use a public DNS zone to host records pointing to internal private IPs (such as `mcp.example.com` resolving to an RFC 1918 address for Certificate Manager public certificates), the gateway resolves these records automatically using public recursive DNS without requiring DNS peering.
 
@@ -437,23 +547,34 @@ This section describes domain resolution patterns and options for configuring th
 
 - **Multi-domain resolution patterns** : If your deployment requires resolving multiple private domain suffixes, choose one of the following patterns:
 
-  - **Peer multiple individual domains** : Specify a list of domain suffixes in the `domains` field of `dnsPeeringConfig` (for example, `corp.internal.` , `prod.internal.` , and `googleapis.com.` ). Each domain in the list must end with a trailing dot ( `.` ) and have a corresponding private Cloud DNS managed zone authorized for the target VPC network.
+  - **Peer multiple individual domains** : Specify a list of domain suffixes in the `domains` field of `dnsPeeringConfig` (for example, `corp.internal.` , `prod.internal.` , and `googleapis.com.` ). Each domain in the list must end with a trailing dot ( `.` ) and have a matching private Cloud DNS managed zone authorized for or peered with the target VPC network.
 
   - **Consolidated parent suffix (Recommended)** : Consolidate internal services under a shared parent domain suffix (such as `*.internal.` or `*.corp.internal.` ) and include that parent domain in the `domains` list.
 
-  - **Catch-all root peering with a Private Forwarding Zone** : Include `"."` in the `domains` field of the connectivity template, and configure a Cloud DNS **Private Forwarding Zone** for the root domain ( `.` ) in your VPC network pointing to an upstream recursive resolver (such as `8.8.8.8` or an internal enterprise resolver). More specific private zones in your VPC match first by longest suffix match, while unmatched public queries resolve through the upstream forwarder.
+  - **Catch-all root peering with a forwarding or peering zone** : Include `"."` in the `domains` field of the connectivity template, and configure one of the following root ( `.` ) zones in your target VPC network ( `targetNetwork` ):
+
+    - A Cloud DNS **private forwarding zone** pointing to an upstream recursive resolver (such as `8.8.8.8` or an internal enterprise resolver), where more specific private zones in your target VPC network match first by longest suffix match.
+    - A Cloud DNS **peering zone** in a central DNS hub network (see [Set up DNS peering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#set-up-dns-peering) ) targeting a third VPC network that resolves both internal private zones and public names.
 
     > **Caution:** Avoid configuring an *authoritative* private zone for the root domain ( `.` ). An authoritative root zone only resolves records defined within it and returns `NXDOMAIN` for all other domains, which can prevent external SaaS endpoints and Google Cloud APIs from resolving.
 
 ### Cross-project DNS zone and peering requirements
 
-The connectivity template's `dnsPeeringConfig` setting doesn't support direct cross-project Cloud DNS peering. When you import the connectivity template, validation fails if the subnet referenced by the `networkAttachment` belongs to a different VPC network than `targetNetwork` , or if you rely on cross-project DNS zone binding from a service or external project.
+The connectivity template's `dnsPeeringConfig` setting supports cross-project DNS topologies across both VPC networks and Cloud DNS zone projects:
 
-The managed zone for the domain must be created in the *host project* that owns `targetNetwork` . The managed zone can be any of the following zone types:
+- **Cross-project `targetNetwork` (decoupled from `networkAttachment` )** : When `targetNetwork` resides in a different project from the Agent Gateway (such as a Shared VPC host project or central DNS hub project), Agent Gateway validates the target network and its zones using the Agent Gateway service agent. Grant the required service agent roles on the `targetNetwork` project as described in [Shared VPC or cross-project deployments](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#shared-vpc-permissions) .
 
-- **Authoritative private zone**
-- **Forwarding zone**
-- **Cloud DNS peering zone** : Must be associated with the host project VPC network and target a destination VPC network. The destination VPC must resolve the query directly using an authoritative private zone. Forwarding the query to another DNS peering zone (chaining) is unsupported and results in an `NXDOMAIN` error.
+- **Cross-project DNS zone binding** : Private Cloud DNS managed zones authorized for `targetNetwork` can reside in the project that owns `targetNetwork` or in a separate DNS project using [cross-project binding](https://docs.cloud.google.com/dns/docs/zones/cross-project-binding) .
+
+  When a private zone resides in a separate project that Agent Gateway doesn't inspect, such as a separate cross-project DNS binding project, or a second-hop peered project where the Agent Gateway service agent lacks the `roles/dns.reader` role, Agent Gateway skips zone verification and allows the configuration. Ensure that you correctly specify the suffixes in `domains` , because domain typos for zones in those projects aren't caught during template creation and fail with `NXDOMAIN` at runtime.
+
+- **Supported zone types and two-hop peering limit** : Each domain configured in `domains` can resolve in `targetNetwork` through any of the following managed zone types:
+
+  - **Authoritative private zone** : Resolves records defined directly in the zone.
+  - **Forwarding zone** : Forwards queries to configured private forwarding targets or upstream resolvers.
+  - **Cloud DNS peering zone (second peering hop)** : Cloud DNS follows at most [two peering hops](https://docs.cloud.google.com/dns/docs/zones/zones-overview#dns_peering_limitations_and_key_points) , and Agent Gateway's managed peering zone to `targetNetwork` uses the first hop. If `targetNetwork` matches a Cloud DNS peering zone (hop 2) targeting a third VPC network, that destination network must answer the query using an **authoritative private zone** or a **forwarding zone** . Forwarding the query through another peering zone to a fourth network (a third peering hop) or forming a peering cycle fails validation (or fails to resolve at runtime).
+
+If your workload spoke network peers to a central DNS hub that in turn peers to a third project, point `targetNetwork` directly at the DNS hub network to stay within two peering hops. For setup steps, see [Set up DNS peering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#set-up-dns-peering) .
 
 ### Scale Agent Runtime service projects with a Google group
 

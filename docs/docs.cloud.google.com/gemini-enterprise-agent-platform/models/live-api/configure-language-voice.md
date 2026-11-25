@@ -52,9 +52,9 @@ Gemini Live API supports the following 30 voice options in the `voice_name` fiel
 
 ### Languages supported
 
-Gemini Live API supports the following languages:
+All Gemini Live API models support the following languages:
 
-| Language               | BCP-47 Code          |
+| Language               | BCP-47 code          |
 |------------------------|----------------------|
 | Arabic (Egyptian)      | ar-EG                |
 | Bengali (Bangladesh)   | bn-BD                |
@@ -80,6 +80,68 @@ Gemini Live API supports the following languages:
 | Turkish (Turkey)       | tr-TR                |
 | Ukrainian (Ukraine)    | uk-UA                |
 | Vietnamese (Vietnam)   | vi-VN                |
+
+#### Additional languages supported by Gemini 3.8 Live
+
+In addition to the preceding languages, Gemini 3.8 Live ( `gemini-3.8-live` ) supports the following languages:
+
+| Language           | BCP-47 code |
+|--------------------|-------------|
+| Afrikaans          | af          |
+| Albanian           | sq          |
+| Amharic            | am          |
+| Armenian           | hy          |
+| Azerbaijani        | az          |
+| Basque             | eu          |
+| Belarusian         | be          |
+| Bulgarian          | bg          |
+| Burmese            | my          |
+| Catalan            | ca          |
+| Cebuano            | ceb         |
+| Chinese, Mandarin  | cmn         |
+| Croatian           | hr          |
+| Czech              | cs          |
+| Danish             | da          |
+| Estonian           | et          |
+| Filipino           | fil         |
+| Finnish            | fi          |
+| Galician           | gl          |
+| Georgian           | ka          |
+| Greek              | el          |
+| Gujarati           | gu          |
+| Haitian Creole     | ht          |
+| Hebrew             | he          |
+| Hungarian          | hu          |
+| Icelandic          | is          |
+| Javanese           | jv          |
+| Kannada            | kn          |
+| Konkani            | kok         |
+| Lao                | lo          |
+| Latin              | la          |
+| Latvian            | lv          |
+| Lithuanian         | lt          |
+| Luxembourgish      | lb          |
+| Macedonian         | mk          |
+| Maithili           | mai         |
+| Malagasy           | mg          |
+| Malay              | ms          |
+| Malayalam          | ml          |
+| Mongolian          | mn          |
+| Nepali             | ne          |
+| Norwegian, Bokmål  | nb          |
+| Norwegian, Nynorsk | nn          |
+| Odia               | or          |
+| Pashto             | ps          |
+| Persian            | fa          |
+| Punjabi            | pa          |
+| Serbian            | sr          |
+| Sindhi             | sd          |
+| Sinhala            | si          |
+| Slovak             | sk          |
+| Slovenian          | sl          |
+| Swahili            | sw          |
+| Swedish            | sv          |
+| Urdu               | ur          |
 
 ## Use a custom voice
 

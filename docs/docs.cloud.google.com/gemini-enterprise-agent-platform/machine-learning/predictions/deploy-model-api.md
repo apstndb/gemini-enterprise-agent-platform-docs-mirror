@@ -135,7 +135,8 @@ Before using any of the command data below, make the following replacements:
 - ` LOCATION_ID ` : The region where you are using Agent Platform.
 - ` MODEL_ID ` : The ID for the model to be deployed.
 - ` DEPLOYED_MODEL_NAME ` : A name for the `DeployedModel` . You can use the display name of the `Model` for the `DeployedModel` as well.
-- ` MIN_REPLICA_COUNT ` : The minimum number of nodes for this deployment. The node count can be increased or decreased as required by the inference load, up to the maximum number of nodes and never fewer than this number of nodes.
+- ` MACHINE_TYPE ` : Optional. The machine resources used for each node of this deployment. Its default setting is `n1-standard-2` . [Learn more about machine types.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute)
+- ` MIN_REPLICA_COUNT ` : The minimum number of nodes for this deployment. The node count can be increased or decreased as required by the inference load, up to the maximum number of nodes and never fewer than this number of nodes. This value must be greater than or equal to 1. If the `--min-replica-count` flag is omitted, the value defaults to 1.
 - ` MAX_REPLICA_COUNT ` : The maximum number of nodes for this deployment. The node count can be increased or decreased as required by the inference load, up to this number of nodes and never fewer than the minimum number of nodes. If you omit the `--max-replica-count` flag, then maximum number of nodes is set to the value of `--min-replica-count` .
 
 Execute the [gcloud ai endpoints deploy-model](https://docs.cloud.google.com/sdk/gcloud/reference/ai/endpoints/deploy-model) command:
@@ -149,6 +150,7 @@ gcloud ai endpoints deploy-model ENDPOINT_ID\
   --region=LOCATION_ID \
   --model=MODEL_ID \
   --display-name=DEPLOYED_MODEL_NAME \
+  --machine-type=MACHINE_TYPE \
   --min-replica-count=MIN_REPLICA_COUNT \
   --max-replica-count=MAX_REPLICA_COUNT \
   --traffic-split=0=100
@@ -163,6 +165,7 @@ gcloud ai endpoints deploy-model ENDPOINT_ID`
   --region=LOCATION_ID `
   --model=MODEL_ID `
   --display-name=DEPLOYED_MODEL_NAME `
+  --machine-type=MACHINE_TYPE `
   --min-replica-count=MIN_REPLICA_COUNT `
   --max-replica-count=MAX_REPLICA_COUNT `
   --traffic-split=0=100
@@ -177,6 +180,7 @@ gcloud ai endpoints deploy-model ENDPOINT_ID^
   --region=LOCATION_ID ^
   --model=MODEL_ID ^
   --display-name=DEPLOYED_MODEL_NAME ^
+  --machine-type=MACHINE_TYPE ^
   --min-replica-count=MIN_REPLICA_COUNT ^
   --max-replica-count=MAX_REPLICA_COUNT ^
   --traffic-split=0=100
@@ -201,6 +205,7 @@ gcloud ai endpoints deploy-model ENDPOINT_ID\
   --region=LOCATION_ID \
   --model=MODEL_ID \
   --display-name=DEPLOYED_MODEL_NAME \ 
+  --machine-type=MACHINE_TYPE \
   --min-replica-count=MIN_REPLICA_COUNT \
   --max-replica-count=MAX_REPLICA_COUNT \
   --traffic-split=0=20,OLD_DEPLOYED_MODEL_ID=80
@@ -215,6 +220,7 @@ gcloud ai endpoints deploy-model ENDPOINT_ID`
   --region=LOCATION_ID `
   --model=MODEL_ID `
   --display-name=DEPLOYED_MODEL_NAME \ 
+  --machine-type=MACHINE_TYPE `
   --min-replica-count=MIN_REPLICA_COUNT `
   --max-replica-count=MAX_REPLICA_COUNT `
   --traffic-split=0=20,OLD_DEPLOYED_MODEL_ID=80
@@ -229,10 +235,69 @@ gcloud ai endpoints deploy-model ENDPOINT_ID^
   --region=LOCATION_ID ^
   --model=MODEL_ID ^
   --display-name=DEPLOYED_MODEL_NAME \ 
+  --machine-type=MACHINE_TYPE ^
   --min-replica-count=MIN_REPLICA_COUNT ^
   --max-replica-count=MAX_REPLICA_COUNT ^
   --traffic-split=0=20,OLD_DEPLOYED_MODEL_ID=80
 ```
+
+#### Specifying GPUs
+
+You can optionally use GPUs on each node of your `DeployedModel` to accelerate serving predictions. However, GPUs are only useful for certain types of machine learning model. [Learn when to use GPUs and which GPU configurations work with each machine type.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute#gpus)
+
+Use the `--accelerator` flag to specify what kind of GPU to use and how many GPUs you want each replica to use. For example, to use 2 NVIDIA Tesla T4 GPUs on each node, run the following command:
+
+Execute the [gcloud ai endpoints deploy-model](https://docs.cloud.google.com/sdk/gcloud/reference/ai/endpoints/deploy-model) command:
+
+#### Linux, macOS, or Cloud Shell
+
+> **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
+
+```
+gcloud ai endpoints deploy-model ENDPOINT_ID\
+  --region=LOCATION_ID \
+  --model=MODEL_ID \
+  --display-name=DEPLOYED_MODEL_NAME \
+  --machine-type=MACHINE_TYPE \
+  --accelerator=count=2,type=nvidia-tesla-t4 \
+  --min-replica-count=MIN_REPLICA_COUNT \
+  --max-replica-count=MAX_REPLICA_COUNT \
+  --traffic-split=0=100
+```
+
+#### Windows (PowerShell)
+
+> **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
+
+```
+gcloud ai endpoints deploy-model ENDPOINT_ID`
+  --region=LOCATION_ID `
+  --model=MODEL_ID `
+  --display-name=DEPLOYED_MODEL_NAME `
+  --machine-type=MACHINE_TYPE `
+  --accelerator=count=2,type=nvidia-tesla-t4 `
+  --min-replica-count=MIN_REPLICA_COUNT `
+  --max-replica-count=MAX_REPLICA_COUNT `
+  --traffic-split=0=100
+```
+
+#### Windows (cmd.exe)
+
+> **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
+
+```
+gcloud ai endpoints deploy-model ENDPOINT_ID^
+  --region=LOCATION_ID ^
+  --model=MODEL_ID ^
+  --display-name=DEPLOYED_MODEL_NAME ^
+  --machine-type=MACHINE_TYPE ^
+  --accelerator=count=2,type=nvidia-tesla-t4 ^
+  --min-replica-count=MIN_REPLICA_COUNT ^
+  --max-replica-count=MAX_REPLICA_COUNT ^
+  --traffic-split=0=100
+```
+
+If you use GPUs, then your `DeployedModel` does not automatically scale based on prediction traffic. Instead it always runs on exactly the number of nodes that you specify with the `--min-replica-count` flag.
 
 ### REST
 
@@ -241,7 +306,7 @@ Deploy the model.
 Before using any of the request data, make the following replacements:
 
 - ` LOCATION_ID ` : The region where you are using Agent Platform.
-- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
 - ` ENDPOINT_ID ` : The ID for the endpoint.
 - ` MODEL_ID ` : The ID for the model to be deployed.
 - ` DEPLOYED_MODEL_NAME ` : A name for the `DeployedModel` . You can use the display name of the `Model` for the `DeployedModel` as well.
@@ -270,21 +335,21 @@ Request JSON body:
     "model": "projects/PROJECT/locations/us-central1/models/MODEL_ID",
     "displayName": "DEPLOYED_MODEL_NAME",
     "dedicatedResources": {
-       "machineSpec": {
-         "machineType": "MACHINE_TYPE",
-         "acceleratorType": "ACCELERATOR_TYPE",
-         "acceleratorCount": "ACCELERATOR_COUNT"
-       },
-       "minReplicaCount": MIN_REPLICA_COUNT,
-       "maxReplicaCount": MAX_REPLICA_COUNT,
-       "requiredReplicaCount": REQUIRED_REPLICA_COUNT
-     },
+      "machineSpec": {
+        "machineType": "MACHINE_TYPE",
+        "acceleratorType": "ACCELERATOR_TYPE",
+        "acceleratorCount": "ACCELERATOR_COUNT"
+      },
+      "minReplicaCount": MIN_REPLICA_COUNT,
+      "maxReplicaCount": MAX_REPLICA_COUNT,
+      "requiredReplicaCount": REQUIRED_REPLICA_COUNT
+    }
   },
   "trafficSplit": {
     "0": TRAFFIC_SPLIT_THIS_MODEL,
     "DEPLOYED_MODEL_ID_1": TRAFFIC_SPLIT_MODEL_1,
     "DEPLOYED_MODEL_ID_2": TRAFFIC_SPLIT_MODEL_2
-  },
+  }
 }
 ```
 

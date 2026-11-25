@@ -18,7 +18,7 @@ Every sandbox environment provides the following core systems and controls:
 
 - **Bash terminal:** Provides a secure environment for executing terminal commands, running custom scripts, and processing local files.
 
-- **Network isolation:** Disabled by default. You can explicitly declare a network `allowlist` to let the agent access public internet resources or download external libraries.
+- **Network isolation:** Disables external network access by default. You can explicitly declare a network `allowlist` to let the agent access public internet resources or download external libraries.
 
 - **Extensible integrations:** Supports importing custom capabilities dynamically, including standard web APIs, Model Context Protocol (MCP) servers, or skills from Skill Registry.
 

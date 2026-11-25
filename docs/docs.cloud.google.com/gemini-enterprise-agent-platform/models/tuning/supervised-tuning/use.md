@@ -1011,7 +1011,7 @@ If you didn't [configure the Gen AI evaluation service](https://docs.cloud.googl
 > https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/endpoints/ENDPOINT_ID:generateContent
 > ```
 
-For thinking models, we recommend setting the thinking budget to `0` (for Gemini 2.5 and earlier models) or the thinking level to `MINIMAL` (for Gemini 3 and later models) on tuned tasks for optimal performance and cost efficiency. During supervised fine-tuning, the model learns to mimic the ground truth in the tuning dataset, omitting the thinking process. Therefore, the tuned model can handle the task effectively without a thinking budget.
+For thinking models, set the thinking budget to `0` (for Gemini 2.5 and earlier models), the thinking level to `LOW` (for Gemini 3.8 Flash), or the thinking level to `MINIMAL` (for other Gemini 3 models) on tuned tasks to improve performance and reduce costs. During supervised fine-tuning, the model adapts to the ground truth in the tuning dataset and omits the thinking process. Therefore, the tuned model can handle the task effectively with little to no thinking budget.
 
 The following example prompts a model with the question "Why is sky blue?".
 

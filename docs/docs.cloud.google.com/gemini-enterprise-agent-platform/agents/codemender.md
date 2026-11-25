@@ -109,6 +109,7 @@ CodeMender supports the following models:
 
 #### Click to expand supported models
 
+- [Gemini 4 Neon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon)
 - [Gemini 4 Hydrogen](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen)
 - [Gemini 4 Carbon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon)
 - [Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon)
@@ -189,12 +190,13 @@ By default, CodeMender uses Gemini 3.8 Flash. To override the default model, pas
 - Gemini 4 Carbon: `--model gemini-4-carbon`
 - Gemini 4 Carbon for cyber: `--model gemini-4-carbon-cyber-permissive`
 - Gemini 4 Hydrogen: `--model gemini-4-hydrogen`
+- Gemini 4 Neon: `--model gemini-4-neon`
 - Gemini 3.7 Flash: `--model gemini-3.7-flash` (retires on January 28, 2027)
-- Gemini 3.6 Flash: `--model gemini-3.6-flash` (deprecated; retires on November 19, 2026)
+- Gemini 3.6 Flash: `--model gemini-3.6-flash` (deprecated; new and inactive projects blocked as of November 19, 2026; retires on January 28, 2027)
 - Gemini 3.5 Flash: `--model gemini-3.5-flash`
 - Gemini 3.1 Pro Preview: `--model gemini-3.1-pro-preview`
 
-Deprecated models still work until their retirement date, and the CLI prints a warning when you use one. After a model retires, requests that use it fail. Switch to Gemini 3.8 Flash before the retirement date.
+For active projects, deprecated models still work until their retirement date, and the CLI prints a warning when you use one. After a model retires, requests that use it fail. Switch to Gemini 3.8 Flash before the retirement date.
 
 The following commands support the `--model` flag:
 

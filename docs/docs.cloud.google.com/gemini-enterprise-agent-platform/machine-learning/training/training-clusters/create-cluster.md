@@ -431,6 +431,25 @@ You don't have to settle these at creation time. All three maps can be changed o
 
 The cluster-scoped map sets multifactor priority, partition-priority preemption and `SchedulerParameters` , whose `bf_continue` term shows the composite form: a bare term turns a flag on, and terms are comma-separated. The partition map bounds job runtime and default memory for the `cpu` partition only, and the `node_sets` entry labels that pool's nodes so jobs can select them with `--constraint` .
 
+#### Use your own QoS in a partition
+
+A partition's `AllowQos` , `DenyQos` , and `QOS` parameters must name QoS that already exist in the cluster's Slurm accounting database. A new cluster has only the `normal` QoS. If a partition names a QoS that doesn't exist, the Slurm controller doesn't start, and Slurm commands such as `sinfo` fail.
+
+To use your own QoS in a partition, follow these steps:
+
+1.  Create the cluster without `AllowQos` , `DenyQos` , or `QOS` in the partition `config` , or set them only to `normal` .
+
+2.  After the cluster is running, connect to a login node and create the QoS with `sacctmgr` . For example, the following commands create a high-priority QoS and a QoS that limits how many jobs and GPUs each user can use:
+
+    ```
+    sudo sacctmgr add qos high Priority=100
+    sudo sacctmgr add qos gpulimits MaxJobsPerUser=4 MaxTRESPerUser=gres/gpu=8
+    ```
+
+    For more information about accounts and QoS, see [Manage a shared Slurm cluster](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/manage-shared-slurm-cluster) .
+
+3.  Add the QoS to the partition `config` with a cluster update, for example `"AllowQos": "high,normal"` and `"QOS": "gpulimits"` . See [Update Slurm configuration settings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/manage-cluster#update-slurm-config-maps) .
+
 Once your cluster is defined in a JSON file, use the following REST API commands to deploy and manage the cluster. The examples use a `gcurl` alias, which is a convenient, authenticated shortcut for interacting with the API endpoints. These commands cover the full lifecycle, from initially deploying your cluster to updating a cluster getting its status, listing all clusters, and ultimately deleting the cluster.
 
 ## Authentication
@@ -579,6 +598,34 @@ A parameter that isn't supported in the scope you set it in, or a value that isn
 > **Warning:** The service validates each parameter on its own, not whether the resulting `slurm.conf` is valid as a whole. Some accepted settings stop the Slurm controller from starting, such as `"PreemptType": "preempt/none"` with `"PreemptMode": "SUSPEND,GANG"` , or a partition `AllowQos` that names a QoS the cluster doesn't define. The create or update operation can still report success, but Slurm commands such as `sinfo` and `scontrol` then fail. Check your settings against the [slurm.conf reference](https://slurm.schedmd.com/slurm.conf.html) for your cluster's Slurm version. If Slurm commands fail after a create or update, reach out to your Gemini Enterprise Agent Platform training clusters contact, who can identify the setting that caused the failure.
 
 > **Note:** The cluster-scoped `config` map supersedes the `scheduling` and `accounting` fields, so a cluster uses one or the other and a request that sets both is rejected. Note that every value is the literal `slurm.conf` text, so numbers are written as strings: `"priority_weight_age": 1000` becomes `"PriorityWeightAge": "1000"` . The partition- and node-scoped maps aren't affected: they describe different `slurm.conf` records and can be used alongside those fields.
+
+### Resource Manager tags
+
+The optional cluster-level `resource_manager_tags` map binds [tags](https://docs.cloud.google.com/resource-manager/docs/tags/tags-overview) to every VM that the cluster creates, including login and worker nodes. Tags stay on the VMs when nodes are replaced, reimaged, or scaled. Use them to scope IAM Conditions and firewall policies to the cluster's VMs.
+
+Tags in the map use the following formats and limits:
+
+- Keys use the numeric format `tagKeys/ `` TAG_KEY_ID` or the namespaced format `ORG_OR_PROJECT_ID `` / `` TAG_KEY_SHORT_NAME` .
+- Values use the format `tagValues/ `` TAG_VALUE_ID` for a numeric key, or `TAG_VALUE_SHORT_NAME` for a namespaced key.
+- A cluster can have up to 48 tags.
+- Tags apply only to VMs the cluster creates, not to networks or storage you attach.
+
+The following example sets one tag with a numeric key and one tag with a namespaced key:
+
+```
+"resource_manager_tags": {
+  "tagKeys/TAG_KEY_ID": "tagValues/TAG_VALUE_ID",
+  "PROJECT_ID/env": "prod"
+}
+```
+
+To set or change tags, you need the following:
+
+- The `resourcemanager.tagValueBindings.create` permission on each tag value, for example through the Tag User role ( `roles/resourcemanager.tagUser` ).
+- The `compute.instances.createTagBinding` permission on the cluster's project.
+- A managed instance group that runs as the Google APIs service agent, `PROJECT_NUMBER `` @cloudservices.gserviceaccount.com` , creates the login nodes. Grant this service agent the Tag User role on each tag value and a role that includes `compute.instances.createTagBinding` on the project, such as Compute Instance Admin (v1) ( `roles/compute.instanceAdmin.v1` ).
+
+Changing `resource_manager_tags` on an existing cluster replaces its compute nodes and recreates its login nodes.
 
 ### Runtime configuration
 

@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon
 title: Gemini 4 Neon
-description: Learn about Gemini 4 Neon, built for high-performance coding, multi-step reasoning, and low-latency agentic workflows in Gemini Enterprise Agent Platform.
+description: Learn about Gemini 4 Neon and Gemini 4 Neon for cyber, built for high-performance coding, multi-step reasoning, and low-latency agentic workflows in Gemini Enterprise Agent Platform.
 data_source: docs.cloud.google.com
 ---
 
@@ -74,10 +74,10 @@ Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output">Structured output</a><br />
 Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview">Context caching</a><br />
-Implicit context caching<br />
+Implicit context caching (in-memory), implicit context caching (durable)<br />
 Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview">RAG Engine</a><br />
-Not supported</li>
+Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning">Tuning</a><br />
 Not supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding#agentic-video-processing">Agentic video understanding</a><br />
@@ -129,7 +129,7 @@ Supported</li>
 Standard PayGo with Usage Tiers, Priority PayGo<br />
 Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deferred-tier">Deferred tier</a><br />
-Not supported</li>
+Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas">Fixed quota</a><br />
 Not supported</li>
 </ul></th>
@@ -311,3 +311,19 @@ Not supported</li>
 </tr>
 </tbody>
 </table>
+
+## Gemini 4 Neon for cyber
+
+Gemini 4 Neon for cyber is a version of Gemini 4 Neon for defensive cybersecurity use cases, such as vulnerability discovery, reverse engineering, exploit verification, and patch generation. Gemini 4 Neon for cyber is a Google Frontier Cyber Model subject to Section 31 of the [Service Specific Terms](https://cloud.google.com/terms/service-terms) (for details, see [Abuse monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring#google-frontier-models) ).
+
+Gemini 4 Neon for cyber is generally available on Gemini Enterprise Agent Platform behind an allowlist. To request access, contact your Google team or apply through the [Fairwind Program](https://deepmind.google/fairwind-program/) . Access to earlier Gemini Cyber models (such as Gemini 4 Carbon for cyber, Gemini 4 Argon Cyber Permissive, or Gemini 3.8 Flash Cyber) doesn't carry over; you must apply separately.
+
+The following table shows how Gemini 4 Neon for cyber differs from Gemini 4 Neon:
+
+|                        | Neon                                                   | 4 Neon for cyber                                                                 |
+|------------------------|--------------------------------------------------------|----------------------------------------------------------------------------------|
+| Model ID               | `gemini-4-neon`                                        | `gemini-4-neon-cyber-permissive`                                                 |
+| Access                 | Verified enterprise customers in select regions        | Allowlist only ( [Fairwind Program](https://deepmind.google/fairwind-program/) ) |
+| Default thinking level | `HIGH` (supports `LOW` , `MEDIUM` , `HIGH` , `XHIGH` ) | `HIGH` (supports `LOW` , `MEDIUM` , `HIGH` , `XHIGH` )                           |
+| Computer use           | Supported                                              | Supported                                                                        |
+| Supported regions      | `global` , `us` , `eu`                                 | `global` , `us` , `eu`                                                           |

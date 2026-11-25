@@ -26,6 +26,7 @@ This section lists the models that support grounding with Search.
 
 - [Gemini Robotics ER 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/robotics-er-2) preview
 - [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1)
+- [Gemini 4 Neon for cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon#cyber)
 - [Gemini 4 Neon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon)
 - [Gemini 4 Hydrogen](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen)
 - [Gemini 4 Carbon for cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon#cyber)
@@ -59,7 +60,7 @@ Use the following instructions to ground a model with publicly available web dat
 
 ### Considerations
 
-- To use Grounding with Google Search, you must enable Google Search Suggestions. For more information, see [Use Google Search suggestions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-search#use-google-search-suggestions) .
+- When you display Grounded Results, you must display the associated Search Suggestions. You can elect not to display them under the conditions on the [Pricing](https://cloud.google.com/model-garden/pricing) page. For more information, see [Use Google Search Suggestions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-search#use-google-search-suggestions) .
 
 - For ideal results, use a temperature of `1.0` . To learn more about setting this configuration, see the [Gemini API request body](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference#request_body) from the model reference.
 
@@ -695,9 +696,9 @@ The following complex prompts and workflows that require planning, reasoning, an
 
 ## Use Google Search Suggestions
 
-When you use Grounding with Google Search, and you receive Search Suggestions in your response, you must display the Search Suggestions in production and in your applications.
+When you receive Search Suggestions with a Grounded Result, you must display them in production and in your applications. You can omit them under the Grounding with Google Search terms in the [Service Specific Terms](https://cloud.google.com/terms/service-terms) and the conditions on the [Pricing](https://cloud.google.com/model-garden/pricing) page.
 
-Specifically, you must display the search queries that are included in the grounded response's metadata. The response includes:
+When you display Search Suggestions, you must display the search queries that are included in the grounded response's metadata. The response includes:
 
 - **`"content"`** : LLM-generated response.
 - **`"webSearchQueries"`** : The queries to be used for Search Suggestions.
@@ -719,7 +720,7 @@ You can take this output, and display it by using Search Suggestions.
 
 ### Requirements for Search Suggestions
 
-The following is required for Search Suggestions:
+When you display Search Suggestions, the following requirements apply:
 
 <table>
 <colgroup>
