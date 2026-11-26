@@ -55,7 +55,7 @@ Accelerator availability varies by region and zone. To check which accelerators 
 
 2.  Grant the `roles/aiplatform.viewer` role to users who only need to view clusters and their configurations.
 
-3.  Grant the following IAM roles to the user or service account that will manage (create, delete, and update) Managed Training clusters:
+3.  Grant the following IAM roles to the user or service account that manages (creates, deletes, and updates) clusters:
 
     | Role Name                   | Role ID                                 |
     |-----------------------------|-----------------------------------------|
@@ -65,14 +65,37 @@ Accelerator availability varies by region and zone. To check which accelerators 
     | Service Account User        | `roles/iam.serviceAccountUser`          |
     | Service Networking Admin    | `roles/servicenetworking.networksAdmin` |
 
-4.  To allow the cluster's nodes to read from and write to Cloud Storage buckets using Cloud Storage FUSE, grant the Storage Object User role ( `roles/storage.objectUser` ) to the service account used by the VMs.
-
-5.  For SSH access to the Slurm login nodes, grant the following permissions:
+4.  For SSH access to the Slurm login nodes, grant the following permissions:
 
     | Permissions                                                                                           | Descriptions                                                                                                         | Purpose                        |
     |-------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|--------------------------------|
     | [Compute OS Login](https://docs.cloud.google.com/compute/docs/oslogin/set-up-oslogin#configure_users) | Sign in to a VM as a standard (non-administrator) user. If `sudo` is needed then use Compute OS Admin Login instead. | SSH to the deployed login node |
     | [IAP-secured Tunnel User](https://docs.cloud.google.com/iap/docs/managing-access)                     | Access Tunnel resources which use Identity-Aware Proxy.                                                              | SSH to the deployed login node |
+
+#### Required roles for cluster service accounts
+
+If you leave `runtime_spec.service_account` unset when creating a cluster, Gemini Enterprise Agent Platform training clusters attaches the [Compute Engine default service account](https://docs.cloud.google.com/compute/docs/access/service-accounts#default_service_account) to the cluster nodes. That account might hold project-wide roles such as `roles/editor` , which lets any user or job running on the cluster modify other project resources.
+
+Follow the principle of least privilege by creating and attaching a dedicated [user-managed service account](https://docs.cloud.google.com/iam/docs/service-account-types#user-managed) in the same project as the cluster with only the minimum required roles. If cluster nodes fail to initialize with a custom service account on a previously onboarded project, contact your account team to update your project's service account allowlist. Grant the following IAM roles to the service account attached to your cluster nodes:
+
+| Role Name                | Role ID                         | Purpose                                                                                                                                                                      |
+|--------------------------|---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Logs Writer              | `roles/logging.logWriter`       | Required. Writes cluster and workload logs.                                                                                                                                  |
+| Monitoring Metric Writer | `roles/monitoring.metricWriter` | Required. Writes cluster and node metrics.                                                                                                                                   |
+| Storage Object User      | `roles/storage.objectUser`      | Optional. Grant on the specific Cloud Storage buckets the cluster uses rather than on the project. Lets nodes read from and write to those buckets using Cloud Storage FUSE. |
+| Artifact Registry Reader | `roles/artifactregistry.reader` | Optional. Grant on the specific Artifact Registry repositories the cluster pulls from rather than on the project. Lets nodes pull container images from those repositories.  |
+
+Grant the Service Account User role ( `roles/iam.serviceAccountUser` ) on the cluster's service account to users who create or update clusters, or connect to login nodes.
+
+You can't change `runtime_spec.service_account` after cluster creation. To move an existing cluster off an over-privileged service account, create a new cluster with a dedicated user-managed service account in the same project and delete the existing cluster.
+
+If you can't recreate the cluster, you can reduce the roles granted to its attached service account in place:
+
+1.  Grant the minimum required roles from the preceding table to the cluster's attached service account.
+2.  Review [IAM role recommendations](https://docs.cloud.google.com/policy-intelligence/docs/role-recommendations-overview) and audit other workloads in the project that use the same service account to ensure they don't rely on broader permissions.
+3.  Revoke overly broad roles such as `roles/editor` from the service account.
+
+> **Caution:** If the existing cluster uses the Compute Engine default service account, other Compute Engine VMs and services in the project might share that service account. Revoking overly broad roles such as `roles/editor` from the default service account affects all workloads using it.
 
 ### Enable APIs
 

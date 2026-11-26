@@ -631,9 +631,9 @@ Changing `resource_manager_tags` on an existing cluster replaces its compute nod
 
 These fields are defined within the `runtime_spec` block of the JSON file.
 
-- `service_account` : The default service account used by the cluster when running any workloads on it. If unspecified, the default Compute Engine service account is used. This field can't be updated after cluster creation.
+- `service_account` : The service account attached to the cluster's nodes. If unspecified, the [Compute Engine default service account](https://docs.cloud.google.com/compute/docs/access/service-accounts#default_service_account) is used. This field can't be updated after cluster creation.
 
-> **Caution:** Contact your Google account team before you create a cluster with a custom `service_account` . By default, your project's default Compute Engine service account has access to the Gemini Enterprise Agent Platform training clusters agent repositories. If you use a custom service account, your Google account team must grant it access separately.
+> **Caution:** Leaving `service_account` unset attaches the Compute Engine default service account, which might grant overly broad project-wide permissions such as `roles/editor` to any user or job running on cluster nodes. Create and specify a dedicated user-managed service account in the same project as the cluster with only the [minimum required roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/get-started#service-account-roles) . If cluster nodes fail to initialize with a custom service account on a previously onboarded project, contact your account team to update your project's service account allowlist.
 
 ## What's next
 
