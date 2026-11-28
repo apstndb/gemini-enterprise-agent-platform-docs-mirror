@@ -347,7 +347,7 @@ Create a custom metric by doing the following:
 
 The data-driven optimizer configuration specifies the [parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/data-driven-optimizer#optimization-parameters) you want to set for your prompt optimization job.
 
-Note that Gemma models don't have managed APIs on Gemini Enterprise Agent Platform. To use a Gemma model, you must first deploy an instruction-tuned ( `-it` ) Gemma model in Model Garden or on your local machine. For more information about deploying in Model Garden, see [Use Gemma open models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-gemma) . For more information about deploying to your local machine, see [Run Gemma with Ollama](https://ai.google.dev/gemma/docs/integrations/ollama) .
+Note that Gemma models don't have managed APIs on Gemini Enterprise Agent Platform. To use a Gemma model, you must first deploy an instruction-tuned ( `-it` ) Gemma model in Model Garden or on your local machine. For more information about deploying in Model Garden, see [Use Gemma open models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-gemma) . For more information about deploying to your local machine, see [Run Gemma with Ollama](https://gemma.ai/deployment/ollama/) .
 
 Create a configuration using one of the following options:
 

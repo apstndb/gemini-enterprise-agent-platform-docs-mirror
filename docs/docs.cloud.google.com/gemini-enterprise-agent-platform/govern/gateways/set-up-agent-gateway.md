@@ -6,7 +6,7 @@ description: Secure and govern AI agent connectivity with Agent Gateway. Central
 data_source: docs.cloud.google.com
 ---
 
-To centralize access control and secure connectivity across your agentic workflows, you can set up an Agent Gateway resource to manage ingress or egress traffic.
+To centralize access control and secure connectivity across your agentic workflows, you can set up an Agent Gateway resource for governed client access or governed agent outbound access.
 
 Before you set up a gateway, review the conceptual basics and core components in the [Agent Gateway overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) .
 
@@ -69,7 +69,7 @@ Enable the following minimum required APIs in the Google Cloud project where you
 - **Network Security API ( `networksecurity.googleapis.com` ):** Creates and enforces authorization policies ( `authzPolicies` ) for gateway traffic.
 - **Network Services API ( `networkservices.googleapis.com` ):** Manages Agent Gateway resources ( `agentGateways` ), connectivity templates ( `agentConnectivityTemplates` ), and authorization extensions ( `authzExtensions` ).
 - **Identity and Access Management API ( `iam.googleapis.com` ):** Manages service accounts and IAM Unified Access Policies (UAPs) for agent identities.
-- **Identity-Aware Proxy API ( `iap.googleapis.com` ):** Authenticates and verifies agent, endpoint, and server traffic.
+- **Identity-Aware Proxy API ( `iap.googleapis.com` ):** Authorizes requests that pass through the gateway by evaluating IAM Unified Access Policies.
 - **Agent Registry API ( `agentregistry.googleapis.com` ):** Registers and manages agents, MCP servers, and tool endpoints governed by the gateway.
 
 To enable the minimum required APIs, run the following command:
@@ -115,14 +115,14 @@ Use this section to plan your Agent Gateway deployment and understand governance
 
 Agent Gateway supports two deployment modes:
 
-- **Client-to-Agent (ingress)** : Secures communications from clients to your agents running on Google Cloud.
-- **Agent-to-Anywhere (egress)** : Secures communications from your agents to external targets, public APIs, and MCP servers.
+- **Client-to-Agent (Agent Gateway for governed client access)** : Secures communications from clients to your agents running on Google Cloud.
+- **Agent-to-Anywhere (Agent Gateway for governed agent outbound access)** : Secures communications from your agents to external targets, public APIs, and MCP servers.
 
 ### Select your runtime, project, and region of deployment
 
 Agent Gateway governs traffic from agents running on Gemini Enterprise and Runtime.
 
-- **Agent Runtime** : Agent Gateway supports both Agent-to-Anywhere (egress) and Client-to-Agent (ingress) modes. In Agent-to-Anywhere mode, agents can be either in the same project as the gateway or in a different one. In Client-to-Agent mode, agents must be in the same project as the gateway. In either mode, agents must be in the same region as the gateway.
+- **Agent Runtime** : Agent Gateway supports both Agent-to-Anywhere and Client-to-Agent modes. In Agent-to-Anywhere mode, agents can be either in the same project as the gateway or in a different one. In Client-to-Agent mode, agents must be in the same project as the gateway. In either mode, agents must be in the same region as the gateway.
 
 - **Gemini Enterprise** : Agent Gateway supports only Agent-to-Anywhere (egress) mode. With Gemini Enterprise, each gateway governs agentic interactions only within the scope of the project and region it is deployed in.
 
@@ -133,9 +133,9 @@ To govern agents across Gemini Enterprise and Runtime, you can use a single Agen
 Here are some sample deployment patterns for your consideration:
 
 Cross-project governance for Runtime agents  
-In this deployment pattern, you deploy an Agent-to-Anywhere (egress) Agent Gateway in a dedicated governance project. Runtime agents are deployed in separate projects in the same region as the gateway and can belong to any folder within your organization.
+In this deployment pattern, you deploy an Agent Gateway for governed agent outbound access (Agent-to-Anywhere) in a dedicated governance project. Runtime agents are deployed in separate projects in the same region as the gateway and can belong to any folder within your organization.
 
-To set up cross-project egress governance, you configure the following resources:
+To set up a cross-project Agent Gateway for governed agent outbound access, you configure the following resources:
 
 In the **central governance project** :
 
@@ -234,9 +234,9 @@ Custom authorization engines
 
 Model Armor, Semantic governance policies, and any other custom authorization engines can be enabled either during initial Agent Gateway setup or attached post-deployment as an incremental security policy update.
 
-## Configure Agent Gateway in Agent-to-Anywhere (egress) mode
+## Configure Agent Gateway for governed agent outbound access (Agent-to-Anywhere)
 
-When setting up Agent Gateway in Agent-to-Anywhere (egress) mode, you can configure how governed traffic reaches destination endpoints and tools. Depending on your networking and security requirements, choose between the following deployment options:
+When setting up Agent Gateway for governed agent outbound access (Agent-to-Anywhere), you can configure how governed traffic reaches destination endpoints and tools. Depending on your networking and security requirements, choose between the following deployment options:
 
 - **Internet egress** : The gateway securely routes agent traffic to publicly accessible endpoints and APIs over the internet. To configure an Agent Gateway with Internet egress, you can use the instructions on this page.
 
@@ -246,7 +246,7 @@ When setting up Agent Gateway in Agent-to-Anywhere (egress) mode, you can config
 
   > **Note:** Setting up VPC egress is required if you want to enable VPC Service Controls perimeter enforcement for Agent Gateway deployments. VPC Service Controls are only supported for Agent Gateway deployments created after September 8, 2026 that use the agent connectivity template to configure VPC connectivity.
 
-Use the following steps to create an Agent Gateway resource for [Agent-to-Anywhere](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview#modes) communications.
+Use the following steps to create an Agent Gateway resource for [Agent-to-Anywhere](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview#governed-access-paths) communications.
 
 ### Google Cloud console
 
@@ -262,7 +262,7 @@ Use the following steps to create an Agent Gateway resource for [Agent-to-Anywhe
 
 6.  The **Agent registry** field is automatically populated with the URI of the regional registry that matches your Agent Gateway region.
 
-7.  From the **Governed Access Path** list, select **Agent-to-Anywhere (Agent Egress)** .
+7.  From the **Governed Access Path** list, select **Agent-to-Anywhere (egress)** .
 
 8.  In the **Access Authorization** section, choose how traffic is handled by IAP:
 
@@ -394,7 +394,7 @@ You define Agent Gateways declaratively using YAML.
 
 ### Terraform
 
-To provision an Agent-to-Anywhere (egress) Agent Gateway and its associated IAP authorization extension and policy declaratively in a central governance project using the `google` provider, complete the following steps.
+To provision an Agent Gateway for governed agent outbound access (Agent-to-Anywhere) and its associated IAP authorization extension and policy declaratively in a central governance project using the `google` provider, complete the following steps.
 
 > **Important:** Without a `google_network_security_authz_policy` resource, the gateway adopts a default-deny policy and blocks all outbound traffic.
 
@@ -466,9 +466,9 @@ To provision an Agent-to-Anywhere (egress) Agent Gateway and its associated IAP 
 
 Next, learn how to [deploy agents and route traffic through Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#route-traffic) .
 
-## Configure Agent Gateway in Client-to-Agent (ingress) mode
+## Configure Agent Gateway for governed client access (Client-to-Agent)
 
-This section shows you how to set up an Agent Gateway for [Client-to-Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview#modes) communications.
+This section shows you how to set up an Agent Gateway for [Client-to-Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview#governed-access-paths) communications.
 
 Use the following steps to create an Agent Gateway resource.
 
@@ -528,7 +528,7 @@ You define Agent Gateways declaratively using YAML.
 
 ### Terraform
 
-To provision a Client-to-Agent (ingress) Agent Gateway resource declaratively using the `google` provider:
+To provision an Agent Gateway for governed client access (Client-to-Agent) declaratively using the `google` provider:
 
 ```
 resource "google_network_services_agent_gateway" "ingress_gateway" {

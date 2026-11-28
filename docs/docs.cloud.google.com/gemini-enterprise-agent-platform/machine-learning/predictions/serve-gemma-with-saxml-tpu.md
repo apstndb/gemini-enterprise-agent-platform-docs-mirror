@@ -20,7 +20,7 @@ By serving Gemma using TPUs on Gemini Enterprise Agent Platform with Saxml. You 
 
 Gemma is a set of openly available, lightweight, and generative artificial intelligence (AI) models released under an open license. These AI models are available to run in your applications, hardware, mobile devices, or hosted services. You can use the Gemma models for text generation, however you can also tune these models for specialized tasks.
 
-To learn more, see the [Gemma documentation](https://ai.google.dev/gemma/docs) .
+To learn more, see the [Gemma documentation](https://gemma.ai/) .
 
 ### Saxml
 

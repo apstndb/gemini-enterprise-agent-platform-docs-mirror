@@ -42,6 +42,8 @@ Turn ideas into production-ready assets
 
 spark [Gemini 4 Neon (Google Frontier Model)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon) High-performance coding, multi-step reasoning, and multimodal understanding at low latency for agentic workflows.
 
+spark [Gemini 4 Neon for cyber (Google Frontier Cyber Model)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon#cyber) A version of Gemini 4 Neon for defensive cybersecurity use cases. Available behind an allowlist.
+
 spark [Gemini 4 Hydrogen](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-hydrogen) Built for speed and efficiency across everyday coding and agentic workflows, multimodal analysis, and tool use.
 
 spark [Gemini 4 Carbon (Google Frontier Model)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon) Google's frontier model that excels at deep work in complex, real-world tasks across domains including coding, finance, legal, cybersecurity, and science.
@@ -106,29 +108,29 @@ preview [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-p
 
 ## Gemma models
 
-![](https://ai.google.dev/gemma/images/gemma_sq.png) [Gemma 4](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemma4) An open model well-suited for tasks like text generation, coding, and reasoning, and supporting multimodal input (text and image for all variants, and additionally audio for the E2B and E4B variants).
+![](https://gemma.ai/assets/gemma-mark.png) [Gemma 4](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemma4) An open model well-suited for tasks like text generation, coding, and reasoning, and supporting multimodal input (text and image for all variants, and additionally audio for the E2B and E4B variants).
 
-![](https://ai.google.dev/gemma/images/gemma_sq.png) [Gemma 3n](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemma3n) An open model designed for efficient execution on low-resource devices, supporting multimodal input (text, image, video, and audio) and text output in over 140 languages.
+![](https://gemma.ai/assets/gemma-mark.png) [Gemma 3n](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemma3n) An open model designed for efficient execution on low-resource devices, supporting multimodal input (text, image, video, and audio) and text output in over 140 languages.
 
-![](https://ai.google.dev/gemma/images/gemma_sq.png) [Gemma 3](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemma3) An open model featuring text and image input, support for over 140 languages, and a 128K context window.
+![](https://gemma.ai/assets/gemma-mark.png) [Gemma 3](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemma3) An open model featuring text and image input, support for over 140 languages, and a 128K context window.
 
-![](https://ai.google.dev/gemma/images/gemma_sq.png) [Gemma 2](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemma2) An open model supporting text generation, summarization, and extraction.
+![](https://gemma.ai/assets/gemma-mark.png) [Gemma 2](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemma2) An open model supporting text generation, summarization, and extraction.
 
-![](https://ai.google.dev/gemma/images/gemma_sq.png) [Gemma](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/335) A small, lightweight open model supporting text generation, summarization, and extraction.
+![](https://gemma.ai/assets/gemma-mark.png) [Gemma](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/335) A small, lightweight open model supporting text generation, summarization, and extraction.
 
-![](https://ai.google.dev/gemma/images/gemma_sq.png) [ShieldGemma 2](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/shieldgemma2) Instruction-tuned models for evaluating text and image safety against defined policies.
+![](https://gemma.ai/assets/gemma-mark.png) [ShieldGemma 2](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/shieldgemma2) Instruction-tuned models for evaluating text and image safety against defined policies.
 
-![](https://ai.google.dev/gemma/images/gemma_sq.png) [PaliGemma](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/paligemma) An open vision-language model combining SigLIP and Gemma.
+![](https://gemma.ai/assets/gemma-mark.png) [PaliGemma](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/paligemma) An open vision-language model combining SigLIP and Gemma.
 
-![](https://ai.google.dev/gemma/images/gemma_sq.png) [CodeGemma](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/codegemma) A powerful, lightweight open model for coding tasks, including code completion, generation, and understanding.
+![](https://gemma.ai/assets/gemma-mark.png) [CodeGemma](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/codegemma) A powerful, lightweight open model for coding tasks, including code completion, generation, and understanding.
 
-![](https://ai.google.dev/gemma/images/gemma_sq.png) [TxGemma](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/txgemma) A model that generates predictions, classifications, or text based on therapeutic-related data, for building AI models with less data and compute.
+![](https://gemma.ai/assets/gemma-mark.png) [TxGemma](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/txgemma) A model that generates predictions, classifications, or text based on therapeutic-related data, for building AI models with less data and compute.
 
-![](https://ai.google.dev/gemma/images/gemma_sq.png) [MedGemma](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/medgemma) A collection of Gemma 3 variants trained for performance on medical text and image comprehension.
+![](https://gemma.ai/assets/gemma-mark.png) [MedGemma](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/medgemma) A collection of Gemma 3 variants trained for performance on medical text and image comprehension.
 
-![](https://ai.google.dev/gemma/images/gemma_sq.png) [MedSigLIP](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/medsiglip) A SigLIP variant trained to encode medical images and text into a common embedding space.
+![](https://gemma.ai/assets/gemma-mark.png) [MedSigLIP](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/medsiglip) A SigLIP variant trained to encode medical images and text into a common embedding space.
 
-![](https://ai.google.dev/gemma/images/gemma_sq.png) [T5Gemma](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/T5Gemma) A family of lightweight encoder-decoder research models.
+![](https://gemma.ai/assets/gemma-mark.png) [T5Gemma](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/T5Gemma) A family of lightweight encoder-decoder research models.
 
 ## Embeddings models
 

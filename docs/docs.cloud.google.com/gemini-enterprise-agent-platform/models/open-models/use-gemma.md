@@ -82,12 +82,12 @@ You can use Gemma models with Dataflow for [sentiment analysis](https://en.wikip
 
 ## Use Gemma with Colab
 
-You can use Gemma with Colaboratory to create your Gemma solution. In Colab, you can use Gemma with framework options such as PyTorch and JAX. To learn more, see:
+You can use Gemma with Colaboratory to create your Gemma solution. In Colab, you can use Gemma with framework options such as Keras and Hugging Face Transformers. To learn more, see:
 
-- [Get started with Gemma using Keras](https://ai.google.dev/gemma/docs/get_started) .
-- [Get started with Gemma using PyTorch](https://ai.google.dev/gemma/docs/pytorch_gemma) .
-- [Basic tuning with Gemma using Keras](https://ai.google.dev/gemma/docs/lora_tuning) .
-- [Distributed tuning with Gemma using Keras](https://ai.google.dev/gemma/docs/distributed_tuning) .
+- [Get started with Gemma using Keras](https://gemma.ai/deployment/keras/) .
+- [Get started with Gemma using Hugging Face Transformers](https://gemma.ai/deployment/huggingface/) .
+- [Basic tuning with Gemma using Keras](https://gemma.ai/tuning/qlora/) .
+- [Distributed tuning with Gemma using Keras](https://gemma.ai/tuning/) .
 
 ## Gemma model sizes and capabilities
 
@@ -640,4 +640,4 @@ Gemma has been tested using Google's purpose built v5e TPU hardware and NVIDIA's
 
 ## What's next
 
-- See [Gemma documentation](https://ai.google.dev/gemma/docs) .
+- See [Gemma documentation](https://gemma.ai/) .
